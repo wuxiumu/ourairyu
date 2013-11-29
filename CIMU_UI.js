@@ -10,67 +10,107 @@ $.extend( _P, {
   tooltip: function() {
     // 非 IE8 以下浏览器才有功能
     if ( !$.browser.msie || $.browser.version > 7 ) {
+      // tooltip 存储数据集合
+      CM.data("tooltip", {user: [], title: []});
+
+      // 初始化提示信息
+      initTooltip();
+      // 初始化人物卡片
+      initProfile();
     }
-
-    // tooltip 存储数据集合
-    if ( !$("body").data("tooltip") ) {
-      $("body").data("tooltip", {user: [], title: []});
-    }
-
-    $("[title]").each(function() {
-      removeTitleAttr($(this));
-    });
-
-    $("[data-role='tooltip']").live({
-      "mouseover": function() {
-        var trigger = $(this);
-        var offset = trigger.offset();
-        var tooltip = getTooltip(trigger, true);
-
-        if ( tooltip ) {
-          tooltip
-            .css({
-              top: (offset.top - tooltip.outerHeight(true)) + "px",
-              left: (offset.left - (trigger.attr("data-title") ? 15 : 45)) + "px"
-            })
-            .fadeIn();
-        }
-      },
-      "mouseout": function() {
-        getTooltip($(this)).fadeOut();
-      }
-    });
   }
 });
 
+/**
+ * 卡片通用 HTML 外套
+ */
 function cardWrapper() {
   var card = $("<div class=\"CM-tooltip\" />");
 
-  card
-    .append("<div class=\"card_wrapper\" />")
-    .appendTo($("body"));
+  card.append("<div class=\"card_wrapper\" />").appendTo($("body"));
 
   return card;
 }
 
-function removeTitleAttr( trigger ) {
-  var text = trigger.attr("title");
+/**
+ * 卡片显示位置
+ */
+function cardPosition( trigger, card ) {
+  var pos = {x: 0, y: 0};
+  var offset = trigger.offset();
+  var card_h = card.outerHeight(true);
+  var card_w = card.outerWidth(true);
 
-  trigger.removeAttr("title");
+  if ( offset.top < card_h ) {
+    pos.y = offset.top + trigger.outerHeight(true);
 
-  if ( !trigger.attr("data-user") ) {
-    var set = $("body").data("tooltip").title;
+    card.addClass("dir-t");
+  }
+  else {
+    pos.y = offset.top - card_h;
 
-    trigger
-      .data("tooltip_title", text)
-      .attr({
-          "data-role": "tooltip",
-          "data-title": set.length
-        });
+    card.removeClass("dir-t");
+  }
 
-    set.push(trigger);
+  pos.x = offset.left - parseFloat(card.css("padding-left"));
+
+  return pos;
+}
+
+/**
+ * 初始化提示信息
+ */
+function initTooltip() {
+  initTooltipHTML();
+
+  $("[data-role='tooltip'][data-type='title'], [title]").live({
+    "mouseover": function() {
+      var trigger = $(this);
+      var text = trigger.attr("title");
+
+      trigger.removeAttr("title");
+
+      // 非提示信息卡片则不往下执行
+      if ( trigger.is("[data-role='tooltip']") && !trigger.is("[data-type='title']") ) {
+        return false;
+      }
+
+      var tooltip = $(".comp_tooltip");
+      var container = $(".card_tooltip", tooltip);
+      var position = cardPosition(trigger, tooltip);
+
+      // 无 title 属性时
+      if ( text === undefined ) {
+        container.text(trigger.data("tooltip_title"));
+      }
+      // 有 title 属性时
+      else {
+        container.text(text);
+        trigger.data("tooltip_title", text).attr({"data-role": "tooltip", "data-type": "title"});
+      }
+
+      tooltip
+        .css({ top: position.y + "px", left: position.x + "px" })
+        .fadeIn();
+    },
+    "mouseout": function() {
+      $(".comp_tooltip").fadeOut();
+    }
+  });
+}
+
+function initTooltipHTML() {
+  var cls = "comp_tooltip";
+
+  if ( $("." + cls).size() === 0 ) {
+    $(".card_wrapper", cardWrapper().addClass(cls)).append("<div class=\"card_tooltip\" />");
   }
 }
+
+/**
+ * 初始化人物卡片
+ */
+function initProfile() {}
 
 /**
  * 获取工具提示容器
@@ -83,7 +123,7 @@ function getTooltip( trigger, setting ) {
     tooltip = setting === true ? userCard(getUserInfo(trigger.attr("data-user")), trigger) : $(".comp_profile");
   }
   // 工具提示
-  else if ( $.isNumeric(trigger.attr("data-title")) ) {
+  else if ( trigger.attr("data-type") === "title" ) {
     tooltip = setting === true ? tooltipCard(trigger) : $(".comp_tooltip");
   }
 
@@ -91,7 +131,6 @@ function getTooltip( trigger, setting ) {
 }
 
 function tooltipCard( trigger ) {
-  // var index = parseFloat(trigger.attr("data-title"));
   var text = trigger.data("tooltip_title");
   var card = $(".comp_tooltip");
 
