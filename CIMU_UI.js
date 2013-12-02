@@ -110,39 +110,48 @@ function initTooltipHTML() {
 /**
  * 初始化人物卡片
  */
-function initProfile() {}
+function initProfile() {
+  initProfileHTML();
 
-/**
- * 获取工具提示容器
- */
-function getTooltip( trigger, setting ) {
-  var tooltip;
+  $(document).bind({
+    "mouseover": function( e ) {
+      var srcEle = $(e.target);
+      var trigger = srcEle.closest("[data-role='tooltip'][data-user]");
+      var card = $(".comp_profile");
 
-  // 用户资料卡
-  if ( $.isNumeric(trigger.attr("data-user")) ) {
-    tooltip = setting === true ? userCard(getUserInfo(trigger.attr("data-user")), trigger) : $(".comp_profile");
-  }
-  // 工具提示
-  else if ( trigger.attr("data-type") === "title" ) {
-    tooltip = setting === true ? tooltipCard(trigger) : $(".comp_tooltip");
-  }
+      if ( trigger.size() ) {
+        if ( $.contains(trigger[0], srcEle[0]) ) {
+          fillUserInfo(card, getUserInfo(trigger.attr("data-user")));
 
-  return tooltip || null;
+          var position = cardPosition(trigger, card);
+
+          card
+            .css({ top: position.y + "px", left: position.x + "px" })
+            .fadeIn();
+        }
+      }
+    },
+    "mouseout": function( e ) {}
+  });
 }
 
-function tooltipCard( trigger ) {
-  var text = trigger.data("tooltip_title");
-  var card = $(".comp_tooltip");
+function initProfileHTML() {
+  var cls = "comp_profile";
+  var card = $("." + cls);
 
-  if ( !card.size() ) {
-    card = cardWrapper();
+  if ( card.size() === 0 ) {
+    card = cardWrapper().addClass(cls);
 
-    $(".card_wrapper", card.addClass("comp_tooltip")).append("<div class=\"card_tooltip\" />");
+    $(".card_wrapper", card).append("<div class=\"card_profile\" /><div class=\"card_operation\" />");
+
+    var areaInfo = $(".card_profile", card);
+
+    areaInfo.append("<a class=\"avatar_link\"><img class=\"avatar\"></a>");
+    areaInfo.append("<a class=\"name_link\" />");
+    areaInfo.append("<div class=\"class_info\"><span class=\"profile_class\" /><span class=\"profile_id\" /></div>")
+
+    $(".card_operation", card).append("<button class=\"LG_Button\" type=\"button\"><i>+</i><span>Follow</span></button>");
   }
-
-  $(".card_tooltip", card).text(text);
-
-  return card;
 }
 
 /**
@@ -169,62 +178,23 @@ function getUserInfo( user_id ) {
 }
 
 /**
- * 用户信息卡片
- */
-function userCard( user_info, target ) {
-  var card;
-
-  if ( user_info ) {
-    card = $(".comp_profile");
-
-    if ( card.size() === 0 ) {
-      card = createCard();
-    }
-
-    fillUserInfo(card, user_info);
-  }
-
-  return card;
-}
-
-/**
- * 创建用户卡片
- */
-function createCard() {
-  var card = cardWrapper();
-
-  card
-    .addClass("comp_profile")
-    .children(".card_wrapper")
-    .append("<div class=\"card_profile\" /><div class=\"card_operation\" />");
-
-  var areaInfo = $(".card_profile", card);
-
-  areaInfo.append("<a class=\"avatar_link\"><img class=\"avatar\"></a>");
-  areaInfo.append("<a class=\"name_link\" />");
-  areaInfo.append("<div class=\"class_info\"><span class=\"profile_class\" /><span class=\"profile_id\" /></div>")
-
-  $(".card_operation", card).append("<button class=\"LG_Button\" type=\"button\"><i>+</i><span>Follow</span></button>");
-
-  return card;
-}
-
-/**
  * 填充用户卡片的信息
  */
 function fillUserInfo( card, user_info ) {
-  $(".avatar_link, .name_link", card).attr("href", user_info.home_page);
-  $(".name_link", card).text( user_info.name );
+  if ( user_info ) {
+    $(".avatar_link, .name_link", card).attr("href", user_info.home_page);
+    $(".name_link", card).text( user_info.name );
 
-  if ( user_info.class_grade ) {
-    $(".profile_class", card).text( user_info.class_grade );
+    if ( user_info.class_grade ) {
+      $(".profile_class", card).text( user_info.class_grade );
+    }
+
+    if ( user_info.serial_number ) {
+      $(".profile_id", card).text( user_info.serial_number );
+    }
+
+    $(".avatar", card).attr({ "src": user_info.avatar_url, "alt": user_info.name })
   }
-
-  if ( user_info.serial_number ) {
-    $(".profile_id", card).text( user_info.serial_number );
-  }
-
-  $(".avatar", card).attr({ "src": user_info.avatar_url, "alt": user_info.name })
 }
 
 })( window, jQuery, CM );
