@@ -36,6 +36,12 @@ function cardWrapper() {
  * 卡片显示位置
  */
 function cardPosition( trigger, card ) {
+  card.css({
+      "visibility": "hidden",
+      "display": "block",
+      "z-index": "-99999"
+    });
+
   var pos = {x: 0, y: 0};
   var offset = trigger.offset();
   var card_h = card.outerHeight(true);
@@ -53,6 +59,12 @@ function cardPosition( trigger, card ) {
   }
 
   pos.x = offset.left - parseFloat(card.css("padding-left"));
+
+  card.css({
+      "display": "none",
+      "visibility": "visible",
+      "z-index": "99999"
+    });
 
   return pos;
 }
@@ -114,24 +126,43 @@ function initProfile() {
   initProfileHTML();
 
   $(document).bind({
-    "mouseover": function( e ) {
+    "mousemove": function( e ) {
       var srcEle = $(e.target);
       var trigger = srcEle.closest("[data-role='tooltip'][data-user]");
       var card = $(".comp_profile");
 
       if ( trigger.size() ) {
-        if ( $.contains(trigger[0], srcEle[0]) ) {
+        if ( card.css("display") === "none" && (srcEle.is(trigger) || $.contains(trigger[0], srcEle[0])) ) {
           fillUserInfo(card, getUserInfo(trigger.attr("data-user")));
 
           var position = cardPosition(trigger, card);
 
           card
-            .css({ top: position.y + "px", left: position.x + "px" })
+            .css({ top: position.y - 10 + "px", left: position.x - 35 + "px" })
             .fadeIn();
         }
       }
-    },
-    "mouseout": function( e ) {}
+      else if ( card.css("display") !== "none" ) {
+        if ( window.profile_timer === undefined || $.contains(card[0], e.target) ) {
+          if ( $.contains(card[0], e.target) ) {
+            clearTimeout(window.profile_timer);
+            window.profile_timer = undefined;
+          }
+          else {
+            window.profile_timer = setTimeout(function() {
+              if ( $.contains(card[0], e.target) ) {
+                window.profile_timer = undefined;
+              }
+              else {
+                card.fadeOut(400, function() {
+                  window.profile_timer = undefined;
+                });
+              }
+            }, 300);
+          }
+        }
+      }
+    }
   });
 }
 
