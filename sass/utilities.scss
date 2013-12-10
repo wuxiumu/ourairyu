@@ -1,0 +1,8 @@
+@mixin tag_unit {
+  @include inline-block;
+  margin-right: 5px; padding: 0 8px;
+  border-radius: 2px;
+  background-color: #DCE4E6;
+  color: $text !important;
+  text-decoration: none !important;
+}
