@@ -17,6 +17,8 @@ $.extend( _P, {
       initTooltip();
       // 初始化人物卡片
       initProfile();
+      // 自定义 HTML
+      initSelfHTML();
     }
   }
 });
@@ -75,7 +77,7 @@ function cardPosition( trigger, card ) {
 function initTooltip() {
   initTooltipHTML();
 
-  $("[data-role='tooltip'][data-type='title'], [title]").live({
+  $("[data-role='tooltip'][data-types='title'], [title]").live({
     "mouseover": function() {
       var trigger = $(this);
       var text = trigger.attr("title");
@@ -83,7 +85,7 @@ function initTooltip() {
       trigger.removeAttr("title");
 
       // 非提示信息卡片则不往下执行
-      if ( trigger.is("[data-role='tooltip']") && !trigger.is("[data-type='title']") ) {
+      if ( trigger.is("[data-role='tooltip']") && !trigger.is("[data-types='title']") ) {
         return false;
       }
 
@@ -91,21 +93,28 @@ function initTooltip() {
       var container = $(".card_tooltip", tooltip);
       var position = cardPosition(trigger, tooltip);
 
-      // 无 title 属性时
-      if ( text === undefined ) {
-        container.text(trigger.data("tooltip_title"));
-      }
-      // 有 title 属性时
-      else {
-        container.text(text);
-        trigger.data("tooltip_title", text).attr({"data-role": "tooltip", "data-type": "title"});
-      }
+      trigger.attr("data-hover", true);
 
-      tooltip
-        .css({ top: position.y + "px", left: position.x + "px" })
-        .fadeIn();
+      setTimeout(function() {
+        if ( trigger.attr("data-hover") ) {
+          // 无 title 属性时
+          if ( text === undefined ) {
+            container.text(trigger.data("tooltip_title"));
+          }
+          // 有 title 属性时
+          else {
+            container.text(text);
+            trigger.data("tooltip_title", text).attr({"data-role": "tooltip", "data-types": "title"});
+          }
+
+          tooltip
+            .css({ top: position.y + "px", left: position.x + "px" })
+            .fadeIn();
+        }
+      }, 300);
     },
     "mouseout": function() {
+      $(this).removeAttr("data-hover");
       $(".comp_tooltip").fadeOut();
     }
   });
@@ -182,6 +191,61 @@ function initProfileHTML() {
     areaInfo.append("<div class=\"class_info\"><span class=\"profile_class\" /><span class=\"profile_id\" /></div>")
 
     $(".card_operation", card).append("<button class=\"LG_Button\" type=\"button\"><i>+</i><span>Follow</span></button>");
+  }
+}
+
+/**
+ * 自定义 HTML
+ */
+function initSelfHTML() {
+  initSelfHTMLCard();
+
+  $(document).bind({
+    "mousemove": function( e ) {
+      var srcEle = $(e.target);
+      var trigger = srcEle.closest("[data-role='tooltip'][data-html]");
+      var card = $(".comp_selfhtml");
+
+      if ( trigger.size() ) {
+        if ( card.css("display") === "none" && (srcEle.is(trigger) || $.contains(trigger[0], srcEle[0])) ) {
+          $(".card_html", card).html(trigger.attr("data-html"));
+
+          var position = cardPosition(trigger, card);
+
+          card
+            .css({ top: position.y - 10 + "px", left: position.x - 35 + "px" })
+            .fadeIn();
+        }
+      }
+      else if ( card.css("display") !== "none" ) {
+        if ( window.selfhtml_timer === undefined || $.contains(card[0], e.target) ) {
+          if ( $.contains(card[0], e.target) ) {
+            clearTimeout(window.selfhtml_timer);
+            window.selfhtml_timer = undefined;
+          }
+          else {
+            window.selfhtml_timer = setTimeout(function() {
+              if ( $.contains(card[0], e.target) ) {
+                window.selfhtml_timer = undefined;
+              }
+              else {
+                card.fadeOut(400, function() {
+                  window.selfhtml_timer = undefined;
+                });
+              }
+            }, 300);
+          }
+        }
+      }
+    }
+  });
+}
+
+function initSelfHTMLCard() {
+  var cls = "comp_selfhtml";
+
+  if ( $("." + cls).size() === 0 ) {
+    $(".card_wrapper", cardWrapper().addClass(cls)).append("<div class=\"card_html\" />");
   }
 }
 

@@ -492,11 +492,11 @@ $.extend( _P, {
       if ( args.length ) {
         // 存储指定帐号信息
         if ( $.isPlainObject(args[0]) ) {
-          var account = args[0];
+          var info = args[0];
 
-          rv = escape(JSON.stringify(account));
+          rv = escape(JSON.stringify(info));
 
-          ls.setItem(("account_" + account.email), rv);
+          ls.setItem(("account_" + info.email), rv);
         }
         // 批量存储帐号信息
         else if ( $.isArray(args[0]) ) {
@@ -741,7 +741,7 @@ $.extend( _P, {
       var text = this.i18n("w.v.backtotop");
       var btn = $("<button class=\"comp_return hidden\" type=\"button\" />");
 
-      btn.attr("title", text).text(text).appendTo($("body"));
+      btn.text(text).appendTo($("body"));
 
       btn.click(function() {
         if ( document.body.scrollTop ) {
@@ -851,48 +851,50 @@ $.extend( _P, {
    * @return
    */
   calculateRowsColumns: function() {
-      $("[data-column-count]").each(function() {
-          var list, items, itemSize, count, row;
+    $("[data-column-count]").each(function() {
+      var list, items, itemSize, count, row;
 
-          if ( this.nodeName.toLowerCase() in { "ol": true, "ul": true } ) {
-              list = $(this);
-              count = list.attr("data-column-count");
+      if ( $(this).data("calculated") !== true && this.nodeName.toLowerCase() in { "ol": true, "ul": true } ) {
+        list = $(this);
+        count = list.attr("data-column-count");
 
-              if ( $.isNumeric(count) ) {
-                  items = list.children("li");
-                  itemSize = items.size();
-                  count *= 1;
-                  row = Math.ceil(itemSize/count);
+        if ( $.isNumeric(count) ) {
+          items = list.children("li");
+          itemSize = items.size();
+          count *= 1;
+          row = Math.ceil(itemSize/count);
 
-                  items.each(function( idx ) {
-                      var item = $(this);
+          items.each(function( idx ) {
+            var item = $(this);
 
-                      if ( idx < count ) {
-                          item.addClass("first-row");
-                      }
+            if ( idx < count ) {
+              item.addClass("first-row");
+            }
 
-                      if ( Math.ceil((idx + 1)/count) === row ) {
-                          item.addClass("last-row");
-                      }
+            if ( Math.ceil((idx + 1)/count) === row ) {
+              item.addClass("last-row");
+            }
 
-                      if ( (idx + 1) % count === 1 ) {
-                          item.addClass("first");
-                      }
+            if ( (idx + 1) % count === 1 ) {
+              item.addClass("first");
+            }
 
-                      if ( row === 1 ) {
-                          if ( idx === itemSize - 1 ) {
-                              item.addClass("last");
-                          }
-                      }
-                      else {
-                          if ( (idx + 1) % count === 0 ) {
-                              item.addClass("last");
-                          }
-                      }
-                  });
+            if ( row === 1 ) {
+              if ( idx === itemSize - 1 ) {
+                item.addClass("last");
               }
-          }
-      });
+            }
+            else {
+              if ( (idx + 1) % count === 0 ) {
+                item.addClass("last");
+              }
+            }
+          });
+
+          list.data("calculated", true);
+        }
+      }
+    });
   },
 
   /**
