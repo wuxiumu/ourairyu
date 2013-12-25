@@ -1,4 +1,4 @@
-(function() {
+;(function( window, $, undefined ) {
 
 $.fn.backtotop = function() {
   var btn = $(this);
@@ -31,4 +31,4 @@ $.fn.backtotop = function() {
   });
 };
   
-})();
+})( window, window.jQuery );
