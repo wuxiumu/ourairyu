@@ -9,27 +9,27 @@
 
 "use strict";
 
-//  ELEMENT_NODE: 1
-//  ATTRIBUTE_NODE: 2
-//  TEXT_NODE: 3
-//  CDATA_SECTION_NODE: 4
-//  ENTITY_REFERENCE_NODE: 5
-//  ENTITY_NODE: 6
-//  PROCESSING_INSTRUCTION_NODE: 7
-//  COMMENT_NODE: 8
-//  DOCUMENT_NODE: 9
-//  DOCUMENT_TYPE_NODE: 10
-//  DOCUMENT_FRAGMENT_NODE: 11
-//  NOTATION_NODE: 12
-
 // Node-types
 var ELEMENT_NODE = 1;
 var ATTRIBUTE_NODE = 2;
+var TEXT_NODE = 3
+var CDATA_SECTION_NODE = 4
+var ENTITY_REFERENCE_NODE = 5
+var ENTITY_NODE = 6
+var PROCESSING_INSTRUCTION_NODE = 7
+var COMMENT_NODE = 8
+var DOCUMENT_NODE = 9
+var DOCUMENT_TYPE_NODE = 10
+var DOCUMENT_FRAGMENT_NODE = 11
+var NOTATION_NODE = 12
 
 // Regular expressions
 var REG_NAMESPACE = /^[0-9A-Z_.]+[^_.]?$/i;
 
-var storage = {};
+// Normal variables
+var storage = {
+    i18n: {}
+  };
 
 var _H = {
     /**
@@ -87,6 +87,50 @@ var _H = {
       }
 
       return result || null;
+    },
+
+    /**
+     * Internationalization
+     *
+     * When the first argument is a plain object, is a setter.
+     * When the first argument is a string, maybe a getter.
+     *
+     * @method  i18n
+     * @return  {Object}
+     */
+    i18n: function() {
+      var args = arguments;
+      var data = args[0];
+      var result = null;
+
+      // Save i18n data at internal object.
+      if ( $.isPlainObject( data ) ) {
+        $.extend( storage.i18n, data );
+      }
+      // Get i18n text.
+      else if ( typeof data === "string" && REG_NAMESPACE.test( data ) ) {
+        var pairs = args[1];
+
+        if ( $.isPlainObject( pairs ) ) {
+          result = getStorageData( "i18n." + data );
+          result = (typeof result === "string" ? result : "").replace( /\{%\s*([A-Z0-9_]+)\s*%\}/ig, function( text, key ) {
+            return pairs[ key ];
+          });
+        }
+        else {
+          result = "";
+
+          $.each( args, function( i, txt ) {
+            if ( typeof txt === "string" && REG_NAMESPACE.test( txt ) ) {
+              var r = getStorageData( "i18n." + txt );
+
+              result += (typeof r === "string" ? r : "");
+            }
+          });
+        }
+      }
+
+      return result;
     }
   };
 
