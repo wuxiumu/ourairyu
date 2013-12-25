@@ -30,6 +30,12 @@ var REG_NAMESPACE = /^[0-9A-Z_.]+[^_.]?$/i;
 var storage = {
     i18n: {}
   };
+var queue = {
+    events: {
+      globalMouseMove: []
+    },
+    callbacks: []
+  };
 
 var _H = {
     /**
@@ -131,6 +137,15 @@ var _H = {
       }
 
       return result;
+    },
+
+    // 把全局事件添加到队列中
+    addGlobalEvent: function( event_name, handler ) {
+      if ( typeof event_name === "string" && $.isFunction(handler) ) {
+        if ( event_name === "mousemove" ) {
+          queue.events.globalMouseMove.push( handler );
+        }
+      }
     }
   };
 
@@ -178,6 +193,16 @@ function getStorageData( ns_str ) {
   });
 
   return text;
+}
+
+if ( queue.events.globalMouseMove.length ) {
+  $(document).bind({
+    "mousemove": function( e ) {
+      $.each( queue.events.globalMouseMove, function( idx, func ) {
+        func.call(null, e);
+      });
+    }
+  })
 }
 
 window.Hanger = _H;
