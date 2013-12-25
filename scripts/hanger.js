@@ -26,6 +26,11 @@
 var ELEMENT_NODE = 1;
 var ATTRIBUTE_NODE = 2;
 
+// Regular expressions
+var REG_NAMESPACE = /^[0-9A-Z_.]+[^_.]?$/i;
+
+var storage = {};
+
 var _H = {
     /**
      * 获取 DOM 的「data-*」属性集
@@ -34,27 +39,54 @@ var _H = {
      * @return  {Object}
      */
     data: function() {
-      var target = arguments[0];
+      var args = arguments;
+      var length = args.length;
+      var result;
 
-      if ( target ) {
+      if ( length > 0 ) {
+        var target = args[0];
         var node = $(target).get(0);
 
-        if ( node.nodeType === ELEMENT_NODE ) {
-          var returnValue = {};
+        // 获取 DOM 的「data-*」属性集
+        if ( node && node.nodeType === ELEMENT_NODE ) {
+          result = {};
 
           if ( $.isPlainObject(node.dataset) ) {
-            returnValue = node.dataset;
+            result = node.dataset;
           }
           else if ( node.outerHTML ) {
-            returnValue = constructDatasetByHTML(node.outerHTML);
+            result = constructDatasetByHTML(node.outerHTML);
           }
           else if ( node.attributes && $.isNumeric(node.attributes.length) ) {
-            returnValue = constructDatasetByAttributes(node.attributes);
+            result = constructDatasetByAttributes(node.attributes);
+          }
+        }
+        // 存储数据到内部/从内部获取数据
+        else {
+          if ( typeof target === "string" && REG_NAMESPACE.test(target) ) {
+            if ( length === 1 ) {
+              result = getStorageData(target);
+            }
+            else if ( $.isPlainObject(args[1]) ) {
+              if ( !storage.hasOwnProperty(target) ) {
+                storage[target] = args[1];
+              }
+              else {
+                $.extend(storage[target], args[1]);
+              }
+
+              result = args[1];
+            }
+          }
+          else {
+            $.each(args, function(i, n) {
+              $.extend(storage, n);
+            });
           }
         }
       }
 
-      return returnValue;
+      return result || null;
     }
   };
 
@@ -84,6 +116,24 @@ function constructDatasetByAttributes( attributes ) {
   });
 
   return dataset;
+}
+
+/**
+ * Get data from internal storage.
+ *
+ * @private
+ * @method  getStorageData
+ * @param   ns_str {String}   Namespace string
+ * @return  {String}
+ */
+function getStorageData( ns_str ) {
+  var text = storage;
+
+  $.each( ns_str.split("."), function( idx, part ) {
+    return typeof( text = text[ part ] ) in { "string": true, "object": true };
+  });
+
+  return text;
 }
 
 window.Hanger = _H;
