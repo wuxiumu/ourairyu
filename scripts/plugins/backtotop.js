@@ -1,5 +1,7 @@
 ;(function( window, $, undefined ) {
 
+"use strict";
+
 $.fn.backtotop = function() {
   var btn = $(this);
   var body = document.body;
