@@ -172,7 +172,74 @@ $.extend( _H, {
    * @method  internationalization
    * @return  {Object}
    */
-  Internationalization: function() {}
+  internationalization: function() {
+    var that = this;
+    var args = arguments;
+    var key = args[0];
+    var result = null;
+
+    // Setter
+    if ( $.isPlainObject( key ) ) {
+      $.extend( that.storage.i18n, key );
+    }
+    else {
+      if ( typeof key === "string" && key !== "" ) {
+        // Setter
+        if ( args.length > 1 ) {
+          var data = args[1];
+
+          // // 判断 key 的格式
+          // if ( REG_NAMESPACE.test(key) ) {}
+
+          if ( that.storage.i18n.hasOwnProperty(key) ) {
+            $.extend(that.storage.i18n[key], data);
+          }
+          else {
+            that.storage.i18n[key] = data;
+          }
+        }
+        else {
+
+          // 通过 key 从 storage 上取得数据
+          // 根据 key 是否符合 namespace 格式用两种方式
+
+          // 通过第二个参数判断是否需要进行文本“变量”替换
+
+          // 传入多个字符串时可以拼接文本
+
+
+
+
+          // // Getter
+          // if ( REG_NAMESPACE.test(key) ) {
+
+          // }
+
+          // var pairs = args[1];
+
+          // if ( $.isPlainObject( pairs ) ) {
+          //   result = getStorageData( "i18n." + data );
+          //   result = (typeof result === "string" ? result : "").replace( /\{%\s*([A-Z0-9_]+)\s*%\}/ig, function( text, key ) {
+          //     return pairs[ key ];
+          //   });
+          // }
+          // else {
+          //   result = "";
+
+          //   $.each( args, function( i, txt ) {
+          //     if ( typeof txt === "string" && REG_NAMESPACE.test( txt ) ) {
+          //       var r = getStorageData( "i18n." + txt );
+
+          //       result += (typeof r === "string" ? r : "");
+          //     }
+          //   });
+          // }
+        }
+      }
+    }
+
+    return result;
+  }
 });
 
 $.extend( Hanger, {
@@ -317,38 +384,7 @@ $.extend( Hanger, {
    * @return  {Object}
    */
   i18n: function() {
-    var args = arguments;
-    var data = args[0];
-    var result = null;
-
-    // Save i18n data at internal object.
-    if ( $.isPlainObject( data ) ) {
-      $.extend( storage.i18n, data );
-    }
-    // Get i18n text.
-    else if ( typeof data === "string" && REG_NAMESPACE.test( data ) ) {
-      var pairs = args[1];
-
-      if ( $.isPlainObject( pairs ) ) {
-        result = getStorageData( "i18n." + data );
-        result = (typeof result === "string" ? result : "").replace( /\{%\s*([A-Z0-9_]+)\s*%\}/ig, function( text, key ) {
-          return pairs[ key ];
-        });
-      }
-      else {
-        result = "";
-
-        $.each( args, function( i, txt ) {
-          if ( typeof txt === "string" && REG_NAMESPACE.test( txt ) ) {
-            var r = getStorageData( "i18n." + txt );
-
-            result += (typeof r === "string" ? r : "");
-          }
-        });
-      }
-    }
-
-    return result;
+    return _H.internationalization.apply(_H, [].slice.call(arguments, 0));
   },
 
   // 把全局事件添加到队列中
@@ -418,5 +454,6 @@ function getStorageData( ns_str ) {
 // }
 
 window.Hanger = Hanger;
+Hanger.storage = _H.storage;
 
 })( window, window.jQuery );
