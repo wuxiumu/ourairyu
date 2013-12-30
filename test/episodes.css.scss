@@ -1,0 +1,188 @@
+@charset "UTF-8";
+
+
+
+.comp_tab_content { position: relative; }
+.titled-list { margin-top: 15px; }
+.titled-list .content-list-item { padding: 0; }
+.content-list-title { line-height: 2.5 !important; }
+
+#docManager, #errorManager { line-height: 50px; font-size: 1.15em; border-left: 1px solid #D9D9D9; padding: 0 1em; }
+
+
+
+/* --- Episode's videos and pdfs --- */
+
+.episodes { border: 1px solid #E1E1E1; margin-top: 20px; }
+.episodes > h3 { background-color: #EEE; font-size: 14px; padding: 0 .5em; line-height: 30px; }
+.episodes li { border-top: 1px solid #E1E1E1; overflow: hidden; height: 40px; line-height: 40px; }
+.episodes li > div { height: 100%; }
+.episodes .area-index { width: 40px; text-align: center; border-right: 1px solid #E1E1E1; }
+.episodes .area-title { overflow: hidden; padding: 0 1em; }
+.episodes .area-operation { width: auto; display: none; }
+.episodes .episode { color: #888; }
+.episodes .episode:visited { color: #6B93AD; }
+
+.episodes .add_another { border: none; }
+
+
+.episodes li.current .area-index span {
+	font: 0px/0 a;
+	display: block;
+	width: 16px; height: 16px;
+	background-color: orange;
+	margin: 12px 0 0 12px;
+}
+.episodes li.current .area-operation { display: block; }
+
+/*.episodes li:hover .episode { color: #388CC7; }*/
+
+
+
+/* --- 视频播放区域 --- */
+
+.video_area { position: relative; }
+.overlay {
+    display: none;
+    position: absolute; top: 0; right: 0; bottom: 0; left: 0; z-index: 3;
+    background-color: #FFF;
+    text-align: center;
+}
+.video_player { height: 480px; border: 1px solid #D9D9D9; }
+
+
+
+/* --- 视频上传区域 --- */
+
+.comp_progress {
+	height: 30px;
+	position: absolute; left: 10px; right: 10px; top: 50%;
+	margin-top: -15px; margin-bottom: 0;
+	display: none;
+}
+
+.uploader-form { table-layout: fixed; width: 100%; border-collapse: collapse; }
+.uploader-form input[type="text"] { width: 450px; }
+.uploader-form label.dib { text-align: right; width: 4em; margin-right: 5px; }
+.uploader-execute { display: none; }
+
+
+
+/* --- 视频编辑区域 --- */
+
+.video_desc { margin-bottom: 15px; }
+.video_desc .admin_description { margin: 0; }
+.video_desc textarea { width: 826px !important; }
+.video_desc .form-button-wrapper { margin-top: 5px; }
+
+
+
+.episode_tokens ul { width: 836px; margin: 0; border-color: #E1E1E1; }
+.episode_tokens .token-input-token-facebook { height: 24px; line-height: 22px; }
+
+
+
+.pillbox-wrapper { margin-top: 10px; }
+.pillbox-wrapper form { margin-top: 5px; }
+
+
+
+.list-wrapper { margin-top: 30px; }
+.list-wrapper > h3 { background-color: #F7F7F7; padding-left: 15px; height: 40px; line-height: 40px; font-size: 14px; }
+.list-wrapper > h3 > .comp_button { margin: 5px 10px 0 0; }
+.list-wrapper .content-list-item > div { height: 100%; overflow: hidden; }
+.list-wrapper .resource-list .content-list-item { height: 40px; }
+.list-wrapper .resource-list .area-display { line-height: 40px; }
+
+.list-wrapper .quiz-list .content-list-item { height: auto; min-height: 40px; }
+.list-wrapper .quiz-list .area-display { padding: 5px 10px; }
+
+.resource-list { position: relative; }
+.resource-list .res-type {
+	float: left;
+	width: 16px; height: 16px;
+	background: image-url("common/sprites-16.png") no-repeat;
+	margin-top: 12px; margin-right: 5px;
+}
+.resource-list .res-video { background-position: -16px -32px; }
+.resource-list .res-pdf { background-position: -48px -32px; }
+.resource-list .res-quiz { background-position: -32px -32px; }
+.resource-list .res-hw { background-position: -64px -48px; }
+
+
+
+.pagination { margin-top: 10px; }
+
+.homework-meta,
+.edit_link { font-size: 12px; }
+.edit_link { margin: 1em 0; }
+.homework-meta { border-top: 1px solid #EEE; clear: both; padding: 5px; }
+
+.seg_title { background-color: #F7F7F7; font-size: 14px; line-height: 30px; padding: 5px 10px; margin-top: 25px; }
+.seg_title .comp_group { font-weight: normal; }
+.seg_title .comp_select { z-index: 5; }
+.seg_title .comp_select a { color: #888; text-decoration: none; display: block; }
+.seg_title .comp_select li:hover a { color: #FFF; }
+
+
+.response-filter { float: left; margin-left: 10px; }
+.response-filter > a {
+	border: 1px solid #D9D9D9; border-left-width: 0;
+	background-color: #F7F7F7;
+	text-decoration: none;
+	display: inline-block; *display: inline; *zoom: 1;
+	line-height: 18px;
+	padding: 5px 10px;
+	color: #B4B4B4;
+}
+.response-filter > a:first-child { border-left-width: 1px; }
+.response-filter > a[data-selected="true"] { background-color: #FFF; color: #888; }
+
+.response-score { width: 80px; height: 16px; position: relative; top: 3px; background: image-url("common/level_star.png") repeat-x 0 -16px; }
+.score_st { position: absolute; width: 16px; height: 100%; z-index: 3; }
+.score_st:hover { left: 0; z-index: 2; }
+.score_st:hover, .starred { background: image-url("common/level_star.png") repeat-x !important; }
+
+a.st_1 { left: 0; }
+a.st_2 { left: 16px; }
+a.st_3 { left: 32px; }
+a.st_4 { left: 48px; }
+a.st_5 { left: 64px; }
+a.st_6 { left: 80px; }
+a.st_7 { left: 96px; }
+a.st_8 { left: 112px; }
+a.st_9 { left: 128px; }
+a.st_10 { left: 144px; }
+a.st_1:hover { width: 16px; }
+a.st_2:hover { width: 32px; }
+a.st_3:hover { width: 48px; }
+a.st_4:hover { width: 64px; }
+a.st_5:hover { width: 80px; }
+a.st_6:hover { width: 96px; }
+a.st_7:hover { width: 112px; }
+a.st_8:hover { width: 128px; }
+a.st_9:hover { width: 144px; }
+a.st_10:hover { width: 160px; }
+
+.score_pt { position: absolute; clip: rect(0 0 0 0); display: none; }
+.score_pt:checked + .score_st { background: image-url("common/level_star.png") repeat-x; left: 0; z-index: 1; }
+.pt_1:checked ~ .st_1 { width: 16px; }
+.pt_2:checked ~ .st_2 { width: 32px; }
+.pt_3:checked ~ .st_3 { width: 48px; }
+.pt_4:checked ~ .st_4 { width: 64px; }
+.pt_5:checked ~ .st_5 { width: 80px; }
+.pt_6:checked ~ .st_6 { width: 96px; }
+.pt_7:checked ~ .st_7 { width: 112px; }
+.pt_8:checked ~ .st_8 { width: 128px; }
+.pt_9:checked ~ .st_9 { width: 144px; }
+.pt_10:checked ~ .st_10 { width: 160px; }
+
+.response-score:hover .score_st { background-image: none; }
+.response-score label { display: block; _display: inline; width: 100%; height: 100%; cursor: pointer; }
+
+
+
+/* --- Drag and Drop --- */
+
+.dragging { background-color: yellow; left: 0; right: 0; }
+.drag-placeholder { border-style: dashed; }
