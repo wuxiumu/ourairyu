@@ -181,7 +181,6 @@ function initDragDrop() {
 
         $(".dragging").css("top", (e.pageY - $(".resource-list").offset().top));
 
-          console.log($(".area-display", ele).text());
         if ( ele.size() && !ele.is(".dragging") && !ele.is(".drag-placeholder") ) {
           if ( ele.index() > $(".drag-placeholder").index() ) {
             $(".drag-placeholder").before(ele);
