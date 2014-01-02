@@ -4,8 +4,6 @@
 
 $(document).ready(function() {
   initEpisodeDialogs();
-
-  calculateCoordinate();
 });
 
 initDragDrop();
@@ -136,76 +134,96 @@ function submit_next_episodes() {
     $("#next_episode_management").submit();
 }
 
-function calculateCoordinate( item ) {
-  if ( $(item).is(".content-list-item") ) {
-    $(item).attr("data-coordinate", ($(item).offset().top));
-  }
-  else {
-    $(".resource-list > li").each(function() {
-      var li = $(this);
-
-      if ( li.css("position") !== "absolute" ) {
-        li.attr("data-coordinate", (li.offset().top));
-      }
-    });
-  }
-}
-
 function initDragDrop() {
+  var itemPointTop;               // 鼠标位置到被托起条目上边界的距离
+  var lastedY;                    // 鼠标位置的上一次纵坐标
+  var dir;
+
   $(".resource-list > li").live({
     "mousedown": function( e ) {
       var t = $(e.target);
 
       if ( !t.is(".button-admin") ) {
         $(this).addClass("dragging");
+
+        itemPointTop = e.pageY - $(this).offset().top;
+        lastedY = e.pageY;
       }
     }
   });
 
   $(document).bind({
     "mousemove": function( e ) {
-      if ( $(".dragging").size() ) {
-        var ele = $(document.elementFromPoint(e.clientX, e.clientY)).closest(".content-list-item");
+      var d = $(".dragging");
 
-        // 添加占位
-        if ( !$(".drag-placeholder").size() ) {
-          $("body").addClass("txt-forbid");
+      if ( d.size() ) {
+        var list = $(".resource-list");
+        var boundaryTop = list.offset().top;
 
-          $(".dragging")
-            .css({
-              "position": "absolute",
-              "z-index": "999999"
-            })
-            .after("<li class=\"drag-placeholder content-list-item\" />")
-        }
+        dir = e.pageY < lastedY ? -1 : 1;     // -1 为向上移动；1 为向下移动
+        lastedY = e.pageY;
 
-        $(".dragging").css("top", (e.pageY - $(".resource-list").offset().top));
+        if ( e.pageY > boundaryTop && e.pageY < (boundaryTop + list.outerHeight() - d.outerHeight() + itemPointTop) ) {
+          // 添加占位
+          if ( !$(".drag-placeholder").size() ) {
+            $("body").addClass("txt-forbid");
 
-        if ( ele.size() && !ele.is(".dragging") && !ele.is(".drag-placeholder") ) {
-          if ( ele.index() > $(".drag-placeholder").index() ) {
-            $(".drag-placeholder").before(ele);
+            d
+              .css({
+                "position": "absolute",
+                "z-index": "999999"
+              })
+              .after("<li class=\"drag-placeholder content-list-item\" />")
           }
-          else {
-            $(".drag-placeholder").after(ele);
-          }
+
+          // 被拖动元素的位置
+          d.css("top", (e.pageY - boundaryTop - itemPointTop));
+
+          moveElement( e.pageY, dir, itemPointTop );
         }
       }
     },
     "mouseup": function( e ) {
-      $("body").removeClass("txt-forbid");
-
-      if ( $(".dragging").size() ) {
-        $(".dragging")
-          .css({
-            "position": "static",
-            "z-index": "auto"
-          })
-          .removeClass("dragging");
-
-        $(".drag-placeholder").remove();
-      }
+      resetDrag();
     }
   });
+}
+
+function moveElement( y, dir, itemPointTop ) {
+  var d = $(".dragging");
+  var p = $(".drag-placeholder");
+  var t;
+
+  if ( dir > 0 ) {
+    t = p.next();
+
+    if ( t.size() && y > t.offset().top + t.outerHeight()/2 + itemPointTop - d.outerHeight() ) {
+      d.before(t);
+    }
+  }
+  else {
+    t = p.prev().prev();
+    
+    if ( t.size() && y < (t.offset().top + t.outerHeight()/2 + itemPointTop) ) {
+      p.after(t);
+    }
+  }
+}
+
+function resetDrag() {
+  $("body").removeClass("txt-forbid");
+
+  if ( $(".dragging").size() ) {
+    $(".dragging")
+      .css({
+        "position": "static",
+        "z-index": "auto",
+        "top": "auto"
+      })
+      .removeClass("dragging");
+
+    $(".drag-placeholder").remove();
+  }
 }
 
 })( window, jQuery );
