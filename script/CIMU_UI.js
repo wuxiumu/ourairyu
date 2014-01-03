@@ -358,6 +358,7 @@ function moveElement( y, dir, itemPointTop ) {
 
     if ( t.size() && y > t.offset().top + t.outerHeight()/2 + itemPointTop - d.outerHeight() ) {
       d.before(t);
+      $("[data-draggable='true']").data("drag-moved", true);
     }
   }
   else {
@@ -365,6 +366,7 @@ function moveElement( y, dir, itemPointTop ) {
     
     if ( t.size() && y < (t.offset().top + t.outerHeight()/2 + itemPointTop) ) {
       p.after(t);
+      $("[data-draggable='true']").data("drag-moved", true);
     }
   }
 }
@@ -386,16 +388,22 @@ function resetDrag() {
 }
 
 function saveData() {
-  var idxMap = {};
-  var list = $("[data-draggable='true']");
-  var url = list.attr("data-url");
+  if ( $("[data-draggable='true']").data("drag-moved") ) {
+    var idxMap = [];
+    var list = $("[data-draggable='true']");
+    var url = list.attr("data-url");
 
-  if ( url ) {
-    list.children("li").each(function() {
-      idxMap[$(this).attr("data-id")] = $(this).index();
-    });
+    if ( url ) {
+      list.children("li").each(function() {
+        idxMap.push("{\"id\":" + $(this).attr("data-id") + ",\"index\":" + $(this).index() + "}");
+      });
 
-    $.post(url, idxMap);
+      idxMap = "[" + idxMap.join(",") + "]";
+
+      $.post(url, {"dragdrop": idxMap});
+    }
+
+    $("[data-draggable='true']").removeData("drag-moved");
   }
 }
 
