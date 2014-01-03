@@ -14,12 +14,68 @@ $.extend( _P, {
       CM.data("tooltip", {user: [], title: []});
 
       // 初始化提示信息
-      initTooltip();
+      // initTooltip();
       // 初始化人物卡片
       initProfile();
       // 自定义 HTML
       initSelfHTML();
     }
+  },
+
+  drag: function() {
+    var itemPointTop;               // 鼠标位置到被托起条目上边界的距离
+    var lastedY;                    // 鼠标位置的上一次纵坐标
+    var dir;
+
+    $("[data-draggable='true'] > li").live({
+      "mousedown": function( e ) {
+        var t = $(e.target);
+
+        if ( !t.is(".button-admin") ) {
+          $(this).addClass("dragging");
+
+          itemPointTop = e.pageY - $(this).offset().top;
+          lastedY = e.pageY;
+        }
+      }
+    });
+
+    $(document).bind({
+      "mousemove": function( e ) {
+        var d = $(".dragging");
+
+        if ( d.size() ) {
+          var list = $("[data-draggable='true']");
+          var boundaryTop = list.offset().top;
+
+          dir = e.pageY < lastedY ? -1 : 1;     // -1 为向上移动；1 为向下移动
+          lastedY = e.pageY;
+
+          if ( e.pageY > boundaryTop && e.pageY < (boundaryTop + list.outerHeight() - d.outerHeight() + itemPointTop) ) {
+            // 添加占位
+            if ( !$(".drag-placeholder").size() ) {
+              $("body").addClass("txt-forbid");
+
+              d
+                .css({
+                  "position": "absolute",
+                  "z-index": "999999"
+                })
+                .after("<li class=\"drag-placeholder content-list-item\" />")
+            }
+
+            // 被拖动元素的位置
+            d.css("top", (e.pageY - boundaryTop - itemPointTop));
+
+            moveElement( e.pageY, dir, itemPointTop );
+          }
+        }
+      },
+      "mouseup": function( e ) {
+        resetDrag();
+        saveData();
+      }
+    });
   }
 });
 
@@ -289,6 +345,57 @@ function fillUserInfo( card, user_info ) {
     }
 
     $(".avatar", card).attr({ "src": user_info.avatar_url, "alt": user_info.name })
+  }
+}
+
+function moveElement( y, dir, itemPointTop ) {
+  var d = $(".dragging");
+  var p = $(".drag-placeholder");
+  var t;
+
+  if ( dir > 0 ) {
+    t = p.next();
+
+    if ( t.size() && y > t.offset().top + t.outerHeight()/2 + itemPointTop - d.outerHeight() ) {
+      d.before(t);
+    }
+  }
+  else {
+    t = p.prev().prev();
+    
+    if ( t.size() && y < (t.offset().top + t.outerHeight()/2 + itemPointTop) ) {
+      p.after(t);
+    }
+  }
+}
+
+function resetDrag() {
+  $("body").removeClass("txt-forbid");
+
+  if ( $(".dragging").size() ) {
+    $(".dragging")
+      .css({
+        "position": "static",
+        "z-index": "auto",
+        "top": "auto"
+      })
+      .removeClass("dragging");
+
+    $(".drag-placeholder").remove();
+  }
+}
+
+function saveData() {
+  var idxMap = {};
+  var list = $("[data-draggable='true']");
+  var url = list.attr("data-url");
+
+  if ( url ) {
+    list.children("li").each(function() {
+      idxMap[$(this).attr("data-id")] = $(this).index();
+    });
+
+    $.post(url, idxMap);
   }
 }
 
