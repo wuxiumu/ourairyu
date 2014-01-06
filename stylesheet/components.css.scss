@@ -96,8 +96,8 @@ button.comp_button.disabled { background-color: #DBDAD9; border-color: #C8C6C4; 
 }
 .comp_select.dir-t dd { bottom: 100%; }
 .comp_select.dir-r dd { right: 0; }
-.comp_select ul { max-width: 200px; max-height: 240px; overflow: auto; }
-.comp_select li { padding: 3px 8px; overflow-x: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.comp_select ul { max-width: 200px; max-height: 240px; overflow: auto; @include no_gap; }
+.comp_select li { @include no_item; padding: 3px 8px; overflow-x: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .comp_select li:hover { background-color: #79B0F2; color: #FFF; }
 .comp_select li a { display: block; }
 .comp_select [data-selected="true"] { background-color: #DDD; }
@@ -212,6 +212,8 @@ button.comp_button.disabled { background-color: #DBDAD9; border-color: #C8C6C4; 
 .CM-tooltip.dir-t:before { border-width: 0 10px 10px; border-bottom-color: #BBB; top: 1px; bottom: auto; left: 50px; }
 .CM-tooltip.dir-t:after { border-width: 0 9px 9px; border-bottom-color: #ECEDED; top: 2px; bottom: auto; left: 51px; }
 
+.CM-nobutton:after { border-top-color: #FFF; }
+
 .card_wrapper {
   border: 1px solid #BBB;
   min-width: 200px; max-width: 300px;
@@ -238,7 +240,14 @@ button.comp_button.disabled { background-color: #DBDAD9; border-color: #C8C6C4; 
 .card_profile .profile_id { display: none; }
 
 .card_operation { overflow: hidden; background-color: #ECEDED; padding: 5px; }
-.card_operation button { display: none; float: right; font-size: 12px; margin: 0; }
+.CM-nobutton .card_operation { display: none; }
+.card_operation button { float: right; font-size: 12px; line-height: 16px; margin: 0; padding-left: 5px !important; padding-right: 5px !important; }
+.card_operation i,
+.card_operation span { @include inline-block; vertical-align: top; }
+.card_operation i { @include square(16px); @include hide_word; margin-right: 2px; background: image-url("common/sprites-16.png") no-repeat; }
+.card_operation .CM-btn-apply i { background-position: -96px -48px; }
+.card_operation .CM-btn-agree i { background-position: -16px -48px; }
+.card_operation .CM-btn-remove i { background-position: -144px 0; }
 
 .comp_selfhtml:after { border-top-color: #FFF; }
 

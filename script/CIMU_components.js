@@ -31,9 +31,10 @@ function initAll() {
   // Tabs
   $(".comp_tab_trigger").live( "click", function() {
     var tab = $(this);
+    var fire = tab.closest(".comp_tab_wrapper").attr("data-firecurrent") === "true";
 
     // 已选中时不做任何操作
-    if ( tab.hasClass("current") === false ) {
+    if ( fire || tab.hasClass("current") === false ) {
       var flagAttr = "data-flag";
       var flag = tab.attr( flagAttr );
       var flagStr = "[" + flagAttr + "='" + flag + "']";
@@ -48,10 +49,13 @@ function initAll() {
         $("[class*='comp_tab_'][" + flagAttr + "='" + curTab.attr(flagAttr) + "']:not(.comp_tab_trigger)", wrapper).removeClass( "current" );
       }
 
-      group.children(".comp_tab_trigger" + flagStr).addClass( "current" );
-      wrapper.find("[class*='comp_tab_']" + flagStr + ":not(.comp_tab_trigger)").addClass( "current" );
+      // 触发器不是“当前标签”
+      if ( !tab.is(curTab) ) {
+        group.children(".comp_tab_trigger" + flagStr).addClass( "current" );
+        wrapper.find("[class*='comp_tab_']" + flagStr + ":not(.comp_tab_trigger)").addClass( "current" );
 
-      CM.associateHash( this, flag );
+        CM.associateHash( this, flag );
+      }
 
       if ( $.isFunction( callback ) ) {
         callback.apply(this, [flag]);

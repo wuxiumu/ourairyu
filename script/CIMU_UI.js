@@ -198,13 +198,14 @@ function initProfile() {
 
       if ( trigger.size() ) {
         if ( card.css("display") === "none" && (srcEle.is(trigger) || $.contains(trigger[0], srcEle[0])) ) {
-          fillUserInfo(card, getUserInfo(trigger.attr("data-user")));
-
+          var result = fillUserInfo(card, getUserInfo(trigger.attr("data-user")));
           var position = cardPosition(trigger, card);
 
-          card
-            .css({ top: position.y - 10 + "px", left: position.x - 35 + "px" })
-            .fadeIn();
+          if ( result ) {
+            card
+              .css({ top: position.y - 10 + "px", left: position.x - 35 + "px" })
+              .fadeIn();
+          }
         }
       }
       else if ( card.css("display") !== "none" ) {
@@ -325,13 +326,15 @@ function getUserInfo( user_id ) {
     $("body").data("users", users);
   }
 
-  return info || null;
+  return $.isEmptyObject(info) ? null : info;
 }
 
 /**
  * 填充用户卡片的信息
  */
 function fillUserInfo( card, user_info ) {
+  var result = false;
+
   if ( user_info ) {
     $(".avatar_link, .name_link", card).attr("href", user_info.home_page);
     $(".name_link", card).text( user_info.name );
@@ -344,7 +347,39 @@ function fillUserInfo( card, user_info ) {
       $(".profile_id", card).text( user_info.serial_number );
     }
 
-    $(".avatar", card).attr({ "src": user_info.avatar_url, "alt": user_info.name })
+    $(".avatar", card).attr({ "src": user_info.avatar_url, "alt": user_info.name });
+
+    cardButton(card, user_info.relationship);
+
+    result = true;
+  }
+
+  return result;
+}
+
+function cardButton( card, code ) {
+  if ( code === null || code === -1 ) {
+    card.addClass("CM-nobutton");
+  }
+  else {
+    var btn = $(":button", card);
+
+    btn.removeClass("CM-btn-remove").removeClass("CM-btn-agree").removeClass("CM-btn-apply");
+
+    if ( code === 0 ) {
+      $("span", btn).text(CM.i18n("p.friend.remove"));
+      btn.addClass("CM-btn-remove");
+    }
+    else if ( code === 1 ) {
+      $("span", btn).text(CM.i18n("p.friend.agree"));
+      btn.addClass("CM-btn-agree");
+    }
+    else {
+      $("span", btn).text(CM.i18n("p.friend.apply"));
+      btn.addClass("CM-btn-apply");
+    }
+
+    card.removeClass("CM-nobutton");
   }
 }
 
