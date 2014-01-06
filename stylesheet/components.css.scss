@@ -247,7 +247,7 @@ button.comp_button.disabled { background-color: #DBDAD9; border-color: #C8C6C4; 
 .card_operation i { @include square(16px); @include hide_word; margin-right: 2px; background: image-url("common/sprites-16.png") no-repeat; }
 .card_operation .CM-btn-apply i { background-position: -96px -48px; }
 .card_operation .CM-btn-agree i { background-position: -16px -48px; }
-.card_operation .CM-btn-remove i { background-position: -144px 0; }
+.card_operation .CM-btn-remove i { background-position: -144px -16px; }
 
 .comp_selfhtml:after { border-top-color: #FFF; }
 

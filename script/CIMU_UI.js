@@ -230,6 +230,38 @@ function initProfile() {
       }
     }
   });
+
+  $(".comp_profile button").live("click", function() {
+    var btn = $(this);
+    var template = "/friends/{action}_friend_json";
+    var action;
+    var url;
+
+    if ( btn.hasClass("CM-btn-remove") ) {
+      action = "delete";
+    }
+    else if ( btn.hasClass("CM-btn-agree") ) {
+      action = "confirm";
+    }
+    else if ( btn.hasClass("CM-btn-apply") ) {
+      action = "add";
+    }
+
+    if ( action ) {
+      $.post(template.replace("{action}", action), {slug: btn.data("user_slug")}, function( data ) {
+        if ( data && data.status === "success" ) {
+          changeBtnStatus(btn, (action === "delete" ? "add" : action === "confirm" ? "delete" : "add"));
+
+          var users = $("body").data("users");
+
+          users[btn.data("user_id")].relationship = action === "confirm" ? 0 : 3;
+          $("body").data("users", users);
+        }
+      });
+    }
+
+    return false;
+  });
 }
 
 function initProfileHTML() {
@@ -349,7 +381,7 @@ function fillUserInfo( card, user_info ) {
 
     $(".avatar", card).attr({ "src": user_info.avatar_url, "alt": user_info.name });
 
-    cardButton(card, user_info.relationship);
+    cardButton(card, user_info);
 
     result = true;
   }
@@ -357,29 +389,41 @@ function fillUserInfo( card, user_info ) {
   return result;
 }
 
-function cardButton( card, code ) {
+function cardButton( card, user_info ) {
+  var btn = $(":button", card);
+  var code = user_info.relationship;
+
   if ( code === null || code === -1 ) {
     card.addClass("CM-nobutton");
+
+    btn.removeData("user_slug");
+    btn.removeData("user_id");
   }
   else {
-    var btn = $(":button", card);
+    btn.data("user_slug", user_info.slug);
+    btn.data("user_id", user_info.id)
 
-    btn.removeClass("CM-btn-remove").removeClass("CM-btn-agree").removeClass("CM-btn-apply");
-
-    if ( code === 0 ) {
-      $("span", btn).text(CM.i18n("p.friend.remove"));
-      btn.addClass("CM-btn-remove");
-    }
-    else if ( code === 1 ) {
-      $("span", btn).text(CM.i18n("p.friend.agree"));
-      btn.addClass("CM-btn-agree");
-    }
-    else {
-      $("span", btn).text(CM.i18n("p.friend.apply"));
-      btn.addClass("CM-btn-apply");
-    }
-
+    changeBtnStatus(btn, (code === 0 ? "delete" : code === 1 ? "confirm" : "add"));
     card.removeClass("CM-nobutton");
+  }
+}
+
+function changeBtnStatus( btn, status ) {
+  btn.removeClass("CM-btn-remove").removeClass("CM-btn-agree").removeClass("CM-btn-apply");
+
+  switch (status) {
+    case "delete":
+      $("span", btn).text(CM.i18n("p.friend.remove"));
+      btn.addClass("CM-btn-remove").addClass("LG_Button_warn");
+      break;
+    case "confirm":
+      $("span", btn).text(CM.i18n("p.friend.agree"));
+      btn.addClass("CM-btn-agree").removeClass("LG_Button_warn");
+      break;
+    case "add":
+      $("span", btn).text(CM.i18n("p.friend.apply"));
+      btn.addClass("CM-btn-apply").removeClass("LG_Button_warn");
+      break;
   }
 }
 
