@@ -30,9 +30,6 @@ var NOTATION_NODE = 12;
 var REG_NAMESPACE = /^[0-9A-Z_.]+[^_.]?$/i;
 
 // Normal variables
-// var storage = {
-//     i18n: {}
-//   };
 // var queue = {
 //     events: {
 //       globalMouseMove: []
@@ -44,7 +41,7 @@ var REG_NAMESPACE = /^[0-9A-Z_.]+[^_.]?$/i;
 var _H = {};        // For internal usage
 var Hanger = {};    // For external usage
 
-_H.storage = {
+var storage = {
   /**
    * 函数
    *
@@ -81,142 +78,6 @@ _H.storage = {
    */
   i18n: {}
 };
-
-$.extend( _H, {
-/* ==================================
- * 核心方法
- * ================================== */
-  /**
-   * 全局配置
-   * 
-   * @private
-   * @method    setup
-   */
-  setup: function() {},
-
-  /**
-   * 克隆对象并返回副本
-   * 
-   * @private
-   * @method  clone
-   * @param {Object} source 源对象，只能为数组或者纯对象
-   * @return  {Object}
-   */
-  clone: function( source ) {},
-
-  /**
-   * 沙箱运行环境（只能运行一次）
-   * 
-   * @private
-   * @method  sandbox
-   * @param {Object} setting  系统环境配置
-   * @return  {Object/Boolean}
-   */
-  sandbox: function( setting ) {},
-
-  /**
-   * 请求处理
-   * 
-   * @private
-   * @method  request
-   * @param   options {Object/String}   请求参数列表/请求地址
-   * @param   succeed {Function}        请求成功时的回调函数（code > 0）
-   * @param   fail {Function}           请求失败时的回调函数（code <= 0）
-   * @param   synch {Boolean}           是否为同步，默认为异步
-   * @return  {Object} jqXHR
-   */
-  request: function( options, succeed, fail, synch ) {},
-
-  /**
-   * 将处理函数绑定到内部命名空间
-   * 
-   * @private
-   * @method  bindHandler
-   * @return  {Undefined}
-   */
-  bindHandler: function() {},
-
-  /**
-   * 执行指定函数
-   * 
-   * @private
-   * @method  runHandler
-   * @param {String} name 函数名
-   * @param {List}      参数
-   * @return  {Variant}   返回值
-   */
-  runHandler: function( func_name ) {},
-
-  /**
-   * 将函数加到指定队列中
-   * 
-   * @private
-   * @method  pushHandler
-   * @param {Function} handler  函数
-   * @param {String} queue    队列名
-   */
-  pushHandler: function( handler, queue ) {},
-
-  /**
-   * 获取指定的数据集
-   * 
-   * @private
-   * @method  getDataset
-   * @param {String} name   数据集名称
-   * @param {Boolean} isCopy  是否返回副本
-   * @return  {Object}
-   */
-  getDataset: function( name, copy ) {},
-
-  /**
-   * 设置及获取国际化信息
-   * 
-   * @private
-   * @method  internationalization
-   * @return  {String}
-   */
-  internationalization: function() {
-    var that = this;
-    var args = arguments;
-    var key = args[0];
-    var result = null;
-
-    // 批量存储
-    // 调用方式：func({})
-    if ( $.isPlainObject(key) ) {
-      $.extend(that.storage.i18n, key);
-    }
-    else if ( REG_NAMESPACE.test(key) ) {
-      var data = args[1];
-
-      // 单个存储（用 namespace 格式字符串）
-      if ( args.length === 2 && typeof data === "string" && !REG_NAMESPACE.test(data) ) {
-        // to do sth.
-      }
-      // 取出并进行格式替换
-      else if ( $.isPlainObject(data) ) {
-        result = getStorageData("i18n." + key);
-        result = (typeof result === "string" ? result : "").replace( /\{%\s*([A-Z0-9_]+)\s*%\}/ig, function( txt, k ) {
-          return data[k];
-        });
-      }
-      // 拼接多个数据
-      else {
-        result = "";
-
-        $.each(args, function(i, txt) {
-          if ( typeof txt === "string" && REG_NAMESPACE.test(txt) ) {
-            var r = getStorageData("i18n." + txt);
-
-            result += (typeof r === "string" ? r : "");
-          }
-        });
-      }
-    }
-
-    return result;
-  }
-});
 
 $.extend( Hanger, {
 /*
@@ -324,8 +185,6 @@ $.extend( Hanger, {
       }
       // 存储数据到内部/从内部获取数据
       else {
-        var storage = _H.storage;
-
         if ( typeof target === "string" && REG_NAMESPACE.test(target) ) {
           if ( length === 1 ) {
             result = getStorageData(target);
@@ -353,16 +212,50 @@ $.extend( Hanger, {
   },
 
   /**
-   * Internationalization
-   *
-   * When the first argument is a plain object, is a setter.
-   * When the first argument is a string, maybe a getter.
-   *
+   * 设置及获取国际化信息
+   * 
    * @method  i18n
-   * @return  {Object}
+   * @return  {String}
    */
   i18n: function() {
-    return _H.internationalization.apply(_H, [].slice.call(arguments, 0));
+    var args = arguments;
+    var key = args[0];
+    var result = null;
+
+    // 批量存储
+    // 调用方式：func({})
+    if ( $.isPlainObject(key) ) {
+      $.extend(storage.i18n, key);
+    }
+    else if ( REG_NAMESPACE.test(key) ) {
+      var data = args[1];
+
+      // 单个存储（用 namespace 格式字符串）
+      if ( args.length === 2 && typeof data === "string" && !REG_NAMESPACE.test(data) ) {
+        // to do sth.
+      }
+      // 取出并进行格式替换
+      else if ( $.isPlainObject(data) ) {
+        result = getStorageData("i18n." + key);
+        result = (typeof result === "string" ? result : "").replace( /\{%\s*([A-Z0-9_]+)\s*%\}/ig, function( txt, k ) {
+          return data[k];
+        });
+      }
+      // 拼接多个数据
+      else {
+        result = "";
+
+        $.each(args, function(i, txt) {
+          if ( typeof txt === "string" && REG_NAMESPACE.test(txt) ) {
+            var r = getStorageData("i18n." + txt);
+
+            result += (typeof r === "string" ? r : "");
+          }
+        });
+      }
+    }
+
+    return result;
   },
 
   // 把全局事件添加到队列中
@@ -412,7 +305,7 @@ function constructDatasetByAttributes( attributes ) {
  * @return  {String}
  */
 function getStorageData( ns_str ) {
-  var result = _H.storage;
+  var result = storage;
 
   $.each(ns_str.split("."), function( idx, part ) {
     var rv = result.hasOwnProperty(part);
