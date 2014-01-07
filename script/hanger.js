@@ -40,6 +40,18 @@ var Hanger = {};    // For external usage
 
 var storage = {
   /**
+   * 配置
+   */
+  config: {
+    debug: true,
+    platform: "",
+    lang: (document.documentElement.lang ||
+      document.documentElement.getAttribute("lang") ||
+      navigator.language ||
+      navigator.browserLanguage).split("-")[0]
+  },
+
+  /**
    * 函数
    *
    * @property  fn
@@ -253,6 +265,16 @@ $.extend( Hanger, {
     }
 
     return result;
+  },
+
+  /**
+   * Get current language
+   *
+   * @method  lang
+   * @return  {String}
+   */
+  lang: function() {
+    return storage.config.lang;
   },
 
   // 把全局事件添加到队列中

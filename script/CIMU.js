@@ -387,16 +387,6 @@ $.extend( _P, {
   },
 
   /**
-   * Get current language
-   *
-   * @method  lang
-   * @return  {String}
-   */
-  lang: function() {
-    return ($("html").attr("lang") || navigator.language || navigator.browserLanguage).split("-")[0];
-  },
-
-  /**
    * 帐号
    */
   account: function() {
