@@ -5,15 +5,13 @@
  *
  * Date: Thu Apr 25 16:51:10 2013
  */
-;(function( window, $, undefined ) {
+;(function( window, $, __, undefined ) {
 
 "use strict";
 
-var _P = $.noop;
+var _P = $.extend(true, {}, __);
+
 var REG_NAMESPACE = /^[0-9A-Z_.]+[^_.]?$/i;
-var storage = {
-    i18n: {}
-  };
 
 /**
  * 生成自定义系统对话框
@@ -351,42 +349,6 @@ function getStorageData( ns_str ) {
 
 $.extend( _P, {
   /**
-   * 存储数据到内部/从内部获取数据
-   */
-  data: function() {
-    var args = arguments;
-    var length = args.length;
-    var result;
-
-    if ( length > 0 ) {
-      var key = args[0];
-
-      if ( typeof key === "string" && REG_NAMESPACE.test(key) ) {
-        if ( length === 1 ) {
-          result = getStorageData(key);
-        }
-        else if ( $.isPlainObject(args[1]) ) {
-          if ( !storage.hasOwnProperty(key) ) {
-            storage[key] = args[1];
-          }
-          else {
-            $.extend(storage[key], args[1]);
-          }
-
-          result = args[1];
-        }
-      }
-      else {
-        $.each(args, function(i, n) {
-          $.extend(storage, n);
-        });
-      }
-    }
-
-    return result || null;
-  },
-
-  /**
    * 自定义警告提示框
    *
    * @method  alert
@@ -432,50 +394,6 @@ $.extend( _P, {
    */
   lang: function() {
     return ($("html").attr("lang") || navigator.language || navigator.browserLanguage).split("-")[0];
-  },
-
-  /**
-   * Internationalization
-   *
-   * When the first argument is a plain object, is a setter.
-   * When the first argument is a string, maybe a getter.
-   *
-   * @method  i18n
-   * @return  {Object}
-   */
-  i18n: function() {
-    var args = arguments;
-    var data = args[0];
-    var result = null;
-
-    // Save i18n data at internal object.
-    if ( $.isPlainObject( data ) ) {
-      $.extend( storage.i18n, data );
-    }
-    // Get i18n text.
-    else if ( typeof data === "string" && REG_NAMESPACE.test( data ) ) {
-      var pairs = args[1];
-
-      if ( $.isPlainObject( pairs ) ) {
-        result = getStorageData( "i18n." + data );
-        result = (typeof result === "string" ? result : "").replace( /\{%\s*([A-Z0-9_]+)\s*%\}/ig, function( text, key ) {
-          return pairs[ key ];
-        });
-      }
-      else {
-        result = "";
-
-        $.each( args, function( i, txt ) {
-          if ( typeof txt === "string" && REG_NAMESPACE.test( txt ) ) {
-            var r = getStorageData( "i18n." + txt );
-
-            result += (typeof r === "string" ? r : "");
-          }
-        });
-      }
-    }
-
-    return result;
   },
 
   /**
@@ -944,7 +862,7 @@ $.extend( _P, {
             unit = lib.i18n( "w.n.second" );
           }
 
-          text = CM.i18n(("p.message.time_" + (ele.attr("data-timetype") || "left")), { time: time, unit: unit.toLowerCase() });
+          text = lib.i18n(("p.message.time_" + (ele.attr("data-timetype") || "left")), { time: time, unit: unit.toLowerCase() });
 
           if ( ele.hasClass("label") ) {
             var labelClass;
@@ -1059,4 +977,4 @@ $.extend( _P, {
 
 window.CM = _P;
 
-})( window, window.jQuery );
+})( window, window.jQuery, window.Hanger );
