@@ -1,12 +1,9 @@
 /*!
  * Hanger - Scaffolding of a project
+ * by Ourai Lin, ourairyu@hotmail.coms
  *
- * Copyright 2013, Ourai Lin
- *
- * Project: https://github.com/ourai/Hanger
- * Website: http://ourai.ws/
- *
- * Date: Fri Nov 29 23:57:00 2013
+ * Full source at https://github.com/ourai/Hanger
+ * Copyright (c) 2013 Ourairyu http://ourai.ws/
  */
 ;(function( window, $, undefined ) {
 
