@@ -26,6 +26,10 @@ function initAll() {
     });
 
     initComponentTabs();
+
+    if ( $.isFunction($.fn.chosen) ) {
+      $(".comp_chosen").chosen(chosenOptions());
+    }
   });
 
   // Tabs
@@ -430,6 +434,23 @@ function moveTabs( btn, direction, index ) {
       });
     }
   }
+}
+
+/**
+ * jquery chosen 配置参数
+ */
+function chosenOptions() {
+  var opts = {};
+
+  if ( CM.lang() === "zh" ) {
+    $.extend(opts, {
+      no_results_text: "没有找到",
+      placeholder_text_single: "请选择",
+      placeholder_text_multiple: "请选择"
+    });
+  }
+
+  return opts;
 }
 
 initAll();
