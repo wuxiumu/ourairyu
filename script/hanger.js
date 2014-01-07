@@ -3,6 +3,9 @@
  *
  * Copyright 2013, Ourai Lin
  *
+ * Project: https://github.com/ourai/Hanger
+ * Website: http://ourai.ws/
+ *
  * Date: Fri Nov 29 23:57:00 2013
  */
 ;(function( window, $, undefined ) {
@@ -170,7 +173,7 @@ $.extend( _H, {
    * 
    * @private
    * @method  internationalization
-   * @return  {Object}
+   * @return  {String}
    */
   internationalization: function() {
     var that = this;
@@ -178,63 +181,35 @@ $.extend( _H, {
     var key = args[0];
     var result = null;
 
-    // Setter
-    if ( $.isPlainObject( key ) ) {
-      $.extend( that.storage.i18n, key );
+    // 批量存储
+    // 调用方式：func({})
+    if ( $.isPlainObject(key) ) {
+      $.extend(that.storage.i18n, key);
     }
-    else {
-      if ( typeof key === "string" && key !== "" ) {
-        // Setter
-        if ( args.length > 1 ) {
-          var data = args[1];
+    else if ( REG_NAMESPACE.test(key) ) {
+      var data = args[1];
 
-          // // 判断 key 的格式
-          // if ( REG_NAMESPACE.test(key) ) {}
+      // 单个存储（用 namespace 格式字符串）
+      if ( args.length === 2 && typeof data === "string" && !REG_NAMESPACE.test(data) ) {
+      }
+      // 取出并进行格式替换
+      else if ( $.isPlainObject(data) ) {
+        result = getStorageData("i18n." + key);
+        result = (typeof result === "string" ? result : "").replace( /\{%\s*([A-Z0-9_]+)\s*%\}/ig, function( txt, k ) {
+          return data[k];
+        });
+      }
+      // 拼接多个数据
+      else {
+        result = "";
 
-          if ( that.storage.i18n.hasOwnProperty(key) ) {
-            $.extend(that.storage.i18n[key], data);
+        $.each(args, function(i, txt) {
+          if ( typeof txt === "string" && REG_NAMESPACE.test(txt) ) {
+            var r = getStorageData("i18n." + txt);
+
+            result += (typeof r === "string" ? r : "");
           }
-          else {
-            that.storage.i18n[key] = data;
-          }
-        }
-        else {
-
-          // 通过 key 从 storage 上取得数据
-          // 根据 key 是否符合 namespace 格式用两种方式
-
-          // 通过第二个参数判断是否需要进行文本“变量”替换
-
-          // 传入多个字符串时可以拼接文本
-
-
-
-
-          // // Getter
-          // if ( REG_NAMESPACE.test(key) ) {
-
-          // }
-
-          // var pairs = args[1];
-
-          // if ( $.isPlainObject( pairs ) ) {
-          //   result = getStorageData( "i18n." + data );
-          //   result = (typeof result === "string" ? result : "").replace( /\{%\s*([A-Z0-9_]+)\s*%\}/ig, function( text, key ) {
-          //     return pairs[ key ];
-          //   });
-          // }
-          // else {
-          //   result = "";
-
-          //   $.each( args, function( i, txt ) {
-          //     if ( typeof txt === "string" && REG_NAMESPACE.test( txt ) ) {
-          //       var r = getStorageData( "i18n." + txt );
-
-          //       result += (typeof r === "string" ? r : "");
-          //     }
-          //   });
-          // }
-        }
+        });
       }
     }
 
@@ -434,13 +409,17 @@ function constructDatasetByAttributes( attributes ) {
  * @return  {String}
  */
 function getStorageData( ns_str ) {
-  var text = storage;
+  var result = _H.storage;
 
-  $.each( ns_str.split("."), function( idx, part ) {
-    return typeof( text = text[ part ] ) in { "string": true, "object": true };
+  $.each(ns_str.split("."), function( idx, part ) {
+    var rv = result.hasOwnProperty(part);
+
+    result = result[part];
+
+    return rv;
   });
 
-  return text;
+  return result;
 }
 
 // if ( queue.events.globalMouseMove.length ) {
