@@ -119,10 +119,10 @@ $.extend( _H, {
    * 
    * @private
    * @method  request
-   * @param {Object/String} options   请求参数列表/请求地址
-   * @param {Function} succeed      请求成功时的回调函数（code > 0）
-   * @param {Function} fail       请求失败时的回调函数（code <= 0）
-   * @param {Boolean} synch       是否为同步，默认为异步
+   * @param   options {Object/String}   请求参数列表/请求地址
+   * @param   succeed {Function}        请求成功时的回调函数（code > 0）
+   * @param   fail {Function}           请求失败时的回调函数（code <= 0）
+   * @param   synch {Boolean}           是否为同步，默认为异步
    * @return  {Object} jqXHR
    */
   request: function( options, succeed, fail, synch ) {},
@@ -191,6 +191,7 @@ $.extend( _H, {
 
       // 单个存储（用 namespace 格式字符串）
       if ( args.length === 2 && typeof data === "string" && !REG_NAMESPACE.test(data) ) {
+        // to do sth.
       }
       // 取出并进行格式替换
       else if ( $.isPlainObject(data) ) {
@@ -323,6 +324,8 @@ $.extend( Hanger, {
       }
       // 存储数据到内部/从内部获取数据
       else {
+        var storage = _H.storage;
+
         if ( typeof target === "string" && REG_NAMESPACE.test(target) ) {
           if ( length === 1 ) {
             result = getStorageData(target);
@@ -433,6 +436,5 @@ function getStorageData( ns_str ) {
 // }
 
 window.Hanger = Hanger;
-Hanger.storage = _H.storage;
 
 })( window, window.jQuery );
