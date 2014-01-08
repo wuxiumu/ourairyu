@@ -387,6 +387,16 @@ $.extend( _P, {
   },
 
   /**
+   * Get current language
+   *
+   * @method  lang
+   * @return  {String}
+   */
+  lang: function() {
+    return ($("html").attr("lang") || navigator.language || navigator.browserLanguage).split("-")[0];
+  },
+
+  /**
    * 帐号
    */
   account: function() {
@@ -414,10 +424,19 @@ $.extend( _P, {
         }
         // 获取指定帐号
         else if ( typeof args[0] === "string" ) {
-          rv = ls.getItem("account_" + args[0]);
+          var key = "account_" + args[0];
+
+          rv = ls.getItem(key);
 
           if ( rv !== null ) {
             rv = JSON.parse(unescape(rv));
+
+            // 更新指定帐号的信息
+            if ( $.isPlainObject(args[1]) ) {
+              rv = $.extend(rv, args[1]);
+
+              ls.setItem(key, escape(JSON.stringify(rv)));
+            }
           }
         }
       }
@@ -432,6 +451,27 @@ $.extend( _P, {
             rv.push( JSON.parse(unescape(ls.getItem(key))) );
           }
         });
+      }
+    }
+
+    return rv;
+  },
+
+  /**
+   * 当前用户信息
+   */
+  currentUser: function() {
+    var ls = window.localStorage;
+    var rv;
+
+    if ( ls && ls.setItem ) {
+      var email = arguments[0];
+
+      if ( /\.+/.test(email) ) {
+        rv = ls.setItem("current_user", email);
+      }
+      else {
+        rv = this.account(ls.getItem("current_user"));
       }
     }
 
