@@ -23,6 +23,9 @@ var DOCUMENT_TYPE_NODE = 10;
 var DOCUMENT_FRAGMENT_NODE = 11;
 var NOTATION_NODE = 12;
 
+// Save a reference to some core methods
+var ls = window.localStorage;
+
 // Regular expressions
 var REG_NAMESPACE = /^[0-9A-Z_.]+[^_.]?$/i;
 
@@ -276,6 +279,61 @@ $.extend( Hanger, {
   lang: function() {
     return storage.config.lang;
   },
+
+  /**
+   * Save data
+   */
+  save: function() {
+    var args = arguments;
+    var key = args[0];
+    var val = args[1];
+    var oldVal;
+
+    // Use localStorage
+    if ( ls ) {
+      if ( typeof key === "string" ) {
+        oldVal = this.access(key);
+
+        ls.setItem(key, encodeURI($.isPlainObject(oldVal) ? JSON.stringify($.extend(oldVal, val)) : val));
+      }
+    }
+    // Use cookie
+    else {
+      
+    }
+  },
+
+  /**
+   * Access data
+   */
+  access: function() {
+    var key = arguments[0];
+    var result;
+
+    if ( typeof key === "string" ) {
+      // localStorage
+      if ( ls ) {
+        result = ls.getItem(key);
+
+        if ( result !== null ) {
+          result = decodeURI(result);
+
+          try {
+            result = JSON.parse(result);
+          }
+          catch (e) {
+            result = result;
+          }
+        }
+      }
+      // Cookie
+      else {
+
+      }
+    }
+
+    return result || null;
+  }
 
   // 把全局事件添加到队列中
   addGlobalEvent: function( event_name, handler ) {
