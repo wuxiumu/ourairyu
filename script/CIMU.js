@@ -412,7 +412,7 @@ $.extend( _P, {
         if ( $.isPlainObject(args[0]) ) {
           var info = args[0];
 
-          rv = escape(JSON.stringify(info));
+          rv = encodeURI(JSON.stringify(info));
 
           ls.setItem(("account_" + info.email), rv);
         }
@@ -429,13 +429,13 @@ $.extend( _P, {
           rv = ls.getItem(key);
 
           if ( rv !== null ) {
-            rv = JSON.parse(unescape(rv));
+            rv = JSON.parse(decodeURI(rv));
 
             // 更新指定帐号的信息
             if ( $.isPlainObject(args[1]) ) {
               rv = $.extend(rv, args[1]);
 
-              ls.setItem(key, escape(JSON.stringify(rv)));
+              ls.setItem(key, encodeURI(JSON.stringify(rv)));
             }
           }
         }
@@ -448,7 +448,7 @@ $.extend( _P, {
           var key = ls.key(i);
 
           if ( key.indexOf("account_") === 0 ) {
-            rv.push( JSON.parse(unescape(ls.getItem(key))) );
+            rv.push( JSON.parse(decodeURI(ls.getItem(key))) );
           }
         });
       }
@@ -461,21 +461,9 @@ $.extend( _P, {
    * 当前用户信息
    */
   currentUser: function() {
-    var ls = window.localStorage;
-    var rv;
-
-    if ( ls && ls.setItem ) {
-      var email = arguments[0];
-
-      if ( /\.+/.test(email) ) {
-        rv = ls.setItem("current_user", email);
-      }
-      else {
-        rv = this.account(ls.getItem("current_user"));
-      }
-    }
-
-    return rv;
+    return /\.+/.test(arguments[0]) ? 
+      this.save("current_user", arguments[0]) :
+      this.account(this.access("current_user"));
   },
 
   /**
