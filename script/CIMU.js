@@ -404,7 +404,7 @@ $.extend( _P, {
     var ls = window.localStorage;
     var rv = null;
 
-    if ( ls && ls.setItem ) {
+    if ( !$.browser.msie || $.browser.version > 8 ) {
       var args = arguments;
 
       if ( args.length ) {
