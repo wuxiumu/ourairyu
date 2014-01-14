@@ -401,8 +401,8 @@ $.extend( _P, {
    */
   account: function() {
     var self = this;
-    var ls = window.localStorage;
-    var rv = null;
+    var prefix = "account_";
+    var rv;
 
     if ( !$.browser.msie || $.browser.version > 8 ) {
       var args = arguments;
@@ -412,9 +412,7 @@ $.extend( _P, {
         if ( $.isPlainObject(args[0]) ) {
           var info = args[0];
 
-          rv = encodeURI(JSON.stringify(info));
-
-          ls.setItem(("account_" + info.email), rv);
+          self.save(prefix + info.email, encodeURI(JSON.stringify(info)));
         }
         // 批量存储帐号信息
         else if ( $.isArray(args[0]) ) {
@@ -424,37 +422,31 @@ $.extend( _P, {
         }
         // 获取指定帐号
         else if ( typeof args[0] === "string" ) {
-          var key = "account_" + args[0];
+          var key = prefix + args[0];
 
-          rv = ls.getItem(key);
-
-          if ( rv !== null ) {
-            rv = JSON.parse(decodeURI(rv));
-
-            // 更新指定帐号的信息
-            if ( $.isPlainObject(args[1]) ) {
-              rv = $.extend(rv, args[1]);
-
-              ls.setItem(key, encodeURI(JSON.stringify(rv)));
-            }
+          // 更新指定帐号的信息
+          if ( (rv = self.access(key)) !== null ) {
+            self.save(key, rv);
           }
         }
       }
       // 获取列表
       else {
+        var ls = window.localStorage;
+
         rv = [];
 
         $.each( ls, function( i ) {
           var key = ls.key(i);
 
-          if ( key.indexOf("account_") === 0 ) {
-            rv.push( JSON.parse(decodeURI(ls.getItem(key))) );
+          if ( key.indexOf(prefix) === 0 ) {
+            rv.push(self.access(key));
           }
         });
       }
     }
 
-    return rv;
+    return rv || null;
   },
 
   /**
