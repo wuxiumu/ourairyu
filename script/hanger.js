@@ -62,9 +62,13 @@ var storage = {
    * @type      {Object}
    */
   fn: {
+    // 初始化函数
+    init: {
+      systemDialog: function() {}
+    },
+    handler: {},
     prepare: [],
-    ready: [],
-    handler: {}
+    ready: []
   },
 
   /**
@@ -134,6 +138,16 @@ $.extend( Hanger, {
    */
   confirmEX: function( message, ok, cancel ) {
     return systemDialog("confirmEX", message, ok, cancel);
+  },
+
+  /**
+   * 设置初始化信息
+   * 
+   * @method  init
+   * @return
+   */
+  init: function() {
+    return initialize.apply(window, [].slice.call(arguments, 0));
   },
 
   /**
@@ -451,7 +465,7 @@ function systemDialog( type, message, okHandler, cancelHandler ) {
           .on({
               // 初始化后的额外处理
               "dialogcreate": function( e, ui ) {
-
+                storage.fn.init.systemDialog.apply(this, [e, ui]);
               },
               // 为按钮添加标记
               "dialogopen": function( e, ui ) {
@@ -602,6 +616,26 @@ function systemDialogHandler( type, message, okHandler, cancelHandler ) {
   dlg
     .dialog("option", "buttons", btns)
     .dialog("open");
+}
+
+/**
+ * 设置初始化信息
+ * 
+ * @private
+ * @method  initialize
+ * @return
+ */
+function initialize() {
+  var args = arguments;
+  var key = args[0];
+  var func = args[1];
+
+  if ( $.isPlainObject(key) ) {
+    $.each(key, initialize);
+  }
+  else if ( $.type(key) === "string" && storage.fn.init.hasOwnProperty(key) && $.isFunction(func) ) {
+    storage.fn.init[key] = func;
+  }
 }
 
 /**
