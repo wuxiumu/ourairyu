@@ -333,7 +333,7 @@ $.extend( Hanger, {
     }
 
     return result || null;
-  }
+  },
 
   // 把全局事件添加到队列中
   addGlobalEvent: function( event_name, handler ) {
