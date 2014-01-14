@@ -124,24 +124,26 @@ $.extend( Hanger, {
    * Asynchronous JavaScript and XML
    * 
    * @method  ajax
-   * @param {Object/String} options   请求参数列表/请求地址
-   * @param {Function} succeed      请求成功时的回调函数（code > 0）
-   * @param {Function} fail       请求失败时的回调函数（code <= 0）
+   * @param   options {Object/String}   请求参数列表/请求地址
+   * @param   succeed {Function}        请求成功时的回调函数（code > 0）
+   * @param   fail {Function}           请求失败时的回调函数（code <= 0）
+   * @return
    */
   ajax: function( options, succeed, fail ) {
-    return _H.request( options, succeed, fail );
+    return request(options, succeed, fail);
   },
   
   /**
    * Synchronous JavaScript and XML
    * 
    * @method  sjax
-   * @param {Object/String} options   请求参数列表/请求地址
-   * @param {Function} succeed      请求成功时的回调函数（code > 0）
-   * @param {Function} fail       请求失败时的回调函数（code <= 0）
+   * @param   options {Object/String}   请求参数列表/请求地址
+   * @param   succeed {Function}        请求成功时的回调函数（code > 0）
+   * @param   fail {Function}           请求失败时的回调函数（code <= 0）
+   * @return
    */
   sjax: function( options, succeed, fail ) {
-    return _H.request( options, succeed, fail, true );
+    return request(options, succeed, fail, true);
   },
   
   /**
@@ -345,7 +347,68 @@ $.extend( Hanger, {
   }
 });
 
-// 通过 HTML 转换
+/**
+ * AJAX & SJAX 请求处理
+ *
+ * 服务端在返回请求结果时必须是个 JSON，如下：
+ *    {
+ *      "code": {Integer}       // 处理结果代码，code > 0 为成功，否则为失败
+ *      "message": {String}     // 请求失败时的提示信息
+ *    }
+ * 
+ * @private
+ * @method  request
+ * @param   options {Object/String}   请求参数列表/请求地址
+ * @param   succeed {Function}        请求成功时的回调函数（）
+ * @param   fail {Function}           请求失败时的回调函数（code <= 0）
+ * @param   synch {Boolean}           是否为同步，默认为异步
+ * @return  {Object}
+ */
+function request( options, succeed, fail, synch ) {
+  // 无参数时跳出
+  if ( arguments.length === 0 ) {
+    return;
+  }
+  
+  // 当 options 不是纯对象时将其当作 url 来处理（不考虑其变量类型）
+  if ( $.isPlainObject( options ) === false ) {
+    options = { url: options };
+  }
+  
+  // 没指定 Ajax 成功回调函数时
+  if ( $.isFunction(options.success) === false ) {
+    options.success = function( data, textStatus, jqXHR ) {
+      if ( data.code > 0 ) {
+        if ( $.isFunction(succeed) ) {
+          succeed.call($, data, textStatus, jqXHR);
+        }
+      }
+      else {
+        if ( $.isFunction(fail) ) {
+          fail.call($, data, textStatus, jqXHR);
+        }
+        // 默认弹出警告对话框
+        else {
+          systemDialog("alert", data.message);
+        }
+      }
+    };
+  }
+  
+  // synch 为 true 时是同步请求，其他情况则为异步请求
+  options.async = synch === true ? false : true;
+  
+  return $.ajax( options );
+}
+
+/**
+ * 通过 HTML 构建 dataset
+ * 
+ * @private
+ * @method  constructDatasetByHTML
+ * @param   html {HTML}   Node's outer html string
+ * @return  {JSON}
+ */
 function constructDatasetByHTML( html ) {
   var dataset = {};
 
@@ -358,7 +421,14 @@ function constructDatasetByHTML( html ) {
   return dataset;
 }
 
-// 通过属性节点转换
+/**
+ * 通过属性列表构建 dataset
+ * 
+ * @private
+ * @method  constructDatasetByAttributes
+ * @param   attributes {NodeList}   Attribute node list
+ * @return  {JSON}
+ */
 function constructDatasetByAttributes( attributes ) {
   var dataset = {};
 
