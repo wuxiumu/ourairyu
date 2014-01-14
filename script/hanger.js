@@ -444,8 +444,7 @@ function systemDialog( type, message, okHandler, cancelHandler ) {
       var dlg = storage.pool[poolName][type];
 
       if ( !dlg ) {
-        dlg = $("<div class=\"system_dialog\" data-role=\"dialog\" data-type=\"system\" />")
-          .append( "<img class=\"dialog_image\" src=\"" + storage.config.path + "image/warning.png\"><div class=\"dialog_text\" />" )
+        dlg = $("<div data-role=\"dialog\" data-type=\"system\" />")
           .appendTo($("body"))
           .dialog({
               "title": _H.i18n("w.n.system", "w.n.tooltip"),
@@ -464,7 +463,7 @@ function systemDialog( type, message, okHandler, cancelHandler ) {
           .on({
               // 初始化后的额外处理
               "dialogcreate": function( e, ui ) {
-                storage.fn.init.systemDialog.apply(this, [e, ui]);
+                storage.fn.init.systemDialog.apply(this, [e, storage.config.path, ui]);
               },
               // 为按钮添加标记
               "dialogopen": function( e, ui ) {

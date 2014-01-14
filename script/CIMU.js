@@ -11,7 +11,11 @@
 
 var _P = $.extend(true, {}, __);
 
-var REG_NAMESPACE = /^[0-9A-Z_.]+[^_.]?$/i;
+_P.init("systemDialog", function( e, path ) {
+  $(this)
+    .addClass("system_dialog")
+    .append("<img class=\"dialog_image\" src=\"" + path + "image/warning.png\"><div class=\"dialog_text\" />");
+});
 
 /**
  * 将 location.hash 转换为 object
