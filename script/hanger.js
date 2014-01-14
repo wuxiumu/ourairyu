@@ -98,15 +98,53 @@ $.extend( Hanger, {
  * ======================================
  */
   /**
+   * 自定义警告提示框
+   *
+   * @method  alert
+   * @param   message {String}
+   * @param   [callback] {Function}
+   * @return  {Boolean}
+   */
+  alert: function( message, callback ) {
+    return systemDialog("alert", message, callback);
+  },
+  
+  /**
+   * 自定义确认提示框（两个按钮）
+   *
+   * @method  confirm
+   * @param   message {String}
+   * @param   [ok] {Function}       Callback for 'OK' button
+   * @param   [cancel] {Function}   Callback for 'CANCEL' button
+   * @return  {Boolean}
+   */
+  confirm: function( message, ok, cancel ) {
+    return systemDialog("confirm", message, ok, cancel);
+  },
+  
+  /**
+   * 自定义确认提示框（两个按钮）
+   *
+   * @method  confirm
+   * @param   message {String}
+   * @param   [ok] {Function}       Callback for 'OK' button
+   * @param   [cancel] {Function}   Callback for 'CANCEL' button
+   * @return  {Boolean}
+   */
+  confirmEX: function( message, ok, cancel ) {
+    return systemDialog("confirmEX", message, ok, cancel);
+  },
+
+  /**
    * 沙箱
    * 
    * @method  sandbox
    * @param {Object} setting  系统环境配置
    * @return  {Object}      （修改后的）系统环境配置
    */
-  sandbox: function( setting ) {
-    return _H.sandbox( setting );
-  },
+  // sandbox: function( setting ) {
+  //   return _H.sandbox( setting );
+  // },
   
   /**
    * 获取指定的内部数据载体
@@ -116,9 +154,9 @@ $.extend( Hanger, {
    * @param {Boolean} isCopy  是否返回副本
    * @return  {Object}
    */
-  storage: function( name, isCopy ) {
-    return _H.getDataset( name, isCopy );
-  },
+  // storage: function( name, isCopy ) {
+  //   return _H.getDataset( name, isCopy );
+  // },
 
   /**
    * Asynchronous JavaScript and XML
@@ -152,9 +190,9 @@ $.extend( Hanger, {
    * @method  queue
    * @return
    */
-  queue: function() {
-    return _H.bindHandler.apply( _H, [].slice.call(arguments, 0) );
-  },
+  // queue: function() {
+  //   return _H.bindHandler.apply( _H, [].slice.call(arguments, 0) );
+  // },
   
   /**
    * 执行指定函数
@@ -164,9 +202,9 @@ $.extend( Hanger, {
    * @param {List}        函数的参数
    * @return  {Variant}     函数执行的返回值
    */
-  run: function( funcName ) {
-    return _H.runHandler( funcName, [].slice.call(arguments, 1) );
-  },
+  // run: function( funcName ) {
+  //   return _H.runHandler( funcName, [].slice.call(arguments, 1) );
+  // },
 
   /**
    * 获取 DOM 的「data-*」属性集
@@ -346,6 +384,190 @@ $.extend( Hanger, {
     }
   }
 });
+
+/**
+ * 生成自定义系统对话框
+ * 
+ * @private
+ * @method  systemDialog
+ * @param   type {String}
+ * @param   message {String}
+ * @param   okHandler {Function}
+ * @param   cancelHandler {Function}
+ * @return  {Boolean}
+ */
+function systemDialog( type, message, okHandler, cancelHandler ) {
+  var result = false;
+
+  if ( $.type(type) === "string" ) {
+    type = type.toLowerCase();
+
+    // jQuery UI Dialog
+    if ( $.isFunction($.fn.dialog) ) {
+      var poolName = "systemDialog";
+
+      if ( !storage.pool.hasOwnProperty(poolName) ) {
+        storage.pool[poolName] = {};
+      }
+
+      var dlg = storage.pool[poolName][type];
+
+      if ( !dlg ) {
+        dlg = $("<div data-role=\"dialog\" data-type=\"system\" />")
+          .append( "<img class=\"dialog_image\" src=\"image/warning.png\"><div class=\"dialog_text\" />" )
+          .appendTo($("body"))
+          .dialog({
+              "title": Hanger.i18n("w.n.system", "w.n.tooltip"),
+              "width": 400,
+              "minHeight": 100,
+              "closeText": Hanger.i18n("w.v.close"),
+              "modal": true,
+              "autoOpen": false,
+              "resizable": false,
+              "closeOnEscape": false
+            });
+
+        storage.pool[poolName][type] = dlg;
+
+        dlg
+          // 为按钮添加标记
+          .on("dialogopen", function() {
+            var flag = "button_inited";
+
+            if ( $(this).data(flag) !== true ) {
+              $(".ui-dialog-buttonset .ui-button", $(this).closest(".ui-dialog")).each(function() {
+                var btn = $(this);
+                var flag;
+
+                switch( $.trim( btn.text() ) ) {
+                  case Hanger.i18n( "w.v.determine" ):
+                    flag = "ok";
+                    break;
+                  case Hanger.i18n( "w.v.cancel" ):
+                    flag = "cancel";
+                    break;
+                  case Hanger.i18n( "w.int.yes" ):
+                    flag = "yes";
+                    break;
+                  case Hanger.i18n( "w.int.no" ):
+                    flag = "no";
+                    break;
+                }
+
+                btn.addClass( "ui-button-" + flag );
+              });
+
+              if ( flag !== undefined ) {
+                $(this).data(flag, true);
+              }
+            }
+          })
+          // 移除关闭按钮
+          .closest(".ui-dialog").find(".ui-dialog-titlebar-close").remove();
+      }
+
+      result = systemDialogHandler(type, message, okHandler, cancelHandler);
+    }
+    // 使用 window 提示框
+    else {
+      result = true;
+
+      if ( type === "alert" ) {
+        window.alert(message);
+      }
+      else {
+        if ( window.confirm(message) ) {
+          if ( $.isFunction(okHandler) ) {
+            okHandler();
+          }
+        }
+        else {
+          if ( $.isFunction(cancelHandler) ) {
+            cancelHandler();
+          }
+        }
+      }
+    }
+  }
+
+  return result;
+}
+
+/**
+ * 系统对话框的提示信息以及按钮处理
+ * 
+ * @private
+ * @method  systemDialogHandler
+ * @param   type {String}             对话框类型
+ * @param   message {String}          提示信息内容
+ * @param   okHandler {Function}      确定按钮
+ * @param   cancelHandler {Function}  取消按钮
+ */
+function systemDialogHandler( type, message, okHandler, cancelHandler ) {
+  var btns = [];
+  var btnText = {
+      "ok": Hanger.i18n( "w.v.determine" ),
+      "cancel": Hanger.i18n( "w.v.cancel" ),
+      "yes": Hanger.i18n( "w.int.yes" ),
+      "no": Hanger.i18n( "w.int.no" )
+    };
+  var handler = function( cb, rv ) {
+      $(this).dialog("close");
+
+      if ( $.isFunction( cb ) ) {
+          cb();
+      }
+
+      return rv;
+    };
+
+  // 设置按钮以及其处理函数
+  if ( type === "confirm" ) {
+    btns.push({
+      "text": btnText.ok,
+      "click": function() { handler.apply(this, [okHandler, true]); }
+    });
+
+    btns.push({
+      "text": btnText.cancel,
+      "click": function() { handler.apply(this, [cancelHandler, false]); }
+    });
+  }
+  else if ( type === "confirmEX" ) {
+    btns.push({
+      "text": btnText.yes,
+      "click": function() { handler.apply(this, [okHandler, true]); }
+    });
+
+    btns.push({
+      "text": btnText.no,
+      "click": function() { handler.apply(this, [cancelHandler, false]); }
+    });
+
+    btns.push({
+      "text": btnText.cancel,
+      "click": function() { handler.apply(this, [null, false]); }
+    });
+  }
+  else {
+    type = "alert";
+
+    if ( okHandler !== null ) {
+      btns.push({
+        "text": btnText.ok,
+        "click": function() { handler.apply(this, [okHandler, true]); }
+      });
+    }
+    else {
+      btns = null;
+    }
+  }
+
+  // 将提示信息内容以及按钮添加到系统对话框上并打开
+  storage.pool.systemDialog[type]
+    .children(".dialog_text").html(message || "")
+    .closest(".system_dialog").dialog("option", "buttons", btns).dialog("open");
+}
 
 /**
  * AJAX & SJAX 请求处理
