@@ -14,164 +14,6 @@ var _P = $.extend(true, {}, __);
 var REG_NAMESPACE = /^[0-9A-Z_.]+[^_.]?$/i;
 
 /**
- * 生成自定义系统对话框
- * 
- * @private
- * @method  systemDialog
- * @param   {String} type
- * @param   {String} message
- * @param   {Function} okHandler
- * @param   {Function} cancelHandler
- * @return   {Boolean}
- */
-function systemDialog( type, message, okHandler, cancelHandler ) {
-  var result = false;
-
-  // 确保已经引入 jQuery UI Dialog
-  if ( $.fn.dialog && $.type(type) === "string" ) {
-    var dlgCls = "CIMU-" + type.toLowerCase();
-    var dialog = $("." + dlgCls);
-
-    // 构建对话框
-    if ( dialog.size() === 0 ) {
-      dialog = $("<div />")
-        .addClass( dlgCls )
-        .addClass( "system_dialog" )
-        .attr({ "data-role": "dialog", "data-type": "system" })
-        .append( "<img class=\"dialog_image\" src=\"<%= asset_path('common/dialog/warning.png') %>\"><div class=\"dialog_text\" />" );
-
-      dialog.appendTo( $("body") )
-        .dialog({
-          "title": _P.i18n("w.n.system", "w.n.tooltip"),
-          "width": 400,
-          "minHeight": 100,
-          "closeText": _P.i18n("w.v.close"),
-          "modal": true,
-          "autoOpen": false,
-          "resizable": false,
-          "closeOnEscape": false
-        })
-        // 为按钮添加标记
-        .on("dialogopen", function() {
-          var flag = "button_inited";
-
-          if ( $(this).data(flag) !== true ) {
-            $(".ui-dialog-buttonset .ui-button", $(this).closest(".ui-dialog")).each(function() {
-              var btn = $(this);
-              var flag;
-
-              switch( $.trim( btn.text() ) ) {
-                case _P.i18n( "w.v.determine" ):
-                  flag = "ok";
-                  break;
-                case _P.i18n( "w.v.cancel" ):
-                  flag = "cancel";
-                  break;
-                case _P.i18n( "w.int.yes" ):
-                  flag = "yes";
-                  break;
-                case _P.i18n( "w.int.no" ):
-                  flag = "no";
-                  break;
-              }
-
-              btn.addClass( "ui-button-" + flag );
-            });
-
-            if ( flag !== undefined ) {
-              $(this).data(flag, true);
-            }
-          }
-        })
-        // 移除关闭按钮
-        .closest(".ui-dialog")
-        .find(".ui-dialog-titlebar-close")
-        .remove();
-    }
-
-    result = systemDialogHandler(type, message, okHandler, cancelHandler);
-  }
-
-  return result;
-}
-
-/**
- * 系统对话框的提示信息以及按钮处理
- * 
- * @private
- * @method  systemDialogHandler
- * @param   {String} type               对话框类型
- * @param   {String} message            提示信息内容
- * @param   {Function} okHandler        确定按钮
- * @param   {Function}  cancelHandler   取消按钮
- */
-function systemDialogHandler( type, message, okHandler, cancelHandler ) {
-    var btns = [];
-    var btnText = {
-        "ok": _P.i18n( "w.v.determine" ),
-        "cancel": _P.i18n( "w.v.cancel" ),
-        "yes": _P.i18n( "w.int.yes" ),
-        "no": _P.i18n( "w.int.no" )
-    };
-    var handler = function( cb, rv ) {
-        $(this).dialog("close");
-
-        if ( $.isFunction( cb ) ) {
-            cb();
-        }
-
-        return rv;
-    };
-
-    // 设置按钮以及其处理函数
-    if ( type === "confirm" ) {
-        btns.push({
-            "text": btnText.ok,
-            "click": function() { handler.apply(this, [okHandler, true]); }
-        });
-
-        btns.push({
-            "text": btnText.cancel,
-            "click": function() { handler.apply(this, [cancelHandler, false]); }
-        });
-    }
-    else if ( type === "confirmEX" ) {
-        btns.push({
-            "text": btnText.yes,
-            "click": function() { handler.apply(this, [okHandler, true]); }
-        });
-
-        btns.push({
-            "text": btnText.no,
-            "click": function() { handler.apply(this, [cancelHandler, false]); }
-        });
-
-        btns.push({
-            "text": btnText.cancel,
-            "click": function() { handler.apply(this, [null, false]); }
-        });
-    }
-    else {
-        type = "alert";
-
-        if ( okHandler !== null ) {
-            btns.push({
-                "text": btnText.ok,
-                "click": function() { handler.apply(this, [okHandler, true]); }
-            });
-        }
-        else {
-            btns = null;
-        }
-    }
-
-    // 将提示信息内容以及按钮添加到系统对话框上并打开
-    $(".CIMU-" + type.toLowerCase())
-        .children(".dialog_text").html(message || "")
-        .closest(".system_dialog").dialog("option", "buttons", btns).dialog("open");
-}
-
-/**
  * 将 location.hash 转换为 object
  * 
  * @private
@@ -349,44 +191,6 @@ function getStorageData( ns_str ) {
 
 $.extend( _P, {
   /**
-   * 自定义警告提示框
-   *
-   * @method  alert
-   * @param   message {String}
-   * @param   [callback] {Function}
-   * @return  {Boolean}
-   */
-  alert: function( message, callback ) {
-    return systemDialog("alert", message, callback);
-  },
-
-  /**
-   * 自定义确认提示框（两个按钮）
-   *
-   * @method  confirm
-   * @param   message {String}
-   * @param   [ok] {Function}       Callback for 'OK' button
-   * @param   [cancel] {Function}   Callback for 'CANCEL' button
-   * @return  {Boolean}
-   */
-  confirm: function( message, ok, cancel ) {
-    return systemDialog("confirm", message, ok, cancel);
-  },
-
-  /**
-   * 自定义确认提示框（三个按钮）
-   *
-   * @method  confirmEX
-   * @param   message {String}
-   * @param   [ok] {Function}       Callback for 'YES' button
-   * @param   [cancel] {Function}   Callback for 'NO' button
-   * @return  {Boolean}
-   */
-  confirmEX: function( message, ok, cancel ) {
-    return systemDialog("confirmEX", message, ok, cancel);
-  },
-
-  /**
    * Get current language
    *
    * @method  lang
@@ -405,27 +209,29 @@ $.extend( _P, {
     var rv;
 
     if ( !$.browser.msie || $.browser.version > 8 ) {
-      var args = arguments;
+      if ( arguments.length ) {
+        var info = arguments[0];
 
-      if ( args.length ) {
         // 存储指定帐号信息
-        if ( $.isPlainObject(args[0]) ) {
-          var info = args[0];
-
-          self.save(prefix + info.email, encodeURI(JSON.stringify(info)));
+        if ( $.isPlainObject(info) ) {
+          self.save(prefix + info.email, JSON.stringify(info));
         }
         // 批量存储帐号信息
-        else if ( $.isArray(args[0]) ) {
-          $.each( args[0], function( n ) {
+        else if ( $.isArray(info) ) {
+          $.each( info, function( n ) {
             self.account( n );
           });
         }
         // 获取指定帐号
-        else if ( typeof args[0] === "string" ) {
-          var key = prefix + args[0];
+        else if ( typeof info === "string" ) {
+          var key = prefix + info;
+
+          rv = self.access(key);
 
           // 更新指定帐号的信息
-          if ( (rv = self.access(key)) !== null ) {
+          if ( rv !== null && $.isPlainObject(arguments[1]) ) {
+            rv = $.extend(rv, arguments[1]);
+
             self.save(key, rv);
           }
         }
@@ -437,10 +243,10 @@ $.extend( _P, {
         rv = [];
 
         $.each( ls, function( i ) {
-          var key = ls.key(i);
+          var k = ls.key(i);
 
-          if ( key.indexOf(prefix) === 0 ) {
-            rv.push(self.access(key));
+          if ( k.indexOf(prefix) === 0 ) {
+            rv.push(self.access(k));
           }
         });
       }
