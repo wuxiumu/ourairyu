@@ -448,38 +448,44 @@ function systemDialog( type, message, okHandler, cancelHandler ) {
         storage.pool[poolName][type] = dlg;
 
         dlg
-          // 为按钮添加标记
-          .on("dialogopen", function() {
-            var flag = "button_inited";
+          .on({
+              // 初始化后的额外处理
+              "dialogcreate": function( e, ui ) {
 
-            if ( $(this).data(flag) !== true ) {
-              $(".ui-dialog-buttonset .ui-button", $(this).closest(".ui-dialog")).each(function() {
-                var btn = $(this);
-                var flag;
+              },
+              // 为按钮添加标记
+              "dialogopen": function( e, ui ) {
+                var flag = "button_inited";
 
-                switch( $.trim( btn.text() ) ) {
-                  case Hanger.i18n( "w.v.determine" ):
-                    flag = "ok";
-                    break;
-                  case Hanger.i18n( "w.v.cancel" ):
-                    flag = "cancel";
-                    break;
-                  case Hanger.i18n( "w.int.yes" ):
-                    flag = "yes";
-                    break;
-                  case Hanger.i18n( "w.int.no" ):
-                    flag = "no";
-                    break;
+                if ( $(this).data(flag) !== true ) {
+                  $(".ui-dialog-buttonset .ui-button", $(this).closest(".ui-dialog")).each(function() {
+                    var btn = $(this);
+                    var flag;
+
+                    switch( $.trim( btn.text() ) ) {
+                      case Hanger.i18n( "w.v.determine" ):
+                        flag = "ok";
+                        break;
+                      case Hanger.i18n( "w.v.cancel" ):
+                        flag = "cancel";
+                        break;
+                      case Hanger.i18n( "w.int.yes" ):
+                        flag = "yes";
+                        break;
+                      case Hanger.i18n( "w.int.no" ):
+                        flag = "no";
+                        break;
+                    }
+
+                    btn.addClass( "ui-button-" + flag );
+                  });
+
+                  if ( flag !== undefined ) {
+                    $(this).data(flag, true);
+                  }
                 }
-
-                btn.addClass( "ui-button-" + flag );
-              });
-
-              if ( flag !== undefined ) {
-                $(this).data(flag, true);
               }
-            }
-          })
+            })
           // 移除关闭按钮
           .closest(".ui-dialog").find(".ui-dialog-titlebar-close").remove();
       }
@@ -522,13 +528,6 @@ function systemDialog( type, message, okHandler, cancelHandler ) {
  * @param   cancelHandler {Function}  取消按钮
  */
 function systemDialogHandler( type, message, okHandler, cancelHandler ) {
-  var btns = [];
-  var btnText = {
-      "ok": Hanger.i18n( "w.v.determine" ),
-      "cancel": Hanger.i18n( "w.v.cancel" ),
-      "yes": Hanger.i18n( "w.int.yes" ),
-      "no": Hanger.i18n( "w.int.no" )
-    };
   var handler = function( cb, rv ) {
       $(this).dialog("close");
 
@@ -538,6 +537,21 @@ function systemDialogHandler( type, message, okHandler, cancelHandler ) {
 
       return rv;
     };
+
+  var btns = [];
+  var btnText = {
+      "ok": Hanger.i18n( "w.v.determine" ),
+      "cancel": Hanger.i18n( "w.v.cancel" ),
+      "yes": Hanger.i18n( "w.int.yes" ),
+      "no": Hanger.i18n( "w.int.no" )
+    };
+
+  var dlg = storage.pool.systemDialog[type];
+  var dlgContent = $("[data-role='dialog-content']", dlg);
+
+  if ( dlgContent.size() === 0 ) {
+    dlgContent = dlg;
+  }
 
   // 设置按钮以及其处理函数
   if ( type === "confirm" ) {
@@ -581,10 +595,13 @@ function systemDialogHandler( type, message, okHandler, cancelHandler ) {
     }
   }
 
-  // 将提示信息内容以及按钮添加到系统对话框上并打开
-  storage.pool.systemDialog[type]
-    .children(".dialog_text").html(message || "")
-    .closest(".system_dialog").dialog("option", "buttons", btns).dialog("open");
+  // 提示信息内容
+  dlgContent.html(message || "");
+
+  // 添加按钮并打开对话框
+  dlg
+    .dialog("option", "buttons", btns)
+    .dialog("open");
 }
 
 /**
