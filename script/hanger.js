@@ -39,7 +39,6 @@ var REG_NAMESPACE = /^[0-9A-Z_.]+[^_.]?$/i;
 
 // Main objects
 var _H = {};        // For internal usage
-var Hanger = {};    // For external usage
 
 var storage = {
   /**
@@ -96,7 +95,7 @@ var storage = {
   i18n: {}
 };
 
-$.extend( Hanger, {
+$.extend( _H, {
 /*
  * ======================================
  *  核心方法
@@ -449,10 +448,10 @@ function systemDialog( type, message, okHandler, cancelHandler ) {
           .append( "<img class=\"dialog_image\" src=\"" + storage.config.path + "image/warning.png\"><div class=\"dialog_text\" />" )
           .appendTo($("body"))
           .dialog({
-              "title": Hanger.i18n("w.n.system", "w.n.tooltip"),
+              "title": _H.i18n("w.n.system", "w.n.tooltip"),
               "width": 400,
               "minHeight": 100,
-              "closeText": Hanger.i18n("w.v.close"),
+              "closeText": _H.i18n("w.v.close"),
               "modal": true,
               "autoOpen": false,
               "resizable": false,
@@ -477,16 +476,16 @@ function systemDialog( type, message, okHandler, cancelHandler ) {
                     var flag;
 
                     switch( $.trim( btn.text() ) ) {
-                      case Hanger.i18n( "w.v.determine" ):
+                      case _H.i18n( "w.v.determine" ):
                         flag = "ok";
                         break;
-                      case Hanger.i18n( "w.v.cancel" ):
+                      case _H.i18n( "w.v.cancel" ):
                         flag = "cancel";
                         break;
-                      case Hanger.i18n( "w.int.yes" ):
+                      case _H.i18n( "w.int.yes" ):
                         flag = "yes";
                         break;
-                      case Hanger.i18n( "w.int.no" ):
+                      case _H.i18n( "w.int.no" ):
                         flag = "no";
                         break;
                     }
@@ -554,10 +553,10 @@ function systemDialogHandler( type, message, okHandler, cancelHandler ) {
 
   var btns = [];
   var btnText = {
-      "ok": Hanger.i18n( "w.v.determine" ),
-      "cancel": Hanger.i18n( "w.v.cancel" ),
-      "yes": Hanger.i18n( "w.int.yes" ),
-      "no": Hanger.i18n( "w.int.no" )
+      "ok": _H.i18n( "w.v.determine" ),
+      "cancel": _H.i18n( "w.v.cancel" ),
+      "yes": _H.i18n( "w.int.yes" ),
+      "no": _H.i18n( "w.int.no" )
     };
 
   var dlg = storage.pool.systemDialog[type];
@@ -619,7 +618,7 @@ function systemDialogHandler( type, message, okHandler, cancelHandler ) {
 }
 
 /**
- * 设置初始化信息
+ * 设置初始化函数
  * 
  * @private
  * @method  initialize
@@ -766,6 +765,6 @@ function getStorageData( ns_str ) {
 //   })
 // }
 
-window.Hanger = Hanger;
+window.Hanger = _H;
 
 })( window, window.jQuery );
