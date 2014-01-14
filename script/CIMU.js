@@ -14,7 +14,7 @@ var _P = $.extend(true, {}, __);
 _P.init("systemDialog", function( e, path ) {
   $(this)
     .addClass("system_dialog")
-    .append("<img class=\"dialog_image\" src=\"" + path + "image/warning.png\"><div class=\"dialog_text\" />");
+    .append("<img class=\"dialog_image\" src=\"" + path + "image/warning.png\"><div data-role=\"dialog-content\" class=\"dialog_text\" />");
 });
 
 /**
