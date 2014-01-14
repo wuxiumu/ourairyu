@@ -51,7 +51,8 @@ var storage = {
     lang: (document.documentElement.lang ||
       document.documentElement.getAttribute("lang") ||
       navigator.language ||
-      navigator.browserLanguage).split("-")[0]
+      navigator.browserLanguage).split("-")[0],
+    path: currentPath()
   },
 
   /**
@@ -386,6 +387,23 @@ $.extend( Hanger, {
 });
 
 /**
+ * 获取当前脚本所在目录路径
+ * 
+ * @private
+ * @method  currentPath
+ * @return  {String}
+ */
+function currentPath() {
+  var scripts = document.scripts;
+  var script = scripts[scripts.length - 1];
+  var link = document.createElement("a");
+
+  link.href = script.hasAttribute ? script.src : script.getAttribute("src", 4);
+
+  return link.pathname.replace(/[^\/]+\.js$/i, "");
+}
+
+/**
  * 生成自定义系统对话框
  * 
  * @private
@@ -413,8 +431,8 @@ function systemDialog( type, message, okHandler, cancelHandler ) {
       var dlg = storage.pool[poolName][type];
 
       if ( !dlg ) {
-        dlg = $("<div data-role=\"dialog\" data-type=\"system\" />")
-          .append( "<img class=\"dialog_image\" src=\"image/warning.png\"><div class=\"dialog_text\" />" )
+        dlg = $("<div class=\"system_dialog\" data-role=\"dialog\" data-type=\"system\" />")
+          .append( "<img class=\"dialog_image\" src=\"" + storage.config.path + "image/warning.png\"><div class=\"dialog_text\" />" )
           .appendTo($("body"))
           .dialog({
               "title": Hanger.i18n("w.n.system", "w.n.tooltip"),
