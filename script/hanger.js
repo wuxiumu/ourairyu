@@ -458,7 +458,7 @@ function systemDialog( type, message, okHandler, cancelHandler ) {
     // jQuery UI Dialog
     if ( $.isFunction($.fn.dialog) ) {
       var poolName = "systemDialog";
-      var i18nText = storage.i18n._SYS.dialog[storage.config.lang];
+      var i18nText = storage.i18n._SYS.dialog[_H.config("lang")];
 
       if ( !storage.pool.hasOwnProperty(poolName) ) {
         storage.pool[poolName] = {};
@@ -552,7 +552,7 @@ function systemDialog( type, message, okHandler, cancelHandler ) {
  * @param   cancelHandler {Function}  取消按钮
  */
 function systemDialogHandler( type, message, okHandler, cancelHandler ) {
-  var i18nText = storage.i18n._SYS.dialog[storage.config.lang];
+  var i18nText = storage.i18n._SYS.dialog[_H.config("lang")];
   var handler = function( cb, rv ) {
       $(this).dialog("close");
 
