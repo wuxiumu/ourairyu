@@ -92,7 +92,28 @@ var storage = {
    * @property  i18n
    * @type      {Object}
    */
-  i18n: {}
+  i18n: {
+    _SYS: {
+      dialog: {
+        zh: {
+          title: "系统提示",
+          close: "关闭",
+          ok: "确定",
+          cancel: "取消",
+          yes: "是",
+          no: "否"
+        },
+        en: {
+          title: "System",
+          close: "Close",
+          ok: "Ok",
+          cancel: "Cancel",
+          yes: "Yes",
+          no: "No"
+        }
+      }
+    }
+  }
 };
 
 $.extend( _H, {
@@ -437,6 +458,7 @@ function systemDialog( type, message, okHandler, cancelHandler ) {
     // jQuery UI Dialog
     if ( $.isFunction($.fn.dialog) ) {
       var poolName = "systemDialog";
+      var i18nText = storage.i18n._SYS.dialog[storage.config.lang];
 
       if ( !storage.pool.hasOwnProperty(poolName) ) {
         storage.pool[poolName] = {};
@@ -447,11 +469,39 @@ function systemDialog( type, message, okHandler, cancelHandler ) {
       if ( !dlg ) {
         dlg = $("<div data-role=\"dialog\" data-type=\"system\" />")
           .appendTo($("body"))
+          .on({
+              // 初始化后的额外处理
+              "dialogcreate": storage.fn.init.systemDialog,
+              // 为按钮添加标记
+              "dialogopen": function( e, ui ) {
+                $(".ui-dialog-buttonset .ui-button", $(this).closest(".ui-dialog")).each(function() {
+                  var btn = $(this);
+                  var type;
+
+                  switch( $.trim( btn.text() ) ) {
+                    case i18nText.ok:
+                      type = "ok";
+                      break;
+                    case i18nText.cancel:
+                      type = "cancel";
+                      break;
+                    case i18nText.yes:
+                      type = "yes";
+                      break;
+                    case i18nText.no:
+                      type = "no";
+                      break;
+                  }
+
+                  btn.addClass( "ui-button-" + type );
+                });
+              }
+            })
           .dialog({
-              "title": _H.i18n("w.n.system", "w.n.tooltip"),
+              "title": i18nText.title,
               "width": 400,
               "minHeight": 100,
-              "closeText": _H.i18n("w.v.close"),
+              "closeText": i18nText.close,
               "modal": true,
               "autoOpen": false,
               "resizable": false,
@@ -460,45 +510,8 @@ function systemDialog( type, message, okHandler, cancelHandler ) {
 
         storage.pool[poolName][type] = dlg;
 
-        dlg
-          .on({
-              // 初始化后的额外处理
-              "dialogcreate": storage.fn.init.systemDialog,
-              // 为按钮添加标记
-              "dialogopen": function( e, ui ) {
-                var flag = "button_inited";
-
-                if ( $(this).data(flag) !== true ) {
-                  $(".ui-dialog-buttonset .ui-button", $(this).closest(".ui-dialog")).each(function() {
-                    var btn = $(this);
-                    var flag;
-
-                    switch( $.trim( btn.text() ) ) {
-                      case _H.i18n( "w.v.determine" ):
-                        flag = "ok";
-                        break;
-                      case _H.i18n( "w.v.cancel" ):
-                        flag = "cancel";
-                        break;
-                      case _H.i18n( "w.int.yes" ):
-                        flag = "yes";
-                        break;
-                      case _H.i18n( "w.int.no" ):
-                        flag = "no";
-                        break;
-                    }
-
-                    btn.addClass( "ui-button-" + flag );
-                  });
-
-                  if ( flag !== undefined ) {
-                    $(this).data(flag, true);
-                  }
-                }
-              }
-            })
-          // 移除关闭按钮
-          .closest(".ui-dialog").find(".ui-dialog-titlebar-close").remove();
+        // 移除关闭按钮
+        dlg.closest(".ui-dialog").find(".ui-dialog-titlebar-close").remove();
       }
 
       result = systemDialogHandler(type, message, okHandler, cancelHandler);
@@ -539,6 +552,7 @@ function systemDialog( type, message, okHandler, cancelHandler ) {
  * @param   cancelHandler {Function}  取消按钮
  */
 function systemDialogHandler( type, message, okHandler, cancelHandler ) {
+  var i18nText = storage.i18n._SYS.dialog[storage.config.lang];
   var handler = function( cb, rv ) {
       $(this).dialog("close");
 
@@ -551,10 +565,10 @@ function systemDialogHandler( type, message, okHandler, cancelHandler ) {
 
   var btns = [];
   var btnText = {
-      "ok": _H.i18n( "w.v.determine" ),
-      "cancel": _H.i18n( "w.v.cancel" ),
-      "yes": _H.i18n( "w.int.yes" ),
-      "no": _H.i18n( "w.int.no" )
+      "ok": i18nText.ok,
+      "cancel": i18nText.cancel,
+      "yes": i18nText.yes,
+      "no": i18nText.no
     };
 
   var dlg = storage.pool.systemDialog[type];
@@ -576,7 +590,7 @@ function systemDialogHandler( type, message, okHandler, cancelHandler ) {
       "click": function() { handler.apply(this, [cancelHandler, false]); }
     });
   }
-  else if ( type === "confirmEX" ) {
+  else if ( type === "confirmex" ) {
     btns.push({
       "text": btnText.yes,
       "click": function() { handler.apply(this, [okHandler, true]); }
