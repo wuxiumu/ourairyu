@@ -411,6 +411,25 @@ $.extend( _H, {
     return result || null;
   },
 
+  url: function() {
+    var loc = window.location;
+    var url = {
+        search: loc.search.substring(1),
+        hash: loc.hash.substring(1),
+        query: {}
+      };
+
+    $.each(url.search.split("&"), function( i, str ) {
+      str = str.split("=");
+
+      if ( $.trim(str[0]) !== "" ) {
+        url.query[str[0]] = str[1];
+      }
+    });
+
+    return url;
+  }/*,
+
   // 把全局事件添加到队列中
   addGlobalEvent: function( event_name, handler ) {
     if ( typeof event_name === "string" && $.isFunction(handler) ) {
@@ -418,7 +437,7 @@ $.extend( _H, {
         queue.events.globalMouseMove.push( handler );
       }
     }
-  }
+  }*/
 });
 
 /**
