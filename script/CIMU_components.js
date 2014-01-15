@@ -442,7 +442,7 @@ function moveTabs( btn, direction, index ) {
 function chosenOptions() {
   var opts = {};
 
-  if ( CM.lang() === "zh" ) {
+  if ( CM.config("lang") === "zh" ) {
     $.extend(opts, {
       no_results_text: "没有找到",
       placeholder_text_single: "请选择",
