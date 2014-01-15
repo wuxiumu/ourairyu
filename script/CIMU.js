@@ -11,10 +11,10 @@
 
 var _P = $.extend(true, {}, __);
 
-_P.init("systemDialog", function( e, path ) {
+_P.init("systemDialog", function() {
   $(this)
     .addClass("system_dialog")
-    .append("<img class=\"dialog_image\" src=\"" + path + "image/warning.png\"><div data-role=\"dialog-content\" class=\"dialog_text\" />");
+    .append("<img class=\"dialog_image\" src=\"" + _P.config("path") + "image/warning.png\"><div data-role=\"dialog-content\" class=\"dialog_text\" />");
 });
 
 /**
@@ -194,16 +194,6 @@ function getStorageData( ns_str ) {
 }
 
 $.extend( _P, {
-  /**
-   * Get current language
-   *
-   * @method  lang
-   * @return  {String}
-   */
-  lang: function() {
-    return ($("html").attr("lang") || navigator.language || navigator.browserLanguage).split("-")[0];
-  },
-
   /**
    * 帐号
    */

@@ -150,6 +150,17 @@ $.extend( _H, {
   },
 
   /**
+   * 获取系统信息
+   * 
+   * @method  config
+   * @param   [key] {String}
+   * @return  {Object}
+   */
+  config: function( key ) {
+    return $.type(key) === "string" ? storage.config[key] : $.extend(true, {}, storage.config);
+  },
+
+  /**
    * 沙箱
    * 
    * @method  sandbox
@@ -325,16 +336,6 @@ $.extend( _H, {
   },
 
   /**
-   * Get current language
-   *
-   * @method  lang
-   * @return  {String}
-   */
-  lang: function() {
-    return storage.config.lang;
-  },
-
-  /**
    * Save data
    */
   save: function() {
@@ -462,9 +463,7 @@ function systemDialog( type, message, okHandler, cancelHandler ) {
         dlg
           .on({
               // 初始化后的额外处理
-              "dialogcreate": function( e, ui ) {
-                storage.fn.init.systemDialog.apply(this, [e, storage.config.path, ui]);
-              },
+              "dialogcreate": storage.fn.init.systemDialog,
               // 为按钮添加标记
               "dialogopen": function( e, ui ) {
                 var flag = "button_inited";
