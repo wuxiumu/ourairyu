@@ -370,7 +370,7 @@ $.extend( _H, {
       if ( typeof key === "string" ) {
         oldVal = this.access(key);
 
-        ls.setItem(key, encodeURI($.isPlainObject(oldVal) ? JSON.stringify($.extend(oldVal, val)) : val));
+        ls.setItem(key, escape($.isPlainObject(oldVal) ? JSON.stringify($.extend(oldVal, val)) : val));
       }
     }
     // Use cookie
@@ -392,7 +392,7 @@ $.extend( _H, {
         result = ls.getItem(key);
 
         if ( result !== null ) {
-          result = decodeURI(result);
+          result = unescape(result);
 
           try {
             result = JSON.parse(result);
