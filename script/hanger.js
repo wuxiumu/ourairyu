@@ -271,7 +271,7 @@ $.extend( _H, {
       if ( node && node.nodeType === ELEMENT_NODE ) {
         result = {};
 
-        if ( $.isPlainObject(node.dataset) ) {
+        if ( node.dataset ) {
           result = node.dataset;
         }
         else if ( node.outerHTML ) {
@@ -732,12 +732,15 @@ function request( options, succeed, fail, synch ) {
  */
 function constructDatasetByHTML( html ) {
   var dataset = {};
+  var fragment = html.match(/<[a-z]+[^>]*>/i);
 
-  $.each( (html.match( /(data(-[a-z]+)+=[^\s>]*)/ig ) || []), function( idx, attr ) {
-    attr = attr.match( /data-(.*)="([^\s"]*)"/i );
+  if ( fragment !== null ) {
+    $.each( (fragment[0].match( /(data(-[a-z]+)+=[^\s>]*)/ig ) || []), function( idx, attr ) {
+      attr = attr.match( /data-(.*)="([^\s"]*)"/i );
 
-    dataset[$.camelCase(attr[1])] = attr[2];
-  });
+      dataset[$.camelCase(attr[1])] = attr[2];
+    });
+  }
 
   return dataset;
 }
