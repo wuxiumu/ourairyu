@@ -1,0 +1,23 @@
+---
+layout: demo
+title: 标签页
+desc: Tabs
+category: demo
+limitIE: true
+---
+
+<link rel="stylesheet" href="{{ site.url.demo }}css/tabs.css">
+
+<div class="tab-wrapper">
+  <div class="tab-group">
+    <a href="#" class="tab-trigger current" data-flag="tab_1">tab-1 title</a>
+    <a href="#" class="tab-trigger" data-flag="tab_2">tab-2 title</a>
+    <a href="#" class="tab-trigger" data-flag="tab_3">tab-3 title</a>
+  </div>
+  <div class="tab-content current" data-flag="tab_1">tab-1 content</div>
+  <div class="tab-content" data-flag="tab_2">tab-2 content</div>
+  <div class="tab-content" data-flag="tab_3">tab-3 content</div>
+</div>
+
+<script src="{{ site.url.root }}javascript/jquery-1.6.1.min.js"></script>
+<script src="{{ site.url.demo }}javascript/tabs.js"></script>

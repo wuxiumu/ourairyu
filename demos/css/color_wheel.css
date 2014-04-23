@@ -1,0 +1,40 @@
+@CHARSET "UTF-8";
+
+
+
+#submit {
+	margin: 0; padding: .2em .8em;
+	text-align: center; color: #333 !important;
+	border: 1px solid #AAA; border-radius: 5px;
+	cursor: pointer;
+	font-family: "Microsoft Yahei", Tahoma, Arial, Verdana, sans-serif;
+	background-image: -moz-linear-gradient(center top , #F9F9F9, #E4E4E4);
+	background-image: -webkit-gradient(linear, 0 0, 0 bottom, from(#F9F9F9), to(#E4E4E4));
+	filter: progid:DXImageTransform.Microsoft.gradient(startcolorstr=#FFF9F9F9, endcolorstr=#FFE4E4E4, gradientType=0);
+	background-color: #B7C0C7\9;
+}
+#submit:active {
+	background-image: -moz-linear-gradient(center top , #E4E4E4, #F9F9F9);
+	background-image: -webkit-gradient(linear, 0 0, 0 bottom, from(#E4E4E4), to(#F9F9F9));
+	filter: progid:DXImageTransform.Microsoft.gradient(startcolorstr=#FFE4E4E4, endcolorstr=#FFF9F9F9, gradientType=0);
+	background-color: #DFE3E6\9;
+}
+
+#consoleArea h3 { font-size: 1.2em; }
+#consoleArea h3 span { border-bottom: 1px solid #333; }
+#consoleArea input[type='text'] {
+	width: 3em;
+	text-align: right;
+	background-color: #FBFBFB;
+	border: 1px solid #AAA; border-radius: 3px;
+	box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1) inset, 0 1px 0 white;
+	padding: 0 5px;
+}
+#consoleArea dl { overflow: hidden; margin: 1em 0; }
+#consoleArea dt { float: left; padding-right: 0.5em; }
+
+#content { min-height: 340px; height: 100%; *padding: 70px 0 0 50px; }
+#overlay { position: absolute; top: 0; right: 0; bottom: 0; left: 0; z-index: 9999; background-color: #333; opacity: 0.5; }
+
+#polyG-1,
+#polyG-3 { display: none; }

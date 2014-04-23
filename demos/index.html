@@ -1,0 +1,14 @@
+---
+layout: default
+title: 全部示例
+category: demo
+type: index
+---
+
+<ul>
+  {% for page in site.pages %}
+    {% if page.category == 'demo' and page.type != 'index' %}
+      <li><a href="{{ page.url }}">{{ page.title }}</a></li>
+    {% endif %}
+  {% endfor %}
+</ul>

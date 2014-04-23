@@ -1,0 +1,26 @@
+@charset "UTF-8";
+
+
+
+body { font-size: 16px; background-color: #F7F7F7; }
+
+.item { border: 1px solid #CCC; margin: 10px; background-color: #FFF; }
+
+.avatar {
+    width: 100px;
+    vertical-align: middle;
+    background-color: #EEE;
+    border: 1px solid #CCC;
+    padding: 5px;
+}
+
+.table { display: table; }
+.table > div { display: table-cell; vertical-align: middle; border-left: 1px solid #CCC; padding: 10px; }
+.table > div:first-child { border-left: none; }
+
+.display { vertical-align: top !important; }
+.display div span { margin-right: 2em; }
+
+.operation .dib-wrap { white-space: nowrap; }
+.operation button { font-size: 16px !important; margin-left: 10px; }
+.operation button:first-child { margin-left: 0; }

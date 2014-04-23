@@ -1,0 +1,30 @@
+@charset "UTF-8";
+
+
+
+body { font-size: 12px; }
+
+#content { background-color: #EEE; border: 1px solid #CCC; width: 800px; margin: 10px auto; padding: 10px; }
+#content pre {
+    display: none;
+	font-family: Monaco,Consolas, "Lucida Console", monospace, "Courier New", Courier, Serif;
+	background-color: #FFF;
+	border-left: 3px solid green;
+	padding: .5em 0 .5em 1em;
+	margin-bottom: 10px;
+}
+
+.overflow-list, .overview-list dd { overflow: hidden; *zoom: 1; }
+.overview-list {  border: 1px solid #E1E1E1; background-color: #FFF; padding: .5em; }
+.overview-list dt { width: 5em; float: left; padding-right: 1em; }
+.overview-list dd { margin-bottom: .5em; }
+
+.overview-list label { cursor: pointer; border: 1px solid #E1E1E1; padding: 0 .7em; margin: 0 .5em .5em 0; }
+.overview-list label.selected { border: 2px solid rgb(223, 0, 1); }
+.overview-list label input { margin: 0 .2em 0 0; }
+.group-style label { line-height: 2.5; }
+.group-price label { line-height: 1.8; }
+
+.dib-wrap .dib { font-size: 12px; }
+
+.price b { color: #F00; }
