@@ -1,0 +1,8 @@
+{
+  "name": "OuraiDev",
+  "version": "0.0.0",
+  "dependencies": {
+    "jquery": "https://github.com/jquery/jquery.git#1.8.3",
+    "matcha": "https://github.com/ourai/matcha"
+  }
+}

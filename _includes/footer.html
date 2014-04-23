@@ -2,5 +2,11 @@
     <footer class="layout-footer">
       <div class="copyright">This site is created, written by, and maintained by <a href="{{ site.author.website }}" target="_blank">{{ site.author.name_en }}</a>. It is powered by <a href="{{ site.powered_by.url }}" target="_blank">{{ site.powered_by.name }}</a>, hosted on <a href="{{ site.hosted_on.url }}" target="_blank">{{ site.hosted_on.name }}</a>.</div>
     </footer>
+    <!--<script src="{{ site.url.js }}/site.js"></script>-->
+    {% if page.js %}
+      {% for js in page.js %}
+    <script src="{{ site.url.js }}/{{ js }}.js"></script>
+      {% endfor %}
+    {% endif %}
   </body>
 </html>

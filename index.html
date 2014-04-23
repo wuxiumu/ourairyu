@@ -1,8 +1,27 @@
 ---
-layout: home
+layout: default
+css:
+  - pages/home
+js:
+  - pages/home
 ---
 
-<p>Hello, welcome to the <b>Developer Center</b>.</p>
+<header>
+  <div class="layout-inner">
+    <div class="profile" itemscope itemtype="http://schema.org/Person">
+      <a href="{{ site.author.profile }}" class="avatar_link" target="_blank"><img class="avatar" src="{{ site.author.avatar }}?s=120" itemprop="image"></a>
+      <div class="profile_info">
+        <h3 class="author"><a href="{{ site.author.profile }}" class="author_link" itemprop="name" target="_blank">{{ site.author.name_en }}</a></h3>
+        <p>Front-end Web Developer</p>
+      </div>
+    </div>
+  </div>
+</header>
+<div class="section layout-inner">
+  <h2>GitHub repositories (<span class="repo_count">0</span>)</h2>
+  <ol class="repos"></ol>
+</div>
+<!-- <p>Hello, welcome to the <b>Developer Center</b>.</p>
 <ul>
   {% for post in site.posts %}
     <li>
@@ -11,3 +30,4 @@ layout: home
     </li>
   {% endfor %}
 </ul>
+ -->

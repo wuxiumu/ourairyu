@@ -1,6 +1,6 @@
 encoding: utf-8
 
-title: Developer Center
+title: 开发者中心
 keywords: '欧雷,欧雷流,宅男的部屋,宅男部屋,宅男,ourai,ourairyu,developer,center,dev,network,front-end,web,网络开发,web开发,开发网络,开发中心'
 tagline: The best site in the WORLD...?
 hosted_on:
@@ -15,17 +15,17 @@ powered_by:
 
 url:
   root: http://dev.ourai.ws/
-  asset: http://dev.ourai.ws/assets/
+  asset: assets
   # Pages
-  article: http://dev.ourai.ws/articles/
-  demo: http://dev.ourai.ws/demos/
-  doc: http://dev.ourai.ws/docs/
-  spec: http://dev.ourai.ws/specs/
-  about: http://dev.ourai.ws/about/
+  article: articles
+  demo: demos
+  doc: docs
+  spec: specs
+  about: about
   # Resource
-  js: http://dev.ourai.ws/assets/javascripts/
-  css: http://dev.ourai.ws/assets/stylesheets/
-  img: http://dev.ourai.ws/assets/images/
+  js: assets/javascripts
+  css: assets/stylesheets
+  img: assets/images
 
 author:
   name: 欧雷
