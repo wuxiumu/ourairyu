@@ -1,9 +1,4 @@
-# Directories
 /.sass-cache
 /_site
-/backup
-/build
-/dest
 /node_modules
-/src
 /vendors

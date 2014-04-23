@@ -1,0 +1,10 @@
+@import "helpers";
+
+body {
+  @include base-font(14px);
+}
+
+.layout-header,
+.layout-footer {
+  display: none;
+}
