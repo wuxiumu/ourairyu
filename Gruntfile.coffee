@@ -2,6 +2,7 @@ module.exports = ( grunt ) ->
   npmTasks = [
       "grunt-contrib-compass"
       "grunt-contrib-coffee"
+      "grunt-contrib-uglify"
       "grunt-contrib-jade"
       "grunt-contrib-concat"
       "grunt-contrib-copy"
@@ -35,8 +36,14 @@ module.exports = ( grunt ) ->
         src: ["**/*.coffee"]
         dest: "<%= meta.assets_js %>"
         ext: ".js"
+    uglify:
+      build:
+        expand: true
+        cwd: "<%= meta.assets_js %>/pages"
+        src: ["**/*.js"]
+        dest: "<%= meta.assets_js %>/pages"
 
   grunt.loadNpmTasks task for task in npmTasks
 
   # Default task
-  grunt.registerTask "default", ["compass", "coffee"]
+  grunt.registerTask "default", ["compass", "coffee", "uglify"]
