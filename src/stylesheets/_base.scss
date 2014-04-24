@@ -1,5 +1,3 @@
-@import "helpers";
-
 body {
   font: {
     family: $font_family-hei;
@@ -20,11 +18,6 @@ a {
     color: $color-text-light;
     text-decoration: underline;
   }
-}
-
-.layout-header,
-.layout-footer {
-  display: none;
 }
 
 [lang="en"] {

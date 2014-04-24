@@ -1,0 +1,42 @@
+@import "layouts/sandwich";
+
+@include layout-sandwich(960px);
+
+body[data-layout="sandwich"] {
+  .layout-nav {
+    height: 100%;
+
+    ul {
+      @include no_item;
+      @include no_gap;
+      @include clearfix;
+
+      li {
+        float: left;
+        height: 100%;
+
+        a {
+          display: block;
+          height: 100%;
+          line-height: 50px;
+        }
+      }
+    }
+  }
+
+  .layout-main {
+    float: none;
+  }
+
+  .layout-footer {
+    color: $color-text;
+    border-top: 1px solid #DDD;
+    background-color: #EEE;
+    @include box-shadow(0 0.5em 1em -1em #666 inset);
+    overflow: hidden;
+
+    .copyright {
+      margin-top: 15px;
+    }
+  }
+}
