@@ -19,6 +19,14 @@ module.exports = ( grunt ) ->
       assets_img: "<%= meta.assets %>/images"
       assets_css: "<%= meta.assets %>/stylesheets"
       assets_js: "<%= meta.assets %>/javascripts"
+      vendor: "vendors"
+    copy:
+      html5shiv:
+        src: "<%= meta.vendor %>/html5shiv/dist/html5shiv-printshiv.min.js"
+        dest: "<%= meta.assets_js %>/html5shiv-printshiv.min.js"
+      jquery:
+        src: "<%= meta.vendor %>/jquery/jquery.min.js"
+        dest: "<%= meta.assets_js %>/jquery.min.js"
     compass:
       compile:
         options:
@@ -46,4 +54,4 @@ module.exports = ( grunt ) ->
   grunt.loadNpmTasks task for task in npmTasks
 
   # Default task
-  grunt.registerTask "default", ["compass", "coffee", "uglify"]
+  grunt.registerTask "default", ["copy", "compass", "coffee", "uglify"]
