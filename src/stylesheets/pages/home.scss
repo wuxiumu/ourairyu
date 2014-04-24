@@ -64,18 +64,70 @@ main > header {
 }
 
 .section {
-  & > h2 {
+  margin-bottom: 30px;
+  padding-top: 20px;
+
+  &:first-child {
+    padding-top: 10px;
+  }
+
+  .section-title {
     font-weight: normal;
     padding-left: 10px;
     border-left: 3px solid #C5CACE;
-    text-transform: uppercase;
+
+    &[lang="en"] {
+      text-transform: uppercase;
+    }
+
+    a {
+      text-decoration: none;
+
+      &:link,
+      &:visited {
+        color: $color-text;
+      }
+
+      &:hover {
+        color: $color-text-medium;
+      }
+    }
+  }
+}
+
+.section--posts {
+  h3 {
+    margin: 0;
+  }
+
+  .read_more:after {
+    content: "\0020\00BB";
+  }
+}
+
+.post_excerpt {
+  margin-bottom: 20px;
+}
+
+.posts,
+.repos {
+  @include clearfix;
+}
+
+.posts {
+  list-style-position: inside;
+  margin: 10px 0 0;
+
+  li {
+    width: 50%;
+    float: left;
   }
 }
 
 .repos {
-  @include clearfix;
   @include no_item;
   @include no_gap;
+
   margin: {
     left: -10px;
     right: -10px;
@@ -101,19 +153,6 @@ main > header {
   h3 {
     @include no_gap;
     font-size: 1.5em;
-
-    a {
-      &:link,
-      &:visited {
-        color: #758694;
-        text-decoration: none;
-      }
-
-      &:hover {
-        color: $color-text-light;
-        text-decoration: underline;
-      }
-    }
   }
 
   time {

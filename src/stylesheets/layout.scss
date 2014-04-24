@@ -1,10 +1,32 @@
 @import "helpers";
 
 body {
-  @include base-font(14px);
+  font: {
+    family: $font_family-hei;
+    size: 14px;
+  }
+
+  line-height: $line_height;
+}
+
+a {
+  &:link,
+  &:visited {
+    color: #758694;
+    text-decoration: none;
+  }
+
+  &:hover {
+    color: $color-text-light;
+    text-decoration: underline;
+  }
 }
 
 .layout-header,
 .layout-footer {
   display: none;
+}
+
+[lang="en"] {
+  font-family: $font_family;
 }
