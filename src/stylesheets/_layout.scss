@@ -3,9 +3,14 @@
 @include layout-sandwich(960px);
 
 body[data-layout="sandwich"] {
-  .layout-nav {
+  .layout-nav,
+  .layout-nav li,
+  .layout-nav a {
+    display: block;
     height: 100%;
+  }
 
+  .layout-nav {
     ul {
       @include no_item;
       @include no_gap;
@@ -13,12 +18,10 @@ body[data-layout="sandwich"] {
 
       li {
         float: left;
-        height: 100%;
 
         a {
-          display: block;
-          height: 100%;
           line-height: 50px;
+          text-transform: uppercase;
         }
       }
     }
