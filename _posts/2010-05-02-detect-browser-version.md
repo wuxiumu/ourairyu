@@ -7,6 +7,7 @@ tags:
   - JavaScript
   - 浏览器
 published: false
+comments: true
 ---
 
     var browser = "Unknown";

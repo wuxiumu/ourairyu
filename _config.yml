@@ -1,5 +1,9 @@
+# Global
 encoding: utf-8
+timezone: Asia/Shanghai
+pygments: true
 
+# Site
 title: Ourai's Workstation
 keywords: '欧雷,欧雷流,宅男的部屋,宅男部屋,宅男,ourai,ourairyu,developer,center,dev,network,front-end,web,网络开发,web开发,开发网络,开发中心'
 tagline: The best site in the WORLD...?
@@ -11,6 +15,7 @@ powered_by:
   name: Jekyll
   url: http://jekyllrb.com/
   desc: Jekyll
+
 
 
 url:
@@ -34,4 +39,4 @@ author:
   website: http://ourai.ws/
   profile: http://ourai.ws/
 
-permalink: /posts/:title/
+permalink: /:title/

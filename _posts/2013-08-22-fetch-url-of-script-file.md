@@ -6,6 +6,7 @@ categories:
 tags:
   - JavaScript
   - URL
+comments: true
 ---
 
 在开发过程中，有时需要动态获取文件的 URL，获取 JS 文件的 URL 是最常见的需求，例如像 [Sea.js](http://seajs.org) 等 Module Loader 就会用到。
