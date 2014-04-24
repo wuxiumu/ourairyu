@@ -1,9 +1,5 @@
 body {
-  font: {
-    family: $font_family-hei;
-    size: 14px;
-  }
-
+  font-size: 14px;
   line-height: $line_height;
 }
 
@@ -18,6 +14,10 @@ a {
     color: $color-text-light;
     text-decoration: underline;
   }
+}
+
+[lang="zh-CN"] {
+  font-family: $font_family-hei;
 }
 
 [lang="en"] {

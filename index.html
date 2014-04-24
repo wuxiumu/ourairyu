@@ -19,26 +19,28 @@ layout_type: sandwich
   </div>
 </header>
 <div class="layout-main layout-inner">
+  <!-- Articles -->
   <div class="section section--posts">
-    <article>
-      {% assign posts = site.posts %}
-      {% assign first_post = posts.first %}
-      <header>
-        <h2 class="section-title"><a href="{{ first_post.url }}">{{ first_post.title }}</a></h2>
-      </header>
-      <div class="post_excerpt">{{ first_post.excerpt }}<a class="read_more" href="{{ first_post.url }}">阅读全文</a></div>
-      <footer>
-        <h3>最新文章</h3>
-        <ul class="posts">
-          {% for post in posts limit: 10 offset: 1 %}
-            <li><a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></li>
-          {% endfor %}
-        </ul>
-      </footer>
-    </article>
+    <h2 class="section-title" lang="en">Articles</h2>
+    {% assign posts = site.posts %}
+    {% assign first_post = posts.first %}
+    <!-- The newest article -->
+    <div class="article--newest">
+      <blockquote class="article-excerpt">{{ first_post.excerpt }}</blockquote>
+      <p class="article-title">——《<a href="{{ first_post.url }}">{{ first_post.title }}</a>》</p>
+    </div>
+    <!-- Article list -->
+    <div class="recent_articles">
+      <ul class="posts">
+        {% for post in posts limit: 10 offset: 1 %}
+          <li><a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
   </div>
+  <!-- GitHub repositories -->
   <div class="section">
-    <h2 class="section-title" lang="en">GitHub repositories (<span class="repo_count">0</span>)</h2>
+    <h2 class="section-title" lang="en">Repositories</h2>
     <ul class="repos"></ul>
   </div>
 </div>
