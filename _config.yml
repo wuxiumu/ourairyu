@@ -18,7 +18,7 @@ powered_by:
 
 
 url:
-  root: http://dev.ourai.ws/
+  root: http://dev.ourai.ws
   asset: assets
   # Pages
   article: articles
