@@ -19,12 +19,15 @@ updateTime = ( time ) ->
 
   return "#{d.getFullYear()}-#{d.getMonth() + 1}-#{d.getDate()} #{d.getHours()}:#{d.getMinutes()}:#{d.getSeconds()}"
 
-$.getJSON "https://api.github.com/users/ourai/repos", ( repos ) ->
+$.getJSON "https://api.github.com/users/ourai/repos?callback=?", ( result ) ->
+  repos = result.data
+
   if $.isArray repos
-    $(".repo_count").text repos.length - 1
+    $ ->
+      $(".repo_count").text repos.length - 1
 
-    repos.sort orderByLatest
+      repos.sort orderByLatest
 
-    $.each repos, ( i, r ) ->
-      if r.name isnt "ourai.github.io"
-        $(".repos").append repo r
+      $.each repos, ( i, r ) ->
+        if r.name isnt "ourai.github.io"
+          $(".repos").append repo r
