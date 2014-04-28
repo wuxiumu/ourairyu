@@ -5,17 +5,22 @@ layout_type: sandwich
 {% include header.html %}
   <div class="layout-content layout-inner">
     <article class="article" itemscope itemtype="http://schema.org/Article">
-      <header class="layout-content-head">
+      <header class="article-header">
         <div class="article-title">
           <h1 itemprop="name">{{ page.title }}</h1>
         </div>
         <div class="article-meta">
-          <a class="avatar_url" href="{{ site.author.profile }}" target="_blank"><img class="avatar" src="{{ site.author.avatar }}?s=100" alt="{{ site.author.name }}" title="{{ site.author.name }}" itemprop="photo"></a>
-          <a class="author" href="{{ site.author.profile }}" target="_blank" itemprop="author">{{ site.author.name }}</a>
           <time datetime="{{ page.date | date: '%Y-%m-%d' }}" pubdate itemprop="datePublished">{{ page.date | date: "%Y-%m-%d" }}</time>
+          {% for tag in page.tags %}
+            {{ tag }}{% if forloop.rindex != 1 %} | {% endif %}
+          {% endfor %}
         </div>
       </header>
-      <div class="layout-content-body" itemprop="articleBody">{{ content }}</div>
+      <div class="article-footer" itemprop="articleBody">{{ content }}</div>
+      <footer>
+        <a class="avatar_url" href="{{ site.author.profile }}" target="_blank"><img class="avatar" src="{{ site.author.avatar }}?s=100" alt="{{ site.author.name }}" title="{{ site.author.name }}" itemprop="photo"></a>
+        <a class="author" href="{{ site.author.profile }}" target="_blank" itemprop="author">{{ site.author.name }}</a>
+      </footer>
     </article>
     {% if page.comments %}
       {% include disqus.html %}
