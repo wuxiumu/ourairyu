@@ -1,0 +1,12 @@
+---
+permalink: /dependencies/
+layout: default
+layout_type: sandwich
+---
+
+<div class="layout-inner">
+  {% for dependency in site.dependencies %}
+    <h3><a href="{{ dependency.url }}" target="_blank" title="{{ dependency.name }}">{{ dependency.name }}</a></h3>
+    <p>{{ dependency.desc }}</p>
+  {% endfor %}
+</div>

@@ -1,6 +1,6 @@
 @import "layouts/sandwich";
 
-@include layout-sandwich(960px);
+@include layout-sandwich(960px, 50px, 120px);
 
 body[data-layout="sandwich"] {
   .layout-nav,
@@ -33,14 +33,22 @@ body[data-layout="sandwich"] {
   }
 
   .layout-footer {
+    font: {
+      size: 12px;
+      family: Verdana;
+    }
     color: $color-text;
     border-top: 1px solid #DDD;
     background-color: #EEE;
     @include box-shadow(0 0.5em 1em -1em #666 inset);
     overflow: hidden;
 
+    p {
+      @include no_gap;
+    }
+
     .copyright {
-      margin-top: 15px;
+      margin-top: 25px;
     }
   }
 }

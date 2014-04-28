@@ -2,11 +2,33 @@
 encoding: utf-8
 timezone: Asia/Shanghai
 pygments: true
+relative_permalinks: false
+permalink: /:title/
+
+
+
+# YAML frontmatter
+defaults:
+  -
+    scope:
+      path: ""
+    values:
+      layout: "default"
+      layout_type: "sandwich"
+  -
+    score:
+      path: ""
+      type: "post"
+    values:
+      layout: "article"
+      comments: true
+
+
 
 # Site
-title: Ourai's Workstation
-keywords: '欧雷,欧雷流,宅男的部屋,宅男部屋,宅男,ourai,ourairyu,developer,center,dev,network,front-end,web,网络开发,web开发,开发网络,开发中心'
-tagline: The best site in the WORLD...?
+title: "Ourai's Workstation"
+keywords: "欧雷,欧雷流,宅男的部屋,宅男部屋,宅男,ourai,ourairyu,developer,center,dev,network,front-end,web,网络开发,web开发,开发网络,开发中心"
+tagline: "The best site in the WORLD...?"
 hosted_on:
   name: GitHub
   url: https://github.com/
@@ -15,8 +37,17 @@ powered_by:
   name: Jekyll
   url: http://jekyllrb.com/
   desc: Jekyll
-
-
+dependencies:
+  -
+    name: Jekyll
+    url: http://jekyllrb.com/
+    desc: Transform plain text into static websites and blogs.
+    type: ""
+  -
+    name: Disqus
+    url: http://disqus.com/
+    desc: A free service that enables great online communities.
+    type: community
 
 url:
   root: http://dev.ourai.ws
@@ -38,5 +69,4 @@ author:
   avatar: http://www.gravatar.com/avatar/0565b1df14e0b4a1a9cdecb3f085cdba
   website: http://ourai.ws/
   profile: http://ourai.ws/
-
-permalink: /:title/
+  desc: 欧雷流

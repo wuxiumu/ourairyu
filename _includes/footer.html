@@ -1,6 +1,9 @@
     </main>
     <footer class="layout-footer">
-      <div class="layout-inner copyright">This site is created, written by, and maintained by <a href="{{ site.author.website }}" target="_blank">{{ site.author.name_en }}</a>. It is powered by <a href="{{ site.powered_by.url }}" target="_blank">{{ site.powered_by.name }}</a>, hosted on <a href="{{ site.hosted_on.url }}" target="_blank">{{ site.hosted_on.name }}</a>.</div>
+      <div class="layout-inner">
+        <p class="copyright">&copy; 2013-{{ site.time | date: "%Y" }} <a href="{{ site.author.website }}" target="_blank" title="{{ site.author.desc }}">Ourai.WS</a>. All rights reserved.</p>
+        <p class="hosted_on">Powered by <a href="{{ site.powered_by.url }}" target="_blank" title="{{ site.powered_by.desc }}">{{ site.powered_by.name }}</a> (<a href="{{ site.url.root }}/dependencies/">dependencies</a>), hosted by <a href="{{ site.hosted_on.url }}" target="_blank" title="{{ site.hosted_on.desc }}">{{ site.hosted_on.name }}</a>, valid <a rel="external nofollow" href="http://validator.w3.org/check?uri=referer">HTML 5</a> and <a rel="external nofollow" href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3">CSS 3</a>.</p>
+      </div>
     </footer>
     <!--<script src="{{ site.url.js }}/site.js"></script>-->
     {% if page.js %}

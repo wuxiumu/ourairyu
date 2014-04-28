@@ -5,7 +5,6 @@ categories:
   - Ruby
 tags:
   - Jekyll
-published: true
 comments: true
 ---
 
