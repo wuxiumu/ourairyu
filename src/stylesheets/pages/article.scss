@@ -1,0 +1,40 @@
+@import "../helpers";
+
+.article-header {
+  margin-bottom: 2em;
+
+  h1 {
+    margin-bottom: .3em;
+  }
+}
+
+.article-author {
+  @include inline-block(none);
+
+  .avatar_url {
+    display: block;
+    @include box-sizing(border-box);
+    @include square(30px);
+  }
+
+  .avatar {
+    @include square(100%);
+    border: 1px solid #FFF;
+    border-radius: 100%;
+    @include box-shadow(0 1px 2px rgba(0, 0, 0, .4));
+    vertical-align: middle;
+  }
+}
+
+.heading,
+.article-body h3 {
+  border-bottom: 1px dashed #D0D0D0;
+  padding: 1em 0 .3em;
+  margin-bottom: .6em;
+  clear: left;
+  overflow: hidden;
+}
+
+#disqus_thread {
+  margin: 1.5em 0 3em;
+}

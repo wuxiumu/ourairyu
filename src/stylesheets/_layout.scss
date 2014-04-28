@@ -44,3 +44,12 @@ body[data-layout="sandwich"] {
     }
   }
 }
+
+@media all and (max-width: 1000px) {
+  .layout-inner {
+    padding: {
+      left: 1.2em;
+      right: 1.2em;
+    }
+  }
+}

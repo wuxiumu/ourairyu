@@ -19,6 +19,7 @@ powered_by:
 
 url:
   root: http://dev.ourai.ws
+  # root: http://localhost:4000
   asset: assets
   # Pages
   article: articles

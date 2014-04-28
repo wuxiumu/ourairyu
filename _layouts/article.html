@@ -1,5 +1,7 @@
 ---
 layout_type: sandwich
+css:
+  - pages/article
 ---
 
 {% include header.html %}
@@ -10,17 +12,10 @@ layout_type: sandwich
           <h1 itemprop="name">{{ page.title }}</h1>
         </div>
         <div class="article-meta">
-          <time datetime="{{ page.date | date: '%Y-%m-%d' }}" pubdate itemprop="datePublished">{{ page.date | date: "%Y-%m-%d" }}</time>
-          {% for tag in page.tags %}
-            {{ tag }}{% if forloop.rindex != 1 %} | {% endif %}
-          {% endfor %}
+          <time datetime="{{ page.date | date: '%c' }}" pubdate itemprop="datePublished">{{ page.date | date: "%b %-d, %Y" }}</time>, by <a class="author" href="{{ site.author.profile }}" target="_blank" itemprop="author">{{ site.author.name_en }}</a>, {% for tag in page.tags %}{{ tag }}{% if forloop.rindex != 1 %} | {% endif %}{% endfor %}
         </div>
       </header>
-      <div class="article-footer" itemprop="articleBody">{{ content }}</div>
-      <footer>
-        <a class="avatar_url" href="{{ site.author.profile }}" target="_blank"><img class="avatar" src="{{ site.author.avatar }}?s=100" alt="{{ site.author.name }}" title="{{ site.author.name }}" itemprop="photo"></a>
-        <a class="author" href="{{ site.author.profile }}" target="_blank" itemprop="author">{{ site.author.name }}</a>
-      </footer>
+      <div class="article-body" itemprop="articleBody">{{ content }}</div>
     </article>
     {% if page.comments %}
       {% include disqus.html %}

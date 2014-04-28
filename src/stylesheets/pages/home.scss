@@ -227,15 +227,6 @@ main > header {
   font-family: Monaco,Consolas, "Lucida Console", monospace, "Courier New", Courier, Serif;
 }
 
-@media all and (max-width: 1000px) {
-  .layout-inner {
-    padding: {
-      left: 1.2em;
-      right: 1.2em;
-    }
-  }
-}
-
 @media all and (max-width: 800px) {
   .posts li,
   .repo {
