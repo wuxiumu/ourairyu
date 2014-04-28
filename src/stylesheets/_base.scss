@@ -17,16 +17,7 @@ a {
 }
 
 pre {
-  padding: 1em;
-  border: 1px dashed #A6A6A6;
-  border-radius: 3px;
-  background-color: #FEFEFE;
-  color: $color-text-medium;
-
-  code {
-    white-space: pre-wrap;
-    word-wrap: break-word;
-  }
+  @include block_content;
 }
 
 [lang="zh-CN"] {
