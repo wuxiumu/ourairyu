@@ -1,6 +1,7 @@
 module.exports = ( grunt ) ->
   npmTasks = [
       "grunt-contrib-compass"
+      "grunt-contrib-cssmin"
       "grunt-contrib-coffee"
       "grunt-contrib-uglify"
       "grunt-contrib-jade"
@@ -27,6 +28,10 @@ module.exports = ( grunt ) ->
       jquery:
         src: "<%= meta.vendor %>/jquery/jquery.min.js"
         dest: "<%= meta.assets_js %>/jquery.min.js"
+    cssmin:
+      site_css:
+        files:
+          "<%= meta.assets_css %>/highlight.css": "<%= meta.assets_css %>/highlight.css"
     compass:
       compile:
         options:
@@ -54,4 +59,4 @@ module.exports = ( grunt ) ->
   grunt.loadNpmTasks task for task in npmTasks
 
   # Default task
-  grunt.registerTask "default", ["copy", "compass", "coffee", "uglify"]
+  grunt.registerTask "default", ["copy", "compass", "coffee", "uglify", "cssmin"]
