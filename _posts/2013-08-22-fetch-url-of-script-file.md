@@ -19,7 +19,7 @@ comments: true
 
 正因如此，瓶颈也在这里。这种方式只能在同一个文件中即时执行才有效，不能延迟执行及写成通用的 method 供其他地方调用，否则获取到的不一定是哪个 JS 文件的 URL 了。不过这种方式的优点就是能够兼容各个浏览器。
 
-```javascript
+{% highlight javascript %}
 function scriptPath() {
   var scripts = document.scripts;
   var script = scripts[ scripts.length - 1 ];
@@ -32,8 +32,7 @@ function scriptPath() {
 }
 
 var url = scriptPath();
-
-```
+{% endhighlight %}
 
 ### 捕获异常
 
@@ -44,7 +43,7 @@ var url = scriptPath();
 1. 兼容性差，IE 和 Opera 基本都被排挤在外
 2. 在调用时必须在回调函数中抛出异常
 
-```javascript
+{% highlight javascript %}
 function scriptPath( callback ) {
   var url = "";
 
@@ -79,5 +78,4 @@ function scriptPath( callback ) {
 var url = scriptPath(function() {
       throw Error( "WTF!!!" );
     });
-
-```
+{% endhighlight %}

@@ -19,7 +19,7 @@ comments: true
 
 ### 父页面（入口页面） JavaScript 代码
 
-```javascript
+{% highlight js %}
 window.windowPool = [];             // 用于存储子页面的 window 对象及隐式传递的参数
 
 var newWin = window.open( url ),    // 新建窗口，url 为报表页面地址
@@ -29,14 +29,13 @@ window.windowPool.push({
   "window": newWin,
   "parameter": reportParams
 });
-
-```
+{% endhighlight %}
 
 看到上段代码，也许会奇怪地问：“为什么要将子页面的 window 对象和报表参数分开，而不是将报表参数绑定在子页面的 window 对象上？”这是因为子页面如果刷新了的话，报表参数就会失效了。将子页面（报表页面）的 window 对象与报表参数组合成一个 JSON 添加到数组里是为了避免当从父页面（入口页面）打开多个显示不同种类报表的报表页面时，早先打开的报表页面刷新操作而引起的显示后打开的报表页面内容的问题。
 
 ### 子页面（报表页面） JavaScript 代码
 
-```javascript
+{% highlight js %}
 var params, index = 0;
 
 for( ; index < opener.windowPool.length; index++ ) {
@@ -45,7 +44,6 @@ for( ; index < opener.windowPool.length; index++ ) {
     break;
   }
 }
-
-```
+{% endhighlight %}
 
 该方式在除了 IE6 之外的浏览器都能正常运行，IE6 没测试过，不清楚兼容性如何。

@@ -18,7 +18,7 @@ comments: true
 
 我认为看多少理论知识也是白搭，还不如动手做，遇到问题就解决，这样倒学得更快！不过没想到刚写了不几行代码就遇到问题了——从数据库中取出来的数据显示到页面上之后是乱码（中文汉字变成了英文问号）！明明数据库和php文件的编码都是 UTF-8 的，想不通为什么！问了几个人，在网上找了半天也没找到确切的解决办法，最后终于还是在「[搜搜问问——PHP读取MYSQL数据时出现乱码怎么办?](http://wenwen.soso.com/z/q104200853.htm)」找到了解决方案，下面就结合我的代码记录下来：
 
-```php
+{% highlight php %}
   // 建立一个连接
   $con = @mysql_connect('127.0.0.1', 'root', '')
   or die('Counld not connect to mysql server!');
@@ -38,5 +38,4 @@ comments: true
   else {
     die(mysql_error());
   }
-
-```
+{% endhighlight %}

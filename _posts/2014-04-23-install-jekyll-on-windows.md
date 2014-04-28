@@ -15,6 +15,6 @@ comments: true
 
 在安装 Ruby 和 DevKit 时，**不要安装在包含空格的文件夹中**，否则在安装 Jekyll 时会报错！
 
-```bash
+{% highlight sh %}
 gem install jekyll
-```
+{% endhighlight %}

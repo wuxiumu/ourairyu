@@ -21,9 +21,7 @@ comments: true
 
 截图中的部分实际上就是一套交易信息的定义：价格、配送方式、销量、分类等等。左边的是被定义的“项（term）”，右边是针对“项”的“说明”，也就是“描述（description）”。综合这个事物的本质、浏览器渲染、语义等方面来考虑，选择“定义列表（Definition List）”`dl`来实现是最合适不过的！“定义列表”这一套标签中，用`dl`来表示整套信息，`dt`来表示“项”，`dd`来表示“描述”。其中`dt`和`dd`分别是英文词组 Definition Term 与 Definition Description 的首字母缩写。
 
-### HTML
-
-```html
+{% highlight html %}
 <dl>
     <dt>价格</dt>
     <dd><small>&yen;</small><b>1599.00 - 1999.00</b></dd>
@@ -44,17 +42,13 @@ comments: true
     <dt>数量</dt>
     <dd><input type="text" value="1"></dd>
 </dl>
+{% endhighlight %}
 
-```
-
-### CSS
-
-```css
+{% highlight css %}
 dl, dd { overflow: hidden; *zoom: 1; }
 dt { width: 5em; float: left; padding-right: 1em; }
 dd { margin-bottom: .5em; }
-
-```
+{% endhighlight %}
 
 本文主要内容是**用`dl`标签来实现商品信息列表的布局**，右侧商品款式等选择的实现不在本文讨论范围内，故该 [demo]({{ site.url.root }}/{{ site.url.demo }}layout/definition-list.html "查看示例") 只将主体部分实现。兼容 IE6 及以上和其他标准浏览器。
 

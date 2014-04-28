@@ -19,7 +19,7 @@ comments: true
 
 下面我将实现圆角菜单的主要代码发表出来，至于扩展部分就留给各位根据自己实际情况来调整吧。
 
-```html
+{% highlight html %}
 <ul>
   <li><a><span>HTC</span></a></li>
   <li><a><span>Apple</span></a></li>
@@ -27,10 +27,9 @@ comments: true
   <li><a><span>Nokia</span></a></li>
   <li><a><span>Samsung</span></a></li>
 </ul>
+{% endhighlight %}
 
-```
-
-```css
+{% highlight css %}
 ul {
   float: left;
   list-style: none inside none;
@@ -61,5 +60,4 @@ li a:hover {
 li a:hover span {
   background-position: *px *px;
 }
-
-```
+{% endhighlight %}

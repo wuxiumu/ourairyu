@@ -17,7 +17,7 @@ comments: true
 
 ### HTML代码如下
 
-```html
+{% highlight html %}
 <style type="text/css">
   div {
     background-color: gold;
@@ -29,12 +29,10 @@ comments: true
 </style>
 
 <div></div>
-
-```
+{% endhighlight %}
 
 出现此问题的原因是**空块级非替换元素触发了 hasLayout**，不触发hasLayout或者在空元素内加入HTML空注释便可解决问题。如下：
 
-```html
+{% highlight html %}
 <div><!-- --></div>
-
-```
+{% endhighlight %}
