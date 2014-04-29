@@ -1,12 +1,50 @@
 @import "../helpers";
 
 main > header {
-  height: 200px;
+  height: 300px;
   background-color: #E5E5E5;
   border-bottom: 1px solid #DDD;
+  position: relative;
+
+  &:after {
+    content: "\0020";
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    @include square(100%);
+    @include filter(blur(2px));
+    @include opacity(.8);
+    background: {
+      image: url("../../images/header-home.jpg");
+      color: #E5E5E5;
+      repeat: no-repeat;
+      position: 50% 50%;
+      size: cover;
+    }
+  }
 
   .layout-inner {
     height: 100%;
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+
+    h1,
+    p {
+      line-height: 1.2;
+    }
+
+    h1 {
+      font-size: 4em;
+      margin: .5em 0 .25em;
+      @include text-shadow(0 1px #F5F5F5, 0 0 10px #FFF);
+    }
+
+    p {
+      font-size: 1.8em;
+      color: #FFF;
+    }
   }
 }
 
