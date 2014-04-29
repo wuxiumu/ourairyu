@@ -59,4 +59,4 @@ module.exports = ( grunt ) ->
   grunt.loadNpmTasks task for task in npmTasks
 
   # Default task
-  grunt.registerTask "default", ["copy", "compass", "coffee", "uglify", "cssmin"]
+  grunt.registerTask "default", ["compass", "coffee", "uglify"]
