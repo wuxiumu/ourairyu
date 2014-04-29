@@ -8,7 +8,7 @@ repo = ( data ) ->
     .append "<div />"
     .children "div"
     .append "<h3><a href=\"#{(data.homepage || data.html_url)}\" rel=\"external nofollow\">#{data.name}</a></h3>"
-    .append "<span class=\"repo_lang\">#{(data.language || "none")}</span>"
+    .append "<span class=\"repo_lang\">#{data.language}</span>"
     .append "<time>Last updated: #{prettyDate data.pushed_at}</time>"
     .append "<p>#{data.description}</p>"
 
@@ -56,10 +56,8 @@ $.getJSON "https://api.github.com/users/ourai/repos?callback=?", ( result ) ->
 
   if $.isArray repos
     $ ->
-      $(".repo_count").text repos.length - 1
-
       repos.sort orderByLatest
 
       $.each repos, ( i, r ) ->
-        if r.name isnt "ourai.github.io"
+        if r.name isnt "ourai.github.io" and r.language
           $(".repos").append repo r
