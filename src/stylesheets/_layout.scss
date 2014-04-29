@@ -20,8 +20,21 @@ body[data-layout="sandwich"] {
         float: left;
 
         a {
+          $c: #A6A6A6;
+          
           line-height: 50px;
           text-transform: uppercase;
+          padding: {
+            left: 1.2em;
+            right: 1.2em;
+          }
+
+          &:hover {
+            text-decoration: none;
+            border-bottom: 2px solid $c;
+            height: 48px;
+            color: $c;
+          }
         }
       }
     }

@@ -145,6 +145,7 @@ main > header {
 
 .posts,
 .repos,
+.projects,
 .dependencies {
   @include clearfix;
 }
@@ -177,6 +178,7 @@ main > header {
 }
 
 .repos,
+.projects,
 .dependencies {
   @include no_item;
   @include no_gap;
@@ -188,6 +190,7 @@ main > header {
 }
 
 .repo,
+.project,
 .dependency {
   width: percent(1, 3);
   float: left;
@@ -223,6 +226,55 @@ main > header {
     padding: 3px 0;
     margin: 8px 0;
     line-height: 1.8;
+  }
+}
+
+.project-meta {
+  height: 120px;
+  position: relative;
+}
+
+.project-name,
+.project-thumbnail {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.project-name {
+  margin: .3em .8em;
+
+  a {
+    color: $color-text;
+  }
+}
+
+.project-thumbnail {
+  @include square(100%);
+  @include filter(blur(3px));
+  @include opacity(.6);
+  background: {
+    size: cover;
+    repeat: no-repeat;
+    position: 50% 50%;
+    color: #FEFEFE;
+  }
+  z-index: -1;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}
+
+:root {
+  .project-thumbnail {
+    img {
+      display: none;
+    }
   }
 }
 
@@ -262,8 +314,7 @@ main > header {
 
 @media all and (max-width: 800px) {
   .posts li,
-  .repo,
-  .dependency {
+  .repo {
     width: percent(1, 2);
   }
 }

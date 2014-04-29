@@ -43,6 +43,30 @@ js:
     <h2 class="section-title" lang="en">Repositories</h2>
     <ul class="repos"></ul>
   </div>
+  <!-- Projects -->
+  <div class="section">
+    <h2 class="section-title" lang="en">Projects</h2>
+    <ul class="projects">
+      {% for project in site.data.projects reversed %}
+        <li class="project">
+          <div>
+            <div class="project-meta">
+              <h3 class="project-name"><a href="{{ project.url }}" rel="external nofollow" title="{{ project.name.zh }}">{{ project.name.zh }}</a></h3>
+              {% if project.image.thumbnail %}
+                {% assign img_url = project.image.thumbnail %}
+                {% assign img_padding = "projects/" %}
+              {% else %}
+                {% assign img_url = "bg-content-kai.png" %}
+                {% assign img_padding = "" %}
+              {% endif %}
+              <div class="project-thumbnail" style="background-image: url('{{ site.url.root }}/{{ site.url.img }}/{{ img_url | prepend: img_padding }}')"><img src="{{ site.url.root }}/{{ site.url.img }}/{{ img_url | prepend: img_padding }}"></div>
+            </div>
+            <p class="project-description">{{ project.description }}</p>
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
   <!-- Thanks to -->
   <div class="section">
     <h2 class="section-title" lang="en">Thanks</h2>
