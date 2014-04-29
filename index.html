@@ -47,7 +47,7 @@ js:
   <div class="section">
     <h2 class="section-title" lang="en">Thanks</h2>
     <ul class="dependencies" lang="en">
-      {% for dependency in site.dependencies %}
+      {% for dependency in site.data.dependencies %}
         <li class="dependency">
           <div>
             <h3><a href="{{ dependency.url }}" title="{{ dependency.name }}" rel="external nofollow"><img src="{{ site.url.root }}/{{ site.url.img }}/logos/{{ dependency.image }}" alt="{{ dependency.name }}"></a><span>{{ dependency.name }}</span></h3>
