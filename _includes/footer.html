@@ -1,10 +1,10 @@
     </main>
     <footer class="layout-footer">
       <div class="layout-inner">
-        <p class="copyright">&copy; 2013-{{ site.time | date: "%Y" }} <a href="{{ site.author.website }}" target="_blank" title="{{ site.author.desc }}">Ourai.WS</a>. All rights reserved. Powered by <a href="{{ site.powered_by.url }}" target="_blank" title="{{ site.powered_by.desc }}">{{ site.powered_by.name }}</a> (<a href="{{ site.url.root }}/dependencies/">dependencies</a>), hosted on <a href="{{ site.hosted_on.url }}" target="_blank" title="{{ site.hosted_on.desc }}">{{ site.hosted_on.name }}</a>.</p>
+        <p class="copyright">&copy; 2013-{{ site.time | date: "%Y" }} <a href="{{ site.author.website }}" rel="external nofollow" title="{{ site.author.desc }}">Ourai.WS</a>. All rights reserved.</p>
       </div>
     </footer>
-    <!--<script src="{{ site.url.js }}/site.js"></script>-->
+    <script src="{{ site.url.js }}/site.js"></script>
     {% if page.js %}
       {% for js in page.js %}
     <script src="{{ site.url.js }}/{{ js }}.js"></script>

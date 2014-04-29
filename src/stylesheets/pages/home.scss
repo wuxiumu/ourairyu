@@ -144,7 +144,8 @@ main > header {
 }
 
 .posts,
-.repos {
+.repos,
+.dependencies {
   @include clearfix;
 }
 
@@ -175,7 +176,8 @@ main > header {
   }
 }
 
-.repos {
+.repos,
+.dependencies {
   @include no_item;
   @include no_gap;
 
@@ -185,14 +187,20 @@ main > header {
   }
 }
 
-.repo {
+.repo,
+.dependency {
   width: percent(1, 3);
   float: left;
 
   & > div {
-    position: relative;
-    height: 150px;
     margin: 0 10px 20px;
+  }
+}
+
+.repo {
+  & > div {
+    height: 150px;
+    position: relative;
     overflow: hidden;
     @include block_content;
   }
@@ -218,6 +226,35 @@ main > header {
   }
 }
 
+.dependency {
+  h3 {
+    @include no_gap;
+    display: table;
+    table-layout: fixed;
+    text-align: center;
+  }
+
+  a {
+    display: table-cell;
+    vertical-align: middle;
+    height: 150px;
+  }
+
+  h3,
+  a {
+    width: 100%;
+  }
+
+  span {
+    @include text-hide;
+  }
+
+  img {
+    max-height: 100%;
+    vertical-align: middle;
+  }
+}
+
 .repo_lang {
   font-size: .9em;
   font-family: Monaco,Consolas, "Lucida Console", monospace, "Courier New", Courier, Serif;
@@ -225,7 +262,8 @@ main > header {
 
 @media all and (max-width: 800px) {
   .posts li,
-  .repo {
+  .repo,
+  .dependency {
     width: percent(1, 2);
   }
 }

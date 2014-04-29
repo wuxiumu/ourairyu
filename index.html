@@ -10,9 +10,9 @@ js:
 <header>
   <div class="layout-inner">
     <div class="profile" itemscope itemtype="http://schema.org/Person">
-      <a href="{{ site.author.profile }}" class="avatar_link" target="_blank"><img class="avatar" src="{{ site.author.avatar }}?s=120" itemprop="image"></a>
+      <a href="{{ site.author.profile }}" class="avatar_link" rel="external nofollow"><img class="avatar" src="{{ site.author.avatar }}?s=120" itemprop="image"></a>
       <div class="profile_info">
-        <h3 class="author"><a href="{{ site.author.profile }}" class="author_link" itemprop="name" target="_blank" lang="en">{{ site.author.name_en }}</a></h3>
+        <h3 class="author"><a href="{{ site.author.profile }}" class="author_link" itemprop="name" rel="external nofollow" lang="en">{{ site.author.name_en }}</a></h3>
         <p lang="en">Developer / Blogger</p>
       </div>
     </div>
@@ -42,5 +42,19 @@ js:
   <div class="section">
     <h2 class="section-title" lang="en">Repositories</h2>
     <ul class="repos"></ul>
+  </div>
+  <!-- Thanks to -->
+  <div class="section">
+    <h2 class="section-title" lang="en">Thanks</h2>
+    <ul class="dependencies" lang="en">
+      {% for dependency in site.dependencies %}
+        <li class="dependency">
+          <div>
+            <h3><a href="{{ dependency.url }}" title="{{ dependency.name }}" rel="external nofollow"><img src="{{ site.url.root }}/{{ site.url.img }}/logos/{{ dependency.image }}" alt="{{ dependency.name }}"></a><span>{{ dependency.name }}</span></h3>
+            <p>{{ dependency.desc }}</p>
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
   </div>
 </div>
