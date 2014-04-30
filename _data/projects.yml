@@ -1,20 +1,32 @@
 - name:
     zh: 明鉴®WEB应用弱点扫描器平台版
-    en: ""
+    en: MatriXay Web Application Vulnerability Scanner (B/S architecture)
   description: 提供了 Web 漏洞、网页木马及网页篡改等弱点扫描模块，使用户能够全方位地实时检测网站的安全情况。扫描结果中会展示出弱点名称、等级、分类等信息，还有详细的修复建议帮助用户避免再次出现相同漏洞。网站地址可以选择所属行业及分类等，用户可以更加快速地管理及查找网站地址。
   url: http://www.dbappsecurity.com.cn/products/products06.html
   period:
-    start: 2011-04
-    end: 2011-10
+    start: 2011-04-01
+    end: 2011-10-31
+  organization:
+    name:
+      zh: 杭州安恒信息技术有限公司
+      en: DBAPPSecurity
+      abbr: 安恒
+    website: http://www.dbappsecurity.com.cn/
 
 - name:
     zh: 明鉴®网站安全监测平台
-    en: ""
+    en: MatriXay Website Security Monitor
   description: 一套软、硬件一体化监测平台，是明鉴® WEB 应用弱点扫描器平台版的升级版本。采用远程监测技术对 Web 应用提供 7×24 小时实时安全监测服务。具有 Web 漏洞、网页木马、网页篡改、网站可用性及网页关键字等监测模块。用户通过 Web 页面进行新建、修改任务等操作，将数据传到服务器端之后，再将指令下发到底层引擎，从而进行对指定网站的周期性检测。
   url: http://www.dbappsecurity.com.cn/products/products15.html
   period:
-    start: 2011-11
-    end: 2013-01
+    start: 2011-11-01
+    end: 2013-01-14
+  organization:
+    name:
+      zh: 杭州安恒信息技术有限公司
+      en: DBAPPSecurity
+      abbr: 安恒
+    website: http://www.dbappsecurity.com.cn/
 
 - name:
     zh: 有渔
@@ -25,4 +37,10 @@
     origin: youyu.png
     thumbnail: youyu_thumbnail.png
   period:
-    start: 2013-03
+    start: 2013-03-25
+  organization:
+    name:
+      zh: 杭州刺暮软件科技有限公司
+      en: Cimu Tech
+      abbr: 刺暮
+    website: http://www.cimu.com.cn/

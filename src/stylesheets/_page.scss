@@ -9,3 +9,54 @@
     vertical-align: middle;
   }
 }
+
+[data-page="project"] {
+  .project {
+    padding: 1em .333333333em;
+    border-top: 1px solid #FFF;
+    border-bottom: 1px solid #BFBFBF;
+
+    &:first-child {
+      border-top-width: 0;
+      padding-top: 0;
+      margin-top: 30px;
+    }
+
+    &:last-child {
+      border-bottom-width: 0;
+      padding-bottom: 0;
+      margin-bottom: 30px;
+    }
+  }
+
+  .project-thumbnail {
+    height: 200px;
+    @include covered_background;
+    margin-bottom: 15px;
+  }
+
+  .project-name {
+    font-size: 1.2em;
+    margin: 0;
+
+    a:hover {
+      text-decoration: none;
+    }
+  }
+
+  .project-period {
+    time {
+      font-size: 12px;
+    }
+  }
+}
+
+:root {
+  [data-page="project"] {
+    .project-thumbnail {
+      img {
+        display: none;
+      }
+    }
+  }
+}
