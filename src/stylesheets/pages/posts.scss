@@ -30,6 +30,10 @@
       h2 {
         font-size: 1.2em;
         margin: 0;
+
+        a:hover {
+          text-decoration: none;
+        }
       }
 
       time {

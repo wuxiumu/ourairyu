@@ -11,14 +11,11 @@
       left: 0;
       z-index: 1;
       @include square(100%);
-      // @include filter(blur(5px));
       @include opacity(.8);
+      @include covered_background;
       background: {
         image: url("../../images/header-home.jpg");
         color: #E5E5E5;
-        repeat: no-repeat;
-        position: 50% 50%;
-        size: cover;
       }
     }
 
@@ -247,12 +244,8 @@
   @include square(100%);
   @include filter(blur(3px));
   @include opacity(.6);
-  background: {
-    size: cover;
-    repeat: no-repeat;
-    position: 50% 50%;
-    color: #FEFEFE;
-  }
+  @include covered_background;
+  background-color: #FEFEFE;
   z-index: -1;
   overflow: hidden;
 
