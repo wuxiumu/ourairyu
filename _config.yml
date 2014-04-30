@@ -1,7 +1,8 @@
 # Global
 encoding: utf-8
 timezone: Asia/Shanghai
-pygments: true
+# pygments: false
+markdown: kramdown
 relative_permalinks: false
 permalink: /posts/:title/
 
