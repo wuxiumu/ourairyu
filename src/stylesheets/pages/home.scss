@@ -11,7 +11,7 @@
       left: 0;
       z-index: 1;
       @include square(100%);
-      @include filter(blur(5px));
+      // @include filter(blur(5px));
       @include opacity(.8);
       background: {
         image: url("../../images/header-home.jpg");
@@ -29,6 +29,7 @@
       h1,
       p {
         line-height: 1.2;
+        visibility: hidden;
       }
 
       h1 {
