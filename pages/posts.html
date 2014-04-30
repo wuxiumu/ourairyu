@@ -22,7 +22,7 @@ css:
       <header>
         <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
         <div>
-          <time datetime="{{ post.date | date: '%c' }}">{{ post.date | date: "%b %-d, %Y" }}</time>
+          <time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: "%b %-d, %Y" }}</time>
         </div>
       </header>
       <div>{{ post.excerpt }}</div>
