@@ -7,7 +7,7 @@ repo = ( data ) ->
   item
     .append "<div />"
     .children "div"
-    .append "<h3><a href=\"#{(data.homepage || data.html_url)}\" rel=\"external nofollow\">#{data.name}</a></h3>"
+    .append "<h3><a href=\"#{(data.homepage || data.html_url)}\" rel=\"external nofollow\" target=\"_blank\">#{data.name}</a></h3>"
     .append "<span class=\"repo_lang\">#{data.language}</span>"
     .append "<time>Last updated: #{prettyDate data.pushed_at}</time>"
     .append "<p>#{data.description}</p>"
