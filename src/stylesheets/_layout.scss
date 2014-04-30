@@ -57,8 +57,46 @@
       @include no_gap;
     }
 
+    .footer-links {
+      width: percent(3, 4);
+      min-height: 200px;
+      float: left;
+
+      & > div {
+        width: percent(1, 3);
+        float: left;
+
+        b {
+          @include text-shadow(0 1px #FFF);
+          border-left: 3px solid #AAA;
+          padding-left: .5em;
+        }
+
+        ul {
+          @include no_item;
+          @include no_gap;
+          margin-top: .7em;
+        }
+
+        li {
+          line-height: 16px;
+          margin-top: .5em;
+        }
+      }
+    }
+
+    .w3c_techs {
+      overflow: hidden;
+      padding: 5px;
+      margin-bottom: 10px;
+
+      img {
+        vertical-align: middle;
+      }
+    }
 
     .profile {
+      display: none;
       overflow: hidden;
       padding: 5px;
       margin-bottom: 20px;
@@ -106,35 +144,6 @@
       vertical-align: middle;
     }
 
-    .footer-links {
-      width: percent(3, 4);
-      min-height: 200px;
-      float: left;
-
-      & > div {
-        width: percent(1, 3);
-        float: left;
-
-        b {
-          @include text-shadow(0 1px #FFF);
-          border-left: 3px solid #AAA;
-          padding-left: .5em;
-        }
-
-        ul {
-          @include no_item;
-          @include no_gap;
-          margin-top: .7em;
-        }
-
-        li {
-          line-height: 16px;
-          margin-top: .5em;
-          @include clearfix;
-        }
-      }
-    }
-
     .copyright,
     .dependencies {
       overflow: hidden;
@@ -143,10 +152,6 @@
         size: 12px;
         family: Verdana;
       }
-    }
-
-    .copyright {
-      margin-top: 20px;
     }
   }
 
