@@ -1,47 +1,44 @@
-    </main>
-    <footer class="layout-footer">
-      <div class="layout-inner">
-        <div class="footer-links">
-          <!-- Internal links -->
-          <div class="internal">
-            <b>站内链接</b>
-            <ul>
-              <li><a href="/categories/">文章类别</a></li>
-              <li><a href="/links/">博客群</a></li>
-            </ul>
-          </div>
-          <!-- Special thanks -->
-          <div class="dependencies">
-            <b>特别感谢</b>
-            <ul>
-              {% for d in site.data.dependencies %}
-                <li>
-                  <img src="{{ site.url.root }}/{{ site.url.img }}/logos/{{ d.image }}" alt="{{ d.name }}">
-                  <a href="{{ d.url }}" rel="external nofollow" title="{{ d.desc }}" lang="en">{{ d.name }}</a>
-                  <p>{{ d.type }}</p>
-                </li>
-              {% endfor %}
-            </ul>
-          </div>
-        </div>
-        <!-- Author's profile -->
-        <div class="profile" itemscope itemtype="http://schema.org/Person">
-          <a href="{{ site.author.profile }}" class="avatar_link" rel="external nofollow"><img class="avatar" src="{{ site.author.avatar }}?s=120" itemprop="image"></a>
-          <div class="profile_info">
-            <h3 class="author"><a href="{{ site.author.profile }}" class="author_link" itemprop="name" rel="external nofollow" lang="en">{{ site.author.name_en }}</a></h3>
-            <p lang="en">Developer / Blogger</p>
-          </div>
-        </div>
-        <!-- Copyright -->
-        <p class="copyright">&copy; 2013-{{ site.time | date: "%Y" }} <a href="{{ site.author.website }}" rel="external nofollow" title="{{ site.author.desc }}">Ourai.WS</a>. All rights reserved.</p>
+<footer class="layout-footer">
+  <div class="layout-inner">
+    <div class="footer-links">
+      <!-- Internal links -->
+      <div class="internal">
+        <b>站内链接</b>
+        <ul>
+          <li><a href="/categories/">文章类别</a></li>
+          <li><a href="/links/">博客群</a></li>
+        </ul>
       </div>
-    </footer>
-    {% assign js_url = site.url.root | append: "/" | append: site.url.js %}
-    <script src="{{ js_url }}/site.js"></script>
-    {% if page.js %}
-      {% for js in page.js %}
-    <script src="{{ js_url }}/{{ js }}.js"></script>
-      {% endfor %}
-    {% endif %}
-  </body>
-</html>
+      <!-- Special thanks -->
+      <div class="dependencies">
+        <b>特别感谢</b>
+        <ul>
+          {% for d in site.data.dependencies %}
+            <li>
+              <img src="{{ site.url.root }}/{{ site.url.img }}/logos/{{ d.image }}" alt="{{ d.name }}">
+              <a href="{{ d.url }}" rel="external nofollow" title="{{ d.desc }}" lang="en">{{ d.name }}</a>
+              <p>{{ d.type }}</p>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+    <!-- Author's profile -->
+    <div class="profile" itemscope itemtype="http://schema.org/Person">
+      <a href="{{ site.author.profile }}" class="avatar_link" rel="external nofollow"><img class="avatar" src="{{ site.author.avatar }}?s=120" itemprop="image"></a>
+      <div class="profile_info">
+        <h3 class="author"><a href="{{ site.author.profile }}" class="author_link" itemprop="name" rel="external nofollow" lang="en">{{ site.author.name_en }}</a></h3>
+        <p lang="en">Developer / Blogger</p>
+      </div>
+    </div>
+    <!-- Copyright -->
+    <p class="copyright">&copy; 2013-{{ site.time | date: "%Y" }} <a href="{{ site.author.website }}" rel="external nofollow" title="{{ site.author.desc }}">Ourai.WS</a>. All rights reserved.</p>
+  </div>
+</footer>
+{% assign js_url = site.url.root | append: "/" | append: site.url.js %}
+<script src="{{ js_url }}/site.js"></script>
+{% if page.js %}
+  {% for js in page.js %}
+<script src="{{ js_url }}/{{ js }}.js"></script>
+  {% endfor %}
+{% endif %}
