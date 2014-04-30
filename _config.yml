@@ -5,8 +5,6 @@ pygments: true
 relative_permalinks: false
 permalink: /posts/:title/
 
-
-
 # YAML frontmatter
 defaults:
   - scope:
@@ -20,42 +18,3 @@ defaults:
     values:
       layout: "article"
       comments: true
-
-
-
-url:
-  root: http://dev.ourai.ws
-  asset: assets
-  # Pages
-  article: articles
-  demo: demos
-  doc: docs
-  spec: specs
-  about: about
-  # Resource
-  js: assets/javascripts
-  css: assets/stylesheets
-  img: assets/images
-
-# Site
-title: Ourai's Workstation
-keywords: "欧雷,欧雷流,宅男的部屋,宅男部屋,宅男,ourai,ourairyu,developer,center,dev,network,front-end,web,网络开发,web开发,开发网络,开发中心"
-tagline: "Talk less, Do more!"
-lang: zh-CN
-hosted_on:
-  name: GitHub
-  url: https://github.com/
-  desc: GitHub
-powered_by:
-  name: Jekyll
-  url: http://jekyllrb.com/
-  desc: Jekyll
-
-author:
-  name: 欧雷
-  name_en: Ourai Lin
-  avatar: http://www.gravatar.com/avatar/0565b1df14e0b4a1a9cdecb3f085cdba
-  website: http://ourai.ws/
-  profile: http://ourai.ws/
-  desc: 欧雷流
-  gplus: https://plus.google.com/110971881899489153670/
