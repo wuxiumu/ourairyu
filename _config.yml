@@ -41,6 +41,7 @@ url:
 title: Ourai's Workstation
 keywords: "欧雷,欧雷流,宅男的部屋,宅男部屋,宅男,ourai,ourairyu,developer,center,dev,network,front-end,web,网络开发,web开发,开发网络,开发中心"
 tagline: "Talk less, Do more!"
+lang: zh-CN
 hosted_on:
   name: GitHub
   url: https://github.com/
@@ -57,3 +58,4 @@ author:
   website: http://ourai.ws/
   profile: http://ourai.ws/
   desc: 欧雷流
+  gplus: https://plus.google.com/110971881899489153670/

@@ -1,0 +1,28 @@
+---
+template: page
+---
+
+{% include header.html %}
+  <!-- Page's header -->
+  <header>
+    <div class="layout-inner">
+      {% if page.title %}
+        {% assign title = page.title %}
+      {% else %}
+        {% assign title = site.title %}
+      {% endif %}
+
+      {% if page.description %}
+        {% assign desc = page.description %}
+      {% else %}
+        {% assign desc = site.tagline %}
+      {% endif %}
+      <h1>{{ title }}</h1>
+      <p>{{ desc }}</p>
+    </div>
+  </header>
+  <!-- Page's main content -->
+  <div class="layout-content layout-inner">
+    {{ content }}
+  </div>
+{% include footer.html %}
