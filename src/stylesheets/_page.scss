@@ -1,30 +1,72 @@
-.page-404 {
-  overflow: hidden;
-  margin: 30px 0;
-  font-size: 2em;
-  text-align: center;
+[data-page="404"] {
+  .page-404 {
+    overflow: hidden;
+    margin: 30px 0;
+    font-size: 2em;
+    text-align: center;
 
-  img {
-    width: 70%;
-    vertical-align: middle;
+    img {
+      width: 70%;
+      vertical-align: middle;
+    }
   }
 }
 
-[data-page="project"] {
-  .project {
-    padding: 1em .333333333em;
-    border-top: 1px solid #FFF;
-    border-bottom: 1px solid #BFBFBF;
+[data-page="articles"] article,
+[data-page="projects"] .project {
+  padding: 1em .333333333em;
+  border-top: 1px solid #FFF;
+  border-bottom: 1px solid #BFBFBF;
 
+  &:first-child {
+    border-top-width: 0;
+    padding-top: 0;
+  }
+
+  &:last-child {
+    border-bottom-width: 0;
+    padding-bottom: 0;
+  }
+}
+
+[data-page="articles"] .article-title,
+[data-page="projects"] .project-name {
+  font-size: 1.2em;
+  margin: 0;
+
+  a:hover {
+    text-decoration: none;
+  }
+}
+
+[data-page="articles"] .article-meta,
+[data-page="projects"] .project-period {
+  time {
+    font-size: 12px;
+  }
+}
+
+[data-page="articles"] {
+  .statistic {
+    margin-top: 30px;
+    padding: 0 10px;
+    border-left: 3px solid #AAA;
+    background-color: #FFF;
+    overflow: hidden;
+  }
+
+  .articles {
+    margin: 30px 0;
+  }
+}
+
+[data-page="projects"] {
+  .project {
     &:first-child {
-      border-top-width: 0;
-      padding-top: 0;
       margin-top: 30px;
     }
 
     &:last-child {
-      border-bottom-width: 0;
-      padding-bottom: 0;
       margin-bottom: 30px;
     }
   }
@@ -34,25 +76,10 @@
     @include covered_background;
     margin-bottom: 15px;
   }
-
-  .project-name {
-    font-size: 1.2em;
-    margin: 0;
-
-    a:hover {
-      text-decoration: none;
-    }
-  }
-
-  .project-period {
-    time {
-      font-size: 12px;
-    }
-  }
 }
 
 :root {
-  [data-page="project"] {
+  [data-page="projects"] {
     .project-thumbnail {
       img {
         display: none;
