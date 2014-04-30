@@ -50,7 +50,7 @@ dt { width: 5em; float: left; padding-right: 1em; }
 dd { margin-bottom: .5em; }
 {% endhighlight %}
 
-本文主要内容是**用`dl`标签来实现商品信息列表的布局**，右侧商品款式等选择的实现不在本文讨论范围内，故该 [demo]({{ site.url.root }}/{{ site.url.demo }}layout/definition-list.html "查看示例") 只将主体部分实现。兼容 IE6 及以上和其他标准浏览器。
+本文主要内容是**用`dl`标签来实现商品信息列表的布局**，右侧商品款式等选择的实现不在本文讨论范围内，故该 [demo]({{ site.data.url.root }}/{{ site.url.demo }}layout/definition-list.html "查看示例") 只将主体部分实现。兼容 IE6 及以上和其他标准浏览器。
 
 ### 总结
 

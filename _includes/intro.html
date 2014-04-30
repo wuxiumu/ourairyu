@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="{{ site.lang }}" dir="ltr">
+<html lang="{{ site.data.info.lang }}" dir="ltr">
   <head>
     <meta charset="UTF-8">
-    <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
+    <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.data.info.title }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% if page.keywords %}
       {% assign keywords = page.keywords %}
-    {% elsif site.keywords %}
-      {% assign keywords = site.keywords %}
+    {% elsif site.data.info.keywords %}
+      {% assign keywords = site.data.info.keywords %}
     {% else %}
       {% assign keywords = "" %}
     {% endif %}
@@ -18,8 +18,8 @@
 
     {% if page.description %}
       {% assign description = page.description %}
-    {% elsif site.description %}
-      {% assign description = site.description %}
+    {% elsif site.data.info.description %}
+      {% assign description = site.data.info.description %}
     {% else %}
       {% assign description = "" %}
     {% endif %}
@@ -27,17 +27,17 @@
     {% if description != blank %}
       <meta name="description" content="{{ description }}">
     {% endif %}
-    <link rel="author" href="{{ site.author.gplus }}">
-    <link rel="shortcut icon" href="{{ site.url.root }}/{{ site.url.img }}/favicon.ico">
-    {% assign css_url = site.url.root | append: "/" | append: site.url.css %}
+    <link rel="author" href="{{ site.data.author.link }}">
+    <link rel="shortcut icon" href="{{ site.data.url.root | append: '/' | append: site.data.url.img }}/favicon.ico">
+    {% assign css_url = site.data.url.root | append: "/" | append: site.data.url.css %}
     <link rel="stylesheet" href="{{ css_url }}/matcha.min.css">
     <link rel="stylesheet" href="{{ css_url }}/site.css">
     {% if page.css %}
       {% for css in page.css %}
-    <link rel="stylesheet" href="{{ css_url }}/{{ css }}.css">
+    <link rel="stylesheet" href="{{ css_url | append: '/' | append: css }}.css">
       {% endfor %}
     {% endif %}
-    {% assign js_url = site.url.root | append: "/" | append: site.url.js %}
+    {% assign js_url = site.data.url.root | append: "/" | append: site.data.url.js %}
     <!--[if lt IE 9]>
     <script src="{{ js_url }}/html5shiv-printshiv.min.js"></script>
     <![endif]-->

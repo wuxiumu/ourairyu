@@ -2,13 +2,13 @@
 <html lang="zh" dir="ltr">
   <head>
     <meta charset="UTF-8">
-    <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
+    <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.data.info.title }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="keywords" content="{{ page.keywords || site.keywords || '' }}">
-    <meta name="description" content="{{ page.desc || site.desc || '' }}">
+    <meta name="keywords" content="{{ page.keywords || site.data.info.keywords || '' }}">
+    <meta name="description" content="{{ page.desc || site.data.info.description || '' }}">
     <link rel="author" href="https://plus.google.com/110971881899489153670/">
-    <link rel="shortcut icon" href="{{ site.url.root }}/{{ site.url.img }}favicon.ico">
-    <link rel="stylesheet" href="{{ site.url.root }}/{{ site.url.css }}base.css">
+    <link rel="shortcut icon" href="{{ site.data.url.root }}/{{ site.data.url.img }}favicon.ico">
+    <link rel="stylesheet" href="{{ site.data.url.root }}/{{ site.data.url.css }}base.css">
   </head>
   <body>
     <div id="wrapper">

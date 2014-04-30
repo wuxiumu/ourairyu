@@ -5,10 +5,10 @@
       <div class="internal">
         <b>内部通道</b>
         <ul>
-          <li><a href="/repositories/">开源项目</a></li>
-          <li><a href="/projects/">商业项目</a></li>
-          <li><a href="/categories/">文章类别</a></li>
-          <li><a href="/links/">链接</a></li>
+          <li><a href="{{ site.data.url.repository }}">开源项目</a></li>
+          <li><a href="{{ site.data.url.project }}">商业项目</a></li>
+          <li><a href="{{ site.data.url.category }}">文章类别</a></li>
+          <li><a href="{{ site.data.url.link }}">链接</a></li>
         </ul>
       </div>
       <!-- Other links -->
@@ -16,26 +16,26 @@
         <b>狡兔三窟</b>
         <ul>
           <li><a href="https://github.com/ourai" rel="external nofollow">GitHub</a></li>
-          <li><a href="http://ourai.ws/" rel="external nofollow">欧雷流</a></li>
+          <li><a href="{{ site.data.author.website.url }}" rel="external nofollow">{{ site.data.author.website.name }}</a></li>
           <li><a href="http://weibo.com/ourairyu" rel="external nofollow">微博</a></li>
         </ul>
       </div>
     </div>
     <!-- Author's profile -->
     <div class="profile" itemscope itemtype="http://schema.org/Person" lang="en">
-      <a href="{{ site.author.profile }}" class="avatar_link" rel="external nofollow"><img class="avatar" src="{{ site.author.avatar }}?s=120" itemprop="image" alt="{{ site.author.name }}"></a>
+      <a href="{{ site.data.author.profile }}" class="avatar_link" rel="external nofollow"><img class="avatar" src="{{ site.data.author.avatar }}?s=120" itemprop="image" alt="{{ site.data.author.name.zh }}"></a>
       <div class="profile_info">
-        <h3 class="author"><a href="{{ site.author.profile }}" class="author_link" itemprop="name" rel="external nofollow">{{ site.author.name_en }}</a></h3>
+        <h3 class="author"><a href="{{ site.data.author.profile }}" class="author_link" itemprop="name" rel="external nofollow">{{ site.data.author.name.en }}</a></h3>
         <p>Developer / Blogger</p>
       </div>
     </div>
     <!-- Copyright -->
-    <p class="copyright">Copyright &copy; 2013-{{ site.time | date: "%Y" }} <a href="{{ site.author.website }}" rel="external nofollow" title="{{ site.author.desc }}">Ourai.WS</a></p>
+    <p class="copyright">Copyright &copy; 2013-{{ site.time | date: "%Y" }} <a href="{{ site.data.author.website.url }}" rel="external nofollow" title="{{ site.data.author.website.name }}">Ourai.WS</a></p>
     <!-- Powered by -->
     <p class="dependencies">Powered by {% for d in site.data.dependencies %}<a href="{{ d.url }}" rel="external nofollow" title="{{ d.desc }}">{{ d.name }}</a>{% if forloop.rindex != 1 %}, {% endif %}{% endfor %}</p>
   </div>
 </footer>
-{% assign js_url = site.url.root | append: "/" | append: site.url.js %}
+{% assign js_url = site.data.url.root | append: "/" | append: site.data.url.js %}
 <script src="{{ js_url }}/site.js"></script>
 {% if page.js %}
   {% for js in page.js %}

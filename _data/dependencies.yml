@@ -4,14 +4,14 @@
   image: jekyll-notext.png
   type: 生成静态网站
 
-- name: GitHub
-  url: https://github.com/
-  desc: "GitHub is the best place to share code with friends, co-workers, classmates, and complete strangers. Over four million people use GitHub to build amazing things together."
-  image: github.png
-  type: 代码、文件托管
-
 - name: Disqus
   url: http://disqus.com/
   desc: "Disqus is a free service that enables great online communities. As the web’s most popular discussion system, Disqus is used by millions of websites that cover pretty much any topic imaginable. Its magic is in connecting people to stuff worth talking about."
   image: disqus-icon.png
   type: 评论交流
+
+- name: GitHub
+  url: https://github.com/
+  desc: "GitHub is the best place to share code with friends, co-workers, classmates, and complete strangers. Over four million people use GitHub to build amazing things together."
+  image: github.png
+  type: 代码、文件托管

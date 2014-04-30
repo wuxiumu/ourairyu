@@ -11,13 +11,13 @@ template: page
         {% if page.title %}
           {% assign title = page.title %}
         {% else %}
-          {% assign title = site.title %}
+          {% assign title = site.data.info.title %}
         {% endif %}
 
         {% if page.description %}
           {% assign desc = page.description %}
         {% else %}
-          {% assign desc = site.tagline %}
+          {% assign desc = site.data.info.tagline %}
         {% endif %}
         <h1>{{ title }}</h1>
         <p>{{ desc }}</p>

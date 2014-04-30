@@ -48,7 +48,7 @@ js:
               {% assign img_url = "bg-content-kai.png" %}
               {% assign img_padding = "" %}
             {% endif %}
-            <div class="project-thumbnail" style="background-image: url('{{ site.url.root }}/{{ site.url.img }}/{{ img_url | prepend: img_padding }}')"><img src="{{ site.url.root }}/{{ site.url.img }}/{{ img_url | prepend: img_padding }}" alt="{{ project.name.zh }}"></div>
+            <div class="project-thumbnail" style="background-image: url('{{ site.data.url.root }}/{{ site.data.url.img }}/{{ img_url | prepend: img_padding }}')"><img src="{{ site.data.url.root }}/{{ site.data.url.img }}/{{ img_url | prepend: img_padding }}" alt="{{ project.name.zh }}"></div>
           </div>
           <p class="project-description">{{ project.description }}</p>
         </div>
