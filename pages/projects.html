@@ -1,22 +1,24 @@
 ---
-permalink: /projects/
-layout: default
+layout: page
 layout_type: sandwich
+
+title: 商业项目
+description: 主要为在职期间所参与过的就职公司的项目
+
+permalink: /projects/
 ---
 
-<div class="layout-inner">
-  {% for project in site.data.projects %}
-    <section class="project">
-      <header>
-        <h3 class="project-name">{{ project.name.zh || project.name.en }}</h3>
-        {% if project.image.thumbnail %}
-          <div class="project-thumbnail" style="background-image: url('{{ site.url.root }}/{{ site.url.img }}/projects/{{ project.image.thumbnail }}')"><img src="{{ site.url.root }}/{{ site.url.img }}/projects/{{ project.image.thumbnail }}"></div>
-        {% endif %}
-        <div class="project-period"><time datetime="{{ project.period.start | date: '%c' }}">{{ project.period.start | date: "%b %-d, %Y" }}</time> – {% if project.period.end %}<time datetime="{{ project.period.end | date: '%c' }}">{{ project.period.end | date: "%b %-d, %Y" }}</time>{% else %}<time datetime="{{ site.time | date: '%c' }}">Present</time>{% endif %}</div>
-      </header>
-      <div class="project-description">
-        <p>{{ project.description }}</p>
-      </div>
-    </section>
-  {% endfor %}
-</div>
+{% for project in site.data.projects reversed %}
+  <section class="project">
+    <header>
+      <h3 class="project-name">{{ project.name.zh || project.name.en }}</h3>
+      {% if project.image.thumbnail %}
+        <div class="project-thumbnail" style="background-image: url('{{ site.url.root }}/{{ site.url.img }}/projects/{{ project.image.thumbnail }}')"><img src="{{ site.url.root }}/{{ site.url.img }}/projects/{{ project.image.thumbnail }}"></div>
+      {% endif %}
+      <div class="project-period"><time datetime="{{ project.period.start | date: '%c' }}">{{ project.period.start | date: "%b %-d, %Y" }}</time> – {% if project.period.end %}<time datetime="{{ project.period.end | date: '%c' }}">{{ project.period.end | date: "%b %-d, %Y" }}</time>{% else %}<time datetime="{{ site.time | date: '%c' }}">Present</time>{% endif %}</div>
+    </header>
+    <div class="project-description">
+      <p>{{ project.description }}</p>
+    </div>
+  </section>
+{% endfor %}

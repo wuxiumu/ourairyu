@@ -40,7 +40,7 @@ js:
       <li class="project">
         <div>
           <div class="project-meta">
-            <h3 class="project-name"><a href="{{ project.url }}" rel="external nofollow" title="{{ project.name.zh }}">{{ project.name.zh }}</a></h3>
+            <h3 class="project-name"><a href="{{ project.url }}" rel="external nofollow" title="{{ project.name.zh }}"><span>{{ project.name.zh }}</span></a></h3>
             {% if project.image.thumbnail %}
               {% assign img_url = project.image.thumbnail %}
               {% assign img_padding = "projects/" %}

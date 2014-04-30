@@ -218,7 +218,7 @@
   position: relative;
 }
 
-.project-name,
+.project-name span,
 .project-thumbnail {
   position: absolute;
   bottom: 0;
@@ -226,10 +226,20 @@
 }
 
 .project-name {
-  margin: .3em .8em;
+  @include square(100%);
+  margin: 0;
 
   a {
+    position: relative;
+    display: block;
     color: $color-text;
+    @include square(100%);
+    background-image: url("../../images/transparent.gif");
+
+    span {
+      display: block;
+      margin: .3em .8em;
+    }
   }
 }
 
@@ -255,10 +265,13 @@
 }
 
 :root {
-  .project-thumbnail {
-    img {
-      display: none;
-    }
+  .project-thumbnail img {
+    display: none;
+  }
+
+  .project-name a:hover {
+    background-color: rgba(0, 0, 0, .4);
+    color: #E5E5E5;
   }
 }
 
