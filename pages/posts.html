@@ -1,5 +1,26 @@
 ---
-permalink: /posts/
-layout: default
+layout: page
 layout_type: sandwich
+
+title: 文章列表
+description: Web 技术的研究总结与笔记等
+permalink: /posts/
+
+css:
+  - pages/posts
 ---
+
+<div class="articles">
+  {% for post in site.posts %}
+    <article>
+      <header>
+        <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+        <div>
+          <time datetime="{{ post.date | date: '%c' }}" pubdate>{{ post.date | date: "%b %-d, %Y" }}</time>
+        </div>
+      </header>
+      <div>{{ post.excerpt }}</div>
+      <footer><a href="{{ post.url }}">more</a></footer>
+    </article>
+  {% endfor %}
+</div>
