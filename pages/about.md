@@ -7,6 +7,7 @@ page_category: about
 title: 关于
 description: 说说本站的故事
 permalink: /about/
+comments: true
 ---
 
 本站页面 footer 的版权信息中的起始时间是第一篇文章的发表时间，并非建站时间。

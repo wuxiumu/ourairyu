@@ -26,6 +26,9 @@ template: page
     <!-- Page's main content -->
     <div class="layout-content layout-inner">
       {{ content }}
+      {% if page.comments == true %}
+        {% include disqus.html %}
+      {% endif %}
     </div>
   </main>
 {% include footer.html %}
