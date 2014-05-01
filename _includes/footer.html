@@ -30,7 +30,7 @@
       </div>
     </div>
     <!-- Copyright -->
-    <p class="copyright">Copyright &copy; 2013-{{ site.time | date: "%Y" }} <a href="{{ site.data.author.website.url }}" target="_blank" rel="external nofollow" title="{{ site.data.author.website.name }}">Ourai.WS</a></p>
+    <p class="copyright">Copyright &copy; {{ site.posts.last.date | date: "%Y" }}-{{ site.time | date: "%Y" }} <a href="{{ site.data.author.website.url }}" target="_blank" rel="external nofollow" title="{{ site.data.author.website.name }}">Ourai.WS</a></p>
     <!-- Powered by -->
     <p class="dependencies">Powered by {% for d in site.data.dependencies %}<a href="{{ d.url }}" target="_blank" rel="external nofollow" title="{{ d.desc }}">{{ d.name }}</a>{% if forloop.rindex != 1 %}, {% endif %}{% endfor %}</p>
   </div>
