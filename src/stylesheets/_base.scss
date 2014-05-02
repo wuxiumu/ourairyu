@@ -28,6 +28,26 @@ pre {
   }
 }
 
+blockquote {
+  position: relative;
+  margin: 0;
+  padding: 20px 0 0 60px;
+
+  &:before {
+    content: "\201C";
+    position: absolute;
+    top: 0;
+    left: 10px;
+    z-index: -1;
+    font: {
+      family: Monaco,Consolas, "Lucida Console", monospace, "Courier New", Courier, serif;
+      size: 5em;
+    }
+    line-height: 1;
+    color: #A6A6A6;
+  }
+}
+
 [lang="zh-CN"] {
   font-family: $font_family-hei;
 }
