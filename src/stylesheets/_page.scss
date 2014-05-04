@@ -1,7 +1,6 @@
 [data-page="404"] {
   .page-404 {
     overflow: hidden;
-    margin: 30px 0;
     font-size: 2em;
     text-align: center;
 
@@ -48,7 +47,6 @@
 
 [data-page="articles"] {
   .statistic {
-    margin-top: 30px;
     padding: 0 10px;
     border-left: 3px solid #AAA;
     background-color: #FFF;
@@ -56,21 +54,11 @@
   }
 
   .articles {
-    margin: 30px 0;
+    margin-top: 30px;
   }
 }
 
 [data-page="projects"] {
-  .project {
-    &:first-child {
-      margin-top: 30px;
-    }
-
-    &:last-child {
-      margin-bottom: 30px;
-    }
-  }
-
   .project-thumbnail {
     height: 200px;
     @include covered_background;
