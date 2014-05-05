@@ -31,7 +31,9 @@ pre {
 blockquote {
   position: relative;
   margin: 0;
-  padding: 20px 0 0 60px;
+  padding: 20px 0 10px 60px;
+  font-size: 1.15em;
+  color: $color-text-light;
 
   &:before {
     content: "\201C";
