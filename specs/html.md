@@ -1,10 +1,37 @@
 ---
-layout: default
+layout: page
+layout_type: sandwich
+
+page_category: spec
+
 title: HTML SPEC
-desc: HTML SPEC 中文版
-category: spec
+description: HTML SPEC 中文版
+permalink: /specs/html/
+comments: true
 ---
 
+## 1 介绍 {#introduction}
+
+### 1.1 背景 {#background}
+
+> 这段文字为非规范的
+
+万维网的标记语言总是采用 HTML。尽管多年来 HTML 的一般性设计以及适配使它用于描述很多其他类型的文档，但最初主要被设计成一个语义地描述科学文档的语言。
+
+The main area that has not been adequately addressed by HTML is a vague subject referred to as Web Applications. This specification attempts to rectify this, while at the same time updating the HTML specifications to address issues raised in the past few years.
+
+### 1.7 本规范的结构 {#structure-of-this-specification}
+
+> 这段文字为非规范的
+
+本规范被分成以下几个主要部分：
+
+[介绍](#introduction)
+: 为 HTML 标准提供上下文的非规范资料
+
+
+
+<!--
 <header>
   <h1>HTML5</h1>
   <p>A vocabulary and associated APIs for HTML and XHTML</p>
@@ -248,3 +275,4 @@ category: spec
     </ol>
   </li>
 </ol>
+-->
