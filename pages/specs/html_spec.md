@@ -4,8 +4,8 @@ layout_type: sandwich
 
 page_category: spec
 
-title: HTML SPEC
-description: HTML SPEC 中文版
+title: 超文本标记语言规范
+description: HTML 与 XHTML 的词汇表与相关 API
 permalink: /specs/html/
 comments: true
 ---
@@ -14,35 +14,35 @@ comments: true
 
 ### 1.1 背景 {#background}
 
-> 这段文字为非规范的
+> 这段文字为非规范的。
 
-万维网的标记语言总是采用 HTML。尽管多年来 HTML 的一般性设计以及适配使它用于描述很多其他类型的文档，但最初主要被设计成一个语义地描述科学文档的语言。
+万维网的标记语言总是采用 HTML。尽管多年来 HTML 的一般性设计以及适配使它用于描述很多其他类型的文档，但最初主要被设计成一个语义地描述科学性文档的语言。
 
 The main area that has not been adequately addressed by HTML is a vague subject referred to as Web Applications. This specification attempts to rectify this, while at the same time updating the HTML specifications to address issues raised in the past few years.
 
-### 1.2 Audience {#audience}
+### 1.2 受众 {#audience}
 
-> This section is non-normative.
+> 这段文字为非规范的。
 
-This specification is intended for authors of documents and scripts that use the features defined in this specification, implementors of tools that operate on pages that use the features defined in this specification, and individuals wishing to establish the correctness of documents or implementations with respect to the requirements of this specification.
+该规范适用于使用本规范中定义的特性的文档及脚本作者、使用本规范中定义的特性去开发页面操作工具的实现者以及……（and individuals wishing to establish the correctness of documents or implementations with respect to the requirements of this specification.）
 
 This document is probably not suited to readers who do not already have at least a passing familiarity with Web technologies, as in places it sacrifices clarity for precision, and brevity for completeness. More approachable tutorials and authoring guides can provide a gentler introduction to the topic.
 
 In particular, familiarity with the basics of DOM is necessary for a complete understanding of some of the more technical parts of this specification. An understanding of Web IDL, HTTP, XML, Unicode, character encodings, JavaScript, and CSS will also be helpful in places but is not essential.
 
-### 1.3 Scope {#scope}
+### 1.3 范围 {#scope}
 
-> This section is non-normative.
+> 这段文字为非规范的。
 
-This specification is limited to providing a semantic-level markup language and associated semantic-level scripting APIs for authoring accessible pages on the Web ranging from static documents to dynamic applications.
+本规范仅限于提供语义级的标记语言和相关的语义级的脚本 API，用于创作网络范围内可访问的页面，使其能够从静态文档转化为动态应用程序。
 
-The scope of this specification does not include providing mechanisms for media-specific customization of presentation (although default rendering rules for Web browsers are included at the end of this specification, and several mechanisms for hooking into CSS are provided as part of the language).
+本规范的范围不包括提供根据媒介来进行表现定制的机制（尽管网页浏览器的默认渲染规则包含在了本规范的末尾，并且挂接到 CSS 的一些机制作为语言的一部分被提供）。
 
 The scope of this specification is not to describe an entire operating system. In particular, hardware configuration software, image manipulation tools, and applications that users would be expected to use with high-end workstations on a daily basis are out of scope. In terms of applications, this specification is targeted specifically at applications that would be expected to be used by users on an occasional basis, or regularly but from disparate locations, with low CPU requirements. Examples of such applications include online purchasing systems, searching systems, games (especially multiplayer online games), public telephone books or address books, communications software (e-mail clients, instant messaging clients, discussion software), document editing software, etc.
 
 ### 1.7 本规范的结构 {#structure-of-this-specification}
 
-> 这段文字为非规范的
+> 这段文字为非规范的。
 
 本规范被分成以下几个主要部分：
 
