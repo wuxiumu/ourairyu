@@ -5,14 +5,14 @@ layout_type: sandwich
 page_category: about
 
 title: 关于
-description: 说说本站的故事
+description: 说说我与本站的故事
 permalink: /about/
 comments: true
 ---
 
 ## 关于{{ site.data.author.name.zh }}
 
-一个目前人在{{ site.data.author.location }}，主要从事 web 前端开发的 web developer。在进行开发时注重语义化、复用性等，依赖 HTML5 标签构建网页结构，使用 CSS3 美化页面，遵从「渐进渐强」（progressive enhancement）原则，通过 Sass 和 CoffeeScript 来编写样式及脚本代码。想更多地了解我的能力，请检阅我的[技能表]({{ site.data.url.skill }})。:-)
+一个目前人在{{ site.data.author.location }}，主要从事 web 前端开发的 web developer。在进行开发时注重语义化、复用性等，依赖 HTML5 标签构建网页结构，使用 CSS3 美化页面，遵从「渐进渐强」（progressive enhancement）原则，通过 Sass 和 CoffeeScript 来编写样式及脚本代码。**更多地了解我的能力？请检阅我的[技能表]({{ site.data.url.skill }})。**:-)
 
 关于我是如何跳进「web 前端开发」这个坑的，那要从我的数据癖说起——
 
