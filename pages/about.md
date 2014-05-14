@@ -10,17 +10,17 @@ permalink: /about/
 comments: true
 ---
 
-## 关于站长
+## 关于{{ site.data.author.name.zh }}
 
-{{ site.data.author.name.zh }}，一个目前人在{{ site.data.author.location }}，主要从事 web 前端开发的 web developer。
+一个目前人在{{ site.data.author.location }}，主要从事 web 前端开发的 web developer。在进行开发时注重语义化、复用性等，依赖 HTML5 标签构建网页结构，使用 CSS3 美化页面，遵从「渐进渐强」（progressive enhancement）原则，通过 Sass 和 CoffeeScript 来编写样式及脚本代码。
 
-想了解更多，请移步到[{{ site.data.author.website.name }}]({{ site.data.author.website.url }}){:target="_blank"}{:rel="external nofollow"}。
+想了解更多，请检阅我的[技能表]({{ site.data.url.skill }})。:-)
 
-## 关于本站
+## 关于{{ site.data.info.title.zh }}
 
 > 「道」是表达技术、方法、学术观点、方法论或思想体系的「普遍概念」。
 
-「网道」即指「深入研究 web 开发技术并归纳总结，将其形成一个完整的思想体系」——Dive into Web！
+「{{ site.data.info.title.zh }}」即指「深入研究 web 开发技术并归纳总结，将其形成一个完整的思想体系」——Dive into Web！
 
 本站页面 footer 的版权信息中的起始时间是第一篇文章的发表时间，并非建站时间。
 
