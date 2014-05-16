@@ -29,15 +29,32 @@
     website: http://www.dbappsecurity.com.cn/
 
 - name:
-    zh: 有渔
-    en: YouYu
-  description: 一个游戏化的在线教育平台
-  url: http://youyu.im/
+    zh: 有渔・翻转课堂
+    en: YouYu Classroom
+  description: 作为最新一代网络教学系统，「有渔・翻转课堂」融合了 MOOC（大规模在线公开课平台）、SNS（社交网络）、游戏化教学、数据化分析、百科等先进教育理念，通过 SaaS（软件服务）模式构建，旨在打造中国「翻转课堂」第一平台，为学校、企业、名师、个人等提供人性化、信息化和定制化的教学云服务。「有渔・翻转课堂」始终本着「让教者乐其教，让学者乐其学」的服务宗旨，从教、学、监三个方面综合设计，着意教学管理与学习交流相结合，立足三大角色，开创五大功能，兼摄四大优势，主张开放思维、自主教学、互促互进，最终实现和衷共济、教学相长的数字化创新教育。
+  url: http://youyushe.com/
   image:
     origin: youyu.png
     thumbnail: youyu_thumbnail.png
   period:
     start: 2013-03-25
+  organization:
+    name:
+      zh: 杭州刺暮软件科技有限公司
+      en: Cimu Tech
+      abbr: 刺暮
+    website: http://www.cimu.com.cn/
+
+- name:
+    zh: 有渔
+    en: YouYu
+  description: 有渔是以国际化视野打造的翻转式学校，提供优质的英语、国学、STEM等订阅式课程内容，是中国创新教育的领跑者。
+  url: http://youyu.im/
+  image:
+    origin: youyu.png
+    thumbnail: youyu_thumbnail.png
+  period:
+    start: 2014-02
   organization:
     name:
       zh: 杭州刺暮软件科技有限公司
