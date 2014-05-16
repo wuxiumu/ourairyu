@@ -61,3 +61,7 @@ $.getJSON "https://api.github.com/users/ourai/repos?callback=?", ( result ) ->
       $.each repos, ( i, r ) ->
         if r.name isnt "ourai.github.io" and r.language
           $(".repos").append repo r
+
+# $(".project-description").each ->
+#   $(this).dotdotdot()
+#   $(this).attr("title", $(this).triggerHandler("originalContent")[0].nodeValue) if $(this).triggerHandler "isTruncated"

@@ -249,6 +249,11 @@
   }
 }
 
+.project-description {
+  height: 14px * 1.8 * 6;
+  overflow: hidden;
+}
+
 :root {
   .project-thumbnail img {
     display: none;
