@@ -13,11 +13,11 @@ permalink: /projects/
   <section class="project">
     <header>
       {% assign prj_name = project.name.zh %}
-      {% if project.image.thumbnail %}
+      {% if project.image.thumbnail == true %}
         <div class="project-thumbnail" style="background-image: url('{{ site.data.url.root }}/{{ site.data.url.img }}/projects/{{ project.image.thumbnail }}')"><img src="{{ site.data.url.root }}/{{ site.data.url.img }}/projects/{{ project.image.thumbnail }}" alt="{{ prj_name }}"></div>
       {% endif %}
       <h2 class="project-name"><a href="{{ project.url }}" target="_blank" rel="external nofollow" title="{{ prj_name }}">{{ prj_name }}</a></h2>
-      <div class="project-period"><time datetime="{{ project.period.start | date: '%Y-%m-%d' }}">{{ project.period.start | date: "%b, %Y" }}</time> – {% if project.period.end %}<time datetime="{{ project.period.end | date: '%Y-%m-%d' }}">{{ project.period.end | date: "%b, %Y" }}</time>{% else %}<time datetime="{{ site.time | date: '%Y-%m-%d' }}">Present</time>{% endif %}</div>
+      <div class="project-period"><time datetime="{{ project.period.start | date: '%Y-%m-%d' }}">{{ project.period.start | date: "%Y-%m" }}</time> – {% if project.period.end %}<time datetime="{{ project.period.end | date: '%Y-%m-%d' }}">{{ project.period.end | date: "%Y-%m" }}</time>{% else %}<time datetime="{{ site.time | date: '%Y-%m-%d' }}">现在</time>{% endif %}</div>
     </header>
     <div class="project-description">
       <p>{{ project.description }}</p>

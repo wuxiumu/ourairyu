@@ -9,7 +9,7 @@ repo = ( data ) ->
     .children "div"
     .append "<h3><a href=\"#{(data.homepage || data.html_url)}\" rel=\"external nofollow\" target=\"_blank\">#{data.name}</a></h3>"
     .append "<span class=\"repo_lang\">#{data.language}</span>"
-    .append "<time>Last updated: #{prettyDate data.pushed_at}</time>"
+    .append "<time>更新于#{prettyDate data.pushed_at}</time>"
     .append "<p>#{data.description}</p>"
 
   return item
@@ -35,21 +35,21 @@ prettyDate = ( time ) ->
   date = transformISO time
   seconds = (new Date() - date) / 1000
   formats = [
-      [60, "seconds", 1]
-      [120, "1 minute ago"]
-      [3600, "minutes", 60]
-      [7200, "1 hour ago"]
-      [86400, "hours", 3600]
-      [172800, "Yesterday"]
-      [604800, "days", 86400]
-      [1209600, "1 week ago"]
-      [2678400, "weeks", 604800]
+      [60, "秒", 1]
+      [120, " 1 分前"]
+      [3600, "分", 60]
+      [7200, " 1 小时前"]
+      [86400, "小时", 3600]
+      [172800, "昨天"]
+      [604800, "天", 86400]
+      [1209600, " 1 周前"]
+      [2678400, "周", 604800]
     ]
 
   for f in formats
-    return (if f[2] then "#{Math.floor(seconds / f[2])} #{f[1]} ago" else f[1]) if seconds < f[0]
+    return (if f[2] then " #{Math.floor(seconds / f[2])} #{f[1]}前" else f[1]) if seconds < f[0]
 
-  return "A while ago"
+  return "很久之前"
 
 $.getJSON "https://api.github.com/users/ourai/repos?callback=?", ( result ) ->
   repos = result.data

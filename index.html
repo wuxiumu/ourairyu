@@ -10,7 +10,7 @@ js:
 
 <!-- Articles -->
 <div class="section">
-  <h2 class="section-title" lang="en">Articles</h2>
+  <h2 class="section-title">最近文章</h2>
   {% assign posts = site.posts %}
   {% assign first_post = posts.first %}
   <!-- The newest article -->
@@ -29,12 +29,12 @@ js:
 </div>
 <!-- GitHub repositories -->
 <div class="section">
-  <h2 class="section-title" lang="en">Repositories</h2>
+  <h2 class="section-title">开源项目</h2>
   <ul class="repos"></ul>
 </div>
 <!-- Projects -->
 <div class="section">
-  <h2 class="section-title" lang="en">Projects</h2>
+  <h2 class="section-title">商业项目</h2>
   <ul class="projects">
     {% for project in site.data.projects reversed %}
       <li class="project">
