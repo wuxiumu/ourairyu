@@ -10,7 +10,7 @@ permalink: /about/
 comments: true
 ---
 
-## 关于{{ site.data.author.name.zh }}
+## {{ site.data.author.name.zh }}
 
 一个目前人在{{ site.data.author.location }}，主要从事 web 前端开发的 web developer。在进行开发时注重语义化、复用性等，依赖 HTML5 标签构建网页结构，使用 CSS3 美化页面，遵从「渐进渐强」（progressive enhancement）原则，通过 Sass 和 CoffeeScript 来编写样式及脚本代码。**更多地了解我的能力？请检阅我的[技能表]({{ site.data.url.skill }})。**:-)
 
@@ -26,7 +26,7 @@ comments: true
 
 前方之路还很漫长，静心、耐心、全心地向着目标迈进！;-)
 
-## 关于{{ site.data.info.title.zh }}
+## {{ site.data.info.title.zh }}
 
 > 「道」是表达技术、方法、学术观点、方法论或思想体系的「普遍概念」。
 
