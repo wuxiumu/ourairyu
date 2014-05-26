@@ -40,14 +40,16 @@ js:
       <li class="project">
         <div>
           <div class="project-meta">
-            <h3 class="project-name">{% if project.url %}<a href="{{ project.url }}" target="_blank" rel="external nofollow" title="{{ project.name.zh }}"><span>{{ project.name.zh }}</span></a>{% else %}<span>{{ project.name.zh }}</span>{% endif %}</h3>
             {% if project.image.thumbnail %}
+              {% assign has_thumbnail = true %}
               {% assign img_url = project.image.thumbnail %}
               {% assign img_padding = "projects/" %}
             {% else %}
+              {% assign has_thumbnail = false %}
               {% assign img_url = "bg-content-kai.png" %}
               {% assign img_padding = "" %}
             {% endif %}
+            <h3 class="project-name">{% if project.url %}<a href="{{ project.url }}" target="_blank" rel="external nofollow" title="{{ project.name.zh }}"><span{% if has_thumbnail %} style="visibility: hidden;"{% endif %}>{{ project.name.zh }}</span></a>{% else %}<span>{{ project.name.zh }}</span>{% endif %}</h3>
             <div class="project-thumbnail" style="background-image: url('{{ site.data.url.root }}/{{ site.data.url.img }}/{{ img_url | prepend: img_padding }}')"><img src="{{ site.data.url.root }}/{{ site.data.url.img }}/{{ img_url | prepend: img_padding }}" alt="{{ project.name.zh }}"></div>
           </div>
           <p class="project-description">{{ project.description }}</p>
