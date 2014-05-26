@@ -205,6 +205,10 @@
 .project-meta {
   height: 120px;
   position: relative;
+
+  &.has_thumbnail .project-name span {
+    visibility: hidden;
+  }
 }
 
 .project-name span,
@@ -234,7 +238,6 @@
 
 .project-thumbnail {
   @include square(100%);
-  @include opacity(.6);
   @include covered_background;
   background-color: #FEFEFE;
   z-index: -1;
