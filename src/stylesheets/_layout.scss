@@ -68,44 +68,6 @@
       @include no_gap;
     }
 
-    .footer-links {
-      width: percent(3, 4);
-      min-height: 200px;
-      float: left;
-
-      & > div {
-        width: percent(1, 3);
-        float: left;
-
-        b {
-          @include text-shadow(0 1px #FFF);
-          border-left: 3px solid #AAA;
-          padding-left: .5em;
-        }
-
-        ul {
-          @include no_item;
-          @include no_gap;
-          margin-top: .7em;
-        }
-
-        li {
-          line-height: 16px;
-          margin-top: .5em;
-        }
-      }
-    }
-
-    .w3c_techs {
-      overflow: hidden;
-      padding: 5px;
-      margin-bottom: 10px;
-
-      img {
-        vertical-align: middle;
-      }
-    }
-
     .profile {
       display: none;
       overflow: hidden;
@@ -155,6 +117,16 @@
       vertical-align: middle;
     }
 
+    .w3c_techs {
+      overflow: hidden;
+      padding: 5px;
+      margin-bottom: 10px;
+
+      img {
+        vertical-align: middle;
+      }
+    }
+
     .copyright,
     .dependencies {
       overflow: hidden;
@@ -162,6 +134,34 @@
       font: {
         size: 12px;
         family: Verdana;
+      }
+    }
+  }
+
+  .footer-links {
+    width: percent(3, 4);
+    min-height: 200px;
+    float: left;
+
+    & > div {
+      width: percent(1, 3);
+      float: left;
+
+      b {
+        @include text-shadow(0 1px #FFF);
+        border-left: 3px solid #AAA;
+        padding-left: .5em;
+      }
+
+      ul {
+        @include no_item;
+        @include no_gap;
+        margin-top: .7em;
+      }
+
+      li {
+        line-height: 16px;
+        margin-top: .5em;
       }
     }
   }
@@ -201,6 +201,28 @@
     padding: {
       left: 1.2em;
       right: 1.2em;
+    }
+  }
+}
+
+@media all and (max-width: 800px) {
+  .layout--sandwich {
+    .layout-container {
+      &:after {
+        height: 301px;
+      }
+    }
+
+    .layout-footer {
+      height: 300px;
+    }
+
+    .footer-links {
+      width: 100%;
+      min-height: 0;
+      float: none;
+      margin-bottom: 30px;
+      @include clearfix;
     }
   }
 }

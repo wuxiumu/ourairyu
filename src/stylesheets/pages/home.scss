@@ -274,7 +274,8 @@
 
 @media all and (max-width: 800px) {
   .posts li,
-  .repo {
+  .repo,
+  .project {
     width: percent(1, 2);
   }
 }
