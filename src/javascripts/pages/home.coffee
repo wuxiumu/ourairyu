@@ -1,16 +1,47 @@
+repoInfo =
+  miso:
+    name:
+      zh: "味噌"
+      en: "Miso"
+    description: "对 JavaScript 新建对象的成员方法进行统一的参数验证及返回值"
+  ronin:
+    name:
+      zh: "浪人"
+      en: "Rōnin"
+    description: "DOM 无关的 JavaScript 解决方案、增强库"
+  tatami:
+    name:
+      zh: "畳"
+      en: "Tatami"
+    description: "为新项目的前端开发提供基础设施"
+  matcha:
+    name:
+      zh: "抹茶"
+      en: "Matcha"
+    description: "UI 库"
+
+
 orderByLatest = ( a, b ) ->
   return -(transformISO(a.pushed_at).getTime() - transformISO(b.pushed_at).getTime())
 
 repo = ( data ) ->
   item = $("<li>", class: "repo")
+  name = data.name
+  info = repoInfo[name]
+
+  if info
+    name = info.name.en
+    desc = info.description
+  else
+    desc = data.description
 
   item
     .append "<div />"
     .children "div"
-    .append "<h3><a href=\"#{(data.homepage || data.html_url)}\" rel=\"external nofollow\" target=\"_blank\">#{data.name}</a></h3>"
+    .append "<h3><a href=\"#{(data.homepage || data.html_url)}\" rel=\"external nofollow\" target=\"_blank\">#{name}</a></h3>"
     .append "<span class=\"repo_lang\">#{data.language}</span>"
     .append "<time>更新于#{prettyDate data.pushed_at}</time>"
-    .append "<p>#{data.description}</p>"
+    .append "<p>#{desc}</p>"
 
   return item
 
