@@ -8,6 +8,8 @@ title: CSS Basics
 description: CSS 基础
 permalink: /css-basics/
 comments: true
+css:
+  - highlight
 ---
 
 CSS 2.1 中有超过 90 个属性。
