@@ -3,6 +3,29 @@
 @include layout-sandwich(960px, 50px, 180px);
 
 .layout--sandwich {
+  .layout-inner {
+    max-width: 960px;
+    margin: 0 auto;
+  }
+
+  .layout-header {
+    position: relative;
+    z-index: 2;
+    margin-bottom: -52px;
+    border-bottom: 2px solid #C5CFD2;
+    background-color: #FFF;
+  }
+
+  .layout-container {
+    &:before {
+      height: 52px;
+    }
+
+    &:after {
+      height: 181px;
+    }
+  }
+
   .layout-nav,
   .layout-nav li,
   .layout-nav a {
@@ -52,8 +75,9 @@
   }
 
   .layout-footer {
-    color: $color-text;
+    margin-top: -181px;
     border-top: 1px solid #DDD;
+    color: $color-text;
     background-color: #EEE;
     @include box-shadow(0 0.5em 1em -1em #666 inset);
     overflow: hidden;
@@ -193,6 +217,13 @@
         bottom: 30px;
       }
     }
+  }
+}
+
+:root .layout--sandwich {
+  .layout-header {
+    border-bottom: none;
+    @include box-shadow(0 2px .5em -.2em #666);
   }
 }
 

@@ -4,6 +4,6 @@
   "dependencies": {
     "jquery": "https://github.com/jquery/jquery.git#1.8.3",
     "html5shiv": "https://github.com/aFarkas/html5shiv.git#3.7.1",
-    "matcha": "https://github.com/ourai/matcha"
+    "matcha": "https://github.com/ourai/matcha.git#0.2.1"
   }
 }

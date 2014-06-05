@@ -1,3 +1,44 @@
+// CSS3
+
+@mixin keyframes( $name ) {
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+
+  @-ms-keyframes #{$name} {
+    @content;
+  }
+
+  @-o-keyframes #{$name} {
+    @content;
+  }
+
+  @keyframes #{$name} {
+    @content;
+  }
+}
+
+@mixin animation( $args... ) {
+  @include experimental(animation, $args);
+}
+
+@mixin user-select( $args ) {
+  @include experimental(user-select, $args);
+}
+
+
+
+// Enhancement
+
+@mixin linear-gradient( $from, $to ) {
+  @include filter-gradient($from, $to);
+  @include background-image(linear-gradient($from, $to));
+}
+
 @import "compass";
 
 // Font
@@ -92,6 +133,17 @@ $border_color: #B8C4C8;
   @include text-shadow(none);
   // Use a transparent image to set as the background of it to fix bug of IE6/7/8.
   background: transparent image-url("transparent.gif") repeat;
+}
+
+// Makes text's vertical alignment middle,
+// should invoked on parent node.
+@mixin text-middle {
+  &:before {
+    content: "\0020";
+    @include inline-block;
+    width: 0;
+    height: 100%;
+  }
 }
 
 @mixin line_feed {
