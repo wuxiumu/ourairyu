@@ -11,3 +11,7 @@ comments: true
 ---
 
 「CSS」是英文「Cascading Style Sheets」的首字母缩写，中文名为「层叠样式表」。它是一种用于描述结构化文档（如 HTML、XML）呈现形式的样式表语言。
+
+## 笔记
+
+- [CSS 基础](/css-basics/)
