@@ -17,4 +17,4 @@ comments: true
 ## 笔记
 {:.heading}
 
-- [CSS 基础](/css-basics/)
+- [层叠样式表基础](/css-basics/)

@@ -4,8 +4,8 @@ layout_type: sandwich
 
 page_category: tutorial
 
-title: CSS Basics
-description: CSS 基础
+title: 层叠样式表基础
+description: 关于层叠样式表的一些基本知识
 permalink: /css-basics/
 comments: true
 css:
@@ -52,6 +52,62 @@ W3C 已不再对 CSS 2 标准进行维护。
 * [Selectors Level 3](http://www.w3.org/TR/selectors/){:target="_blank"}{:rel="nofollow external"}（<time datetime="2011-09-29">2011 年 9 月 29 日</time>）
 * [CSS Namespaces Module Level 3](http://www.w3.org/TR/css3-namespace/){:target="_blank"}{:rel="nofollow external"}（<time datetime="2011-09-29">2011 年 9 月 29 日</time>）
 * [Media Queries](http://www.w3.org/TR/css3-mediaqueries/){:target="_blank"}{:rel="nofollow external"}（<time datetime="2012-06-19">2012 年 6 月 19 日</time>）
+
+## 定义
+{:.heading}
+
+<dl>
+  <dt>样式表（Style sheet）</dt>
+  <dd>
+    <p>一个指定文档表现形式的声明的集合。</p>
+    <p>样式表可以有三种不同的来源：作者、用户和用户代理。</p>
+  </dd>
+  <dt>有效的样式表（Valid style sheet）</dt>
+  <dd>
+    <p>样式表的合法性取决于它所采用的 CSS 级别。虽然所有有效的 CSS 1 样式表是有效的 CSS 2.1 样式表，但是有些来自于 CSS 1 的变更意味着一些 CSS 1 样式表在语义上会与 CSS 2.1 略微不同。有些 CSS 2 的特性没有包含在 CSS 2.1 当中，所以不是所有的 CSS 2 样式表都会在 CSS 2.1 样式表中有效。</p>
+    <p>一个有效的 CSS 2.1 样式表必定是根据 CSS 2.1 的语法所写。另外，必须只能包含本规范中定义的 @ 规则、属性名和属性值。一个非法的 @ 规则、属性名或属性值是无效的。</p>
+  </dd>
+  <dt>源文件（Source document）</dt>
+  <dd>样式表所作用的文件。它在一些语言中会被编码，以使文档表现为元素树。每个元素包含一个用于识别元素类型的名称，可以是一些属性和一个（也许是空的）内容。例如，源文件可以是一个 XML 或 SGML 实例。</dd>
+  <dt>文档语言（Document language）</dt>
+  <dd>源文件的编码语言，如 HTML、XHTML、SVG 等。CSS 是用来描述文档语言的表现形式，不会改变文档语言的基本语义。</dd>
+  <dt>元素（Element）</dt>
+  <dd></dd>
+  <dt>替换元素（Replaced element）</dt>
+  <dd></dd>
+  <dt>（Intrinsic dimensions）</dt>
+  <dd></dd>
+  <dt>属性（Attribute）</dt>
+  <dd></dd>
+  <dt>内容（Content）</dt>
+  <dd></dd>
+  <dt>（Ignore）</dt>
+  <dd></dd>
+  <dt>（Rendered content）</dt>
+  <dd></dd>
+  <dt>文档树（Document tree）</dt>
+  <dd></dd>
+  <dt>子（Child）</dt>
+  <dd></dd>
+  <dt>后代（Descendant）</dt>
+  <dd></dd>
+  <dt>祖先（Ancestor）</dt>
+  <dd></dd>
+  <dt>兄弟（Sibling）</dt>
+  <dd></dd>
+  <dt>（Preceding element）</dt>
+  <dd></dd>
+  <dt>（Following element）</dt>
+  <dd></dd>
+  <dt>作者（Author）</dt>
+  <dd></dd>
+  <dt>用户（User）</dt>
+  <dd></dd>
+  <dt>用户代理（User agent）</dt>
+  <dd></dd>
+  <dt>特性（Property）</dt>
+  <dd></dd>
+</dl>
 
 ## CSS 属性
 {:.heading}
