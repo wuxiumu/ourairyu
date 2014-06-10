@@ -68,45 +68,86 @@ W3C 已不再对 CSS 2 标准进行维护。
     <p>一个有效的 CSS 2.1 样式表必定是根据 CSS 2.1 的语法所写。另外，必须只能包含本规范中定义的 @ 规则、属性名和属性值。一个非法的 @ 规则、属性名或属性值是无效的。</p>
   </dd>
   <dt>源文件（Source document）</dt>
-  <dd>样式表所作用的文件。它在一些语言中会被编码，以使文档表现为元素树。每个元素包含一个用于识别元素类型的名称，可以是一些属性和一个（也许是空的）内容。例如，源文件可以是一个 XML 或 SGML 实例。</dd>
+  <dd>
+    <p>样式表所作用的文件。它在一些语言中会被编码，以使文档表现为元素树。每个元素包含一个用于识别元素类型的名称，可以是一些属性和一个（也许是空的）内容。例如，源文件可以是一个 XML 或 SGML 实例。</p>
+  </dd>
   <dt>文档语言（Document language）</dt>
-  <dd>源文件的编码语言，如 HTML、XHTML、SVG 等。CSS 是用来描述文档语言的表现形式，不会改变文档语言的基本语义。</dd>
+  <dd>
+    <p>源文件的编码语言，如 HTML、XHTML、SVG 等。CSS 是用来描述文档语言的表现形式，不会改变文档语言的基本语义。</p>
+  </dd>
   <dt>元素（Element）</dt>
-  <dd></dd>
+  <dd>
+    <p>文档语言的主要语法结构。大多 CSS 样式表规则使用这些元素的名称（例如 HTML 中的 P、TABLE、OL 等）去指定元素如何被渲染。</p>
+  </dd>
   <dt>替换元素（Replaced element）</dt>
-  <dd></dd>
-  <dt>（Intrinsic dimensions）</dt>
-  <dd></dd>
+  <dd>
+    <p>其内容在 CSS 格式模型（formatting model）范围之外的元素，如图像、内嵌文档或小程序。举个例子，HTML 中 IMG 元素的内容通常是被`src`属性所指定的图像所替换。替换元素通常会有固有尺寸：固有的宽度、固有的高度以及固有的比例。例如，位图图像具有由绝对单位（从内在的比例可以明显地确定）指定的固有宽度和高度。另一方面，其他文档可能没有任何固有尺寸（例如，一个空白的 HTML 文档）。</p>
+    <p>User agents may consider a replaced element to not have any intrinsic dimensions if it is believed that those dimensions could leak sensitive information to a third party. For example, if an HTML document changed intrinsic size depending on the user's bank balance, then the UA might want to act as if that resource had no intrinsic dimensions.</p>
+    <p>在 CSS 渲染模型中替换元素的内容不被考虑。</p>
+  </dd>
+  <dt>固有尺寸（Intrinsic dimensions）</dt>
+  <dd>
+    <p>The width and height as defined by the element itself, not imposed by the surroundings. CSS does not define how the intrinsic dimensions are found. In CSS 2.1 only replaced elements can come with intrinsic dimensions. For raster images without reliable resolution information, a size of 1 px unit per image source pixel must be assumed.</p>
+  </dd>
   <dt>属性（Attribute）</dt>
-  <dd></dd>
+  <dd>
+    <p>与元素相关联，由名称和相应的（文本）值所组成的值。</p>
+  </dd>
   <dt>内容（Content）</dt>
-  <dd></dd>
+  <dd>
+    <p>在源文件中内容与元素相关联。有些元素没有内容，这种情况下它们被称作“空元素”。一个元素的内容可以是文本，也可以是许多子元素，这时该元素被称为那些子元素的“父元素”。</p>
+  </dd>
   <dt>（Ignore）</dt>
-  <dd></dd>
+  <dd>
+    <p>This term has two slightly different meanings in this specification. First, a CSS parser must follow certain rules when it discovers unknown or illegal syntax in a style sheet. The parser must then ignore certain parts of the style sheets. The exact rules for which parts must be ignored are described in these sections (Declarations and properties, Rules for handling parsing errors, Unsupported Values) or may be explained in the text where the term "ignore" appears. Second, a user agent may (and, in some cases must) disregard certain properties or values in the style sheet, even if the syntax is legal. For example, table-column elements cannot affect the font of the column, so the font properties must be ignored.</p>
+  </dd>
   <dt>（Rendered content）</dt>
-  <dd></dd>
+  <dd>
+    <p>The content of an element after the rendering that applies to it according to the relevant style sheets has been applied. How a replaced element's content is rendered is not defined by this specification. Rendered content may also be alternate text for an element (e.g., the value of the XHTML "alt" attribute), and may include items inserted implicitly or explicitly by the style sheet, such as bullets, numbering, etc.</p>
+  </dd>
   <dt>文档树（Document tree）</dt>
-  <dd></dd>
+  <dd>The tree of elements encoded in the source document. Each element in this tree has exactly one parent, with the exception of the root element, which has none.</dd>
   <dt>子（Child）</dt>
-  <dd></dd>
+  <dd>
+    <p>An element A is called the child of element B if and only if B is the parent of A.</p>
+  </dd>
   <dt>后代（Descendant）</dt>
-  <dd></dd>
+  <dd>
+    <p>An element A is called a descendant of an element B, if either (1) A is a child of B, or (2) A is the child of some element C that is a descendant of B.</p>
+  </dd>
   <dt>祖先（Ancestor）</dt>
-  <dd></dd>
+  <dd>
+    <p>An element A is called an ancestor of an element B, if and only if B is a descendant of A.</p>
+  </dd>
   <dt>兄弟（Sibling）</dt>
-  <dd></dd>
+  <dd>
+    <p>An element A is called a sibling of an element B, if and only if B and A share the same parent element. Element A is a preceding sibling if it comes before B in the document tree. Element B is a following sibling if it comes after A in the document tree.</p>
+  </dd>
   <dt>（Preceding element）</dt>
-  <dd></dd>
+  <dd>
+    <p>An element A is called a preceding element of an element B, if and only if (1) A is an ancestor of B or (2) A is a preceding sibling of B.</p>
+  </dd>
   <dt>（Following element）</dt>
-  <dd></dd>
+  <dd>
+    <p>An element A is called a following element of an element B, if and only if B is a preceding element of A.</p>
+  </dd>
   <dt>作者（Author）</dt>
-  <dd></dd>
+  <dd>
+    <p>创作文档及相关样式表的人。创作工具（authoring tool）是生成样式表的用户代理。</p>
+  </dd>
   <dt>用户（User）</dt>
-  <dd></dd>
+  <dd>
+    <p>A user is a person who interacts with a user agent to view, hear, or otherwise use a document and its associated style sheet. The user may provide a personal style sheet that encodes personal preferences.</p>
+  </dd>
   <dt>用户代理（User agent）</dt>
-  <dd></dd>
+  <dd>
+    <p>A user agent is any program that interprets a document written in the document language and applies associated style sheets according to the terms of this specification. A user agent may display a document, read it aloud, cause it to be printed, convert it to another format, etc.</p>
+    <p>An HTML user agent is one that supports one or more of the HTML specifications. A user agent that supports XHTML [XHTML], but not HTML is not considered an HTML user agent for the purpose of conformance with this specification.</p>
+  </dd>
   <dt>特性（Property）</dt>
-  <dd></dd>
+  <dd>
+    <p>CSS defines a finite set of parameters, called properties, that direct the rendering of a document. Each property has a name (e.g., 'color', 'font', or border') and a value (e.g., 'red', '12pt Times', or 'dotted'). Properties are attached to various parts of the document and to the page on which the document is to be displayed by the mechanisms of specificity, cascading, and inheritance (see the chapter on Assigning property values, Cascading, and Inheritance).</p>
+  </dd>
 </dl>
 
 ## CSS 属性
