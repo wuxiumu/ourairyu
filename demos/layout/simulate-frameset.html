@@ -1,75 +1,18 @@
 ---
 layout: demo
+layout_type: frameset
 
 page_category: demo
 
 title: 模拟框架
 description: 利用 div 模拟 frameset
 permalink: /demos/simulate-frameset/
-limitIE: false
+css:
+  - demos/simulate-frameset
 ---
 
-<style>
-  body,
-  header,
-  footer,
-  div { margin: 0 }
-  html,
-  body {
-    width: 100%;
-    height: 100%;
-    min-width: 400px;
-    min-height: 0;
-    zoom: 1;
-  }
-
-  html {
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    padding: 100px 0;
-    overflow-y: hidden;
-  }
-
-  #header,
-  #footer {
-    height: 100px;
-    text-align: center;
-    text-transform: capitalize;
-    font: bold 16px/100px "Times New Roman";
-    text-shadow: 1px 1px #FFF;
-  }
-
-  #sidebar,
-  #content {
-    overflow: auto;
-    min-height: 200px;
-    height: 100%;
-  }
-
-  #header {
-    background-color: #F0F;
-    margin-top: -100px;
-  }
-
-  #sidebar {
-    background-color: lime;
-    width: 200px;
-    float: left;
-  }
-
-  #content {
-    background-color: gold;
-    min-width: 200px;
-  }
-
-  #footer {
-    background-color: silver;
-    margin-bottom: -100px;
-  }
-</style>
-<header id="header">header</header>
-<div id="sidebar">帮主走那天，我去香港的苹果店献花，有记者采访，问对苹果最impressive的事情，我回答的其中一条是能够完美的建立人与产品之间的“情感纽带”(building emotional connection between human beings and products)。
+<header class="layout-header">header</header>
+<div class="layout-sub">帮主走那天，我去香港的苹果店献花，有记者采访，问对苹果最impressive的事情，我回答的其中一条是能够完美的建立人与产品之间的“情感纽带”(building emotional connection between human beings and products)。
 
 美国的一个小女孩的iPod坏了，自己把这个iPod埋在自家花园里。我见过女孩子把iPhone掉在地上后，拿起来心疼的亲它拍它。
 
@@ -130,7 +73,7 @@ limitIE: false
 
 乔布斯：
 “Whenever we have a music event, we think it's important to remind ourselves why we do this in the first place. The reason we do this is like you, we love music.”</div>
-  <div id="content">帮主走那天，我去香港的苹果店献花，有记者采访，问对苹果最impressive的事情，我回答的其中一条是能够完美的建立人与产品之间的“情感纽带”(building emotional connection between human beings and products)。
+<div class="layout-main">帮主走那天，我去香港的苹果店献花，有记者采访，问对苹果最impressive的事情，我回答的其中一条是能够完美的建立人与产品之间的“情感纽带”(building emotional connection between human beings and products)。
 
 美国的一个小女孩的iPod坏了，自己把这个iPod埋在自家花园里。我见过女孩子把iPhone掉在地上后，拿起来心疼的亲它拍它。
 
@@ -313,4 +256,4 @@ limitIE: false
 
 乔布斯：
 “Whenever we have a music event, we think it's important to remind ourselves why we do this in the first place. The reason we do this is like you, we love music.”</div>
-<footer id="footer">footer</footer>
+<footer class="layout-footer">footer</footer>
