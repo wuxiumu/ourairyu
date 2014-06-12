@@ -2,10 +2,7 @@
 @import "../layouts/frameset";
 
 @include layout-frameset(200px, 100px, 100px);
-/*  body,
-  header,
-  footer,
-  div { margin: 0 }*/
+
 html,
 body {
   min-width: 400px;
@@ -19,19 +16,17 @@ body {
   text-shadow: 1px 1px #FFF;
 }
 
-.layout-main,
-.layout-sub {
-  min-height: 200px;
-}
-
 .layout-header {
   background-color: #F0F;
 }
 
+.layout-footer {
+  background-color: silver;
+}
+
+.layout-main,
 .layout-sub {
-  background-color: lime;
-  width: 200px;
-  float: left;
+  min-height: 200px;
 }
 
 .layout-main {
@@ -39,6 +34,8 @@ body {
   min-width: 200px;
 }
 
-.layout-footer {
-  background-color: silver;
+.layout-sub {
+  background-color: lime;
+  width: 200px;
+  float: left;
 }
