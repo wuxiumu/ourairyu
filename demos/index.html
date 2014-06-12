@@ -11,8 +11,11 @@ type: index
 
 <ul>
   {% for page in site.pages %}
-    {% if page.category == 'demo' and page.type != 'index' %}
-      <li><a href="{{ page.url }}">{{ page.title }}</a></li>
+    {% if page.page_category == 'demo' and page.type != 'index' %}
+      <li>
+        <a href="{{ page.url }}">{{ page.title }}</a>
+        <p>{{ page.description }}</p>
+      </li>
     {% endif %}
   {% endfor %}
 </ul>
