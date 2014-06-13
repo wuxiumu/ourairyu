@@ -1,13 +1,16 @@
-$(".demo-switcher").click ->
-  hash = @hash[1..]
+changeSection = ( hash ) ->
+  $(".demo-switcher").removeClass "current"
 
-  $(this).addClass("current").siblings(".demo-switcher").removeClass("current")
-
-  if hash is "example"
-    $(".demo-example").show()
-    $(".demo-code").hide()
-  else if hash is "code"
+  if hash[1..] is "code"
+    $(".demo-switcher[href='#code']").addClass "current"
     $(".demo-example").hide()
-    $(".demo-code").show()
+    $(".demo-description").show()
+  else
+    $(".demo-switcher[href='#example']").addClass "current"
+    $(".demo-example").show()
+    $(".demo-description").hide()
 
-  return false
+$(".demo-switcher").click ->
+  changeSection @hash
+
+changeSection location.hash

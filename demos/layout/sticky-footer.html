@@ -9,10 +9,7 @@ description: 页脚（footer）永远在页面最底部
 permalink: /demos/sticky-footer/
 
 css:
-  - highlight
   - demos/sticky-footer
-js:
-  - demo
 
 compatibility:
   ie: 7+
@@ -34,9 +31,17 @@ compatibility:
   </div>
   <footer class="layout-footer">footer</footer>
 </main>
-<aside class="demo-code">
-  <div class="code-wrapper column-2">
-    <div class="code-content">
+<section class="demo-description">
+  <header>
+    <h1>{{ page.title }}</h1>
+    {% if page.compatibility %}
+      <p>兼容性：IE {{ page.compatibility.ie }}</p>
+    {% endif %}
+  </header>
+  <p>本布局的特点就是页面 footer 一直在底部，无论内容部分是否填充首屏。header 和 footer 是采用固定<code>height</code>，然后使用同样大小、反方向的负值<code>margin</code>。</p>
+  <div class="demo-code">
+    <div class="code-wrapper column-2">
+      <div class="code-content">
 {% highlight html %}
 <!DOCTYPE>
 <html>
@@ -52,8 +57,8 @@ compatibility:
   </body>
 </html>
 {% endhighlight %}
-    </div>
-    <div class="code-content">
+      </div>
+      <div class="code-content">
 {% highlight css %}
 html,
 body {
@@ -100,6 +105,7 @@ body {
   height: <footer_height>
 }
 {% endhighlight %}
+      </div>
     </div>
   </div>
-</aside>
+</section>

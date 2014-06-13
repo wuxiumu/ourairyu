@@ -121,13 +121,17 @@
     }
   }
 
-  .demo-code {
+  .demo-description {
     display: none;
-    padding: 20px 5px;
+    padding: 10px 20px;
   }
 
   .code-wrapper {
     overflow: hidden;
+
+    .code-content:first-child > div {
+      margin-left: 0;
+    }
 
     &.column-2 {
       .code-content {
@@ -146,7 +150,7 @@
     float: left;
 
     & > div {
-      margin: 0 10px;
+      margin-left: 20px;
     }
   }
 }

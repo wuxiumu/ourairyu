@@ -39,3 +39,7 @@ body {
   width: 200px;
   float: left;
 }
+
+.demo-example {
+  @include square(100%);
+}
