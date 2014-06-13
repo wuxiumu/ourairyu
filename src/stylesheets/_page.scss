@@ -87,6 +87,72 @@
   }
 }
 
+[data-page="demo"] {
+  .demo-summary {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 999999;
+    padding: 3px 5px;
+    border: 1px solid #888;
+    border-width: 0 0 1px 1px;
+    border-bottom-left-radius: 2px;
+    background-color: #FFF;
+    font-size: 12px;
+  }
+
+  .demo-compatibility,
+  .demo-switcher {
+    @include inline-block(none);
+    vertical-align: middle;
+  }
+
+  .demo-compatibility {
+    @include no_gap;
+    margin-right: 5px;
+    line-height: 1.5;
+  }
+
+  .demo-switcher {
+    padding: 0 .5em;
+
+    &.current {
+      background-color: #DCE4E6; 
+    }
+  }
+
+  .demo-code {
+    display: none;
+    padding: 20px 0;
+  }
+
+  .code-wrapper {
+    width: 960px;
+    margin: 0 auto;
+    overflow: hidden;
+
+    &.column-2 {
+      .code-content {
+        width: 50%;
+      }
+    }
+
+    &.column-3 {
+      .code-content {
+        width: percent(1, 3);
+      }
+    }
+  }
+
+  .code-content {
+    float: left;
+
+    & > div {
+      margin: 0 10px;
+    }
+  }
+}
+
 :root {
   [data-page="projects"] {
     .project-thumbnail {

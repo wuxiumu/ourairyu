@@ -2,4 +2,21 @@
 template: demo
 ---
 
-{% include intro.html %}{{ content }}{% include outro.html %}
+{% include intro.html %}
+  <header class="demo-summary">
+    <!--
+    <h1>{{ page.title }}</h1>
+    <p>{{ page.description }}</p>
+    -->
+    {% if page.compatibility %}
+      <p class="demo-compatibility">兼容性：IE {{ page.compatibility.ie }}</p>
+    {% endif %}
+    <a href="#example" class="demo-switcher current">示例</a><a href="#code" class="demo-switcher">源码</a>
+  </header>
+  {{ content }}
+  {% if page.js %}
+    {% for js in page.js %}
+  <script src="{{ js_url }}/{{ js }}.js"></script>
+    {% endfor %}
+  {% endif %}
+{% include outro.html %}
