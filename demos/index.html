@@ -2,16 +2,15 @@
 layout: page
 layout_type: sandwich
 
+page_category: demos
+
 title: 演示中心
 description: 页面布局、控件等的演示
-
-category: demo
-type: index
 ---
 
 <ul>
   {% for page in site.pages %}
-    {% if page.page_category == 'demo' and page.type != 'index' %}
+    {% if page.page_category == 'demo' %}
       <li>
         <a href="{{ page.url }}">{{ page.title }}</a>
         <p>{{ page.description }}</p>

@@ -39,7 +39,14 @@
 </footer>
 {% assign js_url = site.data.url.root | append: "/" | append: site.data.url.js %}
 <!-- <script src="{{ js_url }}/site.js"></script> -->
+{% if page.layout_js %}
+<!-- Scripts for template -->
+  {% for js in page.layout_js %}
+<script src="{{ js_url }}/{{ js }}.js"></script>
+  {% endfor %}
+{% endif %}
 {% if page.js %}
+<!-- Scripts for page -->
   {% for js in page.js %}
 <script src="{{ js_url }}/{{ js }}.js"></script>
   {% endfor %}

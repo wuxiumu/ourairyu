@@ -25,7 +25,14 @@
     {% assign css_url = site.data.url.root | append: "/" | append: site.data.url.css %}
     <link rel="stylesheet" href="{{ css_url }}/matcha.min.css">
     <link rel="stylesheet" href="{{ css_url }}/site.css">
+    {% if page.layout_css %}
+    <!-- Style sheets for template -->
+      {% for css in page.layout_css %}
+    <link rel="stylesheet" href="{{ css_url | append: '/' | append: css }}.css">
+      {% endfor %}
+    {% endif %}
     {% if page.css %}
+    <!-- Style sheets for page -->
       {% for css in page.css %}
     <link rel="stylesheet" href="{{ css_url | append: '/' | append: css }}.css">
       {% endfor %}
@@ -36,8 +43,10 @@
     <![endif]-->
     <script src="{{ js_url }}/jquery.min.js"></script>
   </head>
+  {% assign layout_t = page.layout_type %}
+  {% if layout_t == null or layout_t == blank %}{% assign layout_t = "none" %}{% endif %}
   {% assign page_t = page.template %}
   {% if page_t == null or page_t == blank %}{% assign page_t = "none" %}{% endif %}
   {% assign page_c = page.page_category %}
   {% if page_c == null or page_c == blank %}{% assign page_c = "none" %}{% endif %}
-  <body itemscope itemtype="http://schema.org/WebPage" class="layout--{{ page.layout_type }}" data-layout="{{ page_t }}" data-page="{{ page_c }}">
+  <body itemscope itemtype="http://schema.org/WebPage" class="layout--{{ layout_t }}" data-layout="{{ page_t }}" data-page="{{ page_c }}">
