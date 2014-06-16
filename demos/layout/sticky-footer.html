@@ -32,12 +32,7 @@ compatibility:
   <footer class="layout-footer">footer</footer>
 </main>
 <section class="demo-description">
-  <header>
-    <h1>{{ page.title }}</h1>
-    {% if page.compatibility %}
-      <p>兼容性：IE {{ page.compatibility.ie }}</p>
-    {% endif %}
-  </header>
+  {% include demo/description.html %}
   <p>本布局的特点就是页脚（<code>.layout-footer</code>）一直在底部，无论内容部分是否填充首屏。</p>
   <p>页头（<code>.layout-header</code>）和页脚是采用固定<code>height</code>，然后使用同样或更大、反方向的负值<code>margin</code>。因为把<code>height</code>定死了，页头和页脚失去了灵活性；又因为设置了负值的<code>margin</code>，页面内容的载体（<code>.layout-container</code>）的顶部和底部会被页头和页脚遮住，需要有高度等于或大于它们的负值<code>margin</code>的填充物。在 IE8+ 以及 Chrome、Firefox 等其他现代浏览器中可以利用伪元素（Pseudo Element）<code>:before</code>和<code>:after</code>来制造填充物，但由于 IE7 不支持伪元素，所以需要额外添加两个空标签（<code>.layout-dummy--top</code>和<code>.layout-dummy--bottom</code>）。</p>
   <p>CSS 代码中的<code>&lt;header_height&gt;</code>和<code>&lt;footer_height&gt;</code>是根据实际需要自定义的数值。虽然<code>margin</code>的取值也用这种方式来表示，但也可以是大于所示数值的值。</p>

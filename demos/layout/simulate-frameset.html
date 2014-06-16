@@ -264,12 +264,7 @@ compatibility:
   <footer class="layout-footer">footer</footer>
 </div>
 <section class="demo-description">
-  <header>
-    <h1>{{ page.title }}</h1>
-    {% if page.compatibility %}
-      <p>兼容性：IE {{ page.compatibility.ie }}</p>
-    {% endif %}
-  </header>
+  {% include demo/description.html %}
   <div class="demo-code">
     <div class="code-wrapper column-2">
       <div class="code-content">
