@@ -8,6 +8,15 @@ body {
   min-width: 400px;
 }
 
+html[data-preview="false"] {
+  @include box-sizing(content-box);
+  padding: {
+    top: 0;
+    bottom: 0;
+  }
+  overflow-y: visible;
+}
+
 .layout-header,
 .layout-footer {
   text-align: center;

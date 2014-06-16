@@ -1,7 +1,10 @@
 changeSection = ( hash ) ->
-  $(".demo-switcher").removeClass "current"
+  viewCode = hash[1..] is "code"
 
-  if hash[1..] is "code"
+  $(".demo-switcher").removeClass "current"
+  $("html").attr "data-preview", not viewCode
+
+  if viewCode
     $(".demo-switcher[href='#code']").addClass "current"
     $(".demo-example").hide()
     $(".demo-description").show()

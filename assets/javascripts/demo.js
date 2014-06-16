@@ -2,8 +2,11 @@
   var changeSection;
 
   changeSection = function(hash) {
+    var viewCode;
+    viewCode = hash.slice(1) === "code";
     $(".demo-switcher").removeClass("current");
-    if (hash.slice(1) === "code") {
+    $("html").attr("data-preview", !viewCode);
+    if (viewCode) {
       $(".demo-switcher[href='#code']").addClass("current");
       $(".demo-example").hide();
       return $(".demo-description").show();
