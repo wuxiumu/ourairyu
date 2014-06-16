@@ -9,9 +9,6 @@ layout_js:
 
 {% include intro.html %}
   <header class="demo-summary">
-    {% if page.compatibility %}
-      <p class="demo-compatibility">兼容性：IE {{ page.compatibility.ie }}</p>
-    {% endif %}
     <a href="#example" class="demo-switcher">示例</a><a href="#code" class="demo-switcher">源码</a>
   </header>
   {{ content }}

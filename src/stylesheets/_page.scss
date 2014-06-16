@@ -101,16 +101,9 @@
     font-size: 12px;
   }
 
-  .demo-compatibility,
   .demo-switcher {
     @include inline-block(none);
     vertical-align: middle;
-  }
-
-  .demo-compatibility {
-    @include no_gap;
-    margin-right: 5px;
-    line-height: 1.5;
   }
 
   .demo-switcher {
