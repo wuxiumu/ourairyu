@@ -88,6 +88,13 @@
 }
 
 [data-page="demo"] {
+  code {
+    @include no_gap;
+    border: none;
+    color: $color-text;
+    background-color: transparent;
+  }
+
   .demo-summary {
     position: fixed;
     top: 0;
