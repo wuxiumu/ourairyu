@@ -16,16 +16,8 @@ a {
   }
 }
 
-code {
-  background-color: #FFF;
-}
-
 pre {
   @include block_content;
-
-  code {
-    background: none;
-  }
 }
 
 blockquote {
