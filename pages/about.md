@@ -29,11 +29,10 @@ comments: true
 
 ### 参与会议
 
-{% assign confs = site.data.conferences %}
 <ul class="confs">
-  {% for conf in confs reversed %}
+  {% for conf in site.data.conferences reversed %}
     <li class="conf">
-      <h4 class="conf_name">{{ conf.name.zh }}</h4>
+      <h4 class="conf_name">{% if conf.website == blank %}{{ conf.name.zh }}{% else %}<a href="{{ conf.website }}" target="_blank" rel="external nofollow">{{ conf.name.zh }}</a>{% endif %}</h4>
       <div class="conf_period"><time datetime="{{ conf.period.start | date: '%Y-%m-%d' }}">{{ conf.period.start | date: "%Y.%m.%d" }}</time> – <time datetime="{{ conf.period.end | date: '%Y-%m-%d' }}">{{ conf.period.end | date: "%Y.%m.%d" }}</time></div>
       {% if conf.description != blank %}
         <p class="conf_desc">{{ conf.description }}</p>
