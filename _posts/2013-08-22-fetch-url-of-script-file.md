@@ -13,7 +13,8 @@ comments: true
 
 目前常被用到的有以下几种方式，它们有各自的优缺点。
 
-### script 标签
+## script 标签
+{:.heading}
 
 通过获取最后一个`<script>`标签的`src`属性来得到脚本文件的 URL。这种方式的关键点是**正在执行的语句所在的 JS 文件是“当时最后的 JS 文件”**。Sea.js 中就是用的此方法。
 
@@ -34,7 +35,8 @@ function scriptPath() {
 var url = scriptPath();
 {% endhighlight %}
 
-### 捕获异常
+## 捕获异常
+{:.heading}
 
 这是一个从[司徒正美的博文](http://www.cnblogs.com/rubylouvre/archive/2010/04/06/1705817.html)中看到的较为“聪明”的方法，利用了 exception 信息中会带有出错文件及位置的特点来获取。
 

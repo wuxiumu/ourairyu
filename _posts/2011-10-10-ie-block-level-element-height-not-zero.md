@@ -15,7 +15,8 @@ comments: true
 
 ![示意图](http://pic.yupoo.com/ourai_v/BqNrKHd5/13vbap.jpg)
 
-### HTML代码如下
+## HTML代码如下
+{:.heading}
 
 {% highlight html %}
 <style type="text/css">
