@@ -66,6 +66,37 @@
   }
 }
 
+[data-page="about"] {
+  .layout-content {
+    .heading:first-child {
+      margin-top: 0;
+      padding-top: 0;
+    }
+  }
+
+  .conf {
+    margin-top: 10px;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  .conf_name {
+    margin: 0;
+  }
+
+  .conf_period {
+    margin: 3px 0 5px;
+    font-size: 12px;
+  }
+
+  .conf_desc {
+    @include no_gap;
+    line-height: 1.5;
+  }
+}
+
 [data-page="skills"] {
   .heading {
     border-bottom: 1px dashed #D0D0D0;
