@@ -75,9 +75,9 @@
   }
 
   .avatar {
-    @include square(200px);
+    @include square(250px);
     float: right;
-    margin-left: 10px;
+    margin-left: 15px;
   }
 
   .conf {

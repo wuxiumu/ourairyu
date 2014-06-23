@@ -1,12 +1,48 @@
 - name:
+    zh: 第 6 届 D2 论坛——BOOM! LET'S GET D2 CRAZY!
+    en: 6th D2 Forum - BOOM! LET'S GET D2 CRAZY!
+  description: ADC@2011
+  period:
+    start: 2011-07-09 09:00
+    end: 2011-07-09 18:00
+  website: http://adc.alibabatech.org/carnival/history/schedule/2011
+  location: 杭州之江饭店
+- name:
+    zh: 第 7 届 D2 论坛——奔跑 Run! 在大前端的路上
+    en: 7th D2 Forum
+  description: "前端领域历经多年，风风雨雨走过太多辛酸艰难创意肆虐的年代，从蜕变到成长，到如今大前端的风生水起，该是我们畅快淋漓挥舞激情的时刻了！成功举办了六届的 D2 前端技术论坛正一步步见证着这一切的发生，本届 D2 将带领前端所有志同道合的朋友一起奔跑在大前端的路上！<code>D2.Run();</code>"
+  period:
+    start: 2012-07-07 11:10
+    end: 2012-07-07 18:00
+  website: http://adc.alibabatech.org/carnival/history/schedule/2012
+  location: 杭州海外海国际会议展览中心
+- name:
     zh: ADC・阿里技术嘉年华
     en: 
-  description:
+  description: ADC@2013
   period:
-    start: 2013-07-13
-    end: 2013-07-14
-  website: 
-  location: 
+    start: 2013-07-13 09:00
+    end: 2013-07-14 18:00
+  website: http://adc.alibabatech.org/carnival/history/schedule/2013
+  location: 杭州海外海国际会议展览中心
+- name:
+    zh: W3CTECH 2013.07 上海分享会
+    en: 
+  description: 在百姓网进行的 2013 年上海分享会。
+  period:
+    start: 2013-07-27 13:00
+    end: 2013-07-27 18:00
+  website: http://www.w3ctech.com/event/30
+  location: 上海市徐汇区广元西路 55 号浩然高科技大厦 2 楼 206 百姓网
+- name:
+    zh: W3CTECH 2014.03 上海分享会
+    en: 
+  description: 在「1号店」进行的 2014 年第一期上海分享会。
+  period:
+    start: 2014-03-23 13:00
+    end: 2014-03-23 18:00
+  website: http://www.w3ctech.com/event/33
+  location: 上海市浦东新区祖冲之路 295 号
 - name:
     zh: 杭JS
     en: Hang JS - JSConf China
