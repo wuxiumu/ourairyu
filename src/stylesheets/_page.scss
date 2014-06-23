@@ -74,6 +74,12 @@
     }
   }
 
+  .avatar {
+    @include square(200px);
+    float: right;
+    margin-left: 10px;
+  }
+
   .conf {
     margin-top: 10px;
 
