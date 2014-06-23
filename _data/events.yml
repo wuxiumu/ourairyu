@@ -6,7 +6,10 @@
     start: 2011-07-09 09:00
     end: 2011-07-09 18:00
   website: http://adc.alibabatech.org/carnival/history/schedule/2011
-  location: 杭州之江饭店
+  location:
+    place: 之江饭店
+    address: 浙江省杭州市西湖区莫干山路 188-200 号
+    map: https://goo.gl/maps/SlCe5
 - name:
     zh: 第 7 届 D2 论坛——奔跑 Run! 在大前端的路上
     en: 7th D2 Forum
@@ -15,7 +18,10 @@
     start: 2012-07-07 11:10
     end: 2012-07-07 18:00
   website: http://adc.alibabatech.org/carnival/history/schedule/2012
-  location: 杭州海外海国际会议展览中心
+  location:
+    place: 海外海国际会议展览中心
+    address: 浙江省杭州市拱墅区上塘路 329 号
+    map: https://goo.gl/maps/MKKPs
 - name:
     zh: ADC・阿里技术嘉年华
     en: 
@@ -24,7 +30,10 @@
     start: 2013-07-13 09:00
     end: 2013-07-14 18:00
   website: http://adc.alibabatech.org/carnival/history/schedule/2013
-  location: 杭州海外海国际会议展览中心
+  location:
+    place: 海外海国际会议展览中心
+    address: 浙江省杭州市拱墅区上塘路 329 号
+    map: https://goo.gl/maps/MKKPs
 - name:
     zh: W3CTECH 2013.07 上海分享会
     en: 
@@ -33,7 +42,22 @@
     start: 2013-07-27 13:00
     end: 2013-07-27 18:00
   website: http://www.w3ctech.com/event/30
-  location: 上海市徐汇区广元西路 55 号浩然高科技大厦 2 楼 206 百姓网
+  location:
+    place: 百姓网（浩然高科技大厦 2 楼 206）
+    address: 上海市徐汇区华山路 1954 号
+    map: https://goo.gl/maps/4PtyI
+- name:
+    zh: 杭州 GDG 程序媛节
+    en: Women Techmakers Hangzhou
+  description: 参与者以女性开发者为主的活动。
+  period:
+    start: 2014-03-22 13:30
+    end: 2014-03-22 17:00
+  website: https://plus.google.com/events/cn7nf0c7b167r4j08h97p71fl38
+  location:
+    place: 贝塔咖啡馆
+    address: 浙江省杭州市西湖区通普路 41 号
+    map: https://goo.gl/maps/NHIZ3
 - name:
     zh: W3CTECH 2014.03 上海分享会
     en: 
@@ -42,7 +66,10 @@
     start: 2014-03-23 13:00
     end: 2014-03-23 18:00
   website: http://www.w3ctech.com/event/33
-  location: 上海市浦东新区祖冲之路 295 号
+  location:
+    place: 1号店
+    address: 上海市浦东新区祖冲之路 295 号
+    map: https://goo.gl/maps/XGD95
 - name:
     zh: 杭JS
     en: Hang JS - JSConf China
@@ -51,4 +78,7 @@
     start: 2014-06-21 08:15
     end:  2014-06-22 17:40
   website: http://2014.jsconf.cn/
-  location: 杭州和达希尔顿逸林酒店（DOUBLETREE By HILTON）
+  location:
+    place: 杭州和达希尔顿逸林酒店
+    address: 浙江省杭州市经济技术开发区金沙大道 600 号
+    map: https://goo.gl/maps/etkzT

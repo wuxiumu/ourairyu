@@ -80,7 +80,7 @@
     margin-left: 15px;
   }
 
-  .conf {
+  .event {
     margin-top: 10px;
 
     &:first-child {
@@ -88,16 +88,16 @@
     }
   }
 
-  .conf_name {
+  .event_name {
     margin: 0;
   }
 
-  .conf_period {
+  .event_period {
     margin: 3px 0 5px;
     font-size: 12px;
   }
 
-  .conf_desc {
+  .event_desc {
     @include no_gap;
     line-height: 1.5;
   }

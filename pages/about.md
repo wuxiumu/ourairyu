@@ -27,18 +27,19 @@ comments: true
 
 前方之路还很漫长，静心、耐心、全心地向着目标迈进！;-)
 
-### 参与会议
+### 参与活动
 
-<ul class="confs">
-  {% for conf in site.data.conferences reversed %}
-    <li class="conf">
-      <h4 class="conf_name">{% if conf.website == blank %}{{ conf.name.zh }}{% else %}<a href="{{ conf.website }}" target="_blank" rel="external nofollow">{{ conf.name.zh }}</a>{% endif %}</h4>
-      {% assign start_date = conf.period.start | date: "%Y.%m.%d" %}
-      {% assign end_date = conf.period.end | date: "%Y.%m.%d" %}
-      <div class="conf_period"><time datetime="{{ conf.period.start | date: '%Y-%m-%d' }}">{{ start_date }}</time>{% if start_date != end_date %} – <time datetime="{{ conf.period.end | date: '%Y-%m-%d' }}">{{ end_date }}</time>{% endif %}</div>
-      {% if conf.description != blank %}
-        <p class="conf_desc">{{ conf.description }}</p>
+<ul class="events">
+  {% for event in site.data.events reversed %}
+    <li class="event">
+      <h4 class="event_name">{% if event.website == blank %}{{ event.name.zh }}{% else %}<a href="{{ event.website }}" target="_blank" rel="external nofollow">{{ event.name.zh }}</a>{% endif %}</h4>
+      {% assign start_date = event.period.start | date: "%Y.%m.%d" %}
+      {% assign end_date = event.period.end | date: "%Y.%m.%d" %}
+      <div class="event_period"><time datetime="{{ event.period.start | date: '%Y-%m-%d' }}">{{ start_date }}</time>{% if start_date != end_date %} – <time datetime="{{ event.period.end | date: '%Y-%m-%d' }}">{{ end_date }}</time>{% endif %}</div>
+      {% if event.description != blank %}
+        <p class="event_desc">{{ event.description }}</p>
       {% endif %}
+      <!--<span>{{ event.location.place }}（<a href="{{ event.location.map }}" target="_blank" rel="external nofollow">查看地图</a>）</span>-->
     </li>
   {% endfor %}
 </ul>
