@@ -8,6 +8,7 @@ tags:
   - JavaScript
   - XHR
   - AJAX
+published: false
 comments: true
 ---
 
