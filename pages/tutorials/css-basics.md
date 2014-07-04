@@ -155,11 +155,42 @@ W3C 已不再对 CSS 2 标准进行维护。
 
 ### 关键字（Keywords）
 
-关键字拥有标识符（identifiers）的形式，不能放在单、双引号之间。
+关键字拥有标识符（identifiers）的形式，不能放在双引号（`"..."`）、单引号（`'...'`）之间。
+
+#### 特定于供应商的扩展（Vendor-specific extensions）
+
+CSS 中的标识符能够以连字符（`-`）或者下划线（`_`）开头。以连字符或下划线开头的关键字和属性名被保留用于特定于供应商的扩展，其具备以下两种形式之一：
+
+- `'-' + vendor indentifier + '-' + meaningful name`
+- `'_' + vendor indentifier + '_' + meaningful name`
+
+#### 已知特定于供应商的扩展
+
+前缀 | 组织
+-----|------
+-ms-, mso- | Microsoft
+-moz- | Mozilla
+-o-, -xv- | Opera Software
+-atsc- | Advanced Television Standards Committee
+-wap- | The WAP Forum
+-khtml- | KDE
+-webkit- | Apple
+prince- | YesLogic
+-ah- | Antenna House
+-hp- | Hewlett Packard
+-ro- | Real Object
+-rim- | Research In Motion
+-tc | TallComponents
 
 ### 字符和大小写
 
 - 所有的 CSS 语法在 ASCII 范围内不区分大小写
+- 反斜线（`\`）
+  - 反斜线转义通常被认为是标识符或字符串的一部分，如：`\7B` 不是标点符号，即使 `{` 是；`\32` 允许在 class name 的首位，但 `2` 就不行。
+
+### 语句（Statements）
+
+任何级别的 CSS 样式表都是由一系列语句组成。语句分为两种：**at 规则**（at-rule）和**规则集**（rule set）。
 
 ## CSS 属性
 {:.heading}
