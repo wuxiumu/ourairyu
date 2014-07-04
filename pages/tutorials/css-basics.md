@@ -192,6 +192,14 @@ prince- | YesLogic
 
 任何级别的 CSS 样式表都是由一系列语句组成。语句分为两种：**at 规则**（at-rule）和**规则集**（rule set）。
 
+### at 规则（At-rules）
+
+at 规则以「@」开头，后面紧跟着标识符，如 `@import` `@page` 等。它由分号（`;`）之前的任何东西（包括分号）或者后面的第一个块（block）组成。在块中以及非忽略语句（non-ignored statement）后面的 `@import` 规则将被忽略。
+
+### 块（Blocks）
+
+一个块以左花括号（`{`）开始并以配对的右花括号（`}`）结束。
+
 ## CSS 属性
 {:.heading}
 
