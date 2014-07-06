@@ -12,19 +12,29 @@ css:
   - highlight
 ---
 
+**本文中凡是提到 ECMAScript 的地方，皆用「ES」来表示。**
+
 ## 数据类型
 {:.heading}
 
-- 原始类型（primitive type）
-  - 数字（number）
-  - 字符串（string）
-  - 布尔（boolean）
-  - 空（null）
-  - 未定义（undefined）
-- 对象类型（object type）
-  - 对象（object）
-  - 数组（array）
-  - 函数（function）
+在 ES 中，数据类型被分为原始类型（primitive type）和对象类型（object type）两大类。数字（number）、字符串（string）、布尔（boolean）、空（null）和未定义（undefined）是原始类型；对象（object）、数组（array）和函数（function）则是对象类型。
+
+对象类型的数据是属性（property）的集合，每个属性都是由键值（key/value）对组成。普通的对象是键值对的无序集合，但数组是一种特殊的有编号的有序集合。函数也是一种特殊的对象，它包含了与之相关联的可执行代码。
+
+如何函数用来初始化一个新建的对象，即使用 `new` 运算符，则称之为「构造函数」（constructor）。每个构造函数定义了一类（class）对象——由构造函数初始化的对象组成的集合。「类」可以看作是对象类型的子类型。
+
+数据类型之间的关系结构如下：
+
+- 原始类型
+  - 数字
+  - 字符串
+  - 布尔
+  - 空
+  - 未定义
+- 对象类型
+  - 对象
+  - 数组
+  - 函数
     - 普通函数
     - 构造函数（类）
       - 数组类（Array）
