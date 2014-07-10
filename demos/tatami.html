@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Tatami</title>
+    <script src="javascript/jquery.js"></script>
+    <script src="javascript/tatami.min.js"></script>
+  </head>
+  <body>
+    <div id="console"></div>
+    <script>
+      (function() {
+        function append( html ) {
+          $("#console").append("<code>" + html + "</code><br>");
+        }
+
+        function output( type ) {
+          append("<b>" + Tatami.capitalize(type) + "</b>");
+
+          Tatami.each(Tatami[type], function( val, key ) {
+            append(key + ": " + val);
+          });
+        }
+
+        Tatami.each(["platform", "browser"], function( prop ) {
+          output(prop);
+          append("&nbsp;");
+        });
+      })();
+    </script>
+  </body>
+</html>
