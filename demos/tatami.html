@@ -14,27 +14,27 @@
     <pre id="console"></pre>
     <script>
       (function() {
+        var ua = navigator.userAgent;
+
         function append( html ) {
           $("#console").append("<code>" + (html || "") + "</code><br>");
         }
 
         function output( type ) {
-          var prop = Tatami[type];
-
           append("'" + type + "' of Tatami object:");
 
-          if ( prop ) {
-            Tatami.each(prop, function( val, key ) {
+          Tatami.each(Tatami[type], function( val, key ) {
+            if ( val ) {
               append(">" + Tatami.pad("\x20", 2) + key + ": " + val);
-            });
-          }
-          else {
-            append("<span class=\"error\">ERROR: unknown User-agent</span>");
-          }
-        }
+            }
+            else {
+              append("<span class=\"error\">ERROR: unknown User-agent</span>");
+              append("<a href=\"mailto:ourairyu@hotmail.com?subject=" + encodeURI("Report user-agent string") + "&body=" + encodeURI(ua) + "\">" + "Click here to report user-agent string" + "</a>");
 
-        append(navigator.userAgent);
-        append();
+              return false;
+            }
+          });
+        }
 
         Tatami.each(["platform", "browser"], function( prop ) {
           output(prop);
