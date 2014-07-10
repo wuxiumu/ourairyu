@@ -21,19 +21,19 @@
         }
 
         function output( type ) {
+          var prop = Tatami[type];
+
           append("'" + type + "' of Tatami object:");
 
-          Tatami.each(Tatami[type], function( val, key ) {
-            if ( val ) {
+          if ( Tatami.isEmpty(prop) ) {
+            append("<span class=\"error\">ERROR: unknown User-agent</span>");
+            append("<a href=\"mailto:ourairyu@hotmail.com?subject=" + encodeURI("Report user-agent string") + "&body=" + encodeURI(ua) + "\">" + "Click here to report user-agent string" + "</a>");
+          }
+          else {
+            Tatami.each(prop, function( val, key ) {
               append(">" + Tatami.pad("\x20", 2) + key + ": " + val);
-            }
-            else {
-              append("<span class=\"error\">ERROR: unknown User-agent</span>");
-              append("<a href=\"mailto:ourairyu@hotmail.com?subject=" + encodeURI("Report user-agent string") + "&body=" + encodeURI(ua) + "\">" + "Click here to report user-agent string" + "</a>");
-
-              return false;
-            }
-          });
+            });
+          }
         }
 
         Tatami.each(["platform", "browser"], function( prop ) {
