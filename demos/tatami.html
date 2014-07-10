@@ -5,26 +5,40 @@
     <title>Tatami</title>
     <script src="javascript/jquery.js"></script>
     <script src="javascript/tatami.min.js"></script>
+    <style>
+      code { font-family: Monaco, Consolas, "Lucida Console", monospace; }
+      .error { color: red; }
+    </style>
   </head>
   <body>
-    <div id="console"></div>
+    <pre id="console"></pre>
     <script>
       (function() {
         function append( html ) {
-          $("#console").append("<code>" + html + "</code><br>");
+          $("#console").append("<code>" + (html || "") + "</code><br>");
         }
 
         function output( type ) {
-          append("<b>" + Tatami.capitalize(type) + "</b>");
+          var prop = Tatami[type];
 
-          Tatami.each(Tatami[type], function( val, key ) {
-            append(key + ": " + val);
-          });
+          append("'" + type + "' of Tatami object:");
+
+          if ( prop ) {
+            Tatami.each(prop, function( val, key ) {
+              append(">" + Tatami.pad("\x20", 2) + key + ": " + val);
+            });
+          }
+          else {
+            append("<span class=\"error\">ERROR: unknown User-agent</span>");
+          }
         }
+
+        append(navigator.userAgent);
+        append();
 
         Tatami.each(["platform", "browser"], function( prop ) {
           output(prop);
-          append("&nbsp;");
+          append();
         });
       })();
     </script>
