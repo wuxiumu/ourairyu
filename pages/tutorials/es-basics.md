@@ -69,3 +69,40 @@ css:
   - `1.4738223E-32`
 
 ### 字符串
+
+### 包装对象
+
+字符串有属性是因为在引用属性时，ES 会将字符串的值通过调用 `new String()` 的方式转换为对象，一旦属性引用结束对象就会销毁（实现上未必会真的创建或销毁临时对象，但看起来如此）。 
+
+同理，数字、布尔值等原始类型也具有各自创建临时对象的方法：`new Number()` 和 `new Boolean()`。原始类型在引用属性时所创建的临时对象称为「包装对象」。然而，`null` 和 `undefined` 没有包装对象，访问它们的属性会抛出 `TypeError`。
+
+{% highlight js %}
+var s = "test";
+s.len = 4;
+var t = s.len;
+{% endhighlight %}
+
+上面代码中变量 `t` 的值为 `undefined`——在对 `s.len` 赋值时创建了一个临时对象，但是语句执行之后那个临时对象销毁了，所以这条语句无效。再一次调用 `s.len` 时是创建的另一个临时对象，故 `t` 的值为 `undefined`。
+
+### 类型转换
+
+值 | 字符串 | 数字 | 布尔值 | 对象
+---|--------|------|--------|-----
+undefined | "undefined" | NaN | false | throws TypeError
+null | "null" | 0 | false | throws TypeError
+true | "true" | 1 |  | new Boolean(true)
+false | "false" | 0 |  | new Boolean(false)
+"" |  | 0 | false | new String("")
+"1.2" |  | 1.2 | true | new String("1.2")
+"one" |  | NaN | true | new String("one")
+0 | "0" |  | false | new Number(0)
+-0 | "0" |  | false | new Number(-0)
+NaN | "NaN" |  | false | new Number(NaN)
+Infinity | "Infinity" |  | true | new Number(Infinity)
+-Infinity | "-Infinity" |  | true | new Number(-Infinity)
+1 | "1" |  | true | new Number(1)
+{} |  |  | true |
+[] | "" | 0 | true |
+[9] | "9" | 9 | true |
+["a", "b"] | "a,b" | NaN | true |
+function() {} | | NaN | true |
