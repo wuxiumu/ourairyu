@@ -14,7 +14,7 @@ css:
 
 **本文中凡是提到 ECMAScript 的地方，皆用「ES」来表示；literal 既叫「直接量」又叫「字面量」，文中统一为「直接量」。**
 
-## 数据类型
+## [数据类型](data_type/)
 {:.heading}
 
 在 ES 中，数据类型被分为原始类型（primitive type）和对象类型（object type）两大类。数字（number）、字符串（string）、布尔（boolean）、空（null）和未定义（undefined）是原始类型；对象（object）、数组（array）和函数（function）则是对象类型。
