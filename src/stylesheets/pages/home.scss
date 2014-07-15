@@ -1,3 +1,5 @@
+@import "../helpers";
+
 h1 {
   font: {
     family: Serif;
@@ -5,4 +7,35 @@ h1 {
   }
 
   margin: 0 0 20px 0;
+}
+
+.toc-title {
+  display: block;
+  margin-top: 15px;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.toc-section {
+  @include no_gap;
+  @include no_item;
+  margin-top: 5px;
+  font-size: 12px;
+
+  li {
+    margin-bottom: 3px;
+  }
+
+  a {
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.version {
+  font: {
+    size: 12px;
+    weight: normal;
+  }
 }
