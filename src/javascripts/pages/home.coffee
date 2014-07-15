@@ -1,4 +1,6 @@
-$(document).ready ->
+Tatami.ready ->
+  $("#apiCount").text Tatami.keys(Tatami).length
+
   $("#document h3").each ( idx ) ->
     h = $(this)
     id = h.attr "id"
@@ -22,3 +24,10 @@ $(document).ready ->
 
       dt.attr "id", id
       ul.append "<li>- <a href=\"##{id}\">#{api}</a></li>"
+
+  $("[data-download]").on "click", ->
+    url = this.getAttribute "href"
+
+    Tatami.download Tatami.pathname(url), url
+    
+    return false

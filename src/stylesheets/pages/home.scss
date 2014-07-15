@@ -13,7 +13,14 @@ h1 {
   display: block;
   margin-top: 15px;
   font-weight: bold;
-  text-decoration: underline;
+  text-decoration: underline !important;
+
+  .version {
+    font: {
+      size: 12px;
+      weight: normal;
+    }
+  }
 }
 
 .toc-section {
@@ -25,17 +32,10 @@ h1 {
   li {
     margin-bottom: 3px;
   }
-
-  a {
-    &:hover {
-      text-decoration: underline;
-    }
-  }
 }
 
-.version {
-  font: {
-    size: 12px;
-    weight: normal;
+#downloadFiles {
+  td {
+    padding: .15em .9em .15em 0;
   }
 }

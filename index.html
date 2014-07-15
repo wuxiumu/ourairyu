@@ -10,9 +10,28 @@ js:
 <header>
   <h1><ruby lang="ja"><rb>畳</rb><rp>（</rp><rt>たたみ</rt><rp>）</rp></ruby></h1>
 </header>
-<p>「畳」是从项目开发中积累而来，并为新项目的产生而服务！为项目开发提供了基础设施，包含了一些常用的功能。</p>
-<p>项目中融合了 Rōnin（Code name: Revolution），一个 JavaScript 解决方案、增强库，旨在解决原生 JavaScript 函数/方法所无法处理的事情，让 JavaScript 开发者们编写功能模块时少写些代码、更加得心应手！</p>
+<p>「畳」，即 <b>Tatami</b>，是一个运行在浏览器端的 JavaScript 库，提供了共计 <span id="apiCount">0</span> 个有用的属性和方法使新项目的前端开发变得简单、轻松！</p>
 <p><img src="{{ site.data.url.root }}/{{ site.data.url.img }}/jsr.png" alt="JavaScript Revolution"></p>
+<p>Tatami 中的方法主要分为数据操作和项目开发两大类。大部分 API 的设计参考了 ECMAScript 5、PHP、jQuery 等语言和库，很容易就能够上手。</p>
+<h2 class="heading">下载</h2>
+<p>当前版本：<span class="version">0.3.0</span></p>
+<table id="downloadFiles">
+  <tbody>
+    <tr>
+      <td><a href="tatami.js" data-download="true">Development Version</a></td>
+      <td><i>93.6kb, Uncompressed with Plentiful Comments</i></td>
+    </tr>
+    <tr>
+      <td><a href="tatami.min.js" data-download="true">Production Version</a></td>
+      <td><i>27.9kb, Minified</i>&nbsp;&nbsp;<small>(<a href="tatami.min.map" data-download="true">Source Map</a>)</small></td>
+    </tr>
+  </tbody>
+</table>
+<h2 class="heading">使用方法</h2>
+{% highlight html %}
+<script src="jquery.js"></script>
+<script src="tatami.js"></script>
+{% endhighlight %}
 <section id="document">
   <h3>运行环境</h3>
   <dl>
