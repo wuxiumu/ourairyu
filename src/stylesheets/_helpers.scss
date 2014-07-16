@@ -22,6 +22,47 @@ $border_color: #B8C4C8;
   @return $divisor / $dividend * 100%;
 }
 
+// CSS3
+
+@mixin keyframes( $name ) {
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+
+  @-ms-keyframes #{$name} {
+    @content;
+  }
+
+  @-o-keyframes #{$name} {
+    @content;
+  }
+
+  @keyframes #{$name} {
+    @content;
+  }
+}
+
+@mixin animation( $args... ) {
+  @include experimental(animation, $args);
+}
+
+@mixin user-select( $args ) {
+  @include experimental(user-select, $args);
+}
+
+
+
+// Enhancement
+
+@mixin linear-gradient( $from, $to ) {
+  @include filter-gradient($from, $to);
+  @include background-image(linear-gradient($from, $to));
+}
+
 @mixin base-font( $font_size: $font_size ) {
   font: {
     style: normal;
@@ -94,6 +135,17 @@ $border_color: #B8C4C8;
   background: transparent image-url("transparent.gif") repeat;
 }
 
+// Makes text's vertical alignment middle,
+// should invoked on parent node.
+@mixin text-middle {
+  &:before {
+    content: "\0020";
+    @include inline-block;
+    width: 0;
+    height: 100%;
+  }
+}
+
 @mixin line_feed {
   word-wrap: break-word;
   word-wrap: normal\0;
@@ -134,5 +186,18 @@ $border_color: #B8C4C8;
     repeat: no-repeat;
     position: 50% 50%;
     size: cover;
+  }
+}
+
+@mixin gradient_button( $bg_color, $normal_start, $normal_end, $hover_start, $hover_end ) {
+  background-color: $bg_color;
+  @include linear-gradient($normal_start, $normal_end);
+
+  &:hover {
+    @include linear-gradient($hover_start, $hover_end);
+  }
+
+  &:active {
+    @include linear-gradient($hover_end, $hover_start);
   }
 }
