@@ -1997,7 +1997,7 @@ Storage = (function(__util) {
     return obj;
   };
   getData = function(host, key, map) {
-    var keys, result, s;
+    var keys, regexp, result, s;
     __util.each(key.split("."), function(part) {
       var r;
       r = hasProp(part, host);
@@ -2009,29 +2009,33 @@ Storage = (function(__util) {
       map = {};
     }
     keys = isPlainObj(s.keys) ? s.keys : {};
-    result = s.value(host).replace(s.formatRegExp, (function(_this) {
-      return function(m, k) {
-        var r;
-        if (hasProp(k, map)) {
-          r = map[k];
-        } else if (hasProp(k, keys)) {
-          r = keys[k];
-        } else {
-          r = m;
-        }
-        if (__util.isFunction(r)) {
-          return r();
-        } else {
-          return r;
-        }
-      };
-    })(this));
+    regexp = s.formatRegExp;
+    result = s.value(host);
+    if (__util.isRegExp(regexp)) {
+      result = result.replace(regexp, (function(_this) {
+        return function(m, k) {
+          var r;
+          if (hasProp(k, map)) {
+            r = map[k];
+          } else if (hasProp(k, keys)) {
+            r = keys[k];
+          } else {
+            r = m;
+          }
+          if (__util.isFunction(r)) {
+            return r();
+          } else {
+            return r;
+          }
+        };
+      })(this));
+    }
     return result;
   };
   Storage = (function() {
     function Storage(namespace) {
       this.settings = {
-        formatRegExp: /.*/g,
+        formatRegExp: null,
         allowKeys: false,
         keys: {},
         value: function(v) {
@@ -2198,7 +2202,7 @@ Environment = (function(__util) {
 })(__util);
 
 __proj = (function(window, __util) {
-  var $, API, ATTRIBUTE_NODE, CDATA_SECTION_NODE, COMMENT_NODE, DOCUMENT_FRAGMENT_NODE, DOCUMENT_NODE, DOCUMENT_TYPE_NODE, ELEMENT_NODE, ENTITY_NODE, ENTITY_REFERENCE_NODE, I18n, NOTATION_NODE, PROCESSING_INSTRUCTION_NODE, REG_NAMESPACE, TEXT_NODE, apiHandler, apiVer, bindHandler, clone, constructDatasetByAttributes, constructDatasetByHTML, getStorageData, initialize, initializer, isExisted, isLimited, last, limit, limiter, pushHandler, request, resetConfig, resolvePathname, route, routeHandler, runHandler, setData, setStorageData, setup, storage, storageHandler, support, systemDialog, systemDialogHandler, _ENV;
+  var $, API, ATTRIBUTE_NODE, CDATA_SECTION_NODE, COMMENT_NODE, DOCUMENT_FRAGMENT_NODE, DOCUMENT_NODE, DOCUMENT_TYPE_NODE, ELEMENT_NODE, ENTITY_NODE, ENTITY_REFERENCE_NODE, I18n, NOTATION_NODE, PROCESSING_INSTRUCTION_NODE, REG_NAMESPACE, TEXT_NODE, apiHandler, apiVer, asset, assetHandler, bindHandler, clone, constructDatasetByAttributes, constructDatasetByHTML, getStorageData, initialize, initializer, isExisted, isLimited, last, limit, limiter, pushHandler, request, resetConfig, resolvePathname, route, routeHandler, runHandler, setData, setStorageData, setup, storage, storageHandler, support, systemDialog, systemDialogHandler, _ENV;
   ELEMENT_NODE = 1;
   ATTRIBUTE_NODE = 2;
   TEXT_NODE = 3;
@@ -2989,6 +2993,7 @@ __proj = (function(window, __util) {
   route.config({
     formatRegExp: /\:([a-z_]+)/g
   });
+  asset = new Storage("asset");
 
   /*
    * 设置初始化函数
@@ -3037,6 +3042,9 @@ __proj = (function(window, __util) {
         break;
       case "route":
         obj = route;
+        break;
+      case "asset":
+        obj = asset;
     }
     if (__proj.isPlainObject(key)) {
       obj.set(key);
@@ -3050,6 +3058,9 @@ __proj = (function(window, __util) {
   };
   routeHandler = function(key, map) {
     return storageHandler("route", key, map);
+  };
+  assetHandler = function(key) {
+    return storageHandler("asset", key);
   };
   storage.modules.project = {
     handlers: [
@@ -3129,8 +3140,28 @@ __proj = (function(window, __util) {
         name: "api",
         handler: apiHandler
       }, {
+
+        /*
+         * 设置及获取页面 URL
+         * 
+         * @method   route
+         * @param    key {String}
+         * @param    [map] {Plain Object}
+         * @return   {String}
+         */
         name: "route",
         handler: routeHandler
+      }, {
+
+        /*
+         * 设置及获取资源 URL
+         * 
+         * @method   asset
+         * @param    key {String}
+         * @return   {String}
+         */
+        name: "asset",
+        handler: assetHandler
       }
     ]
   };
