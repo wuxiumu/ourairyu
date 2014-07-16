@@ -1,7 +1,7 @@
 Tatami.ready ->
   $("#apiCount").text Tatami.keys(Tatami).length
 
-  $("#document h3").each ( idx ) ->
+  $("#documentation h3").each ( idx ) ->
     h = $(this)
     id = h.attr "id"
 

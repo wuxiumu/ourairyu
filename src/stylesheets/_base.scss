@@ -17,16 +17,8 @@ a {
   }
 }
 
-code {
-  background-color: #FFF;
-}
-
 pre {
   @include block_content;
-
-  code {
-    background: none;
-  }
 }
 
 blockquote {
@@ -43,7 +35,7 @@ blockquote {
     left: 10px;
     z-index: -1;
     font: {
-      family: Monaco,Consolas, "Lucida Console", monospace, "Courier New", Courier, serif;
+      family: Monaco, Consolas, "Lucida Console", monospace, "Courier New", Courier, serif;
       size: 5em;
     }
     line-height: 1;

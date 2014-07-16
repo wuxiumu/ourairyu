@@ -34,8 +34,34 @@ h1 {
   }
 }
 
+.file_desc {
+  i {
+    font-style: normal;
+    color: $color-text-light;
+  }
+}
+
+#apiCount {
+  font-weight: bold;
+}
+
 #downloadFiles {
   td {
     padding: .15em .9em .15em 0;
+  }
+}
+
+#documentation {
+  dt,
+  dd {
+    @include no_gap;
+  }
+
+  dt {
+    font: {
+      family: $font_family-monospace;
+      weight: bold;
+      size: 16px;
+    }
   }
 }

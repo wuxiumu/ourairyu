@@ -10,34 +10,82 @@ js:
 <header>
   <h1><ruby lang="ja"><rb>畳</rb><rp>（</rp><rt>たたみ</rt><rp>）</rp></ruby></h1>
 </header>
-<p>「畳」，即 <b>Tatami</b>，是一个运行在浏览器端的 JavaScript 库，提供了共计 <span id="apiCount">0</span> 个有用的属性和方法使新项目的前端开发变得简单、轻松！方法主要分为数据操作和项目开发两大类。大部分 API 的设计参考了 ECMAScript 5、PHP、jQuery 等语言和库，很容易就能够上手。</p>
-<p><img src="{{ site.data.url.root }}/{{ site.data.url.img }}/jsr.png" alt="JavaScript Revolution"></p>
-<h2 class="heading">下载</h2>
-<p>当前版本：<span class="version">0.3.0</span></p>
-<table id="downloadFiles">
-  <tbody>
-    <tr>
-      <td><a href="tatami.js" data-download="true">Development Version</a></td>
-      <td><i>93.6kb, Uncompressed with Plentiful Comments</i></td>
-    </tr>
-    <tr>
-      <td><a href="tatami.min.js" data-download="true">Production Version</a></td>
-      <td><i>27.9kb, Minified</i>&nbsp;&nbsp;<small>(<a href="tatami.min.map" data-download="true">Source Map</a>)</small></td>
-    </tr>
-  </tbody>
-</table>
-<h2 class="heading">使用方法</h2>
+<!-- Introduction -->
+<section id="introduction">
+  <p>「畳」，即 <b>Tatami</b>，是一个运行在浏览器端的 JavaScript 库，提供了共计 <span id="apiCount">0</span> 个有用的属性和方法使新项目的前端开发变得简单、轻松！方法主要分为<b>数据操作</b>和<b>项目开发</b>两大类。大部分 API 的设计参考了 ECMAScript 5、PHP、jQuery 等语言和库，很容易就能够上手。</p>
+  <p><img src="{{ site.data.url.root }}/{{ site.data.url.img }}/jsr.png" alt="JavaScript Revolution"></p>
+  <p>本项目托管于 <a href="https://github.com/ourai/tatami">GitHub</a>。如果发现 bug 或有任何建议，欢迎到 <a href="https://github.com/ourai/tatami/issues">issue</a> 页面提出。</p>
+  <h2 class="heading">下载</h2>
+  <p>当前版本：<span class="version">0.3.0</span></p>
+  <table id="downloadFiles">
+    <tbody>
+      <tr>
+        <td><a href="tatami.js" data-download="true">开发版</a>（93.6KB）</td>
+        <td class="file_desc"><i>未压缩并有丰富的注释</i></td>
+      </tr>
+      <tr>
+        <td><a href="tatami.min.js" data-download="true">产品版</a>（27.9KB）</td>
+        <td class="file_desc"><i>已压缩</i>&nbsp;&nbsp;<small>(<a href="tatami.min.map" data-download="true">Source Map</a>)</small></td>
+      </tr>
+    </tbody>
+  </table>
+  <h2 class="heading">使用方法</h2>
 {% highlight html %}
 <script src="jquery.js"></script>
 <script src="tatami.js"></script>
 {% endhighlight %}
-<section id="document">
+</section>
+<!-- Documentation -->
+<section id="documentation">
   <h3>运行环境</h3>
   <dl>
     <dt>browser</dt>
-    <dd></dd>
+    <dd>
+      <p>获取浏览器的相关信息，包括种类及版本号，以 <code>{BROWSER_TYPE: true, version: "BROWSER_VERSION"}</code> 的形式返回。其中 BROWSER_TYPE 的可能值有：</p>
+      <ul>
+        <li><code>msie</code></li>
+        <li><code>chrome</code></li>
+        <li><code>firefox</code></li>
+        <li><code>safari</code></li>
+        <li><code>opera</code></li>
+      </ul>
+      <p>当值为 <code>chrome</code> 或 <code>safari</code> 时，会多出一个 <code>{webkit: true}</code> 属性；当值为 <code>firefox</code> 时，会多出一个 <code>{mozilla: true}</code> 属性。</p>
+    </dd>
+    <dd>
+{% highlight js %}
+// IE 浏览器
+Tatami.browser;
+=> {msie: true, version: "11.0"}
+
+// Chrome 浏览器
+Tatami.browser;
+=> {chrome: true, version: "34.0.1847.131", webkit: true}
+{% endhighlight %}
+    </dd>
     <dt>platform</dt>
-    <dd></dd>
+    <dd>
+      <p>获取平台的相关信息，包括种类、版本号及是否可触摸，以 <code>{PLATFORM_TYPE: true, version: "PLATFORM_VERSION", touchable: true}</code> 的形式返回。其中 PLATFORM_TYPE 的可能值有：</p>
+      <ul>
+        <li><code>windows</code></li>
+        <li><code>macintosh</code></li>
+        <li><code>iphone</code></li>
+        <li><code>ipod</code></li>
+        <li><code>ipad</code></li>
+        <li>...</li>
+      </ul>
+      <p>当值为 <code>iphone</code>、<code>ipod</code> 或 <code>ipad</code> 时，会多出一个 <code>{ios: true}</code> 属性。</p>
+    </dd>
+    <dd>
+{% highlight js %}
+// Windows 7
+Tatami.platform;
+=> {touchable: false, version: "7", windows: true}
+
+// iPhone 5s
+Tatami.platform;
+=> {touchable: true, version: "7.1.2", iphone: true, ios: true}
+{% endhighlight %}
+    </dd>
     <dt>plugins</dt>
     <dd></dd>
   </dl>
