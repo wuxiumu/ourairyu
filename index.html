@@ -42,7 +42,11 @@ js:
   <dl>
     <dt>browser</dt>
     <dd>
-      <p>获取浏览器的相关信息，包括种类及版本号，以 <code>{BROWSER_TYPE: true, version: "BROWSER_VERSION"}</code> 的形式返回。其中 <code>BROWSER_TYPE</code> 的可能值有：</p>
+      <p>获取浏览器的相关信息，包括种类及版本号。</p>
+    </dd>
+    <dd>
+      <div class="api_info"><code class="invoke">Tatami.browser</code><span class="return_value">Object</span></div>
+      <p>以 <code>{BROWSER_TYPE: true, version: "BROWSER_VERSION"}</code> 的形式返回。其中 <code>BROWSER_TYPE</code> 的可能值有：</p>
       <ul>
         <li><code>msie</code></li>
         <li><code>chrome</code></li>
@@ -50,9 +54,7 @@ js:
         <li><code>safari</code></li>
         <li><code>opera</code></li>
       </ul>
-      <p>当值为 <code>chrome</code> 或 <code>safari</code> 时，会多出一个 <code>{webkit: true}</code> 属性；当值为 <code>firefox</code> 时，会多出一个 <code>{mozilla: true}</code> 属性。</p>
-    </dd>
-    <dd>
+      <p class="note">当值为 <code>chrome</code> 或 <code>safari</code> 时，会多出一个 <code>{webkit: true}</code> 属性；当值为 <code>firefox</code> 时，会多出一个 <code>{mozilla: true}</code> 属性。</p>
 {% highlight js %}
 // IE 浏览器
 Tatami.browser;
@@ -65,7 +67,11 @@ Tatami.browser;
     </dd>
     <dt>platform</dt>
     <dd>
-      <p>获取平台的相关信息，包括种类、版本号及是否可触摸，以 <code>{PLATFORM_TYPE: true, version: "PLATFORM_VERSION", touchable: true}</code> 的形式返回。其中 <code>PLATFORM_TYPE</code> 的可能值有：</p>
+      <p>获取平台的相关信息，包括种类、版本号及是否可触摸。</p>
+    </dd>
+    <dd>
+      <div class="api_info"><code class="invoke">Tatami.platform</code><span class="return_value">Object</span></div>
+      <p>以 <code>{PLATFORM_TYPE: true, version: "PLATFORM_VERSION", touchable: true}</code> 的形式返回。其中 <code>PLATFORM_TYPE</code> 的可能值有：</p>
       <ul>
         <li><code>windows</code></li>
         <li><code>macintosh</code></li>
@@ -74,9 +80,7 @@ Tatami.browser;
         <li><code>ipad</code></li>
         <li>...</li>
       </ul>
-      <p>当值为 <code>iphone</code>、<code>ipod</code> 或 <code>ipad</code> 时，会多出一个 <code>{ios: true}</code> 属性。</p>
-    </dd>
-    <dd>
+      <p class="note">当值为 <code>iphone</code>、<code>ipod</code> 或 <code>ipad</code> 时，会多出一个 <code>{ios: true}</code> 属性。</p>
 {% highlight js %}
 // Windows 7
 Tatami.platform;
@@ -94,12 +98,24 @@ Tatami.platform;
         <li>PDF</li>
       </ul>
     </dd>
+    <dd>
+      <div class="api_info"><code class="invoke">Tatami.plugins</code><span class="return_value">Object</span></div>
+    </dd>
   </dl>
   <h3 id="dataType">数据类型</h3>
   <dl>
     <dt>type</dt>
+    <dd><p>获取变量的数据类型。</p></dd>
     <dd>
-      <p>获取变量的数据类型。返回值为以下的其中之一：</p>
+      <div class="api_info">
+        <code class="invoke">Tatami.type(object)</code>
+        <span class="return_value">String</span>
+        <dl>
+          <dt><code>object</code></dt>
+          <dd><span>Anything</span></dd>
+        </dl>
+      </div>
+      <p>返回值为以下的其中之一：</p>
       <ul>
         <li><code>string</code></li>
         <li><code>number</code></li>
@@ -112,6 +128,40 @@ Tatami.platform;
         <li><code>date</code></li>
         <li><code>regexp</code></li>
       </ul>
+{% highlight js %}
+Tatami.type("");
+=> "string"
+
+Tatami.type(1);
+=> "number"
+
+Tatami.type(true);
+=> "boolean"
+
+Tatami.type(null);
+=> "null"
+
+Tatami.type(undefined);
+=> "undefined"
+
+Tatami.type([]);
+=> "array"
+
+Tatami.type({});
+=> "object"
+
+Tatami.type(function() {});
+=> "function"
+
+Tatami.type(new Date());
+=> "date"
+
+Tatami.type(/.*/);
+=> "regexp"
+
+Tatami.type();
+=> null
+{% endhighlight %}
     </dd>
     <dt>isString</dt>
     <dd>
@@ -154,6 +204,14 @@ Tatami.platform;
       <p>判断是否为数字型字符串或 Number 类型。</p>
     </dd>
     <dd>
+      <div class="api_info">
+        <code class="invoke">Tatami.isNumeric(object)</code>
+        <span class="return_value">Boolean</span>
+        <dl>
+          <dt><code>object</code></dt>
+          <dd><span>Anything</span></dd>
+        </dl>
+      </div>
 {% highlight js %}
 Tatami.isNumeric("-10");
 => true
