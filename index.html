@@ -100,6 +100,10 @@ Tatami.platform;
     </dd>
     <dd>
       <div class="api_info"><code class="invoke">Tatami.plugins</code><span class="return_value">Object</span></div>
+{% highlight js %}
+Tatami.plugins.pdf;
+=> true
+{% endhighlight %}
     </dd>
   </dl>
   <h3 id="dataType">数据类型</h3>
@@ -167,37 +171,187 @@ Tatami.type();
     <dd>
       <p>判断是否为 String 类型。</p>
     </dd>
+    <dd>
+      <div class="api_info">
+        <code class="invoke">Tatami.isString(object)</code>
+        <span class="return_value">Boolean</span>
+        <dl>
+          <dt><code>object</code></dt>
+          <dd><span>Anything</span></dd>
+        </dl>
+      </div>
+{% highlight js %}
+Tatami.isString("");
+=> true
+
+Tatami.isString(new String());
+=> true
+
+Tatami.isString(undefined);
+=> false
+
+Tatami.isString();
+=> false
+{% endhighlight %}
+    </dd>
     <dt>isNumber</dt>
     <dd>
       <p>判断是否为 Number 类型。</p>
+    </dd>
+    <dd>
+      <div class="api_info">
+        <code class="invoke">Tatami.isNumber(object)</code>
+        <span class="return_value">Boolean</span>
+        <dl>
+          <dt><code>object</code></dt>
+          <dd><span>Anything</span></dd>
+        </dl>
+      </div>
+{% highlight js %}
+Tatami.isNumber(1);
+=> true
+
+Tatami.isNumber(-3.1415);
+=> true
+
+Tatami.isNumber(NaN);
+=> false
+
+Tatami.isNumber(Infinity);
+=> true
+
+Tatami.isNumber("3.1415");
+=> false
+
+Tatami.isNumber();
+=> false
+{% endhighlight %}
     </dd>
     <dt>isBoolean</dt>
     <dd>
       <p>判断是否为 Boolean 类型。</p>
     </dd>
+    <dd>
+      <div class="api_info">
+        <code class="invoke">Tatami.isBoolean(object)</code>
+        <span class="return_value">Boolean</span>
+        <dl>
+          <dt><code>object</code></dt>
+          <dd><span>Anything</span></dd>
+        </dl>
+      </div>
+{% highlight js %}
+Tatami.isBoolean(true);
+=> true
+
+Tatami.isBoolean(undefined);
+=> false
+
+Tatami.isBoolean(new Boolean());
+=> true
+
+Tatami.isBoolean(null);
+=> false
+
+Tatami.isBoolean();
+=> false
+{% endhighlight %}
+    </dd>
     <dt>isArray</dt>
     <dd>
       <p>判断是否为 Array 类型。</p>
+    </dd>
+    <dd>
+      <div class="api_info">
+        <code class="invoke">Tatami.isArray(object)</code>
+        <span class="return_value">Boolean</span>
+        <dl>
+          <dt><code>object</code></dt>
+          <dd><span>Anything</span></dd>
+        </dl>
+      </div>
+{% highlight js %}
+{% endhighlight %}
     </dd>
     <dt>isObject</dt>
     <dd>
       <p>判断是否为 Object 类型。</p>
     </dd>
+    <dd>
+      <div class="api_info">
+        <code class="invoke">Tatami.isObject(object)</code>
+        <span class="return_value">Boolean</span>
+        <dl>
+          <dt><code>object</code></dt>
+          <dd><span>Anything</span></dd>
+        </dl>
+      </div>
+{% highlight js %}
+{% endhighlight %}
+    </dd>
     <dt>isFunction</dt>
     <dd>
       <p>判断是否为 Function 类型。</p>
+    </dd>
+    <dd>
+      <div class="api_info">
+        <code class="invoke">Tatami.isFunction(object)</code>
+        <span class="return_value">Boolean</span>
+        <dl>
+          <dt><code>object</code></dt>
+          <dd><span>Anything</span></dd>
+        </dl>
+      </div>
+{% highlight js %}
+{% endhighlight %}
     </dd>
     <dt>isDate</dt>
     <dd>
       <p>判断是否为 Date 类型。</p>
     </dd>
+    <dd>
+      <div class="api_info">
+        <code class="invoke">Tatami.isDate(object)</code>
+        <span class="return_value">Boolean</span>
+        <dl>
+          <dt><code>object</code></dt>
+          <dd><span>Anything</span></dd>
+        </dl>
+      </div>
+{% highlight js %}
+{% endhighlight %}
+    </dd>
     <dt>isRegExp</dt>
     <dd>
       <p>判断是否为 RegExp 类型。</p>
     </dd>
+    <dd>
+      <div class="api_info">
+        <code class="invoke">Tatami.isRegExp(object)</code>
+        <span class="return_value">Boolean</span>
+        <dl>
+          <dt><code>object</code></dt>
+          <dd><span>Anything</span></dd>
+        </dl>
+      </div>
+{% highlight js %}
+{% endhighlight %}
+    </dd>
     <dt>isInteger</dt>
     <dd>
       <p>判断是否为一个整型数字。</p>
+    </dd>
+    <dd>
+      <div class="api_info">
+        <code class="invoke">Tatami.isInteger(object)</code>
+        <span class="return_value">Boolean</span>
+        <dl>
+          <dt><code>object</code></dt>
+          <dd><span>Anything</span></dd>
+        </dl>
+      </div>
+{% highlight js %}
+{% endhighlight %}
     </dd>
     <dt>isNumeric</dt>
     <dd>
