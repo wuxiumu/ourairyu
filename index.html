@@ -304,23 +304,6 @@ Tatami.isArray();
         </dl>
       </div>
 {% highlight js %}
-
-{% endhighlight %}
-    </dd>
-    <dt>isFunction</dt>
-    <dd>
-      <p>判断是否为 Function 类型。</p>
-    </dd>
-    <dd>
-      <div class="api_info">
-        <code class="invoke">Tatami.isFunction(object)</code>
-        <span class="return_value">Boolean</span>
-        <dl>
-          <dt><code>object</code></dt>
-          <dd><span>Anything</span></dd>
-        </dl>
-      </div>
-{% highlight js %}
 Tatami.isObject({});
 => true
 
@@ -338,7 +321,27 @@ Tatami.isObject(new Object());
 
 Tatami.isObject();
 => false
+{% endhighlight %}
+    </dd>
+    <dt>isFunction</dt>
+    <dd>
+      <p>判断是否为 Function 类型。</p>
+    </dd>
+    <dd>
+      <div class="api_info">
+        <code class="invoke">Tatami.isFunction(object)</code>
+        <span class="return_value">Boolean</span>
+        <dl>
+          <dt><code>object</code></dt>
+          <dd><span>Anything</span></dd>
+        </dl>
+      </div>
+{% highlight js %}
+Tatami.isFunction(function() {});
+=> true
 
+Tatami.isFunction(new Function());
+=> true
 {% endhighlight %}
     </dd>
     <dt>isDate</dt>
