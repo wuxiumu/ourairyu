@@ -271,6 +271,23 @@ Tatami.isBoolean();
         </dl>
       </div>
 {% highlight js %}
+Tatami.isArray([]);
+=> true
+
+Tatami.isArray(new Array());
+=> true
+
+Tatami.isArray(document.links);
+=> false
+
+Tatami.isArray({});
+=> false
+
+Tatami.isArray("");
+=> false
+
+Tatami.isArray();
+=> false
 {% endhighlight %}
     </dd>
     <dt>isObject</dt>
@@ -287,6 +304,7 @@ Tatami.isBoolean();
         </dl>
       </div>
 {% highlight js %}
+
 {% endhighlight %}
     </dd>
     <dt>isFunction</dt>
@@ -303,6 +321,24 @@ Tatami.isBoolean();
         </dl>
       </div>
 {% highlight js %}
+Tatami.isObject({});
+=> true
+
+Tatami.isObject(window);
+=> true
+
+Tatami.isObject([]);
+=> false
+
+Tatami.isObject(null);
+=> false
+
+Tatami.isObject(new Object());
+=> true
+
+Tatami.isObject();
+=> false
+
 {% endhighlight %}
     </dd>
     <dt>isDate</dt>
@@ -319,6 +355,8 @@ Tatami.isBoolean();
         </dl>
       </div>
 {% highlight js %}
+Tatami.isDate(new Date());
+=> true
 {% endhighlight %}
     </dd>
     <dt>isRegExp</dt>
@@ -335,6 +373,11 @@ Tatami.isBoolean();
         </dl>
       </div>
 {% highlight js %}
+Tatami.isRegExp(new RegExp());
+=> true
+
+Tatami.isRegExp(/.*/);
+=> true
 {% endhighlight %}
     </dd>
     <dt>isInteger</dt>
@@ -351,6 +394,29 @@ Tatami.isBoolean();
         </dl>
       </div>
 {% highlight js %}
+Tatami.isInteger(0x88);
+=> true
+
+Tatami.isInteger(0100);
+=> true
+
+Tatami.isInteger(+10.0);
+=> true
+
+Tatami.isInteger(-1);
+=> true
+
+Tatami.isInteger("0x88");
+=> true
+
+Tatami.isInteger("0100");
+=> true
+
+Tatami.isInteger("+10.0");
+=> true
+
+Tatami.isInteger("-1");
+=> true
 {% endhighlight %}
     </dd>
     <dt>isNumeric</dt>
