@@ -17,7 +17,7 @@ Tatami.ready ->
 
     ul = $(".toc-section:last", toc)
 
-    $("dt", h.next("dl")).each ->
+    h.next("dl").children("dt").each ->
       dt = $(this)
       api = dt.text()
       id = "api_#{api}"
