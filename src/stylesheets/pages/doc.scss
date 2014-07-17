@@ -52,16 +52,28 @@ h1 {
 }
 
 #documentation {
+  h3 {
+    margin-top: 50px;
+    font-size: 18px;
+  }
+  
   dt,
   dd {
     @include no_gap;
   }
 
   dt {
+    margin-top: 30px;
+
     font: {
-      family: $font_family-monospace;
       weight: bold;
       size: 16px;
+    }
+  }
+
+  dl {
+    dt:first-child {
+      margin-top: 0;
     }
   }
 }

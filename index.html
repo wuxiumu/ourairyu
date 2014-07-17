@@ -4,9 +4,9 @@ layout_type: frameset
 
 css:
   - highlight
-  - pages/home
+  - pages/doc
 js:
-  - pages/home
+  - pages/doc
 ---
 <header>
   <h1><ruby lang="ja"><rb>畳</rb><rp>（</rp><rt>たたみ</rt><rp>）</rp></ruby></h1>
@@ -38,11 +38,11 @@ js:
 </section>
 <!-- Documentation -->
 <section id="documentation">
-  <h3>运行环境</h3>
+  <h3 id="runtime">运行环境</h3>
   <dl>
     <dt>browser</dt>
     <dd>
-      <p>获取浏览器的相关信息，包括种类及版本号，以 <code>{BROWSER_TYPE: true, version: "BROWSER_VERSION"}</code> 的形式返回。其中 BROWSER_TYPE 的可能值有：</p>
+      <p>获取浏览器的相关信息，包括种类及版本号，以 <code>{BROWSER_TYPE: true, version: "BROWSER_VERSION"}</code> 的形式返回。其中 <code>BROWSER_TYPE</code> 的可能值有：</p>
       <ul>
         <li><code>msie</code></li>
         <li><code>chrome</code></li>
@@ -65,7 +65,7 @@ Tatami.browser;
     </dd>
     <dt>platform</dt>
     <dd>
-      <p>获取平台的相关信息，包括种类、版本号及是否可触摸，以 <code>{PLATFORM_TYPE: true, version: "PLATFORM_VERSION", touchable: true}</code> 的形式返回。其中 PLATFORM_TYPE 的可能值有：</p>
+      <p>获取平台的相关信息，包括种类、版本号及是否可触摸，以 <code>{PLATFORM_TYPE: true, version: "PLATFORM_VERSION", touchable: true}</code> 的形式返回。其中 <code>PLATFORM_TYPE</code> 的可能值有：</p>
       <ul>
         <li><code>windows</code></li>
         <li><code>macintosh</code></li>
@@ -88,7 +88,133 @@ Tatami.platform;
 {% endhighlight %}
     </dd>
     <dt>plugins</dt>
-    <dd></dd>
+    <dd>
+      <p>获取插件的支持情况。目前支持的插件检测有以下几种：</p>
+      <ul>
+        <li>PDF</li>
+      </ul>
+    </dd>
+  </dl>
+  <h3 id="dataType">数据类型</h3>
+  <dl>
+    <dt>type</dt>
+    <dd>
+      <p>获取变量的数据类型。返回值为以下的其中之一：</p>
+      <ul>
+        <li><code>string</code></li>
+        <li><code>number</code></li>
+        <li><code>boolean</code></li>
+        <li><code>null</code></li>
+        <li><code>undefined</code></li>
+        <li><code>array</code></li>
+        <li><code>object</code></li>
+        <li><code>function</code></li>
+        <li><code>date</code></li>
+        <li><code>regexp</code></li>
+      </ul>
+    </dd>
+    <dt>isString</dt>
+    <dd>
+      <p>判断是否为 String 类型。</p>
+    </dd>
+    <dt>isNumber</dt>
+    <dd>
+      <p>判断是否为 Number 类型。</p>
+    </dd>
+    <dt>isBoolean</dt>
+    <dd>
+      <p>判断是否为 Boolean 类型。</p>
+    </dd>
+    <dt>isArray</dt>
+    <dd>
+      <p>判断是否为 Array 类型。</p>
+    </dd>
+    <dt>isObject</dt>
+    <dd>
+      <p>判断是否为 Object 类型。</p>
+    </dd>
+    <dt>isFunction</dt>
+    <dd>
+      <p>判断是否为 Function 类型。</p>
+    </dd>
+    <dt>isDate</dt>
+    <dd>
+      <p>判断是否为 Date 类型。</p>
+    </dd>
+    <dt>isRegExp</dt>
+    <dd>
+      <p>判断是否为 RegExp 类型。</p>
+    </dd>
+    <dt>isInteger</dt>
+    <dd>
+      <p>判断是否为一个整型数字。</p>
+    </dd>
+    <dt>isNumeric</dt>
+    <dd>
+      <p>判断是否为数字型字符串或 Number 类型。</p>
+    </dd>
+    <dd>
+{% highlight js %}
+Tatami.isNumeric("-10");
+=> true
+
+Tatami.isNumeric(16);
+=> true
+
+Tatami.isNumeric(0xFF);
+=> true
+
+Tatami.isNumeric("0Xee");
+=> true
+
+Tatami.isNumeric(3.1415);
+=> true
+
+Tatami.isNumeric(0144);
+=> true
+
+Tatami.isNumeric("");
+=> false
+
+Tatami.isNumeric([]);
+=> false
+
+Tatami.isNumeric(NaN);
+=> false
+
+Tatami.isNumeric(null);
+=> false
+
+Tatami.isNumeric(true);
+=> false
+
+Tatami.isNumeric(Infinity);
+=> false
+
+Tatami.isNumeric(undefined);
+=> false
+{% endhighlight %}
+    </dd>
+    <dt>isArrayLike</dt>
+    <dd>
+      <p>判断是否为类数组对象。</p>
+    </dd>
+    <dt>isPlainObject</dt>
+    <dd>
+      <p>判断是否为纯对象。</p>
+    </dd>
+    <dt>isEmpty</dt>
+    <dd>
+      <p>判断是否为空。</p>
+    </dd>
+    <dt>isWindow</dt>
+    <dd>
+      <p>判断是否为 Window 对象。</p>
+    </dd>
+    <dt>isElement</dt>
+    <dd>
+      <p>判断是否为元素节点。</p>
+    </dd>
   </dl>
   <h3>项目开发</h3>
   <dl>
@@ -107,6 +233,8 @@ Tatami.platform;
     <dt>api</dt>
     <dd></dd>
     <dt>route</dt>
+    <dd></dd>
+    <dt>asset</dt>
     <dd></dd>
     <dt>save</dt>
     <dd></dd>
@@ -161,36 +289,6 @@ Tatami.platform;
     <dd></dd>
     <dt>init</dt>
     <dd></dd>
-    <dt>isArray</dt>
-    <dd></dd>
-    <dt>isArrayLike</dt>
-    <dd></dd>
-    <dt>isBoolean</dt>
-    <dd></dd>
-    <dt>isDate</dt>
-    <dd></dd>
-    <dt>isElement</dt>
-    <dd></dd>
-    <dt>isEmpty</dt>
-    <dd></dd>
-    <dt>isFunction</dt>
-    <dd></dd>
-    <dt>isInteger</dt>
-    <dd></dd>
-    <dt>isNumber</dt>
-    <dd></dd>
-    <dt>isNumeric</dt>
-    <dd></dd>
-    <dt>isObject</dt>
-    <dd></dd>
-    <dt>isPlainObject</dt>
-    <dd></dd>
-    <dt>isRegExp</dt>
-    <dd></dd>
-    <dt>isString</dt>
-    <dd></dd>
-    <dt>isWindow</dt>
-    <dd></dd>
     <dt>keys</dt>
     <dd></dd>
     <dt>map</dt>
@@ -230,8 +328,6 @@ Tatami.platform;
     <dt>sum</dt>
     <dd></dd>
     <dt>trim</dt>
-    <dd></dd>
-    <dt>type</dt>
     <dd></dd>
     <dt>unique</dt>
     <dd></dd>
