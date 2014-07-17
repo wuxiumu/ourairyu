@@ -38,6 +38,40 @@ js:
 </section>
 <!-- Documentation -->
 <section id="documentation">
+  {% for api_class in site.data.apis %}
+    <!-- <h2 id="{{ api_class.flag }}" class="heading">{{ api_class.name }}</h2> -->
+    {% for category in api_class.categories %}
+      <h3 id="{{ category.flag }}">{{ category.name }}</h3>
+      <dl>
+        {% for api in category.apis %}
+          <dt>{{ api.func }}</dt>
+          <dd>{{ api.desc }}</dd>
+          {% for inv in api.invoke %}
+            <dd>
+              <div class="api_info">
+                <code class="invoke">{{ inv.statement }}</code>
+                <span class="return_value">{{ inv.return }}</span>
+                {% if inv.arguments %}
+                  <dl>
+                    {% for arg in inv.arguments %}
+                      <dt>{{ arg.name }}</dt>
+                      <dd>{% if arg.type %}{{ arg.type }}{% else %}Anything{% endif %}</dd>
+                    {% endfor %}
+                  </dl>
+                {% endif %}
+              </div>
+              {% if inv.desc %}{{ inv.desc }}{% endif %}
+              {% if inv.demo %}
+{% highlight js %}
+{{ inv.demo }}
+{% endhighlight %}
+              {% endif %}
+            </dd>
+          {% endfor %}
+        {% endfor %}
+      </dl>
+    {% endfor %}
+  {% endfor %}
   <h3 id="runtime">运行环境</h3>
   <dl>
     <dt>browser</dt>
@@ -108,92 +142,6 @@ Tatami.plugins.pdf;
   </dl>
   <h3 id="dataType">数据类型</h3>
   <dl>
-    <dt>type</dt>
-    <dd><p>获取变量的数据类型。</p></dd>
-    <dd>
-      <div class="api_info">
-        <code class="invoke">Tatami.type(object)</code>
-        <span class="return_value">String</span>
-        <dl>
-          <dt><code>object</code></dt>
-          <dd><span>Anything</span></dd>
-        </dl>
-      </div>
-      <p>返回值为以下的其中之一：</p>
-      <ul>
-        <li><code>string</code></li>
-        <li><code>number</code></li>
-        <li><code>boolean</code></li>
-        <li><code>null</code></li>
-        <li><code>undefined</code></li>
-        <li><code>array</code></li>
-        <li><code>object</code></li>
-        <li><code>function</code></li>
-        <li><code>date</code></li>
-        <li><code>regexp</code></li>
-      </ul>
-{% highlight js %}
-Tatami.type("");
-=> "string"
-
-Tatami.type(1);
-=> "number"
-
-Tatami.type(true);
-=> "boolean"
-
-Tatami.type(null);
-=> "null"
-
-Tatami.type(undefined);
-=> "undefined"
-
-Tatami.type([]);
-=> "array"
-
-Tatami.type({});
-=> "object"
-
-Tatami.type(function() {});
-=> "function"
-
-Tatami.type(new Date());
-=> "date"
-
-Tatami.type(/.*/);
-=> "regexp"
-
-Tatami.type();
-=> null
-{% endhighlight %}
-    </dd>
-    <dt>isString</dt>
-    <dd>
-      <p>判断是否为 String 类型。</p>
-    </dd>
-    <dd>
-      <div class="api_info">
-        <code class="invoke">Tatami.isString(object)</code>
-        <span class="return_value">Boolean</span>
-        <dl>
-          <dt><code>object</code></dt>
-          <dd><span>Anything</span></dd>
-        </dl>
-      </div>
-{% highlight js %}
-Tatami.isString("");
-=> true
-
-Tatami.isString(new String());
-=> true
-
-Tatami.isString(undefined);
-=> false
-
-Tatami.isString();
-=> false
-{% endhighlight %}
-    </dd>
     <dt>isNumber</dt>
     <dd>
       <p>判断是否为 Number 类型。</p>
@@ -496,125 +444,5 @@ Tatami.isNumeric(undefined);
     <dd>
       <p>判断是否为元素节点。</p>
     </dd>
-  </dl>
-  <h3>项目开发</h3>
-  <dl>
-    <dt>sandbox</dt>
-    <dd></dd>
-    <dt>prepare</dt>
-    <dd></dd>
-    <dt>ready</dt>
-    <dd></dd>
-    <dt>queue</dt>
-    <dd></dd>
-    <dt>run</dt>
-    <dd></dd>
-    <dt>i18n</dt>
-    <dd></dd>
-    <dt>api</dt>
-    <dd></dd>
-    <dt>route</dt>
-    <dd></dd>
-    <dt>asset</dt>
-    <dd></dd>
-    <dt>save</dt>
-    <dd></dd>
-    <dt>access</dt>
-    <dd></dd>
-    <dt>ajax</dt>
-    <dd></dd>
-    <dt>sjax</dt>
-    <dd></dd>
-    <dt>config</dt>
-    <dd></dd>
-    <dt>alert</dt>
-    <dd></dd>
-    <dt>confirm</dt>
-    <dd></dd>
-    <dt>confirmEX</dt>
-    <dd></dd>
-    <dt>data</dt>
-    <dd></dd>
-    <dt>download</dt>
-    <dd></dd>
-    <dt>functionExists</dt>
-    <dd></dd>
-    <dt>pathname</dt>
-    <dd></dd>
-  </dl>
-  <h3>工具方法</h3>
-  <dl>
-    <dt>camelCase</dt>
-    <dd></dd>
-    <dt>capitalize</dt>
-    <dd></dd>
-    <dt>countChars</dt>
-    <dd></dd>
-    <dt>date</dt>
-    <dd></dd>
-    <dt>each</dt>
-    <dd></dd>
-    <dt>encodeEntities</dt>
-    <dd></dd>
-    <dt>equal</dt>
-    <dd></dd>
-    <dt>extend</dt>
-    <dd></dd>
-    <dt>filter</dt>
-    <dd></dd>
-    <dt>flatten</dt>
-    <dd></dd>
-    <dt>hasProp</dt>
-    <dd></dd>
-    <dt>inArray</dt>
-    <dd></dd>
-    <dt>init</dt>
-    <dd></dd>
-    <dt>keys</dt>
-    <dd></dd>
-    <dt>map</dt>
-    <dd></dd>
-    <dt>alias</dt>
-    <dd></dd>
-    <dt>mask</dt>
-    <dd></dd>
-    <dt>max</dt>
-    <dd></dd>
-    <dt>min</dt>
-    <dd></dd>
-    <dt>mixin</dt>
-    <dd></dd>
-    <dt>namespace</dt>
-    <dd></dd>
-    <dt>now</dt>
-    <dd></dd>
-    <dt>pad</dt>
-    <dd></dd>
-    <dt>product</dt>
-    <dd></dd>
-    <dt>random</dt>
-    <dd></dd>
-    <dt>range</dt>
-    <dd></dd>
-    <dt>reduce</dt>
-    <dd></dd>
-    <dt>shuffle</dt>
-    <dd></dd>
-    <dt>slice</dt>
-    <dd></dd>
-    <dt>stringify</dt>
-    <dd></dd>
-    <dt>substr</dt>
-    <dd></dd>
-    <dt>sum</dt>
-    <dd></dd>
-    <dt>trim</dt>
-    <dd></dd>
-    <dt>unique</dt>
-    <dd></dd>
-    <dt>url</dt>
-    <dd></dd>
-    <dt>zerofill</dt>
-    <dd></dd>
   </dl>
 </section>

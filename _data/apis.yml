@@ -1,0 +1,192 @@
+- name: 工具
+  flag: utils
+  categories:
+    - name: 数据类型
+      flag: data_type
+      apis:
+        - func: type
+          desc: >
+            <p>获取变量的数据类型。</p>
+          invoke:
+            - statement: Tatami.type(object)
+              arguments:
+                - name: object
+                  type: 
+              return: String
+              desc: >
+                <p>返回值为以下的其中之一：</p>
+                <ul>
+                  <li><code>string</code></li>
+                  <li><code>number</code></li>
+                  <li><code>boolean</code></li>
+                  <li><code>null</code></li>
+                  <li><code>undefined</code></li>
+                  <li><code>array</code></li>
+                  <li><code>object</code></li>
+                  <li><code>function</code></li>
+                  <li><code>date</code></li>
+                  <li><code>regexp</code></li>
+                </ul>
+              demo: >
+                Tatami.type("");\n
+                => "string"\n\n
+                Tatami.type(1);\n
+                => "number"\n\n
+                Tatami.type(true);\n
+                => "boolean"\n\n
+                Tatami.type(null);\n
+                => "null"\n\n
+                Tatami.type(undefined);\n
+                => "undefined"\n\n
+                Tatami.type([]);\n
+                => "array"\n\n
+                Tatami.type({});\n
+                => "object"\n\n
+                Tatami.type(function() {});\n
+                => "function"\n\n
+                Tatami.type(new Date());\n
+                => "date"\n\n
+                Tatami.type(/.*/);\n
+                => "regexp"\n\n
+                Tatami.type();\n
+                => null
+        - func: isString
+          desc: >
+            <p>判断是否为 String 类型。</p>
+          invoke:
+            - statement: Tatami.isString(object)
+              arguments:
+                - name: object
+                  type: 
+              return: Boolean
+              desc: 
+              demo: >
+                Tatami.isString("");
+                => true
+                Tatami.isString(new String());
+                => true
+                Tatami.isString(undefined);
+                => false
+                Tatami.isString();
+                => false
+# project:
+  # <h3>项目开发</h3>
+  # <dl>
+  #   <dt>sandbox</dt>
+  #   <dd></dd>
+  #   <dt>prepare</dt>
+  #   <dd></dd>
+  #   <dt>ready</dt>
+  #   <dd></dd>
+  #   <dt>queue</dt>
+  #   <dd></dd>
+  #   <dt>run</dt>
+  #   <dd></dd>
+  #   <dt>i18n</dt>
+  #   <dd></dd>
+  #   <dt>api</dt>
+  #   <dd></dd>
+  #   <dt>route</dt>
+  #   <dd></dd>
+  #   <dt>asset</dt>
+  #   <dd></dd>
+  #   <dt>save</dt>
+  #   <dd></dd>
+  #   <dt>access</dt>
+  #   <dd></dd>
+  #   <dt>ajax</dt>
+  #   <dd></dd>
+  #   <dt>sjax</dt>
+  #   <dd></dd>
+  #   <dt>config</dt>
+  #   <dd></dd>
+  #   <dt>alert</dt>
+  #   <dd></dd>
+  #   <dt>confirm</dt>
+  #   <dd></dd>
+  #   <dt>confirmEX</dt>
+  #   <dd></dd>
+  #   <dt>data</dt>
+  #   <dd></dd>
+  #   <dt>download</dt>
+  #   <dd></dd>
+  #   <dt>functionExists</dt>
+  #   <dd></dd>
+  #   <dt>pathname</dt>
+  #   <dd></dd>
+  # </dl>
+  # <h3>工具方法</h3>
+  # <dl>
+  #   <dt>camelCase</dt>
+  #   <dd></dd>
+  #   <dt>capitalize</dt>
+  #   <dd></dd>
+  #   <dt>countChars</dt>
+  #   <dd></dd>
+  #   <dt>date</dt>
+  #   <dd></dd>
+  #   <dt>each</dt>
+  #   <dd></dd>
+  #   <dt>encodeEntities</dt>
+  #   <dd></dd>
+  #   <dt>equal</dt>
+  #   <dd></dd>
+  #   <dt>extend</dt>
+  #   <dd></dd>
+  #   <dt>filter</dt>
+  #   <dd></dd>
+  #   <dt>flatten</dt>
+  #   <dd></dd>
+  #   <dt>hasProp</dt>
+  #   <dd></dd>
+  #   <dt>inArray</dt>
+  #   <dd></dd>
+  #   <dt>init</dt>
+  #   <dd></dd>
+  #   <dt>keys</dt>
+  #   <dd></dd>
+  #   <dt>map</dt>
+  #   <dd></dd>
+  #   <dt>alias</dt>
+  #   <dd></dd>
+  #   <dt>mask</dt>
+  #   <dd></dd>
+  #   <dt>max</dt>
+  #   <dd></dd>
+  #   <dt>min</dt>
+  #   <dd></dd>
+  #   <dt>mixin</dt>
+  #   <dd></dd>
+  #   <dt>namespace</dt>
+  #   <dd></dd>
+  #   <dt>now</dt>
+  #   <dd></dd>
+  #   <dt>pad</dt>
+  #   <dd></dd>
+  #   <dt>product</dt>
+  #   <dd></dd>
+  #   <dt>random</dt>
+  #   <dd></dd>
+  #   <dt>range</dt>
+  #   <dd></dd>
+  #   <dt>reduce</dt>
+  #   <dd></dd>
+  #   <dt>shuffle</dt>
+  #   <dd></dd>
+  #   <dt>slice</dt>
+  #   <dd></dd>
+  #   <dt>stringify</dt>
+  #   <dd></dd>
+  #   <dt>substr</dt>
+  #   <dd></dd>
+  #   <dt>sum</dt>
+  #   <dd></dd>
+  #   <dt>trim</dt>
+  #   <dd></dd>
+  #   <dt>unique</dt>
+  #   <dd></dd>
+  #   <dt>url</dt>
+  #   <dd></dd>
+  #   <dt>zerofill</dt>
+  #   <dd></dd>
+  # </dl>
