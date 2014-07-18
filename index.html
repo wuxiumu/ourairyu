@@ -11,22 +11,23 @@ js:
 <header>
   <h1><ruby lang="ja"><rb>畳</rb><rp>（</rp><rt>たたみ</rt><rp>）</rp></ruby></h1>
 </header>
+{% assign doc_info = site.data.apis %}
 <!-- Introduction -->
 <section id="introduction">
   <p>「畳」，即 <b>Tatami</b>，是一个运行在浏览器端的 JavaScript 库，提供了共计 <span id="apiCount">0</span> 个有用的属性和方法使新项目的前端开发变得简单、轻松！方法主要分为<b>数据操作</b>和<b>项目开发</b>两大类。大部分 API 的设计参考了 ECMAScript 5、PHP、jQuery 等语言和库，很容易就能够上手。</p>
   <p><img src="{{ site.data.url.root }}/{{ site.data.url.img }}/jsr.png" alt="JavaScript Revolution"></p>
   <p>本项目托管于 <a href="https://github.com/ourai/tatami">GitHub</a>。如果发现 bug 或有任何建议，欢迎到 <a href="https://github.com/ourai/tatami/issues">issue</a> 页面提出。</p>
   <h2 class="heading">下载</h2>
-  <p>当前版本：<span class="version">0.3.0</span></p>
+  <p>当前版本：<span class="version">{{ doc_info.version }}</span></p>
   <table id="downloadFiles">
     <tbody>
       <tr>
-        <td><a href="tatami.js">开发版</a>（93.6KB）</td>
+        <td><a href="{{ doc_info.files.development.path }}">开发版</a>（{{ doc_info.files.development.size | upcase }}）</td>
         <td class="file_desc"><i>未压缩并有丰富的注释</i></td>
       </tr>
       <tr>
-        <td><a href="tatami.min.js">产品版</a>（27.9KB）</td>
-        <td class="file_desc"><i>已压缩</i><small>（<a href="tatami.min.map">Source Map</a>）</small></td>
+        <td><a href="{{ doc_info.files.production.path }}">产品版</a>（{{ doc_info.files.production.size | upcase }}）</td>
+        <td class="file_desc"><i>已压缩</i><small>（<a href="{{ doc_info.files.source_map }}">Source Map</a>）</small></td>
       </tr>
     </tbody>
   </table>
@@ -38,411 +39,38 @@ js:
 </section>
 <!-- Documentation -->
 <section id="documentation">
-  {% for api_class in site.data.apis %}
-    <!-- <h2 id="{{ api_class.flag }}" class="heading">{{ api_class.name }}</h2> -->
-    {% for category in api_class.categories %}
-      <h3 id="{{ category.flag }}">{{ category.name }}</h3>
-      <dl>
-        {% for api in category.apis %}
-          <dt>{{ api.func }}</dt>
-          <dd>{{ api.desc }}</dd>
-          {% for inv in api.invoke %}
-            <dd>
-              <div class="api_info">
-                <code class="invoke">{{ inv.statement }}</code>
-                <span class="return_value">{{ inv.return }}</span>
-                {% if inv.arguments %}
-                  <dl>
-                    {% for arg in inv.arguments %}
-                      <dt>{{ arg.name }}</dt>
-                      <dd>{% if arg.type %}{{ arg.type }}{% else %}Anything{% endif %}</dd>
-                    {% endfor %}
-                  </dl>
-                {% endif %}
-              </div>
-              {% if inv.desc %}{{ inv.desc }}{% endif %}
-              {% if inv.demo %}
-{% highlight js %}
-{{ inv.demo }}
-{% endhighlight %}
-              {% endif %}
-            </dd>
+  {% for api_class in doc_info.classes %}
+  <!-- <h2 id="{{ api_class.flag }}" class="heading">{{ api_class.name }}</h2> -->
+  {% for category in api_class.categories %}
+  <h3 id="{{ category.flag }}">{{ category.name }}</h3>
+  <dl>
+  {% for api in category.apis %}
+    <dt>{{ api.func }}</dt>
+    <dd>{{ api.desc }}</dd>
+    {% for inv in api.invoke %}
+    <dd>
+      <div class="api_info">
+        <code class="invoke">{{ inv.statement }}</code>
+        <span class="return_value">{{ inv.return }}</span>
+        {% if inv.arguments %}
+        <dl>
+          {% for arg in inv.arguments %}
+          <dt>{{ arg.name }}</dt>
+          <dd>{% if arg.type %}{{ arg.type }}{% else %}Anything{% endif %}</dd>
           {% endfor %}
-        {% endfor %}
-      </dl>
+        </dl>
+        {% endif %}
+      </div>
+      {% if inv.desc %}{{ inv.desc }}{% endif %}
+      {% if inv.demo %}
+        {% highlight js %}
+        {{ inv.demo }}
+        {% endhighlight %}
+      {% endif %}
+    </dd>
     {% endfor %}
   {% endfor %}
-  <h3 id="runtime">运行环境</h3>
-  <dl>
-    <dt>browser</dt>
-    <dd>
-      <p>获取浏览器的相关信息，包括种类及版本号。</p>
-    </dd>
-    <dd>
-      <div class="api_info"><code class="invoke">Tatami.browser</code><span class="return_value">Object</span></div>
-      <p>以 <code>{BROWSER_TYPE: true, version: "BROWSER_VERSION"}</code> 的形式返回。其中 <code>BROWSER_TYPE</code> 的可能值有：</p>
-      <ul>
-        <li><code>msie</code></li>
-        <li><code>chrome</code></li>
-        <li><code>firefox</code></li>
-        <li><code>safari</code></li>
-        <li><code>opera</code></li>
-      </ul>
-      <p class="note">当值为 <code>chrome</code> 或 <code>safari</code> 时，会多出一个 <code>{webkit: true}</code> 属性；当值为 <code>firefox</code> 时，会多出一个 <code>{mozilla: true}</code> 属性。</p>
-{% highlight js %}
-// IE 浏览器
-Tatami.browser;
-=> {msie: true, version: "11.0"}
-
-// Chrome 浏览器
-Tatami.browser;
-=> {chrome: true, version: "34.0.1847.131", webkit: true}
-{% endhighlight %}
-    </dd>
-    <dt>platform</dt>
-    <dd>
-      <p>获取平台的相关信息，包括种类、版本号及是否可触摸。</p>
-    </dd>
-    <dd>
-      <div class="api_info"><code class="invoke">Tatami.platform</code><span class="return_value">Object</span></div>
-      <p>以 <code>{PLATFORM_TYPE: true, version: "PLATFORM_VERSION", touchable: true}</code> 的形式返回。其中 <code>PLATFORM_TYPE</code> 的可能值有：</p>
-      <ul>
-        <li><code>windows</code></li>
-        <li><code>macintosh</code></li>
-        <li><code>iphone</code></li>
-        <li><code>ipod</code></li>
-        <li><code>ipad</code></li>
-        <li>...</li>
-      </ul>
-      <p class="note">当值为 <code>iphone</code>、<code>ipod</code> 或 <code>ipad</code> 时，会多出一个 <code>{ios: true}</code> 属性。</p>
-{% highlight js %}
-// Windows 7
-Tatami.platform;
-=> {touchable: false, version: "7", windows: true}
-
-// iPhone 5s
-Tatami.platform;
-=> {touchable: true, version: "7.1.2", iphone: true, ios: true}
-{% endhighlight %}
-    </dd>
-    <dt>plugins</dt>
-    <dd>
-      <p>获取插件的支持情况。目前支持的插件检测有以下几种：</p>
-      <ul>
-        <li>PDF</li>
-      </ul>
-    </dd>
-    <dd>
-      <div class="api_info"><code class="invoke">Tatami.plugins</code><span class="return_value">Object</span></div>
-{% highlight js %}
-Tatami.plugins.pdf;
-=> true
-{% endhighlight %}
-    </dd>
   </dl>
-  <h3 id="dataType">数据类型</h3>
-  <dl>
-    <dt>isNumber</dt>
-    <dd>
-      <p>判断是否为 Number 类型。</p>
-    </dd>
-    <dd>
-      <div class="api_info">
-        <code class="invoke">Tatami.isNumber(object)</code>
-        <span class="return_value">Boolean</span>
-        <dl>
-          <dt><code>object</code></dt>
-          <dd><span>Anything</span></dd>
-        </dl>
-      </div>
-{% highlight js %}
-Tatami.isNumber(1);
-=> true
-
-Tatami.isNumber(-3.1415);
-=> true
-
-Tatami.isNumber(NaN);
-=> false
-
-Tatami.isNumber(Infinity);
-=> true
-
-Tatami.isNumber("3.1415");
-=> false
-
-Tatami.isNumber();
-=> false
-{% endhighlight %}
-    </dd>
-    <dt>isBoolean</dt>
-    <dd>
-      <p>判断是否为 Boolean 类型。</p>
-    </dd>
-    <dd>
-      <div class="api_info">
-        <code class="invoke">Tatami.isBoolean(object)</code>
-        <span class="return_value">Boolean</span>
-        <dl>
-          <dt><code>object</code></dt>
-          <dd><span>Anything</span></dd>
-        </dl>
-      </div>
-{% highlight js %}
-Tatami.isBoolean(true);
-=> true
-
-Tatami.isBoolean(undefined);
-=> false
-
-Tatami.isBoolean(new Boolean());
-=> true
-
-Tatami.isBoolean(null);
-=> false
-
-Tatami.isBoolean();
-=> false
-{% endhighlight %}
-    </dd>
-    <dt>isArray</dt>
-    <dd>
-      <p>判断是否为 Array 类型。</p>
-    </dd>
-    <dd>
-      <div class="api_info">
-        <code class="invoke">Tatami.isArray(object)</code>
-        <span class="return_value">Boolean</span>
-        <dl>
-          <dt><code>object</code></dt>
-          <dd><span>Anything</span></dd>
-        </dl>
-      </div>
-{% highlight js %}
-Tatami.isArray([]);
-=> true
-
-Tatami.isArray(new Array());
-=> true
-
-Tatami.isArray(document.links);
-=> false
-
-Tatami.isArray({});
-=> false
-
-Tatami.isArray("");
-=> false
-
-Tatami.isArray();
-=> false
-{% endhighlight %}
-    </dd>
-    <dt>isObject</dt>
-    <dd>
-      <p>判断是否为 Object 类型。</p>
-    </dd>
-    <dd>
-      <div class="api_info">
-        <code class="invoke">Tatami.isObject(object)</code>
-        <span class="return_value">Boolean</span>
-        <dl>
-          <dt><code>object</code></dt>
-          <dd><span>Anything</span></dd>
-        </dl>
-      </div>
-{% highlight js %}
-Tatami.isObject({});
-=> true
-
-Tatami.isObject(window);
-=> true
-
-Tatami.isObject([]);
-=> false
-
-Tatami.isObject(null);
-=> false
-
-Tatami.isObject(new Object());
-=> true
-
-Tatami.isObject();
-=> false
-{% endhighlight %}
-    </dd>
-    <dt>isFunction</dt>
-    <dd>
-      <p>判断是否为 Function 类型。</p>
-    </dd>
-    <dd>
-      <div class="api_info">
-        <code class="invoke">Tatami.isFunction(object)</code>
-        <span class="return_value">Boolean</span>
-        <dl>
-          <dt><code>object</code></dt>
-          <dd><span>Anything</span></dd>
-        </dl>
-      </div>
-{% highlight js %}
-Tatami.isFunction(function() {});
-=> true
-
-Tatami.isFunction(new Function());
-=> true
-{% endhighlight %}
-    </dd>
-    <dt>isDate</dt>
-    <dd>
-      <p>判断是否为 Date 类型。</p>
-    </dd>
-    <dd>
-      <div class="api_info">
-        <code class="invoke">Tatami.isDate(object)</code>
-        <span class="return_value">Boolean</span>
-        <dl>
-          <dt><code>object</code></dt>
-          <dd><span>Anything</span></dd>
-        </dl>
-      </div>
-{% highlight js %}
-Tatami.isDate(new Date());
-=> true
-{% endhighlight %}
-    </dd>
-    <dt>isRegExp</dt>
-    <dd>
-      <p>判断是否为 RegExp 类型。</p>
-    </dd>
-    <dd>
-      <div class="api_info">
-        <code class="invoke">Tatami.isRegExp(object)</code>
-        <span class="return_value">Boolean</span>
-        <dl>
-          <dt><code>object</code></dt>
-          <dd><span>Anything</span></dd>
-        </dl>
-      </div>
-{% highlight js %}
-Tatami.isRegExp(new RegExp());
-=> true
-
-Tatami.isRegExp(/.*/);
-=> true
-{% endhighlight %}
-    </dd>
-    <dt>isInteger</dt>
-    <dd>
-      <p>判断是否为一个整型数字。</p>
-    </dd>
-    <dd>
-      <div class="api_info">
-        <code class="invoke">Tatami.isInteger(object)</code>
-        <span class="return_value">Boolean</span>
-        <dl>
-          <dt><code>object</code></dt>
-          <dd><span>Anything</span></dd>
-        </dl>
-      </div>
-{% highlight js %}
-Tatami.isInteger(0x88);
-=> true
-
-Tatami.isInteger(0100);
-=> true
-
-Tatami.isInteger(+10.0);
-=> true
-
-Tatami.isInteger(-1);
-=> true
-
-Tatami.isInteger("0x88");
-=> true
-
-Tatami.isInteger("0100");
-=> true
-
-Tatami.isInteger("+10.0");
-=> true
-
-Tatami.isInteger("-1");
-=> true
-{% endhighlight %}
-    </dd>
-    <dt>isNumeric</dt>
-    <dd>
-      <p>判断是否为数字型字符串或 Number 类型。</p>
-    </dd>
-    <dd>
-      <div class="api_info">
-        <code class="invoke">Tatami.isNumeric(object)</code>
-        <span class="return_value">Boolean</span>
-        <dl>
-          <dt><code>object</code></dt>
-          <dd><span>Anything</span></dd>
-        </dl>
-      </div>
-{% highlight js %}
-Tatami.isNumeric("-10");
-=> true
-
-Tatami.isNumeric(16);
-=> true
-
-Tatami.isNumeric(0xFF);
-=> true
-
-Tatami.isNumeric("0Xee");
-=> true
-
-Tatami.isNumeric(3.1415);
-=> true
-
-Tatami.isNumeric(0144);
-=> true
-
-Tatami.isNumeric("");
-=> false
-
-Tatami.isNumeric([]);
-=> false
-
-Tatami.isNumeric(NaN);
-=> false
-
-Tatami.isNumeric(null);
-=> false
-
-Tatami.isNumeric(true);
-=> false
-
-Tatami.isNumeric(Infinity);
-=> false
-
-Tatami.isNumeric(undefined);
-=> false
-{% endhighlight %}
-    </dd>
-    <dt>isArrayLike</dt>
-    <dd>
-      <p>判断是否为类数组对象。</p>
-    </dd>
-    <dt>isPlainObject</dt>
-    <dd>
-      <p>判断是否为纯对象。</p>
-    </dd>
-    <dt>isEmpty</dt>
-    <dd>
-      <p>判断是否为空。</p>
-    </dd>
-    <dt>isWindow</dt>
-    <dd>
-      <p>判断是否为 Window 对象。</p>
-    </dd>
-    <dt>isElement</dt>
-    <dd>
-      <p>判断是否为元素节点。</p>
-    </dd>
-  </dl>
+  {% endfor %}
+  {% endfor %}
 </section>

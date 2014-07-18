@@ -1,74 +1,585 @@
-- name: 工具
-  flag: utils
-  categories:
-    - name: 数据类型
-      flag: data_type
-      apis:
-        - func: type
-          desc: >
-            <p>获取变量的数据类型。</p>
-          invoke:
-            - statement: Tatami.type(object)
-              arguments:
-                - name: object
-                  type: 
-              return: String
-              desc: >
-                <p>返回值为以下的其中之一：</p>
-                <ul>
-                  <li><code>string</code></li>
-                  <li><code>number</code></li>
-                  <li><code>boolean</code></li>
-                  <li><code>null</code></li>
-                  <li><code>undefined</code></li>
-                  <li><code>array</code></li>
-                  <li><code>object</code></li>
-                  <li><code>function</code></li>
-                  <li><code>date</code></li>
-                  <li><code>regexp</code></li>
-                </ul>
-              demo: >
-                Tatami.type("");\n
-                => "string"\n\n
-                Tatami.type(1);\n
-                => "number"\n\n
-                Tatami.type(true);\n
-                => "boolean"\n\n
-                Tatami.type(null);\n
-                => "null"\n\n
-                Tatami.type(undefined);\n
-                => "undefined"\n\n
-                Tatami.type([]);\n
-                => "array"\n\n
-                Tatami.type({});\n
-                => "object"\n\n
-                Tatami.type(function() {});\n
-                => "function"\n\n
-                Tatami.type(new Date());\n
-                => "date"\n\n
-                Tatami.type(/.*/);\n
-                => "regexp"\n\n
-                Tatami.type();\n
-                => null
-        - func: isString
-          desc: >
-            <p>判断是否为 String 类型。</p>
-          invoke:
-            - statement: Tatami.isString(object)
-              arguments:
-                - name: object
-                  type: 
-              return: Boolean
-              desc: 
-              demo: >
-                Tatami.isString("");
-                => true
-                Tatami.isString(new String());
-                => true
-                Tatami.isString(undefined);
-                => false
-                Tatami.isString();
-                => false
+version: 0.3.0
+files:
+  development:
+    path: tatami.js
+    size: '93.6kb'
+  production:
+    path: tatami.min.js
+    size: '27.9kb'
+  source_map: tatami.min.map
+classes:
+  - name: 工具
+    flag: utils
+    categories:
+      - name: 数据类型
+        flag: data_type
+        apis:
+          - func: type
+            desc: >
+              <p>获取变量的数据类型。</p>
+            invoke:
+              - statement: Tatami.type(object)
+                arguments:
+                  - name: object
+                    type: 
+                return: String
+                desc: >
+                  <p>返回值为以下的其中之一：</p>
+                  <ul>
+                    <li><code>string</code></li>
+                    <li><code>number</code></li>
+                    <li><code>boolean</code></li>
+                    <li><code>null</code></li>
+                    <li><code>undefined</code></li>
+                    <li><code>array</code></li>
+                    <li><code>object</code></li>
+                    <li><code>function</code></li>
+                    <li><code>date</code></li>
+                    <li><code>regexp</code></li>
+                  </ul>
+                demo: >
+                  Tatami.type("");
+
+                  => "string"
+
+
+                  Tatami.type(1);
+
+                  => "number"
+
+
+                  Tatami.type(true);
+
+                  => "boolean"
+
+
+                  Tatami.type(null);
+
+                  => "null"
+
+
+                  Tatami.type(undefined);
+
+                  => "undefined"
+
+
+                  Tatami.type([]);
+
+                  => "array"
+
+
+                  Tatami.type({});
+
+                  => "object"
+
+
+                  Tatami.type(function() {});
+
+                  => "function"
+
+
+                  Tatami.type(new Date());
+
+                  => "date"
+
+
+                  Tatami.type(/.*/);
+
+                  => "regexp"
+
+
+                  Tatami.type();
+
+                  => null
+          - func: isString
+            desc: >
+              <p>判断是否为 String 类型。</p>
+            invoke:
+              - statement: Tatami.isString(object)
+                arguments:
+                  - name: object
+                    type: 
+                return: Boolean
+                desc: 
+                demo: >
+                  Tatami.isString("");
+
+                  => true
+
+
+                  Tatami.isString(new String());
+
+                  => true
+
+
+                  Tatami.isString(undefined);
+
+                  => false
+
+
+                  Tatami.isString();
+
+                  => false
+          - func: isNumber
+            desc: >
+              <p>判断是否为 Number 类型。</p>
+            invoke:
+              - statement: Tatami.isNumber(object)
+                arguments:
+                  - name: object
+                    type: 
+                return: Boolean
+                desc: 
+                demo: >
+                  Tatami.isNumber(1);
+
+                  => true
+
+
+                  Tatami.isNumber(-3.1415);
+
+                  => true
+
+
+                  Tatami.isNumber(NaN);
+
+                  => false
+
+
+                  Tatami.isNumber(Infinity);
+
+                  => true
+
+
+                  Tatami.isNumber("3.1415");
+
+                  => false
+
+
+                  Tatami.isNumber();
+
+                  => false
+          - func: isBoolean
+            desc: >
+              <p>判断是否为 Boolean 类型。</p>
+            invoke:
+              - statement: Tatami.isBoolean(object)
+                arguments:
+                  - name: object
+                    type: 
+                return: Boolean
+                desc: 
+                demo: >
+                  Tatami.isBoolean(true);
+
+                  => true
+
+
+                  Tatami.isBoolean(undefined);
+
+                  => false
+
+
+                  Tatami.isBoolean(new Boolean());
+
+                  => true
+
+
+                  Tatami.isBoolean(null);
+
+                  => false
+
+
+                  Tatami.isBoolean();
+
+                  => false
+          - func: isArray
+            desc: >
+              <p>判断是否为 Array 类型。</p>
+            invoke:
+              - statement: Tatami.isArray(object)
+                arguments:
+                  - name: object
+                    type: 
+                return: Boolean
+                desc: 
+                demo: >
+                  Tatami.isArray([]);
+
+                  => true
+
+
+                  Tatami.isArray(new Array());
+
+                  => true
+
+
+                  Tatami.isArray(document.links);
+
+                  => false
+
+
+                  Tatami.isArray({});
+
+                  => false
+
+
+                  Tatami.isArray("");
+
+                  => false
+
+
+                  Tatami.isArray();
+
+                  => false
+          - func: isObject
+            desc: >
+              <p>判断是否为 Object 类型。</p>
+            invoke:
+              - statement: Tatami.isObject(object)
+                arguments:
+                  - name: object
+                    type: 
+                return: Boolean
+                desc: 
+                demo: >
+                  Tatami.isObject({});
+
+                  => true
+
+
+                  Tatami.isObject(window);
+
+                  => true
+
+
+                  Tatami.isObject([]);
+
+                  => false
+
+
+                  Tatami.isObject(null);
+
+                  => false
+
+
+                  Tatami.isObject(new Object());
+
+                  => true
+
+
+                  Tatami.isObject();
+
+                  => false
+          - func: isFunction
+            desc: >
+              <p>判断是否为 Function 类型。</p>
+            invoke:
+              - statement: Tatami.isFunction(object)
+                arguments:
+                  - name: object
+                    type: 
+                return: Boolean
+                desc: 
+                demo: >
+                  Tatami.isFunction(function() {});
+
+                  => true
+
+
+                  Tatami.isFunction(new Function());
+
+                  => true
+          - func: isDate
+            desc: >
+              <p>判断是否为 Date 类型。</p>
+            invoke:
+              - statement: Tatami.isDate(object)
+                arguments:
+                  - name: object
+                    type: 
+                return: Boolean
+                desc: 
+                demo: >
+                  Tatami.isDate(new Date());
+
+                  => true
+          - func: isRegExp
+            desc: >
+              <p>判断是否为 RegExp 类型。</p>
+            invoke:
+              - statement: Tatami.isRegExp(object)
+                arguments:
+                  - name: object
+                    type: 
+                return: Boolean
+                desc: 
+                demo: >
+                  Tatami.isRegExp(new RegExp());
+
+                  => true
+
+
+                  Tatami.isRegExp(/.*/);
+
+                  => true
+          - func: isNumeric
+            desc: >
+              <p>判断是否为数字型字符串或 Number 类型。</p>
+            invoke:
+              - statement: Tatami.isNumeric(object)
+                arguments:
+                  - name: object
+                    type: 
+                return: Boolean
+                desc: 
+                demo: >
+                  Tatami.isNumeric("-10");
+
+                  => true
+
+
+                  Tatami.isNumeric(16);
+
+                  => true
+
+
+                  Tatami.isNumeric(0xFF);
+
+                  => true
+
+
+                  Tatami.isNumeric("0Xee");
+
+                  => true
+
+
+                  Tatami.isNumeric(3.1415);
+
+                  => true
+
+
+                  Tatami.isNumeric(0144);
+
+                  => true
+
+
+                  Tatami.isNumeric("");
+
+                  => false
+
+
+                  Tatami.isNumeric([]);
+
+                  => false
+
+
+                  Tatami.isNumeric(NaN);
+
+                  => false
+
+
+                  Tatami.isNumeric(null);
+
+                  => false
+
+
+                  Tatami.isNumeric(true);
+
+                  => false
+
+
+                  Tatami.isNumeric(Infinity);
+
+                  => false
+
+
+                  Tatami.isNumeric(undefined);
+
+                  => false
+          - func: isInteger
+            desc: >
+              <p>判断是否为一个整型数字。</p>
+            invoke:
+              - statement: Tatami.isInteger(object)
+                arguments:
+                  - name: object
+                    type: 
+                return: Boolean
+                desc: 
+                demo: >
+                  Tatami.isInteger(0x88);
+
+                  => true
+
+
+                  Tatami.isInteger(0100);
+
+                  => true
+
+
+                  Tatami.isInteger(+10.0);
+
+                  => true
+
+
+                  Tatami.isInteger(-1);
+
+                  => true
+
+
+                  Tatami.isInteger("0x88");
+
+                  => true
+
+
+                  Tatami.isInteger("0100");
+
+                  => true
+
+
+                  Tatami.isInteger("+10.0");
+
+                  => true
+
+
+                  Tatami.isInteger("-1");
+
+                  => true
+          - func: isArrayLike
+            desc: >
+              <p>判断是否为类数组对象。</p>
+            invoke:
+              - statement: Tatami.isArrayLike(object)
+                arguments:
+                  - name: object
+                    type: 
+                return: Boolean
+                desc: 
+                demo: >
+          - func: isPlainObject
+            desc: >
+              <p>判断是否为纯对象。</p>
+            invoke:
+              - statement: Tatami.isPlainObject(object)
+                arguments:
+                  - name: object
+                    type: 
+                return: Boolean
+                desc: 
+                demo: >
+          - func: isEmpty
+            desc: >
+              <p>判断是否为空。</p>
+            invoke:
+              - statement: Tatami.isEmpty(object)
+                arguments:
+                  - name: object
+                    type: 
+                return: Boolean
+                desc: 
+                demo: >
+          - func: isWindow
+            desc: >
+              <p>判断是否为 Window 对象。</p>
+            invoke:
+              - statement: Tatami.isWindow(object)
+                arguments:
+                  - name: object
+                    type: 
+                return: Boolean
+                desc: 
+                demo: >
+          - func: isElement
+            desc: >
+              <p>判断是否为元素节点。</p>
+            invoke:
+              - statement: Tatami.isElement(object)
+                arguments:
+                  - name: object
+                    type: 
+                return: Boolean
+                desc: 
+                demo: >
+  - name: 项目开发
+    flag: project
+    categories:
+      - name: 运行环境
+        flag: runtime
+        apis:
+          - func: browser
+            desc: >
+              <p>获取浏览器的相关信息，包括种类及版本号。</p>
+            invoke:
+              - statement: Tatami.browser
+                return: Object
+                desc: >
+                  <p>以 <code>{BROWSER_TYPE: true, version: "BROWSER_VERSION"}</code> 的形式返回。其中 <code>BROWSER_TYPE</code> 的可能值有：</p>
+                  <ul>
+                    <li><code>msie</code></li>
+                    <li><code>chrome</code></li>
+                    <li><code>firefox</code></li>
+                    <li><code>safari</code></li>
+                    <li><code>opera</code></li>
+                  </ul>
+                  <p class="note">当值为 <code>chrome</code> 或 <code>safari</code> 时，会多出一个 <code>{webkit: true}</code> 属性；当值为 <code>firefox</code> 时，会多出一个 <code>{mozilla: true}</code> 属性。</p>
+                demo: >
+                  // IE 浏览器
+
+                  Tatami.browser;
+
+                  => {msie: true, version: "11.0"}
+
+
+                  // Chrome 浏览器
+
+                  Tatami.browser;
+
+                  => {chrome: true, version: "34.0.1847.131", webkit: true}
+          - func: platform
+            desc: >
+              <p>获取平台的相关信息，包括种类、版本号及是否可触摸。</p>
+            invoke:
+              - statement: Tatami.platform
+                return: Object
+                desc: >
+                  <p>以 <code>{PLATFORM_TYPE: true, version: "PLATFORM_VERSION", touchable: true}</code> 的形式返回。其中 <code>PLATFORM_TYPE</code> 的可能值有：</p>
+                  <ul>
+                    <li><code>windows</code></li>
+                    <li><code>macintosh</code></li>
+                    <li><code>iphone</code></li>
+                    <li><code>ipod</code></li>
+                    <li><code>ipad</code></li>
+                    <li>...</li>
+                  </ul>
+                  <p class="note">当值为 <code>iphone</code>、<code>ipod</code> 或 <code>ipad</code> 时，会多出一个 <code>{ios: true}</code> 属性。</p>
+                demo: >
+                  // Windows 7
+
+                  Tatami.platform;
+
+                  => {touchable: false, version: "7", windows: true}
+
+
+                  // iPhone 5s
+
+                  Tatami.platform;
+
+                  => {touchable: true, version: "7.1.2", iphone: true, ios: true}
+          - func: plugins
+            desc: >
+              <p>获取插件的支持情况。目前支持的插件检测有以下几种：</p>
+              <ul>
+                <li>PDF</li>
+              </ul>
+            invoke:
+              - statement: Tatami.plugins
+                return: Object
+                desc: 
+                demo: >
+                  Tatami.plugins.pdf;
+
+                  => true
 # project:
   # <h3>项目开发</h3>
   # <dl>
