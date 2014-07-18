@@ -21,7 +21,7 @@ var Environment, LIB_CONFIG, Storage, __proc, __proj, __util,
 
 LIB_CONFIG = {
   name: "Tatami",
-  version: "0.3.0"
+  version: "0.1.0"
 };
 
 __proc = (function(window) {
@@ -47,11 +47,22 @@ __proc = (function(window) {
     var type, types, _fn, _i, _len;
     types = "Boolean Number String Function Array Date RegExp Object".split(" ");
     _fn = function(type) {
-      var lc;
+      var handler, lc;
       storage.types["[object " + type + "]"] = lc = type.toLowerCase();
-      return storage.methods["is" + type] = function(target) {
-        return this.type(target) === lc;
-      };
+      if (type === "Number") {
+        handler = function(target) {
+          if (isNaN(target)) {
+            return false;
+          } else {
+            return this.type(target) === lc;
+          }
+        };
+      } else {
+        handler = function(target) {
+          return this.type(target) === lc;
+        };
+      }
+      return storage.methods["is" + type] = handler;
     };
     for (_i = 0, _len = types.length; _i < _len; _i++) {
       type = types[_i];
@@ -397,12 +408,10 @@ __proc = (function(window) {
     isArrayLike: function(object) {
       var length, result;
       result = false;
-      if (this.isObject(object) && object !== null) {
-        if (!this.isWindow(object)) {
-          length = object.length;
-          if (object.nodeType === 1 && length || !this.isArray(object) && !this.isFunction(object) && (length === 0 || this.isNumber(length) && length > 0 && (length - 1) in object)) {
-            result = true;
-          }
+      if (this.isObject(object) && !this.isWindow(object)) {
+        length = object.length;
+        if (object.nodeType === 1 && length || !this.isArray(object) && !this.isFunction(object) && (length === 0 || this.isNumber(length) && length > 0 && (length - 1) in object)) {
+          result = true;
         }
       }
       return result;
