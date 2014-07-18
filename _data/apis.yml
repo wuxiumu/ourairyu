@@ -457,6 +457,19 @@ classes:
                 return: Boolean
                 desc: 
                 demo: >
+                  Tatami.isArrayLike([]);
+
+                  => false
+
+
+                  Tatami.isArrayLike(document.links);
+
+                  => true
+
+
+                  Tatami.isArrayLike(document.getElementsByTagName("div"));
+
+                  => true
           - func: isPlainObject
             desc: >
               <p>判断是否为纯对象。</p>
@@ -468,6 +481,19 @@ classes:
                 return: Boolean
                 desc: 
                 demo: >
+                  Tatami.isPlainObject(document);
+
+                  => false
+
+
+                  Tatami.isPlainObject({});
+
+                  => true
+
+
+                  Tatami.isPlainObject(new Object());
+
+                  => true
           - func: isEmpty
             desc: >
               <p>判断是否为空。</p>
@@ -477,8 +503,39 @@ classes:
                   - name: object
                     type: 
                 return: Boolean
-                desc: 
+                desc: >
+                  <p>当 <code>object</code> 的值是以下几种：</p>
+                  <ul>
+                    <li><code>null</code></li>
+                    <li><code>undefined</code></li>
+                    <li><code>""</code></li>
+                    <li><code>{}</code></li>
+                  </ul>
+                  <p>或者是数组、类数组对象并且 <code>object.length</code> 的值为 <code>0</code> 时，结果返回 <code>true</code>。</p>
                 demo: >
+                  Tatami.isEmpty(null);
+
+                  => true
+
+                  
+                  Tatami.isEmpty(undefined);
+
+                  => true
+
+                  
+                  Tatami.isEmpty("");
+
+                  => true
+
+                  
+                  Tatami.isEmpty([]);
+
+                  => true
+
+                  
+                  Tatami.isEmpty({});
+
+                  => true
           - func: isWindow
             desc: >
               <p>判断是否为 Window 对象。</p>
@@ -490,9 +547,12 @@ classes:
                 return: Boolean
                 desc: 
                 demo: >
+                  Tatami.isWindow(window);
+
+                  => true
           - func: isElement
             desc: >
-              <p>判断是否为元素节点。</p>
+              <p>判断是否为 DOM 元素节点。</p>
             invoke:
               - statement: Tatami.isElement(object)
                 arguments:
@@ -501,6 +561,19 @@ classes:
                 return: Boolean
                 desc: 
                 demo: >
+                  Tatami.isElement(document);
+
+                  => false
+
+
+                  Tatami.isElement(document.body);
+
+                  => true
+
+
+                  Tatami.isElement(window);
+
+                  => false
   - name: 项目开发
     flag: project
     categories:
