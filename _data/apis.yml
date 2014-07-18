@@ -780,6 +780,7 @@ classes:
                 return: Array
                 desc: >
                   <p><code>begin</code> 和 <code>end</code> 是以零开始的索引，为负数时表示从 <code>target</code> 的末尾算起的偏移量。当 <code>begin</code> 被忽略时从 <code>0</code> 开始截取；<code>end</code> 被忽略时，截取到 <code>target</code> 的末尾。</p>
+                  <p class="note">String 类型也能够使用。</p>
                 demo: >
                   var arr = [1, 2, 3, 4, 5, 6];
 
