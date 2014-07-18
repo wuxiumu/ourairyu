@@ -8,6 +8,47 @@ files:
     size: '27.9kb'
   source_map: tatami.min.map
 classes:
+  - name: 核心
+    flag: core
+    categories:
+      - name: 设置
+        flag: setting
+        apis:
+          - func: mask
+            desc: >
+              <p>更改 Tatami 依附在全局对象上的名字。</p>
+            invoke:
+              - statement: 'Tatami.mask(guise)'
+                arguments:
+                  - name: guise
+                    type: String
+                return: Boolean
+                desc:
+                demo: >
+                  Tatami.mask("Tatami_new");
+
+                  => true
+
+
+                  Tatami;
+
+                  => ReferenceError: Tatami is not defined
+
+
+                  Tatami_new;
+
+                  => Object {mixin: function, each: function, type: function, slice: function, hasProp: function…}
+          - func: alias
+            desc: >
+              <p>为 Tatami 起个别名。用别名也可以访问 Tatami 对象。</p>
+            invoke:
+              - statement: 'Tatami.alias(name)'
+                arguments:
+                  - name: name
+                    type: String
+                return: Object
+                desc:
+                demo:
   - name: 工具
     flag: utils
     categories:
@@ -710,6 +751,19 @@ classes:
                   Tatami.mixin();
 
                   => {}
+          - func: extend
+            desc: >
+              <p>使用特定格式的数据扩充指定对象。内置「预处理」功能。</p>
+            invoke:
+              - statement: 'Tatami.extend(data[, target])'
+                arguments:
+                  - name: data
+                    type: Array / Plain object
+                  - name: target
+                    type: Object
+                return: Object
+                desc:
+                demo:
           - func: hasProp
             desc: >
               <p>判断指定对象自身是否拥有指定属性。</p>
@@ -858,19 +912,20 @@ classes:
       #           return: 
       #           desc: 
       #           demo: >
-      # - name: 
-      #   flag: 
-      #   apis:
-      #     - func: 
-      #       desc: >
-      #       invoke:
-      #         - statement: 
-      #           arguments:
-      #             - name: 
-      #               type: 
-      #           return: 
-      #           desc: 
-      #           demo: >
+      - name: 字符串
+        flag: string
+        apis:
+          - func: stringify
+            desc: >
+              <p>将任意类型的变量转化为字符串。</p>
+            invoke:
+              - statement: 'Tatami.stringify(target)'
+                arguments:
+                  - name: target
+                    type: 
+                return: String
+                desc: 
+                demo:
       # - name: 
       #   flag: 
       #   apis:

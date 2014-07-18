@@ -40,9 +40,9 @@ js:
 <!-- Documentation -->
 <section id="documentation">
   {% for api_class in doc_info.classes %}
-  <!-- <h2 id="{{ api_class.flag }}" class="heading">{{ api_class.name }}</h2> -->
+  <!-- <h2 id="class{{ api_class.flag | capitalize }}" class="heading">{{ api_class.name }}</h2> -->
   {% for category in api_class.categories %}
-  <h3 id="{{ category.flag }}">{{ category.name }}</h3>
+  <h3 id="category{{ category.flag | capitalize }}">{{ category.name }}</h3>
   <dl>
   {% for api in category.apis %}
     <dt>{{ api.func }}</dt>
