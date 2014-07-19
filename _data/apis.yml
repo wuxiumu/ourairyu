@@ -66,6 +66,89 @@ classes:
                 return: String
                 desc: 
                 demo:
+          - func: pad
+            desc: >
+              <p>用指定占位符填补字符串。</p>
+            invoke:
+              - statement: 'Tatami.pad(target, length[, placeholder])'
+                arguments:
+                  - name: target
+                    type: String
+                  - name: length
+                    type: Integer
+                  - name: placeholder
+                    type: String
+                return: String
+                desc: 
+                demo:
+          - func: capitalize
+            desc: >
+              <p>将字符串首字母大写。</p>
+            invoke:
+              - statement: 'Tatami.capitalize(target[, isAll])'
+                arguments:
+                  - name: target
+                    type: String
+                  - name: isAll
+                    type: Boolean
+                return: String
+                desc: 
+                demo:
+          - func: camelCase
+            desc: >
+              <p>将字符串转换为驼峰式</p>
+            invoke:
+              - statement: 'Tatami.camelCase(target[, upper])'
+                arguments:
+                  - name: target
+                    type: String
+                  - name: upper
+                    type: Boolean
+                return: String
+                desc: 
+                demo:
+          - func: zerofill
+            desc: >
+              <p>补零。</p>
+            invoke:
+              - statement: 'Tatami.zerofill(target, digit)'
+                arguments:
+                  - name: target
+                    type: Number / String
+                    desc: Numeric string
+                  - name: digit
+                    type: Integer
+                return: String
+                desc: 
+                demo:
+          - func: trim
+            desc: >
+              <p>移除字符串两端的空白符。</p>
+            invoke:
+              - statement: 'Tatami.trim(target)'
+                arguments:
+                  - name: target
+                    type: String
+                return: String
+                desc: 
+                demo:
+          - func: substr
+            desc: >
+              <p>从指定位置开始截取指定长度的字符串。</p>
+            invoke:
+              - statement: 'Tatami.substr(target, start[, length][, ignore])'
+                arguments:
+                  - name: target
+                    type: String
+                  - name: start
+                    type: Integer
+                  - name: length
+                    type: Integer
+                  - name: ignore
+                    type: String / RegExp
+                return: String
+                desc: 
+                demo:
       - name: 数字
         flag: number
         apis:
