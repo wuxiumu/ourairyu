@@ -67,7 +67,7 @@ classes:
                 desc: 
                 demo:
       - name: 数字
-        flag: 
+        flag: number
         apis:
           - func: random
             desc: >
@@ -83,16 +83,16 @@ classes:
                 desc: >
                   <p>返回一个介于 <code>min</code> 和 <code>max</code> 之间的整数，当忽略 <code>max</code> 时则返回 <code>0</code> 到 <code>min</code> 之间的整数。</p>
                 demo: 
-          - func: 
-            desc: >
-            invoke:
-              - statement: 
-                arguments:
-                  - name: 
-                    type: 
-                return: 
-                desc: 
-                demo: >
+          # - func: 
+          #   desc: >
+          #   invoke:
+          #     - statement: 
+          #       arguments:
+          #         - name: 
+          #           type: 
+          #       return: 
+          #       desc: 
+          #       demo: >
       - name: 集合
         flag: collection
         apis:
@@ -137,6 +137,45 @@ classes:
                   str;
 
                   => "foofoofoobarbarbar"
+          - func: sum
+            desc: >
+              <p>计算集合中每个数字之和。</p>
+            invoke:
+              - statement: 'Tatami.sum(target)'
+                arguments:
+                  - name: target
+                    type: Array / Plain object
+                return: Number
+                desc: 
+                demo: 
+          - func: max
+            desc: 
+            invoke:
+              - statement: 'Tatami.max(target, callback[, context])'
+                arguments:
+                  - name: target
+                    type: Array / Object
+                  - name: callback
+                    type: Function
+                  - name: context
+                    type: 
+                return: Number
+                desc: 
+                demo: 
+          - func: min
+            desc: 
+            invoke:
+              - statement: 'Tatami.min(target, callback[, context])'
+                arguments:
+                  - name: target
+                    type: Array / Object
+                  - name: callback
+                    type: Function
+                  - name: context
+                    type: 
+                return: Number
+                desc: 
+                demo: 
           # - func: 
           #   desc: >
           #   invoke:
@@ -368,36 +407,131 @@ classes:
                   Tatami.slice(arr, 2, -1);
 
                   => [3, 4, 5]
-      #     - func: 
-      #       desc: >
-      #       invoke:
-      #         - statement: 
-      #           arguments:
-      #             - name: 
-      #               type: 
-      #           return: 
-      #           desc: 
-      #           demo: >
-      #     - func: 
-      #       desc: >
-      #       invoke:
-      #         - statement: 
-      #           arguments:
-      #             - name: 
-      #               type: 
-      #           return: 
-      #           desc: 
-      #           demo: >
-      #     - func: 
-      #       desc: >
-      #       invoke:
-      #         - statement: 
-      #           arguments:
-      #             - name: 
-      #               type: 
-      #           return: 
-      #           desc: 
-      #           demo: >
+          - func: inArray
+            desc: >
+              <p>元素在数组中的位置。</p>
+            invoke:
+              - statement: 'Tatami.inArray(element, array[, from])'
+                arguments:
+                  - name: element
+                    type: 
+                  - name: array
+                    type: Array
+                  - name: from
+                    type: Integer
+                return: Integer
+                desc: 
+                demo: 
+          - func: filter
+            desc: 
+            invoke:
+              - statement: 'Tatami.filter(target, callback[, context])'
+                arguments:
+                  - name: target
+                    type: Array
+                  - name: callback
+                    type: Function
+                  - name: context
+                    type: 
+                return: Array
+                desc: >
+                  <p class="note">同样适用于对象和字符串。</p>
+                demo: 
+          - func: map
+            desc: >
+              <p>改变每个元素的值。</p>
+            invoke:
+              - statement: 'Tatami.map(target, callback[, context])'
+                arguments:
+                  - name: target
+                    type: Array
+                  - name: callback
+                    type: Function
+                  - name: context
+                    type: 
+                return: Array
+                desc: >
+                  <p class="note">同样适用于对象和字符串。</p>
+                demo: 
+          - func: product
+            desc: >
+              <p>计算数组中每个数字的乘积。</p>
+            invoke:
+              - statement: 'Tatami.product(array)'
+                arguments:
+                  - name: array
+                    type: Array
+                return: Number
+                desc: >
+                  <p><code>array</code> 为数字数组。</p>
+                demo: 
+          - func: unique
+            desc: >
+              <p>移除重复的值。</p>
+            invoke:
+              - statement: 'Tatami.unique(array[, last])'
+                arguments:
+                  - name: array
+                    type: Array
+                  - name: last
+                    type: Boolean
+                return: 
+                desc: >
+                  <p>数字型字符串会被转化为数字。如果 <code>last</code> 的值为 <code>true</code>，则保留相同的值中最后的那个。</p>
+                demo: 
+          - func: range
+            desc: >
+              <p>创建一个包含指定范围单元的数组。</p>
+            invoke:
+              - statement: 'Tatami.range(from, to[, step])'
+                arguments:
+                  - name: from
+                    type: Number / String
+                  - name: to
+                    type: Number / String
+                  - name: step
+                    type: Number
+                return: Array
+                desc: >
+                  <p>返回数组中从 <code>from</code> 到 <code>to</code> 的单元，包括它们本身。如果 <code>from</code> 大于 <code>to</code>，则序列将从 <code>to</code> 到 <code>from</code>。</p>
+                demo: 
+          - func: reduce
+            desc: 
+            invoke:
+              - statement: 'Tatami.reduce(array, callback[, initialValue][, right])'
+                arguments:
+                  - name: array
+                    type: Array
+                  - name: callback
+                    type: Function
+                  - name: initialValue
+                    type: 
+                  - name: right
+                    type: Boolean
+                return: 
+                desc: 
+                demo: 
+          - func: flatten
+            desc: >
+              <p>将嵌套数组扁平化。</p>
+            invoke:
+              - statement: 'Tatami.flatten(target)'
+                arguments:
+                  - name: target
+                    type: Array
+                return: Array
+                desc: 
+                demo: 
+          - func: shuffle
+            desc: 
+            invoke:
+              - statement: 'Tatami.shuffle(target)'
+                arguments:
+                  - name: target
+                    type: Array
+                return: Array
+                desc: 
+                demo: 
       - name: 变量检测
         flag: data_type
         apis:
