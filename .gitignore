@@ -1,5 +1,7 @@
+/.sass-cache
 /vendors
 /dest
 /node_modules
 /_site
-/.sass-cache
+./_data/url.yml
+./_config.yml
