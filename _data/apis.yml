@@ -52,7 +52,353 @@ classes:
   - name: 工具
     flag: utils
     categories:
-      - name: 数据类型
+      - name: 字符串
+        flag: string
+        apis:
+          - func: stringify
+            desc: >
+              <p>将任意类型的变量转化为字符串。</p>
+            invoke:
+              - statement: 'Tatami.stringify(target)'
+                arguments:
+                  - name: target
+                    type: 
+                return: String
+                desc: 
+                demo:
+      - name: 数字
+        flag: 
+        apis:
+          - func: random
+            desc: >
+              <p>返回一个随机整数。</p>
+            invoke:
+              - statement: 'Tatami.random(min[, max])'
+                arguments:
+                  - name: min
+                    type: Number
+                  - name: max
+                    type: Number
+                return: Integer
+                desc: >
+                  <p>返回一个介于 <code>min</code> 和 <code>max</code> 之间的整数，当忽略 <code>max</code> 时则返回 <code>0</code> 到 <code>min</code> 之间的整数。</p>
+                demo: 
+          - func: 
+            desc: >
+            invoke:
+              - statement: 
+                arguments:
+                  - name: 
+                    type: 
+                return: 
+                desc: 
+                demo: >
+      - name: 集合
+        flag: collection
+        apis:
+          - func: each
+            desc: >
+              <p>遍历数组、对象、类数组对象等。</p>
+            invoke:
+              - statement: 'Tatami.each(target[, callback])'
+                arguments:
+                  - name: target
+                    type: Array / Object / Array-like object
+                  - name: callback
+                    type: Function
+                return: Object
+                desc: >
+                  <p>每次遍历都会调用一次 <code>callback</code>，并向 <code>callback</code> 传入 3 个参数：</p>
+                  <ol>
+                    <li>当前的值</li>
+                    <li>当前的索引（数组、类数组对象）或键（对象）</li>
+                    <li>被遍历的集合</li>
+                  </ol>
+                  <p><code>callback</code> 的 <code>this</code> 指向当前的值。如果想跳出遍历，需要在 <code>callback</code> 中 <code>return false;</code>。</p>
+                demo: >
+                  // 遍历数组
+
+                  Tatami.each([1, 2, 3, 4, 5], function(value, index, target) {
+                    target[index] = this * value;
+                    return !(this % 3 === 0);
+                  });
+
+                  => [1, 4, 9, 4, 5]
+
+
+                  // 遍历对象
+
+                  var str = "";
+
+                  Tatami.each({foo: "foo", bar: "bar"}, function(value, key, target) {
+                    str += this + value + key;
+                  });
+
+                  str;
+
+                  => "foofoofoobarbarbar"
+          # - func: 
+          #   desc: >
+          #   invoke:
+          #     - statement: 
+          #       arguments:
+          #         - name: 
+          #           type: 
+          #       return: 
+          #       desc: 
+          #       demo: >
+          # - func: 
+          #   desc: >
+          #   invoke:
+          #     - statement: 
+          #       arguments:
+          #         - name: 
+          #           type: 
+          #       return: 
+          #       desc: 
+          #       demo: >
+          # - func: 
+          #   desc: >
+          #   invoke:
+          #     - statement: 
+          #       arguments:
+          #         - name: 
+          #           type: 
+          #       return: 
+          #       desc: 
+          #       demo: >
+          # - func: 
+          #   desc: >
+          #   invoke:
+          #     - statement: 
+          #       arguments:
+          #         - name: 
+          #           type: 
+          #       return: 
+          #       desc: 
+          #       demo: >
+          # - func: 
+          #   desc: >
+          #   invoke:
+          #     - statement: 
+          #       arguments:
+          #         - name: 
+          #           type: 
+          #       return: 
+          #       desc: 
+          #       demo: >
+      - name: 对象
+        flag: objects
+        apis:
+          - func: mixin
+            desc: >
+              <p>扩展指定对象。</p>
+            invoke:
+              - statement: 'Tatami.mixin(target[, object1][, objectN])'
+                arguments:
+                  - name: target
+                    type: Object
+                  - name: object1
+                    type: Object
+                  - name: objectN
+                    type: Object
+                return: Object
+                desc: >
+                  <p>可以传入任意多个类型为 Object 的参数，如果具有相同的 key，则后者覆盖前者，否则附加到前者上。当只传入一个参数时，则扩展 Tatami 本身。返回值为被扩展的对象，即 <code>target</code>。</p>
+                demo: >
+                  // 扩展 Tatami 自身
+
+                  Tatami.mixin({foo: true, bar: false});
+
+                  Tatami.foo;
+
+                  => true
+
+                  Tatami.bar;
+
+                  => false
+
+
+                  // 返回新对象
+
+                  Tatami.mixin({}, {foo: true, bar: false});
+
+                  => {foo: true, bar: false}
+
+
+                  Tatami.mixin();
+
+                  => {}
+          - func: extend
+            desc: >
+              <p>使用特定格式的数据扩充指定对象。内置「预处理」功能。</p>
+            invoke:
+              - statement: 'Tatami.extend(data[, target])'
+                arguments:
+                  - name: data
+                    type: Array / Plain object
+                  - name: target
+                    type: Object
+                return: Object
+                desc:
+                demo:
+          - func: hasProp
+            desc: >
+              <p>判断指定对象自身是否拥有指定属性。</p>
+            invoke:
+              - statement: 'Tatami.hasProp(prop[, object])'
+                arguments:
+                  - name: prop
+                    type: String
+                  - name: object
+                    type: Object
+                return: Boolean
+                desc: >
+                  <p>当忽略 <code>object</code> 时，被检测的对象为 <code>window</code>。</p>
+                demo: >
+                  Tatami.hasProp("hasProp", Tatami);
+
+                  => true
+
+
+                  Tatami.hasProp("document");
+
+                  => true
+          - func: namespace
+            desc: >
+              <p>通过命名空间格式的字符串从指定对象上获取值。若指定对象上不存在相应的 key，则创建一个空对象。</p>
+            invoke:
+              - statement: 'Tatami.namespace(target[, nsStr1][, nsStrN][, isGlobal])'
+                arguments:
+                  - name: target
+                    type: Object
+                  - name: nsStr1
+                    type: String
+                  - name: nsStrN
+                    type: String
+                  - name: isGlobal
+                    type: Boolean
+                return: Object
+                desc: >
+                  <p><code>nsStr1</code> 和 <code>nsStrN</code> 是以 <code>.</code> 分割的由数字、字母和下划线所组成的字符串。若 <code>isGlobal</code> 的值为 <code>true</code>，则 <code>target</code> 为全局对象。</p>
+                demo: 
+          # - func: 
+          #   desc: >
+          #   invoke:
+          #     - statement: 
+          #       arguments:
+          #         - name: 
+          #           type: 
+          #       return: 
+          #       desc: 
+          #       demo: >
+          # - func: 
+          #   desc: >
+          #   invoke:
+          #     - statement: 
+          #       arguments:
+          #         - name: 
+          #           type: 
+          #       return: 
+          #       desc: 
+          #       demo: >
+      - name: 数组及类数组
+        flag: arrays
+        apis:
+          - func: slice
+            desc: >
+              <p>返回数组、类数组对象的片段。</p>
+            invoke:
+              - statement: 'Tatami.slice(target[, begin][, end])'
+                arguments:
+                  - name: target
+                    type: Array / Array-like object
+                  - name: begin
+                    type: Integer
+                  - name: end
+                    type: Integer
+                return: Array
+                desc: >
+                  <p><code>begin</code> 和 <code>end</code> 是以零开始的索引，为负数时表示从 <code>target</code> 的末尾算起的偏移量。当 <code>begin</code> 被忽略时从 <code>0</code> 开始截取；<code>end</code> 被忽略时，截取到 <code>target</code> 的末尾。</p>
+                  <p class="note">String 类型也能够使用。</p>
+                demo: >
+                  var arr = [1, 2, 3, 4, 5, 6];
+
+
+                  Tatami.slice(arr);
+
+                  => [1, 2, 3, 4, 5, 6]
+
+
+                  Tatami.slice(arr) === arr;
+
+                  => false
+
+
+                  Tatami.slice(arr, 2);
+
+                  => [3, 4, 5, 6]
+
+
+                  Tatami.slice(arr, -2);
+
+                  => [5, 6]
+
+
+                  Tatami.slice(arr, 2, 4);
+
+                  => [3, 4]
+
+
+                  Tatami.slice(arr, 2, 2);
+
+                  => []
+
+
+                  Tatami.slice(arr, -2, -3);
+
+                  => []
+
+
+                  Tatami.slice(arr, -2, -1);
+
+                  => [5]
+
+
+                  Tatami.slice(arr, 2, -1);
+
+                  => [3, 4, 5]
+      #     - func: 
+      #       desc: >
+      #       invoke:
+      #         - statement: 
+      #           arguments:
+      #             - name: 
+      #               type: 
+      #           return: 
+      #           desc: 
+      #           demo: >
+      #     - func: 
+      #       desc: >
+      #       invoke:
+      #         - statement: 
+      #           arguments:
+      #             - name: 
+      #               type: 
+      #           return: 
+      #           desc: 
+      #           demo: >
+      #     - func: 
+      #       desc: >
+      #       invoke:
+      #         - statement: 
+      #           arguments:
+      #             - name: 
+      #               type: 
+      #           return: 
+      #           desc: 
+      #           demo: >
+      - name: 变量检测
         flag: data_type
         apis:
           - func: type
@@ -615,330 +961,22 @@ classes:
                   Tatami.isElement(window);
 
                   => false
-      - name: 集合
-        flag: collection
-        apis:
-          - func: each
+          - func: equal
             desc: >
-              <p>遍历数组、对象、类数组对象等。</p>
+              <p>比较两个变量是否相等。</p>
             invoke:
-              - statement: 'Tatami.each(target[, callback])'
+              - statement: 'Tatami.equal(base, target[, strict])'
                 arguments:
-                  - name: target
-                    type: Array / Object / Array-like object
-                  - name: callback
-                    type: Function
-                return: Object
-                desc: >
-                  <p>每次遍历都会调用一次 <code>callback</code>，并向 <code>callback</code> 传入 3 个参数：</p>
-                  <ol>
-                    <li>当前的值</li>
-                    <li>当前的索引（数组、类数组对象）或键（对象）</li>
-                    <li>被遍历的集合</li>
-                  </ol>
-                  <p><code>callback</code> 的 <code>this</code> 指向当前的值。如果想跳出遍历，需要在 <code>callback</code> 中 <code>return false;</code>。</p>
-                demo: >
-                  // 遍历数组
-
-                  Tatami.each([1, 2, 3, 4, 5], function(value, index, target) {
-                    target[index] = this * value;
-                    return !(this % 3 === 0);
-                  });
-
-                  => [1, 4, 9, 4, 5]
-
-
-                  // 遍历对象
-
-                  var str = "";
-
-                  Tatami.each({foo: "foo", bar: "bar"}, function(value, key, target) {
-                    str += this + value + key;
-                  });
-
-                  str;
-
-                  => "foofoofoobarbarbar"
-          # - func: 
-          #   desc: >
-          #   invoke:
-          #     - statement: 
-          #       arguments:
-          #         - name: 
-          #           type: 
-          #       return: 
-          #       desc: 
-          #       demo: >
-          # - func: 
-          #   desc: >
-          #   invoke:
-          #     - statement: 
-          #       arguments:
-          #         - name: 
-          #           type: 
-          #       return: 
-          #       desc: 
-          #       demo: >
-          # - func: 
-          #   desc: >
-          #   invoke:
-          #     - statement: 
-          #       arguments:
-          #         - name: 
-          #           type: 
-          #       return: 
-          #       desc: 
-          #       demo: >
-          # - func: 
-          #   desc: >
-          #   invoke:
-          #     - statement: 
-          #       arguments:
-          #         - name: 
-          #           type: 
-          #       return: 
-          #       desc: 
-          #       demo: >
-          # - func: 
-          #   desc: >
-          #   invoke:
-          #     - statement: 
-          #       arguments:
-          #         - name: 
-          #           type: 
-          #       return: 
-          #       desc: 
-          #       demo: >
-      - name: 对象
-        flag: objects
-        apis:
-          - func: mixin
-            desc: >
-              <p>扩展指定对象。</p>
-            invoke:
-              - statement: 'Tatami.mixin(target[, object1][, objectN])'
-                arguments:
-                  - name: target
-                    type: Object
-                  - name: object1
-                    type: Object
-                  - name: objectN
-                    type: Object
-                return: Object
-                desc: >
-                  <p>可以传入任意多个类型为 Object 的参数，如果具有相同的 key，则后者覆盖前者，否则附加到前者上。当只传入一个参数时，则扩展 Tatami 本身。返回值为被扩展的对象，即 <code>target</code>。</p>
-                demo: >
-                  // 扩展 Tatami 自身
-
-                  Tatami.mixin({foo: true, bar: false});
-
-                  Tatami.foo;
-
-                  => true
-
-                  Tatami.bar;
-
-                  => false
-
-
-                  // 返回新对象
-
-                  Tatami.mixin({}, {foo: true, bar: false});
-
-                  => {foo: true, bar: false}
-
-
-                  Tatami.mixin();
-
-                  => {}
-          - func: extend
-            desc: >
-              <p>使用特定格式的数据扩充指定对象。内置「预处理」功能。</p>
-            invoke:
-              - statement: 'Tatami.extend(data[, target])'
-                arguments:
-                  - name: data
-                    type: Array / Plain object
-                  - name: target
-                    type: Object
-                return: Object
-                desc:
-                demo:
-          - func: hasProp
-            desc: >
-              <p>判断指定对象自身是否拥有指定属性。</p>
-            invoke:
-              - statement: 'Tatami.hasProp(prop[, object])'
-                arguments:
-                  - name: prop
-                    type: String
-                  - name: object
-                    type: Object
-                return: Boolean
-                desc: >
-                  <p>当忽略 <code>object</code> 时，被检测的对象为 <code>window</code>。</p>
-                demo: >
-                  Tatami.hasProp("hasProp", Tatami);
-
-                  => true
-
-
-                  Tatami.hasProp("document");
-
-                  => true
-          # - func: 
-          #   desc: >
-          #   invoke:
-          #     - statement: 
-          #       arguments:
-          #         - name: 
-          #           type: 
-          #       return: 
-          #       desc: 
-          #       demo: >
-          # - func: 
-          #   desc: >
-          #   invoke:
-          #     - statement: 
-          #       arguments:
-          #         - name: 
-          #           type: 
-          #       return: 
-          #       desc: 
-          #       demo: >
-          # - func: 
-          #   desc: >
-          #   invoke:
-          #     - statement: 
-          #       arguments:
-          #         - name: 
-          #           type: 
-          #       return: 
-          #       desc: 
-          #       demo: >
-      - name: 数组及类数组
-        flag: arrays
-        apis:
-          - func: slice
-            desc: >
-              <p>返回数组、类数组对象的片段。</p>
-            invoke:
-              - statement: 'Tatami.slice(target[, begin][, end])'
-                arguments:
-                  - name: target
-                    type: Array / Array-like object
-                  - name: begin
-                    type: Integer
-                  - name: end
-                    type: Integer
-                return: Array
-                desc: >
-                  <p><code>begin</code> 和 <code>end</code> 是以零开始的索引，为负数时表示从 <code>target</code> 的末尾算起的偏移量。当 <code>begin</code> 被忽略时从 <code>0</code> 开始截取；<code>end</code> 被忽略时，截取到 <code>target</code> 的末尾。</p>
-                  <p class="note">String 类型也能够使用。</p>
-                demo: >
-                  var arr = [1, 2, 3, 4, 5, 6];
-
-
-                  Tatami.slice(arr);
-
-                  => [1, 2, 3, 4, 5, 6]
-
-
-                  Tatami.slice(arr) === arr;
-
-                  => false
-
-
-                  Tatami.slice(arr, 2);
-
-                  => [3, 4, 5, 6]
-
-
-                  Tatami.slice(arr, -2);
-
-                  => [5, 6]
-
-
-                  Tatami.slice(arr, 2, 4);
-
-                  => [3, 4]
-
-
-                  Tatami.slice(arr, 2, 2);
-
-                  => []
-
-
-                  Tatami.slice(arr, -2, -3);
-
-                  => []
-
-
-                  Tatami.slice(arr, -2, -1);
-
-                  => [5]
-
-
-                  Tatami.slice(arr, 2, -1);
-
-                  => [3, 4, 5]
-      #     - func: 
-      #       desc: >
-      #       invoke:
-      #         - statement: 
-      #           arguments:
-      #             - name: 
-      #               type: 
-      #           return: 
-      #           desc: 
-      #           demo: >
-      #     - func: 
-      #       desc: >
-      #       invoke:
-      #         - statement: 
-      #           arguments:
-      #             - name: 
-      #               type: 
-      #           return: 
-      #           desc: 
-      #           demo: >
-      #     - func: 
-      #       desc: >
-      #       invoke:
-      #         - statement: 
-      #           arguments:
-      #             - name: 
-      #               type: 
-      #           return: 
-      #           desc: 
-      #           demo: >
-      - name: 字符串
-        flag: string
-        apis:
-          - func: stringify
-            desc: >
-              <p>将任意类型的变量转化为字符串。</p>
-            invoke:
-              - statement: 'Tatami.stringify(target)'
-                arguments:
+                  - name: base
+                    type: 
                   - name: target
                     type: 
-                return: String
-                desc: 
-                demo:
-      # - name: 
-      #   flag: 
-      #   apis:
-      #     - func: 
-      #       desc: >
-      #       invoke:
-      #         - statement: 
-      #           arguments:
-      #             - name: 
-      #               type: 
-      #           return: 
-      #           desc: 
-      #           demo: >
+                  - name: strict
+                    type: Boolean
+                return: Boolean
+                desc: >
+                  <p>当 <code>base</code> 和 <code>target</code> 为纯对象或数组，并且 <code>strict</code> 的值为 <code>true</code> 时，是对它们的引用进行比较。</p>
+                demo: 
       # - name: 
       #   flag: 
       #   apis:
