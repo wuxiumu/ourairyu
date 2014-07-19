@@ -321,6 +321,17 @@ classes:
                 desc: >
                   <p><code>nsStr1</code> 和 <code>nsStrN</code> 是以 <code>.</code> 分割的由数字、字母和下划线所组成的字符串。若 <code>isGlobal</code> 的值为 <code>true</code>，则 <code>target</code> 为全局对象。</p>
                 demo: 
+          - func: keys
+            desc: >
+              <p>获取指定对象的 key 集合。</p>
+            invoke:
+              - statement: 'Tatami.keys(target)'
+                arguments:
+                  - name: target
+                    type: Object
+                return: Array
+                desc: 
+                demo: 
           # - func: 
           #   desc: >
           #   invoke:
