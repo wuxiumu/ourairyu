@@ -475,7 +475,7 @@ classes:
                     type: Array
                   - name: last
                     type: Boolean
-                return: 
+                return: Array
                 desc: >
                   <p>数字型字符串会被转化为数字。如果 <code>last</code> 的值为 <code>true</code>，则保留相同的值中最后的那个。</p>
                 demo: 
