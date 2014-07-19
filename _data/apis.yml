@@ -532,6 +532,33 @@ classes:
                 return: Array
                 desc: 
                 demo: 
+      - name: 日期时间
+        flag: date
+        apis:
+          - func: date
+            desc: >
+              <p>格式化日期。</p>
+            invoke:
+              - statement: 'Tatami.date(format[, date])'
+                arguments:
+                  - name: format
+                    type: String
+                  - name: date
+                    type: Date / String
+                return: String
+                desc: 
+                demo: 
+          - func: now
+            desc: >
+              <p>取得当前时间。</p>
+            invoke:
+              - statement: 'Tatami.now([isObject])'
+                arguments:
+                  - name: isObject
+                    type: Boolean
+                return: Integer / Date
+                desc: 
+                demo: 
       - name: 变量检测
         flag: data_type
         apis:
