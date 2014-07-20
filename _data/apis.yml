@@ -1324,10 +1324,99 @@ classes:
                   Tatami.plugins.pdf;
 
                   => true
-      # - name: 流程控制
-      #   flag: flow
+      - name: 流程控制
+        flag: flow
+        apis:
+          - func: sandbox
+            desc: >
+              <p>封闭运行环境的开关，每个页面只能运行一次。</p>
+            invoke:
+              - statement: 'Tatami.sandbox(settings)'
+                arguments:
+                  - name: settings
+                    type: Object
+                    desc: Plain object
+                return: Object / Boolean
+                desc: 
+                demo:
+          - func: prepare
+            desc: >
+              <p>DOM 未加载完时调用的处理函数。</p>
+            invoke:
+              - statement: 'Tatami.prepare(handler)'
+                arguments:
+                  - name: handler
+                    type: Function
+                return: undefined
+                desc: 
+                demo:
+          - func: ready
+            desc: >
+              <p>DOM 加载完成时调用的处理函数。</p>
+            invoke:
+              - statement: 'Tatami.ready(handler)'
+                arguments:
+                  - name: handler
+                    type: Function
+                return: undefined
+                desc: 
+                demo:
+      # - name: 
+      #   flag: 
       #   apis:
-      #     -
+      #     - func: 
+      #       desc: >
+      #         <p></p>
+      #       invoke:
+      #         - statement: 'Tatami.'
+      #           arguments:
+      #             - name: 
+      #               type: 
+      #           return: 
+      #           desc: 
+      #           demo:
+      # - name: 
+      #   flag: 
+      #   apis:
+      #     - func: 
+      #       desc: >
+      #         <p></p>
+      #       invoke:
+      #         - statement: 'Tatami.'
+      #           arguments:
+      #             - name: 
+      #               type: 
+      #           return: 
+      #           desc: 
+      #           demo:
+      # - name: 
+      #   flag: 
+      #   apis:
+      #     - func: 
+      #       desc: >
+      #         <p></p>
+      #       invoke:
+      #         - statement: 'Tatami.'
+      #           arguments:
+      #             - name: 
+      #               type: 
+      #           return: 
+      #           desc: 
+      #           demo:
+      # - name: 
+      #   flag: 
+      #   apis:
+      #     - func: 
+      #       desc: >
+      #         <p></p>
+      #       invoke:
+      #         - statement: 'Tatami.'
+      #           arguments:
+      #             - name: 
+      #               type: 
+      #           return: 
+      #           desc: 
+      #           demo:
 # project:
   # <h3>项目开发</h3>
   # <dl>

@@ -51,7 +51,7 @@ js:
     <dd>
       <div class="api_info">
         <code class="invoke">{{ inv.statement }}</code>
-        <span class="return_value">{% if inv.return %}{{ inv.return }}{% else %}Anything{% endif %}</span>
+        <span class="return_value">{% if inv.return %}{% if inv.return != "undefined" %}{{ inv.return }}{% endif %}{% else %}Anything{% endif %}</span>
         {% if inv.arguments %}
         <dl>
           {% for arg in inv.arguments %}
