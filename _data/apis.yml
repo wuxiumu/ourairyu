@@ -1361,20 +1361,374 @@ classes:
                 return: undefined
                 desc: 
                 demo:
-      # - name: 
-      #   flag: 
-      #   apis:
-      #     - func: 
-      #       desc: >
-      #         <p></p>
-      #       invoke:
-      #         - statement: 'Tatami.'
-      #           arguments:
-      #             - name: 
-      #               type: 
-      #           return: 
-      #           desc: 
-      #           demo:
+      - name: 其他
+        flag: other
+        apis:
+          - func: encodeEntities
+            desc: >
+              <p>将字符串中的一些字符转换为实体。</p>
+            invoke:
+              - statement: 'Tatami.encodeEntities(target)'
+                arguments:
+                  - name: target
+                    type: String
+                return: String
+                desc: 
+                demo:
+          - func: config
+            desc: >
+              <p>获取系统信息。</p>
+            invoke:
+              - statement: 'Tatami.config([key])'
+                arguments:
+                  - name: key
+                    type: String
+                return: 
+                desc: 
+                demo:
+          - func: init
+            desc: >
+              <p>设置初始化信息。</p>
+            invoke:
+              - statement: 'Tatami.init(settings)'
+                arguments:
+                  - name: settings
+                    type: Object
+                return: 
+                desc: 
+                demo:
+              - statement: 'Tatami.init(function, key)'
+                arguments:
+                  - name: function
+                    type: Function
+                  - name: key
+                    type: String
+                return: 
+                desc: 
+                demo:
+          - func: i18n
+            desc: >
+              <p>设置及获取国际化信息。</p>
+            invoke:
+              - statement: 'Tatami.i18n(settings)'
+                arguments:
+                  - name: settings
+                    type: Object
+                return: undefined
+                desc: 
+                demo:
+              - statement: 'Tatami.i18n(key[, params])'
+                arguments:
+                  - name: key
+                    type: String
+                  - name: params
+                    type: Object
+                return: String
+                desc: 
+                demo:
+          - func: api
+            desc: >
+              <p>设置及获取 Web API。</p>
+            invoke:
+              - statement: 'Tatami.api(settings)'
+                arguments:
+                  - name: settings
+                    type: Object
+                return: undefined
+                desc: 
+                demo:
+              - statement: 'Tatami.api(key[, params])'
+                arguments:
+                  - name: key
+                    type: String
+                  - name: params
+                    type: Object
+                return: String
+                desc: 
+                demo:
+          - func: route
+            desc: >
+              <p>设置及获取页面 URL。</p>
+            invoke:
+              - statement: 'Tatami.route(settings)'
+                arguments:
+                  - name: settings
+                    type: Object
+                return: undefined
+                desc: 
+                demo:
+              - statement: 'Tatami.route(key[, params])'
+                arguments:
+                  - name: key
+                    type: String
+                  - name: params
+                    type: Object
+                return: String
+                desc: 
+                demo:
+          - func: asset
+            desc: >
+              <p>设置及获取资源 URL。</p>
+            invoke:
+              - statement: 'Tatami.asset(settings)'
+                arguments:
+                  - name: settings
+                    type: Object
+                return: undefined
+                desc: 
+                demo:
+              - statement: 'Tatami.asset(key[, params])'
+                arguments:
+                  - name: key
+                    type: String
+                  - name: params
+                    type: Object
+                return: String
+                desc: 
+                demo:
+          - func: ajax
+            desc: >
+              <p>Asynchronous JavaScript and XML</p>
+            invoke:
+              - statement: 'Tatami.ajax(url[, succeed][, fail])'
+                arguments:
+                  - name: url
+                    type: String
+                  - name: succeed
+                    type: Function
+                  - name: fail
+                    type: Function
+                return: Object
+                desc: 
+                demo:
+              - statement: 'Tatami.ajax(options[, succeed][, fail])'
+                arguments:
+                  - name: options
+                    type: Object
+                  - name: succeed
+                    type: Function
+                  - name: fail
+                    type: Function
+                return: Object
+                desc: 
+                demo:
+          - func: sjax
+            desc: >
+              <p>Synchronous JavaScript and XML</p>
+            invoke:
+              - statement: 'Tatami.sjax(url[, succeed][, fail])'
+                arguments:
+                  - name: url
+                    type: String
+                  - name: succeed
+                    type: Function
+                  - name: fail
+                    type: Function
+                return: Object
+                desc: 
+                demo:
+              - statement: 'Tatami.sjax(options[, succeed][, fail])'
+                arguments:
+                  - name: options
+                    type: Object
+                  - name: succeed
+                    type: Function
+                  - name: fail
+                    type: Function
+                return: Object
+                desc: 
+                demo:
+          - func: data
+            desc: >
+              <p>获取 DOM 的「data-*」属性集或存储数据到内部/从内部获取数据。</p>
+            invoke:
+              - statement: 'Tatami.data(node)'
+                arguments:
+                  - name: node
+                    type: DOM
+                return: Object
+                desc: 
+                demo:
+              - statement: 'Tatami.data(key, data[, lock])'
+                arguments:
+                  - name: key
+                    type: String
+                  - name: data
+                    type: 
+                  - name: lock
+                    type: Boolean
+                return: 
+                desc: 
+                demo:
+              - statement: 'Tatami.data(key)'
+                arguments:
+                  - name: key
+                    type: String
+                return: 
+                desc: 
+                demo:
+          - func: save
+            desc: >
+              <p>将数据保存到本地。</p>
+            invoke:
+              - statement: 'Tatami.save(key, data)'
+                arguments:
+                  - name: key
+                    type: String
+                  - name: data
+                    type: 
+                return: undefined
+                desc: 
+                demo:
+          - func: access
+            desc: >
+              <p>访问保存到本地的数据。</p>
+            invoke:
+              - statement: 'Tatami.access(key)'
+                arguments:
+                  - name: key
+                    type: String
+                return: 
+                desc: 
+                demo:
+          - func: pathname
+            desc: >
+              <p>获取 URL 中的 pathname 部分。</p>
+            invoke:
+              - statement: 'Tatami.pathname(url)'
+                arguments:
+                  - name: url
+                    type: String
+                return: String
+                desc: 
+                demo:
+          - func: alert
+            desc: >
+              <p>自定义警告提示框</p>
+            invoke:
+              - statement: 'Tatami.alert(message[, callback])'
+                arguments:
+                  - name: message
+                    type: String
+                  - name: callback
+                    type: Function
+                return: Boolean
+                desc: 
+                demo:
+          - func: confirm
+            desc: >
+              <p>自定义确认提示框（两个按钮）</p>
+            invoke:
+              - statement: 'Tatami.confirm(message[, okCallback][, cancelCallback])'
+                arguments:
+                  - name: message
+                    type: String
+                  - name: okCallback
+                    type: Function
+                  - name: cancelCallback
+                    type: Function
+                return: Boolean
+                desc: 
+                demo:
+          - func: confirmEX
+            desc: >
+              <p>自定义确认提示框（三个按钮）</p>
+            invoke:
+              - statement: 'Tatami.confirmEX(message[, yesCallback][, noCallback])'
+                arguments:
+                  - name: message
+                    type: String
+                  - name: yesCallback
+                    type: Function
+                  - name: noCallback
+                    type: Function
+                return: 
+                desc: 
+                demo:
+          - func: queue
+            desc: >
+              <p>将外部处理函数引入到沙盒中。</p>
+            invoke:
+              - statement: 'Tatami.queue(funcList)'
+                arguments:
+                  - name: funcList
+                    type: Object
+                return: undefined
+                desc: 
+                demo:
+              - statement: 'Tatami.queue(funcName, handler)'
+                arguments:
+                  - name: funcName
+                    type: String
+                  - name: handler
+                    type: Function
+                return: Function
+                desc: 
+                demo:
+              - statement: 'Tatami.queue(funcName)'
+                arguments:
+                  - name: funcName
+                    type: String
+                return: Function
+                desc: 
+                demo:
+              - statement: 'Tatami.queue()'
+                return: Object
+                desc: 
+                demo:
+          - func: run
+            desc: >
+              <p>执行指定函数。</p>
+            invoke:
+              - statement: 'Tatami.run(funcName)'
+                arguments:
+                  - name: funcName
+                    type: String
+                return: 
+                desc: 
+                demo:
+              - statement: 'Tatami.run(funcNameList)'
+                arguments:
+                  - name: funcNameList
+                    type: Array
+                return: undefined
+                desc: 
+                demo:
+          - func: url
+            desc: >
+              <p></p>
+            invoke:
+              - statement: 'Tatami.url()'
+                return: Object
+                desc: 
+                demo:
+          - func: download
+            desc: >
+              <p></p>
+            invoke:
+              - statement: 'Tatami.download(url[, fileName])'
+                arguments:
+                  - name: url
+                    type: String
+                  - name: fileName
+                    type: String
+                return: undefined
+                desc: 
+                demo:
+          - func: functionExists
+            desc: >
+              <p>检测指定函数是否已经定义过。</p>
+            invoke:
+              - statement: 'Tatami.functionExists(funcName[, isWindow])'
+                arguments:
+                  - name: funcName
+                    type: String
+                  - name: isWindow
+                    type: Boolean
+                return: Boolean
+                desc: >
+                  <p>默认从 Tatami 内部的函数列表中查找 <code>funcName</code>，若 <code>isWindow</code> 设置为 <code>true</code>，则从 <code>window</code> 对象上找。</p>
+                demo:
       # - name: 
       #   flag: 
       #   apis:
