@@ -57,7 +57,7 @@ js:
           {% for arg in inv.arguments %}
           <dt>{{ arg.name }}</dt>
           <dd>
-            <p>{% if arg.type %}{{ arg.type }}{% else %}Anything{% endif %}</p>
+            <p>[{% if arg.type %}{{ arg.type }}{% else %}Anything{% endif %}]</p>
             {% if arg.desc %}{{ arg.desc }}{% endif %}
           </dd>
           {% endfor %}

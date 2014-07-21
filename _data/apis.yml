@@ -455,17 +455,17 @@ classes:
                   => -2
 
 
-                  Tatami.max({a: 8, b: -2, c: 3, d: "111, e: 4, f: 5});
+                  Tatami.max({a: 8, b: -2, c: 3, d: "111", e: 4, f: 5});
 
                   => 111
 
 
-                  Tatami.max({a: 8, b: -2, c: 3, d: "ddd, e: 4, f: 5});
+                  Tatami.max({a: 8, b: -2, c: 3, d: "ddd", e: 4, f: 5});
 
                   => NaN
 
 
-                  Tatami.max({a: 8, b: -2, c: 3, d: "111, e: 4, f: 5}, function( val, idx, list ) {
+                  Tatami.max({a: 8, b: -2, c: 3, d: "111", e: 4, f: 5}, function( val, idx, list ) {
                     return -(val);
                   });
 
