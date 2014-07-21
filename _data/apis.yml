@@ -31,14 +31,14 @@ classes:
                   => true
 
 
-                  Tatami;
-
-                  => ReferenceError: Tatami is not defined
-
-
                   Tatami_new;
 
                   => Object {mixin: function, each: function, type: function, slice: function, hasProp: function…}
+
+
+                  Tatami;
+
+                  => ReferenceError: Tatami is not defined
           - func: alias
             desc: >
               <p>为 Tatami 起个别名。</p>
@@ -66,9 +66,11 @@ classes:
 
                   => Object {mixin: function, each: function, type: function, slice: function, hasProp: function…}
 
+
                   FFF === Tatami;
 
                   => true
+
 
                   TTM;
 
@@ -89,7 +91,48 @@ classes:
                     type: 
                 return: String
                 desc: 
-                demo:
+                demo: >
+                  Tatami.stringify(1234567);
+
+                  => "1234567"
+
+
+                  Tatami.stringify("1234567");
+
+                  => "\"1234567\""
+
+
+                  Tatami.stringify(true);
+
+                  => "true"
+
+
+                  Tatami.stringify(function() {
+                    return 1234567 + "1234567";
+                  });
+
+                  => "function () {
+                        return 1234567 + \"1234567\";
+                      }"
+
+
+                  Tatami.stringify([1, 2, 3, [4, [5, 6], 7]]);
+
+                  => "[1,2,3,[4,[5,6],7]]"
+
+
+                  Tatami.stringify({
+                    n: 1234567,
+                    s: "1234567",
+                    b: true,
+                    f: function() {
+                      return 1234567 + "1234567";
+                    }
+                  });
+
+                  => "{\"n\":1234567,\"s\":\"1234567\",\"b\":true,\"f\":function () {
+                        return 1234567 + \"1234567\";
+                      }}"
           - func: pad
             desc: >
               <p>用指定占位符填补字符串。</p>
@@ -98,26 +141,65 @@ classes:
                 arguments:
                   - name: target
                     type: String
+                    desc: 原字符串
                   - name: length
                     type: Integer
+                    desc: >
+                      <p>必须为整数，可以是正数也可以是负数。</p>
+                      <p>数字部分代表目标字符串的长度，正负号代表占位符添加的位置：正数时添加到原字符串的后边；负数时添加到原字符串的前边。</p>
                   - name: placeholder
                     type: String
+                    desc: >
+                      <p>占位符，只能是一个字符，默认为空格（<code>\x20</code>）。</p>
                 return: String
-                desc: 
-                demo:
+                desc:
+                demo: >
+                  Tatami.pad("b", 3, "e");
+
+                  => "bee"
+
+
+                  Tatami.pad("var foo;", -10);
+
+                  => "  var foo;"
+
+
+                  Tatami.pad("var foo;", -10.9);
+
+                  => "var foo;"
           - func: capitalize
             desc: >
-              <p>将字符串首字母大写。</p>
+              <p>将字符串首字母大写</p>
             invoke:
               - statement: 'Tatami.capitalize(target[, isAll])'
                 arguments:
                   - name: target
                     type: String
+                    desc: 原字符串
                   - name: isAll
                     type: Boolean
+                    desc: 是否将所有英文字符串首字母大写
                 return: String
                 desc: 
-                demo:
+                demo: >
+                  Tatami.capitalize("tatami is a good library!");
+
+                  => "Tatami is a good library!"
+
+
+                  Tatami.capitalize("tatami is a good library!", true);
+
+                  => "Tatami Is A Good Library!"
+
+
+                  Tatami.capitalize("我的 mp3 播放器是 apple 牌的");
+
+                  => "我的 Mp3 播放器是 apple 牌的"
+
+
+                  Tatami.capitalize("我的 mp3 播放器是 apple 牌的", true);
+
+                  => "我的 Mp3 播放器是 Apple 牌的"
           - func: camelCase
             desc: >
               <p>将字符串转换为驼峰式</p>
@@ -126,39 +208,77 @@ classes:
                 arguments:
                   - name: target
                     type: String
+                    desc: 包含以连字符（<code>-</code>）、下划线（<code>_</code>）或空格（<code>\x20</code>）分隔的数字和英文的字符串
                   - name: upper
                     type: Boolean
+                    desc: 默认为小驼峰式，若该值为 <code>true</code>，则为大驼峰式。
                 return: String
                 desc: 
-                demo:
+                demo: >
+                  // 小驼峰式
+
+                  Tatami.camelCase("file_name-abc 9");
+
+                  => "fileNameAbc9"
+
+
+                  // 大驼峰式
+
+                  Tatami.camelCase("file_name-abc 9", true);
+
+                  => "FileNameAbc9"
           - func: zerofill
             desc: >
-              <p>补零。</p>
+              <p>补零</p>
             invoke:
               - statement: 'Tatami.zerofill(target, digit)'
                 arguments:
                   - name: target
                     type: Number / String
-                    desc: Numeric string
+                    desc: 数字或数字型字符串
                   - name: digit
                     type: Integer
+                    desc: >
+                      <p>规则与 <code>Tatami.pad</code> 基本一样，只不过当 <code>target</code> 为小数时，若该值为正数则从小数点后开始计算长度，为负数时返回空字符串 <code>""</code>。</p>
                 return: String
                 desc: 
-                demo:
+                demo: >
+                  Tatami.zerofill(1, 3);
+
+                  => "100"
+
+
+                  Tatami.zerofill("1", -3);
+
+                  => "001"
+
+
+                  Tatami.zerofill(1.5, 3);
+
+                  => "1.500"
+
+
+                  Tatami.zerofill(1.5, -3);
+
+                  => ""
           - func: trim
             desc: >
-              <p>移除字符串两端的空白符。</p>
+              <p>移除字符串两端的空白符</p>
             invoke:
               - statement: 'Tatami.trim(target)'
                 arguments:
                   - name: target
                     type: String
+                    desc: 包含空白符的字符串
                 return: String
                 desc: 
-                demo:
+                demo: >
+                  Tatami.trim("\n  This is a string.\r\t");
+
+                  => "This is a string."
           - func: substr
             desc: >
-              <p>从指定位置开始截取指定长度的字符串。</p>
+              <p>从指定位置开始截取指定长度的字符串</p>
             invoke:
               - statement: 'Tatami.substr(target, start[, length][, ignore])'
                 arguments:
@@ -166,13 +286,55 @@ classes:
                     type: String
                   - name: start
                     type: Integer
+                    desc: >
+                      <p>所要截取的字符串的起始索引。</p>
+                      <p>当大于或等于字符串长度时返回空字符串；为负数时则从字符串的结尾处往回数相应的个数的位置开始；如果既为负数绝对值又大于字符串长度，则从 <code>0</code> 开始。</p>
                   - name: length
                     type: Integer
+                    desc: >
+                      <p>需要截取的字符串的长度，为正数。</p>
+                      <p>当是零或负数时返回空字符串；若忽略则返回 <code>start</code> 到字符串结尾。</p>
                   - name: ignore
                     type: String / RegExp
                 return: String
                 desc: 
-                demo:
+                demo: >
+                  var str = "Tatami is a JavaScript library.";
+
+
+                  Tatami.substr(str, 3);
+
+                  => "ami is a JavaScript library."
+
+
+                  Tatami.substr(str, 3, 6);
+
+                  => "ami is"
+
+
+                  Tatami.substr(str, str.length);
+
+                  => ""
+
+
+                  Tatami.substr(str, -3);
+
+                  => "ry."
+
+
+                  Tatami.substr(str, -(str.length + 2));
+
+                  => "Tatami is a JavaScript library."
+
+
+                  Tatami.substr(str, 0, 0);
+
+                  => ""
+
+
+                  Tatami.substr(str, 0, -1);
+
+                  => ""
       - name: 数字
         flag: number
         apis:

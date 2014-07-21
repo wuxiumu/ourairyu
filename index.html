@@ -53,10 +53,13 @@ js:
         <code class="invoke">{{ inv.statement }}</code>
         <span class="return_value">{% if inv.return %}{% if inv.return != "undefined" %}{{ inv.return }}{% endif %}{% else %}Anything{% endif %}</span>
         {% if inv.arguments %}
-        <dl>
+        <dl class="parameters">
           {% for arg in inv.arguments %}
           <dt>{{ arg.name }}</dt>
-          <dd>{% if arg.type %}{{ arg.type }}{% else %}Anything{% endif %}</dd>
+          <dd>
+            <p>{% if arg.type %}{{ arg.type }}{% else %}Anything{% endif %}</p>
+            {% if arg.desc %}{{ arg.desc }}{% endif %}
+          </dd>
           {% endfor %}
         </dl>
         {% endif %}
