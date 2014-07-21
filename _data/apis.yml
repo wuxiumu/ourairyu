@@ -115,7 +115,6 @@ classes:
                         return 1234567 + \"1234567\";
                       }"
 
-
                   Tatami.stringify([1, 2, 3, [4, [5, 6], 7]]);
 
                   => "[1,2,3,[4,[5,6],7]]"
@@ -340,7 +339,7 @@ classes:
         apis:
           - func: random
             desc: >
-              <p>返回一个随机整数。</p>
+              <p>返回一个随机整数</p>
             invoke:
               - statement: 'Tatami.random(min[, max])'
                 arguments:
@@ -348,26 +347,20 @@ classes:
                     type: Number
                   - name: max
                     type: Number
+                    desc: 忽略时则返回 <code>0</code> 到 <code>min</code> 之间的整数
                 return: Integer
                 desc: >
-                  <p>返回一个介于 <code>min</code> 和 <code>max</code> 之间的整数，当忽略 <code>max</code> 时则返回 <code>0</code> 到 <code>min</code> 之间的整数。</p>
-                demo: 
-          # - func: 
-          #   desc: >
-          #   invoke:
-          #     - statement: 
-          #       arguments:
-          #         - name: 
-          #           type: 
-          #       return: 
-          #       desc: 
-          #       demo: >
+                  <p>返回一个介于 <code>min</code> 和 <code>max</code> 之间的整数（包括 <code>min</code> 和 <code>max</code>）。</p>
+                demo: >
+                  Tatami.random(1, 10);
+
+                  => 10
       - name: 集合
         flag: collection
         apis:
           - func: each
             desc: >
-              <p>遍历数组、对象、类数组对象等。</p>
+              <p>遍历数组、对象、类数组对象等</p>
             invoke:
               - statement: 'Tatami.each(target[, callback])'
                 arguments:
@@ -414,87 +407,120 @@ classes:
                 arguments:
                   - name: target
                     type: Array / Plain object
+                    desc: 每个单元的值为数字的集合
                 return: Number
                 desc: 
-                demo: 
+                demo: >
+                  Tatami.sum([-2, 3, 4, 5]);
+
+                  => 10
+
+
+                  Tatami.sum({a: -2, b: 3, c: 4, d: 5});
+
+                  => 10
           - func: max
             desc: 
             invoke:
-              - statement: 'Tatami.max(target, callback[, context])'
+              - statement: 'Tatami.max(target[, callback][, context])'
                 arguments:
                   - name: target
                     type: Array / Object
+                    desc: 每个单元必须为数字或数字型字符串
                   - name: callback
                     type: Function
+                    desc: >
+                      <p>对每个单元进行操作的处理函数，要返回一个数字类型的值。</p>
+                      <p>在调用时会传入 <code>value</code>、<code>index/key</code>、<code>collection</code> 三个变量。</p>
+                      <p>回调函数的上下文由 <code>context</code> 参数决定。</p>
                   - name: context
                     type: 
                 return: Number
                 desc: 
-                demo: 
+                demo: >
+                  Tatami.max([8, -2, 3, "111", 4, 5]);
+
+                  => 111
+
+
+                  Tatami.max([8, -2, 3, "ddd", 4, 5]);
+
+                  => NaN
+
+
+                  Tatami.max([8, -2, 3, "111", 4, 5], function( val, idx, list ) {
+                    return -(val);
+                  });
+
+                  => -2
+
+
+                  Tatami.max({a: 8, b: -2, c: 3, d: "111, e: 4, f: 5});
+
+                  => 111
+
+
+                  Tatami.max({a: 8, b: -2, c: 3, d: "ddd, e: 4, f: 5});
+
+                  => NaN
+
+
+                  Tatami.max({a: 8, b: -2, c: 3, d: "111, e: 4, f: 5}, function( val, idx, list ) {
+                    return -(val);
+                  });
+
+                  => -2
           - func: min
             desc: 
             invoke:
-              - statement: 'Tatami.min(target, callback[, context])'
+              - statement: 'Tatami.min(target[, callback][, context])'
                 arguments:
                   - name: target
                     type: Array / Object
+                    desc: 每个单元必须为数字或数字型字符串
                   - name: callback
                     type: Function
+                    desc: >
+                      <p>对每个单元进行操作的处理函数，要返回一个数字类型的值。</p>
+                      <p>在调用时会传入 <code>value</code>、<code>index/key</code>、<code>collection</code> 三个变量。</p>
+                      <p>回调函数的上下文由 <code>context</code> 参数决定。</p>
                   - name: context
                     type: 
                 return: Number
                 desc: 
-                demo: 
-          # - func: 
-          #   desc: >
-          #   invoke:
-          #     - statement: 
-          #       arguments:
-          #         - name: 
-          #           type: 
-          #       return: 
-          #       desc: 
-          #       demo: >
-          # - func: 
-          #   desc: >
-          #   invoke:
-          #     - statement: 
-          #       arguments:
-          #         - name: 
-          #           type: 
-          #       return: 
-          #       desc: 
-          #       demo: >
-          # - func: 
-          #   desc: >
-          #   invoke:
-          #     - statement: 
-          #       arguments:
-          #         - name: 
-          #           type: 
-          #       return: 
-          #       desc: 
-          #       demo: >
-          # - func: 
-          #   desc: >
-          #   invoke:
-          #     - statement: 
-          #       arguments:
-          #         - name: 
-          #           type: 
-          #       return: 
-          #       desc: 
-          #       demo: >
-          # - func: 
-          #   desc: >
-          #   invoke:
-          #     - statement: 
-          #       arguments:
-          #         - name: 
-          #           type: 
-          #       return: 
-          #       desc: 
-          #       demo: >
+                demo: >
+                  Tatami.min([8, -2, 3, "111", 4, 5]);
+
+                  => -2
+
+
+                  Tatami.min([8, -2, 3, "ddd", 4, 5]);
+
+                  => NaN
+
+
+                  Tatami.min([8, -2, 3, "111", 4, 5], function( val, idx, list ) {
+                    return -(val);
+                  });
+
+                  => "111"
+
+
+                  Tatami.min({a: 8, b: -2, c: 3, d: "111", e: 4, f: 5});
+
+                  => -2
+
+
+                  Tatami.min({a: 8, b: -2, c: 3, d: "ddd", e: 4, f: 5});
+
+                  => NaN
+
+
+                  Tatami.min({a: 8, b: -2, c: 3, d: "111", e: 4, f: 5}, function( val, idx, list ) {
+                    return -(val);
+                  });
+
+                  => "111"
       - name: 对象
         flag: objects
         apis:
