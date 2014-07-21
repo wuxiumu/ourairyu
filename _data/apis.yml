@@ -23,7 +23,8 @@ classes:
                   - name: guise
                     type: String
                 return: Boolean
-                desc:
+                desc: >
+                  <p>原来的名字会被删除，即访问 <code>Tatami</code> 会报错。</p>
                 demo: >
                   Tatami.mask("Tatami_new");
 
@@ -40,15 +41,38 @@ classes:
                   => Object {mixin: function, each: function, type: function, slice: function, hasProp: function…}
           - func: alias
             desc: >
-              <p>为 Tatami 起个别名。用别名也可以访问 Tatami 对象。</p>
+              <p>为 Tatami 起个别名。</p>
             invoke:
               - statement: 'Tatami.alias(name)'
                 arguments:
                   - name: name
                     type: String
                 return: Object
-                desc:
-                demo:
+                desc: >
+                  <p>用别名也可以访问 Tatami 对象。</p>
+                  <p class="note">只能设置一个别名，若在已设置别名的情况下再次调用该方法，则上次设置的别名会被销毁。</p>
+                demo: >
+                  Tatami.alias("TTM");
+
+                  => Object {mixin: function, each: function, type: function, slice: function, hasProp: function…}
+
+
+                  TTM === Tatami;
+
+                  => true
+
+
+                  Tatami.alias("FFF");
+
+                  => Object {mixin: function, each: function, type: function, slice: function, hasProp: function…}
+
+                  FFF === Tatami;
+
+                  => true
+
+                  TTM;
+
+                  => ReferenceError: TTM is not defined
   - name: 工具
     flag: utils
     categories:
