@@ -6,7 +6,7 @@ page_category: topic
 
 title: JavaScript 专题
 description: 
-permalink: /topics/js/
+permalink: /topics/JavaScript/
 comments: true
 ---
 
