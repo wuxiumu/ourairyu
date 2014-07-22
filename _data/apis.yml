@@ -399,6 +399,98 @@ classes:
                   str;
 
                   => "foofoofoobarbarbar"
+          - func: filter
+            desc: >
+              <p>过滤掉不符合预期的单元</p>
+            invoke:
+              - statement: 'Tatami.filter(target, callback[, context])'
+                arguments:
+                  - name: target
+                    type: Array / Plain object / String
+                  - name: callback
+                    type: Function
+                    desc: >
+                      <p>应用于每个单元的回调函数，若返回值为 <code>true</code> 则保留，否则被过滤。</p>
+                      <p>在调用时会被传进三个参数：<code>value</code>、<code>index/key</code> 和 <code>target</code>。</p>
+                  - name: context
+                    type: 
+                    desc: <code>callback</code> 的上下文，默认为 <code>window</code>。
+                return: Array
+                desc:
+                demo: >
+                  var arrDemo = Tatami.filter([1, "2", true, undefined, {"foo": 123}, null, [3], function (){}, /\d/], function( value, index, arr ) {
+                    return typeof value === "object";
+                  });
+
+
+                  console.log(arrDemo);
+
+                  => [{"foo":123},null,[3],/\d/]
+
+
+                  var objDemo = Tatami.filter({one: 1, two: 2, three: 3, four: 4, five: 5, six: 6, seven: 7}, function( value, key, obj ) {
+                    return value % 2 === 0;
+                  });
+
+
+                  console.log(objDemo);
+
+                  => Object {two: 2, four: 4, six: 6}
+
+
+                  var strDemo = Tatami.filter("1234567", function( chr, index, str ) {
+                    return chr % 2 === 1;
+                  });
+
+                  console.log(strDemo);
+
+                  => "1357"
+          - func: map
+            desc: >
+              <p>改变每个单元的值</p>
+            invoke:
+              - statement: 'Tatami.map(target, callback[, context])'
+                arguments:
+                  - name: target
+                    type: Array / Plain object / String
+                  - name: callback
+                    type: Function
+                    desc: >
+                      <p>应用于每个单元的回调函数，返回值为被遍历到的单元的新值。</p>
+                      <p>在调用时会被传进三个参数：<code>value</code>、<code>index/key</code> 和 <code>target</code>。</p>
+                  - name: context
+                    type: 
+                    desc: <code>callback</code> 的上下文，默认为 <code>window</code>。
+                return: Array
+                desc:
+                demo: >
+                  var arrDemo = Tatami.map([1, "2", true, undefined, {"foo": 123}, null, [3], function (){}, /\d/], function( value, index, arr ) {
+                    return this.isNumeric(value) ? value * 100 : value;
+                  }, Tatami);
+
+
+                  console.log(arrDemo);
+
+                  => [100, 200, true, undefined, {"foo": 123}, null, [3], function (){}, /\d/]
+
+
+                  var objDemo = Tatami.map({one: 1, two: 2, three: 3, four: 4, five: 5, six: 6, seven: 7}, function( value, key, obj ) {
+                    return value * key.length;
+                  });
+
+
+                  console.log(objDemo);
+
+                  => Object {one: 3, two: 6, three: 15, four: 16, five: 20, six: 18, seven: 35}
+
+
+                  var strDemo = Tatami.map("1234567", function( chr, index, str ) {
+                    return (index === 0 ? "" : "-") + chr * index;
+                  });
+
+                  console.log(strDemo);
+
+                  => "0-2-6-12-20-30-42"
           - func: sum
             desc: >
               <p>计算集合中每个数字之和。</p>
@@ -776,65 +868,68 @@ classes:
                   => [3, 4, 5]
           - func: inArray
             desc: >
-              <p>元素在数组中的位置。</p>
+              <p>获取元素在数组中的位置</p>
             invoke:
               - statement: 'Tatami.inArray(element, array[, from])'
                 arguments:
                   - name: element
-                    type: 
+                    type: String / Number / Boolean / Undefined / Null
+                    desc: 被查找的值。只能是原始值，否则返回值永远为 <code>-1</code>。
                   - name: array
                     type: Array
                   - name: from
                     type: Integer
+                    desc: 开始查找的索引位置
                 return: Integer
-                desc: 
-                demo: 
-          - func: filter
-            desc: 
-            invoke:
-              - statement: 'Tatami.filter(target, callback[, context])'
-                arguments:
-                  - name: target
-                    type: Array
-                  - name: callback
-                    type: Function
-                  - name: context
-                    type: 
-                return: Array
                 desc: >
-                  <p class="note">同样适用于对象和字符串。</p>
-                demo: 
-          - func: map
-            desc: >
-              <p>改变每个元素的值。</p>
-            invoke:
-              - statement: 'Tatami.map(target, callback[, context])'
-                arguments:
-                  - name: target
-                    type: Array
-                  - name: callback
-                    type: Function
-                  - name: context
-                    type: 
-                return: Array
-                desc: >
-                  <p class="note">同样适用于对象和字符串。</p>
-                demo: 
+                  <p>返回 <code>element</code> 在 <code>array</code> 中的位置（索引），<code>-1</code> 表示没找到 <code>element</code> 或参数不合法。</p>
+                demo: >
+                  var arr = [1, "2", true, undefined, {foo: 123}, null, [3]];
+
+
+                  Tatami.inArray("2", arr);
+
+                  => 1
+
+
+                  Tatami.inArray(2, arr);
+
+                  => -1
+
+
+                  Tatami.inArray("2", arr, 1);
+
+                  => 1
+
+
+                  Tatami.inArray(2, arr, 3);
+
+                  => -1
           - func: product
             desc: >
-              <p>计算数组中每个数字的乘积。</p>
+              <p>计算数组中每个数字的乘积</p>
             invoke:
               - statement: 'Tatami.product(array)'
                 arguments:
                   - name: array
                     type: Array
+                    desc: >
+                      <p>数字数组</p>
                 return: Number
                 desc: >
-                  <p><code>array</code> 为数字数组。</p>
-                demo: 
+                  <p>数组中的非数字值会被忽略掉。</p>
+                demo: >
+                  Tatami.product([1, 2, 3, 4, 5, "6"]);
+
+                  => 720
+
+
+                  Tatami.product([1, 2, 3, 4, 5, "6aaa"]);
+
+                  => 120
           - func: unique
             desc: >
-              <p>移除重复的值。</p>
+              <p>移除重复的值</p>
             invoke:
               - statement: 'Tatami.unique(array[, last])'
                 arguments:
@@ -842,13 +937,31 @@ classes:
                     type: Array
                   - name: last
                     type: Boolean
+                    desc: 设置为 <code>true</code> 则保留相同的值中最后的那个
                 return: Array
                 desc: >
-                  <p>数字型字符串会被转化为数字。如果 <code>last</code> 的值为 <code>true</code>，则保留相同的值中最后的那个。</p>
-                demo: 
+                  <div class="note">
+                    <p>需要说明以下几点：</p>
+                    <ol>
+                      <li>只作用于原始值；</li>
+                      <li>数字型字符串会被转化为数字。</li>
+                    </ol>
+                  </div>
+                demo: >
+                  var arr = [1, 2, "1", [true], 4, [true]];
+
+
+                  Tatami.unique(arr);
+
+                  => [1, 2, [true], 4, [true]]
+
+
+                  Tatami.unique(arr, true);
+
+                  => [2, 1, [true], 4, [true]]
           - func: range
             desc: >
-              <p>创建一个包含指定范围单元的数组。</p>
+              <p>创建一个包含指定范围单元的数组</p>
             invoke:
               - statement: 'Tatami.range(from, to[, step])'
                 arguments:
@@ -858,10 +971,52 @@ classes:
                     type: Number / String
                   - name: step
                     type: Number
+                    desc: 只能为正数，默认值为 <code>1</code>。
                 return: Array
                 desc: >
                   <p>返回数组中从 <code>from</code> 到 <code>to</code> 的单元，包括它们本身。如果 <code>from</code> 大于 <code>to</code>，则序列将从 <code>to</code> 到 <code>from</code>。</p>
-                demo: 
+                demo: >
+                  Tatami.range(5, -5);
+
+                  => [5, 4, 3, 2, 1, 0, -1, -2, -3, -4, -5]
+
+
+                  Tatami.range(1, 10);
+
+                  => [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+
+                  // step 为整数
+
+                  Tatami.range(-10, 10, 2);
+
+                  => [-10, -8, -6, -4, -2, 0, 2, 4, 6, 8, 10]
+
+
+                  // step 为小数
+
+                  Tatami.range(-10, 10, 2.5);
+
+                  => [-10, -7.5, -5, -2.5, 0, 2.5, 5, 7.5, 10]
+
+
+                  // step 为负数时被忽略，采用默认的 1
+
+                  Tatami.range(1, 10, -5);
+
+                  => [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+
+                  // 字符
+
+                  Tatami.range("a", "h");
+
+                  => ["a", "b", "c", "d", "e", "f", "g", "h"]
+
+
+                  Tatami.range("h", "a", 2);
+
+                  => ["h", "f", "d", "b"]
           - func: reduce
             desc: 
             invoke:
@@ -871,16 +1026,39 @@ classes:
                     type: Array
                   - name: callback
                     type: Function
+                    desc: >
+                      <p>每次都会传入四个参数：上次迭代的返回值（<code>previousValue</code>）、当前值（<code>currentValue</code>）、当前索引（<code>index</code>）和被迭代的数组（<code>array</code>）。</p>
                   - name: initialValue
                     type: 
+                    desc: 第一次迭代时传入 <code>callback</code> 作为第一个参数的值
                   - name: right
                     type: Boolean
+                    desc: 从右侧开始迭代
                 return: 
                 desc: 
-                demo: 
+                demo: >
+                  Tatami.reduce([1, 2, 3], function( prev, curr ) {
+                    return String(prev) + String(curr);
+                  });
+
+                  => "123"
+
+
+                  Tatami.reduce([1, 2, 3], function( prev, curr ) {
+                    return String(prev) + String(curr);
+                  }, 9);
+
+                  => "9123"
+
+
+                  Tatami.reduce([1, 2, 3], function( prev, curr ) {
+                    return String(prev) + String(curr);
+                  }, 9, true);
+
+                  => "9321"
           - func: flatten
             desc: >
-              <p>将嵌套数组扁平化。</p>
+              <p>将嵌套数组扁平化</p>
             invoke:
               - statement: 'Tatami.flatten(target)'
                 arguments:
@@ -888,9 +1066,13 @@ classes:
                     type: Array
                 return: Array
                 desc: 
-                demo: 
+                demo: >
+                  Tatami.flatten([1, [2, [3, [4, 5, 5, 5]], 5]]);
+
+                  => [1, 2, 3, 4, 5, 5, 5, 5]
           - func: shuffle
-            desc: 
+            desc: >
+              <p>打乱数组元素</p>
             invoke:
               - statement: 'Tatami.shuffle(target)'
                 arguments:
@@ -898,7 +1080,21 @@ classes:
                     type: Array
                 return: Array
                 desc: 
-                demo: 
+                demo: >
+                  var arr = [1, 2, 3, 4, 5, 6];
+
+
+                  var newArr = Tatami.shuffle(arr);
+
+
+                  console.log(newArr);
+
+                  => [2, 4, 3, 5, 6, 1]
+
+
+                  console.log(newArr === arr);
+
+                  => false
       - name: 日期时间
         flag: date
         apis:
