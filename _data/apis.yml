@@ -442,6 +442,7 @@ classes:
                     return chr % 2 === 1;
                   });
 
+
                   console.log(strDemo);
 
                   => "1357"
@@ -487,6 +488,7 @@ classes:
                   var strDemo = Tatami.map("1234567", function( chr, index, str ) {
                     return (index === 0 ? "" : "-") + chr * index;
                   });
+
 
                   console.log(strDemo);
 
@@ -1018,7 +1020,8 @@ classes:
 
                   => ["h", "f", "d", "b"]
           - func: reduce
-            desc: 
+            desc: >
+              <p>对数组中的每个单元进行处理，最后返回一个值。</p>
             invoke:
               - statement: 'Tatami.reduce(array, callback[, initialValue][, right])'
                 arguments:
@@ -1044,6 +1047,8 @@ classes:
                   => "123"
 
 
+                  // 设置 initialValue
+
                   Tatami.reduce([1, 2, 3], function( prev, curr ) {
                     return String(prev) + String(curr);
                   }, 9);
@@ -1051,6 +1056,8 @@ classes:
                   => "9123"
 
 
+                  // 从右侧开始迭代
+                  
                   Tatami.reduce([1, 2, 3], function( prev, curr ) {
                     return String(prev) + String(curr);
                   }, 9, true);
