@@ -1,7 +1,7 @@
 # 开发博客的 URL
 site: http://dev.ourai.ws
 # 当前 repo 的 URL
-root: http://ourai.github.io/tatami
+root: http://dev.ourai.ws/tatami
 
 js: assets/javascripts
 css: assets/stylesheets
