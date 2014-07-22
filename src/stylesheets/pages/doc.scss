@@ -1,12 +1,45 @@
 @import "../helpers";
 
-h1 {
-  font: {
-    family: Serif;
-    size: 50px;
-  }
 
-  margin: 0 0 20px 0;
+.layout-sub {
+  h1 {
+    margin: 0 0 30px -30px;
+    text-align: center;
+    font: {
+      family: serif;
+      size: 50px;
+    }
+
+    .version {
+      display: block;
+      font: {
+        size: 14px;
+        weight: normal;
+      }
+    }
+  }
+}
+
+.layout-nav {
+  ul {
+    padding: 0;
+    margin: 20px 0 0 0;
+    @include no_item;
+  }
+}
+
+.layout-content {
+  overflow: visible !important;
+  position: relative;
+}
+
+.toc {
+  position: absolute;
+  top: 0;
+  left: 110%;
+  a {
+    color: $color-text !important;
+  }
 }
 
 .toc-title {
@@ -31,6 +64,7 @@ h1 {
 
   li {
     margin-bottom: 3px;
+    white-space: nowrap;
   }
 }
 

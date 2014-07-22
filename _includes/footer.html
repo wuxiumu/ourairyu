@@ -7,7 +7,7 @@
         <ul>
           <li><a href="{{ site.data.url.about }}">关于本站</a></li>
           <li><a href="{{ site.data.url.project }}">商业项目</a></li>
-          <!-- <li><a href="{{ site.data.url.link }}">链接</a></li> -->
+          <li><a href="{{ site.data.url.link }}">外部链接</a></li>
         </ul>
       </div>
       <!-- Other links -->
@@ -15,8 +15,9 @@
         <b>狡兔三窟</b>
         <ul>
           <li><a href="{{ site.data.author.website.url }}" target="_blank" rel="external nofollow">{{ site.data.author.website.name }}</a></li>
-          <li><a href="http://weibo.com/ourairyu" target="_blank" rel="external nofollow">微博</a></li>
           <li><a href="https://github.com/ourai" target="_blank" rel="external nofollow">GitHub</a></li>
+          <li><a href="http://segmentfault.com/u/ourai" target="_blank" rel="external nofollow">SegmentFault</a></li>
+          <li><a href="http://weibo.com/ourairyu" target="_blank" rel="external nofollow">微博</a></li>
         </ul>
       </div>
     </div>
@@ -38,7 +39,14 @@
 </footer>
 {% assign js_url = site.data.url.root | append: "/" | append: site.data.url.js %}
 <!-- <script src="{{ js_url }}/site.js"></script> -->
+{% if page.layout_js %}
+<!-- Scripts for template -->
+  {% for js in page.layout_js %}
+<script src="{{ js_url }}/{{ js }}.js"></script>
+  {% endfor %}
+{% endif %}
 {% if page.js %}
+<!-- Scripts for page -->
   {% for js in page.js %}
 <script src="{{ js_url }}/{{ js }}.js"></script>
   {% endfor %}

@@ -2,13 +2,23 @@
 template: doc
 ---
 
+{% assign root = site.data.url.root %}
 {% include intro.html %}
   <div class="layout-sub">
-    <a class="toc-title" href="javascript:void(0);">Tatami <span class="version">({{ site.data.apis.version }})</span></a>
-    <ul class="toc-section">
-      <li>&raquo; <a href="https://github.com/ourai/tatami">GitHub Repository</a></li>
-    </ul>
-    <a class="toc-title" href="#introduction">介绍</a>
+    <h1><ruby lang="ja"><rb>畳</rb><rp>（</rp><rt>たたみ</rt><rp>）</rp></ruby><span class="version">({{ site.data.apis.version }})</span></h1>
+    <nav class="layout-nav">
+      <ul>
+        <li><a href="{{ root }}">Home</a></li>
+      </ul>
+      <ul>
+        <li><a href="{{ root }}/start/">Start</a></li>
+        <li><a href="{{ root }}/download/">Download</a></li>
+        <li><a href="{{ root }}/api/">API</a></li>
+      </ul>
+      <ul>
+        <li><a href="https://github.com/ourai/tatami" target="_blank">GitHub</a></li>
+      </ul>
+    </nav>
   </div>
   <main class="layout-main">
     <div class="layout-content">{{ content }}</div>

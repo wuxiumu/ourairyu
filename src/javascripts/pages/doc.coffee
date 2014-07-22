@@ -1,6 +1,4 @@
 Tatami.ready ->
-  $("#apiCount").text Tatami.keys(Tatami).length
-
   $("#documentation h3").each ( idx ) ->
     h = $(this)
     id = h.attr "id"
@@ -9,7 +7,7 @@ Tatami.ready ->
       id = "heading#{idx + 1}"
       h.attr "id", id
 
-    toc = $(".layout-sub")
+    toc = $(".toc")
     
     toc
       .append "<a href=\"##{id}\" class=\"toc-title\">#{h.text()}</a>"

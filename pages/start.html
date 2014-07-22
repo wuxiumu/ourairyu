@@ -1,0 +1,20 @@
+---
+layout: doc
+layout_type: frameset
+
+permalink: /start/
+
+css:
+  - highlight
+  - pages/doc
+js:
+  - pages/doc
+---
+{% assign doc_info = site.data.apis %}
+<section id="introduction">
+  <h2 class="heading">使用方法</h2>
+{% highlight html %}
+<script src="jquery.js"></script>
+<script src="tatami.js"></script>
+{% endhighlight %}
+</section>
