@@ -70,6 +70,10 @@ body[data-page="reference"] a[data-page="reference"] {
 
   a {
     color: $color-text !important;
+
+    &:first-child {
+      margin-top: 0;
+    }
   }
 }
 
@@ -107,6 +111,11 @@ body[data-page="reference"] a[data-page="reference"] {
 
 #documentation {
   overflow: hidden;
+
+  .heading:first-child {
+    margin-top: 0;
+    padding-top: 0;
+  }
 
   dt,
   dd {
