@@ -1,42 +1,73 @@
 @import "../helpers";
 
+code,
+pre {
+  font-size: 12px;
+}
 
-.layout-sub {
-  h1 {
-    margin: 0 0 30px -30px;
-    text-align: center;
-    font: {
-      family: serif;
-      size: 50px;
+body[data-page="overview"] a[data-page="overview"],
+body[data-page="reference"] a[data-page="reference"] {
+  color: $color-text !important;
+}
+
+.layout-container {
+  & > header {
+    overflow: hidden;
+
+    .layout-inner {
+      position: relative;
+      border-bottom: 1px solid #D8D8D8;
     }
 
-    .version {
-      display: block;
+    $b_gap: 10px;
+
+    h1 {
+      margin: 50px 0 $b_gap;
       font: {
-        size: 14px;
+        size: 30px;
         weight: normal;
+      }
+      line-height: 1;
+
+      .version {
+        margin-left: .7em;
+        font: {
+          size: 14px;
+          weight: normal;
+        }
+      }
+    }
+
+    .subnav {
+      position: absolute;
+      right: 0;
+      bottom: $b_gap;
+      
+      ul {
+        @include no_gap;
+        @include no_item;
+        overflow: hidden;
+      }
+
+      li {
+        float: left;
+        margin-left: 20px;
       }
     }
   }
 }
 
-.layout-nav {
-  ul {
-    padding: 0;
-    margin: 20px 0 0 0;
-    @include no_item;
+.layout-content {
+  padding: {
+    top: 30px;
+    bottom: 30px;
   }
 }
 
-.layout-content {
-  overflow: visible !important;
-  position: relative;
-}
-
 .toc {
-  position: absolute;
-  top: 0;
-  left: 110%;
+  float: right;
+  margin-left: 70px;
+
   a {
     color: $color-text !important;
   }
@@ -47,13 +78,6 @@
   margin-top: 15px;
   font-weight: bold;
   text-decoration: underline !important;
-
-  .version {
-    font: {
-      size: 12px;
-      weight: normal;
-    }
-  }
 }
 
 .toc-section {
@@ -75,10 +99,6 @@
   }
 }
 
-#apiCount {
-  font-weight: bold;
-}
-
 #downloadFiles {
   td {
     padding: .15em .9em .15em 0;
@@ -86,6 +106,8 @@
 }
 
 #documentation {
+  overflow: hidden;
+
   dt,
   dd {
     @include no_gap;

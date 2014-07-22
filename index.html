@@ -1,6 +1,8 @@
 ---
-layout: page
+layout: tatami
 layout_type: sandwich
+
+page_category: overview
 
 css:
   - highlight
@@ -9,7 +11,27 @@ js:
   - pages/doc
 ---
 <section>
-  <p>「畳」，即 <b>Tatami</b>，是一个运行在浏览器端的 JavaScript 库，提供了共计 <span id="apiCount">0</span> 个有用的属性和方法使新项目的前端开发变得简单、轻松！方法主要分为<b>数据操作</b>和<b>项目开发</b>两大类。大部分 API 的设计参考了 ECMAScript 5、PHP、jQuery 等语言和库，很容易就能够上手。</p>
+  <p>「畳」，即 <b>Tatami</b>，是一个运行在浏览器端的 JavaScript 库，提供了大量有用的属性和方法使新项目的前端开发变得简单、轻松！方法主要分为<b>数据操作</b>和<b>项目开发</b>两大类。大部分 API 的设计参考了 ECMAScript 5、PHP、jQuery 等语言和库，很容易就能够上手。</p>
   <p><img src="{{ site.data.url.root }}/{{ site.data.url.img }}/jsr.png" alt="JavaScript Revolution"></p>
   <p>本项目托管于 <a href="https://github.com/ourai/tatami">GitHub</a>。如果发现 bug 或有任何建议，欢迎到 <a href="https://github.com/ourai/tatami/issues">issue</a> 页面提出。</p>
+  <h2 class="heading">下载</h2>
+  {% assign doc_info = site.data.apis %}
+  <p>当前版本：<span class="version">{{ doc_info.version }}</span></p>
+  <table id="downloadFiles">
+    <tbody>
+      <tr>
+        <td><a href="{{ doc_info.files.development.path }}">开发版</a>（{{ doc_info.files.development.size | upcase }}）</td>
+        <td class="file_desc"><i>未压缩并有丰富的注释</i></td>
+      </tr>
+      <tr>
+        <td><a href="{{ doc_info.files.production.path }}">产品版</a>（{{ doc_info.files.production.size | upcase }}）</td>
+        <td class="file_desc"><i>已压缩</i><small>（<a href="{{ doc_info.files.source_map }}">Source Map</a>）</small></td>
+      </tr>
+    </tbody>
+  </table>
+  <h2 class="heading">使用方法</h2>
+{% highlight html %}
+<script src="jquery.js"></script>
+<script src="tatami.js"></script>
+{% endhighlight %}
 </section>

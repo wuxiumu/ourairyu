@@ -1,0 +1,37 @@
+---
+template: tatami
+
+layout_type: sandwich
+layout_css:
+  - highlight
+  - pages/tatami
+layout_js:
+  - pages/doc
+---
+
+{% include intro.html %}
+{% include header.html %}
+  <main class="layout-container">
+    <!-- Page's header -->
+    <header>
+      <div class="layout-inner">
+        <h1>{{ site.data.info.title.en }}<span class="version">({{ site.data.apis.version }})</span></h1>
+        <nav class="subnav">
+          {% assign root = site.data.url.root %}
+          <ul>
+            <li><a href="{{ root }}" data-page="overview">Overview</a></li>
+            <li><a href="{{ root }}/api/" data-page="reference">Reference</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <!-- Page's main content -->
+    <div class="layout-content layout-inner">
+      {{ content }}
+      {% if page.comments == true %}
+        {% include disqus.html %}
+      {% endif %}
+    </div>
+  </main>
+{% include footer.html %}
+{% include outro.html %}
