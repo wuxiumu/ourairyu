@@ -1,0 +1,31 @@
+---
+layout: page
+layout_type: sandwich
+
+page_category: articles
+
+title: 文章列表
+description: Web 技术的研究总结与笔记等
+permalink: /posts/
+---
+
+{% assign posts = site.posts %}
+{% assign start = posts.last.date | date: "%Y" %}
+{% assign end = site.time | date: "%Y" %}
+<div class="statistic">
+  <p>{{ end | minus: start }} 年（{{ start }}～{{ end }}）间总共发表了 {{ posts.size }} 篇文章，分布于 <a href="/categories/">{{ site.categories.size }}</a> 个类别中，被打上 <a href="/tags/">{{ site.tags.size }}</a> 个标签。</p>
+</div>
+<div class="articles">
+  {% for post in posts %}
+    <article>
+      <header>
+        <h2 class="article-title"><a href="{{ post.url }}">{{ post.title }}</a></h2>
+        <div class="article-meta">
+          <time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: "%b %-d, %Y" }}</time>
+        </div>
+      </header>
+      <div>{{ post.excerpt }}</div>
+      <footer><a href="{{ post.url }}">more</a></footer>
+    </article>
+  {% endfor %}
+</div>

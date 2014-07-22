@@ -1,18 +1,25 @@
-<!DOCTYPE html>
-<html lang="zh" dir="ltr">
-  <head>
-    <meta charset="UTF-8">
-    <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.data.info.title.zh }}</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="keywords" content="{{ page.keywords || site.data.info.keywords || '' }}">
-    <meta name="description" content="{{ page.desc || site.data.info.description || '' }}">
-    <link rel="author" href="https://plus.google.com/110971881899489153670/">
-    <link rel="shortcut icon" href="{{ site.data.url.root }}/{{ site.data.url.img }}favicon.ico">
-    <link rel="stylesheet" href="{{ site.data.url.root }}/{{ site.data.url.css }}base.css">
-  </head>
-  <body>
-    <div id="wrapper">
-      {{ content }}
-    </div>
-  </body>
-</html>
+---
+template: demo
+
+layout_css:
+  - highlight
+layout_js:
+  - demo
+---
+
+{% include intro.html %}
+  <header class="demo-summary">
+    <a href="#example" class="demo-switcher">示例</a><a href="#code" class="demo-switcher">源码</a>
+  </header>
+  {{ content }}
+  {% if page.layout_js %}
+    {% for js in page.layout_js %}
+  <script src="{{ js_url }}/{{ js }}.js"></script>
+    {% endfor %}
+  {% endif %}
+  {% if page.js %}
+    {% for js in page.js %}
+  <script src="{{ js_url }}/{{ js }}.js"></script>
+    {% endfor %}
+  {% endif %}
+{% include outro.html %}

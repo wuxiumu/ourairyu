@@ -1,4 +1,17 @@
 root: http://ourai.github.io/tatami
+
 js: assets/javascripts
 css: assets/stylesheets
 img: assets/images
+
+article: /posts/
+demo: /demos/
+doc: /docs/
+spec: /specs/
+repository: /repositories/
+project: /projects/
+category: /categories/
+link: /links/
+topic: /topics/
+about: /about/
+skill: /skills/

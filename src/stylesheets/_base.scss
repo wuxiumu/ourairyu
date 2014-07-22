@@ -1,7 +1,6 @@
 body {
   font-size: 14px;
   line-height: $line_height;
-  background: #F5F5F5 url("../images/header-background.png");
 }
 
 a {
@@ -17,26 +16,8 @@ a {
   }
 }
 
-code,
-pre {
-  font-size: 12px;
-}
-
-// code {
-//   padding: 1px 3px;
-//   border: 1px solid #D3D3D3;
-//   @include border-radius(2px);
-//   background-color: #F7F7F7;
-// }
-
 pre {
   @include block_content;
-
-  // code {
-  //   padding: 0;
-  //   border: none;
-  //   background-color: transparent;
-  // }
 }
 
 blockquote {
