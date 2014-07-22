@@ -420,7 +420,8 @@ classes:
 
                   => 10
           - func: max
-            desc: 
+            desc: >
+              <p>求集合中的最大值</p>
             invoke:
               - statement: 'Tatami.max(target[, callback][, context])'
                 arguments:
@@ -471,7 +472,8 @@ classes:
 
                   => -2
           - func: min
-            desc: 
+            desc: >
+              <p>求集合中的最小值</p>
             invoke:
               - statement: 'Tatami.min(target[, callback][, context])'
                 arguments:
@@ -526,7 +528,7 @@ classes:
         apis:
           - func: mixin
             desc: >
-              <p>扩展指定对象。</p>
+              <p>扩展指定对象</p>
             invoke:
               - statement: 'Tatami.mixin(target[, object1][, objectN])'
                 arguments:
@@ -544,9 +546,11 @@ classes:
 
                   Tatami.mixin({foo: true, bar: false});
 
+
                   Tatami.foo;
 
                   => true
+
 
                   Tatami.bar;
 
@@ -571,11 +575,76 @@ classes:
                 arguments:
                   - name: data
                     type: Array / Plain object
+                    desc: 具备特定格式的数据
                   - name: target
                     type: Object
+                    desc: 被扩充的对象
                 return: Object
-                desc:
-                demo:
+                desc: >
+                  <p>返回值为包含通过 <code>data</code> 构造的方法的对象，如果省略 <code>target</code> 则返回一个新对象。</p>
+                  <p><code>data</code> 的基本结构为：</p>
+                  <pre><code>{
+                    validator: function() {},
+                    value: "",
+                    handlers: [
+                      {
+                        name: "methodName",
+                        handler: function() {},
+                        validator: function() {},
+                        value: ""
+                      }
+                    ]
+                  }</code></pre>
+                  <p>其中 <code>validator</code> 用于验证参数合法性，<code>value</code> 为验证不通过时的返回值，它们都是可省略的。</p>
+                demo: >
+                  var Geometry = Tatami.extend({
+                    Graphic: {
+                      Circle: {
+                        validator: function( radius ) {
+                          return typeof radius === "number";
+                        },
+                        value: 0,
+                        handlers: [{
+                            name: "perimeter",
+                            handler: function( radius ) {
+                              return Math.PI * radius * 2;
+                            }
+                          }]
+                      },
+                      Rectangle: {
+                        handlers: [{
+                            name: "area",
+                            handler: function( width, height ) {
+                              return true;
+                            },
+                            validator: function( width, height ) {
+                              return typeof width === "number" && typeof height === "number";
+                            },
+                            value: 0
+                          }]
+                      }
+                    }
+                  });
+
+                  
+                  Geometry;
+
+                  => Object {perimeter: function, area: function}
+
+
+                  Tatami.extend({
+                    handlers: [{
+                      name: "volume",
+                      handler: function( a, b, h ) {
+                        return a * b * h;
+                      }
+                    }]
+                  }, Geometry);
+
+
+                  Geometry;
+
+                  => Object {perimeter: function, area: function, volume: function}
           - func: hasProp
             desc: >
               <p>判断指定对象自身是否拥有指定属性。</p>
@@ -626,27 +695,19 @@ classes:
                     type: Object
                 return: Array
                 desc: 
-                demo: 
-          # - func: 
-          #   desc: >
-          #   invoke:
-          #     - statement: 
-          #       arguments:
-          #         - name: 
-          #           type: 
-          #       return: 
-          #       desc: 
-          #       demo: >
-          # - func: 
-          #   desc: >
-          #   invoke:
-          #     - statement: 
-          #       arguments:
-          #         - name: 
-          #           type: 
-          #       return: 
-          #       desc: 
-          #       demo: >
+                demo: >
+                  var obj = {
+                    foo: "foo",
+                    bar: "bar",
+                    foobar: function() {
+                      return this.foo + this.bar;
+                    }
+                  };
+
+
+                  Tatami.keys(obj);
+
+                  => ["bar", "foo", "foobar"]
       - name: 数组及类数组
         flag: arrays
         apis:
