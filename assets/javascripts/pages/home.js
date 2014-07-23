@@ -1,1 +1,45 @@
-(function(){var a,b,c,d,e;d={miso:{name:{zh:"味噌",en:"Miso"},description:"对 JavaScript 新建对象的成员方法进行统一的参数验证及返回值"},ronin:{name:{zh:"浪人",en:"Rōnin"},description:"DOM 无关的 JavaScript 解决方案、增强库"},tatami:{name:{zh:"畳",en:"Tatami"},description:"为新项目的前端开发提供基础设施"},matcha:{name:{zh:"抹茶",en:"Matcha"},description:"UI 库"}},a=function(a,b){return-(e(a.pushed_at).getTime()-e(b.pushed_at).getTime())},c=function(a){var c,e,f,g,h,i;return g=$("<li>",{"class":"repo"}),h=a.name,f=d[h],f?(h=f.name.en,c=f.description):c=a.description,e=a.homepage,i=e?'<a href="'+e+'">'+h+"</a>":'<a href="'+a.html_url+'" rel="external nofollow" target="_blank">'+h+"</a>",g.append("<div />").children("div").append("<h3>"+i+"</h3>").append('<span class="repo_lang">'+a.language+"</span>").append("<time>更新于"+b(a.pushed_at)+"</time>").append("<p>"+c+"</p>"),g},e=function(a){var b,c;return b=new Date(a),isNaN(b)&&(c=a.match(/(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2})Z/),b=new Date,b.setUTCFullYear(c[1],c[2]-1,c[3]),b.setUTCHours(c[4],c[5],c[6])),b},b=function(a){var b,c,d,f,g,h;for(b=e(a),f=(new Date-b)/1e3,d=[[60,"秒",1],[120," 1 分前"],[3600,"分",60],[7200," 1 小时前"],[86400,"小时",3600],[172800,"昨天"],[604800,"天",86400],[1209600," 1 周前"],[2678400,"周",604800]],g=0,h=d.length;h>g;g++)if(c=d[g],f<c[0])return c[2]?" "+Math.floor(f/c[2])+" "+c[1]+"前":c[1];return"很久之前"},$.getJSON("https://api.github.com/users/ourai/repos?callback=?",function(b){var d;return d=b.data,$.isArray(d)?$(function(){return d.sort(a),$.each(d,function(a,b){return"ourai.github.io"!==b.name&&b.language?$(".repos").append(c(b)):void 0})}):void 0})}).call(this);
+(function() {
+  var prettyDate, repo;
+
+  repo = function(data, repoInfo) {
+    var desc, homepage, info, item, name, url;
+    item = $("<li>", {
+      "class": "repo"
+    });
+    name = data.name;
+    info = repoInfo[name];
+    if (info) {
+      name = info.name.en;
+      desc = info.description;
+    } else {
+      desc = data.description;
+    }
+    homepage = data.homepage;
+    if (homepage) {
+      url = "<a href=\"" + homepage + "\">" + name + "</a>";
+    } else {
+      url = "<a href=\"" + data.html_url + "\" rel=\"external nofollow\" target=\"_blank\">" + name + "</a>";
+    }
+    item.append("<div />").children("div").append("<h3>" + url + "</h3>").append("<span class=\"repo_lang\">" + data.language + "</span>").append("<time>更新于" + (prettyDate(data.pushed_at)) + "</time>").append("<p>" + desc + "</p>");
+    return $(".repos").append(item);
+  };
+
+  prettyDate = function(time) {
+    var date, f, formats, seconds, _i, _len;
+    date = Tatami.run("transformISO", time);
+    seconds = (new Date() - date) / 1000;
+    formats = [[60, "秒", 1], [120, " 1 分前"], [3600, "分", 60], [7200, " 1 小时前"], [86400, "小时", 3600], [172800, "昨天"], [604800, "天", 86400], [1209600, " 1 周前"], [2678400, "周", 604800]];
+    for (_i = 0, _len = formats.length; _i < _len; _i++) {
+      f = formats[_i];
+      if (seconds < f[0]) {
+        return (f[2] ? " " + (Math.floor(seconds / f[2])) + " " + f[1] + "前" : f[1]);
+      }
+    }
+    return "很久之前";
+  };
+
+  Tatami.ready(function() {
+    return Tatami.run("getRepos", repo);
+  });
+
+}).call(this);
