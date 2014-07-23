@@ -104,7 +104,15 @@ body[data-page="reference"] a[data-page="reference"] {
 }
 
 #downloadFiles {
+  table-layout: auto;
+  width: auto;
+  
+  tr {
+    background-color: transparent;
+  }
+
   td {
+    border: none;
     padding: .15em .9em .15em 0;
   }
 }

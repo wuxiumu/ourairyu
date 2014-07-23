@@ -26,7 +26,7 @@
     {% assign repo_css_url = site.data.url.root | append: "/" | append: site.data.url.css %}
     <link rel="stylesheet" href="{{ site_css_url }}/matcha.min.css">
     <link rel="stylesheet" href="{{ site_css_url }}/highlight.css">
-    <link rel="stylesheet" href="{{ repo_css_url }}/site.css">
+    <link rel="stylesheet" href="{{ site_css_url }}/site.css">
     {% if page.layout_css %}
     <!-- Style sheets for template -->
       {% for css in page.layout_css %}
