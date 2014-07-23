@@ -12,7 +12,8 @@
 }
 
 [data-page="articles"] article,
-[data-page="projects"] .project {
+[data-page="projects"] .project,
+[data-page="repos"] .repo {
   padding: 1em .333333333em;
   border-top: 1px solid #FFF;
   border-bottom: 1px solid #BFBFBF;
@@ -29,7 +30,8 @@
 }
 
 [data-page="articles"] .article-title,
-[data-page="projects"] .project-name {
+[data-page="projects"] .project-name,
+[data-page="repos"] .repo-name {
   font-size: 1.2em;
   margin: 0;
 
