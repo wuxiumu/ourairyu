@@ -104,23 +104,8 @@
 }
 
 [data-page="skills"] {
-  .heading {
-    border-bottom: 1px dashed #D0D0D0;
-    padding: 1em 0 .3em;
-    margin-bottom: .6em;
-    clear: left;
-    overflow: hidden;
-  }
-
-  table {
-    table-layout: fixed;
-    width: 100%;
-  }
-
-  th,
-  td {
-    border: 1px solid #C5CACE;
-    padding: 7px 10px;
+  table tr:nth-child(2n) {
+    background-color: #FFF;
   }
 }
 
