@@ -50,7 +50,11 @@ module.exports = ( grunt ) ->
         dest: "<%= meta.assets_js %>"
         ext: ".js"
     uglify:
-      build:
+      common:
+        files:
+          "<%= meta.assets_js %>/site.js": ["<%= meta.assets_js %>/site.js"]
+          "<%= meta.assets_js %>/demo.js": ["<%= meta.assets_js %>/demo.js"]
+      pages:
         expand: true
         cwd: "<%= meta.assets_js %>/pages"
         src: ["**/*.js"]

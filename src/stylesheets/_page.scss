@@ -12,8 +12,7 @@
 }
 
 [data-page="articles"] article,
-[data-page="projects"] .project,
-[data-page="repos"] .repo {
+[data-page="projects"] .project {
   padding: 1em .333333333em;
   border-top: 1px solid #FFF;
   border-bottom: 1px solid #BFBFBF;
@@ -30,8 +29,7 @@
 }
 
 [data-page="articles"] .article-title,
-[data-page="projects"] .project-name,
-[data-page="repos"] .repo-name {
+[data-page="projects"] .project-name {
   font-size: 1.2em;
   margin: 0;
 
@@ -65,6 +63,18 @@
     height: 200px;
     @include covered_background;
     margin-bottom: 15px;
+  }
+
+  .Tabs {
+    .Tabs-trigger.is-selected {
+      border-bottom-color: #F7F7F7;
+      background-color: transparent;
+    }
+
+    .Tabs-content {
+      padding: 2em 0 0;
+      background-color: transparent;
+    }
   }
 }
 

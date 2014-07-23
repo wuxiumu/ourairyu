@@ -1,5 +1,5 @@
 repo = ( data, repoInfo ) ->
-  item = $("<section>", class: "repo")
+  item = $("<section>", class: "project")
   name = data.name
   info = repoInfo[name]
 
@@ -17,11 +17,11 @@ repo = ( data, repoInfo ) ->
     url = "<a href=\"#{data.html_url}\" rel=\"external nofollow\" target=\"_blank\">#{name}</a>"
 
   item
-    .append "<header></header><div class=\"repo-desc\"><p>#{desc}</p></div>"
+    .append "<header></header><div class=\"project-description\"><p>#{desc}</p></div>"
     .children "header"
-    .append "<h2 class=\"repo-name\">#{url}</h2>"
+    .append "<h2 class=\"project-name\">#{url}</h2>"
 
-  $(".layout-content").append item
+  $(".repos").append item
 
 Tatami.ready ->
   Tatami.run "getRepos", repo
