@@ -16,6 +16,25 @@ a {
   }
 }
 
+table {
+  table-layout: fixed;
+  width: 100%;
+
+  tr {
+    background-color: #FFF;
+
+    &:nth-child(2n) {
+      background-color: #F8F8F8;
+    }
+  }
+
+  th,
+  td {
+    border: 1px solid #C5CACE;
+    padding: 7px 10px;
+  }
+}
+
 pre {
   @include block_content;
 }
