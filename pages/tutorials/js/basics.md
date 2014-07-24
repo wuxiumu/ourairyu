@@ -98,21 +98,21 @@ ES 运算符和语句期望使用多样化的数据类型，并可以相互转�
 
 值 | 字符串 | 数字 | 布尔值 | 对象
 ---|--------|------|--------|-----
-undefined | "undefined" | NaN | false | throws TypeError
-null | "null" | 0 | false | throws TypeError
-true | "true" | 1 |  | new Boolean(true)
-false | "false" | 0 |  | new Boolean(false)
-"" |  | 0 | false | new String("")
-"1.2" |  | 1.2 | true | new String("1.2")
-"one" |  | NaN | true | new String("one")
-0 | "0" |  | false | new Number(0)
--0 | "0" |  | false | new Number(-0)
-NaN | "NaN" |  | false | new Number(NaN)
-Infinity | "Infinity" |  | true | new Number(Infinity)
--Infinity | "-Infinity" |  | true | new Number(-Infinity)
-1 | "1" |  | true | new Number(1)
-{} |  |  | true |
-[] | "" | 0 | true |
-[9] | "9" | 9 | true |
-["a", "b"] | "a,b" | NaN | true |
-function() {} | | NaN | true |
+`undefined` | `"undefined"` | `NaN` | `false` | throws TypeError
+`null` | `"null"` | `0` | `false` | throws TypeError
+`true` | `"true"` | `1` |  | `new Boolean(true)`
+`false` | `"false"` | `0` |  | `new Boolean(false)`
+`""` |  | `0` | `false` | `new String("")`
+`"1.2`" |  | `1.2` | `true` | `new String("1.2")`
+`"one"` |  | `NaN` | `true` | `new String("one")`
+`0` | `"0"` |  | `false` | `new Number(0)`
+`-0` | `"0"` |  | `false` | `new Number(-0)`
+`NaN` | `"NaN"` |  | `false` | `new Number(NaN)`
+`Infinity` | `"Infinity"` |  | `true` | `new Number(Infinity)`
+`-Infinity` | `"-Infinity"` |  | `true` | `new Number(-Infinity)`
+`1` | `"1"` |  | `true` | `new Number(1)`
+`{}` |  |  | `true` |
+`[]` | `""` | `0` | `true` |
+`[9]` | `"9"` | `9` | `true` |
+`["a", "b"]` | `"a,b"` | `NaN` | `true` |
+`function() {}` | | `NaN` | `true` |
