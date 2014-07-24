@@ -2,7 +2,7 @@
 <html lang="{{ site.data.info.lang }}" dir="ltr">
   <head>
     <meta charset="UTF-8">
-    <title>{% assign site_title = site.data.info.title.en %}{% if page.title %}{{ page.title }} - {{ site_title }}{% else %}{{ site_title }}, makes Front-end web development EASY!!!{% endif %}</title>
+    <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.data.info.title.zh }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% if page.keywords %}
       {% assign keywords = page.keywords %}
