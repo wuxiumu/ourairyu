@@ -1932,38 +1932,6 @@ classes:
       - name: 流程控制
         flag: flow
         apis:
-          - func: sandbox
-            desc: >
-              <p>启动封闭运行环境</p>
-            invoke:
-              - statement: 'Tatami.sandbox([settings])'
-                arguments:
-                  - name: settings
-                    type: Object
-                    desc: 系统配置参数
-                return: Object / Boolean
-                desc: >
-                  <p>通过 <code>Tatami.prepare</code> 和 <code>Tatami.ready</code> 加入到队列中的函数只有在调用该方法时才执行。每个页面只能调用一次。返回（修改后）的系统配置参数。</p>
-                demo: >
-                  // 未传参数时返回默认配置
-
-                  Tatami.sandbox();
-
-                  => Object {debug: true, platform: "", locale: "zh-CN", lang: "zh", api: ""}
-
-
-                  // 返回修改后的配置
-
-                  Tatami.sandbox({api: "v1", platform: "Tatami", version: "0.1.0"});
-
-                  => Object {debug: true, platform: "Tatami", locale: "zh-CN", lang: "zh", api: "v1", version: "0.1.0"}
-
-
-                  // 第二次调用
-
-                  Tatami.sandbox({invoke_time: 2});
-
-                  => false
           - func: prepare
             desc: >
               <p>添加需要在 DOMContentLoaded 之前调用的处理函数</p>
@@ -1996,6 +1964,38 @@ classes:
                   Tatami.ready(function() {
                     // Do sth.
                   });
+          - func: sandbox
+            desc: >
+              <p>启动封闭运行环境</p>
+            invoke:
+              - statement: 'Tatami.sandbox([settings])'
+                arguments:
+                  - name: settings
+                    type: Object
+                    desc: 系统配置参数
+                return: Object / Boolean
+                desc: >
+                  <p>通过 <code>Tatami.prepare</code> 和 <code>Tatami.ready</code> 加入到队列中的函数只有在调用该方法时才执行。每个页面只能调用一次。返回（修改后的）系统配置参数。</p>
+                demo: >
+                  // 未传参数时返回默认配置
+
+                  Tatami.sandbox();
+
+                  => Object {debug: true, platform: "", locale: "zh-CN", lang: "zh", api: ""}
+
+
+                  // 返回修改后的配置
+
+                  Tatami.sandbox({api: "v1", platform: "Tatami", version: "0.1.0"});
+
+                  => Object {debug: true, platform: "Tatami", locale: "zh-CN", lang: "zh", api: "v1", version: "0.1.0"}
+
+
+                  // 第二次调用
+
+                  Tatami.sandbox({invoke_time: 2});
+
+                  => false
       - name: 其他
         flag: other
         apis:
