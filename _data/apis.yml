@@ -1999,15 +1999,53 @@ classes:
       - name: 其他
         flag: other
         apis:
-          - func: encodeEntities
+          - func: queue
             desc: >
-              <p>将字符串中的一些字符转换为实体。</p>
+              <p>将外部处理函数引入到沙盒中。</p>
             invoke:
-              - statement: 'Tatami.encodeEntities(target)'
+              - statement: 'Tatami.queue(funcList)'
                 arguments:
-                  - name: target
+                  - name: funcList
+                    type: Object
+                return: undefined
+                desc: 
+                demo:
+              - statement: 'Tatami.queue(funcName, handler)'
+                arguments:
+                  - name: funcName
                     type: String
-                return: String
+                  - name: handler
+                    type: Function
+                return: Function
+                desc: 
+                demo:
+              - statement: 'Tatami.queue(funcName)'
+                arguments:
+                  - name: funcName
+                    type: String
+                return: Function
+                desc: 
+                demo:
+              - statement: 'Tatami.queue()'
+                return: Object
+                desc: 
+                demo:
+          - func: run
+            desc: >
+              <p>执行指定函数。</p>
+            invoke:
+              - statement: 'Tatami.run(funcName)'
+                arguments:
+                  - name: funcName
+                    type: String
+                return: 
+                desc: 
+                demo:
+              - statement: 'Tatami.run(funcNameList)'
+                arguments:
+                  - name: funcNameList
+                    type: Array
+                return: undefined
                 desc: 
                 demo:
           - func: config
@@ -2036,6 +2074,35 @@ classes:
                 arguments:
                   - name: function
                     type: Function
+                  - name: key
+                    type: String
+                return: 
+                desc: 
+                demo:
+          - func: data
+            desc: >
+              <p>获取 DOM 的「data-*」属性集或存储数据到内部/从内部获取数据。</p>
+            invoke:
+              - statement: 'Tatami.data(node)'
+                arguments:
+                  - name: node
+                    type: DOM
+                return: Object
+                desc: 
+                demo:
+              - statement: 'Tatami.data(key, data[, lock])'
+                arguments:
+                  - name: key
+                    type: String
+                  - name: data
+                    type: 
+                  - name: lock
+                    type: Boolean
+                return: 
+                desc: 
+                demo:
+              - statement: 'Tatami.data(key)'
+                arguments:
                   - name: key
                     type: String
                 return: 
@@ -2173,35 +2240,6 @@ classes:
                 return: Object
                 desc: 
                 demo:
-          - func: data
-            desc: >
-              <p>获取 DOM 的「data-*」属性集或存储数据到内部/从内部获取数据。</p>
-            invoke:
-              - statement: 'Tatami.data(node)'
-                arguments:
-                  - name: node
-                    type: DOM
-                return: Object
-                desc: 
-                demo:
-              - statement: 'Tatami.data(key, data[, lock])'
-                arguments:
-                  - name: key
-                    type: String
-                  - name: data
-                    type: 
-                  - name: lock
-                    type: Boolean
-                return: 
-                desc: 
-                demo:
-              - statement: 'Tatami.data(key)'
-                arguments:
-                  - name: key
-                    type: String
-                return: 
-                desc: 
-                demo:
           - func: save
             desc: >
               <p>将数据保存到本地。</p>
@@ -2280,55 +2318,6 @@ classes:
                 return: 
                 desc: 
                 demo:
-          - func: queue
-            desc: >
-              <p>将外部处理函数引入到沙盒中。</p>
-            invoke:
-              - statement: 'Tatami.queue(funcList)'
-                arguments:
-                  - name: funcList
-                    type: Object
-                return: undefined
-                desc: 
-                demo:
-              - statement: 'Tatami.queue(funcName, handler)'
-                arguments:
-                  - name: funcName
-                    type: String
-                  - name: handler
-                    type: Function
-                return: Function
-                desc: 
-                demo:
-              - statement: 'Tatami.queue(funcName)'
-                arguments:
-                  - name: funcName
-                    type: String
-                return: Function
-                desc: 
-                demo:
-              - statement: 'Tatami.queue()'
-                return: Object
-                desc: 
-                demo:
-          - func: run
-            desc: >
-              <p>执行指定函数。</p>
-            invoke:
-              - statement: 'Tatami.run(funcName)'
-                arguments:
-                  - name: funcName
-                    type: String
-                return: 
-                desc: 
-                demo:
-              - statement: 'Tatami.run(funcNameList)'
-                arguments:
-                  - name: funcNameList
-                    type: Array
-                return: undefined
-                desc: 
-                demo:
           - func: url
             desc: >
               <p></p>
@@ -2364,166 +2353,14 @@ classes:
                 desc: >
                   <p>默认从 Tatami 内部的函数列表中查找 <code>funcName</code>，若 <code>isWindow</code> 设置为 <code>true</code>，则从 <code>window</code> 对象上找。</p>
                 demo:
-      # - name: 
-      #   flag: 
-      #   apis:
-      #     - func: 
-      #       desc: >
-      #         <p></p>
-      #       invoke:
-      #         - statement: 'Tatami.'
-      #           arguments:
-      #             - name: 
-      #               type: 
-      #           return: 
-      #           desc: 
-      #           demo:
-      # - name: 
-      #   flag: 
-      #   apis:
-      #     - func: 
-      #       desc: >
-      #         <p></p>
-      #       invoke:
-      #         - statement: 'Tatami.'
-      #           arguments:
-      #             - name: 
-      #               type: 
-      #           return: 
-      #           desc: 
-      #           demo:
-      # - name: 
-      #   flag: 
-      #   apis:
-      #     - func: 
-      #       desc: >
-      #         <p></p>
-      #       invoke:
-      #         - statement: 'Tatami.'
-      #           arguments:
-      #             - name: 
-      #               type: 
-      #           return: 
-      #           desc: 
-      #           demo:
-# project:
-  # <h3>项目开发</h3>
-  # <dl>
-  #   <dt>sandbox</dt>
-  #   <dd></dd>
-  #   <dt>prepare</dt>
-  #   <dd></dd>
-  #   <dt>ready</dt>
-  #   <dd></dd>
-  #   <dt>queue</dt>
-  #   <dd></dd>
-  #   <dt>run</dt>
-  #   <dd></dd>
-  #   <dt>i18n</dt>
-  #   <dd></dd>
-  #   <dt>api</dt>
-  #   <dd></dd>
-  #   <dt>route</dt>
-  #   <dd></dd>
-  #   <dt>asset</dt>
-  #   <dd></dd>
-  #   <dt>save</dt>
-  #   <dd></dd>
-  #   <dt>access</dt>
-  #   <dd></dd>
-  #   <dt>ajax</dt>
-  #   <dd></dd>
-  #   <dt>sjax</dt>
-  #   <dd></dd>
-  #   <dt>config</dt>
-  #   <dd></dd>
-  #   <dt>alert</dt>
-  #   <dd></dd>
-  #   <dt>confirm</dt>
-  #   <dd></dd>
-  #   <dt>confirmEX</dt>
-  #   <dd></dd>
-  #   <dt>data</dt>
-  #   <dd></dd>
-  #   <dt>download</dt>
-  #   <dd></dd>
-  #   <dt>functionExists</dt>
-  #   <dd></dd>
-  #   <dt>pathname</dt>
-  #   <dd></dd>
-  # </dl>
-  # <h3>工具方法</h3>
-  # <dl>
-  #   <dt>camelCase</dt>
-  #   <dd></dd>
-  #   <dt>capitalize</dt>
-  #   <dd></dd>
-  #   <dt>countChars</dt>
-  #   <dd></dd>
-  #   <dt>date</dt>
-  #   <dd></dd>
-  #   <dt>each</dt>
-  #   <dd></dd>
-  #   <dt>encodeEntities</dt>
-  #   <dd></dd>
-  #   <dt>equal</dt>
-  #   <dd></dd>
-  #   <dt>extend</dt>
-  #   <dd></dd>
-  #   <dt>filter</dt>
-  #   <dd></dd>
-  #   <dt>flatten</dt>
-  #   <dd></dd>
-  #   <dt>hasProp</dt>
-  #   <dd></dd>
-  #   <dt>inArray</dt>
-  #   <dd></dd>
-  #   <dt>init</dt>
-  #   <dd></dd>
-  #   <dt>keys</dt>
-  #   <dd></dd>
-  #   <dt>map</dt>
-  #   <dd></dd>
-  #   <dt>alias</dt>
-  #   <dd></dd>
-  #   <dt>mask</dt>
-  #   <dd></dd>
-  #   <dt>max</dt>
-  #   <dd></dd>
-  #   <dt>min</dt>
-  #   <dd></dd>
-  #   <dt>mixin</dt>
-  #   <dd></dd>
-  #   <dt>namespace</dt>
-  #   <dd></dd>
-  #   <dt>now</dt>
-  #   <dd></dd>
-  #   <dt>pad</dt>
-  #   <dd></dd>
-  #   <dt>product</dt>
-  #   <dd></dd>
-  #   <dt>random</dt>
-  #   <dd></dd>
-  #   <dt>range</dt>
-  #   <dd></dd>
-  #   <dt>reduce</dt>
-  #   <dd></dd>
-  #   <dt>shuffle</dt>
-  #   <dd></dd>
-  #   <dt>slice</dt>
-  #   <dd></dd>
-  #   <dt>stringify</dt>
-  #   <dd></dd>
-  #   <dt>substr</dt>
-  #   <dd></dd>
-  #   <dt>sum</dt>
-  #   <dd></dd>
-  #   <dt>trim</dt>
-  #   <dd></dd>
-  #   <dt>unique</dt>
-  #   <dd></dd>
-  #   <dt>url</dt>
-  #   <dd></dd>
-  #   <dt>zerofill</dt>
-  #   <dd></dd>
-  # </dl>
+          - func: encodeEntities
+            desc: >
+              <p>将字符串中的一些字符转换为实体。</p>
+            invoke:
+              - statement: 'Tatami.encodeEntities(target)'
+                arguments:
+                  - name: target
+                    type: String
+                return: String
+                desc: 
+                demo:
