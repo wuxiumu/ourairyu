@@ -14,12 +14,12 @@ layout_js:
     <!-- Page's header -->
     <header>
       <div class="layout-inner">
-        <h1>{{ site.data.info.title.en }}<span class="version">({{ site.data.apis.version }})</span></h1>
+        <h1>{{ page.project_name }}<span class="version">({{ site.data.apis.version }})</span></h1>
         <nav class="subnav">
-          {% assign root = site.data.url.root %}
+          {% assign project_url = site.data.url.root | append: site.data.url.project | append: "tatami" %}
           <ul>
-            <li><a href="{{ root }}" data-page="overview">Overview</a></li>
-            <li><a href="{{ root }}/api/" data-page="reference">Reference</a></li>
+            <li><a href="{{ project_url }}/" data-page="overview">Overview</a></li>
+            <li><a href="{{ project_url }}/api/" data-page="reference">Reference</a></li>
           </ul>
         </nav>
       </div>

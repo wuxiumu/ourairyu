@@ -12,7 +12,7 @@ repo = ( data, repoInfo ) ->
   homepage = data.homepage
 
   if homepage
-    url = "<a href=\"#{homepage}\">#{name}</a>"
+    url = "<a href=\"http://#{location.host}/projects/#{data.name}/\">#{name}</a>"
   else
     url = "<a href=\"#{data.html_url}\" rel=\"external nofollow\" target=\"_blank\">#{name}</a>"
 
