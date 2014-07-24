@@ -2,6 +2,8 @@
 encoding: utf-8
 timezone: Asia/Shanghai
 
+exclude: [".sass-cache", "node_modules"]
+
 # pygments: false
 markdown: kramdown
 gems:
