@@ -1107,28 +1107,81 @@ classes:
         apis:
           - func: date
             desc: >
-              <p>格式化日期。</p>
+              <p>格式化日期</p>
             invoke:
               - statement: 'Tatami.date(format[, date])'
                 arguments:
                   - name: format
                     type: String
+                    desc: >
+                      <p>指定格式化的形式（参照 <cite><a href="http://php.net/manual/en/function.date.php" target="_blank">PHP: date</a></cite>）</p>
                   - name: date
                     type: Date / String
+                    desc: >
+                      <p>日期对象或能被解析成日期对象的字符串（参照 <cite><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/parse" target="_blank">Date.parse()</a></cite>）</p>
                 return: String
-                desc: 
-                demo: 
+                desc: >
+                  <p>如果 <code>date</code> 被忽略或者非法，则返回当前时间的格式化后的结果。</p>
+                demo: >
+                  // ISO 8601 扩展格式（UTC）
+
+                  Tatami.date("y-m-d H:i:s", "1994-03-28T10:11:22");
+
+                  => "94-03-28 18:11:22"
+
+
+                  // ISO 8601 扩展格式（指定时区）
+
+                  Tatami.date("y-m-d H:i:s", "1994-03-28T10:11:22+0800");
+
+                  => "94-03-28 10:11:22"
+
+
+                  Tatami.date("F j, Y", "Feb 24 1955 GMT");
+
+                  => "February 24, 1955"
+
+
+                  // 传入当前时间的日期对象
+
+                  Tatami.date("Y年n月j日", new Date());
+
+                  => "2014年7月24日"
+
+
+                  // 传入错误非法日期参数，返回当前时间
+
+                  Tatami.date("Y年n月j日", "Tatami is good!");
+
+                  => "2014年7月24日"
+
+
+                  // 忽略日期参数，返回当前时间
+
+                  Tatami.date("Y年n月j日");
+
+                  => "2014年7月24日"                  
           - func: now
             desc: >
-              <p>取得当前时间。</p>
+              <p>取得当前时间</p>
             invoke:
               - statement: 'Tatami.now([isObject])'
                 arguments:
                   - name: isObject
                     type: Boolean
+                    desc: 值为 <code>true</code> 时返回日期对象
                 return: Integer / Date
-                desc: 
-                demo: 
+                desc: >
+                  <p>默认返回毫秒，即 <code>(new Date()).getTime()</code>。</p>
+                demo: >
+                  Tatami.now();
+
+                  => 1406183042252
+
+
+                  Tatami.now(true);
+
+                  => Thu Jul 24 2014 14:24:05 GMT+0800 (China Standard Time)
       - name: 变量检测
         flag: data_type
         apis:
