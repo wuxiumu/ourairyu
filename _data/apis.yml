@@ -1747,7 +1747,7 @@ classes:
                   => false
           - func: equal
             desc: >
-              <p>比较两个变量是否相等。</p>
+              <p>比较两个同类型的变量是否相等</p>
             invoke:
               - statement: 'Tatami.equal(base, target[, strict])'
                 arguments:
@@ -1757,23 +1757,99 @@ classes:
                     type: 
                   - name: strict
                     type: Boolean
+                    desc: 值为 <code>true</code> 时严格比较
                 return: Boolean
                 desc: >
-                  <p>当 <code>base</code> 和 <code>target</code> 为纯对象或数组，并且 <code>strict</code> 的值为 <code>true</code> 时，是对它们的引用进行比较。</p>
-                demo: 
-      # - name: 
-      #   flag: 
-      #   apis:
-      #     - func: 
-      #       desc: >
-      #       invoke:
-      #         - statement: 
-      #           arguments:
-      #             - name: 
-      #               type: 
-      #           return: 
-      #           desc: 
-      #           demo: >
+                  <p>当 <code>base</code> 和 <code>target</code> 为纯对象或数组时，如果 <code>strict</code> 的值为 <code>true</code> 则比较它们的引用，否则对它们的结构进行对比。</p>
+                demo: >
+                  var arr1 = [1, 2, 3];
+
+                  var arr2 = [1, 2, 3];
+
+                  var arr3 = [1, 3, 2];
+
+                  var obj1 = {foo: "foo", bar: "bar", foobar: function() { return this.foo + this.bar; }};
+
+                  var obj2 = {foo: "foo", bar: "bar", foobar: function() { return this.foo + this.bar; }};
+
+                  var obj3 = {foo: "foo", foobar: function() { return this.foo + this.bar; }, bar: "bar"};
+
+
+                  // 比较两个结构相同、值也相同的数组
+
+                  Tatami.equal(arr1, arr2);
+
+                  => true
+
+
+                  // 严格比较两个结构相同、值也相同的数组
+                  
+                  Tatami.equal(arr1, arr2, true);
+
+                  => false
+
+
+                  // 比较两个结构不同、值相同的数组
+                  
+                  Tatami.equal(arr1, arr3);
+
+                  => false
+
+
+                  // 比较两个结构相同、key 顺序相同的纯对象
+
+                  Tatami.equal(obj1, obj2);
+
+                  => true
+
+
+                  // 严格比较两个结构相同、key 顺序相同的纯对象
+
+                  Tatami.equal(obj1, obj2, true);
+
+                  => false
+
+
+                  // 比较两个结构相同、key 顺序不同的纯对象
+
+                  Tatami.equal(obj1, obj3);
+
+                  => true
+
+
+                  // 比较两个值相同的原始类型
+
+                  Tatami.equal(1, 1);
+
+                  => true
+
+
+                  // 严格比较两个值相同的原始类型
+                  
+                  Tatami.equal(1, 1, true);
+
+                  => true
+
+
+                  // 比较值相同的原始类型和对应的包装对象
+                  
+                  Tatami.equal(1, new Number(1));
+
+                  => true
+
+
+                  // 严格比较值相同的原始类型和对应的包装对象
+
+                  Tatami.equal(1, new Number(1, true);
+
+                  => false
+
+
+                  // 比较两个在用 <code>==</code> 时返回 <code>true</code> 的原始类型
+
+                  Tatami.equal(1, "1");
+
+                  => false
   - name: 项目开发
     flag: project
     categories:
