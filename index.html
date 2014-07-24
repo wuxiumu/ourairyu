@@ -1,30 +1,60 @@
 ---
-layout: tatami
+layout: page
+layout_type: sandwich
 
-page_category: overview
+css:
+  - pages/home
+js:
+  - pages/home
 ---
-<section>
-  <p>「畳」，即 <b>Tatami</b>，是一个运行在浏览器端的 JavaScript 库，提供了大量有用的属性和方法使新项目的前端开发变得简单、轻松！方法主要分为<b>数据操作</b>和<b>项目开发</b>两大类。大部分 API 的设计参考了 ECMAScript 5、PHP、jQuery 等语言和库，很容易就能够上手。</p>
-  <p><img src="{{ site.data.url.root }}/{{ site.data.url.img }}/jsr.png" alt="JavaScript Revolution"></p>
-  <p>本项目托管于 <a href="https://github.com/ourai/tatami">GitHub</a>。如果发现 bug 或有任何建议，欢迎到 <a href="https://github.com/ourai/tatami/issues">issue</a> 页面提出。</p>
-  <h2 class="heading">下载</h2>
-  {% assign doc_info = site.data.apis %}
-  <p>当前版本：<span class="version">{{ doc_info.version }}</span></p>
-  <table id="downloadFiles">
-    <tbody>
-      <tr>
-        <td><a href="{{ doc_info.files.development.path }}">开发版</a>（{{ doc_info.files.development.size | upcase }}）</td>
-        <td class="file_desc"><i>未压缩并有丰富的注释</i></td>
-      </tr>
-      <tr>
-        <td><a href="{{ doc_info.files.production.path }}">产品版</a>（{{ doc_info.files.production.size | upcase }}）</td>
-        <td class="file_desc"><i>已压缩</i><small>（<a href="{{ doc_info.files.source_map }}">Source Map</a>）</small></td>
-      </tr>
-    </tbody>
-  </table>
-  <h2 class="heading">使用方法</h2>
-{% highlight html %}
-<script src="jquery.js"></script>
-<script src="tatami.js"></script>
-{% endhighlight %}
-</section>
+
+<!-- Articles -->
+<div class="section">
+  <h2 class="section-title">最近文章</h2>
+  {% assign posts = site.posts %}
+  {% assign first_post = posts.first %}
+  <!-- The newest article -->
+  <div>
+    <blockquote class="article-excerpt">{{ first_post.excerpt }}</blockquote>
+    <p class="article-title">——《<a href="{{ first_post.url }}">{{ first_post.title }}</a>》</p>
+  </div>
+  <!-- Article list -->
+  <div class="recent_articles">
+    <ul class="posts">
+      {% for post in posts limit: 10 offset: 1 %}
+        <li><a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+<!-- GitHub repositories -->
+<div class="section">
+  <h2 class="section-title">开源项目</h2>
+  <ul class="repos"></ul>
+</div>
+<!-- Projects -->
+<div class="section">
+  <h2 class="section-title">商业项目</h2>
+  <ul class="projects">
+    {% for project in site.data.projects reversed %}
+      <li class="project">
+        <div>
+          {% if project.image.thumbnail %}
+            {% assign has_thumbnail = true %}
+            {% assign img_url = project.image.thumbnail %}
+            {% assign img_padding = "projects/" %}
+          {% else %}
+            {% assign has_thumbnail = false %}
+            {% assign img_url = "bg-content-kai.png" %}
+            {% assign img_padding = "" %}
+          {% endif %}
+          <div class="project-meta{% if has_thumbnail %} has_thumbnail{% endif %}">
+            <h3 class="project-name">{% if project.url %}<a href="{{ project.url }}" target="_blank" rel="external nofollow" title="{{ project.name.zh }}"><span>{{ project.name.zh }}</span></a>{% else %}<span>{{ project.name.zh }}</span>{% endif %}</h3>
+            <div class="project-thumbnail" style="background-image: url('{{ site.data.url.root }}/{{ site.data.url.img }}/{{ img_url | prepend: img_padding }}')"><img src="{{ site.data.url.root }}/{{ site.data.url.img }}/{{ img_url | prepend: img_padding }}" alt="{{ project.name.zh }}"></div>
+          </div>
+          <p class="project-description">{{ project.description }}</p>
+        </div>
+      </li>
+    {% endfor %}
+  </ul>
+</div>

@@ -1,9 +1,9 @@
 {
-  "homepage": "http://ourai.github.io/tatami",
+  "homepage": "http://dev.ourai.ws/",
   "author": "Ourai Lin <ourairyu@hotmail.com> (http://ourai.ws/)",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ourai/tatami.git"
+    "url": "https://github.com/ourai/ourai.github.io.git"
   },
   "engines": "node >= 0.8.0",
   "devDependencies": {
@@ -16,7 +16,6 @@
     "grunt-contrib-concat": "~0.3.0",
     "grunt-contrib-copy": "~0.5.0",
     "grunt-contrib-clean": "~0.5.0",
-    "grunt-contrib-watch": "~0.6.0",
-    "grunt-contrib-yuidoc": "~0.5.0"
+    "grunt-contrib-watch": "~0.6.0"
   }
 }
