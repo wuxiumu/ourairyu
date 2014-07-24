@@ -2,7 +2,7 @@
 <html lang="{{ site.data.info.lang }}" dir="ltr">
   <head>
     <meta charset="UTF-8">
-    <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.data.info.title.zh }}</title>
+    <title>{% assign site_title = site.data.info.title.en %}{% if page.title %}{{ page.title }} - {{ site_title }}{% else %}{{ site_title }}, makes Front-end web development EASY!!!{% endif %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% if page.keywords %}
       {% assign keywords = page.keywords %}
@@ -25,6 +25,7 @@
     {% assign site_css_url = site.data.url.site | append: "/" | append: site.data.url.css %}
     {% assign repo_css_url = site.data.url.root | append: "/" | append: site.data.url.css %}
     <link rel="stylesheet" href="{{ site_css_url }}/matcha.min.css">
+    <link rel="stylesheet" href="{{ site_css_url }}/highlight.css">
     <link rel="stylesheet" href="{{ site_css_url }}/site.css">
     {% if page.layout_css %}
     <!-- Style sheets for template -->
