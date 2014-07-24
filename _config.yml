@@ -10,7 +10,7 @@ gems:
   - jemoji
 
 relative_permalinks: false
-permalink: /:title/
+permalink: /posts/:title/
 
 # YAML frontmatter
 defaults:
