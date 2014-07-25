@@ -20,6 +20,8 @@ repoInfo =
       en: "Matcha"
     description: "UI 库"
 
+authorizedRepos = ["tatami", "matcha"]
+
 orderByLatest = ( a, b ) ->
   return -(transformISO(a.pushed_at).getTime() - transformISO(b.pushed_at).getTime())
 
@@ -50,7 +52,7 @@ Tatami.queue
           repos.sort orderByLatest
 
           $.each repos, ( i, r ) ->
-            if r.name isnt "ourai.github.io" and r.language
+            if Tatami.inArray(r.name, authorizedRepos) > -1
               callback r, repoInfo
 
   transformISO: transformISO
