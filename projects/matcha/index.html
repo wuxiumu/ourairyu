@@ -1,1 +1,69 @@
-Hello, Matcha! ;-)
+---
+layout: matcha
+css:
+  - matcha-fix
+  - pages/matcha
+---
+
+<header class="layout-content-head">
+  <h1>Matcha</h1>
+  <p>
+    <span class="tagline">A Flexible, Responsive UI Framework</span>
+    <span>by <a class="avatar_link" href="{{ site.data.author.profile }}" target="_blank"><img src="{{ site.data.author.avatar }}?s=128" alt="{{ site.data.author.name.en }}"></a><a class="name_link" href="{{ site.data.author.profile }}" target="_blank">{{ site.data.author.name.en }}</a></span>
+  </p>
+</header>
+<div class="components">
+  <!-- Dropdown List -->
+  <div class="component">
+    <h2 class="component-title">Dropdown List</h2>
+    <div class="component-demo">
+      <select class="DropList">
+        <option value="Chinese">Chinese</option>
+        <option value="Japanese">Japanese</option>
+        <option value="Korean">Korean</option>
+        <option value="Hindi">Hindi</option>
+        <option value="English">English</option>
+        <option value="Italian" selected>Italian</option>
+        <option value="French">French</option>
+        <option value="Spanish">Spanish</option>
+        <option value="Welsh">Welsh</option>
+        <option value="Urdu">Urdu</option>
+        <option value="Vietnamese">Vietnamese</option>
+        <option value="Malay">Malay</option>
+      </select>
+    </div>
+  </div>
+  <!-- Score -->
+  <div class="component">
+    <h2 class="component-title">Score (Levels of Evaluation)</h2>
+    <div class="component-demo">
+      <div class="Score--selectable" data-highest="5"></div>
+    </div>
+  </div>
+  <!-- Tabs -->
+  <div class="component">
+    <h2 class="component-title">Tabs</h2>
+    <div class="component-demo">
+      <div class="Tabs">
+        <div class="Tabs-triggers">
+          <a href="#" class="Tabs-trigger js-trigger--tab" data-flag="tab-1">Tab-1</a>
+          <a href="#" class="Tabs-trigger js-trigger--tab" data-flag="tab-2">Tab-2</a>
+          <a href="#" class="Tabs-trigger js-trigger--tab" data-flag="tab-3">Tab-3</a>
+        </div>
+        <div class="Tabs-content" data-flag="tab-1">Tab-1's content</div>
+        <div class="Tabs-content" data-flag="tab-2">Tab-2's content</div>
+        <div class="Tabs-content" data-flag="tab-3">Tab-3's content</div>
+      </div>
+    </div>
+  </div>
+  <!-- Button -->
+  <div class="component">
+    <h2 class="component-title">Buttons</h2>
+    <div class="component-demo">
+      <button type="button" class="Button">Default</button>
+      <a href="javascript:void(0);" class="Button--info">Info</a>
+      <span class="Button--warning">Warning</span>
+      <a class="Button" disabled="disabled">Disabled</a>
+    </div>
+  </div>
+</div>
