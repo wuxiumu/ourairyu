@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>opacity</title>
+    <style>
+      a {
+        display: block;
+        width: 300px;
+        height: 200px;
+        background-color: #000;
+        color: #FFF;
+      }
+
+      a {
+        opacity: 0.5;
+        -ms-filter:'progid:DXImageTransform.Microsoft.Alpha(Opacity=50)';
+        *filter:alpha(opacity=50);
+      }
+    </style>
+  </head>
+  <body>
+    <a href="#">asd</a>
+  </body>
+</html>
