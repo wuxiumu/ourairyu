@@ -228,6 +228,12 @@
     color: $color-text;
     @include square(100%);
     background-image: url("../../images/transparent.gif");
+
+    &:hover {
+      color: #E5E5E5;
+      background-color: #000;
+      @include ie-opacity(40);
+    }
   }
 
   span {
@@ -244,10 +250,12 @@
   overflow: hidden;
 
   img {
-    width: 100%;
     position: absolute;
     top: 0;
     left: 0;
+    width: 100%;
+    max-width: none;
+    min-height: 100%;
   }
 }
 
@@ -263,7 +271,7 @@
 
   .project-name a:hover {
     background-color: rgba(0, 0, 0, .4);
-    color: #E5E5E5;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Enabled=false)";
   }
 }
 
