@@ -39,6 +39,9 @@
     <link rel="stylesheet" href="{{ repo_css_url | append: '/' | append: css }}.css">
       {% endfor %}
     {% endif %}
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="{{ site_css_url }}/forbid.css">
+    <![endif]-->
     {% assign site_js_url = site.data.url.site | append: "/" | append: site.data.url.js %}
     <!--[if lt IE 9]>
     <script src="{{ site_js_url }}/html5shiv-printshiv.min.js"></script>
