@@ -1545,6 +1545,11 @@ classes:
                   => false
 
 
+                  Tatami.isNumeric([1]);
+
+                  => false
+
+
                   Tatami.isNumeric(NaN);
 
                   => false
@@ -1863,7 +1868,7 @@ classes:
               - statement: Tatami.browser
                 return: Object
                 desc: >
-                  <p>以 <code>{BROWSER_TYPE: true, version: "BROWSER_VERSION"}</code> 的形式返回。其中 <code>BROWSER_TYPE</code> 的可能值有：</p>
+                  <p>以 <code>{BROWSER_TYPE: true, version: "BROWSER_VERSION", language: "BROWSER_LANGUAGE"}</code> 的形式返回。其中 <code>BROWSER_TYPE</code> 的可能值有：</p>
                   <ul>
                     <li><code>msie</code></li>
                     <li><code>chrome</code></li>
@@ -1877,14 +1882,14 @@ classes:
 
                   Tatami.browser;
 
-                  => {msie: true, version: "11.0"}
+                  => {msie: true, version: "11.0", language: "zh-CN"}
 
 
                   // Chrome 浏览器
 
                   Tatami.browser;
 
-                  => {chrome: true, version: "34.0.1847.131", webkit: true}
+                  => {chrome: true, version: "34.0.1847.131", webkit: true, language: "ja"}
           - func: platform
             desc: >
               <p>获取平台的相关信息，包括种类、版本号及是否可触摸。</p>
@@ -2353,14 +2358,14 @@ classes:
                 desc: >
                   <p>默认从 Tatami 内部的函数列表中查找 <code>funcName</code>，若 <code>isWindow</code> 设置为 <code>true</code>，则从 <code>window</code> 对象上找。</p>
                 demo:
-          - func: encodeEntities
-            desc: >
-              <p>将字符串中的一些字符转换为实体。</p>
-            invoke:
-              - statement: 'Tatami.encodeEntities(target)'
-                arguments:
-                  - name: target
-                    type: String
-                return: String
-                desc: 
-                demo:
+          # - func: encodeEntities
+          #   desc: >
+          #     <p>将字符串中的一些字符转换为实体。</p>
+          #   invoke:
+          #     - statement: 'Tatami.encodeEntities(target)'
+          #       arguments:
+          #         - name: target
+          #           type: String
+          #       return: String
+          #       desc: 
+          #       demo:
