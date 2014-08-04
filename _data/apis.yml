@@ -275,65 +275,65 @@ classes:
                   Tatami.trim("\n  This is a string.\r\t");
 
                   => "This is a string."
-          - func: substr
-            desc: >
-              <p>从指定位置开始截取指定长度的字符串</p>
-            invoke:
-              - statement: 'Tatami.substr(target, start[, length][, ignore])'
-                arguments:
-                  - name: target
-                    type: String
-                  - name: start
-                    type: Integer
-                    desc: >
-                      <p>所要截取的字符串的起始索引。</p>
-                      <p>当大于或等于字符串长度时返回空字符串；为负数时则从字符串的结尾处往回数相应的个数的位置开始；如果既为负数绝对值又大于字符串长度，则从 <code>0</code> 开始。</p>
-                  - name: length
-                    type: Integer
-                    desc: >
-                      <p>需要截取的字符串的长度，为正数。</p>
-                      <p>当是零或负数时返回空字符串；若忽略则返回 <code>start</code> 到字符串结尾。</p>
-                  - name: ignore
-                    type: String / RegExp
-                return: String
-                desc: 
-                demo: >
-                  var str = "Tatami is a JavaScript library.";
+          # - func: substr
+          #   desc: >
+          #     <p>从指定位置开始截取指定长度的字符串</p>
+          #   invoke:
+          #     - statement: 'Tatami.substr(target, start[, length][, ignore])'
+          #       arguments:
+          #         - name: target
+          #           type: String
+          #         - name: start
+          #           type: Integer
+          #           desc: >
+          #             <p>所要截取的字符串的起始索引。</p>
+          #             <p>当大于或等于字符串长度时返回空字符串；为负数时则从字符串的结尾处往回数相应的个数的位置开始；如果既为负数绝对值又大于字符串长度，则从 <code>0</code> 开始。</p>
+          #         - name: length
+          #           type: Integer
+          #           desc: >
+          #             <p>需要截取的字符串的长度，为正数。</p>
+          #             <p>当是零或负数时返回空字符串；若忽略则返回 <code>start</code> 到字符串结尾。</p>
+          #         - name: ignore
+          #           type: String / RegExp
+          #       return: String
+          #       desc: 
+          #       demo: >
+          #         var str = "Tatami is a JavaScript library.";
 
 
-                  Tatami.substr(str, 3);
+          #         Tatami.substr(str, 3);
 
-                  => "ami is a JavaScript library."
-
-
-                  Tatami.substr(str, 3, 6);
-
-                  => "ami is"
+          #         => "ami is a JavaScript library."
 
 
-                  Tatami.substr(str, str.length);
+          #         Tatami.substr(str, 3, 6);
 
-                  => ""
-
-
-                  Tatami.substr(str, -3);
-
-                  => "ry."
+          #         => "ami is"
 
 
-                  Tatami.substr(str, -(str.length + 2));
+          #         Tatami.substr(str, str.length);
 
-                  => "Tatami is a JavaScript library."
-
-
-                  Tatami.substr(str, 0, 0);
-
-                  => ""
+          #         => ""
 
 
-                  Tatami.substr(str, 0, -1);
+          #         Tatami.substr(str, -3);
 
-                  => ""
+          #         => "ry."
+
+
+          #         Tatami.substr(str, -(str.length + 2));
+
+          #         => "Tatami is a JavaScript library."
+
+
+          #         Tatami.substr(str, 0, 0);
+
+          #         => ""
+
+
+          #         Tatami.substr(str, 0, -1);
+
+          #         => ""
       - name: 数字
         flag: number
         apis:
@@ -749,16 +749,17 @@ classes:
                     type: String
                   - name: object
                     type: Object
+                    desc: >
+                      <p>被检测属性的宿主。如果忽略，则为 Tatami 自身。</p>
                 return: Boolean
-                desc: >
-                  <p>当忽略 <code>object</code> 时，被检测的对象为 <code>window</code>。</p>
+                desc:
                 demo: >
-                  Tatami.hasProp("hasProp", Tatami);
+                  Tatami.hasProp("hasProp");
 
                   => true
 
 
-                  Tatami.hasProp("document");
+                  Tatami.hasProp("document", window);
 
                   => true
           - func: namespace
