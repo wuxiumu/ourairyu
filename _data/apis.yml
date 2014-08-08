@@ -1940,7 +1940,7 @@ classes:
         apis:
           - func: prepare
             desc: >
-              <p>添加需要在 DOMContentLoaded 之前调用的处理函数</p>
+              <p>添加需要在 <code>DOMContentLoaded</code> 之前调用的处理函数</p>
             invoke:
               - statement: 'Tatami.prepare(handler)'
                 arguments:
@@ -1956,7 +1956,7 @@ classes:
                   });
           - func: ready
             desc: >
-              <p>添加需要在 DOMContentLoaded 之后调用的处理函数</p>
+              <p>添加需要在 <code>DOMContentLoaded</code> 之后调用的处理函数</p>
             invoke:
               - statement: 'Tatami.ready(handler)'
                 arguments:
@@ -2358,7 +2358,20 @@ classes:
                 return: Boolean
                 desc: >
                   <p>默认从 Tatami 内部的函数列表中查找 <code>funcName</code>，若 <code>isWindow</code> 设置为 <code>true</code>，则从 <code>window</code> 对象上找。</p>
-                demo:
+                demo: >
+                  Tatami.queue("foo", function() {});
+
+                  Tatami.functionExists("foo");
+
+                  => true
+
+
+                  function bar() {}
+
+                  Tatami.functionExists("bar", true);
+
+                  => true
+
           # - func: encodeEntities
           #   desc: >
           #     <p>将字符串中的一些字符转换为实体。</p>
