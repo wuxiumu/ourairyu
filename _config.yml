@@ -1,16 +1,21 @@
-# Global
+# Handling Reading
+exclude: [".sass-cache", "node_modules", "src", "CNAME", "Gemfile", "Gemfile.lock", "Gruntfile.coffee", "bower.json", "package.json", "README.md"]
 encoding: utf-8
-timezone: Asia/Shanghai
 
-exclude: [".sass-cache", "node_modules"]
-
-# pygments: false
-markdown: kramdown
+# Plugins
 gems:
   - jemoji
 
+# Conversion
+markdown: kramdown
+# highlighter: false
+
+# Backwards-compatibility
 relative_permalinks: false
+
+# Outputting
 permalink: /posts/:title/
+timezone: Asia/Shanghai
 
 # YAML frontmatter
 defaults:
@@ -19,7 +24,7 @@ defaults:
     values:
       layout: "default"
       layout_type: "sandwich"
-  - score:
+  - scope:
       path: ""
       type: "post"
     values:

@@ -3,3 +3,6 @@
 /dest
 /node_modules
 /_site
+
+Gemfile
+Gemfile.lock
