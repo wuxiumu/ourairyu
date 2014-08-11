@@ -1,0 +1,21 @@
+---
+layout: page
+layout_type: sandwich
+
+page_category: demos
+
+title: 演示中心
+description: 页面布局、控件等的演示
+permalink: /demos/
+---
+
+<ul>
+  {% for demo in site.demos %}
+    {% if demo.page_category == 'demo' and demo.compatibility %}
+      <li>
+        <a href="{{ demo.url }}">{{ demo.title }}</a>
+        <p>{{ demo.description }}</p>
+      </li>
+    {% endif %}
+  {% endfor %}
+</ul>

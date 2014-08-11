@@ -2,6 +2,9 @@ collections:
   projects:
     output: true
     permalink: /:collection/:path/
+  demos:
+    output: true
+    permalink: /:collection/:path/
 
 # Handling Reading
 exclude: [".sass-cache", "node_modules", "src", "CNAME", "Gemfile", "Gemfile.lock", "Gruntfile.coffee", "bower.json", "package.json", "README.md"]
@@ -46,3 +49,14 @@ defaults:
       layout_js:
         - pages/doc
       project_name: Tatami
+  - scope:
+      path: ""
+      type: demos
+    values:
+      layout: demo
+      template: demo
+      layout_css:
+        - highlight
+      layout_js:
+        - demo
+      page_category: demo
