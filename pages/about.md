@@ -1,7 +1,4 @@
 ---
-layout: page
-layout_type: sandwich
-
 page_category: about
 
 title: 关于

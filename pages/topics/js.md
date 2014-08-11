@@ -1,7 +1,4 @@
 ---
-layout: page
-layout_type: sandwich
-
 page_category: topic
 
 title: JavaScript 专题

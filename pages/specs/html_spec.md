@@ -1,7 +1,4 @@
 ---
-layout: page
-layout_type: sandwich
-
 page_category: spec
 
 title: 超文本标记语言规范

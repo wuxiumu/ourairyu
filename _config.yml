@@ -27,28 +27,30 @@ timezone: Asia/Shanghai
 
 # YAML frontmatter
 defaults:
+  # Default
   - scope:
       path: ""
     values:
       layout: default
       layout_type: sandwich
+  # Posts
   - scope:
       path: ""
       type: post
     values:
       layout: article
-      comments: true
-  - scope:
-      path: "projects/tatami"
-      type: projects
-    values:
-      layout: tatami
-      template: tatami
+      template: article
       layout_css:
-        - pages/tatami
-      layout_js:
-        - pages/doc
-      project_name: Tatami
+        - highlight
+        - pages/article
+      comments: true
+  # Pages
+  - scope:
+      path: ""
+      type: page
+    values:
+      layout: page
+  # Demos
   - scope:
       path: ""
       type: demos
@@ -60,3 +62,15 @@ defaults:
       layout_js:
         - demo
       page_category: demo
+  # Tatami API
+  - scope:
+      path: "projects/tatami"
+      type: projects
+    values:
+      layout: tatami
+      template: tatami
+      layout_css:
+        - pages/tatami
+      layout_js:
+        - pages/doc
+      project_name: Tatami

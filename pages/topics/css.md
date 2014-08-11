@@ -1,7 +1,4 @@
 ---
-layout: page
-layout_type: sandwich
-
 page_category: topic
 
 title: 层叠样式表专题
