@@ -675,7 +675,7 @@ classes:
                 return: Object
                 demo: >
                   var obj1 = {
-                    foo: {
+                      foo: {
                         foo: "foo"
                       }
                     };
