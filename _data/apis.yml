@@ -661,6 +661,44 @@ classes:
                   Tatami.mixin();
 
                   => {}
+              - statement: 'Tatami.mixin(deep, target, object1[, objectN])'
+                arguments:
+                  - name: deep
+                    type: Boolean
+                    desc: 如果是 true 的话则进行深度复制。
+                  - name: target
+                    type: Object
+                  - name: object1
+                    type: Object
+                  - name: objectN
+                    type: Object
+                return: Object
+                demo: >
+                  var obj1 = {
+                    foo: {
+                        foo: "foo"
+                      }
+                    };
+
+                  var obj2 = {
+                      foo: {
+                        bar: "bar"
+                      }
+                    };
+
+                  // 普通扩展
+
+                  Tatami.mixin({}, obj1, obj2);
+
+                  => {foo: {bar: "bar"}}
+
+
+                  // 深度复制
+
+                  Tatami.mixin(true, {}, obj1, obj2);
+
+                  => {foo: {foo: "foo", bar: "bar"}}
+
           - func: extend
             desc: >
               <p>使用特定格式的数据扩充指定对象。内置「预处理」功能。</p>
@@ -672,10 +710,10 @@ classes:
                     desc: 具备特定格式的数据
                   - name: target
                     type: Object
-                    desc: 被扩充的对象
+                    desc: 被扩充的对象。忽略此参数则扩充到 Tatami 上。
                 return: Object
                 desc: >
-                  <p>返回值为包含通过 <code>data</code> 构造的方法的对象，如果省略 <code>target</code> 则返回一个新对象。</p>
+                  <p>返回值为包含通过 <code>data</code> 构造的方法的对象。</p>
                   <p><code>data</code> 的基本结构为：</p>
                   <pre><code>{
                     validator: function() {},
@@ -691,40 +729,56 @@ classes:
                   }</code></pre>
                   <p>其中 <code>validator</code> 用于验证参数合法性，<code>value</code> 为验证不通过时的返回值，它们都是可省略的。</p>
                 demo: >
-                  var Geometry = Tatami.extend({
-                    Graphic: {
-                      Circle: {
-                        validator: function( radius ) {
-                          return typeof radius === "number";
+                  var GeometryMethods = {
+                      Graphic: {
+                        Circle: {
+                          validator: function( radius ) {
+                            return typeof radius === "number";
+                          },
+                          value: 0,
+                          handlers: [{
+                              name: "perimeter",
+                              handler: function( radius ) {
+                                return Math.PI * radius * 2;
+                              }
+                            }]
                         },
-                        value: 0,
-                        handlers: [{
-                            name: "perimeter",
-                            handler: function( radius ) {
-                              return Math.PI * radius * 2;
-                            }
-                          }]
-                      },
-                      Rectangle: {
-                        handlers: [{
-                            name: "area",
-                            handler: function( width, height ) {
-                              return true;
-                            },
-                            validator: function( width, height ) {
-                              return typeof width === "number" && typeof height === "number";
-                            },
-                            value: 0
-                          }]
+                        Rectangle: {
+                          handlers: [{
+                              name: "area",
+                              handler: function( width, height ) {
+                                return true;
+                              },
+                              validator: function( width, height ) {
+                                return typeof width === "number" && typeof height === "number";
+                              },
+                              value: 0
+                            }]
+                        }
                       }
-                    }
-                  });
+                    };
+
+                  // 扩展 Tatami 自身
+
+                  Tatami.extend(GeometryMethods);
+
+
+                  typeof Tatami.perimeter;
+
+                  => "function"
+
+
+                  // 创建新对象
+
+                  var Geometry = Tatami.extend(GeometryMethods, {});
 
                   
                   Geometry;
 
                   => Object {perimeter: function, area: function}
 
+
+                  // 扩展新建的对象
 
                   Tatami.extend({
                     handlers: [{
