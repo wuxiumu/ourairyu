@@ -130,6 +130,14 @@ body[data-page="reference"] a[data-page="reference"] {
     @include no_gap;
   }
 
+  .signature {
+    margin-top: 20px;
+
+    &[data-first="true"] {
+      margin-top: 0;
+    }
+  }
+
   & > h3 {
     margin-top: 50px;
     font-size: 18px;

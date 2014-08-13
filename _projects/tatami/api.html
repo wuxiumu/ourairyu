@@ -14,7 +14,7 @@ special_title: API 文档 - Tatami
     <dt>{{ api.func }}</dt>
     <dd>{{ api.desc }}</dd>
     {% for inv in api.invoke %}
-    <dd>
+    <dd class="signature" data-first="{{ forloop.first }}">
       <div class="api_info">
         <code class="invoke">{{ inv.statement }}</code>
         <span class="return_value">{% if inv.return %}{% if inv.return != "undefined" %}{{ inv.return }}{% endif %}{% else %}Anything{% endif %}</span>
