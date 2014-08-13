@@ -2063,33 +2063,92 @@ classes:
             desc: >
               <p>将外部处理函数引入到沙盒中。</p>
             invoke:
-              - statement: 'Tatami.queue(funcList)'
-                arguments:
-                  - name: funcList
-                    type: Object
-                return: undefined
-                desc: 
-                demo:
               - statement: 'Tatami.queue(funcName, handler)'
                 arguments:
                   - name: funcName
                     type: String
+                    desc: 函数名称
                   - name: handler
                     type: Function
+                    desc: 处理函数
                 return: Function
-                desc: 
-                demo:
+                desc: >
+                  <p>引入单个函数。</p>
+                demo: >
+                  Tatami.queue("foobar", function() {
+                    console.log("Foobar!");
+                  });
+
+                  => function() { console.log("Foobar!"); }
+
+                  
+                  Tatami.run("foobar");
+
+                  => Foobar!
+              - statement: 'Tatami.queue(funcList)'
+                arguments:
+                  - name: funcList
+                    type: Object
+                    desc: 函数列表
+                return: undefined
+                desc: >
+                  <p>引入函数列表。</p>
+                demo: >
+                  Tatami.queue({
+                    foo: function() {
+                      console.log("Foo!");
+                    },
+                    bar: function() {
+                      console.log("Bar!");
+                    }
+                  });
+
+                  => {foo: function() { console.log("Foo!"); }, bar: function() { console.log("Bar!"); }}
+
+
+                  Tatami.run("foo");
+
+                  => Foo!
+
+
+                  Tatami.run("bar");
+
+                  => Bar!
               - statement: 'Tatami.queue(funcName)'
                 arguments:
                   - name: funcName
                     type: String
+                    desc: 要获取的函数的名称
                 return: Function
-                desc: 
-                demo:
+                desc: >
+                  <p>获取指定的已保存的函数。</p>
+                demo: >
+                  Tatami.queue("foobar", function() {
+                    console.log("Foobar!");
+                  });
+
+                  
+                  Tatami.queue("foobar");
+
+                  => function() { console.log("Foobar!"); }
               - statement: 'Tatami.queue()'
                 return: Object
-                desc: 
-                demo:
+                desc: >
+                  <p>获取已保存的所有函数。</p>
+                demo: >
+                  Tatami.queue({
+                    foo: function() {
+                      console.log("Foo!");
+                    },
+                    bar: function() {
+                      console.log("Bar!");
+                    }
+                  });
+
+
+                  Tatami.queue();
+
+                  => {foo: function() { console.log("Foo!"); }, bar: function() { console.log("Bar!"); }}
           - func: run
             desc: >
               <p>执行指定函数。</p>
@@ -2098,16 +2157,41 @@ classes:
                 arguments:
                   - name: funcName
                     type: String
+                    desc: 函数名
                 return: 
                 desc: 
-                demo:
+                demo: >
+                  Tatami.queue("foobar", function() {
+                    return "Foobar!";
+                  });
+
+                  
+                  Tatami.run("foobar");
+
+                  => "Foobar!"
               - statement: 'Tatami.run(funcNameList)'
                 arguments:
                   - name: funcNameList
                     type: Array
+                    desc: 函数名列表
                 return: undefined
                 desc: 
-                demo:
+                demo: >
+                  Tatami.queue({
+                    foo: function() {
+                      console.log("Foo!");
+                    },
+                    bar: function() {
+                      console.log("Bar!");
+                    }
+                  });
+
+
+                  Tatami.run(["foo", "bar"]);
+
+                  => Foo!
+
+                  => Bar!
           - func: config
             desc: >
               <p>获取系统信息。</p>
