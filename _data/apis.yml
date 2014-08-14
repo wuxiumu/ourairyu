@@ -2200,20 +2200,40 @@ classes:
                 arguments:
                   - name: key
                     type: String
+                    desc: 系统配置参数的 key。若省略则返回所有信息。
                 return: 
                 desc: 
-                demo:
+                demo: >
+                  Tatami.sandbox({
+                    platform: "Ourairyu"
+                    version: "0.1.0",
+                    api: "v1"
+                  });
+
+
+                  // 获取指定信息
+
+                  Tatami.config("platform");
+
+                  => "Ourairyu"
+
+
+                  // 获取所有信息
+
+                  Tatami.config();
+
+                  => {debug: true, platform: "Ourairyu", locale: "zh-CN", lang: "zh", api: "v1", version: "0.1.0"}
           - func: init
             desc: >
               <p>设置初始化信息。</p>
+              <p class="note">初始化函数是 Tatami 内部定义好的。目前已经有以下几种：</p>
+              <ul>
+                <li><code>systemDialog</code></li>
+                <li><code>ajaxHandler</code></li>
+                <li><code>runSandbox</code></li>
+                <li><code>apiNS</code></li>
+              </ul>
             invoke:
-              - statement: 'Tatami.init(settings)'
-                arguments:
-                  - name: settings
-                    type: Object
-                return: 
-                desc: 
-                demo:
               - statement: 'Tatami.init(function, key)'
                 arguments:
                   - name: function
@@ -2221,8 +2241,28 @@ classes:
                   - name: key
                     type: String
                 return: 
-                desc: 
-                demo:
+                desc: >
+                  <p>设置单个初始化函数。</p>
+                demo: >
+                  Tatami.init(function() {
+                    // To do sth.
+                  }, "systemDialog");
+              - statement: 'Tatami.init(settings)'
+                arguments:
+                  - name: settings
+                    type: Object
+                return: 
+                desc: >
+                  <p>设置多个初始化函数。</p>
+                demo: >
+                  Tatami.init({
+                    ajaxHandler: function() {
+                      // To do sth.
+                    },
+                    runSandbox: function() {
+                      // To do sth.
+                    }
+                  });
           - func: data
             desc: >
               <p>获取 DOM 的「data-*」属性集或存储数据到内部/从内部获取数据。</p>
@@ -2231,27 +2271,53 @@ classes:
                 arguments:
                   - name: node
                     type: DOM
+                    desc: 元素节点
                 return: Object
-                desc: 
-                demo:
+                desc: >
+                  <p>获取元素节点的「data-*」属性集。</p>
+                demo: >
+                  // <span id="test" data-node="true" data-enabled="yes">An element node</span>
+
+                  Tatami.data(document.getElementById("test"));
+
+                  => {node: "true", enabled: "yes"}
               - statement: 'Tatami.data(key, data[, lock])'
                 arguments:
                   - name: key
                     type: String
+                    desc: 命名空间格式的字符串
                   - name: data
                     type: 
                   - name: lock
                     type: Boolean
+                    desc: >
+                      <p>值为 <code>true</code> 时，在第一次设置之后无法再读写到内部。</p>
                 return: 
-                desc: 
-                demo:
+                desc: >
+                  <p>保存数据到 Tatami 内部。</p>
+                demo: >
+                  Tatami.data("foo.bar", 121);
+
+
+                  Tatami.data("foo");
+
+                  => {bar: 121}
+
+
+                  Tatami.data("foobar.doo", [1, 2, 3], true);
+
+
+                  Tatami.data("foobar");
+
+                  => null
               - statement: 'Tatami.data(key)'
                 arguments:
                   - name: key
                     type: String
                 return: 
-                desc: 
-                demo:
+                desc: >
+                  <p>获取保存到 Tatami 内部的数据。</p>
+                  <p class="note">示例请看 <code>Tatami.data(key, data[, lock])</code> 的。</p>
           - func: i18n
             desc: >
               <p>设置及获取国际化信息。</p>
