@@ -2327,20 +2327,53 @@ classes:
                   - name: settings
                     type: Object
                 return: undefined
-                desc: 
-                demo:
+                desc: >
+                  <p>设置 i18n 信息。</p>
+                demo: >
+                  Tatami.i18n({
+                    "zh": {
+                      "student": "学生",
+                      "teacher": "教师"
+                    },
+                    "ja": {
+                      "student": "せいと",
+                      "teacher": "きょうし"
+                    }
+                  });
+
+
+                  Tatami.i18n("ja.teacher");
+
+                  => "きょうし"
               - statement: 'Tatami.i18n(key[, params])'
                 arguments:
                   - name: key
                     type: String
                   - name: params
                     type: Object
+                    desc: 格式化字符串所需的数据
                 return: String
-                desc: 
-                demo:
+                desc: >
+                  <p>获取 i18n 信息。</p>
+                demo: >
+                  Tatami.i18n({
+                    rabbit_count: "{% count %} 只兔子",
+                    rabbit_name: "兔子"
+                  });
+
+
+                  Tatami.i18n("rabbit_name");
+
+                  => "兔子"
+
+
+                  Tatami.i18n("rabbit_count", {count: 10});
+
+                  => "10 只兔子"
           - func: api
             desc: >
               <p>设置及获取 Web API。</p>
+              <p class="note">用法与 <code>Tatami.i18n()</code> 基本一致。</p>
             invoke:
               - statement: 'Tatami.api(settings)'
                 arguments:
@@ -2361,6 +2394,7 @@ classes:
           - func: route
             desc: >
               <p>设置及获取页面 URL。</p>
+              <p class="note">用法与 <code>Tatami.i18n()</code> 基本一致。</p>
             invoke:
               - statement: 'Tatami.route(settings)'
                 arguments:
@@ -2381,6 +2415,7 @@ classes:
           - func: asset
             desc: >
               <p>设置及获取资源 URL。</p>
+              <p class="note">用法与 <code>Tatami.i18n()</code> 基本一致。</p>
             invoke:
               - statement: 'Tatami.asset(settings)'
                 arguments:
@@ -2400,42 +2435,65 @@ classes:
                 demo:
           - func: ajax
             desc: >
-              <p>Asynchronous JavaScript and XML</p>
+              <p>发起 AJAX (Asynchronous JavaScript and XML) 请求。</p>
             invoke:
               - statement: 'Tatami.ajax(url[, succeed][, fail])'
                 arguments:
                   - name: url
                     type: String
+                    desc: 请求 URL
                   - name: succeed
                     type: Function
+                    desc: 成功时的操作
                   - name: fail
                     type: Function
+                    desc: 失败时的操作
                 return: Object
                 desc: 
-                demo:
+                demo: >
+                  Tatami.ajax("/api/v1/users", function( data, textStatus, jqXHR ) {
+                    // To do sth. when XHR request succeeded
+                  }, function( data, textStatus, jqXHR ) {
+                    // To do sth. when XHR request failed
+                  });
               - statement: 'Tatami.ajax(options[, succeed][, fail])'
                 arguments:
                   - name: options
                     type: Object
+                    desc: 与 <cite><a href="http://api.jquery.com/jQuery.ajax/" target="_blank">jQuery.ajax()</a></cite> 几乎同样的参数
                   - name: succeed
                     type: Function
+                    desc: 成功时的操作
                   - name: fail
                     type: Function
+                    desc: 失败时的操作
                 return: Object
                 desc: 
-                demo:
+                demo: >
+                  Tatami.ajax({
+                    url: "/api/v1/users",
+                    type: "post"
+                  }, function( data, textStatus, jqXHR ) {
+                    // To do sth. when XHR request succeeded
+                  }, function( data, textStatus, jqXHR ) {
+                    // To do sth. when XHR request failed
+                  });
           - func: sjax
             desc: >
-              <p>Synchronous JavaScript and XML</p>
+              <p>发起 SJAX (Synchronous JavaScript and XML) 请求。</p>
+              <p class="note">用法与 <code>Tatami.ajax()</code> 基本一致。</p>
             invoke:
               - statement: 'Tatami.sjax(url[, succeed][, fail])'
                 arguments:
                   - name: url
                     type: String
+                    desc: 请求 URL
                   - name: succeed
                     type: Function
+                    desc: 成功时的操作
                   - name: fail
                     type: Function
+                    desc: 失败时的操作
                 return: Object
                 desc: 
                 demo:
@@ -2443,10 +2501,13 @@ classes:
                 arguments:
                   - name: options
                     type: Object
+                    desc: 与 <cite><a href="http://api.jquery.com/jQuery.ajax/" target="_blank">jQuery.ajax()</a></cite> 几乎同样的参数
                   - name: succeed
                     type: Function
+                    desc: 成功时的操作
                   - name: fail
                     type: Function
+                    desc: 失败时的操作
                 return: Object
                 desc: 
                 demo:
