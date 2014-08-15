@@ -21,7 +21,7 @@ var Environment, LIB_CONFIG, Storage, __proc, __proj, __util,
 
 LIB_CONFIG = {
   name: "Tatami",
-  version: "0.1.3"
+  version: "0.2.0"
 };
 
 __proc = (function(window) {
@@ -1366,6 +1366,38 @@ __util = (function(window, __proc) {
         name: "min",
         handler: function(target, callback, context) {
           return getMaxMin.apply(this, [Infinity, "min", target, callback, (arguments.length < 3 ? window : context)]);
+        },
+        validator: function() {
+          return true;
+        }
+      }, {
+
+        /*
+         * 获取第一个单元
+         *
+         * @method   first
+         * @param    target {String/Array/Array-like Object}
+         * @return   {Anything}
+         */
+        name: "first",
+        handler: function(target) {
+          return this.slice(target, 0, 1)[0];
+        },
+        validator: function() {
+          return true;
+        }
+      }, {
+
+        /*
+         * 获取最后一个单元
+         *
+         * @method   last
+         * @param    target {String/Array/Array-like Object}
+         * @return   {Anything}
+         */
+        name: "last",
+        handler: function(target) {
+          return this.slice(target, -1)[0];
         },
         validator: function() {
           return true;
@@ -3211,9 +3243,12 @@ __proj = (function(window, __util) {
           if (support.storage) {
             if (this.isString(key)) {
               oldVal = this.access(key);
-              return localStorage.setItem(key, escape(this.isPlainObject(oldVal) ? JSON.stringify($.extend(oldVal, val)) : val));
+              localStorage.setItem(key, escape(this.stringify(this.isPlainObject(oldVal) && this.isPlainObject(val) ? this.mixin(true, oldVal, val) : val)));
             }
           }
+        },
+        validator: function() {
+          return arguments.length > 1;
         }
       }, {
 
@@ -3226,19 +3261,27 @@ __proj = (function(window, __util) {
           key = arguments[0];
           if (support.storage) {
             result = localStorage.getItem(key);
-            if (result !== null) {
-              result = unescape(result);
-              try {
-                result = JSON.parse(result);
-              } catch (_error) {
-                error = _error;
-                result = result;
+            if (result != null) {
+              if (result === "undefined") {
+                result = void 0;
+              } else if (result === "null") {
+                result = null;
+              } else {
+                result = unescape(result);
+                try {
+                  result = JSON.parse(result);
+                } catch (_error) {
+                  error = _error;
+                  result = result;
+                }
               }
+            } else {
+              result = void 0;
             }
           }
-          return result || null;
+          return result;
         },
-        value: null,
+        value: void 0,
         validator: function(key) {
           return this.isString(key);
         }

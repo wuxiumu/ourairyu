@@ -1,4 +1,4 @@
-version: 0.1.3
+version: 0.2.0
 files:
   development:
     path: tatami.js
@@ -2513,7 +2513,7 @@ classes:
                 demo:
           - func: save
             desc: >
-              <p>将数据保存到本地。</p>
+              <p>利用 <code>localStorage</code> 将数据保存到本地。</p>
             invoke:
               - statement: 'Tatami.save(key, data)'
                 arguments:
@@ -2523,93 +2523,169 @@ classes:
                     type: 
                 return: undefined
                 desc: 
-                demo:
+                demo: >
+                  Tatami.save("foo", {bar: "bar"});
+
+                  Tatami.access("foo");
+
+                  => {bar: "bar"}
+
+
+                  Tatami.save("foo", {foo: "foo"});
+
+                  Tatami.access("foo");
+
+                  => {bar: "bar", foo: "foo"}
+
+
+                  Tatami.save("foo", {foo: "foobar"});
+
+                  Tatami.access("foo");
+
+                  => {bar: "bar", foo: "foobar"}
+
+
+                  Tatami.save("bar", true);
+
+                  Tatami.access("bar");
+
+                  => true
+
+
+                  Tatami.save("bar", "true");
+
+                  Tatami.access("bar");
+
+                  => "true"
+
+
+                  Tatami.save("bar", undefined);
+
+                  Tatami.access("bar");
+
+                  => undefined
+
+
+                  Tatami.save("bar", "undefined");
+
+                  Tatami.access("bar");
+
+                  => "undefined"
+
+
+                  Tatami.save("doo");
+
+                  Tatami.access("doo");
+
+                  => undefined
           - func: access
             desc: >
-              <p>访问保存到本地的数据。</p>
+              <p>访问利用 <code>localStorage</code> 保存到本地的数据。</p>
             invoke:
               - statement: 'Tatami.access(key)'
                 arguments:
                   - name: key
                     type: String
                 return: 
-                desc: 
-                demo:
-          - func: pathname
-            desc: >
-              <p>获取 URL 中的 pathname 部分。</p>
-            invoke:
-              - statement: 'Tatami.pathname(url)'
-                arguments:
-                  - name: url
-                    type: String
-                return: String
-                desc: 
-                demo:
-          - func: alert
-            desc: >
-              <p>自定义警告提示框</p>
-            invoke:
-              - statement: 'Tatami.alert(message[, callback])'
-                arguments:
-                  - name: message
-                    type: String
-                  - name: callback
-                    type: Function
-                return: Boolean
-                desc: 
-                demo:
-          - func: confirm
-            desc: >
-              <p>自定义确认提示框（两个按钮）</p>
-            invoke:
-              - statement: 'Tatami.confirm(message[, okCallback][, cancelCallback])'
-                arguments:
-                  - name: message
-                    type: String
-                  - name: okCallback
-                    type: Function
-                  - name: cancelCallback
-                    type: Function
-                return: Boolean
-                desc: 
-                demo:
-          - func: confirmEX
-            desc: >
-              <p>自定义确认提示框（三个按钮）</p>
-            invoke:
-              - statement: 'Tatami.confirmEX(message[, yesCallback][, noCallback])'
-                arguments:
-                  - name: message
-                    type: String
-                  - name: yesCallback
-                    type: Function
-                  - name: noCallback
-                    type: Function
-                return: 
-                desc: 
-                demo:
-          - func: url
-            desc: >
-              <p></p>
-            invoke:
-              - statement: 'Tatami.url()'
-                return: Object
-                desc: 
-                demo:
-          - func: download
-            desc: >
-              <p></p>
-            invoke:
-              - statement: 'Tatami.download(url[, fileName])'
-                arguments:
-                  - name: url
-                    type: String
-                  - name: fileName
-                    type: String
-                return: undefined
-                desc: 
-                demo:
+                desc:
+                demo: >
+                  Tatami.save("foo", null);
+
+                  Tatami.access("foo");
+
+                  => null
+
+
+                  Tatami.save("foo", "null");
+
+                  Tatami.access("foo");
+
+                  => "null"
+
+
+                  Tatami.access("bar");
+
+                  => undefined
+
+
+                  Tatami.access(1);
+
+                  => undefined
+          # - func: pathname
+          #   desc: >
+          #     <p>获取 URL 中的 pathname 部分。</p>
+          #   invoke:
+          #     - statement: 'Tatami.pathname(url)'
+          #       arguments:
+          #         - name: url
+          #           type: String
+          #       return: String
+          #       desc: 
+          #       demo:
+          # - func: alert
+          #   desc: >
+          #     <p>自定义警告提示框</p>
+          #   invoke:
+          #     - statement: 'Tatami.alert(message[, callback])'
+          #       arguments:
+          #         - name: message
+          #           type: String
+          #         - name: callback
+          #           type: Function
+          #       return: Boolean
+          #       desc: 
+          #       demo:
+          # - func: confirm
+          #   desc: >
+          #     <p>自定义确认提示框（两个按钮）</p>
+          #   invoke:
+          #     - statement: 'Tatami.confirm(message[, okCallback][, cancelCallback])'
+          #       arguments:
+          #         - name: message
+          #           type: String
+          #         - name: okCallback
+          #           type: Function
+          #         - name: cancelCallback
+          #           type: Function
+          #       return: Boolean
+          #       desc: 
+          #       demo:
+          # - func: confirmEX
+          #   desc: >
+          #     <p>自定义确认提示框（三个按钮）</p>
+          #   invoke:
+          #     - statement: 'Tatami.confirmEX(message[, yesCallback][, noCallback])'
+          #       arguments:
+          #         - name: message
+          #           type: String
+          #         - name: yesCallback
+          #           type: Function
+          #         - name: noCallback
+          #           type: Function
+          #       return: 
+          #       desc: 
+          #       demo:
+          # - func: url
+          #   desc: >
+          #     <p></p>
+          #   invoke:
+          #     - statement: 'Tatami.url()'
+          #       return: Object
+          #       desc: 
+          #       demo:
+          # - func: download
+          #   desc: >
+          #     <p></p>
+          #   invoke:
+          #     - statement: 'Tatami.download(url[, fileName])'
+          #       arguments:
+          #         - name: url
+          #           type: String
+          #         - name: fileName
+          #           type: String
+          #       return: undefined
+          #       desc: 
+          #       demo:
           - func: functionExists
             desc: >
               <p>检测指定函数是否已经定义过。</p>
