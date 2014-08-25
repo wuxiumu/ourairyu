@@ -4,7 +4,7 @@ special_title: API 文档 - Tatami
 ---
 <aside class="toc"></aside>
 <section id="documentation">
-  {% for api_class in site.data.apis.classes %}
+  {% for api_class in site.data.apis.tatami.classes %}
   <h2 id="class{{ api_class.flag | capitalize }}" class="heading">{{ api_class.name }}</h2>
   {{ api_class.desc }}
   {% for category in api_class.categories %}

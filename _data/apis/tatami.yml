@@ -2,10 +2,10 @@ version: 0.2.2
 files:
   development:
     path: tatami.js
-    size: '93.6kb'
+    size: '97.5kb'
   production:
     path: tatami.min.js
-    size: '27.9kb'
+    size: '28.5kb'
   source_map: tatami.min.map
 classes:
   - name: 核心
@@ -2108,9 +2108,35 @@ classes:
                   Tatami.sandbox({invoke_time: 2});
 
                   => false
-      - name: 其他
-        flag: other
+      - name: 封闭环境内函数
+        flag: function_in_sandbox
         apis:
+          - func: functionExists
+            desc: >
+              <p>检测指定函数是否已经定义过。</p>
+            invoke:
+              - statement: 'Tatami.functionExists(funcName[, isWindow])'
+                arguments:
+                  - name: funcName
+                    type: String
+                  - name: isWindow
+                    type: Boolean
+                return: Boolean
+                desc: >
+                  <p>默认从 Tatami 内部的函数列表中查找 <code>funcName</code>，若 <code>isWindow</code> 设置为 <code>true</code>，则从 <code>window</code> 对象上找。</p>
+                demo: >
+                  Tatami.queue("foo", function() {});
+
+                  Tatami.functionExists("foo");
+
+                  => true
+
+
+                  function bar() {}
+
+                  Tatami.functionExists("bar", true);
+
+                  => true
           - func: queue
             desc: >
               <p>将外部处理函数引入到沙盒中。</p>
@@ -2315,6 +2341,9 @@ classes:
                   => Foo!
 
                   => Bar!
+      - name: 项目配置
+        flag: constructors
+        apis:
           - func: config
             desc: >
               <p>获取系统信息。</p>
@@ -2386,61 +2415,6 @@ classes:
                       // To do sth.
                     }
                   });
-          - func: data
-            desc: >
-              <p>获取 DOM 的「data-*」属性集或存储数据到内部/从内部获取数据。</p>
-            invoke:
-              - statement: 'Tatami.data(node)'
-                arguments:
-                  - name: node
-                    type: DOM
-                    desc: 元素节点
-                return: Object
-                desc: >
-                  <p>获取元素节点的「data-*」属性集。</p>
-                demo: >
-                  // <span id="test" data-node="true" data-enabled="yes">An element node</span>
-
-                  Tatami.data(document.getElementById("test"));
-
-                  => {node: "true", enabled: "yes"}
-              - statement: 'Tatami.data(key, data[, lock])'
-                arguments:
-                  - name: key
-                    type: String
-                    desc: 命名空间格式的字符串
-                  - name: data
-                    type: 
-                  - name: lock
-                    type: Boolean
-                    desc: >
-                      <p>值为 <code>true</code> 时，在第一次设置之后无法再读写到内部。</p>
-                return: 
-                desc: >
-                  <p>保存数据到 Tatami 内部。</p>
-                demo: >
-                  Tatami.data("foo.bar", 121);
-
-
-                  Tatami.data("foo");
-
-                  => {bar: 121}
-
-
-                  Tatami.data("foobar.doo", [1, 2, 3], true);
-
-
-                  Tatami.data("foobar");
-
-                  => null
-              - statement: 'Tatami.data(key)'
-                arguments:
-                  - name: key
-                    type: String
-                return: 
-                desc: >
-                  <p>获取保存到 Tatami 内部的数据。</p>
-                  <p class="note">示例请看 <code>Tatami.data(key, data[, lock])</code> 的。</p>
           - func: i18n
             desc: >
               <p>设置及获取国际化信息。</p>
@@ -2556,6 +2530,64 @@ classes:
                 return: String
                 desc: 
                 demo:
+      - name: 其他
+        flag: other
+        apis:
+          - func: data
+            desc: >
+              <p>获取 DOM 的「data-*」属性集或存储数据到内部/从内部获取数据。</p>
+            invoke:
+              - statement: 'Tatami.data(node)'
+                arguments:
+                  - name: node
+                    type: DOM
+                    desc: 元素节点
+                return: Object
+                desc: >
+                  <p>获取元素节点的「data-*」属性集。</p>
+                demo: >
+                  // <span id="test" data-node="true" data-enabled="yes">An element node</span>
+
+                  Tatami.data(document.getElementById("test"));
+
+                  => {node: "true", enabled: "yes"}
+              - statement: 'Tatami.data(key, data[, lock])'
+                arguments:
+                  - name: key
+                    type: String
+                    desc: 命名空间格式的字符串
+                  - name: data
+                    type: 
+                  - name: lock
+                    type: Boolean
+                    desc: >
+                      <p>值为 <code>true</code> 时，在第一次设置之后无法再读写到内部。</p>
+                return: 
+                desc: >
+                  <p>保存数据到 Tatami 内部。</p>
+                demo: >
+                  Tatami.data("foo.bar", 121);
+
+
+                  Tatami.data("foo");
+
+                  => {bar: 121}
+
+
+                  Tatami.data("foobar.doo", [1, 2, 3], true);
+
+
+                  Tatami.data("foobar");
+
+                  => null
+              - statement: 'Tatami.data(key)'
+                arguments:
+                  - name: key
+                    type: String
+                return: 
+                desc: >
+                  <p>获取保存到 Tatami 内部的数据。</p>
+                  <p class="note">示例请看 <code>Tatami.data(key, data[, lock])</code> 的。</p>
           - func: ajax
             desc: >
               <p>发起 AJAX (Asynchronous JavaScript and XML) 请求。</p>
@@ -2809,32 +2841,6 @@ classes:
           #       return: undefined
           #       desc: 
           #       demo:
-          - func: functionExists
-            desc: >
-              <p>检测指定函数是否已经定义过。</p>
-            invoke:
-              - statement: 'Tatami.functionExists(funcName[, isWindow])'
-                arguments:
-                  - name: funcName
-                    type: String
-                  - name: isWindow
-                    type: Boolean
-                return: Boolean
-                desc: >
-                  <p>默认从 Tatami 内部的函数列表中查找 <code>funcName</code>，若 <code>isWindow</code> 设置为 <code>true</code>，则从 <code>window</code> 对象上找。</p>
-                demo: >
-                  Tatami.queue("foo", function() {});
-
-                  Tatami.functionExists("foo");
-
-                  => true
-
-
-                  function bar() {}
-
-                  Tatami.functionExists("bar", true);
-
-                  => true
 
           # - func: encodeEntities
           #   desc: >
