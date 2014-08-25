@@ -2341,7 +2341,7 @@ classes:
                   => Foo!
 
                   => Bar!
-      - name: 项目配置
+      - name: 初始化与配置
         flag: constructors
         apis:
           - func: config
@@ -2530,6 +2530,73 @@ classes:
                 return: String
                 desc: 
                 demo:
+      - name: 系统对话框
+        flag: systemDialog
+        apis:
+          - func: alert
+            desc: >
+              <p>弹出警告提示框。</p>
+              <p class="note">如果引入了 jQuery UI Dialog，则为自定义的警告对话框。</p>
+            invoke:
+              - statement: 'Tatami.alert(message[, callback])'
+                arguments:
+                  - name: message
+                    type: String
+                  - name: callback
+                    type: Function
+                    desc: 点击「确定」按钮的响应
+                return: Boolean
+                desc: 
+                demo: >
+                  Tatami.alert("Alert Dialog", function() {
+                    console.log("Clicked 'DETERMINE' button!");
+                  });
+          - func: confirm
+            desc: >
+              <p>弹出确认提示框。</p>
+              <p class="note">如果引入了 jQuery UI Dialog，则为自定义的带有两个按钮的确认提示框。</p>
+            invoke:
+              - statement: 'Tatami.confirm(message[, okCallback][, cancelCallback])'
+                arguments:
+                  - name: message
+                    type: String
+                  - name: okCallback
+                    type: Function
+                    desc: 点击「确定」按钮的响应
+                  - name: cancelCallback
+                    type: Function
+                    desc: 点击「取消」按钮的响应
+                return: Boolean
+                desc: 
+                demo: >
+                  Tatami.confirm("Confirm Dialog with Two Buttons", function() {
+                    console.log("Clicked 'DETERMINE' button of confirm dialog!");
+                  }, function() {
+                    console.log("Clicked 'CANCEL' button of confirm dialog!");
+                  });
+          - func: confirmEX
+            desc: >
+              <p>弹出确认提示框。</p>
+              <p class="note">如果引入了 jQuery UI Dialog，则为自定义的带有三个按钮的确认提示框。</p>
+            invoke:
+              - statement: 'Tatami.confirmEX(message[, yesCallback][, noCallback])'
+                arguments:
+                  - name: message
+                    type: String
+                  - name: yesCallback
+                    type: Function
+                    desc: 点击「是」按钮的响应
+                  - name: noCallback
+                    type: Function
+                    desc: 点击「否」按钮的响应
+                return: 
+                desc: 
+                demo: >
+                  Tatami.confirmEX("Confirm Dialog with Three Buttons", function() {
+                    console.log("Clicked 'YES' button of ex-confirm dialog!");
+                  }, function() {
+                    console.log("Clicked 'NO' button of ex-confirm dialog!");
+                  });
       - name: 其他
         flag: other
         apis:
@@ -2775,49 +2842,6 @@ classes:
           #         - name: url
           #           type: String
           #       return: String
-          #       desc: 
-          #       demo:
-          # - func: alert
-          #   desc: >
-          #     <p>自定义警告提示框</p>
-          #   invoke:
-          #     - statement: 'Tatami.alert(message[, callback])'
-          #       arguments:
-          #         - name: message
-          #           type: String
-          #         - name: callback
-          #           type: Function
-          #       return: Boolean
-          #       desc: 
-          #       demo:
-          # - func: confirm
-          #   desc: >
-          #     <p>自定义确认提示框（两个按钮）</p>
-          #   invoke:
-          #     - statement: 'Tatami.confirm(message[, okCallback][, cancelCallback])'
-          #       arguments:
-          #         - name: message
-          #           type: String
-          #         - name: okCallback
-          #           type: Function
-          #         - name: cancelCallback
-          #           type: Function
-          #       return: Boolean
-          #       desc: 
-          #       demo:
-          # - func: confirmEX
-          #   desc: >
-          #     <p>自定义确认提示框（三个按钮）</p>
-          #   invoke:
-          #     - statement: 'Tatami.confirmEX(message[, yesCallback][, noCallback])'
-          #       arguments:
-          #         - name: message
-          #           type: String
-          #         - name: yesCallback
-          #           type: Function
-          #         - name: noCallback
-          #           type: Function
-          #       return: 
           #       desc: 
           #       demo:
           # - func: url
