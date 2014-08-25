@@ -1,4 +1,4 @@
-version: 0.2.0
+version: 0.2.2
 files:
   development:
     path: tatami.js
@@ -2201,6 +2201,77 @@ classes:
                   Tatami.queue();
 
                   => {foo: function() { console.log("Foo!"); }, bar: function() { console.log("Bar!"); }}
+          - func: dequeue
+            desc: >
+              <p>将指定处理函数从沙盒中删除</p>
+            invoke:
+              - statement: 'Tatami.dequeue(funcName)'
+                arguments:
+                  - name: funcName
+                    type: String
+                    desc: 要删除的函数的名称
+                return: Boolean
+                desc:
+                demo: >
+                  Tatami.queue("foo", function() {
+                    return "foo";
+                  });
+
+
+                  Tatami.functionExists("foo");
+
+                  => true
+
+
+                  Tatami.dequeue("foo");
+
+                  => true
+
+
+                  Tatami.functionExists("foo");
+
+                  => false
+              - statement: 'Tatami.dequeue(funcNameList)'
+                arguments:
+                  - name: funcNameList
+                    type: Array
+                    desc: 要删除的函数的名称列表
+                return: Boolean
+                desc:
+                demo: >
+                  Tatami.queue({
+                    foo: function() {
+                      return "foo";
+                    },
+                    bar: function() {
+                      return "bar";
+                    }
+                  });
+
+
+                  Tatami.functionExists("foo");
+
+                  => true
+
+
+                  Tatami.functionExists("bar");
+
+                  => true
+
+
+                  Tatami.dequeue(["foo", "bar"]);
+
+                  => true
+
+
+                  Tatami.functionExists("foo");
+
+                  => false
+
+
+                  Tatami.functionExists("bar");
+
+                  => false
           - func: run
             desc: >
               <p>执行指定函数。</p>
