@@ -2597,6 +2597,24 @@ classes:
                   }, function() {
                     console.log("Clicked 'NO' button of ex-confirm dialog!");
                   });
+          - func: destroySystemDialogs
+            desc: >
+              <p>销毁系统对话框。</p>
+              <p class="note">只有在引入 jQuery UI Dialog 时才会有效。</p>
+            invoke:
+              - statement: 'Tatami.destroySystemDialogs()'
+                return: Boolean
+                demo: >
+                  Tatami.alert("Alert");
+
+                  Tatami.confirm("Confirm");
+
+                  Tatami.confirmEX("Confirm EX");
+
+
+                  Tatami.destroySystemDialogs();
+
+                  => true
       - name: 其他
         flag: other
         apis:
