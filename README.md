@@ -1,5 +1,5 @@
-# Tatami: Make development EASY
+# 网道
 
-此处为 Tatami 项目主页的源码存放地。
+> 「道」是表达技术、方法、学术观点、方法论或思想体系的「普遍概念」。
 
-项目主页的网址为 [http://dev.ourai.ws/tatami/](http://dev.ourai.ws/tatami/)。
+「网道」即指「深入研究 web 开发技术并归纳总结，将其形成一个完整的思想体系」——Dive into Web！
