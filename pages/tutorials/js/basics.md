@@ -9,8 +9,6 @@ css:
   - highlight
 ---
 
-**本文中凡是提到 ECMAScript 的地方，皆用「ES」来表示；literal 既叫「直接量」又叫「字面量」，文中统一为「直接量」。**
-
 ## [数据类型](data_type/)
 {:.heading}
 
