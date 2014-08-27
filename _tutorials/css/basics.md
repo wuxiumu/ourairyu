@@ -1,10 +1,6 @@
 ---
-page_category: tutorial
-
 title: 层叠样式表基础
 description: 关于层叠样式表的一些基本知识
-permalink: /css-basics/
-comments: true
 css:
   - highlight
 ---

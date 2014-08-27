@@ -5,6 +5,9 @@ collections:
   demos:
     output: true
     permalink: /:collection/:path/
+  tutorials:
+    output: true
+    permalink: /:collection/:path/
 
 # Handling Reading
 exclude: [".sass-cache", "node_modules", "src", "CNAME", "Gemfile", "Gemfile.lock", "Gruntfile.coffee", "bower.json", "package.json", "README.md"]
@@ -62,6 +65,15 @@ defaults:
       layout_js:
         - demo
       page_category: demo
+  # Tutorials
+  - scope:
+      path: ""
+      type: tutorials
+    values:
+      layout: page
+      template: page
+      page_category: tutorial
+      comments: true
   # Tatami API
   - scope:
       path: "projects/tatami"

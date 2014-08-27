@@ -1,10 +1,6 @@
 ---
-page_category: tutorial
-
 title: ECMAScript 数据类型
 description: ECMAScript 中的数据类型
-permalink: /es-basics/data_type/
-comments: true
 css:
   - highlight
 ---

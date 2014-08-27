@@ -1,10 +1,6 @@
 ---
-page_category: tutorial
-
 title: 约定
 description: 
-permalink: /es-convention/
-comments: true
 css:
   - highlight
 ---

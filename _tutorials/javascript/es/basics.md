@@ -1,15 +1,11 @@
 ---
-page_category: tutorial
-
 title: ECMAScript 基础
 description: 关于 ECMAScript 的一些基本知识
-permalink: /es-basics/
-comments: true
 css:
   - highlight
 ---
 
-## [数据类型](data_type/)
+## 数据类型
 {:.heading}
 
 ES 中定义了 6 种数据类型：
