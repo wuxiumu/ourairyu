@@ -1,10 +1,7 @@
 ---
-page_category: topic
-
-title: JavaScript 专题
+title: JavaScript
 description: 
-permalink: /topics/javascript/
-comments: true
+permalink: /tutorials/javascript/
 ---
 
 「JavaScript」这个词在不同语境下可以指代很多东西：
@@ -19,7 +16,8 @@ comments: true
 
 无论「JavaScript」代表什么，然而其所有含义中的共通部分，也就是其核心，是不包括输入输出，只能针对字符串、数组、日期和正则表达式等进行处理的 ECMAScript。它是学会并掌握 JavaScript 的基础和关键！
 
-## 笔记
+## 客户端 JavaScript
 {:.heading}
 
-- [ECMAScript 基础](/es-basics/)
+- [ECMAScript](es/)
+- DOM

@@ -1,10 +1,7 @@
 ---
-page_category: topic
-
-title: 层叠样式表专题
+title: 层叠样式表
 description: 使你了解层叠样式表是如何让网页千变万化的
-permalink: /topics/css/
-comments: true
+permalink: /tutorials/css/
 ---
 
 层叠样式表，即 Cascading Style Sheets（下文用「CSS」来指代），是一种由哈坤·利（Håkon Wium Lie）与伯特·波斯（Bert Bos）合作设计并开发，用于描述结构化文档（如 HTML、XML）表现形式的样式表语言。
@@ -14,4 +11,4 @@ comments: true
 ## 笔记
 {:.heading}
 
-- [层叠样式表基础](/css-basics/)
+- [层叠样式表基础](basics/)
