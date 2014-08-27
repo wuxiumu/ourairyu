@@ -1,4 +1,7 @@
 ---
+layout: page
+template: page
+
 page_category: projects
 
 title: 项目
@@ -10,10 +13,10 @@ js:
 ---
 
 <div class="Tabs">
-  <div class="Tabs-triggers"><a href="#" class="Tabs-trigger js-trigger--tab" data-flag="opensource">开源项目</a><a href="#" class="Tabs-trigger js-trigger--tab" data-flag="company">公司项目</a></div>
+  <div class="Tabs-triggers"><a href="#" class="Tabs-trigger js-trigger--tab" data-flag="opensource">开源项目</a><a href="#" class="Tabs-trigger js-trigger--tab" data-flag="enterprise">公司项目</a></div>
   <div class="Tabs-content repos" data-flag="opensource"></div>
-  <div class="Tabs-content projects" data-flag="company">
-    {% for project in site.data.projects reversed %}
+  <div class="Tabs-content projects" data-flag="enterprise">
+    {% for project in site.data.projects.enterprise reversed %}
       <section class="project">
         <header>
           {% assign prj_name = project.name.zh %}
