@@ -3,9 +3,9 @@ site: http://dev.ourai.ws
 # 当前 repo 的 URL
 root: http://dev.ourai.ws
 
-js: assets/javascripts
-css: assets/stylesheets
-img: assets/images
+js: javascripts
+css: stylesheets
+img: images
 
 article: /posts/
 tutorial: /tutorials/

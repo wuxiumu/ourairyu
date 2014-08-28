@@ -12,14 +12,13 @@ module.exports = ( grunt ) ->
 
   grunt.initConfig
     meta:
-      src: "src"
+      src: "_assets"
       src_img: "<%= meta.src %>/images"
       src_css: "<%= meta.src %>/stylesheets"
       src_js: "<%= meta.src %>/javascripts"
       assets: "assets"
-      assets_img: "<%= meta.assets %>/images"
-      assets_css: "<%= meta.assets %>/stylesheets"
-      assets_js: "<%= meta.assets %>/javascripts"
+      assets_css: "stylesheets"
+      assets_js: "javascripts"
       vendor: "vendors"
     copy:
       html5shiv:
