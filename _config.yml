@@ -1,4 +1,7 @@
 collections:
+  pages:
+    output: true
+    permalink: /:collection/:path/
   projects:
     output: true
     permalink: /:collection/:path/
@@ -36,6 +39,13 @@ defaults:
     values:
       layout: default
       layout_type: sandwich
+  # Pages
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: page
+      template: page
   # Posts
   - scope:
       path: ""
@@ -47,12 +57,6 @@ defaults:
         - highlight
         - pages/article
       comments: true
-  # Pages
-  - scope:
-      path: ""
-      type: page
-    values:
-      layout: page
   # Demos
   - scope:
       path: ""
