@@ -73,7 +73,6 @@ defaults:
       layout: page
       template: page
       page_category: tutorial
-      comments: true
   # Tatami API
   - scope:
       path: "projects/tatami"
