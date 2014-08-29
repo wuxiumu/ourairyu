@@ -7,16 +7,28 @@ page_category: projects
 title: 项目
 description: 托管在 <a href="https://github.com/ourai" target="_blank">GitHub</a> 上的开源项目以及在职期间所参与过的就职公司的项目
 permalink: /projects/
-
-js:
-  - pages/repos
 ---
 
 <div class="Tabs">
-  <div class="Tabs-triggers"><a href="#" class="Tabs-trigger js-trigger--tab" data-flag="opensource">开源项目</a><a href="#" class="Tabs-trigger js-trigger--tab" data-flag="enterprise">公司项目</a></div>
-  <div class="Tabs-content repos" data-flag="opensource"></div>
+  <div class="Tabs-triggers"><a href="#" class="Tabs-trigger js-trigger--tab" data-flag="opensource">开源项目</a><a href="#" class="Tabs-trigger js-trigger--tab" data-flag="enterprise">企业项目</a></div>
+  {% assign projects = site.data.projects %}
+  <!-- 开源项目 -->
+  <div class="Tabs-content repos" data-flag="opensource">
+    {% for repo in projects.opensource reversed %}
+    {% assign repoinfo = repo[1] %}
+    <section class="project">
+      <header>
+        <h2 class="project-name">{% if repoinfo.homepage == null or repoinfo.homepage == blank %}<a href="{{ repoinfo.url }}" target="_blank" rel="external nofollow">{{ repoinfo.name.en }}</a>{% else %}<a href="{{ repoinfo.homepage }}">{{ repoinfo.name.en }}</a>{% endif %}</h2>
+      </header>
+      <div class="project-description">
+        <p>{{ repoinfo.description }}</p>
+      </div>
+    </section>
+    {% endfor %}
+  </div>
+  <!-- 企业项目 -->
   <div class="Tabs-content projects" data-flag="enterprise">
-    {% for project in site.data.projects.enterprise reversed %}
+    {% for project in projects.enterprise reversed %}
       <section class="project">
         <header>
           {% assign prj_name = project.name.zh %}

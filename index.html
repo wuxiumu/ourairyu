@@ -4,8 +4,6 @@ layout_type: sandwich
 
 css:
   - pages/home
-js:
-  - pages/home
 ---
 
 <!-- Articles -->
@@ -27,16 +25,28 @@ js:
     </ul>
   </div>
 </div>
+{% assign projects = site.data.projects %}
 <!-- GitHub repositories -->
 <div class="section">
   <h2 class="section-title">开源项目</h2>
-  <ul class="repos"></ul>
+  <ul class="repos">
+    {% for repo in projects.opensource reversed %}
+    {% assign repoinfo = repo[1] %}
+    <li class="repo">
+      <div>
+        <h3>{% if repoinfo.homepage == null or repoinfo.homepage == blank %}<a href="{{ repoinfo.url }}" target="_blank" rel="external nofollow">{{ repoinfo.name.en }}</a>{% else %}<a href="{{ repoinfo.homepage }}">{{ repoinfo.name.en }}</a>{% endif %}</h3>
+        <span class="repo_lang">{{ repoinfo.language }}</span><time datetime="{{ repoinfo.created_at }}">创建于 {{ repoinfo.created_at | date: "%Y-%m-%d" }}</time>
+        <p>{{ repoinfo.description }}</p>
+      </div>
+    </li>
+    {% endfor %}
+  </ul>
 </div>
 <!-- Projects -->
 <div class="section">
-  <h2 class="section-title">商业项目</h2>
+  <h2 class="section-title">企业项目</h2>
   <ul class="projects">
-    {% for project in site.data.projects.enterprise reversed %}
+    {% for project in projects.enterprise reversed %}
       <li class="project">
         <div>
           {% if project.image.thumbnail %}
