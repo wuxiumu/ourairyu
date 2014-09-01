@@ -5,7 +5,7 @@ css:
   - highlight
 ---
 
-ES 中定义了 6 种数据类型，其中 5 种是原始类型。
+ECMAScript 中定义了 6 种数据类型，其中 5 种是原始类型。
 
 ## 原始类型
 {:.heading}
