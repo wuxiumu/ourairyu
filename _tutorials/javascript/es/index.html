@@ -1,0 +1,18 @@
+---
+title: ECMAScript
+description: JavaScript 的标准，同时也是 JavaScript 核心。
+permalink: /tutorials/javascript/es/
+---
+
+<ul>
+{% for tutorial in site.tutorials %}
+  {% if tutorial.page_category == "ecmascript_tutorial" and tutorial.url != page.url %}
+  <li>
+    <a href="{{ tutorial.url }}">{{ tutorial.title }}</a>
+    {% if tutorial.description != blank %}
+    <p>{{ tutorial.description }}</p>
+    {% endif %}
+  </li>
+  {% endif %}
+{% endfor %}
+</ul>
