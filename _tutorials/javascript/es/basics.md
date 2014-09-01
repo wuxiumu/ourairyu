@@ -54,9 +54,11 @@ ECMAScript 中定义了 6 种数据类型：
 
 ### 包装对象
 
-字符串有属性是因为在引用属性时，ECMAScript 会将字符串的值通过调用 `new String()` 的方式转换为对象，一旦属性引用结束对象就会销毁（实现上未必会真的创建或销毁临时对象，但看起来如此）。 
+原始类型不具备属性，然而却经常看到 `"foo".length` 这种用原始类型访问属性的表达式。这是因为在访问属性时 JavaScript 解释器会调用原始类型对应的构造函数去创建一个临时对象，一旦属性引用结束对象就会销毁（实现上未必会真的创建或销毁临时对象，但看起来如此）。这个临时对象叫做「包装对象」（Wrapper Object），而创建它的构造函数叫做「对象包装器」（object wrapper）。
 
-同理，数字、布尔值等原始类型也具有各自创建临时对象的方法：`new Number()` 和 `new Boolean()`。原始类型在引用属性时所创建的临时对象称为「包装对象」。然而，`null` 和 `undefined` 没有包装对象，访问它们的属性会抛出 `TypeError`。
+只有字符串、数字和布尔才有包装对象，而 `null` 和 `undefined` 没有，所以访问它们的属性会抛出 TypeError。
+
+[![Wrapper Object]({{ site.data.url.site }}/{{ site.data.url.img }}/tutorials/wrapper_object.jpg){:width="600"}]({{ site.data.url.site }}/{{ site.data.url.img }}/tutorials/wrapper_object.jpg){:target="_blank"}
 
 {% highlight js %}
 var s = "test";
