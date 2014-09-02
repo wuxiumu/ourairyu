@@ -75,7 +75,7 @@ var s = "test";
 // 为包装对象的新属性赋值
 s.len = 4;
 
-var t = s.len
+var t = s.len;
 
 console.log(t);
 => undefined
