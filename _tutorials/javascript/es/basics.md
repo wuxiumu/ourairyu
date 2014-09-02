@@ -56,14 +56,29 @@ ECMAScript 中定义了 6 种数据类型：
 
 原始类型不具备属性，然而却经常看到 `"foo".length` 这种用原始类型访问属性的表达式。这是因为在访问属性时 JavaScript 解释器会调用原始类型对应的构造函数去创建一个临时对象，一旦属性引用结束对象就会销毁（实现上未必会真的创建或销毁临时对象，但看起来如此）。这个临时对象叫做「包装对象」（Wrapper Object），而创建它的构造函数叫做「对象包装器」（object wrapper）。
 
+![Wrapper Object]({{ site.data.url.site }}/{{ site.data.url.img }}/tutorials/wrapper_object.jpg){:width="600"}
+
 只有字符串、数字和布尔才有包装对象，而 `null` 和 `undefined` 没有，所以访问它们的属性会抛出 TypeError。
 
-[![Wrapper Object]({{ site.data.url.site }}/{{ site.data.url.img }}/tutorials/wrapper_object.jpg){:width="600"}]({{ site.data.url.site }}/{{ site.data.url.img }}/tutorials/wrapper_object.jpg){:target="_blank"}
+{% highlight js %}
+console.log((1).length);
+=> undefined
+
+console.log(null.length);
+=> TypeError: Cannot read property 'length' of null
+{% endhighlight %}
 
 {% highlight js %}
+// 定义一个字符串直接量
 var s = "test";
+
+// 为包装对象的新属性赋值
 s.len = 4;
-var t = s.len;
+
+var t = s.len
+
+console.log(t);
+=> undefined
 {% endhighlight %}
 
 上面代码中变量 `t` 的值为 `undefined`——在对 `s.len` 赋值时创建了一个临时对象，但是语句执行之后那个临时对象销毁了，所以这条语句无效。再一次调用 `s.len` 时是创建的另一个临时对象，故 `t` 的值为 `undefined`。
