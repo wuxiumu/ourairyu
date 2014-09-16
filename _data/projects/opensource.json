@@ -20,16 +20,5 @@
     "language": "CoffeeScript",
     "url": "https://github.com/jsrev/tatami",
     "homepage": "http://dev.ourai.ws/projects/tatami/"
-  },
-  "videojs-progress": {
-    "name": {
-      "zh": "",
-      "en": "Video.js Progress"
-    },
-    "description": "增强 Video.js 的播放进度条",
-    "created_at": "2014-09-04T14:13:56Z",
-    "language": "CoffeeScript",
-    "url": "https://github.com/ourai/videojs-progress",
-    "homepage": ""
   }
 }
