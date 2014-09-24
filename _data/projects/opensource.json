@@ -18,7 +18,7 @@
     "description": "为新项目的前端开发提供基础设施",
     "created_at": "2013-11-29T06:28:29Z",
     "language": "CoffeeScript",
-    "url": "https://github.com/jsrev/tatami",
+    "url": "https://github.com/fekit/tatami",
     "homepage": "http://dev.ourai.ws/projects/tatami/"
   }
 }
