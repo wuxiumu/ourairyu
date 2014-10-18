@@ -1,0 +1,25 @@
+---
+page_category: events
+
+title: 活动
+description: 开发者会议、技术沙龙等活动
+permalink: /events/
+comments: true
+---
+
+### 参与活动
+
+<ul class="events">
+  {% for event in site.data.events reversed %}
+    <li class="event">
+      <h4 class="event_name">{% if event.website == blank %}{{ event.name.zh }}{% else %}<a href="{{ event.website }}" target="_blank" rel="external nofollow">{{ event.name.zh }}</a>{% endif %}</h4>
+      {% assign start_date = event.period.start | date: "%Y.%m.%d" %}
+      {% assign end_date = event.period.end | date: "%Y.%m.%d" %}
+      <div class="event_period"><time datetime="{{ event.period.start | date: '%Y-%m-%d' }}">{{ start_date }}</time>{% if start_date != end_date %} – <time datetime="{{ event.period.end | date: '%Y-%m-%d' }}">{{ end_date }}</time>{% endif %}</div>
+      {% if event.description != blank %}
+        <p class="event_desc">{{ event.description }}</p>
+      {% endif %}
+      <!--<span>{{ event.location.place }}（<a href="{{ event.location.map }}" target="_blank" rel="external nofollow">查看地图</a>）</span>-->
+    </li>
+  {% endfor %}
+</ul>
