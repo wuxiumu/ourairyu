@@ -1,0 +1,20 @@
+- title: 透明的 DOM 被穿透
+  description: 未设置背景图片并且背景色为透明的 DOM 会成为「幽灵」，绑定的事件和一些浏览器行为不会被触发。
+  environment:
+    browser: [IE]
+  reported_date: 2013-03-27
+  status: resolved
+  reason:
+  solution: 使用 1×1 像素的透明 GIF 文件作为背景图片平铺。
+  categories: [css, javascript]
+
+- title: 向页面中插入嵌套的 HTML 标签字符串时只插入最外层
+  description: 使用 jQuery 以 HTML 字符串的形式向页面中插入 DOM 时只插入最外层标签。
+  environment:
+    browser: [IE8]
+    other: [jQuery]
+  reported_date: 2014-10-30
+  status: verifying
+  reason:
+  solution:
+  categories: [javascript]
