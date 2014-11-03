@@ -8,6 +8,17 @@
   solution: 使用 1×1 像素的透明 GIF 文件作为背景图片平铺。
   categories: [css, javascript]
 
+- title: MIME 为 application/json 的文件会被下载
+  description: MIME 为 application/json 的文件会被下载
+  environment: 
+    browser: [IE10-]
+    other: 
+  reported_date: 2014-05-19
+  status: resolved
+  reason: 
+  solution: 服务器在返回文件时使用 text/plain。
+  categories: 
+
 - title: 向页面中插入嵌套的 HTML 标签字符串时只插入最外层
   description: 使用 jQuery 以 HTML 字符串的形式向页面中插入 DOM 时只插入最外层标签。
   environment:
@@ -18,3 +29,14 @@
   reason:
   solution:
   categories: [javascript]
+
+# - title: 
+#   description: 
+#   environment: 
+#     browser: 
+#     other: 
+#   reported_date: 
+#   status: 
+#   reason: 
+#   solution: 
+#   categories: 
