@@ -1,11 +1,15 @@
 @import "../helpers";
 
-.node-chain {
-  @include no_item;
+.node-chain-container {
   @include clearfix;
-  margin: 0;
   padding: 10px;
   background-color: #E6E6FA;
+}
+
+.node-chain {
+  @include no_item;
+  @include no_gap;
+  float: left;
 
   li {
     @include square(60px);
@@ -79,6 +83,24 @@
     &:hover ~ .chain_node--selected {
       img {
         display: none;
+      }
+    }
+  }
+}
+
+.node-chain--completed {
+  &:hover {
+    li {
+      &.chain_node--selected {
+        img {
+          display: none;
+        }
+      }
+
+      &:hover {
+        img {
+          display: block;
+        }
       }
     }
   }
