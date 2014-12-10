@@ -52,15 +52,19 @@
     }
 
     & > a {
-      position: relative;
-      z-index: 1;
+      @supports (box-shadow: none) or
+                (-moz-box-shadow: none) or
+                (-webkit-box-shadow: none) {
+        position: relative;
+        z-index: 1;
+
+        background-color: #FFF;
+      }
 
       padding: 0 16px;
 
       font-size: 16px;
       line-height: 64px;
-
-      background-color: #FFF;
 
       &:hover {
         height: 58px;
