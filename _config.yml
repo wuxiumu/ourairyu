@@ -49,7 +49,7 @@ defaults:
   # Posts
   - scope:
       path: ""
-      type: posts
+      type: post
     values:
       layout: article
       template: article
