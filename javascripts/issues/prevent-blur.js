@@ -10,7 +10,8 @@
     }
   });
 
-  $(".textContent").on("mousedown", function() {
+  $(".textContent").on("mousedown", function(e) {
+    e.target.unselectable = true;
     return false;
   });
 

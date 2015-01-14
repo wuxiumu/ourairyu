@@ -6,5 +6,6 @@ $(".textInputer").on
     $(this).val "无焦点"
     $(".textContent").hide()
 
-$(".textContent").on "mousedown", ->
+$(".textContent").on "mousedown", ( e ) ->
+  e.target.unselectable = true
   return false
