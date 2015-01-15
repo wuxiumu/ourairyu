@@ -10,7 +10,7 @@ comments: true
 ## {{ site.data.author.name.zh }}
 {:.heading}
 
-![欧雷](http://0.gravatar.com/avatar/0565b1df14e0b4a1a9cdecb3f085cdba?s=250 "欧雷"){:.avatar}一个目前人在{{ site.data.author.location }}，主要从事 web 前端开发的 web developer。在进行开发时注重语义化、复用性等，依赖 HTML5 标签构建网页结构，使用 CSS3 美化页面，遵从「渐进渐强」（progressive enhancement）原则，通过 Sass 和 CoffeeScript 来编写样式及脚本代码。**更多地了解我的能力？请检阅我的[技能表]({{ site.data.url.skill }})。**:-)
+![欧雷]({{ site.data.author.avatar }} "欧雷"){:.avatar}一个目前人在{{ site.data.author.location }}，主要从事 web 前端开发的 web developer。在进行开发时注重语义化、复用性等，依赖 HTML5 标签构建网页结构，使用 CSS3 美化页面，遵从「渐进渐强」（progressive enhancement）原则，通过 Sass 和 CoffeeScript 来编写样式及脚本代码。**更多地了解我的能力？请检阅我的[技能表]({{ site.data.url.skill }})。**:-)
 
 关于我是如何跳进「web 前端开发」这个坑的，那要从我的数据癖说起——
 
