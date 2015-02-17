@@ -92,15 +92,22 @@ defaults:
       layout_js:
         - demo
       page_category: demo
-  # Tatami API
+  # Tatami
   - scope:
       path: "projects/tatami"
       type: projects
     values:
-      layout: tatami
+      layout: projects/tatami
       template: tatami
       layout_css:
         - pages/tatami
       layout_js:
         - pages/doc
       project_name: Tatami
+  # H5F
+  - scope:
+      path: "projects/h5f"
+      type: projects
+    values:
+      layout: projects/default
+      project_name: H5F
