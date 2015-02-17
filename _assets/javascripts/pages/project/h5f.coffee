@@ -1,4 +1,4 @@
-Tatami.ready ->
+$(document).ready ->
   H5F.init $("form"), immediate: true
 
   H5F.errors

@@ -97,10 +97,10 @@ defaults:
       path: "projects/tatami"
       type: projects
     values:
-      layout: projects/tatami
+      layout: project/tatami
       template: tatami
       layout_css:
-        - pages/tatami
+        - templates/project/tatami
       layout_js:
         - pages/doc
       project_name: Tatami
@@ -109,5 +109,13 @@ defaults:
       path: "projects/h5f"
       type: projects
     values:
-      layout: projects/default
+      layout: project/h5f
+      template: H5F
+      layout_css:
+        - bootstrap.min
+        - templates/project/h5f
+      layout_js:
+        - html5form.min
+        - pages/project/h5f
       project_name: H5F
+      project_desc: 一个基于 HTML Forms 规范的表单验证插件
