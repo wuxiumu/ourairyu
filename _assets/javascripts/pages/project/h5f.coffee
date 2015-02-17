@@ -1,17 +1,22 @@
 $(document).ready ->
-  H5F.init $("form"), immediate: true
-
+  targetForms = $("#H5FValidation form")
+  
   H5F.errors
     COULD_NOT_BE_EMPTY: "{{LABEL}}的值不能为空"
     UNKNOWN_INPUT_TYPE: "{{LABEL}}字段为未知类型"
     LENGTH_SMALLER_THAN_MINIMUM: "{{LABEL}}的字符串长度请保持在在 {{MINLENGTH}}-{{MAXLENGTH}}"
     LENGTH_BIGGER_THAN_MAXIMUM: "{{LABEL}}的字符串长度请保持在在 {{MINLENGTH}}-{{MAXLENGTH}}"
     INVALID_VALUE: "{{LABEL}}的值{{VALUE}}为无效值"
+    NOT_AN_ABSOLUTE_URL: "{{LABEL}}不符合 URL 的格式"
+    NOT_AN_EMAIL: "{{LABEL}}不符合电子邮箱的格式"
     NOT_A_NUMBER: "{{LABEL}}不是数字"
     UNDERFLOW: "{{LABEL}}中所输入数字请在 {{MIN}}-{{MAX}} 范围内"
     OVERFLOW: "{{LABEL}}中所输入数字请在 {{MIN}}-{{MAX}} 范围内"
+    DIFFERENT_VALUE: "{{LABEL}}的值没有与{{ASSOCIATE_LABEL}}保持一致"
 
-  $("[name]").on
+  H5F.init targetForms
+
+  $("#H5FValidation [name]").on
     "H5F:valid": ( e, field ) ->
       $(field.element)
         .closest ".form-group"
@@ -30,33 +35,33 @@ $(document).ready ->
         .show()
         .text field.message
 
-  $("form").on "H5F:submit", ( e, inst, sub ) ->
+  targetForms.on "H5F:submit", ( e, inst, sub ) ->
     console.log "submit"
     # sub.preventDefault()
     # sub.stopImmediatePropagation()
     return false
 
-  f1 = $("#exampleForm_1")
+  f1 = $("#exampleForm_2")
 
   f1.on "H5F:submit", ->
-    console.log "exampleForm_1 submit"
-    return "exampleForm_1"
+    console.log "exampleForm_2 submit"
+    return "exampleForm_2"
 
   f1_inst = H5F.get f1
   
   f1_inst.addValidation "nickname", {
       handler: ->
         return not isNaN Number(@value)
-      message: "啊哈哈"
+      message: "请输入数字"
     }
 
   f1_inst.addValidation "nickname", {
       handler: ->
         return @value.length > 5
       message: ->
-        return "长度不对"
+        return "请保证字符串长度大于 5"
     }
 
-  $("#exampleForm_2").on "H5F:submit", ->
-    console.log "exampleForm_2 submit"
-    return "exampleForm_2"
+  $("#exampleForm_3").on "H5F:submit", ->
+    console.log "exampleForm_3 submit"
+    return "exampleForm_3"
