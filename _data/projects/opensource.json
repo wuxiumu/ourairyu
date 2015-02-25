@@ -29,7 +29,7 @@
     "description": "一个基于 HTML Forms 规范的表单验证插件",
     "created_at": "2015-01-22T09:49:29Z",
     "language": "CoffeeScript",
-    "url": "https://github.com/ourai/html5form",
+    "url": "https://github.com/ourai/H5F",
     "homepage": "http://dev.ourai.ws/projects/h5f/"
   }
 }

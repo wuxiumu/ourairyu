@@ -115,7 +115,7 @@ defaults:
         - bootstrap.min
         - templates/project/h5f
       layout_js:
-        - html5form.min
+        - H5F.min
         - pages/project/h5f
       project_name: H5F
       project_desc: 一个基于 HTML Forms 规范的表单验证插件
