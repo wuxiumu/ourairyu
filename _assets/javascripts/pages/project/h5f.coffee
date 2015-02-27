@@ -15,6 +15,7 @@ $(document).ready ->
     DIFFERENT_VALUE: "{{LABEL}}的值没有与{{ASSOCIATE_LABEL}}保持一致"
     AT_LEAST_CHOOSE_ONE: "请从{{LABEL}}中选择一项"
     SHOOLD_BE_CHOSEN: "请选中{{UNIT_LABEL}}"
+    SHOOLD_CHOOSE_AN_OPTION: "必须从{{LABEL}}中选择一项"
 
   H5F.init targetForms
 

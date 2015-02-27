@@ -24,8 +24,16 @@
     <input id="telephone" class="form-control" type="tel" name="telephone" value="">
   </div>
   <div class="form-group">
-    <label class="checkbox-inline"><input type="checkbox" name="gender" value="1" required="required"> 男</label>
-    <label class="checkbox-inline"><input type="checkbox" name="gender" value="0" data-h5f-required="true" data-h5f-label="性别"> 女</label>
+    <label for="gender">性别</label>
+    <select id="gender" name="gender" class="form-control" required>
+      <option></option>
+      <option value="1">男</option>
+      <option value="0">女</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label class="checkbox-inline"><input type="checkbox" name="sexual_orientation" value="1" required="required"> 男</label>
+    <label class="checkbox-inline"><input type="checkbox" name="sexual_orientation" value="0" data-h5f-required="true" data-h5f-label="性取向"> 女</label>
   </div>
   <div class="form-group">
     <label class="radio-inline"><input type="radio" name="marriage" value="0"> 单身</label>

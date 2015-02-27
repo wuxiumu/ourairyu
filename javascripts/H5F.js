@@ -16,7 +16,7 @@
 }(typeof window !== "undefined" ? window : this, function( window, noGlobal ) {
 
 "use strict";
-var ERROR, EVENT, Field, Form, LIB_CONFIG, PATTERN_KEY_SOURCE, RULE, associatedElement, bindEvent, defaultSettings, elementType, fieldLabel, generateInstId, getExtremum, getInstId, hasAttr, initCount, isCheckableElement, labelElement, lowerThan, requiredAttr, reset, subBtnSels, toHex, toNum, triggerEvent, validateCheckableElements, validateField, validateInputableElements, validateOtherFields;
+var ERROR, EVENT, Field, Form, LIB_CONFIG, PATTERN_KEY_SOURCE, RULE, associatedElement, bindEvent, defaultSettings, elementType, fieldLabel, generateInstId, getExtremum, getInstId, hasAttr, initCount, isCheckableElement, labelElement, lowerThan, requiredAttr, reset, subBtnSels, toHex, toNum, triggerEvent, validateCheckableElements, validateField, validateOtherFields, validateSelectElement, validateTextualElements;
 
 LIB_CONFIG = {
   name: "H5F",
@@ -43,20 +43,18 @@ ERROR = {
   UNDERFLOW: "{{LABEL}}'s value is smaller than {{MIN}}.",
   OVERFLOW: "{{LABEL}}'s value is bigger than {{MAX}}.",
   DIFFERENT_VALUE: "{{LABEL}}'s value is different from {{ASSOCIATE_LABEL}}.",
-  AT_LEAST_CHOOSE_ONE: "At least choose on option from {{LABEL}}.",
-  SHOOLD_BE_CHOSEN: "{{UNIT_LABEL}} shoold be chosen."
+  AT_LEAST_CHOOSE_ONE: "At least choose an option from {{LABEL}}.",
+  SHOOLD_BE_CHOSEN: "{{UNIT_LABEL}} shoold be chosen.",
+  SHOOLD_CHOOSE_AN_OPTION: "Must choose an option of {{LABEL}}."
 };
 
 elementType = function(ele) {
-  var type, _ref;
-  switch (ele.get(0).tagName.toLowerCase()) {
-    case "textarea":
-      type = "textarea";
-      break;
-    case "input":
-      type = (_ref = ele.attr("type")) != null ? _ref : "text";
+  var _ref;
+  if (ele.get(0).tagName.toLowerCase() === "input") {
+    return (_ref = ele.attr("type")) != null ? _ref : "text";
+  } else {
+    return ele.prop("type");
   }
-  return type;
 };
 
 isCheckableElement = function(ele) {
@@ -121,7 +119,7 @@ requiredAttr = function(isCheckbox) {
   return "[" + (isCheckbox ? "data-h5f-" : "") + "required]";
 };
 
-validateInputableElements = function() {
+validateTextualElements = function() {
   var acEle, ele, maxVal, minVal, val, _ref, _ref1, _ref2;
   ele = this.element;
   val = this.value();
@@ -212,8 +210,17 @@ validateInputableElements = function() {
   return this.valid;
 };
 
+validateSelectElement = function() {
+  if (this.required && $.trim(this.value()) === "") {
+    this.valid = false;
+    this.message = this.error("SHOOLD_CHOOSE_AN_OPTION");
+  }
+  triggerEvent(this, this.element);
+  return this.valid;
+};
+
 validateCheckableElements = function() {
-  var e, ele, elements, isCheckbox;
+  var ele, elements, isCheckbox;
   elements = $(this.element);
   isCheckbox = this.type === "checkbox";
   if (this.required && elements.closest(":checked").size() === 0) {
@@ -234,12 +241,7 @@ validateCheckableElements = function() {
           };
         })(this));
         if (this.valid) {
-          try {
-            delete this.__element;
-          } catch (_error) {
-            e = _error;
-            this.__element = void 0;
-          }
+          delete this.__element;
         } else {
           this.message = this.error("SHOOLD_BE_CHOSEN");
         }
@@ -274,8 +276,12 @@ Field = (function() {
       this.element = ele.get(0);
       this.required = hasAttr(this.element, "required");
       this.label = fieldLabel(ele, form);
-      this.pattern = ele.attr("pattern");
-      this.validate = validateInputableElements;
+      if (this.element.tagName.toLowerCase() === "select") {
+        this.validate = validateSelectElement;
+      } else {
+        this.validate = validateTextualElements;
+        this.pattern = ele.attr("pattern");
+      }
       if (this.required) {
         labelElement(ele, form).addClass("H5F-label--required");
       }
@@ -402,7 +408,7 @@ bindEvent = function(form, inst, immediate) {
     return validateField(inst, inst.fields[$(this).prop("name")]);
   });
   if (immediate === true) {
-    $("[name]:checkbox, [name]:radio", form).on("change.H5F", function() {
+    $("[name]:checkbox, [name]:radio, select[name]", form).on("change.H5F", function() {
       return $(this).trigger(EVENT.VALIDATE);
     });
     $("[name]:not(:checkbox, :radio, " + subBtnSels + ", select, option)", form).on((lowerThan(9) ? "change.H5F" : "input.H5F"), function() {
@@ -447,7 +453,7 @@ Form = (function() {
     this.novalidate = form.hasAttribute("novalidate");
     this.invalidCount = 0;
     initCount++;
-    $("[name]:not(select, [type='hidden'], " + subBtnSels + ")", $(form)).each(function() {
+    $("[name]:not([type='hidden'], " + subBtnSels + ")", $(form)).each(function() {
       var ipt, name;
       ipt = $(this);
       name = ipt.prop("name");
@@ -528,7 +534,7 @@ Form = (function() {
    */
 
   Form.destroy = function(form) {
-    var err, id, inst;
+    var id, inst;
     id = getInstId(form);
     inst = this.forms[id];
     if (inst != null) {
@@ -541,14 +547,8 @@ Form = (function() {
       } else {
         form.removeAttr("novalidate");
       }
-      try {
-        delete this.forms[id];
-        delete inst.form["H5F-form"];
-      } catch (_error) {
-        err = _error;
-        this.forms[id] = null;
-        inst.form["H5F-form"] = null;
-      }
+      delete this.forms[id];
+      delete inst.form["H5F-form"];
       this.forms.length--;
       form.trigger(EVENT.DESTROY);
       return true;
