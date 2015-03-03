@@ -7,9 +7,38 @@ css:
   - demos/bank_tabs
 ---
 
+<div class="demo-example">
+  <div class="bankbox">
+    <span class="recharge-bank-item" id="ICBC">中国工商银行</span>
+    <span class="recharge-bank-item" id="ABC">中国农业银行</span>
+  </div>
+  <div class="tab_bank" data-flag="ICBC">中国工商银行的介绍</div>
+  <div class="tab_bank" data-flag="ABC">中国农业银行的介绍</div>
+</div>
+<section class="demo-description">
+  {% include demo/description.html %}
+  <div class="demo-code">
+    <div class="code-wrapper column-2">
+      <div class="code-content">
+        <h3 class="heading">HTML</h3>
+{% highlight html %}
 <div class="bankbox">
   <span class="recharge-bank-item" id="ICBC">中国工商银行</span>
   <span class="recharge-bank-item" id="ABC">中国农业银行</span>
 </div>
 <div class="tab_bank" data-flag="ICBC">中国工商银行的介绍</div>
 <div class="tab_bank" data-flag="ABC">中国农业银行的介绍</div>
+{% endhighlight %}
+      </div>
+      <div class="code-content">
+        <h3 class="heading">JavaScript</h3>
+{% highlight js %}
+$("body").on("click", ".bankbox .recharge-bank-item", function() {
+  $(".tab_bank.show").removeClass("show");
+  $(".tab_bank[data-flag='" + this.id + "']").addClass("show");
+});
+{% endhighlight %}
+      </div>
+    </div>
+  </div>
+</section>
