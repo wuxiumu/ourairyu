@@ -8,8 +8,6 @@ tags:
 comments: true
 ---
 
-{% assign img_url = site.data.url.site | append: '/' | append: site.data.url.img %}
-
     我们的目标是优先显示与用户要在网页上执行的主要操作有关的内容。
 
 ——[关键呈现路径](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/){:target="_blank"}{:rel="external nofollow"}
@@ -19,7 +17,7 @@ comments: true
 
 前端性能简单来说就是**能看到页面内容的时间**以及**可以开始在页面上操作的时间**。
 
-![Progressive Rendering]({{ img_url }}/posts/progressive-rendering.png)
+![Progressive Rendering]({{ site.data.url.site | append: '/' | append: site.data.url.img }}/posts/progressive-rendering.png)
 
 前端性能与浏览器的运作方式密切相关，故想要优化性能就要从了解浏览器的工作原理入手。
 
@@ -105,7 +103,7 @@ render tree 是由 DOM tree 与 CSSOM tree 合并并剔除不可见的节点所�
 
 通过 [Navigation Timing](http://www.w3.org/TR/navigation-timing-2/#processing-model){:target="_blank"}{:rel="external nofollow"} API 可以获取浏览器在处理网页的关键步骤的时间戳。
 
-![Part of Navigation Timing Processing Model]({{ img_url }}/posts/dom-navtiming.png)
+![Part of Navigation Timing Processing Model]({{ site.data.url.site | append: '/' | append: site.data.url.img }}/posts/dom-navtiming.png)
 
 其中，各步骤的意义如下：
 
