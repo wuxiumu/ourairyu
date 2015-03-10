@@ -8,9 +8,9 @@ tags:
 comments: true
 ---
 
-    我们的目标是优先显示与用户要在网页上执行的主要操作有关的内容。
+> 我们的目标是优先显示与用户要在网页上执行的主要操作有关的内容。
 
-——[关键呈现路径](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/){:target="_blank"}{:rel="external nofollow"}
+上面这句话出自《[关键呈现路径](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/){:target="_blank"}{:rel="external nofollow"}》。
 
 ## 什么是前端性能？
 {:.heading}
