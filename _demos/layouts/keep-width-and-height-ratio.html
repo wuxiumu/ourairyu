@@ -24,4 +24,56 @@ compatibility:
     </div>
   </div>
 </div>
-<section class="demo-description"></section>
+<section class="demo-description">
+  {% include demo/description.html %}
+  <div class="demo-code">
+    <div class="code-wrapper column-2">
+      <div class="code-content">
+        <h3 class="heading">HTML</h3>
+{% highlight html %}
+<div class="container">
+  <div id="courseList" class="row">
+    <div class="course col-xs-6 col-md-4 col-lg-3">
+      <div class="course-thumbnail"><a href="#"><img src="http://placehold.it/300x200"></a></div>
+      <div class="course-title"><a href="#">课程标题</a></div>
+    </div>
+  </div>
+</div>
+{% endhighlight %}
+      </div>
+      <div class="code-content">
+        <h3 class="heading">CSS</h3>
+{% highlight css %}
+.course-thumbnail {
+    width: 100%;
+}
+
+.course-thumbnail a,
+.course-thumbnail img {
+  width: 100%;
+}
+
+.course-thumbnail a {
+  display: block;
+  height: 0;
+  padding-bottom: 66.66667%;
+  overflow: hidden;
+}
+
+.course-thumbnail img {
+  height: auto;
+}
+
+.course-title {
+  padding: 10.5px 15px;
+}
+
+.course-title a {
+  font-size: 16px;
+  color: #586475;
+}
+{% endhighlight %}
+      </div>
+    </div>
+  </div>
+</section>
