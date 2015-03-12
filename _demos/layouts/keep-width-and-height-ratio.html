@@ -1,0 +1,27 @@
+---
+title: 等比例缩放
+description: 保持图片宽高比不变
+
+layout_css:
+  - bootstrap.min
+
+css:
+  - demos/keep-width-and-height-ratio
+
+compatibility:
+  ie: 7+
+---
+
+<div class="demo-example">
+  <div class="container">
+    <div id="courseList" class="row">
+      {% for i in (1..12) %}
+      <div class="course col-xs-6 col-md-4 col-lg-3">
+        <div class="course-thumbnail"><a href="#"><img src="http://placehold.it/300x200"></a></div>
+        <div class="course-title"><a href="#">课程标题 {{i}}</a></div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+<section class="demo-description"></section>

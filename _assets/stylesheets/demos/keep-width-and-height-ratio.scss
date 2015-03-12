@@ -1,0 +1,28 @@
+.course-thumbnail {
+  width: 100%;
+
+  a,
+  img {
+    width: 100%;
+  }
+
+  a {
+    display: block;
+    height: 0;
+    padding-bottom: 100% * 2/3;
+    overflow: hidden;
+  }
+
+  img {
+    height: auto;
+  }
+}
+
+.course-title {
+  padding: 10.5px 15px;
+
+  a {
+    font-size: 16px;
+    color: #586475;
+  }
+}
