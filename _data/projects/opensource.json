@@ -7,7 +7,7 @@
     "description": "UI 库",
     "created_at": "2013-09-05T12:19:39Z",
     "language": "Sass",
-    "url": "https://github.com/matchaui/matcha",
+    "url": "https://github.com/ourai/matcha",
     "homepage": "http://dev.ourai.ws/projects/matcha/"
   },
   "tatami": {
@@ -18,7 +18,7 @@
     "description": "为新项目的前端开发提供基础设施",
     "created_at": "2013-11-29T06:28:29Z",
     "language": "CoffeeScript",
-    "url": "https://github.com/tatamijs/tatami",
+    "url": "https://github.com/ourai/tatami",
     "homepage": "http://dev.ourai.ws/projects/tatami/"
   },
   "h5f": {
