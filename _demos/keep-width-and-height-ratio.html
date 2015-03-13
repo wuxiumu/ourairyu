@@ -1,6 +1,6 @@
 ---
-title: 等比例缩放
-description: 保持图片宽高比不变
+title: 纯 CSS 实现的等比例缩放
+description: 只使用 CSS 来实现非图片元素的等比例缩放，若里面包含图片则忽略图片本身的比例而撑满容器。
 
 layout_css:
   - bootstrap.min
@@ -15,10 +15,18 @@ compatibility:
 <div class="demo-example">
   <div class="container">
     <div id="courseList" class="row">
-      {% for i in (1..12) %}
+      {% for i in (1..3) %}
       <div class="col-xs-6 col-md-4 col-lg-3">
-        <div class="course-thumbnail"><a href="#"><img src="http://placehold.it/200x300"></a></div>
-        <div class="course-title"><a href="#">课程标题 {{i}}</a></div>
+        <div class="course-thumbnail"><a href="#" title="与容器同比例"><img src="http://placehold.it/300x200" class="img-thumbnail" alt="与容器同比例"></a></div>
+      </div>
+      <div class="col-xs-6 col-md-4 col-lg-3">
+        <div class="course-thumbnail"><a href="#" title="与容器不同比例且宽大于高"><img src="http://placehold.it/400x200" class="img-thumbnail" alt="与容器不同比例且宽大于高"></a></div>
+      </div>
+      <div class="col-xs-6 col-md-4 col-lg-3">
+        <div class="course-thumbnail"><a href="#" title="与容器不同比例且宽高相同"><img src="http://placehold.it/300x300" class="img-thumbnail" alt="与容器不同比例且宽高相同"></a></div>
+      </div>
+      <div class="col-xs-6 col-md-4 col-lg-3">
+        <div class="course-thumbnail"><a href="#" title="与容器不同比例且宽小于高"><img src="http://placehold.it/200x300" class="img-thumbnail" alt="与容器不同比例且宽小于高"></a></div>
       </div>
       {% endfor %}
     </div>
