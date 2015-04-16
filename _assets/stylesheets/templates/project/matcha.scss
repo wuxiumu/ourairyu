@@ -84,3 +84,28 @@ body {
     }
   }
 }
+
+.Column--50 {
+  width: 50%;
+  float: left;
+  padding: 0 15px;
+}
+
+#demo-aspectRatio {
+  .component-demo,
+  .component-demo * {
+    @include box-sizing(border-box);
+  }
+
+  .component-demo {
+    @include clearfix;
+  }
+
+  .u-aspectRatio {
+    background-color: #FF0;
+
+    &:first-child {
+      background-color: #F00;
+    }
+  }
+}
