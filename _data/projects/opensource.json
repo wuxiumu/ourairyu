@@ -8,7 +8,7 @@
     "created_at": "2013-09-05T12:19:39Z",
     "language": "Sass",
     "url": "https://github.com/ourai/matcha",
-    "homepage": "http://dev.ourai.ws/projects/matcha/"
+    "homepage": "/projects/matcha/"
   },
   "tatami": {
     "name": {
@@ -19,7 +19,7 @@
     "created_at": "2013-11-29T06:28:29Z",
     "language": "CoffeeScript",
     "url": "https://github.com/ourai/tatami",
-    "homepage": "http://dev.ourai.ws/projects/tatami/"
+    "homepage": "/projects/tatami/"
   },
   "h5f": {
     "name": {
@@ -30,6 +30,6 @@
     "created_at": "2015-01-22T09:49:29Z",
     "language": "CoffeeScript",
     "url": "https://github.com/ourai/H5F",
-    "homepage": "http://dev.ourai.ws/projects/h5f/"
+    "homepage": "/projects/h5f/"
   }
 }
