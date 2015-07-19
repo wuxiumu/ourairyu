@@ -13,7 +13,7 @@ css:
   {% assign first_post = posts.first %}
   <!-- The newest article -->
   <div>
-    <blockquote class="article-excerpt">{{ first_post.excerpt }}</blockquote>
+    <blockquote class="article-excerpt">{{ first_post.excerpt | strip_html }}</blockquote>
     <p class="article-title">——《<a href="{{ first_post.url }}">{{ first_post.title }}</a>》</p>
   </div>
   <!-- Article list -->

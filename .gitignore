@@ -7,5 +7,5 @@
 
 .bowerrc
 bower.json
-# Gemfile
+Gemfile
 Gemfile.lock

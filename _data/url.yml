@@ -1,7 +1,7 @@
 # 开发博客的 URL
-site: http://dev.ourai.ws
+site: 
 # 当前 repo 的 URL
-root: http://dev.ourai.ws
+root: 
 
 js: javascripts
 css: stylesheets
@@ -10,6 +10,7 @@ img: images
 article: /posts/
 tutorial: /tutorials/
 demo: /demos/
+issue: /issues/
 doc: /docs/
 spec: /specs/
 project: /projects/

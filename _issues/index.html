@@ -1,0 +1,24 @@
+---
+layout: page
+template: page
+
+page_category: issues
+
+title: 问题中心
+description: 收集到的一些前端开发中所遇到的问题
+permalink: /issues/
+
+layout_css: ""
+layout_js: ""
+---
+
+<ul>
+  {% for issue in site.issues %}
+    {% if issue.page_category == 'demo' and issue.compatibility %}
+      <li>
+        <a href="{{ issue.url }}">{{ issue.title }}</a>
+        <p>{{ issue.description }}</p>
+      </li>
+    {% endif %}
+  {% endfor %}
+</ul>

@@ -11,6 +11,9 @@ collections:
   tutorials:
     output: true
     permalink: /:collection/:path/
+  issues:
+    output: true
+    permalink: /:collection/:path/
 
 # Handling Reading
 exclude: [".sass-cache", "node_modules", "src", "CNAME", "Gemfile", "Gemfile.lock", "Gruntfile.coffee", "bower.json", "package.json", "README.md"]
@@ -49,7 +52,7 @@ defaults:
   # Posts
   - scope:
       path: ""
-      type: post
+      type: posts
     values:
       layout: article
       template: article
@@ -77,15 +80,42 @@ defaults:
       layout: page
       template: page
       page_category: tutorial
-  # Tatami API
+  # Issues
+  - scope:
+      path: ""
+      type: issues
+    values:
+      layout: demo
+      template: demo
+      layout_css:
+        - highlight
+      layout_js:
+        - demo
+      page_category: demo
+  # Tatami
   - scope:
       path: "projects/tatami"
       type: projects
     values:
-      layout: tatami
+      layout: project/tatami
       template: tatami
       layout_css:
-        - pages/tatami
+        - templates/project/tatami
       layout_js:
         - pages/doc
       project_name: Tatami
+  # H5F
+  - scope:
+      path: "projects/h5f"
+      type: projects
+    values:
+      layout: project/h5f
+      template: H5F
+      layout_css:
+        - bootstrap.min
+        - templates/project/h5f
+      layout_js:
+        - H5F.min
+        - pages/project/h5f
+      project_name: H5F
+      project_desc: 一个基于 HTML Forms 规范的表单验证插件

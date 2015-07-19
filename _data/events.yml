@@ -83,18 +83,6 @@
     address: 浙江省杭州市经济技术开发区金沙大道 600 号
     map: https://goo.gl/maps/etkzT
 - name:
-    zh: SegmentFault D-Day 杭州站：前端开发专场 No.2
-    en: SegmentFault D-Day Hangzhou Station No.2
-  description: 这里的 D-Day 不是军事术语，而是开发者（Developer）的抢滩登陆之日。SegmentFault D-Day 的全称是 SegmentFault Developer Day，是由 SegmentFault 发起并联合各方小伙伴为开发者举办的系列技术沙龙。
-  period:
-    start: 2014-10-18 14:00
-    end:  2014-10-18 17:00
-  website: http://segmentfault.com/e/sf-dday-hz4
-  location:
-    place: 杭州又拍云科技有限公司
-    address: 浙江省杭州市西湖区文一西路 98 号数娱大厦 607
-    map: 
-- name:
     zh: 第 9 届 D2 论坛——绽放
     en: 9th D2 Forum
   description: "经历了近 10 年的发展，前端岗位从刀耕火种走到了今天的百花齐放，各领域全面发展，进入盛况时期。2014 年第 9 届 D2 的主题即为「绽放」！"
@@ -105,4 +93,16 @@
   location:
     place: 阿里巴巴西溪园区
     address: 浙江省杭州市余杭区文一西路 969 号
+    map: 
+- name:
+    zh: SegmentFault D-Day 2015 杭州站
+    en: SegmentFault D-Day 2015 Hangzhou Station
+  description: 时值 SegmentFault 三周年，将会惊喜满满。
+  period:
+    start: 2015-05-30 09:00
+    end: 2015-05-30 20:00
+  website: http://segmentfault.com/e/dday2015-hz
+  location:
+    place: 杭州红楼大酒店 5F
+    address: 浙江省杭州市上城区西湖大道 2 号
     map: 
