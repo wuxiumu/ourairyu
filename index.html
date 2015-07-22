@@ -1,70 +1,40 @@
 ---
-layout: page
+layout: homepage
 layout_type: sandwich
 
 css:
   - pages/home
 ---
 
-<!-- Articles -->
-<div class="section" style="display: none;">
-  <h2 class="section-title">最近文章</h2>
-  {% assign posts = site.posts %}
-  {% assign first_post = posts.first %}
-  <!-- The newest article -->
-  <div>
-    <blockquote class="article-excerpt">{{ first_post.excerpt | strip_html }}</blockquote>
-    <p class="article-title">——《<a href="{{ first_post.url }}">{{ first_post.title }}</a>》</p>
-  </div>
-  <!-- Article list -->
-  <div class="recent_articles">
-    <ul class="posts">
-      {% for post in posts limit: 10 offset: 1 %}
-        <li><a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></li>
+<main class="layout-container">
+  <header class="Profile">
+    {% assign author = site.data.author %}
+    <a href="{{ author.profile }}" target="_blank" class="Profile-avatar"><img src="{{ author.avatar }}"></a>
+    <h1 class="Profile-name"><a href="{{ author.profile }}" target="_blank">{{ author.name.zh }}</a></h1>
+    <ul class="Profile-professions">
+      {% for prof in author.profession %}
+      <li>{{ prof }}</li>
       {% endfor %}
     </ul>
+    <p class="Profile-description">{{ author.description }}</p>
+    <ul class="Profile-contacts">
+      <li>{{ author.location }}</li>
+      <li><a href="mailto:{{ author.contact.email }}">{{ author.contact.email }}</a></li>
+    </ul>
+  </header>
+  <div class="layout-content">
+    <div class="Navs">
+      <ul>
+        <li class="Nav-cell"><a href="#"><span class="Cell-count" data-counter="repo">0</span><span class="Cell-label">个开源项目</span></a></li>
+        <!-- <li class="Nav-cell"><a href="#"><span class="Cell-count">18</span><span class="Cell-label">项开发技能</span></a></li> -->
+      </ul>
+    </div>
+    <div>
+      <div class="Grid Projects"></div>
+    </div>
   </div>
-</div>
-{% assign projects = site.data.projects %}
-<!-- GitHub repositories -->
-<div class="section">
-  <h2 class="section-title">开源项目</h2>
-  <ul class="repos">
-    {% for repo in projects.opensource reversed %}
-    {% assign repoinfo = repo[1] %}
-    <li class="repo">
-      <div>
-        <h3>{% if repoinfo.homepage == null or repoinfo.homepage == blank %}<a href="{{ repoinfo.url }}" target="_blank" rel="external nofollow">{{ repoinfo.name.en }}</a>{% else %}<a href="{{ repoinfo.homepage }}">{{ repoinfo.name.en }}</a>{% endif %}</h3>
-        <span class="repo_lang">{{ repoinfo.language }}</span><time datetime="{{ repoinfo.created_at }}">创建于 {{ repoinfo.created_at | date: "%Y-%m-%d" }}</time>
-        <p>{{ repoinfo.description }}</p>
-      </div>
-    </li>
-    {% endfor %}
-  </ul>
-</div>
-<!-- Projects -->
-<div class="section">
-  <h2 class="section-title">企业项目</h2>
-  <ul class="projects">
-    {% for project in projects.enterprise reversed %}
-      <li class="project">
-        <div>
-          {% if project.image.thumbnail %}
-            {% assign has_thumbnail = true %}
-            {% assign img_url = project.image.thumbnail %}
-            {% assign img_padding = "projects/" %}
-          {% else %}
-            {% assign has_thumbnail = false %}
-            {% assign img_url = "bg-content-kai.png" %}
-            {% assign img_padding = "" %}
-          {% endif %}
-          <div class="project-meta{% if has_thumbnail %} has_thumbnail{% endif %}">
-            <h3 class="project-name">{% if project.url %}<a href="{{ project.url }}" target="_blank" rel="external nofollow" title="{{ project.name.zh }}"><span>{{ project.name.zh }}</span></a>{% else %}<span>{{ project.name.zh }}</span>{% endif %}</h3>
-            <div class="project-thumbnail" style="background-image: url('{{ site.data.url.root }}/{{ site.data.url.img }}/{{ img_url | prepend: img_padding }}')"><img src="{{ site.data.url.root }}/{{ site.data.url.img }}/{{ img_url | prepend: img_padding }}" alt="{{ project.name.zh }}"></div>
-          </div>
-          <p class="project-description">{{ project.description }}</p>
-        </div>
-      </li>
-    {% endfor %}
-  </ul>
-</div>
+</main>
+{% assign js_url = site.data.url.root | append: "/" | append: site.data.url.js %}
+<script src="{{ js_url }}/site.js"></script>
+<script src="{{ js_url }}/pages/home.js"></script>
+<script>Tatami.sandbox();</script>

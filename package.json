@@ -1,9 +1,17 @@
 {
+  "name": "Tao of Web",
+  "version": "2.0.0",
+  "description": "Something about web development of Ourai Lin",
   "homepage": "http://dev.ourai.ws/",
+  "keywords": [
+    "blog",
+    "personal",
+    "profile"
+  ],
   "author": "Ourai Lin <ourairyu@hotmail.com> (http://ourai.ws/)",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ourairyu/development.git"
+    "url": "https://github.com/ourai/ourai.github.io.git"
   },
   "engines": "node >= 0.8.0",
   "devDependencies": {

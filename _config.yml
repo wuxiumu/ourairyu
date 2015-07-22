@@ -16,12 +16,13 @@ collections:
     permalink: /:collection/:path/
 
 # Handling Reading
-exclude: [".sass-cache", "node_modules", "src", "CNAME", "Gemfile", "Gemfile.lock", "Gruntfile.coffee", "bower.json", "package.json", "README.md"]
+exclude: [".sass-cache", "node_modules", "vendors", "src", "CNAME", "Gemfile", "Gemfile.lock", "Gruntfile.coffee", "bower.json", "package.json", "README.md"]
 encoding: utf-8
 
 # Plugins
 gems:
   - jemoji
+  - octopress-minify-html
 
 # Conversion
 markdown: kramdown
