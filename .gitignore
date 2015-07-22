@@ -3,9 +3,4 @@
 /dest
 /node_modules
 /_site
-
-
-.bowerrc
-bower.json
-Gemfile
 Gemfile.lock
