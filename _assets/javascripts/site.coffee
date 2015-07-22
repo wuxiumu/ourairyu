@@ -20,7 +20,7 @@ repoInfo =
       en: "Matcha"
     description: "UI 库"
 
-authorizedRepos = ["tatami", "matcha"]
+authorizedRepos = []
 
 orderByLatest = ( a, b ) ->
   return -(transformISO(a.pushed_at).getTime() - transformISO(b.pushed_at).getTime())
@@ -51,8 +51,11 @@ Tatami.queue
         $ ->
           repos.sort orderByLatest
 
+          $("[data-counter='repo']").text repos.length
+          
           $.each repos, ( i, r ) ->
-            if Tatami.inArray(r.name, authorizedRepos) > -1
-              callback r, repoInfo
+            callback(r, repoInfo) if (if authorizedRepos.length is 0 then true else Tatami.inArray(r.name, authorizedRepos) > -1)
+            
+            return
 
   transformISO: transformISO

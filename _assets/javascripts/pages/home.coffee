@@ -1,30 +1,21 @@
 repo = ( data, repoInfo ) ->
-  item = $("<li>", class: "repo")
-  name = data.name
-  info = repoInfo[name]
+  url = data.homepage ? data.html_url
+  target = if url.indexOf(location.hostname) is -1 then "blank" else "self"
 
-  if info
-    name = info.name.en
-    desc = info.description
-  else
-    desc = data.description
+  $(".Projects").append """
+                        <div class="Grid-item">
+                          <div class="Card">
+                            <a href="#{url}" target="_#{target}" class="Repo">
+                              <h3 class="Repo-name">#{data.name}</h3>
+                              <span class="Repo-language">#{data.language}</span>
+                              <span class="Repo-stargazers">#{data.stargazers_count} 个人关注</span>
+                              <p class="Repo-description">#{data.description}</p>
+                            </a>
+                          </div>
+                        </div>
+                        """
 
-  homepage = data.homepage
-
-  if homepage
-    url = "<a href=\"http://#{location.host}/projects/#{data.name}/\">#{name}</a>"
-  else
-    url = "<a href=\"#{data.html_url}\" rel=\"external nofollow\" target=\"_blank\">#{name}</a>"
-
-  item
-    .append "<div />"
-    .children "div"
-    .append "<h3>#{url}</h3>"
-    .append "<span class=\"repo_lang\">#{data.language}</span>"
-    .append "<time>更新于#{prettyDate data.pushed_at}</time>"
-    .append "<p>#{desc}</p>"
-
-  $(".repos").append item
+  return
 
 prettyDate = ( time ) ->
   date = Tatami.run "transformISO", time
@@ -48,7 +39,3 @@ prettyDate = ( time ) ->
 
 Tatami.ready ->
   Tatami.run "getRepos", repo
-
-# $(".project-description").each ->
-#   $(this).dotdotdot()
-#   $(this).attr("title", $(this).triggerHandler("originalContent")[0].nodeValue) if $(this).triggerHandler "isTruncated"
