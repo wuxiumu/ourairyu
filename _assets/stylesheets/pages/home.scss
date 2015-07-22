@@ -29,14 +29,10 @@ body {
   background-color: #FFF;
 }
 
-.Profile-avatar {
-  @inlcude inline-block;
-
-  img {
-    @include square(100px);
-    @include border-radius(50%);
-    vertical-align: middle;
-  }
+.Profile-avatar img {
+  @include square(100px);
+  @include border-radius(50%);
+  vertical-align: middle;
 }
 
 .Profile-name {
