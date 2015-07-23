@@ -1,26 +1,19 @@
-repoInfo =
-  miso:
-    name:
-      zh: "味噌"
-      en: "Miso"
-    description: "对 JavaScript 新建对象的成员方法进行统一的参数验证及返回值"
-  ronin:
-    name:
-      zh: "浪人"
-      en: "Rōnin"
-    description: "DOM 无关的 JavaScript 解决方案、增强库"
-  tatami:
-    name:
-      zh: "畳"
-      en: "Tatami"
-    description: "为新项目的前端开发提供基础设施"
-  matcha:
-    name:
-      zh: "抹茶"
-      en: "Matcha"
-    description: "UI 库"
-
-authorizedRepos = []
+# id: 18552598, remark: "bakufu"
+# id: 35932564, remark: "learning"
+# id: 19068698, remark: "ourai.github.io"
+# id: 35203272, remark: "ourairyu"
+# id: 28067674, remark: "ourairyu-themes"
+# id: 39543273, remark: "development"
+# id: 23340879, remark: "waken"
+excludedRepos = [
+    18552598
+    35932564
+    19068698
+    35203272
+    28067674
+    39543273
+    23340879
+  ]
 
 orderByLatest = ( a, b ) ->
   return -(transformISO(a.pushed_at).getTime() - transformISO(b.pushed_at).getTime())
@@ -49,13 +42,19 @@ Tatami.queue
 
       if $.isArray repos
         $ ->
-          repos.sort orderByLatest
+          repoCount = 0
 
-          $("[data-counter='repo']").text repos.length
+          repos.sort orderByLatest
           
           $.each repos, ( i, r ) ->
-            callback(r, repoInfo) if (if authorizedRepos.length is 0 then true else Tatami.inArray(r.name, authorizedRepos) > -1)
+            if Tatami.inArray(r.id, excludedRepos) is -1
+              callback r
+              repoCount++
             
             return
+
+          $("[data-counter='repo']").text repoCount
+
+          return
 
   transformISO: transformISO
