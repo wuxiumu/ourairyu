@@ -29,10 +29,27 @@ body {
   background-color: #FFF;
 }
 
+.Profile-avatar,
 .Profile-avatar img {
   @include square(100px);
   @include border-radius(50%);
-  vertical-align: middle;
+}
+
+.Profile-avatar {
+  @include inline-block;
+
+  &:hover {
+    background-image: url("/images/avatar_mask.jpg");
+    @include covered_background;
+
+    img {
+      display: none;
+    }
+  }
+
+  img {
+    vertical-align: middle;
+  }
 }
 
 .Profile-name {
