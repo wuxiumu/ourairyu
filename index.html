@@ -23,14 +23,30 @@ css:
     </ul>
   </header>
   <div class="layout-content">
+    {% assign skills = site.data.skills %}
     <div class="Navs">
       <ul>
-        <li class="Nav-cell"><a href="#"><span class="Cell-count" data-counter="repo">0</span><span class="Cell-label">个开源项目</span></a></li>
-        <!-- <li class="Nav-cell"><a href="#"><span class="Cell-count">18</span><span class="Cell-label">项开发技能</span></a></li> -->
+        <li class="Nav-cell"><a href="/projects" data-flag="projects"><span class="Cell-count">0</span><span class="Cell-label">个开源项目</span></a></li>
+        <li class="Nav-cell"><a href="/skills" data-flag="skills"><span class="Cell-count">{{ skills.size }}</span><span class="Cell-label">项开发技能</span></a></li>
       </ul>
     </div>
-    <div>
-      <div class="Grid Projects"></div>
+    <div class="Grids">
+      <!-- 开源项目 -->
+      <div class="Grid Projects" data-flag="projects"></div>
+      <!-- 开发技能 -->
+      <div class="Grid Skills" data-flag="skills">
+        {% for skill in skills %}
+        <div class="Grid-item">
+          <div class="Card">
+            <a href="javascript:void(0);" class="Skill">
+              <h3 class="Skill-title">{{ skill.title }}</h3>
+              <div class="Skill-level Score"><span class="Score-level" style="width: {{ skill.level | times: 100 | divided_by: 5 }}%;">{{ skill.level }}</span></div>
+              <p class="Skill-description">{{ skill.description }}</p>
+            </a>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
     </div>
   </div>
 </main>

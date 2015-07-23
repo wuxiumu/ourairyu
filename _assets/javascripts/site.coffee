@@ -6,6 +6,8 @@ excludedRepos = [
     28067674  # ourairyu-themes
     39543273  # development
     23340879  # waken
+    23698214  # domshim
+    38699113  # double-list
   ]
 
 orderByLatest = ( a, b ) ->
@@ -46,7 +48,7 @@ Tatami.queue
             
             return
 
-          $("[data-counter='repo']").text repoCount
+          $(".Navs [data-flag='projects'] .Cell-count").text repoCount
 
           return
 
