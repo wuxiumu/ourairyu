@@ -1,18 +1,11 @@
-# id: 18552598, remark: "bakufu"
-# id: 35932564, remark: "learning"
-# id: 19068698, remark: "ourai.github.io"
-# id: 35203272, remark: "ourairyu"
-# id: 28067674, remark: "ourairyu-themes"
-# id: 39543273, remark: "development"
-# id: 23340879, remark: "waken"
 excludedRepos = [
-    18552598
-    35932564
-    19068698
-    35203272
-    28067674
-    39543273
-    23340879
+    18552598  # bakufu
+    35932564  # learning
+    19068698  # ourai.github.io
+    35203272  # ourairyu
+    28067674  # ourairyu-themes
+    39543273  # development
+    23340879  # waken
   ]
 
 orderByLatest = ( a, b ) ->
