@@ -21,14 +21,14 @@ exclude:
   - node_modules
   - vendors
   - src
-  - CNAME
   - Rakefile
   - Gemfile
   - Gemfile.lock
   - Gruntfile.coffee
   - bower.json
   - package.json
-  - README.md
+  # - README.md
+  # - CNAME
 encoding: utf-8
 
 # Plugins

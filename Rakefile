@@ -1,68 +1,74 @@
 require "time"
 require "pathname"
 
-# 运行 Jekyll
-# rake jekyll host=localhost port=4000
-desc "Run Jekyll server"
-task :jekyll do
+desc "运行 Jekyll"
+task :jekyll_run do
   host = ENV["host"] || "0.0.0.0"
   port = ENV["port"] || "4000"
 
-  puts "\r\n\r\n\r\nStart Jekyll server\r\n\r\n"
+  # 编译前端资源文件
+  puts "\r\n\r\n\r\n"
+  puts "Compiling assets..."
+  puts "\r\n\r\n"
+  system "grunt"
+
+  # 启动 Jekyll
+  puts "\r\n\r\n\r\n"
+  puts "Start Jekyll server"
+  puts "\r\n\r\n"
   system "bundle exec jekyll serve -H #{host} -P #{port}"
 end
 
-desc "push to github but must develop branch"
-task :deploy do
-  repo = "ourai.github.io"
+desc "将网站文件构建到其他文件夹中"
+task :jekyll_build do
+  dest = ENV["dest"] || "../ourai.github.io"
+
+  puts "Build site to #{dest}"
+  system "bundle exec jekyll build -d #{dest}"
+end
+
+desc "从 GitHub 获取代码"
+task :pull_github do
+  repo = ENV["repo"]
+  url = "https://github.com/ourai/#{repo}"
 
   unless FileTest.directory?("../#{repo}")
-    puts "clone #{repo} from GitHub"
-    cd '..' do
-      system "git clone git@github.com:ourai/#{repo}.git"
+    puts "Clone code from #{url}"
+    cd ".." do
+      system "git clone #{url}.git"
     end
   else
     cd "../#{repo}" do
-      puts "update #{repo} repo"
+      puts "Update #{repo}"
       # system "git reset --hard HEAD"
       system "git pull origin master"
     end
   end
-  # puts "Pushing to 'master' branch:"
-  # system "git push origin master"
-  # puts "'master' branch updated."
-  puts "Building site..."
-  # system "bundle exec jekyll build --config _config.yml,_production_config.yml"
-  puts "Site updated."
-  puts "create '.ourai_temp' directory"
-  system "mkdir ../.ourai_temp"
-  system "mv ../#{repo}/.git ../.ourai_temp/.git"
-  system "mv ../#{repo}/.gitignore ../.ourai_temp/.gitignore"
-  system "rm -rf ../#{repo}/*"
-  system "mv ../.ourai_temp/.git ../#{repo}/.git"
-  system "mv ../.ourai_temp/.gitignore ../#{repo}/.gitignore"
-  system "rm -rf ../.ourai_temp"
-  puts "remove '.ourai_temp' directory"
-  puts "update #{repo} dir"
-  system "cp -r ./_site/* ../#{repo}"
-  system "cp ./CNAME ../#{repo}"
-  system "cp ./README.md ../#{repo}"
-  puts "copied site to #{repo}"
-  puts
+end
+
+desc "将代码推送到 GitHub 上"
+task :push_github do
+  repo = ENV["repo"]
+  url = "https://github.com/ourai/#{repo}"
+
   cd "../#{repo}" do
-#    remove_list = ["Rakefile",".ruby-version","Gemfile","Gemfile.lock","readme.md"]
-#    remove_list.each do |rf|
-#      if FileTest.exist?(rf)
-#        puts "remove #{rf}"
-#        system "rm #{rf}"
-#      end
-#    end
-    puts "add .nojekyll"
     system "touch .nojekyll"
-    puts "Pushing to 'master' branch:"
+
+    puts "Pushing to #{url}..."
     system "git add -A"
     system "git commit -m 'Updated at #{Time.now.utc}'"
     system "git push origin master"
-    puts "'master' branch updated."
   end
+end
+
+desc "将构建后的站点部署到 GitHub 上"
+task :deploy do
+  repo = ENV["repo"] || "ourai.github.io"
+
+  system "rake pull_github repo=#{repo}"
+  system "rake jekyll_build dest=../#{repo}"
+  system "rake push_github repo=#{repo}"
+
+  puts "\r\n\r\n"
+  puts "#{repo} has already deployed. ;-)"
 end
