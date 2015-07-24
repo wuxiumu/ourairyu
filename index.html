@@ -17,9 +17,13 @@ css:
       {% endfor %}
     </ul>
     <p class="Profile-description">{{ author.description }}</p>
+    {% assign contacts = author.contact %}
     <ul class="Profile-contacts">
-      <li>{{ author.location }}</li>
-      <li><a href="mailto:{{ author.contact.email }}">{{ author.contact.email }}</a></li>
+      <li class="Contact-location"><img src="/images/logos/local-32px.png" srcset="/images/logos/local-64px.png 2x"><span>{{ author.location }}</span></li>
+      <li class="Icon Icon--email"><a href="mailto:{{ author.contact.gmail }}" title="发送邮件给我">{{ contacts.email }}</a></li>
+      <li class="Icon Icon--gh"><a href="{{ contacts.github }}" target="_blank" title="查看我的全部开源项目">GitHub</a></li>
+      <li class="Icon Icon--sf"><a href="{{ contacts.sf }}" target="_blank" title="查看我的技术文章和问答">SegmentFault</a></li>
+      <li class="Icon Icon--cw"><a href="{{ contacts.codewars }}" target="_blank" title="查看我的技能掌握情况">Codewars</a></li>
     </ul>
   </header>
   <div class="layout-content">

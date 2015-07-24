@@ -33,13 +33,14 @@ body {
 .Profile-avatar img {
   @include square(100px);
   @include border-radius(50%);
+  background-color: #9A9A9A;
 }
 
 .Profile-avatar {
   @include inline-block;
 
   &:hover {
-    background-image: url("/images/avatar_mask.jpg");
+    background-image: url("/images/avatars/mask.jpg");
     @include covered_background;
 
     img {
@@ -87,14 +88,38 @@ body {
 }
 
 .Profile-contacts li {
+  line-height: 16px;
+
+  &:before,
+  span,
+  a {
+    @include inline-block;
+  }
+
+  span,
+  a {
+    margin: 0 2px;
+  }
+
   &:before {
     content: "\00B7";
-    display: inline;
     margin: 0 1px;
+    font-family: monospace;
   }
 
   &:first-child:before {
     display: none;
+  }
+}
+
+.Contact-location {
+  @media (max-width: 767px) {
+    display: none !important;
+  }
+
+  img {
+    @include square(16px);
+    vertical-align: middle;
   }
 }
 
@@ -106,6 +131,72 @@ body {
   padding: 0;
   font-size: 16px;
   line-height: 1.5;
+}
+
+
+
+.Icon a {
+  font: 0px/0 a;
+  @include square(16px);
+  @include covered_background;
+}
+
+.Icon--email {
+  @media (max-width: 767px) {
+    &:before {
+      display: none !important;
+    }
+  }
+
+  a {
+    $img: "/images/logos/envelope-32px.png";
+
+    background-image: url($img);
+    @include image-set(
+        url($img) 1x,
+        url("/images/logos/envelope-64px.png") 2x
+      );
+
+    @media (min-width: 768px) {
+      background-image: none;
+      @include square(auto);
+      font: {
+        family: inherit;
+        size: inherit;
+      }
+      line-height: inherit;
+    }
+  }
+}
+
+.Icon--gh a {
+  $img: "/images/logos/GitHub-32px.png";
+
+  background-image: url($img);
+  @include image-set(
+      url($img) 1x,
+      url("/images/logos/GitHub-64px.png") 2x
+    );
+}
+
+.Icon--sf a {
+  $img: "/images/logos/sf-32px.png";
+
+  background-image: url($img);
+  @include image-set(
+      url($img) 1x,
+      url("/images/logos/sf-64px.png") 2x
+    );
+}
+
+.Icon--cw a {
+  $img: "/images/logos/Codewars-32px.png";
+
+  background-image: url($img);
+  @include image-set(
+      url($img) 1x,
+      url("/images/logos/Codewars-64px.png") 2x
+    );
 }
 
 

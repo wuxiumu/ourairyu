@@ -1,7 +1,7 @@
 name:
   zh: 欧雷
   en: Ourai Lin
-avatar: /images/avatar.jpg
+avatar: /images/avatars/mask_2d.jpg
 link: https://plus.google.com/110971881899489153670/
 website:
   name: 欧雷流
@@ -10,6 +10,10 @@ profile: http://lin.ourai.ws/
 location: 杭州
 contact:
   email: ourairyu@gmail.com
+  gmail: ourairyu+dev@gmail.com
+  github: https://github.com/ourai
+  sf: http://segmentfault.com/u/ourai
+  codewars: http://www.codewars.com/users/ourai
 profession:
   - 前端工程师
 description: 非完熟前端开发
