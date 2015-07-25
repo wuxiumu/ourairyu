@@ -1,5 +1,7 @@
 require "time"
 require "pathname"
+require "httparty"
+require "json"
 
 desc "运行 Jekyll"
 task :jekyll_run do
@@ -11,6 +13,8 @@ task :jekyll_run do
   puts "Compiling assets..."
   puts "\r\n\r\n"
   system "grunt"
+
+  system "rake filter_repos"
 
   # 启动 Jekyll
   puts "\r\n\r\n\r\n"
@@ -25,6 +29,62 @@ task :jekyll_build do
 
   puts "Build site to #{dest}"
   system "bundle exec jekyll build -d #{dest}"
+end
+
+desc "从 GitHub 获取 repo 信息"
+task :repos do
+  username = ENV["username"] || "ourai"
+
+  cd "./_data/projects" do
+    puts "正在获取并写入 #{username} 的 repo 信息"
+
+    open("github.json", "w") do |f|
+      f.puts HTTParty.get("https://api.github.com/users/#{username}/repos").to_json
+    end
+
+    puts "repo 信息获取并写入完毕"
+  end
+end
+
+desc "过滤掉不需要包含的 repo 信息"
+task :filter_repos do
+  system "rake repos username=ourai"
+
+  excludedRepos = [
+    18552598,   # bakufu
+    35932564,   # learning
+    19068698,   # ourai.github.io
+    35203272,   # ourairyu
+    28067674,   # ourairyu-themes
+    39543273,   # development
+    23340879,   # waken
+    23698214,   # domshim
+    38699113    # double-list
+  ]
+
+  cd "./_data/projects" do
+    filename = "github.json"
+    repos = JSON.parse(File.read(filename))
+    filtered_repos = Array.new
+
+    puts "正在过滤 repo"
+
+    repos.each do |r|
+      unless excludedRepos.include?(r["id"])
+        filtered_repos.push(r)
+      end
+    end
+
+    puts "过滤 repo 完毕"
+
+    puts "正在保存过滤后的 repo 数据"
+
+    open(filename, "w") do |f|
+      f.puts filtered_repos.to_json
+    end
+
+    puts "保存 repo 数据完毕"
+  end
 end
 
 desc "从 GitHub 获取代码"
@@ -66,6 +126,7 @@ task :deploy do
   repo = ENV["repo"] || "ourai.github.io"
 
   system "rake pull_github repo=#{repo}"
+  system "rake filter_repos"
   system "rake jekyll_build dest=../#{repo}"
   system "rake push_github repo=#{repo}"
 

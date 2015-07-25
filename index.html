@@ -27,16 +27,35 @@ css:
     </ul>
   </header>
   <div class="layout-content">
+    {% assign repos = site.data.projects.github %}
     {% assign skills = site.data.skills %}
     <div class="Navs">
       <ul>
-        <li class="Nav-cell"><a href="/projects" data-flag="projects"><span class="Cell-count">0</span><span class="Cell-label">个开源项目</span></a></li>
+        <li class="Nav-cell"><a href="/projects" data-flag="projects"><span class="Cell-count">{{ repos.size }}</span><span class="Cell-label">个开源项目</span></a></li>
         <li class="Nav-cell"><a href="/skills" data-flag="skills"><span class="Cell-count">{{ skills.size }}</span><span class="Cell-label">项开发技能</span></a></li>
       </ul>
     </div>
     <div class="Grids">
       <!-- 开源项目 -->
-      <div class="Grid Projects" data-flag="projects"></div>
+      <div class="Grid Projects" data-flag="projects">
+        {% for repo in repos %}
+        {% if repo.homepage == null or repo.homepage == "" %}
+          {% assign url = repo.html_url %}
+        {% else %}
+          {% assign url = repo.homepage %}
+        {% endif %}
+        <div class="Grid-item">
+          <div class="Card">
+            <a href="{{ url }}" class="Repo">
+              <h3 class="Repo-name">{{ repo.name }}</h3>
+              <span class="Repo-language">{{ repo.language ? "" }}</span>
+              <span class="Repo-stargazers">{{ repo.stargazers_count }} 个人关注</span>
+              <p class="Repo-description">{{ repo.description }}</p>
+            </a>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
       <!-- 开发技能 -->
       <div class="Grid Skills" data-flag="skills">
         {% for skill in skills %}
@@ -55,6 +74,5 @@ css:
   </div>
 </main>
 {% assign js_url = site.data.url.root | append: "/" | append: site.data.url.js %}
-<script src="{{ js_url }}/site.js"></script>
 <script src="{{ js_url }}/pages/home.js"></script>
 <script>Tatami.sandbox();</script>
