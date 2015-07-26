@@ -54,12 +54,14 @@ task :filter_repos do
     18552598,   # bakufu
     35932564,   # learning
     19068698,   # ourai.github.io
+    39543273,   # development
+    39746025,   # profile
     35203272,   # ourairyu
     28067674,   # ourairyu-themes
-    39543273,   # development
     23340879,   # waken
     23698214,   # domshim
-    38699113    # double-list
+    38699113,   # double-list
+    39214016    # CustomComponent
   ]
 
   cd "./_data/projects" do
