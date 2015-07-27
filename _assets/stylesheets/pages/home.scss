@@ -173,7 +173,7 @@ body {
   font-size: 16px;
   line-height: 1.5;
 
-  @media (min-width: 767px) {
+  @media (min-width: 768px) {
     margin-top: 20px;
   }
 }
@@ -188,10 +188,12 @@ body {
 
 .Icon--email {
   @media (max-width: 767px) {
-    margin-left: 0;
-
     &:before {
       display: none !important;
+    }
+
+    a {
+      margin-left: 0;
     }
   }
 
