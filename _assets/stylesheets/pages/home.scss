@@ -54,7 +54,13 @@ body {
   margin-right: 15px;
 
   &:hover {
-    background-image: url("/images/avatars/mask.jpg");
+    $img: "/images/avatars/mask-100px.jpg";
+
+    background-image: url($img);
+    @include image-set(
+        url($img) 1x,
+        url("/images/avatars/mask-200px.jpg") 2x
+      );
     @include covered_background;
 
     img {
