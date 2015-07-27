@@ -2,8 +2,21 @@
   url: http://ourai.ws
   description: 站点内容以兴趣爱好、业余生活等为中心展开。
   started_at: 2009-05-01
+  techs:
+    - WordPress
+    - PHP
 
 - title: 网道
   url: http://dev.ourai.ws
   description: 作品与技能展示、web 开发相关资料。
   started_at: 2014-02-01
+  techs:
+    - Jekyll
+    - Ruby
+    - HTML 5
+    - CSS 3
+    - JavaScript
+    - Sass
+    - compass
+    - CoffeeScript
+    - Shell
