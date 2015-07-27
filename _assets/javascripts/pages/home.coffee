@@ -13,5 +13,5 @@ $(document).on "click", ".Nav-cell a", ->
 Tatami.ready ->
   $(".Navs [data-flag]:first").click()
 
-  $(".Repo").each ->
+  $(".Repo, .Site").each ->
     $(@).attr("target", "_blank") if $(@).attr("href").indexOf(location.hostname) is -1

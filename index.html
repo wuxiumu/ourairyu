@@ -34,10 +34,12 @@ css:
   <div class="layout-content">
     {% assign repos = site.data.projects.github %}
     {% assign skills = site.data.skills %}
+    {% assign sites = site.data.sites %}
     <div class="Navs">
       <ul>
         <li class="Nav-cell"><a href="/projects" data-flag="projects"><span class="Cell-count">{{ repos.size }}</span><span class="Cell-label">个开源项目</span></a></li>
         <li class="Nav-cell"><a href="/skills" data-flag="skills"><span class="Cell-count">{{ skills.size }}</span><span class="Cell-label">项开发技能</span></a></li>
+        <li class="Nav-cell"><a href="/sites" data-flag="sites"><span class="Cell-count">{{ sites.size }}</span><span class="Cell-label">个私人站点</span></a></li>
       </ul>
     </div>
     <div class="Grids">
@@ -51,11 +53,11 @@ css:
         {% endif %}
         <div class="Grid-item">
           <div class="Card">
-            <a href="{{ url }}" class="Repo">
-              <h3 class="Repo-name">{{ repo.name }}</h3>
+            <a href="{{ url }}" class="Card-link Repo">
+              <h3 class="Card-name Repo-name">{{ repo.name }}</h3>
               <span class="Repo-language">{{ repo.language ? "" }}</span>
               <span class="Repo-stargazers">{{ repo.stargazers_count }} 个人关注</span>
-              <p class="Repo-description">{{ repo.description }}</p>
+              <p class="Card-description">{{ repo.description }}</p>
             </a>
           </div>
         </div>
@@ -66,10 +68,23 @@ css:
         {% for skill in skills %}
         <div class="Grid-item">
           <div class="Card">
-            <a href="javascript:void(0);" class="Skill">
-              <h3 class="Skill-title">{{ skill.title }}</h3>
+            <a href="javascript:void(0);" class="Card-link Skill">
+              <h3 class="Card-name">{{ skill.title }}</h3>
               <div class="Skill-level Score"><span class="Score-level" style="width: {{ skill.level | times: 100 | divided_by: 5 }}%;">{{ skill.level }}</span></div>
-              <p class="Skill-description">{{ skill.description }}</p>
+              <p class="Card-description">{{ skill.description }}</p>
+            </a>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      <!-- 私人站点 -->
+      <div class="Grid Sites" data-flag="sites">
+        {% for site in sites %}
+        <div class="Grid-item">
+          <div class="Card">
+            <a href="{{ site.url }}" class="Card-link Site">
+              <h3 class="Card-name">{{ site.title }}</h3>
+              <p class="Card-description">{{ site.description }}</p>
             </a>
           </div>
         </div>
