@@ -21,13 +21,14 @@ body {
 // Profile
 
 .Profile {
-  padding: 30px 20px 25px;
+  padding: 30px 20px;
   background-color: #FFF;
 
   @media (min-width: 768px) {
     position: relative;
     padding: {
       right: 0;
+      bottom: 25px;
       left: 0;
     }
     text-align: center;
@@ -50,7 +51,7 @@ body {
 
 .Profile-avatar {
   float: left;
-  margin-right: 20px;
+  margin-right: 15px;
 
   &:hover {
     background-image: url("/images/avatars/mask.jpg");
@@ -74,8 +75,8 @@ body {
 
 .Profile-name {
   margin: {
-    top: 2px;
-    bottom: 7px;
+    top: 7px;
+    bottom: 2px;
   }
   font-size: 30px;
   line-height: 1.2;
@@ -90,7 +91,10 @@ body {
   }
 
   @media (min-width: 768px) {
-    margin-top: 20px;
+    margin: {
+      top: 20px;
+      bottom: 7px;
+    }
   }
 }
 
@@ -110,11 +114,27 @@ body {
 }
 
 .Profile-professions {
-  margin-bottom: 14px;
+  margin-bottom: 15px;
   color: #9A9A9A;
 
   @media (min-width: 768px) {
     margin-bottom: auto;
+  }
+
+  li {
+    height: 18px;
+    overflow: hidden;
+
+    &:before {
+      content: "/";
+      @include inline-block(baseline);
+      margin: 0 3px;
+      font-family: monospace;
+    }
+
+    &:first-child:before {
+      display: none;
+    }
   }
 }
 
@@ -166,7 +186,7 @@ body {
 .Profile-description {
   margin: {
     top: 30px;
-    bottom: 20px;
+    bottom: 0;
   }
   padding: 0;
   clear: both;
@@ -174,7 +194,10 @@ body {
   line-height: 1.5;
 
   @media (min-width: 768px) {
-    margin-top: 20px;
+    margin: {
+      top: 20px;
+      bottom: 20px;
+    }
   }
 }
 
@@ -193,7 +216,7 @@ body {
     }
 
     a {
-      margin-left: 0;
+      margin-left: 0 !important;
     }
   }
 
