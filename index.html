@@ -38,7 +38,7 @@ css:
     <div class="Grids">
       <!-- 开源项目 -->
       <div class="Grid Projects" data-flag="projects">
-        {% for repo in repos %}
+        {% for repo in repos reversed %}
         {% if repo.homepage == null or repo.homepage == "" %}
           {% assign url = repo.html_url %}
         {% else %}
