@@ -7,24 +7,29 @@ css:
 ---
 
 <main class="layout-container">
+  <!-- 人物信息 -->
   <header class="Profile">
     {% assign author = site.data.author %}
     <a href="{{ author.profile }}" target="_blank" class="Profile-avatar" title="了解更多"><img src="{{ author.avatar }}"></a>
     <h1 class="Profile-name"><a href="{{ author.profile }}" target="_blank">{{ author.name.zh }}</a></h1>
-    <ul class="Profile-professions">
-      {% for prof in author.profession %}
-      <li>{{ prof }}</li>
-      {% endfor %}
-    </ul>
+    <div class="Profile-professions">
+      <ul>
+        {% for prof in author.profession %}
+        <li>{{ prof }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="Profile-contacts">
+      {% assign contacts = author.contact %}
+      <ul>
+        <li class="Contact-location"><img src="/images/logos/local-32px.png" srcset="/images/logos/local-64px.png 2x"><span>{{ author.location }}</span></li>
+        <li class="Icon Icon--email"><a href="mailto:{{ author.contact.gmail }}" title="发送邮件给我">{{ contacts.email }}</a></li>
+        <li class="Icon Icon--gh"><a href="{{ contacts.github }}" target="_blank" title="查看我的全部开源项目">GitHub</a></li>
+        <li class="Icon Icon--sf"><a href="{{ contacts.sf }}" target="_blank" title="查看我的技术文章和问答">SegmentFault</a></li>
+        <li class="Icon Icon--cw"><a href="{{ contacts.codewars }}" target="_blank" title="查看我的技能掌握情况">Codewars</a></li>
+      </ul>
+    </div>
     <p class="Profile-description">{{ author.description }}</p>
-    {% assign contacts = author.contact %}
-    <ul class="Profile-contacts">
-      <li class="Contact-location"><img src="/images/logos/local-32px.png" srcset="/images/logos/local-64px.png 2x"><span>{{ author.location }}</span></li>
-      <li class="Icon Icon--email"><a href="mailto:{{ author.contact.gmail }}" title="发送邮件给我">{{ contacts.email }}</a></li>
-      <li class="Icon Icon--gh"><a href="{{ contacts.github }}" target="_blank" title="查看我的全部开源项目">GitHub</a></li>
-      <li class="Icon Icon--sf"><a href="{{ contacts.sf }}" target="_blank" title="查看我的技术文章和问答">SegmentFault</a></li>
-      <li class="Icon Icon--cw"><a href="{{ contacts.codewars }}" target="_blank" title="查看我的技能掌握情况">Codewars</a></li>
-    </ul>
   </header>
   <div class="layout-content">
     {% assign repos = site.data.projects.github %}

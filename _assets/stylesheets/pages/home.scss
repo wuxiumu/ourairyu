@@ -21,12 +21,24 @@ body {
 // Profile
 
 .Profile {
-  padding: {
-    top: 30px;
-    bottom: 25px;
-  }
-  text-align: center;
+  padding: 30px 20px 25px;
   background-color: #FFF;
+
+  @media (min-width: 768px) {
+    position: relative;
+    padding: {
+      right: 0;
+      left: 0;
+    }
+    text-align: center;
+
+    &:after {
+      content: "\0020";
+      display: block;
+      width: 100%;
+      height: 12px * 1.5;
+    }
+  }
 }
 
 .Profile-avatar,
@@ -37,7 +49,8 @@ body {
 }
 
 .Profile-avatar {
-  @include inline-block;
+  float: left;
+  margin-right: 20px;
 
   &:hover {
     background-image: url("/images/avatars/mask.jpg");
@@ -51,12 +64,18 @@ body {
   img {
     vertical-align: middle;
   }
+
+  @media (min-width: 768px) {
+    float: none;
+    margin-right: auto;
+    @include inline-block;
+  }
 }
 
 .Profile-name {
   margin: {
-    top: 20px;
-    bottom: 3px;
+    top: 2px;
+    bottom: 7px;
   }
   font-size: 30px;
   line-height: 1.2;
@@ -69,46 +88,67 @@ body {
       color: #666;
     }
   }
+
+  @media (min-width: 768px) {
+    margin-top: 20px;
+  }
 }
 
 .Profile-professions,
 .Profile-contacts {
-  @include no_item;
-  @include no_gap;
-  @include inline-block;
   font-size: 12px;
 
+  ul {
+    @include no_item;
+    @include no_gap;
+    @include inline-block(top);
+  }
+
   li {
-    @include inline-block;
+    @include inline-block(top);
   }
 }
 
 .Profile-professions {
+  margin-bottom: 14px;
   color: #9A9A9A;
+
+  @media (min-width: 768px) {
+    margin-bottom: auto;
+  }
 }
 
-.Profile-contacts li {
-  line-height: 16px;
-
-  &:before,
-  span,
-  a {
-    @include inline-block;
+.Profile-contacts {
+  @media (min-width: 768px) {
+    position: absolute;
+    right: 0;
+    bottom: 25px;
+    left: 0;
   }
 
-  span,
-  a {
-    margin: 0 2px;
-  }
+  li {
+    line-height: 16px;
 
-  &:before {
-    content: "\00B7";
-    margin: 0 1px;
-    font-family: monospace;
-  }
+    &:before,
+    span,
+    a {
+      @include inline-block;
+    }
 
-  &:first-child:before {
-    display: none;
+    span,
+    a {
+      margin: 0 2px;
+    }
+
+    &:before {
+      content: "\00B7";
+      margin: 0 1px;
+      font-family: monospace;
+    }
+
+    &:first-child:before {
+      display: none;
+    }
   }
 }
 
@@ -125,12 +165,17 @@ body {
 
 .Profile-description {
   margin: {
-    top: 20px;
+    top: 30px;
     bottom: 20px;
   }
   padding: 0;
+  clear: both;
   font-size: 16px;
   line-height: 1.5;
+
+  @media (min-width: 767px) {
+    margin-top: 20px;
+  }
 }
 
 
@@ -143,6 +188,8 @@ body {
 
 .Icon--email {
   @media (max-width: 767px) {
+    margin-left: 0;
+
     &:before {
       display: none !important;
     }
