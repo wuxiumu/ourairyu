@@ -27,9 +27,9 @@ body {
   @media (min-width: 768px) {
     position: relative;
     padding: {
-      right: 0;
+      right: 15px;
       bottom: 25px;
-      left: 0;
+      left: 15px;
     }
     text-align: center;
 
@@ -125,6 +125,10 @@ body {
 
   @media (min-width: 768px) {
     margin-bottom: auto;
+  }
+
+  a {
+    color: inherit;
   }
 
   li {

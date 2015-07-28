@@ -15,7 +15,7 @@ css:
     <div class="Profile-professions">
       <ul>
         {% for prof in author.profession %}
-        <li>{{ prof }}</li>
+        <li>{% if prof.link != null and prof.link != "" %}<a href="{{ prof.link }}" target="_blank">{{ prof.title }}</a>{% else %}{{ prof.title }}{% endif %}</li>
         {% endfor %}
       </ul>
     </div>
