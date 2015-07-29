@@ -13,7 +13,6 @@ module.exports = ( grunt ) ->
   grunt.initConfig
     meta:
       src: "_assets"
-      src_img: "<%= meta.src %>/images"
       src_css: "<%= meta.src %>/stylesheets"
       src_js: "<%= meta.src %>/javascripts"
       assets: "assets"
@@ -36,7 +35,15 @@ module.exports = ( grunt ) ->
         options:
           sassDir: "<%= meta.src_css %>"
           cssDir: "<%= meta.assets_css %>"
-          imagesDir: "<%= meta.src_img %>"
+          imagesDir: ""
+          force: true
+          outputStyle: "compressed"
+      ourairyu:
+        options:
+          sassDir: "<%= meta.src_css %>"
+          cssDir: "<%= meta.assets_css %>"
+          imagesDir: "dev"
+          force: true
           outputStyle: "compressed"
     coffee:
       options:
@@ -62,4 +69,7 @@ module.exports = ( grunt ) ->
   grunt.loadNpmTasks task for task in npmTasks
 
   # Default task
-  grunt.registerTask "default", ["compass", "coffee", "uglify"]
+  grunt.registerTask "default", ["compass:compile", "coffee", "uglify"]
+
+  # For Ourairyu
+  grunt.registerTask "ourairyu", ["compass:ourairyu", "coffee", "uglify"]

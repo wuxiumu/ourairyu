@@ -31,8 +31,8 @@ namespace :ourai do
 
   desc "将网站文件生成到其他文件夹中"
   task :build do
-    repo = ENV["repo"] || "ourai.github.io"
-    dest = "../#{repo}"
+    dir = ENV["dir"] || "ourai.github.io"
+    dest = "../#{dir}"
 
     puts "开始生成网页到 #{dest} 文件夹中"
     system "bundle exec jekyll build -d #{dest}"
@@ -144,8 +144,23 @@ namespace :ourai do
     puts "开始部署 #{repo}"
     system "rake ourai:pull repo=#{repo}"
     system "rake ourai:filter"
-    system "rake ourai:build repo=#{repo}"
+    system "rake ourai:build dir=#{repo}"
     system "rake ourai:push repo=#{repo}"
     print_msg "#{repo} 已经部署完毕 ;-)"
+  end
+
+  desc "生成站点到欧雷流"
+  task :ourairyu do
+    dir = "site/dev/"
+
+    system "grunt ourairyu"
+    system "bundle exec jekyll build -d ../#{dir} --config _config.yml,_build/config.yml"
+    system "grunt compass:ourairyu"
+
+    # 移除不需要的文件
+    cd "../#{dir}" do
+      system "rm CNAME"
+      system "rm README.md"
+    end
   end
 end

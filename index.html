@@ -10,7 +10,7 @@ css:
   <!-- 人物信息 -->
   <header class="Profile">
     {% assign author = site.data.author %}
-    <a href="{{ author.profile }}" target="_blank" class="Profile-avatar" title="了解更多"><img src="/images/avatars/mask_2d-100px.jpg" srcset="/images/avatars/mask_2d-200px.jpg 2x"></a>
+    <a href="{{ author.profile }}" target="_blank" class="Profile-avatar" title="了解更多"><img src="images/avatars/mask_2d-100px.jpg" srcset="images/avatars/mask_2d-200px.jpg 2x"></a>
     <h1 class="Profile-name"><a href="{{ author.profile }}" target="_blank">{{ author.name.zh }}</a></h1>
     <div class="Profile-professions">
       <ul>
@@ -22,7 +22,7 @@ css:
     <div class="Profile-contacts">
       {% assign contacts = author.contact %}
       <ul>
-        <li class="Contact-location"><img src="/images/logos/local-32px.png" srcset="/images/logos/local-64px.png 2x"><span>{{ author.location }}</span></li>
+        <li class="Contact-location"><img src="images/logos/local-32px.png" srcset="images/logos/local-64px.png 2x"><span>{{ author.location }}</span></li>
         <li class="Icon Icon--email"><a href="mailto:{{ author.contact.gmail }}" title="发送邮件给我">{{ contacts.email }}</a></li>
         <li class="Icon Icon--gh"><a href="{{ contacts.github }}" target="_blank" title="查看我的全部开源项目">GitHub</a></li>
         <li class="Icon Icon--sf"><a href="{{ contacts.sf }}" target="_blank" title="查看我的技术文章和问答">SegmentFault</a></li>
@@ -93,6 +93,5 @@ css:
     </div>
   </div>
 </main>
-{% assign js_url = site.data.url.root | append: "/" | append: site.data.url.js %}
-<script src="{{ js_url }}/pages/home.js"></script>
+<script src="{{ site.data.url.js }}/pages/home.js"></script>
 <script>Tatami.sandbox();</script>

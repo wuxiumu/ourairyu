@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang="{{ site.data.info.lang }}" dir="ltr">
   <head>
+    {% if site.baseurl == "" %}
+      {% assign baseurl = "/" %}
+    {% else %}
+      {% assign baseurl = site.baseurl %}
+    {% endif %}
+    <base href="{{ baseurl }}">
     <meta charset="UTF-8">
     <title>{% if page.special_title %}{{ page.special_title }}{% else %}{% if page.title %}{{ page.title }} - {% endif %}{{ site.data.info.title.zh }}{% endif %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,9 +27,9 @@
       <meta name="description" content="{{ description | strip_html }}">
     {% endunless %}
     <link rel="author" href="{{ site.data.author.link }}">
-    <link rel="shortcut icon" href="{{ site.data.url.site | append: '/' | append: site.data.url.img }}/favicon.ico">
-    {% assign site_css_url = site.data.url.site | append: "/" | append: site.data.url.css %}
-    {% assign repo_css_url = site.data.url.root | append: "/" | append: site.data.url.css %}
+    <link rel="shortcut icon" href="{{ site.data.url.img }}/favicon.ico">
+    {% assign site_css_url = site.data.url.css %}
+    {% assign repo_css_url = site.data.url.css %}
     <link rel="stylesheet" href="{{ site_css_url }}/matcha.min.css">
     <link rel="stylesheet" href="{{ site_css_url }}/highlight.css">
     <link rel="stylesheet" href="{{ site_css_url }}/site.css">
@@ -42,7 +48,7 @@
     <!--[if lt IE 8]>
     <link rel="stylesheet" href="{{ site_css_url }}/forbid.css">
     <![endif]-->
-    {% assign site_js_url = site.data.url.site | append: "/" | append: site.data.url.js %}
+    {% assign site_js_url = site.data.url.js %}
     <!--[if lt IE 9]>
     <script src="{{ site_js_url }}/html5shiv-printshiv.min.js"></script>
     <![endif]-->

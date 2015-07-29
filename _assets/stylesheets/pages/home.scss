@@ -54,12 +54,12 @@ body {
   margin-right: 15px;
 
   &:hover {
-    $img: "/images/avatars/mask-100px.jpg";
+    $img: "images/avatars/mask-100px.jpg";
 
-    background-image: url($img);
+    background-image: image-url($img);
     @include image-set(
-        url($img) 1x,
-        url("/images/avatars/mask-200px.jpg") 2x
+        image-url($img) 1x,
+        image-url("images/avatars/mask-200px.jpg") 2x
       );
     @include covered_background;
 
@@ -231,12 +231,12 @@ body {
   }
 
   a {
-    $img: "/images/logos/envelope-32px.png";
+    $img: "images/logos/envelope-32px.png";
 
-    background-image: url($img);
+    background-image: image-url($img);
     @include image-set(
-        url($img) 1x,
-        url("/images/logos/envelope-64px.png") 2x
+        image-url($img) 1x,
+        image-url("images/logos/envelope-64px.png") 2x
       );
 
     @media (min-width: 768px) {
@@ -252,32 +252,32 @@ body {
 }
 
 .Icon--gh a {
-  $img: "/images/logos/GitHub-32px.png";
+  $img: "images/logos/GitHub-32px.png";
 
-  background-image: url($img);
+  background-image: image-url($img);
   @include image-set(
-      url($img) 1x,
-      url("/images/logos/GitHub-64px.png") 2x
+      image-url($img) 1x,
+      image-url("images/logos/GitHub-64px.png") 2x
     );
 }
 
 .Icon--sf a {
-  $img: "/images/logos/sf-32px.png";
+  $img: "images/logos/sf-32px.png";
 
-  background-image: url($img);
+  background-image: image-url($img);
   @include image-set(
-      url($img) 1x,
-      url("/images/logos/sf-64px.png") 2x
+      image-url($img) 1x,
+      image-url("images/logos/sf-64px.png") 2x
     );
 }
 
 .Icon--cw a {
-  $img: "/images/logos/Codewars-32px.png";
+  $img: "images/logos/Codewars-32px.png";
 
-  background-image: url($img);
+  background-image: image-url($img);
   @include image-set(
-      url($img) 1x,
-      url("/images/logos/Codewars-64px.png") 2x
+      image-url($img) 1x,
+      image-url("images/logos/Codewars-64px.png") 2x
     );
 }
 
@@ -455,7 +455,7 @@ body {
 .Score,
 .Score .Score-level,
 .Score--selectable {
-  background-image: url("/images/star.png")
+  background-image: image-url("images/star.png")
 }
 
 .Skill-level {
