@@ -45,6 +45,13 @@ module.exports = ( grunt ) ->
           imagesDir: "dev"
           force: true
           outputStyle: "compressed"
+      github:
+        options:
+          sassDir: "<%= meta.src_css %>"
+          cssDir: "<%= meta.assets_css %>"
+          imagesDir: "development"
+          force: true
+          outputStyle: "compressed"
     coffee:
       options:
         bare: false
@@ -70,6 +77,7 @@ module.exports = ( grunt ) ->
 
   # Default task
   grunt.registerTask "default", ["compass:compile", "coffee", "uglify"]
-
   # For Ourairyu
   grunt.registerTask "ourairyu", ["compass:ourairyu", "coffee", "uglify"]
+  # For GitHub pages
+  grunt.registerTask "gh-pages", ["compass:github", "coffee", "uglify"]

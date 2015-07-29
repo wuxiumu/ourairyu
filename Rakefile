@@ -35,7 +35,9 @@ namespace :ourai do
     dest = "../#{dir}"
 
     puts "开始生成网页到 #{dest} 文件夹中"
-    system "bundle exec jekyll build -d #{dest}"
+    system "grunt gh-pages"
+    system "bundle exec jekyll build -d #{dest} --config _config.yml,_build/config/gh-pages.yml"
+    system "grunt compass:compile"
     print_msg "网页已经生成完毕"
   end
 
@@ -155,12 +157,11 @@ namespace :ourai do
 
     system "grunt ourairyu"
     system "rake ourai:filter"
-    system "bundle exec jekyll build -d ../#{dir} --config _config.yml,_build/config.yml"
-    system "grunt compass:ourairyu"
+    system "bundle exec jekyll build -d ../#{dir} --config _config.yml,_build/config/ourairyu.yml"
+    system "grunt compass:compile"
 
     # 移除不需要的文件
     cd "../#{dir}" do
-      system "rm CNAME"
       system "rm README.md"
     end
   end
