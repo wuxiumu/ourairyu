@@ -1,0 +1,28 @@
+---
+title: 节点链
+description: 节点连接起来的链条
+
+css:
+  - demos/components-node-chain
+
+compatibility:
+  ie: 7+
+---
+
+<div class="demo-example">
+  <div class="node-chain-container">
+    <ul class="node-chain node-chain--completed">
+      {% for i in (1..5) %}
+      {% if i == 3 %}
+        {% assign cls = "chain_node--selected" %}
+      {% else %}
+        {% assign cls = "chain_node" %}
+      {% endif %}
+      <li class="{{ cls }}"><span></span><img src="{{ site.data.url.site | append: '/' | append: site.data.url.img }}/avatar.jpg"></li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+<section class="demo-description">
+  {% include demo/description.html %}
+</section>

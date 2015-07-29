@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="{{ site.data.info.lang }}" dir="ltr">
+  <head>
+    {% if site.baseurl == "" %}
+      {% assign baseurl = "/" %}
+    {% else %}
+      {% assign baseurl = site.baseurl %}
+    {% endif %}
+    <base href="{{ baseurl }}">
+    <meta charset="UTF-8">
+    <title>{% if page.special_title %}{{ page.special_title }}{% else %}{% if page.title %}{{ page.title }} - {% endif %}{{ site.data.info.title.zh }}{% endif %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% if page.keywords %}
+      {% assign keywords = page.keywords %}
+    {% else %}
+      {% assign keywords = site.data.info.keywords %}
+    {% endif %}
+    {% unless keywords == null or keywords == blank %}
+      <meta name="keywords" content="{{ keywords }}">
+    {% endunless %}
+    {% if page.description %}
+      {% assign description = page.description %}
+    {% else %}
+      {% assign description = site.data.info.description %}
+    {% endif %}
+    {% unless description == null or description == blank %}
+      <meta name="description" content="{{ description | strip_html }}">
+    {% endunless %}
+    <link rel="author" href="{{ site.data.author.link }}">
+    <link rel="shortcut icon" href="{{ site.data.url.img }}/favicon.ico">
+    {% assign site_css_url = site.data.url.css %}
+    {% assign repo_css_url = site.data.url.css %}
+    <link rel="stylesheet" href="{{ site_css_url }}/matcha.min.css">
+    <link rel="stylesheet" href="{{ site_css_url }}/highlight.css">
+    <link rel="stylesheet" href="{{ site_css_url }}/site.css">
+    {% if page.layout_css %}
+    <!-- Style sheets for template -->
+      {% for css in page.layout_css %}
+    <link rel="stylesheet" href="{{ repo_css_url | append: '/' | append: css }}.css">
+      {% endfor %}
+    {% endif %}
+    {% if page.css %}
+    <!-- Style sheets for page -->
+      {% for css in page.css %}
+    <link rel="stylesheet" href="{{ repo_css_url | append: '/' | append: css }}.css">
+      {% endfor %}
+    {% endif %}
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="{{ site_css_url }}/forbid.css">
+    <![endif]-->
+    {% assign site_js_url = site.data.url.js %}
+    <!--[if lt IE 9]>
+    <script src="{{ site_js_url }}/html5shiv-printshiv.min.js"></script>
+    <![endif]-->
+    <script src="{{ site_js_url }}/jquery.min.js"></script>
+    <script src="{{ site_js_url }}/tatami.min.js"></script>
+    <script src="{{ site_js_url }}/matcha.min.js"></script>
+  </head>
+  {% assign layout_t = page.layout_type %}
+  {% if layout_t == null or layout_t == blank %}{% assign layout_t = "none" %}{% endif %}
+  {% assign page_t = page.template %}
+  {% if page_t == null or page_t == blank %}{% assign page_t = "none" %}{% endif %}
+  {% assign page_c = page.page_category %}
+  {% if page_c == null or page_c == blank %}{% assign page_c = "none" %}{% endif %}
+  <body itemscope itemtype="http://schema.org/WebPage" class="layout--{{ layout_t }}" data-layout="{{ page_t }}" data-page="{{ page_c }}">
