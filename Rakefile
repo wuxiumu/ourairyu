@@ -59,7 +59,7 @@ namespace :ourai do
     excludedRepos = [
       18552598,   # bakufu
       35932564,   # learning
-      19068698,   # ourai.github.io
+      19068698,   # development
       39746025,   # profile
       35203272,   # ourairyu
       28067674,   # ourairyu-themes
@@ -116,7 +116,7 @@ namespace :ourai do
       puts "开始同步 #{repo} 的数据"
       cd "../#{repo}" do
         # system "git reset --hard HEAD"
-        system "git pull origin master"
+        system "git pull origin gh-pages"
       end
       print_msg "#{repo} 的数据同步完毕"
     end
@@ -132,7 +132,7 @@ namespace :ourai do
       system "touch .nojekyll"
       system "git add -A"
       system "git commit -m 'Updated at #{Time.now.utc}'"
-      system "git push origin master"
+      system "git push origin gh-pages"
     end
     print_msg "向 #{url} 推送代码完毕"
   end
@@ -154,6 +154,7 @@ namespace :ourai do
     dir = "site/dev/"
 
     system "grunt ourairyu"
+    system "rake ourai:filter"
     system "bundle exec jekyll build -d ../#{dir} --config _config.yml,_build/config.yml"
     system "grunt compass:ourairyu"
 
