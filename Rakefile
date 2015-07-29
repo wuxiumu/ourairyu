@@ -153,16 +153,11 @@ namespace :ourai do
 
   desc "生成站点到欧雷流"
   task :ourairyu do
-    dir = "site/dev/"
+    dir = ENV["dir"] || "site/dev/"
 
     system "grunt ourairyu"
     system "rake ourai:filter"
     system "bundle exec jekyll build -d ../#{dir} --config _config.yml,_build/config/ourairyu.yml"
     system "grunt compass:compile"
-
-    # 移除不需要的文件
-    cd "../#{dir}" do
-      system "rm README.md"
-    end
   end
 end
