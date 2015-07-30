@@ -17,7 +17,7 @@ $(document).ready ->
     SHOOLD_BE_CHOSEN: "请选中{{UNIT_LABEL}}"
     SHOOLD_CHOOSE_AN_OPTION: "必须从{{LABEL}}中选择一项"
 
-  H5F.init targetForms
+  H5F.init targetForms, immediate: true
 
   $("#H5FValidation [name]").on
     "H5F:valid": ( e, field ) ->
