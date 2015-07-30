@@ -6,7 +6,7 @@
       <div class="layout-inner">
         <h1>{{ page.project_name }}<span class="version">({{ site.data.apis.tatami.version }})</span></h1>
         <nav class="subnav">
-          {% assign project_url = site.data.url.root | append: site.data.url.project | append: "tatami" %}
+          {% assign project_url = site.data.url.project | append: "tatami" %}
           <ul>
             <li><a href="{{ project_url }}/" data-page="overview">Overview</a></li>
             <li><a href="{{ project_url }}/api/" data-page="reference">Reference</a></li>

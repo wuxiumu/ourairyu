@@ -7,15 +7,15 @@ js: javascripts
 css: stylesheets
 img: images
 
-article: /posts/
-tutorial: /tutorials/
-demo: /demos/
-issue: /issues/
-doc: /docs/
-spec: /specs/
-project: /projects/
-category: /categories/
-link: /links/
-topic: /topics/
-about: /about/
-skill: /skills/
+article: posts/
+tutorial: tutorials/
+demo: demos/
+issue: issues/
+doc: docs/
+spec: specs/
+project: projects/
+category: categories/
+link: links/
+topic: topics/
+about: about/
+skill: skills/

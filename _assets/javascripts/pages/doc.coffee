@@ -10,7 +10,7 @@ Tatami.ready ->
     toc = $(".toc")
     
     toc
-      .append "<a href=\"##{id}\" class=\"toc-title\">#{h.text()}</a>"
+      .append "<a href=\"#{location.pathname}##{id}\" class=\"toc-title\">#{h.text()}</a>"
       .append "<ul class=\"toc-section\"></ul>"
 
     ul = $(".toc-section:last", toc)
@@ -21,7 +21,7 @@ Tatami.ready ->
       id = "api_#{api}"
 
       dt.attr "id", id
-      ul.append "<li>- <a href=\"##{id}\">#{api}</a></li>"
+      ul.append "<li>- <a href=\"#{location.pathname}##{id}\">#{api}</a></li>"
 
   $("[data-download]").on "click", ->
     url = this.getAttribute "href"
