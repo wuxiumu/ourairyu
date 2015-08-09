@@ -251,6 +251,16 @@ body {
   }
 }
 
+.Icon--li a {
+  $img: "images/logos/LinkedIn-34px.png";
+
+  background-image: image-url($img);
+  @include image-set(
+      image-url($img) 1x,
+      image-url("images/logos/LinkedIn-66px.png") 2x
+    );
+}
+
 .Icon--gh a {
   $img: "images/logos/GitHub-32px.png";
 
