@@ -1,0 +1,218 @@
+@import "../../helpers";
+
+code,
+pre {
+  font-size: 12px;
+}
+
+body[data-page="overview"] a[data-page="overview"],
+body[data-page="reference"] a[data-page="reference"] {
+  color: $color-text !important;
+}
+
+.layout-container {
+  & > header {
+    overflow: hidden;
+
+    .layout-inner {
+      position: relative;
+      border-bottom: 1px solid #D8D8D8;
+    }
+
+    $b_gap: 10px;
+
+    h1 {
+      margin: 50px 0 $b_gap;
+      font: {
+        size: 30px;
+        weight: normal;
+      }
+      line-height: 1;
+
+      .version {
+        margin-left: .7em;
+        font: {
+          size: 14px;
+          weight: normal;
+        }
+      }
+    }
+
+    .subnav {
+      position: absolute;
+      right: 0;
+      bottom: $b_gap;
+      
+      ul {
+        @include no_gap;
+        @include no_item;
+        overflow: hidden;
+      }
+
+      li {
+        float: left;
+        margin-left: 20px;
+      }
+    }
+  }
+}
+
+.layout-content {
+  padding: {
+    top: 30px;
+    bottom: 30px;
+  }
+}
+
+.toc {
+  float: right;
+  margin-left: 70px;
+
+  a {
+    color: $color-text !important;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+}
+
+.toc-title {
+  display: block;
+  margin-top: 15px;
+  font-weight: bold;
+  text-decoration: underline !important;
+}
+
+.toc-section {
+  @include no_gap;
+  @include no_item;
+  margin-top: 5px;
+  font-size: 12px;
+
+  li {
+    margin-bottom: 3px;
+    white-space: nowrap;
+  }
+}
+
+.file_desc {
+  i {
+    font-style: normal;
+    color: $color-text-light;
+  }
+}
+
+#downloadFiles {
+  table-layout: auto;
+  width: auto;
+  
+  tr {
+    background-color: transparent;
+  }
+
+  td {
+    border: none;
+    padding: .15em .9em .15em 0;
+  }
+}
+
+#documentation {
+  overflow: hidden;
+
+  .heading:first-child {
+    margin-top: 0;
+    padding-top: 0;
+  }
+
+  dt,
+  dd {
+    @include no_gap;
+  }
+
+  .signature {
+    margin-top: 20px;
+
+    &[data-first="true"] {
+      margin-top: 0;
+    }
+  }
+
+  & > h3 {
+    margin-top: 50px;
+    font-size: 18px;
+  }
+
+  & > dl {
+    & > dt {
+      margin-top: 30px;
+
+      font: {
+        weight: bold;
+        size: 16px;
+      }
+
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+  }
+}
+
+.api_info {
+  padding: 5px 5px 5px 10px;
+  border-left: 3px solid #A6A6A6;
+  @include clearfix;
+
+  dl {
+    clear: both;
+    margin: 0;
+    font-size: 12px;
+
+    &:before {
+      content: "\0020";
+      display: block;
+      border-bottom: 1px dashed #888;
+      padding-top: 10px;
+      margin-bottom: 10px;
+    }
+
+    dt,
+    dd {
+      margin-top: 5px !important;
+
+      &:first-child,
+      &:first-of-type {
+        margin-top: 0 !important;
+      }
+    }
+
+    dt {
+      width: 8em;
+      float: left;
+      font: {
+        family: $font_family-monospace;
+        weight: bold;
+      }
+    }
+
+    dd {
+      overflow: hidden;
+
+      p {
+        @include no_gap;
+        line-height: 1.5;
+      }
+    }
+  }
+}
+
+.invoke {
+  float: left;
+  font-size: 14px;
+}
+
+.return_value {
+  float: right;
+  font-style: italic;
+}

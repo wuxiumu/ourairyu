@@ -1,0 +1,59 @@
+---
+layout: demo
+title: 色相环
+desc: 用 SVG/VML 绘制色相环
+category: demo
+limitIE: false
+---
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <title>垂直居中</title>
+    <style>
+      body {
+        background-color: #EEE;
+      }
+
+      .section {
+        overflow: hidden;
+      }
+
+      .block {
+        float: left;
+        width: 150px;
+        height: 150px;
+        border: 5px solid #FFF;
+        border-radius: 50%;
+        background-color: #FF0;
+        padding: 20px;
+      }
+
+      .block span,
+      .block:before,
+      .ie_fix {
+        display: inline-block;
+        *display: inline;
+        zoom: 1;
+        vertical-align: middle;
+        text-align: center;
+      }
+
+      .block:before,
+      .ie_fix {
+        height: 100%;
+        width: 0;
+      }
+
+      .block:before {
+        content: "\0020";
+      }
+    </style>
+  </head>
+  <body>
+    <div class="section">
+      <div class="block"><!--[if lt IE 8]><span class="ie_fix"></span><![endif]--><span>授课可以随时随地</span></div>
+      <div class="block"><!--[if lt IE 8]><span class="ie_fix"></span><![endif]--><span>以节点为单元构建在线课程，学习节点支持多媒体资源，测试节点检验学习效果。</span></div>
+      <div class="block"><!--[if lt IE 8]><span class="ie_fix"></span><![endif]--><span>节点之间创建清晰的学习路径，形成闯关式学习模式或自测式学习模式。</span></div>
+    </div>
+  </body>
+</html>
