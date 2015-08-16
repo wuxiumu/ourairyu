@@ -78,7 +78,7 @@ namespace :ourai do
 
       puts "开始过滤 repo 数据"
       repos.each do |r|
-        unless excludedRepos.include?(r["id"])
+        unless r["private"] == true || r["fork"] == true || excludedRepos.include?(r["id"])
           filtered_repos.push(r)
         end
       end
