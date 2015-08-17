@@ -1,0 +1,75 @@
+# collections:
+#   pages:
+#     output: true
+#     permalink: /:collection/:path/
+#   projects:
+#     output: true
+#     permalink: /:collection/:path/
+#   demos:
+#     output: true
+#     permalink: /:collection/:path/
+#   tutorials:
+#     output: false
+#     permalink: /:collection/:path/
+#   issues:
+#     output: false
+#     permalink: /:collection/:path/
+
+# Handling Reading
+exclude: 
+  - .sass-cache
+  - node_modules
+  - vendors
+  - src
+  - Rakefile
+  - Gemfile
+  - Gemfile.lock
+  - Gruntfile.coffee
+  - bower.json
+  - package.json
+  - README.md
+  # - CNAME
+encoding: utf-8
+
+# Plugins
+# gems:
+#   - jemoji
+#   - octopress-minify-html
+
+# Conversion
+markdown: kramdown
+# highlighter: false
+
+# Backwards-compatibility
+relative_permalinks: false
+
+# Outputting
+permalink: /posts/:title/
+timezone: Asia/Shanghai
+
+# YAML frontmatter
+# defaults:
+#   # Default
+#   - scope:
+#       path: ""
+#     values:
+#       layout: default
+#       layout_type: sandwich
+#   # Pages
+#   - scope:
+#       path: ""
+#       type: pages
+#     values:
+#       layout: page
+#       template: page
+#   # Posts
+#   - scope:
+#       path: ""
+#       type: posts
+#     values:
+#       layout: article
+#       template: article
+#       layout_css:
+#         - highlight
+#         - pages/article
+#       comments: true
