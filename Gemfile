@@ -7,7 +7,7 @@ gem 'github-pages'
 gem 'fastimage', '~> 1.6.0'
 
 gem 'compass', '~> 0.12.0'
-gem 'bootstrap-sass', '~> 3.2.0'
+gem 'bootstrap-sass', '~> 3.3.0'
 
 gem 'yui-compressor'
 gem 'closure-compiler'
