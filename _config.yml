@@ -1,20 +1,3 @@
-# collections:
-#   pages:
-#     output: true
-#     permalink: /:collection/:path/
-#   projects:
-#     output: true
-#     permalink: /:collection/:path/
-#   demos:
-#     output: true
-#     permalink: /:collection/:path/
-#   tutorials:
-#     output: false
-#     permalink: /:collection/:path/
-#   issues:
-#     output: false
-#     permalink: /:collection/:path/
-
 # Handling Reading
 exclude: 
   - .sass-cache
@@ -27,8 +10,7 @@ exclude:
   - Gruntfile.coffee
   - bower.json
   - package.json
-  # - README.md
-  # - CNAME
+  - README.md
 encoding: utf-8
 
 # Plugins
@@ -49,31 +31,12 @@ permalink: /posts/:title/
 timezone: Asia/Shanghai
 
 # YAML frontmatter
-# defaults:
-#   # Default
-#   - scope:
-#       path: ""
-#     values:
-#       layout: default
-#       layout_type: sandwich
-#   # Pages
-#   - scope:
-#       path: ""
-#       type: pages
-#     values:
-#       layout: page
-#       template: page
-#   # Posts
-#   - scope:
-#       path: ""
-#       type: posts
-#     values:
-#       layout: article
-#       template: article
-#       layout_css:
-#         - highlight
-#         - pages/article
-#       comments: true
+defaults:
+  # Default
+  - scope:
+      path: ""
+    values:
+      layout: default
 
 # Jekyl Slim
 slim:
