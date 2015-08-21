@@ -7,35 +7,28 @@
 <html lang="zh-CN" dir="ltr" data-layout="{{ layout_t }}">
   <head>
     {% include head.html %}
+    <!-- 样式表文件 -->
+    {% stylesheet global %}
+    <!-- Stylesheets for template -->
+    {% if page.layout_css %}
+      {% for css in page.layout_css %}{{ css | stylesheet }}{% endfor %}
+    {% endif %}
+    <!-- Stylesheets for page -->
+    {% if page.css %}
+      {% for css in page.css %}{{ css | stylesheet }}{% endfor %}
+    {% endif %}
+    {% javascript global %}
+    <!--[if lt IE 9]>
+    {% javascript support_ie8 %}
+    <![endif]-->
   </head>
   <body itemscope itemtype="http://schema.org/WebPage">
-    <!-- 页首 -->
-    <header>
-      <div>
-        <h1>站点标题</h1>
-        <p>站点描述</p>
-        <!-- 导航菜单 -->
-        <nav>
-          <ul>
-            <li><a href="#">页面一</a></li>
-            <li><a href="#">页面二</a></li>
-          </ul>
-        </nav>
-      </div>
-      <div>
-        <!-- 面包屑 -->
-        <nav>
-          <ul>
-            <li><a href="#">首页</a></li>
-            <li><a href="#">上级页面</a></li>
-            <li>当前页面</li>
-          </ul>
-        </nav>
-      </div>
-    </header>
-    <!-- 主要区域 -->
-    <main>{{ content }}</main>
-    <!-- 页脚 -->
-    <footer></footer>
+    {{ content }}
+    {% if page.layout_js %}
+      {% for js in page.layout_js %}{{ js | javascript }}{% endfor %}
+    {% endif %}
+    {% if page.js %}
+      {% for js in page.js %}{{ js | javascript }}{% endfor %}
+    {% endif %}
   </body>
 </html>
