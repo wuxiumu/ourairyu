@@ -27,7 +27,7 @@ exclude:
   - Gruntfile.coffee
   - bower.json
   - package.json
-  - README.md
+  # - README.md
   # - CNAME
 encoding: utf-8
 
@@ -74,3 +74,13 @@ timezone: Asia/Shanghai
 #         - highlight
 #         - pages/article
 #       comments: true
+
+# Jekyl Slim
+slim:
+  pretty: true
+  format: html5
+
+# Jekyll Assets
+assets:
+  js_compressor: uglifier
+  css_compressor: sass
