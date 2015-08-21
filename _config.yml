@@ -32,9 +32,10 @@ exclude:
 encoding: utf-8
 
 # Plugins
-# gems:
-#   - jemoji
-#   - octopress-minify-html
+gems:
+  - jemoji
+  - jekyll-slim
+  - octopress-minify-html
 
 # Conversion
 markdown: kramdown
