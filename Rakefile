@@ -124,7 +124,7 @@ namespace :ourai do
       puts "目标分支 #{branch}"
       cd "../#{dir}" do
         # system "git reset --hard HEAD"
-        system "git pull origin gh-pages"
+        system "git pull origin #{branch}"
       end
       print_msg "#{repo} 的数据同步完毕"
     end
