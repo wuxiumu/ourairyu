@@ -35,9 +35,7 @@ namespace :ourai do
     dest = "../#{dir}"
 
     puts "开始生成网页到 #{dest} 文件夹中"
-    system "grunt gh-pages"
-    system "bundle exec jekyll build -d #{dest} --config _config.yml,_build/config/gh-pages.yml"
-    system "grunt compass:compile"
+    system "bundle exec jekyll build -d #{dest}"
     print_msg "网页已经生成完毕"
   end
 
@@ -61,7 +59,7 @@ namespace :ourai do
     excludedRepos = [
       18552598,   # bakufu
       35932564,   # learning
-      19068698,   # development
+      19068698,   # ourai.github.io
       39746025,   # profile
       35203272,   # ourairyu
       28067674,   # ourairyu-themes
@@ -105,18 +103,26 @@ namespace :ourai do
 
   desc "从 GitHub 获取代码"
   task :pull do
+    dir = ENV["dir"]
     repo = ENV["repo"]
     url = "https://github.com/ourai/#{repo}"
 
-    unless FileTest.directory?("../#{repo}")
+    unless FileTest.directory?("../#{dir}")
       puts "开始从 #{url} 拷贝代码"
       cd ".." do
         system "git clone #{url}.git"
       end
       print_msg "从 #{url} 拷贝代码完毕"
     else
+      if repo == "ourai.github.io"
+        branch = "master"
+      else
+        branch = "gh-pages"
+      end
+
       puts "开始同步 #{repo} 的数据"
-      cd "../#{repo}" do
+      puts "目标分支 #{branch}"
+      cd "../#{dir}" do
         # system "git reset --hard HEAD"
         system "git pull origin gh-pages"
       end
@@ -126,15 +132,22 @@ namespace :ourai do
 
   desc "将代码推送到 GitHub 上"
   task :push do
+    dir = ENV["dir"]
     repo = ENV["repo"]
     url = "https://github.com/ourai/#{repo}"
 
-    puts "正在向 #{url} 推送代码..."
-    cd "../#{repo}" do
+    if repo == "ourai.github.io"
+      branch = "master"
+    else
+      branch = "gh-pages"
+    end
+
+    puts "正在向 #{url} #{branch} 推送代码..."
+    cd "../#{dir}" do
       system "touch .nojekyll"
       system "git add -A"
-      system "git commit -m 'Updated at #{Time.now.utc}'"
-      system "git push origin gh-pages"
+      system "git commit -m 'Deployed at #{Time.now.utc}'"
+      system "git push origin #{branch}"
     end
     print_msg "向 #{url} 推送代码完毕"
   end
@@ -142,12 +155,13 @@ namespace :ourai do
   desc "将生成后的站点部署到 GitHub 上"
   task :deploy do
     repo = ENV["repo"] || "ourai.github.io"
+    dir = ENV["dir"] || repo
 
     puts "开始部署 #{repo}"
-    system "rake ourai:pull repo=#{repo}"
+    system "rake ourai:pull repo=#{repo} dir=#{dir}"
     system "rake ourai:filter"
-    system "rake ourai:build dir=#{repo}"
-    system "rake ourai:push repo=#{repo}"
+    system "rake ourai:build dir=#{dir}"
+    system "rake ourai:push repo=#{repo} dir=#{dir}"
     print_msg "#{repo} 已经部署完毕 ;-)"
   end
 
