@@ -7,7 +7,6 @@ css:
 ---
 
 <main class="layout-container">
-  <!-- 人物信息 -->
   <header class="Profile">
     {% assign author = site.data.author %}
     <a href="{{ author.profile }}" target="_blank" class="Profile-avatar" title="了解更多"><img src="images/avatars/mask_2d-100px.jpg" srcset="images/avatars/mask_2d-200px.jpg 2x"></a>
@@ -39,11 +38,9 @@ css:
     <div class="Navs">
       <ul>
         <li class="Nav-cell"><a href="/projects" data-flag="projects"><span class="Cell-count">{{ repos.size }}</span><span class="Cell-label">个开源项目</span></a></li>
-        <li class="Nav-cell"><a href="/skills" data-flag="skills"><span class="Cell-count">{{ skills.size }}</span><span class="Cell-label">项开发技能</span></a></li>
       </ul>
     </div>
     <div class="Grids">
-      <!-- 开源项目 -->
       <div class="Grid Projects" data-flag="projects">
         {% for repo in repos reversed %}
         {% if repo.homepage == null or repo.homepage == "" %}
@@ -58,20 +55,6 @@ css:
               <span class="Repo-language">{{ repo.language ? "" }}</span>
               <span class="Repo-stargazers">{{ repo.stargazers_count }} 个人关注</span>
               <p class="Card-description">{{ repo.description }}</p>
-            </a>
-          </div>
-        </div>
-        {% endfor %}
-      </div>
-      <!-- 开发技能 -->
-      <div class="Grid Skills" data-flag="skills">
-        {% for skill in skills %}
-        <div class="Grid-item">
-          <div class="Card">
-            <a href="javascript:void(0);" class="Card-link Skill">
-              <h3 class="Card-name">{{ skill.title }}</h3>
-              <div class="Skill-level Score"><span class="Score-level" style="width: {{ skill.level | times: 100 | divided_by: 5 }}%;">{{ skill.level }}</span></div>
-              <p class="Card-description">{{ skill.description }}</p>
             </a>
           </div>
         </div>
