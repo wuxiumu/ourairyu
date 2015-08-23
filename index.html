@@ -10,36 +10,40 @@ css:
   </div>
 </header>
 <main>
-  <div class="container">
-    <!-- Links -->
-    <nav class="Site-links row">
-      <div class="col-md-4">
-        <a href="/dev/"><i class="fa fa-desktop"></i><span class="sr-only">开发</span></a>
-        <p>作为一个码农，就该老老实实地敲代码</p>
+  <!-- Links -->
+  <nav class="Site-links">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <a href="/dev/"><i class="fa fa-desktop"></i><span class="sr-only">开发</span></a>
+          <p>作为一个码农，就该老老实实地敲代码</p>
+        </div>
+        <div class="col-md-4">
+          <a href="/articles/"><i class="fa fa-pencil"></i><span class="sr-only">博客</span></a>
+          <p>阐释思想，记录生活</p>
+        </div>
+        <div class="col-md-4">
+          <a href="/about/"><i class="fa fa-user"></i><span class="sr-only">关于</span></a>
+          <p>我是欧雷，有什么想问我的吗？</p>
+        </div>
       </div>
-      <div class="col-md-4">
-        <a href="/articles/"><i class="fa fa-pencil"></i><span class="sr-only">博客</span></a>
-        <p>阐释思想，记录生活</p>
-      </div>
-      <div class="col-md-4">
-        <a href="/about/"><i class="fa fa-user"></i><span class="sr-only">关于</span></a>
-        <p>我是欧雷，有什么想问我的吗？</p>
-      </div>
-    </nav>
-    <!-- Open source projects -->
-    {% assign projects = site.data.github.starred %}
-    {% if projects.size %}
-      <section>
-        <header>
-          <h2>开源项目</h2>
-        </header>
+    </div>
+  </nav>
+  <!-- Open source projects -->
+  {% assign projects = site.data.github.starred %}
+  {% if projects.size %}
+    <section class="container">
+      <header>
+        <h2><span>开源项目</span></h2>
+      </header>
+      <div class="row">
         {% for p in projects reversed %}
           {% if p.homepage == null or p.homepage == "" %}
             {% assign url = p.html_url %}
           {% else %}
             {% assign url = p.homepage %}
           {% endif %}
-          <div>
+          <div class="col-sm-6 col-md-4 col-lg-3">
             <a href="{{ url }}">
               <h3>{{ p.name }}</h3>
               <span>{{ p.language ? "" }}</span>
@@ -48,18 +52,20 @@ css:
             </a>
           </div>
         {% endfor %}
-        {% if site.data.github.all.size > projects.size %}
-          <div data-all-count="{{ site.data.github.all.size }}" data-starred-count="{{ projects.size }}"><a href="http://ourai.github.io/" target="_blank">查看全部项目</a></div>
-        {% endif %}
-      </section>>
-    {% endif %}
-    <!-- Posts -->
-    <!-- Skills -->
-    <section>
-      <header>
-        <h2>技能栈</h2>
-      </header>
-      <div>
+      </div>
+      {% if site.data.github.all.size > projects.size %}
+        <div><a href="http://ourai.github.io/" target="_blank">查看全部项目</a></div>
+      {% endif %}
+    </section>
+  {% endif %}
+  <!-- Posts -->
+  <!-- Skills -->
+  <section class="container">
+    <header>
+      <h2><span>技能栈</span></h2>
+    </header>
+    <div class="row">
+      <div class="col-sm-6 col-md-4">
         <h3>开发技术</h3>
         <ul>
           <li>HTML/CSS/JavaScript</li>
@@ -71,7 +77,7 @@ css:
           <li>PHP</li>
         </ul>
       </div>
-      <div>
+      <div class="col-sm-6 col-md-4">
         <h3>框架工具</h3>
         <ul>
           <li>Git</li>
@@ -81,14 +87,14 @@ css:
           <li>Jekyll</li>
         </ul>
       </div>
-      <div>
+      <div class="col-sm-6 col-md-4">
         <h3>多国语言</h3>
         <ul>
           <li>英语</li>
           <li>日语</li>
         </ul>
       </div>
-    </section>
-  </div>
+    </div>
+  </section>
 </main>
 <footer></footer>
