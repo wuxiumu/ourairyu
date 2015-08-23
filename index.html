@@ -28,9 +28,11 @@ css:
     </nav>
     <!-- Open source projects -->
     {% assign projects = site.data.github.starred %}
-
     {% if projects.size %}
-      <div>
+      <section>
+        <header>
+          <h2>开源项目</h2>
+        </header>
         {% for p in projects reversed %}
           {% if p.homepage == null or p.homepage == "" %}
             {% assign url = p.html_url %}
@@ -49,10 +51,44 @@ css:
         {% if site.data.github.all.size > projects.size %}
           <div data-all-count="{{ site.data.github.all.size }}" data-starred-count="{{ projects.size }}"><a href="http://ourai.github.io/" target="_blank">查看全部项目</a></div>
         {% endif %}
-      </div>
+      </section>>
     {% endif %}
     <!-- Posts -->
     <!-- Skills -->
+    <section>
+      <header>
+        <h2>技能栈</h2>
+      </header>
+      <div>
+        <h3>开发技术</h3>
+        <ul>
+          <li>HTML/CSS/JavaScript</li>
+          <li>jQuery</li>
+          <li>Backbone + Marionette</li>
+          <li>Bootstrap</li>
+          <li>CoffeeScript</li>
+          <li>Sass + Compass</li>
+          <li>PHP</li>
+        </ul>
+      </div>
+      <div>
+        <h3>框架工具</h3>
+        <ul>
+          <li>Git</li>
+          <li>Grunt</li>
+          <li>Ruby on Rails</li>
+          <li>WordPress</li>
+          <li>Jekyll</li>
+        </ul>
+      </div>
+      <div>
+        <h3>多国语言</h3>
+        <ul>
+          <li>英语</li>
+          <li>日语</li>
+        </ul>
+      </div>
+    </section>
   </div>
 </main>
 <footer></footer>
