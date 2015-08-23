@@ -34,7 +34,7 @@ css:
   {% if projects.size %}
     <section class="container">
       <header>
-        <h2><span>开源项目</span></h2>
+        <h2>开源项目</h2>
       </header>
       <div class="row">
         {% for p in projects reversed %}
@@ -54,7 +54,7 @@ css:
         {% endfor %}
       </div>
       {% if site.data.github.all.size > projects.size %}
-        <div><a href="http://ourai.github.io/" target="_blank">查看全部项目</a></div>
+        <div><a href="http://ourai.github.io/" target="_blank">查看全部项目 at <i class="fa fa-github"></i></a></div>
       {% endif %}
     </section>
   {% endif %}
@@ -62,7 +62,7 @@ css:
   <!-- Skills -->
   <section class="container">
     <header>
-      <h2><span>技能栈</span></h2>
+      <h2>技能栈</h2>
     </header>
     <div class="row">
       <div class="col-sm-6 col-md-4">
