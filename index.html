@@ -15,7 +15,7 @@ css:
     <nav class="Site-links row">
       <div class="col-md-4">
         <a href="/dev/"><i class="fa fa-desktop"></i><span class="sr-only">开发</span></a>
-        <p>作为一个码农</p>
+        <p>作为一个码农，就该老老实实地敲代码</p>
       </div>
       <div class="col-md-4">
         <a href="/articles/"><i class="fa fa-pencil"></i><span class="sr-only">博客</span></a>
@@ -23,10 +23,34 @@ css:
       </div>
       <div class="col-md-4">
         <a href="/about/"><i class="fa fa-user"></i><span class="sr-only">关于</span></a>
-        <p>简要了解我的一些信息</p>
+        <p>我是欧雷，有什么想问我的吗？</p>
       </div>
     </nav>
-    <!-- Projects -->
+    <!-- Open source projects -->
+    {% assign projects = site.data.github.starred %}
+
+    {% if projects.size %}
+      <div>
+        {% for p in projects reversed %}
+          {% if p.homepage == null or p.homepage == "" %}
+            {% assign url = p.html_url %}
+          {% else %}
+            {% assign url = p.homepage %}
+          {% endif %}
+          <div>
+            <a href="{{ url }}">
+              <h3>{{ p.name }}</h3>
+              <span>{{ p.language ? "" }}</span>
+              <span>{{ p.stargazers_count }} 个人关注</span>
+              <p>{{ p.description }}</p>
+            </a>
+          </div>
+        {% endfor %}
+        {% if site.data.github.all.size > projects.size %}
+          <div data-all-count="{{ site.data.github.all.size }}" data-starred-count="{{ projects.size }}"><a href="http://ourai.github.io/" target="_blank">查看全部项目</a></div>
+        {% endif %}
+      </div>
+    {% endif %}
     <!-- Posts -->
     <!-- Skills -->
   </div>
