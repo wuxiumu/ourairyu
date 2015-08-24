@@ -14,44 +14,6 @@
 
 
 
-.Site-links {
-  padding: {
-    top: 30px;
-    bottom: 30px;
-  }
-  font-size: 16px;
-  text-align: center;
-  background-color: #F3F3F3;
-  @include box-shadow(0 1px 5px rgba(0, 0, 0, 0.3) inset, 0 1px 0 #FFF);
-
-  a {
-    @include inline-block;
-    @include square(100px);
-    @include border-radius(50%);
-    font-size: 24px;
-    color: #454545;
-
-    &:hover {
-      text-decoration: none;
-      background-color: #454545;
-      color: #FFF;
-      @include transition(color, background-color 1s);
-    }
-  }
-
-  p {
-    margin-top: 10px;
-  }
-
-  .fa {
-    display: block;
-    font-size: 60px;
-    line-height: 100px;
-  }
-}
-
-
-
 section {
   padding: {
     top: 40px;
@@ -59,7 +21,7 @@ section {
   }
   border-top: 1px dashed #CCC;
 
-  &:first-of-type {
+  &:first-child {
     border-top-style: none;
   }
 
@@ -71,6 +33,68 @@ section {
     display: block;
     margin-top: 30px;
     text-align: center;
+  }
+
+  &.Section--siteLinks {
+    @media (max-width: $screen-xs-max) {
+      a {
+        font-size: 1.17em;
+      }
+
+      p {
+        margin: {
+          top: 10px;
+          bottom: 0;
+        }
+        line-height: 1.5;
+      }
+
+      .row > div {
+        margin-top: 30px;
+      }
+    }
+
+    @media (min-width: $screen-sm-min) {
+      padding: {
+        top: 30px;
+        bottom: 30px;
+      }
+      font-size: 16px;
+      text-align: center;
+      background-color: #F3F3F3;
+      @include box-shadow(0 1px 5px rgba(0, 0, 0, 0.3) inset, 0 1px 0 #FFF);
+
+      a {
+        @include inline-block;
+        @include square(100px);
+        @include border-radius(50%);
+        font-size: 24px;
+        color: #454545;
+
+        &:hover {
+          text-decoration: none;
+          background-color: #454545;
+          color: #FFF;
+          @include transition(color, background-color 1s);
+        }
+      }
+
+      p {
+        margin-top: 10px;
+      }
+
+      .fa {
+        display: block;
+        font-size: 60px;
+        line-height: 100px;
+      }
+    }
+  }
+
+  @media (min-width: $screen-sm-min) {
+    &.Section--projects {
+      border-top-style: none;
+    }
   }
 }
 
@@ -126,4 +150,18 @@ section {
 
 .Project-description {
   line-height: 1.5;
+}
+
+.SkillStack {
+  margin-top: 30px;
+
+  h3 {
+    margin: 0 0 10px;
+    font-size: 1.17em;
+  }
+
+  ul {
+    padding-left: 24px;
+    margin-bottom: 0;
+  }
 }
