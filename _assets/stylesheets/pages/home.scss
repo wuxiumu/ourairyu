@@ -27,6 +27,7 @@
   a {
     @include inline-block;
     @include square(100px);
+    @include border-radius(50%);
     font-size: 24px;
     color: #454545;
 
@@ -34,7 +35,7 @@
       text-decoration: none;
       background-color: #454545;
       color: #FFF;
-      @include border-radius(50%);
+      @include transition(color, background-color 1s);
     }
   }
 
@@ -52,11 +53,77 @@
 
 
 section {
-  margin-top: 50px;
-
-  header {
-    h2 {
-      margin: 0;
-    }
+  padding: {
+    top: 40px;
+    bottom: 50px;
   }
+  border-top: 1px dashed #CCC;
+
+  &:first-of-type {
+    border-top-style: none;
+  }
+
+  h2 {
+    margin: 0;
+  }
+
+  .Link--more {
+    display: block;
+    margin-top: 30px;
+    text-align: center;
+  }
+}
+
+
+
+.Card {
+  position: relative;
+  min-height: 150px;
+  margin-top: 30px;
+  background-color: #FFF;
+  border: 1px solid #EEE;
+  @include border-radius(6px);
+
+  &:hover {
+    border-color: transparent;
+    @include box-shadow(0 1px 5px 0 rgba(0, 0, 0, 0.5));
+  }
+}
+
+.Project {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 15px;
+  text-decoration: none !important;
+}
+
+.Project-name {
+  float: left;
+  margin: 0;
+  font-size: 1.17em;
+}
+
+.Project-language,
+.Project-stargazers {
+  display: block;
+  font-weight: bold;
+}
+
+.Project-language {
+  text-align: right;
+  font-size: 10px;
+  line-height: 14px * 1.5;
+}
+
+.Project-stargazers {
+  clear: both;
+  margin-top: 5px;
+  font-size: 12px;
+}
+
+.Project-description {
+  line-height: 1.5;
 }

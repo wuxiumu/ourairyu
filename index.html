@@ -44,17 +44,19 @@ css:
             {% assign url = p.homepage %}
           {% endif %}
           <div class="col-sm-6 col-md-4 col-lg-3">
-            <a href="{{ url }}">
-              <h3>{{ p.name }}</h3>
-              <span>{{ p.language ? "" }}</span>
-              <span>{{ p.stargazers_count }} 个人关注</span>
-              <p>{{ p.description }}</p>
-            </a>
+            <div class="Card">
+              <a href="{{ url }}" class="Project">
+                <h3 class="Project-name">{{ p.name }}</h3>
+                <span class="Project-language">{{ p.language ? "" }}</span>
+                <span class="Project-stargazers">{{ p.stargazers_count }} 个人关注</span>
+                <p class="Project-description">{{ p.description }}</p>
+              </a>
+            </div>
           </div>
         {% endfor %}
       </div>
       {% if site.data.github.all.size > projects.size %}
-        <div><a href="http://ourai.github.io/" target="_blank">查看全部项目 at <i class="fa fa-github"></i></a></div>
+        <a href="http://ourai.github.io/" target="_blank" class="Link--more">查看全部项目 at <i class="fa fa-github"></i></a>
       {% endif %}
     </section>
   {% endif %}
