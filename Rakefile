@@ -60,7 +60,7 @@ task :projects do
     end
 
     open(filename, "w") do |f|
-      f.puts Hash["all" => filtered_repos, "starred" => starred_repos].to_json
+      f.puts Hash["all" => filtered_repos.reverse, "starred" => starred_repos.reverse].to_json
     end
   end
 end

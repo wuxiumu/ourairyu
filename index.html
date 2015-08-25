@@ -33,20 +33,21 @@ css:
     </nav>
   </section>
   <!-- Open source projects -->
-  {% assign projects = site.data.github.starred %}
+  {% assign projects = site.data.github.all %}
+  {% assign limitNum = 6 %}
   {% if projects.size %}
     <section class="Section--projects container">
       <header>
         <h2>开源项目</h2>
       </header>
       <div class="row">
-        {% for p in projects reversed %}
-          {% if p.homepage == null or p.homepage == "" %}
+        {% for p in projects limit: limitNum %}
+          {% if p.homepage == null or p.homepage.blank %}
             {% assign url = p.html_url %}
           {% else %}
             {% assign url = p.homepage %}
           {% endif %}
-          <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="col-sm-6 col-md-4">
             <div class="Card">
               <a href="{{ url }}" class="Project">
                 <h3 class="Project-name">{{ p.name }}</h3>
@@ -58,7 +59,7 @@ css:
           </div>
         {% endfor %}
       </div>
-      {% if site.data.github.all.size > projects.size %}
+      {% if projects.size > limitNum %}
         <a href="http://ourai.github.io/" target="_blank" class="Link--more">查看全部项目 at <i class="fa fa-github"></i></a>
       {% endif %}
     </section>
