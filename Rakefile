@@ -61,7 +61,7 @@ namespace :ourai do
       35932564,   # learning
       19068698,   # ourai.github.io
       39746025,   # profile
-      35203272,   # ourairyu
+      35203272,   # ourai.ws
       28067674,   # ourairyu-themes
       23340879,   # waken
       23698214,   # domshim
