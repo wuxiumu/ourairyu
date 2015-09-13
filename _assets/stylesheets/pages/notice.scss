@@ -1,0 +1,24 @@
+@import "../helper";
+
+section {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 30px 30px 50px;
+
+  header {
+    margin-bottom: 30px;
+    text-align: center;
+  }
+
+  p:last-of-type {
+    margin-top: 2em;
+  }
+}
+
+#QRcode {
+  text-align: center;
+
+  img {
+    max-width: 43px * 6;
+  }
+}
