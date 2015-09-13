@@ -1,4 +1,7 @@
+/node_modules
+/vendors/
 /.sass-cache/
+/_data/projects/github.*
 /_site/
 /Gemfile.lock
 

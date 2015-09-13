@@ -72,7 +72,8 @@ task :deploy do
     system "git pull origin gh-pages"
   end
 
-  system "bundle exec jekyll build -d ../temp/site_github --config _config.yml,_build/config.yml"
+  system "rake projects"
+  system "bundle exec jekyll build -d ../temp/site_github --config _config.yml"
 
   cd "../temp/site_github" do
     system "touch .nojekyll"
