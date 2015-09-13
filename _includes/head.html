@@ -25,3 +25,5 @@
 {% unless description == null or description == blank %}
   <meta name="description" content="{{ description | strip_html }}">
 {% endunless %}
+<!-- 站点 icon -->
+<link rel="icon" href="{{ "favicon.ico" | asset_path }}">

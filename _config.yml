@@ -1,5 +1,10 @@
 title: 欧雷流
 
+collections:
+  rebuild:
+    output: true
+    permalink: /:collection/:path/
+
 # Handling Reading
 exclude: 
   - .sass-cache
