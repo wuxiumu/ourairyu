@@ -5,10 +5,15 @@ require "json"
 
 desc "获取并过滤掉不需要包含的 repo 信息"
 task :projects do
+  dir = "./_data"
   filename = "github.json"
 
+  unless FileTest.directory?(dir)
+    system "mkdir #{dir}"
+  end
+
   # 开始获取并写入 repo 信息
-  cd "./_data" do
+  cd dir do
     open(filename, "w") do |f|
       f.puts HTTParty.get("https://api.github.com/users/ourai/repos").to_json
     end
@@ -27,7 +32,7 @@ task :projects do
     39214016    # CustomComponent
   ]
 
-  cd "./_data" do
+  cd dir do
     repos = JSON.parse(File.read(filename))
     filtered_repos = Array.new
     starred_repos = Array.new
