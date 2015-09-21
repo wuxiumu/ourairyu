@@ -72,18 +72,37 @@ end
 
 desc "部署"
 task :deploy do
-  cd "../temp/site_github" do
-    # system "git reset --hard HEAD"
-    system "git pull origin gh-pages"
+  dir = "../.tmp/ourairyu"
+
+  unless FileTest.directory?("../.tmp")
+    system "mkdir ../.tmp"
+  end
+
+  unless FileTest.directory?(dir)
+    system "mkdir #{dir}"
+
+    cd dir do
+      system "git init"
+      system "git remote add origin https://github.com/ourai/ourai.ws.git"
+      system "git fetch"
+      system "git checkout gh-pages"
+    end
+  else
+    cd dir do
+      # system "git reset --hard HEAD"
+      system "git pull origin gh-pages"
+    end
   end
 
   system "rake projects"
-  system "bundle exec jekyll build -d ../temp/site_github --config _config.yml"
+  system "bundle exec jekyll build -d #{dir} --config _config.yml"
 
-  cd "../temp/site_github" do
+  cd dir do
+    current_time = Time.now.strftime("%Y年%m月%d日%H时%M分%S秒")
+
     system "touch .nojekyll"
     system "git add -A"
-    system "git commit -m '部署于 #{Time.now.utc}'"
+    system "git commit -m '部署于#{current_time}'"
     system "git push origin gh-pages"
   end
 end
