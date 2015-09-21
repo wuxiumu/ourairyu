@@ -1,7 +1,52 @@
-@import "compass";
+/**
+ *= require ./normalize
+ */
 
-@import "bootstrap-sprockets";
-@import "bootstrap-custom";
+@import "./helper";
 
-@import "font-awesome-sprockets";
-@import "font-awesome";
+
+
+//= Reset
+
+body {
+  font: {
+    size: $font-size-base;
+    weight: 300;
+  }
+  line-height: 1.5;
+}
+
+p {
+  margin-top: 0;
+}
+
+
+
+//= Grid system
+
+.Grid,
+.Grid * {
+  @include box-sizing(border-box);
+}
+
+.Grid {
+  width: 1170px;
+  margin: {
+    right: auto;
+    left: auto;
+  }
+
+  @include clearfix;
+
+  @media (max-width: $break-md-max) {
+    width: 970px;
+  }
+
+  @media (max-width: $break-sm-max) {
+    width: 750px;
+  }
+
+  @media (max-width: $break-xs-max) {
+    width: auto;
+  }
+}
