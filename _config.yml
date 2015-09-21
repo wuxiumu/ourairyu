@@ -59,8 +59,3 @@ defaults:
 slim:
   pretty: true
   format: html5
-
-# Jekyll Assets
-assets:
-  js_compressor: uglifier
-  css_compressor: sass

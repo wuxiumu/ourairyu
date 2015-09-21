@@ -95,7 +95,7 @@ task :deploy do
   end
 
   system "rake projects"
-  system "bundle exec jekyll build -d #{dir} --config _config.yml"
+  system "bundle exec jekyll build -d #{dir} --config _config.yml,_build/config.yml"
 
   cd dir do
     current_time = Time.now.strftime("%Y年%m月%d日%H时%M分%S秒")
