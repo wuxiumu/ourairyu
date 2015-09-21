@@ -3,7 +3,7 @@
   <head>
     {% include head.html %}
     <!-- 样式表文件 -->
-    {% stylesheet global %}
+    {% stylesheet re/v2/global %}
     <!-- Stylesheets for template -->
     {% if page.layout_css %}
       {% for css in page.layout_css %}{{ css | stylesheet }}{% endfor %}
