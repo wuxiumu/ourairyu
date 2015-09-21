@@ -49,6 +49,11 @@ defaults:
       type: re
     values:
       layout: re/v1
+  - scope:
+      path: re/v2
+      type: re
+    values:
+      layout: re/v2
 
 # Jekyl Slim
 slim:
