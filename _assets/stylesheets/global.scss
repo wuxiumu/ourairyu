@@ -38,6 +38,10 @@ p {
     right: auto;
     left: auto;
   }
+  padding: {
+    right: 15px;
+    left: 15px;
+  }
 
   @include clearfix;
 
