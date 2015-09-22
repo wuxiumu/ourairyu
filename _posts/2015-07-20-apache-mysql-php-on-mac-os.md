@@ -2,7 +2,7 @@
 title: 在 Mac OS X 中搭建 Apache + PHP + MySQL 开发环境
 date: 2015-07-20 23:54:00 +0800
 categories:
-  - 网络开发
+  - web-development
 tags:
   - Apache
   - Mac OS

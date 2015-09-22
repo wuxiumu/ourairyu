@@ -1,10 +1,9 @@
-{% if page.layout_type == null or page.layout_type == blank %}
-  {% assign layout_t = "none" %}
-{% else %}
-  {% assign layout_t = page.layout_type %}
-{% endif %}
 <!DOCTYPE html>
-<html lang="zh-CN" dir="ltr" data-layout="{{ layout_t }}">
+{% if page.layout_type == null or page.layout_type == blank %}
+  <html lang="zh-CN" dir="ltr">
+{% else %}
+  <html lang="zh-CN" dir="ltr" data-layout="{{ page.layout_type }}">
+{% endif %}
   <head>
     {% include head.html %}
     <!-- 样式表文件 -->
