@@ -31,6 +31,14 @@ section {
     @include text-shadow(1px 1px 8px #000);
     overflow: hidden;
     color: #FFF;
+
+    &:after {
+      content: "\0020";
+      display: block;
+      @include square(129px);
+      background: #FFF image-url("qrcodes/ourairyu-258.jpg") no-repeat 50% 50%;
+      background-size: contain;
+    }
   }
 
   h1,
@@ -73,6 +81,10 @@ section {
 
     .Grid {
       padding: 76px 0 0 460px;
+
+      &:after {
+        @include square(86px);
+      }
     }
 
     h1 {
@@ -83,16 +95,7 @@ section {
       margin: 12px 0 24px;
       font-size: 1.2em;
     }
-
-    #qrcode {
-      width: 86px;
-    }
   }
-}
-
-#qrcode {
-  width: 129px;
-  vertical-align: top;
 }
 
 #brief {
@@ -122,25 +125,24 @@ section {
 }
 
 #company {
-  @include inline-block;
-  width: $font-size-base * 3 + 4px;
-  height: $font-size-base;
-  font: 0px/0 a;
+  color: transparent;
   text-decoration: none;
   background: #FED403 image-url("maihaoche-text.png") no-repeat 50% 50%;
   background-size: contain;
 }
 
 #posts {
-  // margin: 0 0 10px;
-
-  h3 {
-    margin: 0;
-    font-size: inherit;
+  time,
+  a,
+  .fa {
+    @include inline-block;
   }
 
-  time {
-    margin-left: 1em;
-    font-style: italic;
+  .fa {
+    margin: {
+      right: .5em;
+      left: .5em;
+    }
+    font-size: 14px;
   }
 }
