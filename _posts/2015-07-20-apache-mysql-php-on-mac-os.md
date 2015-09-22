@@ -1,5 +1,6 @@
 ---
 title: 在 Mac OS X 中搭建 Apache + PHP + MySQL 开发环境
+date: 2015-07-20 23:54:00 +0800
 categories:
   - 网络开发
 tags:
@@ -8,7 +9,6 @@ tags:
   - MySQL
   - PHP
   - 开发环境
-comments: true
 ---
 我所使用的操作系统是 Mac OS X Yosemite，自带 Apache 和 PHP，所以不用安装，只需稍微修改一下配置文件即可。
 
