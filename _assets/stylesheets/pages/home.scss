@@ -1,5 +1,15 @@
 @import "../helper";
 
+@mixin fake_image( $url, $size, $pos ) {
+  &:#{$pos} {
+    content: $UN-space;
+    display: block;
+    @include square($size);
+    background: #FFF image-url($url) no-repeat 50% 50%;
+    background-size: contain;
+  }
+}
+
 body {
   padding-bottom: 100px;
 }
@@ -15,6 +25,10 @@ section {
       font-size: 30px;
     }
   }
+
+  > p:last-of-type {
+    margin-bottom: 0;
+  }
 }
 
 #banner {
@@ -27,18 +41,12 @@ section {
   .Grid {
     height: 100%;
     padding: 100px 0 0 700px;
-    @include covered_background("banners/ourai-mono.jpg");
-    @include text-shadow(1px 1px 8px #000);
     overflow: hidden;
     color: #FFF;
 
-    &:after {
-      content: "\0020";
-      display: block;
-      @include square(129px);
-      background: #FFF image-url("qrcodes/ourairyu-258.jpg") no-repeat 50% 50%;
-      background-size: contain;
-    }
+    @include covered_background("banners/ourai-mono.jpg");
+    @include fake_image("qrcodes/ourairyu-258.jpg", 129px, after);
+    @include text-shadow(1px 1px 8px #000);
   }
 
   h1,
@@ -101,8 +109,8 @@ section {
 #brief {
   margin-top: 20px;
 
-  p {
-    margin: 10px 0 0;
+  > p {
+    margin: 1em 0 0;
 
     &:first-of-type {
       margin-top: 0;
@@ -132,6 +140,8 @@ section {
 }
 
 #posts {
+  margin: 0;
+
   time,
   a,
   .fa {

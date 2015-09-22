@@ -57,3 +57,26 @@ p {
     width: auto;
   }
 }
+
+.Grid-row {
+  margin: {
+    right: -15px;
+    left: -15px;
+  }
+  @include clearfix;
+}
+
+.Grid-col-xs-4 {
+  padding: {
+    right: 15px;
+    left: 15px;
+  }
+}
+
+.Grid-col-xs-4 {
+  float: left;
+}
+
+.Grid-col-xs-4 {
+  width: percentage(4 / 12);
+}
