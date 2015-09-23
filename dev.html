@@ -2,6 +2,18 @@
 title: 开发中心
 permalink: /developer/
 ---
+<h2>特色项目</h2>
+<p>这里所展示的是 <i class="fa fa-star"><span class="SEO-only">star</span></i> 数量「1」以上的开源项目，要看全部请移步<a href="https://github.com/ourai" target="_blank">我的 <i class="fa fa-github"><span class="SEO-only">GitHub</span></i> 主页</a>。</p>
+<ul>
+  {% for project in site.data.github.starred %}
+    {% if project.stargazers_count > 1 %}
+      <li>
+        <h3><a href="{{ project.html_url }}" target="_blank">{{ project.name }}</a></h3>
+        <p>{{ project.description }}</p>
+      </li>
+    {% endif %}
+  {% endfor %}
+</ul>
 <h2>文章</h2>
 <ul>
   {% for post in site.categories.web-development %}
