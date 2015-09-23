@@ -63,9 +63,12 @@ namespace :ourai do
       39746025,   # profile
       35203272,   # ourai.ws
       28067674,   # ourairyu-themes
+      19260834,   # ourairyu.github.io
       23340879,   # waken
+      16250547,   # novel
       23698214,   # domshim
       38699113,   # double-list
+      18203491,   # ninja
       39214016    # CustomComponent
     ]
 
@@ -103,26 +106,31 @@ namespace :ourai do
 
   desc "从 GitHub 获取代码"
   task :pull do
-    dir = ENV["dir"]
+    dir = "../#{ENV["dir"]}"
     repo = ENV["repo"]
     url = "https://github.com/ourai/#{repo}"
 
-    unless FileTest.directory?("../#{dir}")
+    if repo == "ourai.github.io"
+      branch = "master"
+    else
+      branch = "gh-pages"
+    end
+
+    unless FileTest.directory?(dir)
+      system "mkdir #{dir}"
+
       puts "开始从 #{url} 拷贝代码"
-      cd ".." do
-        system "git clone #{url}.git"
+      cd dir do
+        system "git init"
+        system "git remote add origin #{url}.git"
+        system "git fetch"
+        system "git checkout #{branch}"
       end
       print_msg "从 #{url} 拷贝代码完毕"
     else
-      if repo == "ourai.github.io"
-        branch = "master"
-      else
-        branch = "gh-pages"
-      end
-
       puts "开始同步 #{repo} 的数据"
       puts "目标分支 #{branch}"
-      cd "../#{dir}" do
+      cd dir do
         # system "git reset --hard HEAD"
         system "git pull origin #{branch}"
       end
@@ -154,8 +162,12 @@ namespace :ourai do
 
   desc "将生成后的站点部署到 GitHub 上"
   task :deploy do
-    repo = ENV["repo"] || "ourai.github.io"
-    dir = ENV["dir"] || repo
+    repo = "ourai.github.io"
+    dir = ".tmp/projects"
+
+    unless FileTest.directory?("../.tmp")
+      system "mkdir ../.tmp"
+    end
 
     puts "开始部署 #{repo}"
     system "rake ourai:pull repo=#{repo} dir=#{dir}"
@@ -163,15 +175,5 @@ namespace :ourai do
     system "rake ourai:build dir=#{dir}"
     system "rake ourai:push repo=#{repo} dir=#{dir}"
     print_msg "#{repo} 已经部署完毕 ;-)"
-  end
-
-  desc "生成站点到欧雷流"
-  task :ourairyu do
-    dir = ENV["dir"] || "site/dev/"
-
-    system "grunt ourairyu"
-    system "rake ourai:filter"
-    system "bundle exec jekyll build -d ../#{dir} --config _config.yml,_build/config/ourairyu.yml"
-    system "grunt compass:compile"
   end
 end
