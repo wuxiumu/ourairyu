@@ -31,6 +31,7 @@ task :projects do
     16250547,   # novel
     23698214,   # domshim
     38699113,   # double-list
+    18203491,   # ninja
     39214016    # CustomComponent
   ]
 
