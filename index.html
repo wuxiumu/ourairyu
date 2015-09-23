@@ -1,32 +1,34 @@
 ---
+layout: default
 css:
   - pages/home
 ---
-
-<header id="banner">
-  <div class="Grid">
-    <h1>{{ site.title }}</h1>
-    <p>不走寻常路</p>
-  </div>
-</header>
-<section id="brief" class="Grid">
-  <p><strong class="Font--large">欧雷</strong>，起初是给自己的小说中的主人公起的名字，但从某一天起，它成了我畅游网络世界的网名，现实世界的花名。只要看到「欧雷」以及一成不变的自画像，便毫无疑问是我了！我是一名具备御宅属性喜欢研究人类的<a href="{{ '/developer' | prepend: site.url }}" title="查看与开发相关的信息">前端工程师</a>，目前供职于<a id="company" href="http://maihaoche.com" target="_blank" title="访问买好车网站">买好车</a>。平常业余时间主要用于看动漫以及写些<a href="http://ourai.github.io/" target="_blank" title="查看所有开源项目">开源项目</a>，有时会进深山老林修炼或漫步于市井之间；节假日则时不时到异乡体会当地风情。</p>
-</section>
-<section class="Grid">
-  <header>
-    <h2>何为「欧雷流」？</h2>
+<main>
+  <header id="banner">
+    <div class="Grid">
+      <h1>{{ site.title }}</h1>
+      <p>不走寻常路</p>
+    </div>
   </header>
-  <p>「欧雷」就是我，替换代入为「<ruby lang="ja" class="lang_jp"><rb>我流</rb><rp>（</rp><rt>がりゅう</rt><rp>）</rp></ruby>」，意为：自成一派；独树一帜；别具一格。因此，广义上的「欧雷流」是具备我的个人色彩的事物的集合：思想、言行、穿着、做事方式等；狭义上则专指<a href="{{ '/ourairyu' | prepend: site.url }}" title="深入了解「欧雷流」思想">我的思想体系</a>。</p>
-</section>
-{% if site.posts.size > 0 %}
+  <section id="brief" class="Grid">
+    <p><strong class="Font--large">欧雷</strong>，起初是给自己的小说中的主人公起的名字，但从某一天起，它成了我畅游网络世界的网名，现实世界的花名。只要看到「欧雷」以及一成不变的自画像，便毫无疑问是我了！我是一名具备御宅属性喜欢研究人类的<a href="{{ '/developer' | prepend: site.url }}" title="查看与开发相关的信息">前端工程师</a>，目前供职于<a id="company" href="http://maihaoche.com" target="_blank" title="访问买好车网站">买好车</a>。平常业余时间主要用于看动漫以及写些<a href="http://ourai.github.io/" target="_blank" title="查看所有开源项目">开源项目</a>，有时会进深山老林修炼或漫步于市井之间；节假日则时不时到异乡体会当地风情。</p>
+  </section>
   <section class="Grid">
     <header>
-      <h2>最新文章</h2>
+      <h2>何为「欧雷流」？</h2>
     </header>
-    <ul id="posts">
-      {% for post in site.posts limit: 10 %}
-        <li><time datetime="{{ post.date | date: '%c' }}">{{ post.date | date: "%F" }}</time><i class="fa fa-pencil"></i><a href="{{ post.url }}">{{ post.title }}</a></li>
-      {% endfor %}
-    </ul>
+    <p>「欧雷」就是我，替换代入为「<ruby lang="ja" class="lang_jp"><rb>我流</rb><rp>（</rp><rt>がりゅう</rt><rp>）</rp></ruby>」，意为：自成一派；独树一帜；别具一格。因此，广义上的「欧雷流」是具备我的个人色彩的事物的集合：思想、言行、穿着、做事方式等；狭义上则专指<a href="{{ '/ourairyu' | prepend: site.url }}" title="深入了解「欧雷流」思想">我的思想体系</a>。</p>
   </section>
-{% endif %}
+  {% if site.posts.size > 0 %}
+    <section class="Grid">
+      <header>
+        <h2>最新文章</h2>
+      </header>
+      <ul id="posts">
+        {% for post in site.posts limit: 10 %}
+          <li><time datetime="{{ post.date | date: '%c' }}">{{ post.date | date: "%F" }}</time><i class="fa fa-pencil"></i><a href="{{ post.url }}">{{ post.title }}</a></li>
+        {% endfor %}
+      </ul>
+    </section>
+  {% endif %}
+</main>

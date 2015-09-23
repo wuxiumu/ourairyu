@@ -45,6 +45,16 @@ defaults:
     values:
       layout: default
   - scope:
+      path: ""
+      type: pages
+    values:
+      layout: page
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+  - scope:
       path: re/v1
       type: re
     values:
