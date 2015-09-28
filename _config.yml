@@ -55,6 +55,8 @@ defaults:
       type: posts
     values:
       layout: post
+      author: ourai
+      comments: true
   - scope:
       path: re/v1
       type: re

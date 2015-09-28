@@ -4,9 +4,27 @@ layout: page
 <article class="container">
   <header>
     <h1>{{ page.title }}</h1>
-    <p><time datetime="{{ page.date }}">{{ page.date | date: "%c" }}</time></p>
+    <p><time datetime="{{ page.date }}">{{ page.date | date: "%c" }}</time>发布</p>
   </header>
-  <div class="row">
-    <div class="col-md-8">{{ content }}</div>
-  </div>
+  <div class="Article-content col-md-8">{{ content }}</div>
+  <footer class="col-md-4">
+    {% assign author = site.data.authors[page.author] %}
+    {% if author.blog == "/" %}
+      {% capture author_link %}<a href="{{ author.blog }}" class="Author-link">{{ author.name.zh }}</a>{% endcapture %}
+      {% capture author_link_with_avatar %}<a href="{{ author.blog }}" class="Author-link--withAvatar"><img src="{{ author.avatar.normal | prepend: 'avatars/' | asset_path }}"></a>{% endcapture %}
+    {% else %}
+      {% capture author_link %}<a href="{{ author.blog }}" target="_blank" class="Author-link">{{ author.name.zh }}</a>{% endcapture %}
+      {% capture author_link_with_avatar %}<a href="{{ author.blog }}" target="_blank" class="Author-link--withAvatar"><img src="{{ author.avatar.normal | prepend: 'avatars/' | asset_path }}"></a>{% endcapture %}
+    {% endif %}
+    <div class="Article-meta">
+      <p>{{ author_link_with_avatar }}{{ author_link }}发表于<br>{{ page.categories | join: " & " }}</p>
+      <div id="supportAuthor">
+        <p>如果您觉得文章内容有所帮助，请随意打赏。您的支持将鼓励作者继续创作！</p>
+        <ul>
+          <li><img src="{{ page.author | append: '.jpg' | prepend: 'qrcodes/pay/alipay/' | asset_path }}"></li>
+          <li><img src="{{ page.author | append: '.jpg' | prepend: 'qrcodes/pay/wechat/' | asset_path }}"></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
 </article>
