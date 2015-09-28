@@ -1,0 +1,25 @@
+@import "../helper";
+
+
+
+.Page-navs {
+  text-align: center;
+  background-color: #F5F5F5;
+
+  ul {
+    @include unstyled_list;
+    @include clearfix;
+    @include inline-block(top);
+    margin-bottom: 0;
+  }
+
+  li {
+    float: left;
+    margin-left: 1em;
+    font-size: 14px;
+
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+}

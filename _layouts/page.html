@@ -1,14 +1,20 @@
 ---
 layout: default
+layout_css:
+  - pages/common
 ---
 {% assign links = site.data.links %}
-<header>
-  <nav>
-    <ul>
-      <li><a href="{{ '/' | prepend: site.url }}">首页</a></li>
-      <li><a href="{{ links.ourairyu.url | prepend: site.url }}">{{ links.ourairyu.text }}</a></li>
-      <li><a href="{{ links.dev.url | prepend: site.url }}">{{ links.dev.text }}</a></li>
-    </ul>
-  </nav>
+<nav class="Page-navs">
+  <ul>
+    <li><a href="{{ '/' | prepend: site.url }}">首页</a></li>
+    <li><a href="{{ links.ourairyu.url | prepend: site.url }}">{{ links.ourairyu.text }}</a></li>
+    <li><a href="{{ links.dev.url | prepend: site.url }}">{{ links.dev.text }}</a></li>
+  </ul>
+</nav>
+<header class="Page-header container">
+  <div>
+    <h1>{{ site.title }}</h1>
+    <p>{{ site.description }}</p>
+  </div>
 </header>
 <main>{{ content }}</main>
