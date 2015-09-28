@@ -38,7 +38,7 @@ section {
     image: linear-gradient(to right, #353535, #808080);
   }
 
-  .Grid {
+  .container {
     height: 100%;
     padding: 100px 0 0 700px;
     overflow: hidden;
@@ -67,10 +67,10 @@ section {
     }
   }
 
-  @media (max-width: $break-md-max) {
+  @media (max-width: $screen-md-max) {
     height: 340px;
 
-    .Grid {
+    .container {
       padding: 66px 0 0 580px;
     }
 
@@ -84,10 +84,10 @@ section {
     }
   }
 
-  @media (max-width: $break-sm-max) {
+  @media (max-width: $screen-sm-max) {
     height: 300px;
 
-    .Grid {
+    .container {
       padding: 76px 0 0 460px;
 
       &:after {

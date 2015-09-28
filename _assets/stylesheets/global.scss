@@ -1,97 +1,15 @@
-/**
- *= require ./normalize
- */
+@import "./helper";
+
+@import "bootstrap-sprockets";
+@import "bootstrap-custom";
 
 @import "font-awesome-sprockets";
 @import "font-awesome";
-
-@import "./helper";
 
 
 
 //= Reset
 
 body {
-  font: {
-    size: $font-size-base;
-    weight: 300;
-  }
-  line-height: 1.5;
-}
-
-p {
-  margin-top: 0;
-}
-
-
-
-//= Helpers
-
-.SEO-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  padding: 0;
-  overflow: hidden;
-  clip: rect(0,0,0,0);
-  border: 0;
-}
-
-
-
-//= Grid system
-
-.Grid,
-.Grid * {
-  @include box-sizing(border-box);
-}
-
-.Grid {
-  width: 1170px;
-  margin: {
-    right: auto;
-    left: auto;
-  }
-  padding: {
-    right: 15px;
-    left: 15px;
-  }
-
-  @include clearfix;
-
-  @media (max-width: $break-md-max) {
-    width: 970px;
-  }
-
-  @media (max-width: $break-sm-max) {
-    width: 750px;
-  }
-
-  @media (max-width: $break-xs-max) {
-    width: auto;
-  }
-}
-
-.Grid-row {
-  margin: {
-    right: -15px;
-    left: -15px;
-  }
-  @include clearfix;
-}
-
-.Grid-col-xs-4 {
-  padding: {
-    right: 15px;
-    left: 15px;
-  }
-}
-
-.Grid-col-xs-4 {
-  float: left;
-}
-
-.Grid-col-xs-4 {
-  width: percentage(4 / 12);
+  font-weight: 300;
 }

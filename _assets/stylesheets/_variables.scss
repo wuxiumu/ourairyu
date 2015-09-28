@@ -1,12 +1,4 @@
-$font-size-base: 16px !default;
+//= Override Bootstrap variables
 
-
-
-$break-xs-min: 480px !default;
-$break-sm-min: 768px !default;
-$break-md-min: 992px !default;
-$break-lg-min: 1200px !default;
-
-$break-xs-max: ($break-sm-min - 1) !default;
-$break-sm-max: ($break-md-min - 1) !default;
-$break-md-max: ($break-lg-min - 1) !default;
+$font-size-base: 16px;
+$line-height-base: 1.5;

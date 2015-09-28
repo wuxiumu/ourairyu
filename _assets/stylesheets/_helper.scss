@@ -1,2 +1,8 @@
-@import "painter";
+@import "compass";
+
 @import "variables";
+@import "painter";
+
+//= Bootstrap
+@import "bootstrap/variables";
+@import "bootstrap/mixins";
