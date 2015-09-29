@@ -32,6 +32,8 @@ section {
 }
 
 #banner {
+  $qr_size: 43px;
+
   height: 400px;
   background: {
     color: #353535;
@@ -91,7 +93,7 @@ section {
       padding: 76px 0 0 460px;
 
       &:after {
-        @include square(86px);
+        @include square($qr_size * 2);
       }
     }
 
@@ -102,6 +104,48 @@ section {
     p {
       margin: 12px 0 24px;
       font-size: 1.2em;
+    }
+  }
+
+  @media (max-width: $screen-xs-max) {
+    $gap: 10px;
+
+    height: 150px;
+
+    .container:after,
+    h1,
+    p {
+      position: absolute;
+    }
+
+    .container {
+      position: relative;
+      padding: 0;
+
+      &:after {
+        @include square($qr_size);
+        right: $gap;
+        bottom: 10px;
+      }
+    }
+
+    h1,
+    p {
+      right: $qr_size + $gap * 2;
+    }
+
+    h1 {
+      bottom: 32px;
+      font-size: 1.3em;
+    }
+
+    p {
+      bottom: 12px;
+      margin: 0;
+      font: {
+        size: .8em;
+        style: normal;
+      }
     }
   }
 }
@@ -143,7 +187,7 @@ section {
   header p {
     margin-top: 15px;
   }
-  
+
   ul {
     margin: 0;
 
