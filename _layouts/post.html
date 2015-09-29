@@ -4,10 +4,10 @@ layout: page
 <article class="container">
   <header>
     <h1>{{ page.title }}</h1>
-    <p><time datetime="{{ page.date }}">{{ page.date | date: "%c" }}</time>发布</p>
+    <p><time datetime="{{ page.date }}">{{ page.date | date: "%F" }} {{ page.date | date: "%T" }}</time>发布</p>
   </header>
-  <div class="Article-content col-md-8">{{ content }}</div>
-  <footer class="col-md-4">
+  <div class="Article-content col-md-9">{{ content }}</div>
+  <footer class="col-md-3">
     {% assign author = site.data.authors[page.author] %}
     {% if author.blog == "/" %}
       {% capture author_link %}<a href="{{ author.blog }}" class="Author-link">{{ author.name.zh }}</a>{% endcapture %}

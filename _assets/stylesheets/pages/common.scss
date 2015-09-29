@@ -62,10 +62,6 @@ article {
       font-size: 14px;
       color: #999;
     }
-
-    time {
-      margin-right: .5em;
-    }
   }
 
   h2 {
@@ -79,6 +75,10 @@ article {
   p {
     margin-bottom: 1.5em;
     line-height: 1.8;
+  }
+
+  blockquote p {
+    margin-bottom: 12px;
   }
 }
 
@@ -143,6 +143,26 @@ article {
 
   article footer {
     padding-right: 0 !important;
+  }
+
+  #supportAuthor {
+    ul {
+      margin: {
+        right: -5px;
+        left: -5px;
+      }
+    }
+
+    li {
+      width: 50%;
+      margin-left: 0;
+      padding: 0 5px;
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+    }
   }
 }
 

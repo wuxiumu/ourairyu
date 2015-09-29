@@ -140,19 +140,25 @@ section {
 }
 
 #posts {
-  margin: 0;
-
-  time,
-  a,
-  .fa {
-    @include inline-block;
+  header p {
+    margin-top: 15px;
   }
+  
+  ul {
+    margin: 0;
 
-  .fa {
-    margin: {
-      right: .5em;
-      left: .5em;
+    time,
+    a,
+    .fa {
+      @include inline-block;
     }
-    font-size: 14px;
+
+    .fa {
+      margin: {
+        right: .5em;
+        left: .5em;
+      }
+      font-size: 14px;
+    }
   }
 }

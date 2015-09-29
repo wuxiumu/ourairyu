@@ -55,6 +55,8 @@ defaults:
       type: posts
     values:
       layout: post
+      layout_js:
+        - pages/post
       author: ourai
       comments: true
   - scope:

@@ -20,12 +20,14 @@ css:
     <p>「欧雷」就是我，替换代入为「<ruby lang="ja" class="lang_jp"><rb>我流</rb><rp>（</rp><rt>がりゅう</rt><rp>）</rp></ruby>」，意为：自成一派；独树一帜；别具一格。因此，广义上的「欧雷流」是具备我的个人色彩的事物的集合：思想、言行、穿着、做事方式等；狭义上则专指<a href="{{ '/ourairyu' | prepend: site.url }}" title="深入了解「欧雷流」思想">我的思想体系</a>。</p>
   </section>
   {% if site.posts.size > 0 %}
-    <section class="container">
+    {% assign postSize = 10 %}
+    <section class="container" id="posts">
       <header>
         <h2>最新文章</h2>
+        <p>发布日期最靠前的 {{ postSize }} 篇文章，也可以查看我的<a href="{{ '/posts' | prepend: site.url }}">全部文章</a>。</p>
       </header>
-      <ul id="posts">
-        {% for post in site.posts limit: 10 %}
+      <ul>
+        {% for post in site.posts limit: postSize %}
           <li><time datetime="{{ post.date | date: '%c' }}">{{ post.date | date: "%F" }}</time><i class="fa fa-pencil"></i><a href="{{ post.url }}">{{ post.title }}</a></li>
         {% endfor %}
       </ul>
