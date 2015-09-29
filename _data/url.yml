@@ -7,7 +7,6 @@ js: javascripts
 css: stylesheets
 img: images
 
-article: posts/
 tutorial: tutorials/
 demo: demos/
 issue: issues/
