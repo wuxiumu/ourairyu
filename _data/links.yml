@@ -1,3 +1,11 @@
+posts:
+  url: /posts/
+  text: 文章
+
+identities:
+  url: /identities/
+  text: 个性
+
 ourairyu:
   url: /ourairyu/
   text: 伪·思想家
