@@ -1,0 +1,95 @@
+---
+title: JavaScript 滚动效果实现要点
+categories:
+  - JavaScript
+tags:
+  - JavaScript
+  - 教程
+published: false
+---
+
+<p class="last">要想利用JavaScript实现滚动效果，需要注意以下几点：</p>
+
+<ol>
+  <li>要有两个层，一个是容器（父层），一个是内容（子层）；</li>
+  <li>框架的宽度和高度一定要小于子层的宽度和高度；</li>
+  <li>框架的CSS中要把overflow设置为hidden、scroll或auto其中一个；</li>
+  <li>框架要设置ID属性；</li>
+  <li>对框架的scrollTop、scrollLeft进行自增或自减处理。</li>
+</ol>
+ 
+<p class="code_title zero"><strong>XHTML</strong></p>
+
+<pre class="brush: html">&lt;div id="scrollList"&gt;
+  &lt;ul&gt;
+    &lt;li&gt;01&lt;/li&gt;
+    &lt;li&gt;02&lt;/li&gt;
+    &lt;li&gt;03&lt;/li&gt;
+    &lt;li&gt;04&lt;/li&gt;
+    &lt;li&gt;05&lt;/li&gt;
+    &lt;li&gt;06&lt;/li&gt;
+    &lt;li&gt;07&lt;/li&gt;
+    &lt;li&gt;08&lt;/li&gt;
+    &lt;li&gt;09&lt;/li&gt;
+    &lt;li&gt;10&lt;/li&gt;
+    &lt;li&gt;11&lt;/li&gt;
+    &lt;li&gt;12&lt;/li&gt;
+    &lt;li&gt;13&lt;/li&gt;
+    &lt;li&gt;14&lt;/li&gt;
+    &lt;li&gt;15&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;</pre>
+<strong>CSS</strong>
+<pre class="brush: css">#scrollList {
+  width: 480px;
+  height: 150px;
+  overflow: hidden;
+}
+
+#scrollList&gt;ul {
+  width: 480px;
+  list-style: disc inside;
+  color: #000;
+}
+
+#scrollList&gt;ul&gt;li {
+  height: 16px;
+  line-height: 16px;
+}</pre>
+<strong>JavaScript</strong>
+<pre class="brush: js">// 定义操作DOM的相关变量
+var divEle = document.getElementById("scrollList");
+var firstItem = divEle.getElementsByTagName("LI")[0];
+var list = firstItem.parentNode;
+var listHeight = firstItem.clientHeight;
+
+// 定时器所需
+var flag;
+var speed = 150;
+
+// 滚动内容
+function scrollList() {
+  if(divEle.scrollTop &gt;= listHeight) {
+    list.removeChild(firstItem);
+    firstItem = divEle.getElementsByTagName("LI")[0];
+    cloneFirstNode();
+    divEle.scrollTop = 0;
+  }
+  divEle.scrollTop++;
+}
+
+// 复制节点
+function cloneFirstNode() {
+  var item = firstItem.cloneNode(true);
+  list.appendChild(item);
+}
+
+// 当内容的实际高度大于框架的可见高度时触发滚动
+if(divEle.scrollHeight &gt; divEle.clientHeight) {
+  cloneFirstNode();
+  flag = setInterval(scrollList, speed);
+}
+// 当鼠标移入内容时停止滚动
+list.onmouseover = function() { clearInterval(flag); }
+// 当鼠标移出内容时继续滚动
+list.onmouseout = function() { flag = setInterval(scrollList, speed); }</pre>
