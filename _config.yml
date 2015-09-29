@@ -62,17 +62,6 @@ defaults:
     values:
       layout: page
       template: page
-  # Posts
-  - scope:
-      path: ""
-      type: posts
-    values:
-      layout: article
-      template: article
-      layout_css:
-        - highlight
-        - pages/article
-      comments: true
   # Demos
   - scope:
       path: ""
