@@ -6,6 +6,10 @@ identities:
   url: /identities/
   text: 个性
 
+about:
+  url: /about/
+  text: 关于
+
 ourairyu:
   url: /ourairyu/
   text: 伪·思想家

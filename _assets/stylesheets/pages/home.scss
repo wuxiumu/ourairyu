@@ -191,12 +191,6 @@ section {
   ul {
     margin: 0;
 
-    time,
-    a,
-    .fa {
-      @include inline-block;
-    }
-
     .fa {
       margin: {
         right: .5em;
