@@ -1,0 +1,9 @@
+version: 0.1.0
+files:
+  development:
+    path: H5F.js
+    size:
+  production:
+    path: H5F.min.js
+    size:
+  source_map: H5F.min.map

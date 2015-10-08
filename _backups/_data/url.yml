@@ -1,0 +1,20 @@
+# 开发博客的 URL
+site: 
+# 当前 repo 的 URL
+root: 
+
+js: javascripts
+css: stylesheets
+img: images
+
+tutorial: tutorials/
+demo: demos/
+issue: issues/
+doc: docs/
+spec: specs/
+project: projects/
+category: categories/
+link: links/
+topic: topics/
+about: about/
+skill: skills/

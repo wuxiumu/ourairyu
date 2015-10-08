@@ -1,0 +1,85 @@
+/* line 4, jquery-pagination.scss */
+.Pagination,
+.Pagination--tiny {
+  font-size: 0;
+  *word-spacing: -1px;
+}
+
+/* line 15, jquery-pagination.scss */
+.Pagination-page,
+.Pagination-page--previous,
+.Pagination-page--next,
+.Pagination-page--first,
+.Pagination-page--last,
+.Pagination-page--current,
+.Pagination-separator {
+  font: 12px/1.5 Verdana;
+  display: -moz-inline-stack;
+  display: inline-block;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
+  min-width: 1em;
+  border: 1px solid transparent;
+  margin-right: 5px;
+  padding: .3em .5em;
+  letter-spacing: normal;
+  word-spacing: normal;
+  text-align: center;
+  text-decoration: none;
+  color: #333;
+  background-color: #FFF;
+}
+/* line 30, jquery-pagination.scss */
+.Pagination-page.Pagination-state--disabled, .Pagination-page.Pagination-state--disabled:hover,
+.Pagination-page--previous.Pagination-state--disabled,
+.Pagination-page--previous.Pagination-state--disabled:hover,
+.Pagination-page--next.Pagination-state--disabled,
+.Pagination-page--next.Pagination-state--disabled:hover,
+.Pagination-page--first.Pagination-state--disabled,
+.Pagination-page--first.Pagination-state--disabled:hover,
+.Pagination-page--last.Pagination-state--disabled,
+.Pagination-page--last.Pagination-state--disabled:hover,
+.Pagination-page--current.Pagination-state--disabled,
+.Pagination-page--current.Pagination-state--disabled:hover,
+.Pagination-separator.Pagination-state--disabled,
+.Pagination-separator.Pagination-state--disabled:hover {
+  color: #EEE;
+  border-color: #EEE;
+  background-color: #FFF;
+  cursor: default;
+}
+
+/* line 42, jquery-pagination.scss */
+.Pagination-page,
+.Pagination-page--previous,
+.Pagination-page--next,
+.Pagination-page--first,
+.Pagination-page--last {
+  border-color: #D9D9D9;
+  color: #D9D9D9;
+}
+/* line 46, jquery-pagination.scss */
+.Pagination-page:hover,
+.Pagination-page--previous:hover,
+.Pagination-page--next:hover,
+.Pagination-page--first:hover,
+.Pagination-page--last:hover {
+  background-color: #F7F7F7;
+}
+
+/* line 52, jquery-pagination.scss */
+.Pagination-page--current,
+.Pagination-separator {
+  cursor: default;
+}
+
+/* line 56, jquery-pagination.scss */
+.Pagination-page--current {
+  font-weight: bold;
+}
+
+/* line 60, jquery-pagination.scss */
+.Pagination-separator {
+  background-color: transparent;
+}

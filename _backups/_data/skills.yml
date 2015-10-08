@@ -1,0 +1,35 @@
+- title: HTML (4 & 5)
+  level: 4
+
+- title: CSS (2.1 & 3)
+  level: 4
+
+- title: ECMAScript 5
+  level: 3.5
+
+- title: AJAX
+  level: 3.5
+
+- title: Sass + compass
+  level: 3
+
+- title: CoffeeScript
+  level: 3.5
+
+- title: jQuery
+  level: 4
+
+- title: Backbone.js + Marionette.js
+  level: 2.5
+
+- title: Bootstrap
+  level: 3
+
+- title: PHP
+  level: 1.5
+
+- title: Ruby on Rails
+  level: 1
+
+- title: MySQL
+  level: 1

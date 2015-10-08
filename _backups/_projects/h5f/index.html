@@ -1,0 +1,18 @@
+---
+page_category: overview
+special_title: H5F，一个基于 HTML Forms 规范的表单验证插件。
+permalink: projects/h5f/
+---
+
+<div class="col-xs-12 col-sm-6">
+  <h2>原生的表单验证</h2>
+  <form id="exampleForm_1">
+    {% include project/h5f_fields.html form="exampleForm_1" %}
+  </form>
+</div>
+<div id="H5FValidation" class="col-xs-12 col-sm-6">
+  <h2>H5F 的表单验证</h2>
+  <form id="exampleForm_2" data-h5f-immediate="true">
+    {% include project/h5f_fields.html form="exampleForm_2" %}
+  </form>
+</div>
