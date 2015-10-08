@@ -1,0 +1,15 @@
+baseurl: "/dev/"
+
+collections:
+  projects:
+    output: false
+    permalink: /:collection/:path/
+  demos:
+    output: false
+    permalink: /:collection/:path/
+  tutorials:
+    output: false
+    permalink: /:collection/:path/
+  issues:
+    output: false
+    permalink: /:collection/:path/

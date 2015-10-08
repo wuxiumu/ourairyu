@@ -1,0 +1,19 @@
+@import "./helper";
+
+@import "bootstrap-sprockets";
+@import "bootstrap-custom";
+
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+
+
+//= Reset
+
+body {
+  font-weight: 300;
+}
+
+img {
+  max-width: 100%;
+}

@@ -1,0 +1,54 @@
+@import "../helpers";
+@import "../layouts/frameset";
+
+@include layout-frameset(200px, 100px, 100px);
+
+html,
+body {
+  min-width: 400px;
+}
+
+html[data-preview="false"] {
+  @include box-sizing(content-box);
+  padding: {
+    top: 0;
+    bottom: 0;
+  }
+  overflow-y: visible;
+}
+
+.layout-header,
+.layout-footer {
+  text-align: center;
+  text-transform: capitalize;
+  font: bold 16px/100px "Times New Roman";
+  text-shadow: 1px 1px #FFF;
+}
+
+.layout-header {
+  background-color: #F0F;
+}
+
+.layout-footer {
+  background-color: silver;
+}
+
+.layout-main,
+.layout-sub {
+  min-height: 200px;
+}
+
+.layout-main {
+  background-color: gold;
+  min-width: 200px;
+}
+
+.layout-sub {
+  background-color: lime;
+  width: 200px;
+  float: left;
+}
+
+.demo-example {
+  @include square(100%);
+}

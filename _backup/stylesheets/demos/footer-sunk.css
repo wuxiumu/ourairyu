@@ -1,0 +1,18 @@
+@charset "UTF-8";
+
+
+
+html, body { height: 100%; }
+#wrapper { background-color: wheat; min-height: 100%; _height: 100%; }
+#header, #footer {
+    height: 100px;
+    font: 2em/100px Verdana;
+    position: relative;
+    text-align: center; text-transform: capitalize;
+    background-color: lime;
+}
+#header { margin-bottom: -100px; }
+#footer { margin-top: -100px; }
+#main { background-color: orange; padding: 100px 0; overflow: hidden; }
+#sidebar { background-color: navy; width: 300px; float: left; color: #FFF; }
+#content { background-color: yellow; margin-left: 300px; }

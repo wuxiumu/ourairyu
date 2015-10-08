@@ -1,0 +1,27 @@
+---
+layout: default
+layout_css:
+  - pages/common
+---
+{% assign links = site.data.links %}
+<nav class="Page-navs">
+  <ul>
+    <li><a href="{{ '/' | prepend: site.url }}">首页</a></li>
+    <li><a href="{{ links.posts.url | prepend: site.url }}">{{ links.posts.text }}</a></li>
+    <!-- <li><a href="{{ links.ourairyu.url | prepend: site.url }}">{{ links.ourairyu.text }}</a></li>
+    <li><a href="{{ links.dev.url | prepend: site.url }}">{{ links.dev.text }}</a></li> -->
+    <li><a href="{{ links.about.url | prepend: site.url }}">{{ links.about.text }}</a></li>
+  </ul>
+</nav>
+<header class="Page-header container sr-only">
+  <div>
+    <h1>{{ site.title }}</h1>
+    <p>{{ site.description }}</p>
+  </div>
+</header>
+<main>
+  {{ content }}
+  {% if page.comments == true %}
+    {% include disqus.html %}
+  {% endif %}
+</main>

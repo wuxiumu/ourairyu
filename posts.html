@@ -1,0 +1,12 @@
+---
+title: 文章列表
+permalink: /posts/
+---
+<div class="container">
+  <p>共 {{ site.posts.size }} 篇文章。</p>
+  <ul>
+    {% for post in site.posts %}
+      <li><time datetime="{{ post.date | date: '%c' }}">{{ post.date | date: "%F" }}</time><i class="fa fa-pencil"></i><a href="{{ post.url }}">{{ post.title }}</a></li>
+    {% endfor %}
+  </ul>
+</div>

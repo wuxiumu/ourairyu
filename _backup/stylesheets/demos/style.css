@@ -1,0 +1,17 @@
+@CHARSET "UTF-8";
+
+body { font-size: 1em; background: url("http://www.otakism.com/main/image/bg-content.png") repeat scroll 0 0 transparent;  }
+a { text-decoration: none;  }
+
+#header { height: 5em; box-shadow: 0 2px 5px #000; border-bottom: 1px solid #888; overflow: hidden; background-color: #333;  }
+#header h1 { font: italic normal 2em/1 Georgia; letter-spacing: 2px; margin: 0.7em 0 0 0.7em; color: #F5F5F5; text-shadow: 0 0 1em #F0F0F0, 0 0 0.2em #FFF;  }
+#content { padding: 1.5em;  }
+#footer { position: fixed; bottom: 1em; right: 1em; font-family: "Times New Roman"; color: #222; text-shadow: 1px 1px 0.1em white, 0 0 1em #000, 0 0 0.2em white; }
+
+.file-division-title { font: normal bold 1.2em/1.5 Georgia;  }
+.file-division-title a { color: #222; text-shadow: 1px 1px 1px #F5F5F5; padding: 0.5em 0 0.5em 1em; cursor: default; display: block; }
+.file-division-list { list-style: disc outside none; padding-left: 2.5em; }
+.file-division-item { color: #888; font: normal normal 1em/1.5 Georgia; padding-left: 0.5em; margin: 1em 0; }
+.file-division-item a:link, .file-division-item a:visited { color: #333; font-weight: bold; text-shadow: 1px 1px 1px #FFF; display: inline-block; }
+.file-division-item a:hover { color: #AAA; }
+.file-division-item p { text-indent: 0; text-align: left; font-size: 0.9em; margin-top: 0.3em; }

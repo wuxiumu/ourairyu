@@ -1,0 +1,82 @@
+title: 欧雷流
+description: 不走寻常路
+
+collections:
+  sketches:
+    output: true
+    permalink: /:collection/:path/
+  demos:
+    output: true
+    permalink: /:collection/:path/
+  tutorials:
+    output: true
+    permalink: /:collection/:path/
+
+# Handling Reading
+exclude: 
+  - .sass-cache
+  - node_modules
+  - vendors
+  - src
+  - Rakefile
+  - Gemfile
+  - Gemfile.lock
+  - Gruntfile.coffee
+  - bower.json
+  - package.json
+  # - README.md
+encoding: utf-8
+
+# Plugins
+gems:
+  - jemoji
+  - jekyll-slim
+  - octopress-minify-html
+
+# Conversion
+markdown: kramdown
+# highlighter: false
+
+# Backwards-compatibility
+relative_permalinks: false
+
+# Outputting
+permalink: /posts/:title/
+timezone: Asia/Shanghai
+
+# YAML frontmatter
+defaults:
+  # Default
+  - scope:
+      path: ""
+    values:
+      layout: default
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: page
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      layout_js:
+        - pages/post
+      author: ourai
+      comments: true
+  - scope:
+      path: sketches/v1
+      type: sketches
+    values:
+      layout: sketch/v1
+  - scope:
+      path: sketches/v2
+      type: sketches
+    values:
+      layout: sketch/v2
+
+# Jekyl Slim
+slim:
+  pretty: true
+  format: html5
