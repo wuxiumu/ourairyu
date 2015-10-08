@@ -5,6 +5,9 @@ collections:
   re:
     output: true
     permalink: /:collection/:path/
+  demos:
+    output: true
+    permalink: /:collection/:path/
 
 # Handling Reading
 exclude: 
