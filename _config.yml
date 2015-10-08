@@ -8,6 +8,9 @@ collections:
   demos:
     output: true
     permalink: /:collection/:path/
+  tutorials:
+    output: true
+    permalink: /:collection/:path/
 
 # Handling Reading
 exclude: 
