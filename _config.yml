@@ -24,7 +24,7 @@ exclude:
   - Gruntfile.coffee
   - bower.json
   - package.json
-  - README.md
+  # - README.md
 encoding: utf-8
 
 # Plugins

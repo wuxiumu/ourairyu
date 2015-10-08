@@ -24,7 +24,6 @@ task :projects do
     35932564,   # learning
     19068698,   # ourai.github.io
     39746025,   # profile
-    35203272,   # ourai.ws
     28067674,   # ourairyu-themes
     19260834,   # ourairyu.github.io
     23340879,   # waken
@@ -86,14 +85,14 @@ task :deploy do
 
     cd dir do
       system "git init"
-      system "git remote add origin https://github.com/ourai/ourai.ws.git"
+      system "git remote add origin https://github.com/ourai/ourai.github.io.git"
       system "git fetch"
-      system "git checkout gh-pages"
+      system "git checkout master"
     end
   else
     cd dir do
       # system "git reset --hard HEAD"
-      system "git pull origin gh-pages"
+      system "git pull origin master"
     end
   end
 
@@ -106,6 +105,6 @@ task :deploy do
     system "touch .nojekyll"
     system "git add -A"
     system "git commit -m '部署于#{current_time}'"
-    system "git push origin gh-pages"
+    system "git push origin master"
   end
 end
