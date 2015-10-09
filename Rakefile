@@ -20,12 +20,10 @@ task :projects do
   end
 
   excludedRepos = [
-    18552598,   # bakufu
-    35932564,   # learning
     19068698,   # ourai.github.io
-    39746025,   # profile
     28067674,   # ourairyu-themes
     19260834,   # ourairyu.github.io
+    35932564,   # learning
     23340879,   # waken
     16250547,   # novel
     23698214,   # domshim
