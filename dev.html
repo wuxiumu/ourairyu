@@ -9,8 +9,8 @@ permalink: /dev/
 <article class="layout-container">
   <header class="Profile">
     {% assign author = site.data.authors.ourai %}
-    <a href="{{ author.profile }}" target="_blank" class="Profile-avatar" title="了解更多"><img src="{{ 'avatars/ourai-100px.jpg' | asset_path }}" srcset="{{ 'avatars/ourai-200px.jpg' | asset_path }} 2x"></a>
-    <h1 class="Profile-name"><a href="{{ author.profile }}" target="_blank">{{ author.name.zh }}</a></h1>
+    <a href="{{ author.profile }}" class="Profile-avatar" title="了解更多"><img src="{{ 'avatars/ourai-100px.jpg' | asset_path }}" srcset="{{ 'avatars/ourai-200px.jpg' | asset_path }} 2x"></a>
+    <h1 class="Profile-name"><a href="{{ author.profile }}">{{ author.name.zh }}</a></h1>
     <div class="Profile-professions">
       <ul>
         {% for prof in author.profession %}
