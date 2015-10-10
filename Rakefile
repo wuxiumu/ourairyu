@@ -70,6 +70,11 @@ task :projects do
   end
 end
 
+desc "运行"
+task :run do
+  system "bundle exec jekyll serve"
+end
+
 desc "部署"
 task :deploy do
   dir = "../.tmp/ourairyu"
