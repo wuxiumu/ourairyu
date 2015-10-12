@@ -24,7 +24,6 @@ task :projects do
     28067674,   # ourairyu-themes
     19260834,   # ourairyu.github.io
     35932564,   # learning
-    23340879,   # waken
     16250547,   # novel
     23698214,   # domshim
     38699113,   # double-list
