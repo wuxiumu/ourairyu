@@ -10,7 +10,16 @@ layout: page
   <footer class="col-md-3">
     {% assign author = site.data.authors[page.author] %}
     <div class="Article-meta">
-      <p><a href="{{ author.profile }}" class="Author-link--withAvatar"><img src="{{ author.avatar.normal | prepend: 'avatars/' | asset_path }}"></a><a href="{{ author.profile }}" class="Author-link">{{ author.name.zh }}</a>发表于<br>{{ page.categories | join: " & " }}</p>
+      {% assign categories = site.data.categories %}
+      {% assign category = page.categories.first %}
+
+      {% if categories[category] == null %}
+        {% assign postCategory = category %}
+      {% else %}
+        {% assign postCategory = categories[category].name %}
+      {% endif %}
+
+      <p><a href="{{ author.profile }}" class="Author-link--withAvatar"><img src="{{ author.avatar.normal | prepend: 'avatars/' | asset_path }}"></a><a href="{{ author.profile }}" class="Author-link">{{ author.name.zh }}</a>发表于<br>{{ postCategory }}</p>
       <div id="supportAuthor">
         <p>如果您觉得文章内容有所帮助，请随意打赏。您的支持将鼓励作者继续创作！</p>
         <ul>
