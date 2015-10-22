@@ -425,8 +425,8 @@ html.is-wap {
         &:after {
           content: $UN-space;
           @include inline-block;
-          width: get_rem(140);
-          height: get_rem(149);
+          width: get_rem(135);
+          height: get_rem(150);
           @include recoverBgImage("pages/demos/bonus/wap/bag.png", "pages/demos/bonus/wap/bag@2x.png");
         }
       }
