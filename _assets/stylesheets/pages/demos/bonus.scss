@@ -2,12 +2,31 @@
 
 
 
+$root-font-size: 24px;
+
+// 用于 mobile 页面获取基于根元素字体大小的 rem 值
+// $draft-size 是设计稿上的大小（以页面宽度 750 的为准）
+@function get_rem( $draft-size ) {
+  @return #{$draft-size / ($root-font-size / 1px)}rem;
+}
+
+@mixin recoverBgImage( $url, $url_hd ) {
+  background-image: image-url($url);
+  @include image-set(
+      image-url($url) 1x,
+      image-url($url_hd) 2x
+    );
+}
+
+
+
 html,
 body {
   height: 100%;
 }
 
 body {
+  font-size: inherit;
   background-color: #DADADA;
 }
 
@@ -159,6 +178,7 @@ body {
 
 .Bonus-countdown {
   height: 42px;
+  margin-bottom: 0;
   text-align: center;
   font-size: 12px;
   line-height: 54px;
@@ -166,8 +186,8 @@ body {
 
   span {
     margin: {
-      right: 2px;
-      left: 2px;
+      right: .1em;
+      left: .1em;
     }
     font-size: 18px;
     color: #E11425;
@@ -261,6 +281,173 @@ body {
 
     .Bonus-coupon {
       z-index: 2;
+    }
+  }
+}
+
+html.is-wap {
+  font-size: $root-font-size;
+
+  .Bonus-dialog {
+    $header_h: get_rem(117);
+
+    width: auto;
+    height: auto;
+    padding-top: $header_h;
+
+    @each $prop in top, right, bottom, left, margin {
+      #{$prop}: 0;
+    }
+
+    .Bonus-dialog-header h3,
+    .Bonus-list .Bonus-bag:after {
+      @include covered_background;
+    }
+
+    .Bonus-dialog-header {
+      height: $header_h;
+      margin-top: -($header_h);
+    }
+
+    .Bonus-dialog-body {
+      height: 100%;
+      text-align: center;
+      @include text-middle(".Bonus-content.is-current");
+    }
+
+    .Bonus-dialog-header {
+      h3 {
+        right: 50%;
+        bottom: -(get_rem(16));
+        width: get_rem(502);
+        height: get_rem(119);
+        margin-right: -(get_rem(502/2));
+        @include recoverBgImage("pages/demos/bonus/wap/title.png", "pages/demos/bonus/wap/title@2x.png");
+      }
+    }
+
+    .Bonus-button {
+      $h: get_rem(90);
+
+      width: get_rem(675);
+      height: $h;
+      font-size: get_rem(36);
+      line-height: $h;
+      border-bottom-width: get_rem(4);
+    }
+
+    .Bonus-content {
+      &[data-step="login"] {
+        img {
+          width: get_rem(282);
+          height: get_rem(140);
+          margin: 0 0 0 -(get_rem(26.4));
+        }
+
+        p {
+          margin: {
+            top: get_rem(42);
+            bottom: get_rem(253);
+          }
+          font-size: get_rem(32);
+        }
+      }
+
+      &[data-step="result"] {
+        p,
+        ul,
+        input {
+          font-size: get_rem(32) !important;
+        }
+
+        p {
+          margin: 0;
+        }
+
+        ul {
+          margin: {
+            top: get_rem(52);
+            bottom: get_rem(138);
+          }
+        }
+
+        form {
+          margin-top: get_rem(82);
+        }
+
+        input {
+          $h: get_rem(85);
+          $g: get_rem(17);
+
+          width: get_rem(675);
+          height: $h;
+          padding: {
+            right: $g;
+            left: $g;
+          }
+          line-height: $h;
+        }
+
+        .Bonus-button {
+          margin-top: get_rem(13);
+        }
+      }
+
+      &[data-step="display"] {
+        img {
+          width: get_rem(183);
+          height: get_rem(164);
+          margin: 0;
+        }
+
+        p {
+          margin: {
+            top: get_rem(60);
+            bottom: get_rem(216);
+          }
+          font-size: get_rem(32);
+        }
+      }
+    }
+
+    .Bonus-list {
+      @include square(get_rem(666));
+
+      &,
+      li {
+        padding: 2px;
+      }
+
+      .Bonus-bag {
+        background: #9F001D none;
+        @include text-middle;
+
+        &:after {
+          content: $UN-space;
+          @include inline-block;
+          width: get_rem(140);
+          height: get_rem(149);
+          @include recoverBgImage("pages/demos/bonus/wap/bag.png", "pages/demos/bonus/wap/bag@2x.png");
+        }
+      }
+
+      label {
+        &:hover,
+        &:active {
+          box-shadow: 0 0 5px 2px #FFE400;
+        }
+      }
+    }
+  }
+
+  .Bonus-countdown {
+    height: 2em;
+    line-height: 2em;
+    margin-bottom: get_rem(86);
+    font-size: get_rem(32);
+
+    span {
+      font-size: get_rem(46);
     }
   }
 }
