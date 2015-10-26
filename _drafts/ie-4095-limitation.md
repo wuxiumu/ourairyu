@@ -5,7 +5,6 @@ categories:
 tags:
   - Internet Explorer
   - stylesheet
-published: false
 ---
 
 [Turbolinks](https://github.com/rails/turbolinks/){:target="_blank"}{:rel="external nofollow"}
