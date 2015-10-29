@@ -4,6 +4,7 @@ date: 2007-10-04 10:59:00 +0800
 categories:
   - monogatari
 chapter: 1
+published: false
 ---
 
 欧雷，出生于一个贫困家庭。身高一百八，体重刚过半百，经常被人说：“你看你，瘦得跟马杆似的！”现就读于某“妓院”。
