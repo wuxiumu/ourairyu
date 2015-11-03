@@ -11,6 +11,9 @@ collections:
   tutorials:
     output: true
     permalink: /:collection/:path/
+  issues:
+    output: true
+    permalink: /:collection/:path/
   ja:
     output: true
     permalink: /:collection/:path/
