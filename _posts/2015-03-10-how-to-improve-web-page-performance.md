@@ -16,7 +16,7 @@ tags:
 
 前端性能简单来说就是**能看到页面内容的时间**以及**可以开始在页面上操作的时间**。
 
-![Progressive Rendering]({{ "posts/progressive-rendering.png" | asset_path }})
+![Progressive Rendering]({{ "posts/20150310/progressive-rendering.png" | asset_path }})
 
 前端性能与浏览器的运作方式密切相关，故想要优化性能就要从了解浏览器的工作原理入手。
 
@@ -102,7 +102,7 @@ render tree 是由 DOM tree 与 CSSOM tree 合并并剔除不可见的节点所�
 
 通过 [Navigation Timing](http://www.w3.org/TR/navigation-timing-2/#processing-model){:target="_blank"}{:rel="external nofollow"} API 可以获取浏览器在处理网页的关键步骤的时间戳。
 
-![Part of Navigation Timing Processing Model]({{ "posts/dom-navtiming.png" | asset_path }})
+![Part of Navigation Timing Processing Model]({{ "posts/20150310/dom-navtiming.png" | asset_path }})
 
 其中，各步骤的意义如下：
 
