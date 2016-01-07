@@ -1,0 +1,58 @@
+@import "../../helper";
+
+
+
+.StaticTabs {
+  position: relative;
+  margin-top: 56px;
+  padding: 24px 0;
+  border-top: 1px solid #EDEDED;
+  background-color: yellow;
+}
+
+.StaticTabs-tab {
+  background-color: orange;
+
+  [name^=StaticTabs] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    clip: rect(0 0 0 0);
+  }
+
+  &:first-child .StaticTabs-trigger {
+    left: 0;
+  }
+
+  [checked] {
+    + .StaticTabs-trigger {
+      background-color: #FFF;
+      border-bottom-color: #FFF;
+
+      + .StaticTabs-content {
+        display: block;
+      }
+    }
+  }
+}
+
+.StaticTabs-trigger {
+  position: absolute;
+  bottom: 100%;
+  left: 117px;
+  width: 115px;
+  height: 28px;
+  line-height: 28px;
+  cursor: pointer;
+  border: 1px solid #EDEDED;
+  background-color: #EDEDED;
+  font-size: 12px;
+  text-align: center;
+}
+
+.StaticTabs-content {
+  display: none;
+  width: 970px;
+  margin: 0 auto;
+  @include pie-clearfix;
+}
