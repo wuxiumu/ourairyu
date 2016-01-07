@@ -40,7 +40,7 @@ permalink: /dev/
     </div>
     <div class="Grids">
       <div class="Grid Projects" data-flag="projects">
-        {% for repo in repos reversed %}
+        {% for repo in repos %}
         {% if repo.homepage == null or repo.homepage == "" %}
           {% assign url = repo.html_url %}
         {% else %}
