@@ -28,6 +28,10 @@ task :projects do
     23698214,   # domshim
     38699113,   # double-list
     18203491,   # ninja
+    40175073,   # H5Fx-backbone
+    45201820,   # WeBug
+    43893848,   # jekyll-guru
+    48522689,   # wantu-nodejsSDK
     39214016    # CustomComponent
   ]
 
