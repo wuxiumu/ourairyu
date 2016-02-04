@@ -21,10 +21,11 @@ task :projects do
 
   excludedRepos = [
     19068698,   # ourai.github.io
+    50164625,   # f2e-stuff
     28067674,   # ourairyu-themes
-    19260834,   # ourairyu.github.io
-    35932564,   # learning
-    16250547,   # novel
+    35932564,   # learning-js
+    50562537,   # learning-python
+    50562418,   # learning-c
     23698214,   # domshim
     38699113,   # double-list
     18203491,   # ninja
