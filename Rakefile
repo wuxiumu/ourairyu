@@ -107,11 +107,11 @@ task :deploy do
   system "bundle exec jekyll build -d #{dir} --config _config.yml,_build/config.yml"
 
   cd dir do
-    current_time = Time.now.strftime("%Y年%m月%d日%H时%M分%S秒")
+    current_time = Time.now.strftime("%Y-%m-%d %H:%M:%S")
 
     system "touch .nojekyll"
     system "git add -A"
-    system "git commit -m '部署于#{current_time}'"
+    system "git commit -m 'Deploy on #{current_time}'"
     system "git push origin master"
   end
 end
