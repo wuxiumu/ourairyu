@@ -138,6 +138,31 @@ article {
   }
 }
 
+.Article-share {
+  margin-top: 25px;
+
+  .social-share-icon {
+    width: 28px;
+    height: 28px;
+    margin: {
+      top: 0;
+      bottom: 0;
+    }
+    line-height: normal;
+    font-size: 18px;
+
+    &:before,
+    &:after {
+      @include inline-block;
+    }
+
+    &:after {
+      height: 100%;
+      content: $UN-space;
+    }
+  }
+}
+
 .Article-toc {
   margin: {
     top: 20px;

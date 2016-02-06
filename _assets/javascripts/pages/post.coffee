@@ -1,4 +1,5 @@
 #= require jquery-1.11.3.min
+#= require share.min
 #= require initializers/time
 
 # 添加目录条目
