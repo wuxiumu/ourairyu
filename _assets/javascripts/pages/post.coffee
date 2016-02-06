@@ -1,9 +1,11 @@
 #= require jquery-1.11.3.min
 #= require initializers/time
 
+# 添加目录条目
 addTocItem = ( $h ) ->
   return "<li><a href=\"##{$h.attr("id")}\">#{$h.text()}</a></li>"
 
+# 生成目录
 generateToc = ->
   $toc = $("<ul class=\"Article-toc\" />")
   $item = null
@@ -17,7 +19,6 @@ generateToc = ->
 
       $item.append("<ul />") if $list.size() is 0
       $item.appendTo $toc
-      console.log $item, $toc
     else
       $list.append addTocItem($h)
 

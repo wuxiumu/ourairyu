@@ -138,6 +138,26 @@ article {
   }
 }
 
+.Article-toc {
+  margin: {
+    top: 20px;
+    bottom: 0;
+  }
+  padding-top: 10px;
+  border-top: 1px solid #eee;
+  font-size: 14px;
+
+  &,
+  ul {
+    list-style: none inside none;
+    padding-left: 0;
+  }
+
+  ul {
+    margin-left: 1em;
+  }
+}
+
 @media all and (min-width: $screen-md-min) {
   .Article-content {
     padding-left: 0;
