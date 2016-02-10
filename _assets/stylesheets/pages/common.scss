@@ -90,24 +90,24 @@ article {
 
 .Article-meta {
   font-size: 14px;
+}
 
-  > p:first-child {
-    overflow: hidden;
+.Article-author {
+  overflow: hidden;
+}
+
+.Author-link--withAvatar {
+  float: left;
+  margin-right: 10px;
+
+  img {
+    @include square(48px);
   }
+}
 
-  .Author-link--withAvatar {
-    float: left;
-    margin-right: 10px;
-
-    img {
-      @include square(48px);
-    }
-  }
-
-  .Author-link {
-    margin-right: .25em;
-    font-weight: bold;
-  }
+.Author-link {
+  margin-right: .25em;
+  font-weight: bold;
 }
 
 #supportAuthor {
@@ -146,11 +146,10 @@ article {
 
 .Article-license {
   margin-top: 10px;
-  font-size: 14px;
 }
 
 .Article-share {
-  margin-top: 25px;
+  margin-top: 20px;
 
   .social-share-icon {
     width: 28px;
@@ -176,12 +175,11 @@ article {
 
 .Article-toc {
   margin: {
-    top: 20px;
+    top: 15px;
     bottom: 0;
   }
   padding-top: 10px;
   border-top: 1px solid #eee;
-  font-size: 14px;
 
   &,
   ul {
@@ -195,12 +193,12 @@ article {
 }
 
 @media all and (min-width: $screen-md-min) {
-  .Article-content {
-    padding-left: 0;
-  }
-
   article footer {
     padding-right: 0 !important;
+  }
+
+  .Article-content {
+    padding-left: 0;
   }
 
   #supportAuthor {
@@ -225,6 +223,10 @@ article {
 }
 
 @media all and (max-width: $screen-sm-max) {
+  main:after {
+    height: 30px;
+  }
+
   .Article-content {
     padding: {
       right: 0;
@@ -242,5 +244,15 @@ article {
     padding: 20px;
     border-left: 4px solid #666;
     background-color: #EEE;
+  }
+
+  .Article-share .social-share-icon {
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+
+  .Article-toc {
+    display: none;
   }
 }

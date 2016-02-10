@@ -19,7 +19,8 @@ layout: page
         {% assign postCategory = categories[category].name %}
       {% endif %}
 
-      <p><a href="{{ author.profile }}" class="Author-link--withAvatar"><img src="{{ author.avatar.normal | prepend: 'avatars/' | asset_path }}"></a><a href="{{ author.profile }}" class="Author-link">{{ author.name.zh }}</a>发表于<br>{{ postCategory }}</p>
+      <p class="Article-author"><a href="{{ author.profile }}" class="Author-link--withAvatar"><img src="{{ author.avatar.normal | prepend: 'avatars/' | asset_path }}"></a><a href="{{ author.profile }}" class="Author-link">{{ author.name.zh }}</a>发表于<br>{{ postCategory }}</p>
+      <!-- 赞助 -->
       <div id="supportAuthor">
         <p>如果您觉得文章内容有所帮助，请随意打赏。您的支持将鼓励作者继续创作！</p>
         <ul>
@@ -27,10 +28,10 @@ layout: page
           <li><img src="{{ page.author | append: '.jpg' | prepend: 'qrcodes/pay/wechat/' | asset_path }}"></li>
         </ul>
       </div>
+      <!-- 版权 -->
+      <p class="Article-license">本文采用知识共享<a href="http://creativecommons.org/licenses/by-nc/3.0/cn/" target="_blank">署名-非商业性使用 3.0 中国大陆</a>许可协议，可自由转载、引用，但需署名作者并注明文章出处且不能用于商业用途。</p>
+      <!-- 分享 -->
+      <div class="Article-share social-share" data-sites="wechat,qzone,weibo,twitter"></div>
     </div>
-    <div class="Article-license">
-      <p>本文采用知识共享<a href="http://creativecommons.org/licenses/by-nc/3.0/cn/" target="_blank">署名-非商业性使用 3.0 中国大陆</a>许可协议，可自由转载、引用，但需署名作者并注明文章出处且不能用于商业用途。</p>
-    </div>
-    <div class="Article-share social-share" data-sites="wechat,qzone,weibo,twitter"></div>
   </footer>
 </article>

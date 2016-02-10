@@ -28,4 +28,4 @@ generateToc = ->
 $(document).ready ->
   $toc = generateToc()
 
-  $("article.container footer").append($toc) unless $("li", $toc).size() is 0
+  $(".Article-meta").append($toc) unless $("li", $toc).size() is 0
