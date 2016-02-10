@@ -69,7 +69,13 @@ article {
       top: 1em;
       bottom: .5em;
     }
-    font-size: 2em;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+    font-size: 1.8em;
+  }
+
+  h3 {
+    font-size: 1.4em;
   }
 
   p {
@@ -136,6 +142,11 @@ article {
   img {
     @include square(43px * 3);
   }
+}
+
+.Article-license {
+  margin-top: 10px;
+  font-size: 14px;
 }
 
 .Article-share {
