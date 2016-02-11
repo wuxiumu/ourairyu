@@ -1,10 +1,18 @@
 ---
 title: 关于
 permalink: /about/
-comments: true
 ---
+{% assign links = site.data.links %}
 <article class="container">
   <header>
     <h1>关于欧雷</h1>
   </header>
+  <div class="col-md-9">
+    <p>通过以下链接可以了解更为多元化的「欧雷」：</p>
+    <ul>
+      <li><a href="{{ links.ourairyu.url | prepend: site.url }}">{{ links.ourairyu.text }}</a></li>
+      <li><a href="{{ links.dev.url | prepend: site.url }}">{{ links.dev.text }}</a></li>
+      <li><a href="{{ links.otaku.url | prepend: site.url }}">{{ links.otaku.text }}</a></li>
+    </ul>
+  </div>
 </article>
