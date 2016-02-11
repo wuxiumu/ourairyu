@@ -11,19 +11,22 @@ permalink: /posts/
   {% for post in posts %}
     {% assign prev_year = prev_post.date | date: "%Y" %}
     {% assign year = post.date | date: "%Y" %}
+    {% assign diff = year | minus: 2011 %}
 
-    {% if prev_post == null or year != prev_year %}
-      {% assign first_item = true %}
-    {% else %}
-      {% assign first_item = false %}
+    {% if diff > 0 %}
+      {% if prev_post == null or year != prev_year %}
+        {% assign first_item = true %}
+      {% else %}
+        {% assign first_item = false %}
+      {% endif %}
+
+      {% if first_item == true %}
+        <h2>{{ year }}</h2>
+      {% endif %}
+
+      <div class="Article"><time datetime="{{ post.date | date: '%c' }}">{{ post.date | date: "%F" }}</time><i class="fa fa-pencil"></i><a href="{{ post.url }}">{{ post.title }}</a></div>
+
+      {% assign prev_post = post %}
     {% endif %}
-
-    {% if first_item == true %}
-      <h2>{{ year }}</h2>
-    {% endif %}
-
-    <div class="Article"><time datetime="{{ post.date | date: '%c' }}">{{ post.date | date: "%F" }}</time><i class="fa fa-pencil"></i><a href="{{ post.url }}">{{ post.title }}</a></div>
-
-    {% assign prev_post = post %}
   {% endfor %}
 </div>
