@@ -21,7 +21,7 @@
     {% javascript support_ie8 %}
     <![endif]-->
   </head>
-  <body itemscope itemtype="http://schema.org/WebPage">
+  <body class="Page" itemscope itemtype="http://schema.org/WebPage">
     {{ content }}
     {% if page.layout_js %}
       {% for js in page.layout_js %}{{ js | javascript }}{% endfor %}

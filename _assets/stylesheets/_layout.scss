@@ -1,0 +1,29 @@
+.Page-navs {
+  text-align: center;
+  background-color: #F5F5F5;
+
+  ul {
+    @include unstyled_list;
+    @include pie-clearfix;
+    @include inline-block;
+    height: 30px;
+    margin-bottom: 0;
+    line-height: 30px;
+  }
+
+  li {
+    float: left;
+    padding: 0 .5em;
+    font-size: 14px;
+  }
+}
+
+.Page-content:after {
+  content: $UN-space;
+  display: block;
+  height: 100px;
+
+  @media all and (max-width: $screen-sm-max) {
+    height: 30px;
+  }
+}

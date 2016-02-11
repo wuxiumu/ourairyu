@@ -67,6 +67,9 @@ defaults:
       type: posts
     values:
       layout: post
+      layout_css:
+        - share
+        - pages/common
       layout_js:
         - pages/post
       author: ourai
