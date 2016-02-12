@@ -46,5 +46,11 @@
         color: #888;
       }
     }
+
+    @media all and (max-width: $screen-xs-max) {
+      + li {
+        margin-top: 10px;
+      }
+    }
   }
 }

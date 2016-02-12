@@ -18,7 +18,7 @@ css:
         {% for category in site.categories limit: 3 %}
           {% assign c = category[0] %}
 
-          <li class="col-xs-4"><a href="/categories/{{ c }}/">{{ categories[c].name }}<span>共 {{ category[1].size }} 篇文章</span></a></li>
+          <li class="col-sm-4"><a href="/categories/{{ c }}/">{{ categories[c].name }}<span>共 {{ category[1].size }} 篇文章</span></a></li>
         {% endfor %}
       </ul>
     </div>
