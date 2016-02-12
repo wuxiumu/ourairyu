@@ -1,211 +1,33 @@
-<!DOCTYPE html>
-
-  <html lang="zh-CN" dir="ltr">
-
-  <head>
-    <meta charset="UTF-8">
-<!-- 页面渲染兼容性 -->
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<meta name="renderer" content="webkit">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<!-- 站点信息 -->
-
-  
-    
-      
-    
-  
-
-  
-
-<title>欧雷流</title>
-
-  
-
-
-
-  
-
-
-  <meta name="description" content="不走寻常路">
-
-<link type="application/atom+xml" rel="alternate" href="http://ourai.ws/atom.xml" title="欧雷流" />
-<link rel="author" href="http://ourai.ws/">
-<!-- 站点 icon -->
-<link rel="icon" href="/assets/favicon-d770cf1b4a3a03cd5bac1dde4e2e413f.ico">
-
-    <!-- 样式表文件 -->
-    <link rel="stylesheet" href="/assets/global-a600a3b8cf7b3ebf5f2e38a52e0189a2.css">
-    <!-- Stylesheets for template -->
-    
-    <!-- Stylesheets for page -->
-    
-    <script src="/assets/global-6d5e42c77c3a921431d6341f6f4e7f96.js"></script>
-    <!--[if lt IE 9]>
-    <script src="/assets/support_ie8-f9109bd900850d4f4fbac70091ae986d.js"></script>
-    <![endif]-->
-  </head>
-  <body class="Page" itemscope itemtype="http://schema.org/WebPage">
-    
-<nav class="Page-navs">
-  <ul>
-    <li><a href="/">首页</a></li>
-    <li><a href="/posts/">文章</a></li>
-    <li><a href="/about/">关于</a></li>
-  </ul>
-</nav>
-<header class="Page-header container sr-only">
-  <div>
-    <h1>欧雷流</h1>
-    <p>不走寻常路</p>
-  </div>
-</header>
-<main class="Page-content">
-  
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
   <channel>
+    
     <title>欧雷流</title>
     <description>不走寻常路</description>
     <link>http://ourai.ws/</link>
     <atom:link href="http://ourai.ws/rss.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 13 Feb 2016 00:25:37 +0800</pubDate>
-    <lastBuildDate>Sat, 13 Feb 2016 00:25:37 +0800</lastBuildDate>
+    <pubDate>Sat, 13 Feb 2016 00:50:31 +0800</pubDate>
+    <lastBuildDate>Sat, 13 Feb 2016 00:50:31 +0800</lastBuildDate>
     <language>zh-CN</language>
     <generator>Jekyll v2.4.0</generator>
     
       <item>
         <title>前端工程优化之路</title>
-        <description>&lt;p&gt;在我加入「&lt;a href=&quot;https://www.maihaoche.com&quot; target=&quot;_blank&quot; rel=&quot;nofollow external&quot;&gt;买好车&lt;/a&gt;」后第一次把项目代码从远程仓库拉取到本地时——「这是什么玩意？！」——我的内心是震惊并诧异的。&lt;/p&gt;
+        
+          <dc:creator>欧雷</dc:creator>
+          <author>ourairyu@gmail.com (欧雷)</author>
+        
+        
+          <description>&lt;p&gt;在我加入「&lt;a href=&quot;https://www.maihaoche.com&quot; target=&quot;_blank&quot; rel=&quot;nofollow external&quot;&gt;买好车&lt;/a&gt;」后第一次把项目代码从远程仓库拉取到本地时——「这是什么玩意？！」——我的内心是震惊并诧异的。&lt;/p&gt;
 
-&lt;p&gt;为什么我会有如此反应？&lt;/p&gt;
-
-&lt;p&gt;「&lt;a href=&quot;https://www.maihaoche.com&quot; target=&quot;_blank&quot; rel=&quot;nofollow external&quot;&gt;买好车&lt;/a&gt;」是一家具有阿里基因的公司，创始人和员工很多来自阿里。众所周知，阿里的技术是很不错的，基本每年都会主办一些技术会议，有些技术书籍也是阿里人著作或翻译的。因此，心理上会对他们在技术方面有较高的预期。然而，呈现在眼前的现实将我从幻想中拉了出来……&lt;/p&gt;
-
-&lt;h2 id=&quot;section&quot;&gt;代码维护&lt;/h2&gt;
-
-&lt;p&gt;不像大部分团队那样前后端代码放在一起维护，我们的项目代码是分开管理、维护的，即前后端代码不在同一个 Git 仓库当中。前端代码只有一个仓库，存放了公用资源、活动页、主站等不同业务线的代码，每个项目是一个目录；后端代码以项目为单位分为几个不同的仓库存放。部署上线也是分开进行。&lt;/p&gt;
-
-&lt;p&gt;这种做法美其名曰「前后端分离」，实际到底是不是，值得思考。&lt;/p&gt;
-
-&lt;h2 id=&quot;git-&quot;&gt;Git 的使用&lt;/h2&gt;
-
-&lt;p&gt;团队在使用 Git 时主要存在两方面问题：分支管理策略和代码提交准则。&lt;/p&gt;
-
-&lt;h3 id=&quot;section-1&quot;&gt;分支管理策略&lt;/h3&gt;
-
-&lt;p&gt;每次打开 SourceTree，首先映入眼帘的就是五颜六色的「彩虹线」——&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/posts/20160204/git-graph-565e38c738a092dfa68e74f5551e2899.png&quot; alt=&quot;提交记录图表&quot; style=&quot;max-width: 284px;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;和好些过期的分支——&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;.
-└─┬─ origin
-  ├─── dev_frontend
-  ├─── dev_general
-  ├─── dev_inquiry
-  ├─── dev_maiche
-  ├─── pub_20160111
-  ├─── pub_20160112
-  ├─── pub_20160113
-  ├─── pub_20160114
-  ├─── pub_20160128
-  ├─── pub_20160202
-  └─── ...&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;看得我简直是头晕目眩，不知从何「编」起啊！&lt;/p&gt;
-
-&lt;p&gt;造成这种情况的最直接的原因就是，没有一个好的分支管理策略。这里的分支管理策略是这样的：&lt;/p&gt;
-
-&lt;p&gt;每周有两个固定的发布日，在每个发布日之前某个管理发布的测试工程师（是的，我们没有运维工程师）会基于 &lt;code&gt;master&lt;/code&gt; 分支创建前缀为 &lt;code&gt;pub_&lt;/code&gt; 的发布分支，在发布之前会将要发布的内容都汇总在这个分支上进行测试，通过后再合并到 &lt;code&gt;master&lt;/code&gt; 分支上进行发布。然而，发布完不会立刻将那个分支删掉，而是要保留几个星期以避免出问题。这样就会像上图中那样有好多过期的分支留在那里。&lt;/p&gt;
-
-&lt;p&gt;有些不是立刻发布的内容，后端工程师们就会自己基于 &lt;code&gt;master&lt;/code&gt; 分支创建出 &lt;code&gt;dev_&lt;/code&gt; 为前缀的分支来开发新内容。&lt;/p&gt;
-
-&lt;p&gt;虽然他们在创建分支时都是有一定的规则，但这种做法产生了一些「垃圾」分支，以及使 &lt;code&gt;master&lt;/code&gt; 分支看起来不那么稳定，像定时炸弹一样随时会「嘭」！&lt;/p&gt;
-
-&lt;p&gt;我觉得团队中应该采用 Git Flow 来管理分支，这是一个不知经过多少团队验证的分支模型，我有信心它能够应对我们团队所遇到的各种场景。&lt;/p&gt;
-
-&lt;h3 id=&quot;section-2&quot;&gt;代码提交准则&lt;/h3&gt;
-
-&lt;p&gt;我们团队的 Git 提交记录很「简单」，要么写着几个简单的字母或词语，要么就是合并分支时生成的节点，一眼望去根本不知道那些人到底做了什么。这如果是想查找某个功能点的更改记录，得逐个节点去分析。&lt;/p&gt;
-
-&lt;p&gt;在使用 Git 时应该遵守一个基本原则——使提交记录尽可能简洁详细，看它就像读一本书。要达到这种效果，只需牢记几点：&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;控制提交粒度；&lt;/li&gt;
-  &lt;li&gt;填好提交信息；&lt;/li&gt;
-  &lt;li&gt;调节推送频率；&lt;/li&gt;
-  &lt;li&gt;多衍合少合并。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;要使每个提交都具有意义，粒度最好控制为一个小 feature 或者一个 bug fix，这样进行恢复等操作时能够将「误伤」减到最低。&lt;/p&gt;
-
-&lt;p&gt;一个好的提交信息是，用一句简练的话写在第一行，然后空一行略微详细地阐述该提交所增加或修改的地方：&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;Redirect user to the requested page after login
-
-https://trello.com/path/to/relevant/card
-
-Users were being redirected to the home page after login, which is less
-useful than redirecting to the page they had originally requested before
-being redirected to the login form.
-
-* Store requested path in a session variable
-* Redirect to the stored location after successfully logging in the user&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;不要每提交一次就推送一次，多积攒几个提交后一次性推送，这样可以避免前一个提交后发现代码中还有小错误，这时可以通过衍合进行提交的合并或者信息修改。&lt;/p&gt;
-
-&lt;p&gt;为了保持图表清晰和代码完整性，要掌握好提交和推送操作的时机——&lt;/p&gt;
-
-&lt;p&gt;还没有推送到远程仓库时，如无必要则只提交不要推送，只在需要与他人配合开发时再推送。当所在分支已经完成职责时，需将父级分支的代码衍合到当前分支（得先保证父级分支在本地是最新的），然后合并至父级分支并删除当前分支。理想情况是，&lt;strong&gt;这个分支的整个生命周期没有进行过一次推送操作&lt;/strong&gt;。&lt;/p&gt;
-
-&lt;p&gt;当已经推送到远程仓库时，先积累几个提交的内容而不去做提交操作，等到要推送时先拉取代码到本地，然后按照上述粒度做几次提交，再推送到远程服务器。这种操作流程能够有效避免因代码冲突而造成的提交丢失等意想不到的问题，以及减少因合并产生的提交节点。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/posts/20160204/git-merge-59f3720b01fc28ce52a021216319b41a.png&quot; alt=&quot;合并分支产生的节点&quot; style=&quot;max-width: 280px;&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;section-3&quot;&gt;扩展阅读&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;http://nvie.com/posts/a-successful-git-branching-model/&quot; target=&quot;_blank&quot; rel=&quot;nofollow external&quot;&gt;A successful Git branching model&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://robots.thoughtbot.com/5-useful-tips-for-a-better-commit-message&quot; target=&quot;_blank&quot; rel=&quot;nofollow external&quot;&gt;5 Useful Tips For A Better Commit Message&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://chris.beams.io/posts/git-commit/&quot; target=&quot;_blank&quot; rel=&quot;nofollow external&quot;&gt;How to Write a Git Commit Message&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;section-4&quot;&gt;前端工程&lt;/h2&gt;
-
-&lt;p&gt;与整个技术团队相比，前端团队中所存在的问题更多更为严重！基本可以概括为以下几点：&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Git 仓库混杂了很多不同的业务；&lt;/li&gt;
-  &lt;li&gt;源代码复用性低；&lt;/li&gt;
-  &lt;li&gt;没有合理使用构建工具；&lt;/li&gt;
-  &lt;li&gt;静态资源文件的发布流程繁琐；&lt;/li&gt;
-  &lt;li&gt;活动页面的编写方式麻烦，并且对搜索引擎不友好。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;我作为一名前端工程师，虽然暂时无法去对整个技术团队做些什么，但是作为前端团队的一员，却可以在前端团队中做些力所能及的事情。在我看来，「有问题」就代表着「机遇」，该是我大展拳脚的时候了！想起来都觉得肾上腺素大量分泌，热血沸腾！&lt;/p&gt;
-
-&lt;p&gt;那么，我该做些什么呢？&lt;/p&gt;
-
-&lt;p&gt;我所想到的能够提高前端团队工作效率和生产力的手段有：&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;制定编码及文件存放等的规范和约定；&lt;/li&gt;
-  &lt;li&gt;选择高效的语言编写源码；&lt;/li&gt;
-  &lt;li&gt;选择合适的自动化工具；&lt;/li&gt;
-  &lt;li&gt;保证以上几条顺利执行的措施。&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;为了提高前端团队的整体素质和实力，需要做的事情还有很多。想要完成这些不是一朝一夕的事情，前端工程优化之路任重而道远啊……&lt;/p&gt;
-
-&lt;p&gt;想在已有的项目上进行改造会存在着很大的阻力，幸好这时公司业务拓展要开发新项目。决定从这新的项目着手，小试牛刀，总结出一套方案后推行整改到其他项目。&lt;/p&gt;
-
-&lt;p&gt;以本文为引，往后会写几篇关于我们前端团队建设的文章，敬请期待！&lt;/p&gt;
 </description>
+        
         <pubDate>Thu, 04 Feb 2016 16:35:36 +0800</pubDate>
-        <link>/posts/engineering-problems-of-frontend-development/</link>
-        <guid isPermaLink="true">/posts/engineering-problems-of-frontend-development/</guid>
+        <link>http://ourai.ws//posts/engineering-problems-of-frontend-development/</link>
+        <guid isPermaLink="true">http://ourai.ws//posts/engineering-problems-of-frontend-development/</guid>
+        
+        <category>web-development</category>
+        
         
         <category>frontend-web-development</category>
         
@@ -215,315 +37,40 @@ being redirected to the login form.
         
         <category>maihaoche</category>
         
-        
-        <category>web-development</category>
-        
       </item>
     
       <item>
         <title>嘿！土好吃吗？</title>
-        <description>&lt;p&gt;夜深人静之时，「叮」一声，手机屏亮了。还以为谁会这么晚找我，一看发件人「招商银行信用卡」，原来是我刚刚的付款通知——海淘了两件外套和一个电脑包中包，又一千多软妹币没了……&lt;/p&gt;
+        
+          <dc:creator>欧雷</dc:creator>
+          <author>ourairyu@gmail.com (欧雷)</author>
+        
+        
+          <description>&lt;p&gt;夜深人静之时，「叮」一声，手机屏亮了。还以为谁会这么晚找我，一看发件人「招商银行信用卡」，原来是我刚刚的付款通知——海淘了两件外套和一个电脑包中包，又一千多软妹币没了……&lt;/p&gt;
 
-&lt;p&gt;发信息给我的微信好友中，除了女票，最多的恐怕就是小招童鞋了。他成天在我耳边说：「嘿，欧雷童鞋！你又欠了我＊＊＊元哦！」叨逼叨，叨逼叨，耳朵都要起茧子了！&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/posts/20151123/boring-7ae576627ab7a31077c0b97de65ab053.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;不过想想，他也是好意，提醒我最近花钱如流水，再不剁手就小命不保了，地球的土都已经不够我吃了……&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/posts/20151123/dilutedness-b825dc68928e0f7e54f4f9026d76a2b0.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;虽然 10 月份刚开始没多久就花了些钱网购，但大额的频繁购物还要从 20 日那天说起。那是一个较特殊的日子——小牛 N1 智能电动车再次发售。在那大概一个月前，同事中有人想抢购此车，因为它是小米式的饥饿营销模式。以之为契机，我知道了这个产品，并从官网上了解了一下信息，当时并没什么想法。&lt;/p&gt;
-
-&lt;p&gt;然而，在那一个月期间，感到上班乘公交太挤且有时等车过久，下班打车费钱还难叫到车，再加上在女票家骑电动车有点上瘾了，于是迫切希望入手一辆！再三考虑并与女票协商后经她同意，决定参加这一次的抢购活动。在舍弃午饭用三个浏览器开了几十个网页等了一个多小时困得意识模糊之际，看到了页面提醒——我抢到了！一辆红色的动力版！算邮费五千多元，这绝对算得上是国内市场中最贵的电动车了！选择小牛，主要是因为它的高颜值，其次是速度快、续航久，然后是有对应的 APP 检测查看车况。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/posts/20151123/niu-1621f7e06e91efcc80d63e3747f42f07.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;以此为起点，这一个多月里我进行了很多「败家」行为，虽然自己认为这些钱都是必花的。先上一个表格来大概地理下从 10 月初到现在的网购开销——&lt;/p&gt;
-
-&lt;table class=&quot;table table-bordered&quot;&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;日期&lt;/th&gt;
-      &lt;th&gt;物品&lt;/th&gt;
-      &lt;th&gt;价格&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;10.03&lt;/td&gt;
-      &lt;td&gt;JetDrive Lite 330&lt;/td&gt;
-      &lt;td&gt;486&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;10.09&lt;/td&gt;
-      &lt;td&gt;A4 包中包&lt;/td&gt;
-      &lt;td&gt;155&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;10.20&lt;/td&gt;
-      &lt;td&gt;&lt;strong&gt;小牛电动 N1 智能电动踏板车&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;&lt;strong&gt;5257（动力版 4999＋邮费 258）&lt;/strong&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;10.25&lt;/td&gt;
-      &lt;td&gt;《HTML5＋CSS3 网页设计入门必读（套装共 2 册）》&lt;/td&gt;
-      &lt;td&gt;29.9&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt;《学习响应式设计》&lt;/td&gt;
-      &lt;td&gt;55.2&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt;《移动优先＋响应式 Web 设计（套装共 2 册）》 x 2&lt;/td&gt;
-      &lt;td&gt;37.5&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt;《成为技术领导者：掌握全面解决问题的方法》&lt;/td&gt;
-      &lt;td&gt;53.8&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt;《程序开发心理学（银年纪念版）》&lt;/td&gt;
-      &lt;td&gt;61.5&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt;《HTTP 权威指南》&lt;/td&gt;
-      &lt;td&gt;68.1&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;10.26&lt;/td&gt;
-      &lt;td&gt;Snugpak Sleeka Force 背包（35L，日本限定色）&lt;/td&gt;
-      &lt;td&gt;846&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;10.27&lt;/td&gt;
-      &lt;td&gt;《Web 信息架构：设计大型网站（第 3 版）》&lt;/td&gt;
-      &lt;td&gt;71&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt;《高流量网站 CSS 开发技术》&lt;/td&gt;
-      &lt;td&gt;56.7&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt;《RESTful Web APIs 中文版》&lt;/td&gt;
-      &lt;td&gt;60&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt;《Web 性能权威指南》&lt;/td&gt;
-      &lt;td&gt;51.5&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt;《数据结构与算法 JavaScript 描述》&lt;/td&gt;
-      &lt;td&gt;37.5&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt;《Web 性能实践日志》&lt;/td&gt;
-      &lt;td&gt;28.9&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;10.28&lt;/td&gt;
-      &lt;td&gt;数码收纳包&lt;/td&gt;
-      &lt;td&gt;98&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;10.29&lt;/td&gt;
-      &lt;td&gt;抱枕被 x 3&lt;/td&gt;
-      &lt;td&gt;295.3&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt;记忆枕&lt;/td&gt;
-      &lt;td&gt;238&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;11.01&lt;/td&gt;
-      &lt;td&gt;雨衣（骑车用） x 2&lt;/td&gt;
-      &lt;td&gt;109.9&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt;头盔（骑车用）&lt;/td&gt;
-      &lt;td&gt;174&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;11.02&lt;/td&gt;
-      &lt;td&gt;防风镜＋面具（骑车用）&lt;/td&gt;
-      &lt;td&gt;180&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;11.03&lt;/td&gt;
-      &lt;td&gt;车贴&lt;/td&gt;
-      &lt;td&gt;30&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;11.04&lt;/td&gt;
-      &lt;td&gt;《引爆点》&lt;/td&gt;
-      &lt;td&gt;15（Kindle 版）&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt;《疯传：让你的产品、思想、行为像病毒一样入侵》&lt;/td&gt;
-      &lt;td&gt;25（Kindle 版）&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt;《SEO 实战密码：60 天网站流量提高 20 倍（第 3 版）》&lt;/td&gt;
-      &lt;td&gt;73&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;11.05&lt;/td&gt;
-      &lt;td&gt;鞋&lt;/td&gt;
-      &lt;td&gt;219&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt;电动车踏板垫&lt;/td&gt;
-      &lt;td&gt;35&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;11.10&lt;/td&gt;
-      &lt;td&gt;Snugpak Berge 背包（100L）&lt;/td&gt;
-      &lt;td&gt;1097.04&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;11.11&lt;/td&gt;
-      &lt;td&gt;&lt;strong&gt;iPad Pro WLAN 128GB&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;&lt;strong&gt;6888&lt;/strong&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt;iPad Pro Smart Cover&lt;/td&gt;
-      &lt;td&gt;438&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;11.16&lt;/td&gt;
-      &lt;td&gt;《乌合之众》&lt;/td&gt;
-      &lt;td&gt;7.99（Kindle 版）&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt;《语言本能》＋《思想本质》&lt;/td&gt;
-      &lt;td&gt;167.41&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;11.17&lt;/td&gt;
-      &lt;td&gt;iPad Pro 硅胶保护壳&lt;/td&gt;
-      &lt;td&gt;598&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt;Apple Pencil&lt;/td&gt;
-      &lt;td&gt;728&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt;《社会性动物（第 9 版）》&lt;/td&gt;
-      &lt;td&gt;33.3&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt;《暗时间》&lt;/td&gt;
-      &lt;td&gt;25.2&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt;《构建之法：现代软件工程（第 2 版）》&lt;/td&gt;
-      &lt;td&gt;51.1&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;11.18&lt;/td&gt;
-      &lt;td&gt;&lt;strong&gt;iPhone 6s 64GB&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;&lt;strong&gt;6088&lt;/strong&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;11.22&lt;/td&gt;
-      &lt;td&gt;POWER TO THE PEOPLE 外套 x 2&lt;/td&gt;
-      &lt;td&gt;970（未算邮费）&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt;ELECOM 13.3 英寸电脑包中包&lt;/td&gt;
-      &lt;td&gt;136（未算邮费）&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt;iPhone 手机壳 x 2&lt;/td&gt;
-      &lt;td&gt;52&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt;《富爸爸穷爸爸》&lt;/td&gt;
-      &lt;td&gt;6（Kindle 版）&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;在用计算器从上到下相加时，看到数字跳动的感觉像是天猫「双十一」大屏幕交易额，然而我的心情和马云却截然不同——忐忑！看到计算结果，我简直是惊呆了……&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/posts/20151123/gross-637c1409d8056b26317b4b00bc897c0d.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;这只是线上消费，算上线下的各种费用的话，总花费三万以上毫不夸张！我真的很佩服自己的消费能力，比女人还会花钱……&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/posts/20151123/perk-it-38437e997895c0b2d28a1e71dd478f74.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;我没有乱花钱！我没有乱花钱！！我没有乱花钱！！！&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/posts/20151123/say-3-times-74bac74016fd80a1f998733ac0afc2a1.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;虽然这不到两个月的时间花了很多钱，虽然看起来我就是在装逼，但我真的，并没有！！！这一定要为自己洗白！&lt;/p&gt;
-
-&lt;p&gt;整体来看，表中的消费主要归为以下几类：&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;电动车及相关用品&lt;/li&gt;
-  &lt;li&gt;iPad Pro 和周边配件&lt;/li&gt;
-  &lt;li&gt;背包与包中包&lt;/li&gt;
-  &lt;li&gt;书籍&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;既然买了电动车，人身安全和车保养必然应当重视，头盔、防风镜、面罩、雨衣和踏板垫都属必需品；车贴虽不是必需的，但个性化对我来说还是挺重要的，越来越多骑小牛的，我可不想看起来跟他们一样！&lt;/p&gt;
-
-&lt;p&gt;我已经有了 iPad Air 2，显然 iPad Pro 的大部分功能已经重合，没什么买的必要，然而它看视频和绘画的体验是 iPad Air 2 无法企及的；它的键盘输入体验很是不好，并且对我而言是个鸡肋，所以没有购入 Smart Keyboard。&lt;/p&gt;
-
-&lt;p&gt;我的电脑背包容量才 20L 左右，没装啥东西就满了，因为陪女票回家或到外地游玩时需带些洗漱用品和换洗衣服，就买了个稍大些标明是「35L」的背包；又因为回老家时不想拖行李箱和托运，所以又买了一个 100L 的可拆卸大背包，但愿能够顺利上机；包中包就是为了能够合理利用背包空间而买的。&lt;/p&gt;
-
-&lt;p&gt;书籍就不用说了，为了提高自己专业技能和扩展知识面，从而赚更多的钱提升生活品质，实现人生理想！&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/posts/20151123/winner-of-life-a9af39cde8c352d134690a847cce144a.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;说了这么多，无非就是为自己的愚蠢行为找借口充正当理由。总体来说，我的消费观念是好的，前卫的，西方化的——用未来的钱来享受现在的生活（行为较为危险，请勿随便模仿）——正如铜板街 CEO 何俊在我们公司发布会上说的那样。然而，现在存在一些瑕疵，构成了「超前消费」的危险因素。我应该反思一下这些消费行为是不是有的是冲动消费性质的，可以尽量避免或者延后执行的？&lt;/p&gt;
-
-&lt;p&gt;我的理财意识才萌芽不久，很遗憾；它在我还称得上「年轻」的时候萌芽了，很庆幸。只有在完善了自己的消费观念和培养了出色的理财投资能力之后，我才有可能住进 dream house，开上 dream car，过上 dream life！虽然我的梦想在大部分人眼中看来就是梦，但我有「现实扭曲力场」。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/posts/20151123/confidence-8ee38c0ae4246ab999b398300b7e9f11.gif&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;（此处应有掌声……）&lt;/p&gt;
 </description>
+        
         <pubDate>Mon, 23 Nov 2015 05:26:21 +0800</pubDate>
-        <link>/posts/need-to-learn-investing/</link>
-        <guid isPermaLink="true">/posts/need-to-learn-investing/</guid>
+        <link>http://ourai.ws//posts/need-to-learn-investing/</link>
+        <guid isPermaLink="true">http://ourai.ws//posts/need-to-learn-investing/</guid>
+        
+        <category>life</category>
+        
         
         <category>消费观</category>
         
         <category>理财</category>
         
-        
-        <category>life</category>
-        
       </item>
     
       <item>
         <title>用 Git Hooks 进行自动部署</title>
-        <description>&lt;p&gt;昨天开始接手开发公司前端团队的主页，在稍微修改点东西后推送到远程仓库想看下线上结果时发现并没有更改！询问一把手得知，居然还需要连接到服务器执行一下 &lt;code&gt;git pull&lt;/code&gt; 才行……对于我这种怕麻烦的人来说，简直不能忍！&lt;/p&gt;
+        
+          <dc:creator>欧雷</dc:creator>
+          <author>ourairyu@gmail.com (欧雷)</author>
+        
+        
+          <description>&lt;p&gt;昨天开始接手开发公司前端团队的主页，在稍微修改点东西后推送到远程仓库想看下线上结果时发现并没有更改！询问一把手得知，居然还需要连接到服务器执行一下 &lt;code&gt;git pull&lt;/code&gt; 才行……对于我这种怕麻烦的人来说，简直不能忍！&lt;/p&gt;
 &lt;p&gt;经过一番查找资料以及一顿折腾，终于让它能够自动跑起来了，真是高兴得我手舞足蹈啊！虽然弄了较长时间，在实践的过程中踩了点坑，但回过头来一看还是挺简单的。总的来说，就只是在服务器和本机都做一下配置。（这不废话么……）&lt;/p&gt;
 &lt;p&gt;由于公司的服务器是 CentOS，我所使用的电脑是 Mac OS X，故本文内容是基于这两个系统环境所写。GUI 在给用户带来很多便利的同时也隐藏了一些不便，如：需要下载应用软件及在操作界面交互。鉴于本文的中心是「自动化」，所以一切操作都采用命令行——&lt;/p&gt;
 &lt;section&gt;
@@ -556,32 +103,14 @@ git checkout master&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
   &lt;h3&gt;配置 Git Hook&lt;/h3&gt;
   &lt;p&gt;将目录切换至 &lt;code&gt;/home/USER/repos/BRIDGE_REPO.git/hooks&lt;/code&gt;，用 &lt;code&gt;cp post-receive.sample post-receive&lt;/code&gt; 复制并重命名文件后用 &lt;code&gt;vim post-receive&lt;/code&gt; 修改。其内容大致如下：&lt;/p&gt;
 
-  &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span class=&quot;c&quot;&gt;#!/bin/sh&lt;/span&gt;
-
-&lt;span class=&quot;nb&quot;&gt;unset &lt;/span&gt;GIT_DIR
-
-&lt;span class=&quot;nv&quot;&gt;NowPath&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;pwd&lt;/span&gt;&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;DeployPath&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;../../www&amp;quot;&lt;/span&gt;
-
-&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$DeployPath&lt;/span&gt;
-git pull origin master
-
-&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$NowPath&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;exit &lt;/span&gt;0&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-  &lt;p&gt;使用 &lt;code&gt;chmod +x post-receive&lt;/code&gt; 改变一下权限后，服务器端的配置就基本完成了。&lt;/p&gt;
-  &lt;h3&gt;更新本机的仓库源&lt;/h3&gt;
-  &lt;p&gt;在原有的（托管代码的）仓库上加入刚才所配置的服务器上的远程仓库的地址为源，以后往那个源推送代码后就会自动部署了。&lt;/p&gt;
-&lt;/section&gt;
-&lt;section&gt;
-  &lt;h2&gt;总结&lt;/h2&gt;
-  &lt;p&gt;在搭建环境时并没有一帆风顺，磕磕绊绊遇到不少问题，虽然很多不值得一提，但有的点还是有记录并分享的价值的！&lt;/p&gt;
-  &lt;h3&gt;SSH 私钥「认证」&lt;/h3&gt;
-  &lt;p&gt;&lt;a href=&quot;http://segmentfault.com/q/1010000000835302/a-1020000000883441&quot; target=&quot;_blank&quot;&gt;将生成的私钥进行「认证」有不止一种方式&lt;/a&gt;，然而，起初我用的是最挫最不靠谱的 &lt;code&gt;ssh-add ~/.ssh/PRIVATE_KEY&lt;/code&gt;——只是在当前 session 有效，一重启就又会被「询问」了！&lt;/p&gt;
-&lt;/section&gt;
 </description>
+        
         <pubDate>Sat, 10 Oct 2015 01:29:38 +0800</pubDate>
-        <link>/posts/deployment-with-git-hooks/</link>
-        <guid isPermaLink="true">/posts/deployment-with-git-hooks/</guid>
+        <link>http://ourai.ws//posts/deployment-with-git-hooks/</link>
+        <guid isPermaLink="true">http://ourai.ws//posts/deployment-with-git-hooks/</guid>
+        
+        <category>web-development</category>
+        
         
         <category>git</category>
         
@@ -591,71 +120,47 @@ git pull origin master
         
         <category>linux</category>
         
-        
-        <category>web-development</category>
-        
       </item>
     
       <item>
         <title>当我想跳槽时，我在想什么？</title>
-        <description>&lt;p&gt;我们的干爹——马云，曾经说过：「员工的离职原因很多，只有两点最真实：1. 钱，没给到位；2. 心，委屈了。」&lt;/p&gt;
+        
+          <dc:creator>欧雷</dc:creator>
+          <author>ourairyu@gmail.com (欧雷)</author>
+        
+        
+          <description>&lt;p&gt;我们的干爹——马云，曾经说过：「员工的离职原因很多，只有两点最真实：1. 钱，没给到位；2. 心，委屈了。」&lt;/p&gt;
 
-&lt;p&gt;现在所在的公司是我来杭州后的第二家公司，已经将近两年半。&lt;/p&gt;
-
-&lt;p&gt;月初时，薪资结构有了些调整，主要的变动就是绩效奖金基数提高以及——终于 13 了！过几天收到工资条后才知道，然而并没有什么卵用！看了最后一栏的数字，我的心里在流液体，不知是透明的还是红色的……待了这么久，即使没有感情，也有汗水；没有功劳，也有苦劳吧？&lt;/p&gt;
-
-&lt;p&gt;那周末，约丨爷出来聊天，没想到被他再来一记重锤——他买房了，并且自己付的首付！我深深地感受到现在我们之间的差距，其主要原因就是工资和年终福利，也就是公司。我不想继续被拉大距离，不然连朋友都没得做了！&lt;/p&gt;
-
-&lt;p&gt;可以说，现在的公司是在我的看望下成长的。然而，时光飞逝，其业务并没什么长进，连市场都没打开。我是一个开发者，外行眼中的程序员，不是寻求安逸稳定的公务员；我是一个拥有多年经验的开发者，有理想，有追求。&lt;/p&gt;
-
-&lt;p&gt;我想在自己的专业领域取得十足的发展，需要一个拥有牛人的技术氛围好的开发团队；我不仅要生存，还要进行生活的基础建设，需要一份不输于行业标准的薪资；虽然我不追求安逸稳定，但还是想只为一家公司鞠躬尽瘁，希望公司能够一直吸引我。&lt;/p&gt;
-
-&lt;p&gt;然而，假如现在有那么一家满足我各种需求的公司摆在面前，我能为它做些什么呢？&lt;/p&gt;
-
-&lt;p&gt;别的不清楚，倒是知道自己所具备的以下几个特点会为公司产生价值：&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;求知欲，在感兴趣的事情上喜欢刨根问底；&lt;/li&gt;
-  &lt;li&gt;上进心，完善自己的同时也能加强对工作上的一些事情；&lt;/li&gt;
-  &lt;li&gt;整理癖，最喜欢收集并整理信息资料了；&lt;/li&gt;
-  &lt;li&gt;（一定程度的）自知之明，虽然有的人觉得我「很厉害」，但我知道自己「尚需努力」。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;一切，都是为了理想。&lt;/p&gt;
 </description>
+        
         <pubDate>Mon, 17 Aug 2015 23:57:00 +0800</pubDate>
-        <link>/posts/why-do-i-wanna-quit/</link>
-        <guid isPermaLink="true">/posts/why-do-i-wanna-quit/</guid>
-        
-        <category>跳槽</category>
-        
+        <link>http://ourai.ws//posts/why-do-i-wanna-quit/</link>
+        <guid isPermaLink="true">http://ourai.ws//posts/why-do-i-wanna-quit/</guid>
         
         <category>life</category>
+        
+        
+        <category>跳槽</category>
         
       </item>
     
       <item>
         <title>在 Mac OS X 中搭建 Apache + PHP + MySQL 开发环境</title>
-        <description>&lt;p&gt;我所使用的操作系统是 Mac OS X Yosemite，自带 Apache 和 PHP，所以不用安装，只需稍微修改一下配置文件即可。&lt;/p&gt;
-
-&lt;h2 id=&quot;apache&quot;&gt;启动 Apache&lt;/h2&gt;
-
-&lt;p&gt;打开终端，输入 &lt;code&gt;sudo apachectl start&lt;/code&gt; 后即可启动 Apache。访问 &lt;code&gt;http://localhost/&lt;/code&gt; 会看到 &lt;code&gt;It works!&lt;/code&gt; 字样。&lt;/p&gt;
-
-&lt;h2 id=&quot;php&quot;&gt;启用 PHP&lt;/h2&gt;
-
-&lt;p&gt;修改 &lt;code&gt;/etc/apache2/httpd.conf&lt;/code&gt; 文件的配置，将 &lt;code&gt;#LoadModule php5_module libexec/apache2/libphp5.so&lt;/code&gt; 前面的 &lt;code&gt;#&lt;/code&gt; 去掉后，在终端中输入 &lt;code&gt;sudo apachectl restart&lt;/code&gt; 重启 Apache 后 PHP 就能够正常使用了！&lt;/p&gt;
-
-&lt;p&gt;不过，用默认的目录开发很是不方便，还好可以自定义工作目录。同样是在 &lt;code&gt;/etc/apache2/httpd.conf&lt;/code&gt; 文件中，将 &lt;code&gt;DocumentRoot &quot;/Library/WebServer/Documents&quot;&lt;/code&gt; 和 &lt;code&gt;&amp;lt;Directory &quot;/Library/WebServer/Documents&quot;&amp;gt;&lt;/code&gt; 中引号内的路径改为自己的路径即可。新建一个 &lt;code&gt;index.php&lt;/code&gt; 文件，代码为 &lt;code&gt;&amp;lt;?php phpinfo(); ?&amp;gt;&lt;/code&gt;，用浏览器访问 &lt;code&gt;http://localhost/&lt;/code&gt; 就能够看到结果。&lt;/p&gt;
-
-&lt;h2 id=&quot;mysql&quot;&gt;安装 MySQL&lt;/h2&gt;
-
-&lt;p&gt;参考 &lt;a href=&quot;http://www.piaoyi.org/php/568.html&quot;&gt;http://www.piaoyi.org/php/568.html&lt;/a&gt;&lt;/p&gt;
+        
+          <dc:creator>欧雷</dc:creator>
+          <author>ourairyu@gmail.com (欧雷)</author>
+        
+        
+          <description>&lt;p&gt;我所使用的操作系统是 Mac OS X Yosemite，自带 Apache 和 PHP，所以不用安装，只需稍微修改一下配置文件即可。&lt;/p&gt;
 
 </description>
+        
         <pubDate>Mon, 20 Jul 2015 23:54:00 +0800</pubDate>
-        <link>/posts/apache-mysql-php-on-mac-os/</link>
-        <guid isPermaLink="true">/posts/apache-mysql-php-on-mac-os/</guid>
+        <link>http://ourai.ws//posts/apache-mysql-php-on-mac-os/</link>
+        <guid isPermaLink="true">http://ourai.ws//posts/apache-mysql-php-on-mac-os/</guid>
+        
+        <category>web-development</category>
+        
         
         <category>Apache</category>
         
@@ -667,343 +172,108 @@ git pull origin master
         
         <category>开发环境</category>
         
-        
-        <category>web-development</category>
-        
       </item>
     
       <item>
         <title>与心魔之战</title>
-        <description>&lt;p&gt;今天是星期三，我已经跟自己的心魔较量了四天。虽然这些天内心一直在争斗，但是与不同的对象，也就是说是不同的“心魔”。第一个已经被我打倒，暂时不会起来；第二个正在搏斗，目前我占上风。&lt;/p&gt;
-
-&lt;p&gt;这两个心魔分别是什么，不方便说也不想说，写本篇文字的目的在于记录、梳理一下自己的心情和思考结论。&lt;/p&gt;
-
-&lt;p&gt;在内心争斗的过程中，情绪极度低沉，觉得自己变得十分脆弱，仿佛一口气就能粉碎我的心灵；这时的我，十分痛苦、消极、敏感，承受不了任何外界带来的压力，仿佛一粒尘就能压断我绷紧的神经。我不知道处于那种状态的我是一副什么表情，但我觉得自己身上好像散发出浓烈的阴郁气息，就像超级赛亚人所释放的气，其他人看到这样的我都是敬而远之吧？感觉自己像是没了灵魂的行尸走肉，头脑空白并目光呆滞地走着路，不知要走向哪里。这种痛苦不知道以前是否有过，但在我印象中，没有。虽然不是撕心裂肺，但有种类似于绝望了的心情。这期间，我不知默默地流了多少泪，一个人的战斗就是如此的艰辛和酸楚。&lt;/p&gt;
-
-&lt;p&gt;还好，我现在想通了，甩掉了，走出来了！即使过不久它们也许会再次过来纠缠我，但我相信自己能够很快地再度将它们打倒！因为，经过它们的磨砺，我的内心已经变得比四天之前更为强大了！&lt;/p&gt;
-
-&lt;p&gt;虽然是两个心魔，但它们都可划分为一类——人性与现实的矛盾。我是如何战胜心魔的也不方便说，我只说说感悟——&lt;/p&gt;
-
-&lt;p&gt;实际上，世上没什么是重要的，家人、亲人、爱人、自己、孩子、金钱、理想，统统是虚无。做为个体，自己及相关的一切当然大过于天，然而对于土地、自然、地球、宇宙来说却是沧海一粟；现在的痛苦、烦恼虽然在当下折磨得自己死去活来，但在几十年的人生长河中却是不值得一提。所以，我们为什么要执着于那些看起来不起眼的事情？为什么要惩罚自己？因为我们是凡人，因为我们有七情六欲，因为我们自私。想要在拥有人形时却不为世间所烦恼的话，那就摒弃人性，忘掉七情六欲——不做“人”。&lt;/p&gt;
-
-&lt;p&gt;谢谢心魔，让我能够将自己的注意力专注于让我痛苦的事情上而不是其他，让我能够静心地去思考，从而让我成长。&lt;/p&gt;
-
-&lt;p&gt;正因为克服了那些原以为无法克服的困难，才会变得更加强大！&lt;/p&gt;
-</description>
-        <pubDate>Wed, 22 Apr 2015 17:57:00 +0800</pubDate>
-        <link>/posts/fight-with-evil-in-heart/</link>
-        <guid isPermaLink="true">/posts/fight-with-evil-in-heart/</guid>
         
+          <dc:creator>欧雷</dc:creator>
+          <author>ourairyu@gmail.com (欧雷)</author>
+        
+        
+          <description>&lt;p&gt;今天是星期三，我已经跟自己的心魔较量了四天。虽然这些天内心一直在争斗，但是与不同的对象，也就是说是不同的“心魔”。第一个已经被我打倒，暂时不会起来；第二个正在搏斗，目前我占上风。&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Wed, 22 Apr 2015 17:57:00 +0800</pubDate>
+        <link>http://ourai.ws//posts/fight-with-evil-in-heart/</link>
+        <guid isPermaLink="true">http://ourai.ws//posts/fight-with-evil-in-heart/</guid>
         
         <category>life</category>
+        
         
       </item>
     
       <item>
         <title>网站性能优化·前端篇</title>
-        <description>&lt;blockquote&gt;
+        
+          <dc:creator>欧雷</dc:creator>
+          <author>ourairyu@gmail.com (欧雷)</author>
+        
+        
+          <description>&lt;blockquote&gt;
   &lt;p&gt;我们的目标是优先显示与用户要在网页上执行的主要操作有关的内容。&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;上面这句话出自《&lt;a href=&quot;https://developers.google.com/web/fundamentals/performance/critical-rendering-path/&quot; target=&quot;_blank&quot; rel=&quot;external nofollow&quot;&gt;关键呈现路径&lt;/a&gt;》。&lt;/p&gt;
-
-&lt;h2 class=&quot;heading&quot; id=&quot;section&quot;&gt;什么是前端性能？&lt;/h2&gt;
-
-&lt;p&gt;前端性能简单来说就是&lt;strong&gt;能看到页面内容的时间&lt;/strong&gt;以及&lt;strong&gt;可以开始在页面上操作的时间&lt;/strong&gt;。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/posts/20150310/progressive-rendering-41c32527f908131952f5c3a304b7b9b2.png&quot; alt=&quot;Progressive Rendering&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;前端性能与浏览器的运作方式密切相关，故想要优化性能就要从了解浏览器的工作原理入手。&lt;/p&gt;
-
-&lt;h3 id=&quot;section-1&quot;&gt;浏览器工作原理&lt;/h3&gt;
-
-&lt;p&gt;基本流程：&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;获取 HTML 文档及样式表文件&lt;/li&gt;
-  &lt;li&gt;解析成对应的树形数据结构（DOM tree &amp;amp; CSSOM tree）&lt;/li&gt;
-  &lt;li&gt;计算可见节点形成 render tree&lt;/li&gt;
-  &lt;li&gt;计算形状及位置进行布局&lt;/li&gt;
-  &lt;li&gt;将每个节点转化为实际像素绘制到视口上（栅格化）&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;构建几个树形数据结构：&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;DOM tree（开发工具中所显示的 HTML 所定义的内容结构）&lt;/li&gt;
-  &lt;li&gt;CSSOM tree（样式表所定义的规则结构）&lt;/li&gt;
-  &lt;li&gt;render tree（页面上所显示的最终结果）&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;render tree 是由 DOM tree 与 CSSOM tree 合并并剔除不可见的节点所形成的，其中不包含如下节点：&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;本身不可见的
-    &lt;ul&gt;
-      &lt;li&gt;&lt;code&gt;&amp;lt;html&amp;gt;&lt;/code&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;code&gt;&amp;lt;head&amp;gt;&lt;/code&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;code&gt;&amp;lt;meta&amp;gt;&lt;/code&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;code&gt;&amp;lt;link&amp;gt;&lt;/code&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;code&gt;&amp;lt;style&amp;gt;&lt;/code&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;code&gt;&amp;lt;script&amp;gt;&lt;/code&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;设置了 &lt;code&gt;display: none;&lt;/code&gt; 样式的&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;资源加载&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;执行 JavaScript 会阻止 DOM tree 构建&lt;/li&gt;
-  &lt;li&gt;加载 CSS 会阻止 render tree 构建
-    &lt;ul&gt;
-      &lt;li&gt;无论是否为阻止呈现的 CSS，都会被浏览器下载&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;默认情况下，JavaScript 脚本会在引入它的位置执行（如果是外联脚本则还需要等待加载完毕），这时会阻断 DOM tree 的构建；如果在运行脚本时浏览器尚未完成 CSS 的下载和 CSSOM tree 的构建，浏览器会将脚本执行延迟到这些操作结束之后。&lt;/p&gt;
-
-&lt;p&gt;影响性能的因素：&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;白屏
-    &lt;ul&gt;
-      &lt;li&gt;HTML 和 CSS 的加载及解析速度&lt;/li&gt;
-      &lt;li&gt;&lt;code&gt;&amp;lt;head&amp;gt;&lt;/code&gt; 内的脚本加载及执行&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;首屏
-    &lt;ul&gt;
-      &lt;li&gt;图片加载&lt;/li&gt;
-      &lt;li&gt;&lt;code&gt;&amp;lt;body&amp;gt;&lt;/code&gt; 内的脚本加载及执行&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;render tree 的构建
-    &lt;ul&gt;
-      &lt;li&gt;HTML 的复杂度&lt;/li&gt;
-      &lt;li&gt;CSS 的复杂度&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;render tree 的绘制（栅格化）
-    &lt;ul&gt;
-      &lt;li&gt;颜色的复杂度&lt;/li&gt;
-      &lt;li&gt;形状的复杂度&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 class=&quot;heading&quot; id=&quot;section-2&quot;&gt;怎么提高前端性能？&lt;/h2&gt;
-
-&lt;p&gt;提高以下几个方面，总体性能就会得到大幅度提升：&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;缩短白屏时间；&lt;/li&gt;
-  &lt;li&gt;加快首屏显示；&lt;/li&gt;
-  &lt;li&gt;尽快监听主要操作的事件。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;所要达到的理想指标：&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;60 f/s&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;httpsdevelopersgooglecomwebfundamentalsperformancecritical-rendering-pathoptimizing-critical-rendering-pathtargetblankrelexternal-nofollow&quot;&gt;&lt;a href=&quot;https://developers.google.com/web/fundamentals/performance/critical-rendering-path/optimizing-critical-rendering-path&quot; target=&quot;_blank&quot; rel=&quot;external nofollow&quot;&gt;优化关键呈现路径&lt;/a&gt;&lt;/h3&gt;
-
-&lt;p&gt;为了在首次渲染时尽可能快，我们需要优化以下三个变量：&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;最小化关键资源数&lt;/li&gt;
-  &lt;li&gt;最小化关键字节数&lt;/li&gt;
-  &lt;li&gt;最小化关键路径长度&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;常规步骤：&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;分析并描述关键路径：资源数、字节数和长度；&lt;/li&gt;
-  &lt;li&gt;减少关键资源的数量：删掉、延迟下载或标记为异步等等；&lt;/li&gt;
-  &lt;li&gt;优化剩余关键资源的加载顺序：尽早下载所有关键资源以缩短关键路径长度；&lt;/li&gt;
-  &lt;li&gt;优化关键字节数以减少下载时间（往返次数）。&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&quot;section-3&quot;&gt;搜集性能数据&lt;/h3&gt;
-
-&lt;p&gt;通过 &lt;a href=&quot;http://www.w3.org/TR/navigation-timing-2/#processing-model&quot; target=&quot;_blank&quot; rel=&quot;external nofollow&quot;&gt;Navigation Timing&lt;/a&gt; API 可以获取浏览器在处理网页的关键步骤的时间戳。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/posts/20150310/dom-navtiming-a120be50ac0f4d731aa32757d9318ee9.png&quot; alt=&quot;Part of Navigation Timing Processing Model&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;其中，各步骤的意义如下：&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;&lt;strong&gt;domLoading&lt;/strong&gt; 表示开始解析第一批收到的 HTML 文档的字节&lt;/li&gt;
-  &lt;li&gt;&lt;strong class=&quot;important&quot;&gt;domInteractive&lt;/strong&gt; 表示完成全部 HTML 的解析并且 DOM 构建完毕&lt;/li&gt;
-  &lt;li&gt;&lt;strong class=&quot;important&quot;&gt;domContentLoaded&lt;/strong&gt; 表示 &lt;a href=&quot;http://calendar.perfplanet.com/2012/deciphering-the-critical-rendering-path/&quot; target=&quot;_blank&quot; rel=&quot;external nofollow&quot;&gt;DOM 与 CSSOM 皆已准备就绪&lt;/a&gt;
-    &lt;ul&gt;
-      &lt;li&gt;如果没有解析器阻塞 JavaScript，&lt;em&gt;DOMContentLoaded&lt;/em&gt; 事件会在 &lt;em&gt;domInteractive&lt;/em&gt; 之后立即触发&lt;/li&gt;
-      &lt;li&gt;很多 JavaScript 框架会在执行它们自己的逻辑前等待这个事件的触发&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;strong class=&quot;important&quot;&gt;domComplete&lt;/strong&gt; 表示所有的处理都已完成并且所有的附属资源都已经下载完毕&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;loadEvent&lt;/strong&gt; 作为网页加载的最后一步以便触发附加的应用逻辑&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&quot;pagespeed-httpsdevelopersgooglecomwebfundamentalsperformancecritical-rendering-pathpage-speed-rules-and-recommendationstargetblankrelexternal-nofollow&quot;&gt;&lt;a href=&quot;https://developers.google.com/web/fundamentals/performance/critical-rendering-path/page-speed-rules-and-recommendations/&quot; target=&quot;_blank&quot; rel=&quot;external nofollow&quot;&gt;PageSpeed 规则和建议&lt;/a&gt;&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;排除阻止呈现的 JavaScript 和 CSS&lt;/li&gt;
-  &lt;li&gt;优化 JavaScript 的用法
-    &lt;ul&gt;
-      &lt;li&gt;推荐使用异步 JavaScript 资源&lt;/li&gt;
-      &lt;li&gt;Avoid synchronous server calls&lt;/li&gt;
-      &lt;li&gt;延迟解析 JavaScript&lt;/li&gt;
-      &lt;li&gt;避免运行时间长的 JavaScript&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;优化 CSS 的用法
-    &lt;ul&gt;
-      &lt;li&gt;将 CSS 放到文档头部&lt;/li&gt;
-      &lt;li&gt;避免使用 CSS import&lt;/li&gt;
-      &lt;li&gt;内联阻止呈现的 CSS&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
 </description>
+        
         <pubDate>Tue, 10 Mar 2015 18:10:12 +0800</pubDate>
-        <link>/posts/how-to-improve-web-page-performance/</link>
-        <guid isPermaLink="true">/posts/how-to-improve-web-page-performance/</guid>
+        <link>http://ourai.ws//posts/how-to-improve-web-page-performance/</link>
+        <guid isPermaLink="true">http://ourai.ws//posts/how-to-improve-web-page-performance/</guid>
+        
+        <category>web-development</category>
+        
         
         <category>Front-end Development</category>
         
         <category>web performance optimization</category>
         
-        
-        <category>web-development</category>
-        
       </item>
     
       <item>
         <title>将人生置于股掌</title>
-        <description>&lt;p&gt;「我要成为人生赢家！」&lt;/p&gt;
+        
+          <dc:creator>欧雷</dc:creator>
+          <author>ourairyu@gmail.com (欧雷)</author>
+        
+        
+          <description>&lt;p&gt;「我要成为人生赢家！」&lt;/p&gt;
 
-&lt;p&gt;这句充满壮志豪情的话，相信很多人都在嘴上或者心里呐喊过，尤其是在对自己的现实生活不满时。既然想要成为人生赢家，就得知道如何才能实现。我相信那些呐喊了的人都想过并且也去寻找那条成为赢家的路了，但绝大部分人连入口都没有找到，有的早已放弃，有的还在徘徊……&lt;/p&gt;
-
-&lt;p&gt;虽然一直朝着让自己让生活变得更好的方向奔跑，但从来没有想过终点在哪。也许是最近受到了些刺激，声嘶力竭地喊了声：「我要成为人生赢家！！！」喊得那么大声，嗓子都哑了，众人皆知了，不找到那条路我就是个只会做白日梦说大话的卢瑟！&lt;/p&gt;
-
-&lt;p&gt;以往思想上的转变都需要个契机，这次也不例外。&lt;/p&gt;
-
-&lt;p&gt;元旦节跟丨爷（因为他的名字的韩语发音接近于 gun）聊天时我显得情绪特别低落，也不清楚为啥，也许是「大姨父」来了。聊天的内容主要是与职业和社交相关的。&lt;/p&gt;
-
-&lt;p&gt;一天下班后在漫步街头时，脑中像在快速播放幻灯片似的，突然画面定格在那天的聊天片段，转而想到「为什么自己目前为止的人生像屎一样？」「为什么有些人，像乔布斯，像马云，就能成功？」根据我所发现的一个道理——一个人能够做成一件事，是因为他找到并掌握了方法——假设世上任何事情都能在允许一定误差的条件下总结出一套通用的方法，那么「人生」这件很宏大的事情也应该同理。我知道要找到这套方法十分不易，不知会花多少时间经历多少事，也许是穷尽一生。但我相信，只要具备较高的悟性并坚持，终有一天会出现在眼前！&lt;/p&gt;
-
-&lt;p&gt;问「人生赢家」为何物，直教人心神向往？&lt;/p&gt;
-
-&lt;p&gt;我所说的「人生赢家」不是像乔帮主、老马那样成为名人之类的「结果」，而是一种「人生状态」——没有硬伤，世间普遍之事手到擒来，即要做成一件事的条件基本已经具备，只需稍微努力一下就能做成。比如：想要买个房子，手续什么都好说，首付只需攒几个月就能交；想要找个合适的人结婚，很快就能找到几个备选对象并从中挑出最合适的人恋爱，然后步上红地毯；想要换工作，一堆公司表示希望你能加入。&lt;/p&gt;
-
-&lt;p&gt;「人生赢家」与「玩转人生」是充分必要条件，成为人生赢家的方法就是玩转人生的方法。&lt;/p&gt;
-
-&lt;p&gt;需要说明的是，我现在也不知道玩转人生的具体方法是什么，但脑中已经有个模型隐约可见。我目前所想做所能做的就是将那个模型外化为文字，为对我的思想理论有兴趣的人指引方向。其他的，还需要慢慢探索。&lt;/p&gt;
-
-&lt;p&gt;在跟我组队一起寻找方法之前，先确定你自己是否为追求精神层面满足的人，即理想主义者；是否具备或有可能具备人的三大基本品格，即开放、用心、坚持；能否理解并接受「八分饱」理论作为指导思想。&lt;/p&gt;
-
-&lt;p&gt;可能有人看了这篇文章之后会想：「哎哟，大家快来看，大家快来看～这个傻叉又在那天马行空说梦话了！可不可笑？可不可笑？啊哈哈哈哈哈哈～」&lt;/p&gt;
-
-&lt;p&gt;前几天在跟家人通电话时把这个想法告诉了老妈老爸，预料之中的，他们像往常一样操起现实主义大棒挥向我前卫大胆的想法。他们，尤其是我妈，对我说：「你怎么还那么天真？你什么时候能醒醒？你的想法不现实！根本不可能实现！」然后针对我所列出的那几点（上文中「人生赢家」的定义）举出「现实」的反例。我「怒了」，开始反驳她：「你说的那是现在，我承认你说得对！但你那是用静态的眼光去看，只关注了当下！等到达那个状态时，我肯定和现在不一样啊，肯定成长了很多！你说的那些，我早就考虑到了。为了达到那个状态，我肯定是要有很多东西去克服，很多能力去增长的！我是在理解现实的基础上去超越现实，不然人类怎么进步，社会怎么发展？你以为我是没事想些没根据的东西啊？那是空想！」虽然老妈貌似听明白了我的想法，但还不忘继续拿所谓的「现实」来「打击」我，而我，只好重复说着：「你等着看吧！」&lt;/p&gt;
-
-&lt;p&gt;老妈常说我：「你就跟正常人不一样！」我真是老爱听这句话了，哦呵呵呵呵～&lt;/p&gt;
-
-&lt;p&gt;像老妈老爸一样，大部分人都是现实主义者，还有些伪理想主义者，见到有人谈理想时就会反射性地去打击，说他们「在做梦」「不现实」。他们没说错，说出了他们所处水平该说的话。他们的思想水平没有到达那个高度，不知道理想主义者比他们更清楚现实的本质，不理解为什么在他们看起来是在吹牛逼的事情确实存在可行性。就好比有座高山，理想主义者说：「我看到了云海，好美哦～」而现实主义者和伪理想主义者说：「哪有云海？！你在那胡说八道什么！」&lt;/p&gt;
-
-&lt;p&gt;不用多久，我就会升职加薪、当上总经理、出任 CEO、迎娶白富美、走上人生巅峰。想想还有点小激动～&lt;/p&gt;
-
-&lt;p&gt;啊，对了！这篇文章是接下来一系列文章的「序」，所以有很多东西还没说，有兴趣的请继续关注哦～&lt;/p&gt;
 </description>
+        
         <pubDate>Sat, 10 Jan 2015 18:11:00 +0800</pubDate>
-        <link>/posts/master-your-life/</link>
-        <guid isPermaLink="true">/posts/master-your-life/</guid>
+        <link>http://ourai.ws//posts/master-your-life/</link>
+        <guid isPermaLink="true">http://ourai.ws//posts/master-your-life/</guid>
+        
+        <category>thoughts</category>
+        
         
         <category>三观建立</category>
         
         <category>玩转人生</category>
         
-        
-        <category>thoughts</category>
-        
       </item>
     
       <item>
         <title>Vタ／V辞書＋ほうがいい</title>
-        <description>&lt;p&gt;「〜ほうが」的前面可以接名词、形容词、动词等等，后面也可以加各种类型的成分。当前面是非动词后面是非「いい」的词时用法简单易懂——一种比较的说法，句式一般为「AよりBのほうが…」，有「两种事物相比之下，其中一个更……」的意思。&lt;/p&gt;
+        
+          <dc:creator>欧雷</dc:creator>
+          <author>ourairyu@gmail.com (欧雷)</author>
+        
+        
+          <description>&lt;p&gt;「〜ほうが」的前面可以接名词、形容词、动词等等，后面也可以加各种类型的成分。当前面是非动词后面是非「いい」的词时用法简单易懂——一种比较的说法，句式一般为「AよりBのほうが…」，有「两种事物相比之下，其中一个更……」的意思。&lt;/p&gt;
 
-&lt;p&gt;然而，当以「V&lt;sub&gt;タ&lt;/sub&gt;／V&lt;sub&gt;辞書&lt;/sub&gt;＋ほうがいい」的形式出现时，就会变得稍微复杂了点。&lt;/p&gt;
-
-&lt;h2 id=&quot;section&quot;&gt;劝告&lt;/h2&gt;
-
-&lt;p&gt;虽然很多时候「V&lt;sub&gt;タ&lt;/sub&gt;」和「V&lt;sub&gt;辞書&lt;/sub&gt;」可以互相替换，但在给人的感觉上还是有点差别——&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;「V&lt;sub&gt;タ&lt;/sub&gt;＋ほうがいい」用于具体的、个别的情况&lt;/p&gt;
-
-    &lt;p&gt;例：熱がある人には、厚着を&lt;strong&gt;したほうがいい&lt;/strong&gt;。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;「V&lt;sub&gt;辞書&lt;/sub&gt;＋ほうがいい」用于阐述一般论&lt;/p&gt;
-
-    &lt;p&gt;例：熱がある時は、厚着を&lt;strong&gt;するほうがいい&lt;/strong&gt;。&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;「V&lt;sub&gt;タ&lt;/sub&gt;＋ほうがいい」这种表现形式时，如果说话人是打从心底为了听话人好，那么最好在句尾加上「よ」或「ね」。例：警察に連絡したほうがいいですね。&lt;/p&gt;
-
-&lt;p&gt;有时，按照所处环境、社会等的惯例，说话人劝说听话人去服从时也会用。例：（新入り社員に対して）土曜日は休日だけれど、みんな残業するから、君も残業したほうがいいですよ。&lt;/p&gt;
-
-&lt;p&gt;在不是对听话人说，说话人针对非意志性的自己的事情述说想法时：結婚式は、やっぱりお客さんをたくさん呼んだほうがいいですね。&lt;/p&gt;
-
-&lt;p&gt;使用「は」和「が」会有微妙的差别——&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;あなたはここに残ったほうがいい。&lt;/li&gt;
-  &lt;li&gt;あなたがここに残ったほうがいい。&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;(1) 是对听话人的忠告，「ここに残る」这件事是对听话人有好处；(2) 是对说话人、当时的情形等来说，听话人「ここに残る」这件事是必要的。&lt;/p&gt;
-
-&lt;h2 id=&quot;section-1&quot;&gt;其他&lt;/h2&gt;
-
-&lt;p&gt;无论在表达比较还是劝告的句子中，「V&lt;sub&gt;タ&lt;/sub&gt;」给人一种「所做的事情的结果是受人期待的、符合愿望的」的感受——&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;宗教の教えは、人を生かすより&lt;strong&gt;殺す&lt;/strong&gt;方が多い。&lt;/li&gt;
-  &lt;li&gt;むだに苦しませるより、早く&lt;strong&gt;殺した&lt;/strong&gt;ほうが動物にとってもいいんだ。&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;離婚する&lt;/strong&gt;ほうが結婚するよりはるかに難しい。&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;離婚した&lt;/strong&gt;ほうが、憎みあって暮らすよりずっと精神的にいいさ。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;section-2&quot;&gt;引用&lt;/h2&gt;
-
-&lt;p&gt;资料整理参考了以下网站：&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;http://www.geocities.jp/niwasaburoo/33susumetyuukoku.html&quot; target=&quot;_blank&quot;&gt;庭三郎現代日本語文法概説　勧め・忠告&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://www.geocities.jp/niwasaburoo/53teidohikaku.html#53.2&quot; target=&quot;_blank&quot;&gt;庭三郎現代日本語文法概説　程度・比較・限定&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
 </description>
+        
         <pubDate>Wed, 31 Dec 2014 17:54:34 +0800</pubDate>
-        <link>/posts/had-better-in-japanese/</link>
-        <guid isPermaLink="true">/posts/had-better-in-japanese/</guid>
-        
-        <category>语法</category>
-        
+        <link>http://ourai.ws//posts/had-better-in-japanese/</link>
+        <guid isPermaLink="true">http://ourai.ws//posts/had-better-in-japanese/</guid>
         
         <category>japanese</category>
+        
+        
+        <category>语法</category>
         
       </item>
     
       <item>
         <title>一次体检引起的反思</title>
-        <description>&lt;p&gt;我要公布一个今天体检时所得知的爆炸性新闻，当然是与我有关——&lt;/p&gt;
+        
+          <dc:creator>欧雷</dc:creator>
+          <author>ourairyu@gmail.com (欧雷)</author>
+        
+        
+          <description>&lt;p&gt;我要公布一个今天体检时所得知的爆炸性新闻，当然是与我有关——&lt;/p&gt;
 &lt;p&gt;第一项是血常规，登记时发了长短不一的三个管子，排在我前面的同事因为晕血而灰溜溜地「下台」了（其实是进「小黑屋」享受特殊待遇了）。我早已把手机拿在右手中做好准备，将已经爆出青筋的左臂伸出去，直勾勾地看着工作人员将细针扎进去。弄了好几下还没血流出来，我有点无语：「怎么不往那根明显的血管里扎啊？」话音刚落，只见接在细针上的皮管中流出了深红色看起来有点黏稠的液体……可能是我右手的姿势有点怪，并且另一位工作人员发现我在看手机屏幕：「这里不能拍照！」还没等我做任何反应，排在后面的人笑着说：「他没有拍照，是在录像！」我嬉皮笑脸地把手机摄像头关掉了。本来还想拍下整个抽血过程，显示出我的「英勇」呢！&lt;/p&gt;
 &lt;p&gt;好了，说完了。什么？觉得这不够震撼？！好吧，那我再说一个，这个保准你吓一跳！&lt;/p&gt;
 &lt;p&gt;我比去年矮了一厘米，并且瘦了一公斤！！！&lt;/p&gt;
@@ -1028,27 +298,22 @@ git pull origin master
 &lt;p&gt;从出生到现在经历过不仅一次的「危险时刻」，皆在肉体上留下了永久的印记，这些「故事」请允许我只与那些跟我互相珍视的人分享。&lt;/p&gt;
 &lt;p&gt;从现在起，我要好好地活着，充实地活着，有价值地活着，让我在闭眼之时不留悔恨！&lt;/p&gt;
 &lt;p&gt;「其实，人这一生可短暂咧。有时候儿一想，这人生跟睡觉是一样儿一样儿的——眼睛一闭，一睁，这一天儿就过去了，嚎？这眼睛一闭，不睁，这辈子就过去了，嚎？」&lt;/p&gt;
+
+
 </description>
+        
         <pubDate>Wed, 15 Oct 2014 21:22:00 +0800</pubDate>
-        <link>/posts/reflection-after-physical-examination/</link>
-        <guid isPermaLink="true">/posts/reflection-after-physical-examination/</guid>
+        <link>http://ourai.ws//posts/reflection-after-physical-examination/</link>
+        <guid isPermaLink="true">http://ourai.ws//posts/reflection-after-physical-examination/</guid>
+        
+        <category>thoughts</category>
+        
         
         <category>人生观</category>
         
         <category>反思</category>
         
-        
-        <category>thoughts</category>
-        
       </item>
     
   </channel>
 </rss>
-
-  
-</main>
-
-    
-    
-  </body>
-</html>
