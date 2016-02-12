@@ -35,8 +35,9 @@ encoding: utf-8
 
 # Plugins
 gems:
-  - jemoji
+  - jekyll-archives
   - jekyll-slim
+  - jemoji
   - octopress-minify-html
 
 # Conversion
@@ -85,7 +86,22 @@ defaults:
     values:
       layout: sketch/v2
 
-# Jekyl Slim
+
+# =====
+# Plugin-specific configurations
+# =====
+
+# Jekyll Archives
+# https://github.com/jekyll/jekyll-archives
+jekyll-archives:
+  enabled:
+    - categories
+  layouts:
+    category: category
+  permalinks:
+    category: "/categories/:name/"
+
+# Jekyll Slim
 slim:
   pretty: true
   format: html5

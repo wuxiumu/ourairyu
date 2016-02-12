@@ -5,10 +5,29 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <!-- 站点信息 -->
 {% if page.special_title %}
-  <title>{{ page.special_title }}</title>
+  {% assign page_title = page.special_title %}
 {% else %}
-  <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
+  {% if page.type == "category" %}
+    {% assign categories = site.data.categories %}
+
+    {% if categories[page.title] == null %}
+      {% assign title_prefix = page.title %}
+    {% else %}
+      {% assign title_prefix = categories[page.title].name %}
+    {% endif %}
+
+    {% assign title_prefix = title_prefix | prepend: "「" | append: "」类别的文章 - " %}
+  {% else %}
+    {% if page.title %}
+      {% assign title_prefix = page.title | append: " - " %}
+    {% else %}
+      {% assign title_prefix = "" %}
+    {% endif %}
+  {% endif %}
+
+  {% assign page_title = title_prefix | append: site.title %}
 {% endif %}
+<title>{{ page_title }}</title>
 {% if page.keywords %}
   {% assign keywords = page.keywords %}
 {% else %}

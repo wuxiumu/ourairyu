@@ -15,6 +15,8 @@ gem 'closure-compiler'
 group :jekyll_plugins do
   # Assets
   gem 'jekyll-assets'
+  
+  gem 'jekyll-archives'
 
   gem 'jekyll-slim'
   gem 'slim', github: 'slim-template/slim'

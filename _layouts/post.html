@@ -19,7 +19,7 @@ layout: page
         {% assign postCategory = categories[category].name %}
       {% endif %}
 
-      <p class="Article-author"><a href="{{ author.profile }}" class="Author-link--withAvatar"><img src="{{ author.avatar.normal | prepend: 'avatars/' | asset_path }}"></a><a href="{{ author.profile }}" class="Author-link">{{ author.name.zh }}</a>发表于<br>{{ postCategory }}</p>
+      <p class="Article-author"><a href="{{ author.profile }}" class="Author-link--withAvatar"><img src="{{ author.avatar.normal | prepend: 'avatars/' | asset_path }}"></a><a href="{{ author.profile }}" class="Author-link">{{ author.name.zh }}</a>发表于<br><a href="/categories/{{ category }}/">{{ postCategory }}</a></p>
       <!-- 赞助 -->
       <div id="supportAuthor">
         <p>如果您觉得文章内容有所帮助，请随意打赏。您的支持将鼓励作者继续创作！</p>
