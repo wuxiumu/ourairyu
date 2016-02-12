@@ -36,6 +36,7 @@ encoding: utf-8
 # Plugins
 gems:
   - jekyll-archives
+  - jekyll-feed
   - jekyll-slim
   - jemoji
   - octopress-minify-html
@@ -73,7 +74,11 @@ defaults:
         - pages/common
       layout_js:
         - pages/post
-      author: ourai
+      author:
+        name: 欧雷
+        email: ourairyu@gmail.com
+        uri: http://ourai.ws/
+        slug: ourai
       comments: true
   - scope:
       path: sketches/v1
@@ -85,6 +90,7 @@ defaults:
       type: sketches
     values:
       layout: sketch/v2
+
 
 
 # =====

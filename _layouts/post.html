@@ -8,7 +8,7 @@ layout: page
   </header>
   <div class="Article-content col-md-9">{{ content }}</div>
   <footer class="col-md-3">
-    {% assign author = site.data.authors[page.author] %}
+    {% assign author = site.data.authors[page.author.slug] %}
     <div class="Article-meta">
       {% assign categories = site.data.categories %}
       {% assign category = page.categories.first %}
@@ -24,8 +24,8 @@ layout: page
       <div id="supportAuthor">
         <p>如果您觉得文章内容有所帮助，请随意打赏。您的支持将鼓励作者继续创作！</p>
         <ul>
-          <li><img src="{{ page.author | append: '.jpg' | prepend: 'qrcodes/pay/alipay/' | asset_path }}"></li>
-          <li><img src="{{ page.author | append: '.jpg' | prepend: 'qrcodes/pay/wechat/' | asset_path }}"></li>
+          <li><img src="{{ page.author.slug | append: '.jpg' | prepend: 'qrcodes/pay/alipay/' | asset_path }}"></li>
+          <li><img src="{{ page.author.slug | append: '.jpg' | prepend: 'qrcodes/pay/wechat/' | asset_path }}"></li>
         </ul>
       </div>
       <!-- 版权 -->
