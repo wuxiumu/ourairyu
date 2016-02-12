@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 <generator uri="http://jekyllrb.com" version="2.4.0">Jekyll</generator>
-<link href="/feed.xml" rel="self" type="application/atom+xml" />
-<link href="/" rel="alternate" type="text/html" />
-<updated>2016-02-12T19:57:54+08:00</updated>
-<id>/</id>
+<link href="http://ourai.ws/atom.xml" rel="self" type="application/atom+xml" />
+<link href="http://ourai.ws/" rel="alternate" type="text/html" />
+<updated>2016-02-13T00:25:37+08:00</updated>
+<id>http://ourai.ws/</id>
 <title>欧雷流</title>
 <subtitle>不走寻常路</subtitle>
 <author>
@@ -14,11 +14,11 @@
 </author>
 <entry>
 <title>前端工程优化之路</title>
-<link href="/posts/engineering-problems-of-frontend-development/" rel="alternate" type="text/html" title="前端工程优化之路" />
+<link href="http://ourai.ws/posts/engineering-problems-of-frontend-development/" rel="alternate" type="text/html" title="前端工程优化之路" />
 <published>2016-02-04T16:35:36+08:00</published>
 <updated>2016-02-04T16:35:36+08:00</updated>
-<id>/posts/engineering-problems-of-frontend-development</id>
-<content type="html" xml:base="/posts/engineering-problems-of-frontend-development/">&lt;p&gt;在我加入「&lt;a href=&quot;https://www.maihaoche.com&quot; target=&quot;_blank&quot; rel=&quot;nofollow external&quot;&gt;买好车&lt;/a&gt;」后第一次把项目代码从远程仓库拉取到本地时——「这是什么玩意？！」——我的内心是震惊并诧异的。&lt;/p&gt;
+<id>http://ourai.ws/posts/engineering-problems-of-frontend-development</id>
+<content type="html" xml:base="http://ourai.ws/posts/engineering-problems-of-frontend-development/">&lt;p&gt;在我加入「&lt;a href=&quot;https://www.maihaoche.com&quot; target=&quot;_blank&quot; rel=&quot;nofollow external&quot;&gt;买好车&lt;/a&gt;」后第一次把项目代码从远程仓库拉取到本地时——「这是什么玩意？！」——我的内心是震惊并诧异的。&lt;/p&gt;
 
 &lt;p&gt;为什么我会有如此反应？&lt;/p&gt;
 
@@ -178,11 +178,11 @@ being redirected to the login form.&lt;/p&gt;
 </entry>
 <entry>
 <title>嘿！土好吃吗？</title>
-<link href="/posts/need-to-learn-investing/" rel="alternate" type="text/html" title="嘿！土好吃吗？" />
+<link href="http://ourai.ws/posts/need-to-learn-investing/" rel="alternate" type="text/html" title="嘿！土好吃吗？" />
 <published>2015-11-23T05:26:21+08:00</published>
 <updated>2015-11-23T05:26:21+08:00</updated>
-<id>/posts/need-to-learn-investing</id>
-<content type="html" xml:base="/posts/need-to-learn-investing/">&lt;p&gt;夜深人静之时，「叮」一声，手机屏亮了。还以为谁会这么晚找我，一看发件人「招商银行信用卡」，原来是我刚刚的付款通知——海淘了两件外套和一个电脑包中包，又一千多软妹币没了……&lt;/p&gt;
+<id>http://ourai.ws/posts/need-to-learn-investing</id>
+<content type="html" xml:base="http://ourai.ws/posts/need-to-learn-investing/">&lt;p&gt;夜深人静之时，「叮」一声，手机屏亮了。还以为谁会这么晚找我，一看发件人「招商银行信用卡」，原来是我刚刚的付款通知——海淘了两件外套和一个电脑包中包，又一千多软妹币没了……&lt;/p&gt;
 
 &lt;p&gt;发信息给我的微信好友中，除了女票，最多的恐怕就是小招童鞋了。他成天在我耳边说：「嘿，欧雷童鞋！你又欠了我＊＊＊元哦！」叨逼叨，叨逼叨，耳朵都要起茧子了！&lt;/p&gt;
 
@@ -535,11 +535,11 @@ being redirected to the login form.&lt;/p&gt;
 </entry>
 <entry>
 <title>用 Git Hooks 进行自动部署</title>
-<link href="/posts/deployment-with-git-hooks/" rel="alternate" type="text/html" title="用 Git Hooks 进行自动部署" />
+<link href="http://ourai.ws/posts/deployment-with-git-hooks/" rel="alternate" type="text/html" title="用 Git Hooks 进行自动部署" />
 <published>2015-10-10T01:29:38+08:00</published>
 <updated>2015-10-10T01:29:38+08:00</updated>
-<id>/posts/deployment-with-git-hooks</id>
-<content type="html" xml:base="/posts/deployment-with-git-hooks/">&lt;p&gt;昨天开始接手开发公司前端团队的主页，在稍微修改点东西后推送到远程仓库想看下线上结果时发现并没有更改！询问一把手得知，居然还需要连接到服务器执行一下 &lt;code&gt;git pull&lt;/code&gt; 才行……对于我这种怕麻烦的人来说，简直不能忍！&lt;/p&gt;
+<id>http://ourai.ws/posts/deployment-with-git-hooks</id>
+<content type="html" xml:base="http://ourai.ws/posts/deployment-with-git-hooks/">&lt;p&gt;昨天开始接手开发公司前端团队的主页，在稍微修改点东西后推送到远程仓库想看下线上结果时发现并没有更改！询问一把手得知，居然还需要连接到服务器执行一下 &lt;code&gt;git pull&lt;/code&gt; 才行……对于我这种怕麻烦的人来说，简直不能忍！&lt;/p&gt;
 &lt;p&gt;经过一番查找资料以及一顿折腾，终于让它能够自动跑起来了，真是高兴得我手舞足蹈啊！虽然弄了较长时间，在实践的过程中踩了点坑，但回过头来一看还是挺简单的。总的来说，就只是在服务器和本机都做一下配置。（这不废话么……）&lt;/p&gt;
 &lt;p&gt;由于公司的服务器是 CentOS，我所使用的电脑是 Mac OS X，故本文内容是基于这两个系统环境所写。GUI 在给用户带来很多便利的同时也隐藏了一些不便，如：需要下载应用软件及在操作界面交互。鉴于本文的中心是「自动化」，所以一切操作都采用命令行——&lt;/p&gt;
 &lt;section&gt;
@@ -614,11 +614,11 @@ exit 0
 </entry>
 <entry>
 <title>当我想跳槽时，我在想什么？</title>
-<link href="/posts/why-do-i-wanna-quit/" rel="alternate" type="text/html" title="当我想跳槽时，我在想什么？" />
+<link href="http://ourai.ws/posts/why-do-i-wanna-quit/" rel="alternate" type="text/html" title="当我想跳槽时，我在想什么？" />
 <published>2015-08-17T23:57:00+08:00</published>
 <updated>2015-08-17T23:57:00+08:00</updated>
-<id>/posts/why-do-i-wanna-quit</id>
-<content type="html" xml:base="/posts/why-do-i-wanna-quit/">&lt;p&gt;我们的干爹——马云，曾经说过：「员工的离职原因很多，只有两点最真实：1. 钱，没给到位；2. 心，委屈了。」&lt;/p&gt;
+<id>http://ourai.ws/posts/why-do-i-wanna-quit</id>
+<content type="html" xml:base="http://ourai.ws/posts/why-do-i-wanna-quit/">&lt;p&gt;我们的干爹——马云，曾经说过：「员工的离职原因很多，只有两点最真实：1. 钱，没给到位；2. 心，委屈了。」&lt;/p&gt;
 
 &lt;p&gt;现在所在的公司是我来杭州后的第二家公司，已经将近两年半。&lt;/p&gt;
 
@@ -653,11 +653,11 @@ exit 0
 </entry>
 <entry>
 <title>在 Mac OS X 中搭建 Apache + PHP + MySQL 开发环境</title>
-<link href="/posts/apache-mysql-php-on-mac-os/" rel="alternate" type="text/html" title="在 Mac OS X 中搭建 Apache + PHP + MySQL 开发环境" />
+<link href="http://ourai.ws/posts/apache-mysql-php-on-mac-os/" rel="alternate" type="text/html" title="在 Mac OS X 中搭建 Apache + PHP + MySQL 开发环境" />
 <published>2015-07-20T23:54:00+08:00</published>
 <updated>2015-07-20T23:54:00+08:00</updated>
-<id>/posts/apache-mysql-php-on-mac-os</id>
-<content type="html" xml:base="/posts/apache-mysql-php-on-mac-os/">&lt;p&gt;我所使用的操作系统是 Mac OS X Yosemite，自带 Apache 和 PHP，所以不用安装，只需稍微修改一下配置文件即可。&lt;/p&gt;
+<id>http://ourai.ws/posts/apache-mysql-php-on-mac-os</id>
+<content type="html" xml:base="http://ourai.ws/posts/apache-mysql-php-on-mac-os/">&lt;p&gt;我所使用的操作系统是 Mac OS X Yosemite，自带 Apache 和 PHP，所以不用安装，只需稍微修改一下配置文件即可。&lt;/p&gt;
 
 &lt;h2 id=&quot;apache&quot;&gt;启动 Apache&lt;/h2&gt;
 
@@ -688,11 +688,11 @@ exit 0
 </entry>
 <entry>
 <title>与心魔之战</title>
-<link href="/posts/fight-with-evil-in-heart/" rel="alternate" type="text/html" title="与心魔之战" />
+<link href="http://ourai.ws/posts/fight-with-evil-in-heart/" rel="alternate" type="text/html" title="与心魔之战" />
 <published>2015-04-22T17:57:00+08:00</published>
 <updated>2015-04-22T17:57:00+08:00</updated>
-<id>/posts/fight-with-evil-in-heart</id>
-<content type="html" xml:base="/posts/fight-with-evil-in-heart/">&lt;p&gt;今天是星期三，我已经跟自己的心魔较量了四天。虽然这些天内心一直在争斗，但是与不同的对象，也就是说是不同的“心魔”。第一个已经被我打倒，暂时不会起来；第二个正在搏斗，目前我占上风。&lt;/p&gt;
+<id>http://ourai.ws/posts/fight-with-evil-in-heart</id>
+<content type="html" xml:base="http://ourai.ws/posts/fight-with-evil-in-heart/">&lt;p&gt;今天是星期三，我已经跟自己的心魔较量了四天。虽然这些天内心一直在争斗，但是与不同的对象，也就是说是不同的“心魔”。第一个已经被我打倒，暂时不会起来；第二个正在搏斗，目前我占上风。&lt;/p&gt;
 
 &lt;p&gt;这两个心魔分别是什么，不方便说也不想说，写本篇文字的目的在于记录、梳理一下自己的心情和思考结论。&lt;/p&gt;
 
@@ -717,11 +717,11 @@ exit 0
 </entry>
 <entry>
 <title>网站性能优化·前端篇</title>
-<link href="/posts/how-to-improve-web-page-performance/" rel="alternate" type="text/html" title="网站性能优化·前端篇" />
+<link href="http://ourai.ws/posts/how-to-improve-web-page-performance/" rel="alternate" type="text/html" title="网站性能优化·前端篇" />
 <published>2015-03-10T18:10:12+08:00</published>
 <updated>2015-03-10T18:10:12+08:00</updated>
-<id>/posts/how-to-improve-web-page-performance</id>
-<content type="html" xml:base="/posts/how-to-improve-web-page-performance/">&lt;blockquote&gt;
+<id>http://ourai.ws/posts/how-to-improve-web-page-performance</id>
+<content type="html" xml:base="http://ourai.ws/posts/how-to-improve-web-page-performance/">&lt;blockquote&gt;
   &lt;p&gt;我们的目标是优先显示与用户要在网页上执行的主要操作有关的内容。&lt;/p&gt;
 &lt;/blockquote&gt;
 
@@ -915,11 +915,11 @@ exit 0
 </entry>
 <entry>
 <title>将人生置于股掌</title>
-<link href="/posts/master-your-life/" rel="alternate" type="text/html" title="将人生置于股掌" />
+<link href="http://ourai.ws/posts/master-your-life/" rel="alternate" type="text/html" title="将人生置于股掌" />
 <published>2015-01-10T18:11:00+08:00</published>
 <updated>2015-01-10T18:11:00+08:00</updated>
-<id>/posts/master-your-life</id>
-<content type="html" xml:base="/posts/master-your-life/">&lt;p&gt;「我要成为人生赢家！」&lt;/p&gt;
+<id>http://ourai.ws/posts/master-your-life</id>
+<content type="html" xml:base="http://ourai.ws/posts/master-your-life/">&lt;p&gt;「我要成为人生赢家！」&lt;/p&gt;
 
 &lt;p&gt;这句充满壮志豪情的话，相信很多人都在嘴上或者心里呐喊过，尤其是在对自己的现实生活不满时。既然想要成为人生赢家，就得知道如何才能实现。我相信那些呐喊了的人都想过并且也去寻找那条成为赢家的路了，但绝大部分人连入口都没有找到，有的早已放弃，有的还在徘徊……&lt;/p&gt;
 
@@ -964,11 +964,11 @@ exit 0
 </entry>
 <entry>
 <title>Vタ／V辞書＋ほうがいい</title>
-<link href="/posts/had-better-in-japanese/" rel="alternate" type="text/html" title="Vタ／V辞書＋ほうがいい" />
+<link href="http://ourai.ws/posts/had-better-in-japanese/" rel="alternate" type="text/html" title="Vタ／V辞書＋ほうがいい" />
 <published>2014-12-31T17:54:34+08:00</published>
 <updated>2014-12-31T17:54:34+08:00</updated>
-<id>/posts/had-better-in-japanese</id>
-<content type="html" xml:base="/posts/had-better-in-japanese/">&lt;p&gt;「〜ほうが」的前面可以接名词、形容词、动词等等，后面也可以加各种类型的成分。当前面是非动词后面是非「いい」的词时用法简单易懂——一种比较的说法，句式一般为「AよりBのほうが…」，有「两种事物相比之下，其中一个更……」的意思。&lt;/p&gt;
+<id>http://ourai.ws/posts/had-better-in-japanese</id>
+<content type="html" xml:base="http://ourai.ws/posts/had-better-in-japanese/">&lt;p&gt;「〜ほうが」的前面可以接名词、形容词、动词等等，后面也可以加各种类型的成分。当前面是非动词后面是非「いい」的词时用法简单易懂——一种比较的说法，句式一般为「AよりBのほうが…」，有「两种事物相比之下，其中一个更……」的意思。&lt;/p&gt;
 
 &lt;p&gt;然而，当以「V&lt;sub&gt;タ&lt;/sub&gt;／V&lt;sub&gt;辞書&lt;/sub&gt;＋ほうがいい」的形式出现时，就会变得稍微复杂了点。&lt;/p&gt;
 
@@ -1034,11 +1034,11 @@ exit 0
 </entry>
 <entry>
 <title>一次体检引起的反思</title>
-<link href="/posts/reflection-after-physical-examination/" rel="alternate" type="text/html" title="一次体检引起的反思" />
+<link href="http://ourai.ws/posts/reflection-after-physical-examination/" rel="alternate" type="text/html" title="一次体检引起的反思" />
 <published>2014-10-15T21:22:00+08:00</published>
 <updated>2014-10-15T21:22:00+08:00</updated>
-<id>/posts/reflection-after-physical-examination</id>
-<content type="html" xml:base="/posts/reflection-after-physical-examination/">&lt;p&gt;我要公布一个今天体检时所得知的爆炸性新闻，当然是与我有关——&lt;/p&gt;
+<id>http://ourai.ws/posts/reflection-after-physical-examination</id>
+<content type="html" xml:base="http://ourai.ws/posts/reflection-after-physical-examination/">&lt;p&gt;我要公布一个今天体检时所得知的爆炸性新闻，当然是与我有关——&lt;/p&gt;
 &lt;p&gt;第一项是血常规，登记时发了长短不一的三个管子，排在我前面的同事因为晕血而灰溜溜地「下台」了（其实是进「小黑屋」享受特殊待遇了）。我早已把手机拿在右手中做好准备，将已经爆出青筋的左臂伸出去，直勾勾地看着工作人员将细针扎进去。弄了好几下还没血流出来，我有点无语：「怎么不往那根明显的血管里扎啊？」话音刚落，只见接在细针上的皮管中流出了深红色看起来有点黏稠的液体……可能是我右手的姿势有点怪，并且另一位工作人员发现我在看手机屏幕：「这里不能拍照！」还没等我做任何反应，排在后面的人笑着说：「他没有拍照，是在录像！」我嬉皮笑脸地把手机摄像头关掉了。本来还想拍下整个抽血过程，显示出我的「英勇」呢！&lt;/p&gt;
 &lt;p&gt;好了，说完了。什么？觉得这不够震撼？！好吧，那我再说一个，这个保准你吓一跳！&lt;/p&gt;
 &lt;p&gt;我比去年矮了一厘米，并且瘦了一公斤！！！&lt;/p&gt;
