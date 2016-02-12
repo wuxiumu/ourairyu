@@ -2,7 +2,7 @@
 title: 我爱北京天安门
 date: 2013-01-29 21:06:00 +0800
 categories:
-  - 胡思乱想
+  - thoughts
 tags:
   - 华夏文化
   - 日常生活

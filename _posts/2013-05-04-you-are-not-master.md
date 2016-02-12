@@ -2,8 +2,9 @@
 title: 你不是达人
 date: 2013-05-04 22:14:00 +0800
 categories:
-  - 职场
+  - thoughts
 tags:
+  - 职场
   - 前端工程师
   - 感悟
 ---

@@ -2,7 +2,7 @@
 title: 什么是一个「活着」的「人」
 date: 2012-11-17 21:40:00 +0800
 categories:
-  - 胡思乱想
+  - thoughts
 tags:
   - 人类
   - 伦理
