@@ -2,7 +2,7 @@
 title: 烈日下的考验——铁岭军训有感
 date: 2007-09-26 17:57:00 +0800
 categories:
-  - 流水帐
+  - life
 tags:
 published: false
 ---

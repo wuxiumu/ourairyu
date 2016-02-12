@@ -2,7 +2,7 @@
 title: 离别是痛苦的
 date: 2012-12-07 01:24:00 +0800
 categories:
-  - 流水帐
+  - life
 tags:
   - 日常生活
   - 离别

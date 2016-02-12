@@ -2,7 +2,7 @@
 title: 我后悔了……
 date: 2007-09-06 21:45:00 +0800
 categories:
-  - 流水帐
+  - life
 tags:
 published: false
 ---

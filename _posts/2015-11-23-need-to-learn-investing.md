@@ -2,7 +2,7 @@
 title: 嘿！土好吃吗？
 date: 2015-11-23 05:26:21 +0800
 categories:
-  - 流水帐
+  - life
 tags:
   - 消费观
   - 理财

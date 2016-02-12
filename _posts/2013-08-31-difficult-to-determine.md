@@ -2,7 +2,7 @@
 title: 难以抉择
 date: 2013-08-31 01:38:00 +0800
 categories:
-  - 流水帐
+  - life
 tags:
   - 前端工程师
   - 烦恼

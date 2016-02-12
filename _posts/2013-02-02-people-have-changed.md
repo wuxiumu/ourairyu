@@ -2,7 +2,7 @@
 title: 物是人非
 date: 2013-02-02 01:16:00 +0800
 categories:
-  - 流水帐
+  - life
 tags:
   - 日常生活
   - 感受
