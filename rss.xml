@@ -6,8 +6,8 @@
     <description>不走寻常路</description>
     <link>http://ourai.ws/</link>
     <atom:link href="http://ourai.ws/rss.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 13 Feb 2016 00:59:04 +0800</pubDate>
-    <lastBuildDate>Sat, 13 Feb 2016 00:59:04 +0800</lastBuildDate>
+    <pubDate>Sat, 13 Feb 2016 01:00:48 +0800</pubDate>
+    <lastBuildDate>Sat, 13 Feb 2016 01:00:48 +0800</lastBuildDate>
     <language>zh-CN</language>
     <generator>Jekyll v2.4.0</generator>
     
@@ -15,7 +15,7 @@
         <title>前端工程优化之路</title>
         
           <dc:creator>欧雷</dc:creator>
-          <author>post.author.name</author>
+          <author>欧雷</author>
         
         <description>&lt;p&gt;在我加入「&lt;a href=&quot;https://www.maihaoche.com&quot; target=&quot;_blank&quot; rel=&quot;nofollow external&quot;&gt;买好车&lt;/a&gt;」后第一次把项目代码从远程仓库拉取到本地时——「这是什么玩意？！」——我的内心是震惊并诧异的。&lt;/p&gt;
 
@@ -165,7 +165,7 @@ being redirected to the login form.
         <title>嘿！土好吃吗？</title>
         
           <dc:creator>欧雷</dc:creator>
-          <author>post.author.name</author>
+          <author>欧雷</author>
         
         <description>&lt;p&gt;夜深人静之时，「叮」一声，手机屏亮了。还以为谁会这么晚找我，一看发件人「招商银行信用卡」，原来是我刚刚的付款通知——海淘了两件外套和一个电脑包中包，又一千多软妹币没了……&lt;/p&gt;
 
@@ -470,7 +470,7 @@ being redirected to the login form.
         <title>用 Git Hooks 进行自动部署</title>
         
           <dc:creator>欧雷</dc:creator>
-          <author>post.author.name</author>
+          <author>欧雷</author>
         
         <description>&lt;p&gt;昨天开始接手开发公司前端团队的主页，在稍微修改点东西后推送到远程仓库想看下线上结果时发现并没有更改！询问一把手得知，居然还需要连接到服务器执行一下 &lt;code&gt;git pull&lt;/code&gt; 才行……对于我这种怕麻烦的人来说，简直不能忍！&lt;/p&gt;
 &lt;p&gt;经过一番查找资料以及一顿折腾，终于让它能够自动跑起来了，真是高兴得我手舞足蹈啊！虽然弄了较长时间，在实践的过程中踩了点坑，但回过头来一看还是挺简单的。总的来说，就只是在服务器和本机都做一下配置。（这不废话么……）&lt;/p&gt;
@@ -549,7 +549,7 @@ git pull origin master
         <title>当我想跳槽时，我在想什么？</title>
         
           <dc:creator>欧雷</dc:creator>
-          <author>post.author.name</author>
+          <author>欧雷</author>
         
         <description>&lt;p&gt;我们的干爹——马云，曾经说过：「员工的离职原因很多，只有两点最真实：1. 钱，没给到位；2. 心，委屈了。」&lt;/p&gt;
 
@@ -591,7 +591,7 @@ git pull origin master
         <title>在 Mac OS X 中搭建 Apache + PHP + MySQL 开发环境</title>
         
           <dc:creator>欧雷</dc:creator>
-          <author>post.author.name</author>
+          <author>欧雷</author>
         
         <description>&lt;p&gt;我所使用的操作系统是 Mac OS X Yosemite，自带 Apache 和 PHP，所以不用安装，只需稍微修改一下配置文件即可。&lt;/p&gt;
 
@@ -633,7 +633,7 @@ git pull origin master
         <title>与心魔之战</title>
         
           <dc:creator>欧雷</dc:creator>
-          <author>post.author.name</author>
+          <author>欧雷</author>
         
         <description>&lt;p&gt;今天是星期三，我已经跟自己的心魔较量了四天。虽然这些天内心一直在争斗，但是与不同的对象，也就是说是不同的“心魔”。第一个已经被我打倒，暂时不会起来；第二个正在搏斗，目前我占上风。&lt;/p&gt;
 
@@ -664,7 +664,7 @@ git pull origin master
         <title>网站性能优化·前端篇</title>
         
           <dc:creator>欧雷</dc:creator>
-          <author>post.author.name</author>
+          <author>欧雷</author>
         
         <description>&lt;blockquote&gt;
   &lt;p&gt;我们的目标是优先显示与用户要在网页上执行的主要操作有关的内容。&lt;/p&gt;
@@ -852,7 +852,7 @@ git pull origin master
         <title>将人生置于股掌</title>
         
           <dc:creator>欧雷</dc:creator>
-          <author>post.author.name</author>
+          <author>欧雷</author>
         
         <description>&lt;p&gt;「我要成为人生赢家！」&lt;/p&gt;
 
@@ -905,7 +905,7 @@ git pull origin master
         <title>Vタ／V辞書＋ほうがいい</title>
         
           <dc:creator>欧雷</dc:creator>
-          <author>post.author.name</author>
+          <author>欧雷</author>
         
         <description>&lt;p&gt;「〜ほうが」的前面可以接名词、形容词、动词等等，后面也可以加各种类型的成分。当前面是非动词后面是非「いい」的词时用法简单易懂——一种比较的说法，句式一般为「AよりBのほうが…」，有「两种事物相比之下，其中一个更……」的意思。&lt;/p&gt;
 
@@ -978,7 +978,7 @@ git pull origin master
         <title>一次体检引起的反思</title>
         
           <dc:creator>欧雷</dc:creator>
-          <author>post.author.name</author>
+          <author>欧雷</author>
         
         <description>&lt;p&gt;我要公布一个今天体检时所得知的爆炸性新闻，当然是与我有关——&lt;/p&gt;
 &lt;p&gt;第一项是血常规，登记时发了长短不一的三个管子，排在我前面的同事因为晕血而灰溜溜地「下台」了（其实是进「小黑屋」享受特殊待遇了）。我早已把手机拿在右手中做好准备，将已经爆出青筋的左臂伸出去，直勾勾地看着工作人员将细针扎进去。弄了好几下还没血流出来，我有点无语：「怎么不往那根明显的血管里扎啊？」话音刚落，只见接在细针上的皮管中流出了深红色看起来有点黏稠的液体……可能是我右手的姿势有点怪，并且另一位工作人员发现我在看手机屏幕：「这里不能拍照！」还没等我做任何反应，排在后面的人笑着说：「他没有拍照，是在录像！」我嬉皮笑脸地把手机摄像头关掉了。本来还想拍下整个抽血过程，显示出我的「英勇」呢！&lt;/p&gt;
