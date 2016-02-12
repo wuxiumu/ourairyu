@@ -2,5 +2,14 @@
 title: 文章类别
 permalink: /categories/
 ---
+{% assign categories = site.data.categories %}
 
-无
+<section class="container">
+  <ul>
+    {% for category in site.categories %}
+      {% assign c = category[0] %}
+
+      <li><a href="/categories/{{ c }}/">{{ categories[c].name }}</a> ({{ category[1].size }})</li>
+    {% endfor %}
+  </ul>
+</section>
