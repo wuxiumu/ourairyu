@@ -10,17 +10,23 @@ about:
   url: /about/
   text: 关于
 
-ourairyu:
-  url: /ourairyu/
-  text: 伪·思想家
-  description: 
+
+
+# =====
+# 多元化的我
+# =====
 
 dev:
   url: /dev/
-  text: 真·码农
+  text: 码农
   description: 
 
 otaku:
   url: /otaku/
-  text: 半·御
+  text: 宅男
+  description: 
+
+ourairyu:
+  url: /ourairyu/
+  text: 思考者
   description: 
