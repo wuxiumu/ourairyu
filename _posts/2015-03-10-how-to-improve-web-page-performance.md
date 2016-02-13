@@ -4,8 +4,8 @@ date: 2015-03-10 18:10:12 +0800
 categories:
   - web-development
 tags:
-  - Front-end Development
-  - web performance optimization
+  - frontend-web-development
+  - web-performance-optimization
 ---
 > 我们的目标是优先显示与用户要在网页上执行的主要操作有关的内容。
 

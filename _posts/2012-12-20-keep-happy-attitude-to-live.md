@@ -4,7 +4,7 @@ date: 2012-12-20 23:42:00 +0800
 categories:
   - thoughts
 tags:
-  - 三观建立
+  - values
   - 人生观
   - 价值观
   - 个人总结

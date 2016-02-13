@@ -1,15 +1,6 @@
 title: 欧雷流
 description: 不走寻常路
 
-# Use for Atom feed
-name: 欧雷流
-author:
-  name: 欧雷
-  email: ourairyu@gmail.com
-  uri: http://ourai.ws/
-github:
-  url: http://ourai.ws
-
 collections:
   sketches:
     output: true
@@ -111,14 +102,24 @@ defaults:
 jekyll-archives:
   enabled:
     - categories
+    - tags
   layouts:
     category: category
+    tag: tag
   permalinks:
     category: "/categories/:name/"
+    tag: "/tags/:name/"
 
 # Jekyll Feed
 feed:
   path: atom.xml
+name: 欧雷流
+author:
+  name: 欧雷
+  email: ourairyu@gmail.com
+  uri: http://ourai.ws/
+github:
+  url: http://ourai.ws
 
 # Jekyll Slim
 slim:

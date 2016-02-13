@@ -4,7 +4,7 @@ date: 2013-02-03 15:36:00 +0800
 categories:
   - culture
 tags:
-  - 大和文化
+  - japanese-culture
   - 历史
   - 地域
   - 地理

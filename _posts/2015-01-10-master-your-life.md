@@ -4,7 +4,7 @@ date: 2015-01-10 18:11:00 +0800
 categories:
   - thoughts
 tags:
-  - 三观建立
+  - values
   - 玩转人生
 ---
 「我要成为人生赢家！」

@@ -4,7 +4,7 @@ date: 2012-12-07 20:38:00 +0800
 categories:
   - thoughts
 tags:
-  - 三观建立
+  - values
   - 人性
   - 为人处世
 ---

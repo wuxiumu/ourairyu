@@ -1,0 +1,44 @@
+software-engineering:
+  name: 软件工程
+
+frontend-engineering:
+  name: 前端工程
+
+frontend-web-development:
+  name: 前端开发
+
+web-performance-optimization:
+  name: 网站性能优化
+
+chinese-culture:
+  name: 华夏文化
+
+japanese-culture:
+  name: 大河文化
+
+daily-life:
+  name: 日常生活
+
+start-up:
+  name: 创业
+
+job:
+  name: 工作
+
+apple-device:
+  name: Apple 设备
+
+ipod:
+  name: iPod
+
+china-shit:
+  name: 天朝
+
+values:
+  name: 三观建立
+
+maihaoche:
+  name: 买好车
+
+memories:
+  name: 回忆

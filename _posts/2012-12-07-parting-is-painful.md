@@ -4,7 +4,7 @@ date: 2012-12-07 01:24:00 +0800
 categories:
   - life
 tags:
-  - 日常生活
+  - daily-life
   - 离别
   - 痛苦
 ---
