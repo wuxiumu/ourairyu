@@ -17,6 +17,16 @@
     {% endif %}
 
     {% assign title_prefix = title_prefix | prepend: "「" | append: "」类别的文章 - " %}
+  {% elsif page.type == "tag" %}
+    {% assign tags = site.data.tags %}
+
+    {% if tags[page.title] == null %}
+      {% assign title_prefix = page.title %}
+    {% else %}
+      {% assign title_prefix = tags[page.title].name %}
+    {% endif %}
+
+    {% assign title_prefix = title_prefix | prepend: "「" | append: "」标签的文章 - " %}
   {% else %}
     {% if page.title %}
       {% assign title_prefix = page.title | append: " - " %}
