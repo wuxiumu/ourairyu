@@ -6,8 +6,8 @@
     <description>不走寻常路</description>
     <link>http://ourai.ws/</link>
     <atom:link href="http://ourai.ws/rss.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 13 Feb 2016 01:00:48 +0800</pubDate>
-    <lastBuildDate>Sat, 13 Feb 2016 01:00:48 +0800</lastBuildDate>
+    <pubDate>Sat, 13 Feb 2016 15:27:49 +0800</pubDate>
+    <lastBuildDate>Sat, 13 Feb 2016 15:27:49 +0800</lastBuildDate>
     <language>zh-CN</language>
     <generator>Jekyll v2.4.0</generator>
     
@@ -842,9 +842,9 @@ git pull origin master
         <category>web-development</category>
         
         
-        <category>Front-end Development</category>
+        <category>frontend-web-development</category>
         
-        <category>web performance optimization</category>
+        <category>web-performance-optimization</category>
         
       </item>
     
@@ -895,7 +895,7 @@ git pull origin master
         <category>thoughts</category>
         
         
-        <category>三观建立</category>
+        <category>values</category>
         
         <category>玩转人生</category>
         
