@@ -21,7 +21,7 @@ tags:
 
 > 今年 N1 再不过，我都觉得对不起那几万软妹币！！！
 >
-> <figure><div><img src="http://wp.ourai.ws/wp-content/uploads/2013/08/psb1.jpg" alt="JLPT N1 成绩单"></div></figure>
+> <figure><div><img src="{{ 'posts/20130831/report-of-n1.jpg' | asset_path }}" alt="JLPT N1 成绩单"></div></figure>
 
 1. 8 月 29 日，也就是前天、星期四，我再一次支付了 450 元的报名费，准备在今年 12 月再挑战一次 [JLPT](http://www.jlpt.jp/ "日本語能力試験 JLPT"){:rel="nofollow external"}{:target="_blank"} N1。去年 12 月考试时因为没戴手表无法估算时间而造成到点没答完卷（我去年买了个表），在半裸考的状态下最后取得了 77 分「好」成绩的事情铭记于心！
 2. 作为 JLPT N1 的「热身赛」，打算在 9 月末时报名将要于 11 月 17 日进行的第 111 回 [J.TEST](http://j-test.jp/ "J.TEST 実用日本語検定"){:rel="nofollow external"}{:target="_blank"} A-D 的考试。
