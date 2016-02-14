@@ -14,6 +14,7 @@ article {
   }
 
   header {
+    @include pie-clearfix;
     padding: {
       top: 3em;
       bottom: 1.8em;
@@ -25,10 +26,39 @@ article {
       line-height: 1.2;
     }
 
-    p {
+    p,
+    .Article-tags {
+      float: left;
       margin-top: .75em;
       font-size: 14px;
+    }
+
+    p {
       color: #999;
+    }
+
+    .Article-tags {
+      margin-left: 1em;
+
+      span,
+      ul,
+      li {
+        float: left;
+      }
+
+      ul {
+        list-style: none inside none;
+        margin-bottom: 0;
+        padding-left: 0;
+
+        li {
+          margin-left: .5em;
+
+          &:first-child {
+            margin-left: 0;
+          }
+        }
+      }
     }
   }
 

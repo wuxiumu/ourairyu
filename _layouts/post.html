@@ -5,6 +5,21 @@ layout: page
   <header>
     <h1>{{ page.title }}</h1>
     <p><time datetime="{{ page.date }}">{{ page.date | date: "%F" }} {{ page.date | date: "%T" }}</time>发布</p>
+    {% if page.tags.size > 0 %}
+      <div class="Article-tags">
+        <span>标签：</span>
+        <ul>
+          {% assign tags = site.data.tags %}
+          {% for tag in page.tags %}
+            {% if tags[tag] == null %}
+              <li>{{ tag }}</li>
+            {% else %}
+              <li><a href="/tags/{{ tag }}/">{{ tags[tag].name }}</a></li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
   </header>
   <div class="Article-content col-md-9">{{ content }}</div>
   <footer class="col-md-3">
