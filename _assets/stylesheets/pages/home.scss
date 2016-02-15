@@ -10,10 +10,6 @@
   }
 }
 
-body {
-  padding-bottom: 100px;
-}
-
 section {
   margin-top: 50px;
 
@@ -29,6 +25,10 @@ section {
   > p:last-of-type {
     margin-bottom: 0;
   }
+}
+
+.Page-content:before {
+  display: none;
 }
 
 #banner {
