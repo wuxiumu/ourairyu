@@ -1,3 +1,6 @@
+//= require ./jquery-1.11.3.min
+//= require ./bootstrap-sprockets.js
+
 var _hmt = _hmt || [];
 (function() {
   var hm = document.createElement("script");

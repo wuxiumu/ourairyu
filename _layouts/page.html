@@ -2,17 +2,27 @@
 layout: default
 ---
 {% assign links = site.data.links %}
-<nav class="Page-navs">
-  <ul>
-    <li><a href="{{ '/' | prepend: site.url }}">首页</a></li>
-    <li><a href="{{ links.posts.url | prepend: site.url }}">{{ links.posts.text }}</a></li>
-    <li><a href="{{ links.about.url | prepend: site.url }}">{{ links.about.text }}</a></li>
-  </ul>
-</nav>
-<header class="Page-header container sr-only">
-  <div>
-    <h1>{{ site.title }}</h1>
-    <p>{{ site.description }}</p>
+<header class="Page-header">
+  <div class="navbar navbar-static-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button class="navbar-toggle collapsed" type="button" data-target=".Page-navs" data-toggle="collapse">
+          <span class="sr-only">导航触发</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a href="{{ '/' | prepend: site.url }}" class="navbar-brand">Ourai.WS</a>
+      </div>
+      <!-- 导航 -->
+      <nav class="Page-navs navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="{{ '/' | prepend: site.url }}">首页</a></li>
+          <li><a href="{{ links.posts.url | prepend: site.url }}">{{ links.posts.text }}</a></li>
+          <li><a href="{{ links.about.url | prepend: site.url }}">{{ links.about.text }}</a></li>
+        </ul>
+      </nav>
+    </div>
   </div>
 </header>
 <main class="Page-content">

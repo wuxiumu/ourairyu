@@ -1,21 +1,33 @@
-.Page-navs {
-  text-align: center;
+.Page-header {
+  border-bottom: 1px solid #dedede;
   background-color: #F5F5F5;
 
-  ul {
-    @include unstyled_list;
-    @include pie-clearfix;
-    @include inline-block;
-    height: 30px;
+  .navbar {
     margin-bottom: 0;
-    line-height: 30px;
   }
 
-  li {
-    float: left;
-    padding: 0 .5em;
-    font-size: 14px;
+  .navbar-brand {
+    font: {
+      family: Georgia;
+      weight: bold;
+    }
+    color: inherit;
+    text-shadow: 1px 1px #fff;
   }
+
+  .navbar-toggle {
+    &:hover {
+      background-color: #eee;
+      border-color: #eee;
+    }
+
+    .icon-bar {
+      background-color: #666;
+    }
+  }
+}
+
+.Page-navs {
 }
 
 .Page-content:after {
