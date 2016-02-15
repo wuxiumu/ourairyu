@@ -35,7 +35,6 @@ encoding: utf-8
 
 # Plugins
 gems:
-  - jekyll-assets
   - jekyll-archives
   - jekyll-feed
   - jekyll-slim
