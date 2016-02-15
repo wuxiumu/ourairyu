@@ -1,5 +1,3 @@
-#= require jquery-1.11.3.min
-
 generateBonusList = ( num ) ->
   id = "bonus#{num}"
 

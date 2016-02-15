@@ -1,5 +1,3 @@
-#= require jquery-1.11.3.min
-
 $(document).on "click", ".Nav-cell a", ->
   $el = $(@)
   cls = "is-active"
