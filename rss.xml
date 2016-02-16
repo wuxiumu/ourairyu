@@ -6,8 +6,8 @@
     <description>不走寻常路</description>
     <link>http://ourai.ws/</link>
     <atom:link href="http://ourai.ws/rss.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 16 Feb 2016 11:36:35 +0800</pubDate>
-    <lastBuildDate>Tue, 16 Feb 2016 11:36:35 +0800</lastBuildDate>
+    <pubDate>Tue, 16 Feb 2016 17:01:48 +0800</pubDate>
+    <lastBuildDate>Tue, 16 Feb 2016 17:01:48 +0800</lastBuildDate>
     <language>zh-CN</language>
     <generator>Jekyll v2.4.0</generator>
     
@@ -460,9 +460,9 @@ being redirected to the login form.
         <category>life</category>
         
         
-        <category>消费观</category>
+        <category>consumption-concept</category>
         
-        <category>理财</category>
+        <category>financing</category>
         
       </item>
     
@@ -583,7 +583,7 @@ git pull origin master
         <category>life</category>
         
         
-        <category>跳槽</category>
+        <category>resignation</category>
         
       </item>
     
@@ -617,15 +617,15 @@ git pull origin master
         <category>web-development</category>
         
         
-        <category>Apache</category>
+        <category>apache</category>
         
-        <category>Mac OS</category>
+        <category>mac-os</category>
         
-        <category>MySQL</category>
+        <category>mysql</category>
         
-        <category>PHP</category>
+        <category>php</category>
         
-        <category>开发环境</category>
+        <category>development-environment</category>
         
       </item>
     
@@ -895,8 +895,6 @@ git pull origin master
         <category>thoughts</category>
         
         
-        <category>玩转人生</category>
-        
       </item>
     
       <item>
@@ -968,7 +966,7 @@ git pull origin master
         <category>japanese</category>
         
         
-        <category>语法</category>
+        <category>grammar</category>
         
       </item>
     
@@ -1011,9 +1009,9 @@ git pull origin master
         <category>thoughts</category>
         
         
-        <category>人生观</category>
+        <category>philosophy-of-life</category>
         
-        <category>反思</category>
+        <category>self-reflection</category>
         
       </item>
     
