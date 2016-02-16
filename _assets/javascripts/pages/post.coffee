@@ -19,7 +19,7 @@ addTocItem = ( $h ) ->
 
 # 生成目录
 generateToc = ->
-  $toc = $("<ul class=\"Article-toc\" />")
+  $toc = $("<div class=\"Article-toc\"><h3>文章目录</h3><ul class=\"nav\" /></div>")
   $item = null
 
   $("h2, h3", $(".Article-content")).each ->
@@ -29,8 +29,8 @@ generateToc = ->
     if @tagName.toLowerCase() is "h2"
       $item = $(addTocItem $h)
 
-      $item.append("<ul />") if $list.size() is 0
-      $item.appendTo $toc
+      $item.append("<ul class=\"nav\" />") if $list.size() is 0
+      $item.appendTo $toc.children("ul")
     else
       $list.append addTocItem($h)
 
@@ -39,4 +39,19 @@ generateToc = ->
 $(document).ready ->
   $toc = generateToc()
 
-  $(".Article-meta").append($toc) unless $("li", $toc).size() is 0
+  if $("li", $toc).size() > 0
+    $(".Article-meta").append $toc
+
+    $(".Article-toc")
+      .on
+        "affixed-top.bs.affix": ->
+          $(@).css("position", "static")
+        "affixed.bs.affix": ->
+          $(@).css("position", "fixed")
+      .affix
+        offset:
+          top: $(".Article-toc").offset().top
+          bottom: ->
+            return $(document).height() - ($(".Article-content").offset().top + $(".Article-content").outerHeight(true))
+
+    $("body").scrollspy target: ".Article-toc"
