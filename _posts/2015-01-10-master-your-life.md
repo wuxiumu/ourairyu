@@ -4,8 +4,6 @@ date: 2015-01-10 18:11:00 +0800
 categories:
   - thoughts
 tags:
-  - values
-  - 玩转人生
 ---
 「我要成为人生赢家！」
 

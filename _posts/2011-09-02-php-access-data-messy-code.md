@@ -3,7 +3,7 @@ title: php 读取数据中文乱码解决方案
 categories:
   - web-development
 tags:
-  - PHP
+  - php
   - 乱码
   - 存取
   - 数据库

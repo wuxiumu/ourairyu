@@ -3,8 +3,8 @@ title: 用 DL 标签实现信息列表
 categories:
   - web-development
 tags:
-  - CSS
-  - HTML
+  - css
+  - html
   - 网页设计
   - 页面布局
 published: false

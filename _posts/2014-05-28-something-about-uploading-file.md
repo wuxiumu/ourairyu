@@ -3,10 +3,10 @@ title: 上传文件这件事，蛋疼何止一点点！
 categories:
   - web-development
 tags:
-  - HTML
-  - JavaScript
-  - XHR
-  - AJAX
+  - html
+  - javascript
+  - xhr
+  - ajax
 ---
 
 在做 Web App 时，不可避免地要上传一些文件，最常用到的就是图片。在线相册及图片收藏网站等以提供图片存储服务的站点自不用说，社交网络的头像、发布信息等都需要上传图片的功能。提供电子邮件服务的站点，除了图片还需要上传文档等其他类型文件的功能。

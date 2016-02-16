@@ -4,9 +4,9 @@ date: 2013-10-13 22:57:00 +0800
 categories:
   - life
 tags:
-  - 户外运动
-  - 徒步
-  - 杭州
+  - outdoor-recreation
+  - hiking
+  - hangzhou
 ---
 因为可恶的中国放假制度，国庆假期后将周六占用来上班，所以这星期只休息一天。
 

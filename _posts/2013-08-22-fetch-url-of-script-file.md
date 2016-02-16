@@ -3,8 +3,8 @@ title: 获取 JavaScript 脚本文件路径
 categories:
   - web-development
 tags:
-  - JavaScript
-  - URL
+  - javascript
+  - url
 ---
 
 在开发过程中，有时需要动态获取文件的 URL，获取 JS 文件的 URL 是最常见的需求，例如像 [Sea.js](http://seajs.org) 等 Module Loader 就会用到。

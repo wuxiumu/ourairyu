@@ -4,9 +4,9 @@ date: 2013-05-04 22:14:00 +0800
 categories:
   - thoughts
 tags:
-  - 职场
-  - 前端工程师
-  - 感悟
+  - job
+  - frontend-engineer
+  - inspiration
 ---
 我的职业是「前端工程师」，说给外行人听的话，就是「做网页的」。像谷歌（Google）、雅虎（Yahoo）、百度、淘宝网、阿里巴巴、亚马逊（Amazon）、乐天（Rakuten）、Facebook、Twitter 等网站都是出自同行之手。在中国，公司发布的前端工程师这一职位的招聘信息中都会有这样一句话——「**精通 HTML/CSS/JavaScript**」。
 

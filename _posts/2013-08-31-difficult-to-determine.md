@@ -4,8 +4,8 @@ date: 2013-08-31 01:38:00 +0800
 categories:
   - life
 tags:
-  - 前端工程师
-  - 烦恼
+  - frontend-engineer
+  - annoyance
 ---
 已到午夜，边听着陈小春的歌曲，边来谈谈我的烦恼吧。
 

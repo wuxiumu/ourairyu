@@ -4,9 +4,9 @@ date: 2013-08-14 18:22:00 +0800
 categories:
   - thoughts
 tags:
-  - 方法论
-  - 个人总结
-  - 成长
+  - methodology
+  - summary
+  - growth
 ---
 从自己下厨到现在，已经过了三个星期左右了吧，四舍五入一下就算一个月。
 

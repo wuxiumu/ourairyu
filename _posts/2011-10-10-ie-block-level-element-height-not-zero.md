@@ -3,7 +3,7 @@ title: IE6、IE7 及 IE8 怪癖模式下空块级非替换元素高度不为 0
 categories:
   - web-development
 tags:
-  - CSS
+  - css
   - hasLayout
   - 块级
   - 非替换元素

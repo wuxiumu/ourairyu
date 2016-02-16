@@ -3,8 +3,8 @@ title: 圆角横向菜单实现技巧
 categories:
   - layout
 tags:
-  - HTML
-  - CSS
+  - html
+  - css
 published: false
 ---
 

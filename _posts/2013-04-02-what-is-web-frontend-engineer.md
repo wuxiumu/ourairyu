@@ -4,9 +4,9 @@ date: 2013-04-02 15:51:00 +0800
 categories:
   - thoughts
 tags:
-  - 职场
-  - 个人总结
-  - 前端工程师
+  - job
+  - summary
+  - frontend-engineer
 ---
 「Web 前端开发」「前端工程师」「前端开发工程师」（以下统称为「[前端工程师](http://baike.baidu.com/view/4227693.htm "查看百度百科关于「前端开发工程师」的词条"){:rel="external nofollow"}{:target="_blank"}」），这几个词描述的都是一种职业，并且可以看到它们中都带有「前端」这个字眼。在软件开发中，「前端」是指一个软件产品中用户能够看到的部分。这里的「前端」指的是 [B/S 结构](http://baike.baidu.com/view/268862.htm "查看百度百科关于「B/S 结构」的词条"){:rel="external nofollow"}{:target="_blank"}软件中通过浏览器呈现给客户的部分——网页。「前端工程师」就是利用 HTML、CSS、JavaScript（以下简称为「JS」）等技术（以下将这三种技术合称为「[DHTML](http://en.wikipedia.org/wiki/Dynamic_HTML "查看维基百科关于「动态 HTML」的词条"){:rel="external nofollow"}{:target="_blank"}」）开发网页，向用户提供内容展示及交互的职业。这是近几年随着 web 技术的发展而产生的新职业。
 

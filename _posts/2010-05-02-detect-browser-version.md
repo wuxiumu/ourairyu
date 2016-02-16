@@ -1,9 +1,9 @@
 ---
 title: 检测当前浏览器版本的方法
 categories:
-  - JavaScript
+  - web-development
 tags:
-  - JavaScript
+  - javascript
   - 浏览器
 published: false
 ---

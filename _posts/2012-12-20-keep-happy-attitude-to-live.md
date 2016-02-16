@@ -4,10 +4,9 @@ date: 2012-12-20 23:42:00 +0800
 categories:
   - thoughts
 tags:
+  - philosophy-of-life
   - values
-  - 人生观
-  - 价值观
-  - 个人总结
+  - summary
 ---
 > 生活就是生下来活下去。
 

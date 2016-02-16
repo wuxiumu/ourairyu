@@ -4,6 +4,9 @@ software-engineering:
 frontend-engineering:
   name: 前端工程
 
+frontend-engineer:
+  name: 前端工程师
+
 frontend-web-development:
   name: 前端开发
 
@@ -14,7 +17,7 @@ chinese-culture:
   name: 华夏文化
 
 japanese-culture:
-  name: 大河文化
+  name: 大和文化
 
 daily-life:
   name: 日常生活
@@ -34,11 +37,203 @@ ipod:
 china-shit:
   name: 天朝
 
+worldview:
+  name: 世界观
+
 values:
-  name: 三观建立
+  name: 价值观
+
+philosophy-of-life:
+  name: 人生观
+
+consumption-concept:
+  name: 消费观
+
+financing:
+  name: 理财
+
+annoyance:
+  name: 烦恼
+
+leave:
+  name: 离别
+
+suffering:
+  name: 痛苦
 
 maihaoche:
   name: 买好车
 
 memories:
   name: 回忆
+
+student-age:
+  name: 学生时代
+
+acg-fes:
+  name: 漫展
+
+feeling:
+  name: 感受
+
+goal:
+  name: 目标
+
+summary:
+  name: 总结
+
+skill:
+  name: 技能
+
+self-reflection:
+  name: 反思
+
+sexual-relations:
+  name: 两性关系
+
+html:
+  name: 超文本标记语言
+
+css:
+  name: 层叠样式表
+
+javascript:
+  name: JavaScript
+
+xhr:
+  name: XML HTTP 请求
+
+ajax:
+  name: AJAX
+
+url:
+  name: 统一资源定位符
+
+jlpt:
+  name: 日本语能力测试
+
+examination:
+  name: 考试
+
+
+
+fushun:
+  name: 抚顺
+
+shenyang:
+  name: 沈阳
+
+hangzhou:
+  name: 杭州
+
+huangshan:
+  name: 黄山
+
+nanjing:
+  name: 南京
+
+travel:
+  name: 旅行
+
+travel-in-china:
+  name: 游中国
+
+travel-of-mountain-water:
+  name: 山水游
+
+travel-of-humanities:
+  name: 人文游
+
+
+
+mac-os:
+  name: Mac OS
+
+mysql:
+  name: MySQL
+
+apache:
+  name: Apache
+
+php:
+  name: PHP
+
+development-environment:
+  name: 开发环境
+
+linux:
+  name: Linux
+
+deployment:
+  name: 部署
+
+git:
+  name: Git
+
+web-server:
+  name: 网页服务器
+
+
+
+methodology:
+  name: 方法论
+
+ideal:
+  name: 理想
+
+foreign-language:
+  name: 外语
+
+grammar:
+  name: 语法
+
+plan:
+  name: 计划
+
+inspiration:
+  name: 感悟
+
+history:
+  name: 历史
+
+geography:
+  name: 地理
+
+philosophy:
+  name: 哲学
+
+religion:
+  name: 宗教
+
+difference-between-regions:
+  name: 地域差异
+
+human:
+  name: 人类
+
+humanity:
+  name: 人性
+
+interpersonal-relationship:
+  name: 人际关系
+
+morality:
+  name: 伦理道德
+
+self-cultivation:
+  name: 自我修养
+
+growth:
+  name: 成长
+
+otaku:
+  name: 御宅
+
+outdoor-recreation:
+  name: 户外运动
+
+hiking:
+  name: 徒步
+
+resignation:
+  name: 辞职

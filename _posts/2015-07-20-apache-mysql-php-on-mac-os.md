@@ -4,11 +4,11 @@ date: 2015-07-20 23:54:00 +0800
 categories:
   - web-development
 tags:
-  - Apache
-  - Mac OS
-  - MySQL
-  - PHP
-  - 开发环境
+  - apache
+  - mac-os
+  - mysql
+  - php
+  - development-environment
 ---
 我所使用的操作系统是 Mac OS X Yosemite，自带 Apache 和 PHP，所以不用安装，只需稍微修改一下配置文件即可。
 
