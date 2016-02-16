@@ -1,15 +1,27 @@
 ---
 layout: page
 ---
+{% assign author = site.data.authors[page.author.slug] %}
+
+{% assign tags = site.data.tags %}
+
+{% assign categories = site.data.categories %}
+{% assign category = page.categories.first %}
+
+{% if categories[category] == null %}
+  {% assign postCategory = category %}
+{% else %}
+  {% assign postCategory = categories[category].name %}
+{% endif %}
+
 <article class="container">
   <header>
     <h1>{{ page.title }}</h1>
-    <p><time datetime="{{ page.date }}">{{ page.date | date: "%F" }} {{ page.date | date: "%T" }}</time>发布</p>
+    <p><a href="{{ author.profile }}">{{ author.name.zh }}</a> 发表于 <time datetime="{{ page.date }}">{{ page.date | date: "%F" }} {{ page.date | date: "%T" }}</time></p>
     {% if page.tags.size > 0 %}
       <div class="Article-tags">
         <span>标签：</span>
         <ul>
-          {% assign tags = site.data.tags %}
           {% for tag in page.tags %}
             {% if tags[tag] == null %}
               <li>{{ tag }}</li>
@@ -23,30 +35,30 @@ layout: page
   </header>
   <div class="Article-content col-md-9">{{ content }}</div>
   <footer class="col-md-3">
-    {% assign author = site.data.authors[page.author.slug] %}
     <div class="Article-meta">
-      {% assign categories = site.data.categories %}
-      {% assign category = page.categories.first %}
-
-      {% if categories[category] == null %}
-        {% assign postCategory = category %}
-      {% else %}
-        {% assign postCategory = categories[category].name %}
-      {% endif %}
-
-      <p class="Article-author"><a href="{{ author.profile }}" class="Author-link--withAvatar"><img src="{{ author.avatar.normal | prepend: 'avatars/' | asset_path }}"></a><a href="{{ author.profile }}" class="Author-link">{{ author.name.zh }}</a>发表于<br><a href="/categories/{{ category }}/">{{ postCategory }}</a></p>
-      <!-- 赞助 -->
-      <div id="supportAuthor">
+      <!-- 所属分类 -->
+      <div class="Article-category">
+        <p>发布在</p>
+        <div>
+          <h3><a href="/categories/{{ category }}/">{{ postCategory }}</a></h3>
+          <p>{% if categories[category].description %}{{ categories[category].description }}{% else %}暂无分类描述{% endif %}</p>
+        </div>
+      </div>
+      <!-- 打赏作者 -->
+<!--       <div id="supportAuthor">
         <p>如果您觉得文章内容有所帮助，请随意打赏。您的支持将鼓励作者继续创作！</p>
         <ul>
           <li><img src="{{ page.author.slug | append: '.jpg' | prepend: 'qrcodes/pay/alipay/' | asset_path }}"></li>
           <li><img src="{{ page.author.slug | append: '.jpg' | prepend: 'qrcodes/pay/wechat/' | asset_path }}"></li>
         </ul>
+      </div> -->
+      <!-- 版权声明 -->
+      <p class="Article-license">本文采用知识共享<i class="fa fa-creative-commons"></i><a href="http://creativecommons.org/licenses/by-nc/3.0/cn/" target="_blank">署名-非商业性使用 3.0 中国大陆</a>许可协议，可自由转载、引用，但需署名作者并注明文章出处且不能用于商业用途。</p>
+      <!-- 分享扩散 -->
+      <div class="Article-share">
+        <p>分享到<i class="fa fa-share"></i></p>
+        <div class="social-share" data-sites="wechat,qzone,weibo,twitter"></div>
       </div>
-      <!-- 版权 -->
-      <p class="Article-license">本文采用知识共享<a href="http://creativecommons.org/licenses/by-nc/3.0/cn/" target="_blank">署名-非商业性使用 3.0 中国大陆</a>许可协议，可自由转载、引用，但需署名作者并注明文章出处且不能用于商业用途。</p>
-      <!-- 分享 -->
-      <div class="Article-share social-share" data-sites="wechat,qzone,weibo,twitter"></div>
     </div>
   </footer>
 </article>

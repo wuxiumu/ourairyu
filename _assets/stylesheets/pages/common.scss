@@ -88,10 +88,28 @@ article {
 
 .Article-meta {
   font-size: 14px;
+
+  h3 {
+    margin: 0;
+    font-size: 16px;
+  }
 }
 
 .Article-author {
   overflow: hidden;
+}
+
+.Article-category {
+  > p {
+    margin-bottom: 10px;
+    color: #888;
+  }
+
+  > div {
+    p {
+      margin-top: 10px;
+    }    
+  }
 }
 
 .Author-link--withAvatar {
@@ -142,14 +160,34 @@ article {
   }
 }
 
+.Article-license,
+.Article-share {
+  margin-top: 20px;
+}
+
 .Article-license {
-  margin-top: 10px;
+  a {
+    margin-right: .5em;
+  }
+
+  .fa {
+    margin: {
+      right: .15em;
+      left: .5em;
+    }
+  }
 }
 
 .Article-share {
-  margin-top: 20px;
+  > p {
+    margin-bottom: 10px;
 
-  .social-share-icon {
+    .fa {
+      margin-left: .5em;
+    }
+  }
+
+  .social-share .social-share-icon {
     width: 28px;
     height: 28px;
     margin: {
@@ -168,10 +206,15 @@ article {
       height: 100%;
       content: $UN-space;
     }
+
+    &:first-child {
+      margin-left: 0;
+    }
   }
 }
 
 .Article-toc {
+  width: 220px;
   margin-top: 15px;
   padding-top: 10px;
   border-top: 1px solid #eee;
@@ -182,9 +225,7 @@ article {
   }
 
   > h3 {
-    margin: 0;
     padding: 10px 15px;
-    font-size: 16px;
   }
 
   > ul {
