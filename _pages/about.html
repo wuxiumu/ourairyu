@@ -1,17 +1,54 @@
 ---
-title: 关于
+layout: default
+title: 「欧雷流」二三事
+css:
+  - pages/about
 ---
-{% assign links = site.data.links %}
-<article class="container">
-  <header>
-    <h1>关于欧雷</h1>
-  </header>
-  <div class="col-md-9">
-    <p>通过以下链接可以了解更为多元化的「欧雷」：</p>
-    <ul>
-      <li>{{ links.ourairyu.text }}</li>
-      <li><a href="{{ links.dev.url | prepend: site.url }}">{{ links.dev.text }}</a></li>
-      <li>{{ links.otaku.text }}</li>
-    </ul>
+{% include header.html %}
+<div class="Page-content">
+  <p><span class="container">欧雷的真颜 XD</span></p>
+  <div class="container">
+    <main class="Page-main col-md-9">
+      <header>
+        <h1>{{ page.title }}</h1>
+      </header>
+      <div>
+        <p>「欧雷流」，从词中不难看出其与「欧雷」有着莫大的关系，所以，要想了解「欧雷流」就得先了解「欧雷」。</p>
+        <h2 id="ourai">欧雷，就是我</h2>
+        <p>嗨～大家好！我叫欧雷，是一枚穿着大叔外衣却永远长不大的小男孩。*\(^o^)/*</p>
+        <p>我生于东北，毕业一年后来到人杰地灵的杭州——江南最美的城市。现于<a href="https://www.maihaoche.com/" target="_blank" rel="external nofollow">买好车</a>从事前端工程师一职。</p>
+        <p>虽然我在互联网以及公司中都叫「欧雷」，但这并非我的真名，原本是给自己的小说中的主人公所起的名字。</p>
+        <p>我拥有强烈的好奇心，对宇宙万物及相关的一切充满兴趣；我喜欢未知的新事物，总想去尝试做各种事情以及到处走走看看。</p>
+        <p>欢迎了解更为具体更为多元化的我：</p>
+        <ul>
+          {% assign links = site.data.links %}
+          {% assign keys = "ourairyu,dev,otaku" | split: "," %}
+          {% for k in keys %}
+            <li><a href="{{ links[k].url | prepend: site.url }}">{{ links[k].text }}</a></li>
+          {% endfor %}
+        </ul>
+        <h2 id="ourairyu">欧雷流，是个性</h2>
+        <p>「欧雷」就是我，替换代入为「<ruby lang="ja" class="lang_jp"><rb>我流</rb><rp>（</rp><rt>がりゅう</rt><rp>）</rp></ruby>」，意为：自成一派；独树一帜；别具一格。因此，广义上的「欧雷流」是具备我的个人色彩的事物的集合：思想、言行、穿着、做事方式等；狭义上则专指我的思想体系。</p>
+      </div>
+      {% include disqus.html %}
+    </main>
+    <aside class="Page-sidebar col-md-3">
+      <section>
+        <h3>微信公众号</h3>
+        <p><img src="{{ 'qrcodes/ourairyu-258.jpg' | asset_path }}" alt="「欧雷流」微信公众号 QR 二维码"></p>
+      </section>
+      <section>
+        <h3>其他出没点</h3>
+        <ul>
+          <li><a href="https://twitter.com/ourairyu" target="_blank" rel="external nofollow">Twitter</a></li>
+          <li><a href="https://github.com/ourai" target="_blank" rel="external nofollow">GitHub</a></li>
+          <li><a href="https://segmentfault.com/u/ourai" target="_blank" rel="external nofollow">SegmentFault</a></li>
+          <li><a href="https://www.zhihu.com/people/ourai" target="_blank" rel="external nofollow">知乎</a></li>
+          <li><a href="http://www.douban.com/people/ourai/" target="_blank" rel="external nofollow">豆瓣</a></li>
+          <li><a href="http://bangumi.tv/user/ourai" target="_blank" rel="external nofollow">番组计划</a></li>
+        </ul>
+      </section>
+    </aside>
   </div>
-</article>
+</div>
+{% include footer.html %}

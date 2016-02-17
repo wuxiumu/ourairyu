@@ -1,0 +1,117 @@
+@import "../helper";
+
+.Page-content > p {
+  height: 400px;
+  margin: 0;
+  background: {
+    color: #353535;
+    image: linear-gradient(to right, #353535, #808080);
+  }
+
+  span {
+    @include covered_background("banners/ourai-mono.jpg");
+    display: block;
+    height: 100%;
+    font: 0px/0 a;
+  }
+
+  @media (max-width: $screen-md-max) {
+    height: 340px;
+  }
+
+  @media (max-width: $screen-sm-max) {
+    height: 300px;
+  }
+
+  @media (max-width: $screen-xs-max) {
+    height: 150px;
+  }
+}
+
+.Page-main > header,
+.Page-sidebar {
+  padding-top: 3em;
+}
+
+.Page-main {
+  > header {
+    @include pie-clearfix;
+    padding-bottom: 1.8em;
+
+    h1 {
+      margin: 0;
+      font-size: 2.5em;
+      line-height: 1.2;
+    }
+  }
+
+  h2 {
+    margin: {
+      top: 1em;
+      bottom: .5em;
+    }
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+    font-size: 1.8em;
+  }
+
+  h3 {
+    font-size: 1.4em;
+  }
+
+  p {
+    margin-bottom: 1.5em;
+    line-height: 1.8;
+  }
+}
+
+.Page-sidebar {
+  section {
+    margin-top: 20px;
+    font-size: 14px;
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    h3 {
+      margin: 0 0 10px;
+      padding-left: 10px;
+      border-left: 3px solid #0871ab;
+      font-size: 16px;
+      line-height: inherit;
+    }
+
+    p {
+      margin-bottom: 0;
+    }
+  }
+}
+
+@media all and (min-width: $screen-md-min) {
+  .Page-main {
+    padding-left: 0 !important;
+  }
+
+  .Page-sidebar {
+    padding-right: 0 !important;
+  }
+}
+
+@media all and (max-width: $screen-sm-max) {
+  .Page-main,
+  .Page-sidebar {
+    padding: {
+      right: 0;
+      left: 0;
+    }
+  }
+
+  .Page-sidebar {
+    padding-top: 0;
+  }
+
+  #disqus_thread {
+    margin-bottom: 30px;
+  }
+}

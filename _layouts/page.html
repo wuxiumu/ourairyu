@@ -5,7 +5,11 @@ layout: default
 <main class="Page-content">
   {{ content }}
   {% if page.comments == true %}
-    {% include disqus.html %}
+    <div class="Disqus container">
+      <div class="row">
+        <div class="col-md-9">{% include disqus.html %}</div>
+      </div>
+    </div>
   {% endif %}
 </main>
 {% include footer.html %}
