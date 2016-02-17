@@ -2,6 +2,9 @@ title: 欧雷流
 description: 不走寻常路
 
 collections:
+  pages:
+    output: true
+    permalink: /:path/
   sketches:
     output: true
     permalink: /:collection/:path/
