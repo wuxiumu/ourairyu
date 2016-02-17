@@ -126,40 +126,6 @@ article {
   font-weight: bold;
 }
 
-#supportAuthor {
-  display: none;
-  
-  p {
-    margin: {
-      top: 20px;
-      bottom: 10px;
-    }
-    font: {
-      size: 16px;
-      weight: bold;
-    }
-  }
-
-  ul {
-    @include unstyled_list;
-    @include clearfix;
-    margin-bottom: 0;
-  }
-
-  li {
-    float: left;
-    margin-left: 10px;
-
-    &:first-child {
-      margin-left: 0;
-    }
-  }
-
-  img {
-    @include square(43px * 3);
-  }
-}
-
 .Article-license,
 .Article-share {
   margin-top: 20px;
@@ -279,26 +245,6 @@ article {
 
   .Article-content {
     padding-left: 0;
-  }
-
-  #supportAuthor {
-    ul {
-      margin: {
-        right: -5px;
-        left: -5px;
-      }
-    }
-
-    li {
-      width: 50%;
-      margin-left: 0;
-      padding: 0 5px;
-    }
-
-    img {
-      width: 100%;
-      height: auto;
-    }
   }
 }
 
