@@ -4,6 +4,11 @@
   + .Widget {
     margin-top: 20px;
   }
+
+  &.is-separated {
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+  }
 }
 
 .Widget-header {
@@ -79,5 +84,42 @@
 
   @media all and (max-width: $screen-sm-max) {
     display: none;
+  }
+}
+
+
+
+.Widget-share {
+  .Widget-body > p {
+    margin-bottom: 10px;
+
+    .fa {
+      margin-left: .5em;
+    }
+  }
+
+  .social-share .social-share-icon {
+    width: 28px;
+    height: 28px;
+    margin: {
+      top: 0;
+      bottom: 0;
+    }
+    line-height: normal;
+    font-size: 18px;
+
+    &:before,
+    &:after {
+      @include inline-block;
+    }
+
+    &:after {
+      height: 100%;
+      content: $UN-space;
+    }
+
+    &:first-child {
+      margin-left: 0;
+    }
   }
 }

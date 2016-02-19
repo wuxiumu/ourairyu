@@ -67,6 +67,11 @@ defaults:
       type: pages
     values:
       layout: page
+      layout_css:
+        - share
+      layout_js:
+        - share.min
+        - components
   - scope:
       path: ""
       type: posts
@@ -76,7 +81,9 @@ defaults:
         - share
         - pages/post
       layout_js:
-        - pages/post
+        - share.min
+        - components
+        - initializers/time
       author:
         name: 欧雷
         email: ourairyu@gmail.com

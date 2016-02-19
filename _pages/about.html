@@ -5,8 +5,6 @@ banner:
   description: 欧雷的真颜 XD
 css:
   - pages/about
-ajs:
-  - pages/about
 ---
 <article class="Page-main Article">
   <header class="Article-header">
@@ -65,6 +63,9 @@ ajs:
       <li>万事做到「八分饱」</li>
     </ul>
   </div>
+  <footer class="Article-footer col-md-3">
+    {% include social.html %}
+  </footer>
   <div class="Article-comments col-md-9">{% include disqus.html %}</div>
 </article>
 <div class="Page-sidebar col-md-3">
