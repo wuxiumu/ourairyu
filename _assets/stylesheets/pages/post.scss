@@ -121,10 +121,12 @@
 }
 
 @media all and (max-width: $screen-sm-max) {
-  .Article-meta {
+  .Article-footer {
+    $c: #0871ab;
+
     padding: 20px;
-    border-left: 4px solid #666;
-    background-color: #EEE;
+    border-left: 4px solid $c;
+    background-color: tint($c, 95);
   }
 
   .Article-comments {
