@@ -21,109 +21,11 @@
 }
 
 .Page-sidebar {
-  aside {
-    margin-top: 20px;
-    font-size: 14px;
-
-    &:first-child {
-      margin-top: 0;
-    }
-
-    h3 {
-      margin: 0 0 10px;
-      padding-left: 10px;
-      border-left: 3px solid #0871ab;
-      font-size: 16px;
-      line-height: inherit;
-    }
-
-    p {
-      margin-bottom: 0;
-    }
-  }
+  padding-top: 3em;
 }
-
-
-.Article-toc {
-  width: 220px;
-
-  ul {
-    list-style: none inside none;
-    padding-left: 0;
-  }
-
-  > ul {
-    margin-bottom: 0;
-  }
-
-  .nav {
-    > li {
-      > a {
-        padding: 2px 0 2px 13px;
-        border-left: 2px solid transparent;
-        color: #666;
-
-        &:hover {
-          background-color: transparent;
-        }
-      }
-
-      &.active {
-        > a {
-          border-left-color: #0871ab;
-          font-weight: bold;
-          color: #0871ab
-        }
-      }
-
-      .nav > li {
-        > a {
-          padding-left: 28px;
-        }
-
-        &.active > a {
-          font-weight: normal;
-        }
-      }
-    }
-  }
-
-  &.affix {
-    top: 20px;
-    margin-top: 0;
-    border-top-style: none;
-    @include transition(top .5s);
-  }
-}
-
-// @media all and (min-width: $screen-md-min) {
-//   .Page-main {
-//     padding-left: 0 !important;
-//   }
-
-//   .Page-sidebar {
-//     padding-right: 0 !important;
-//   }
-// }
 
 @media all and (max-width: $screen-sm-max) {
-  // .Page-main,
-  // .Page-sidebar {
-  //   padding: {
-  //     right: 0;
-  //     left: 0;
-  //   }
-  // }
-
-  // .Page-sidebar {
-  //   padding-top: 0;
-  // }
-
-  .Article-toc {
-    display: none;
-  }
-
-  #disqus_thread {
+  .Article-comments {
     margin-bottom: 30px;
   }
 }

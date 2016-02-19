@@ -37,20 +37,29 @@ layout: page
   <footer class="Article-footer col-md-3">
     <div class="Article-meta">
       <!-- 所属分类 -->
-      <div class="Article-category">
-        <p>发布在</p>
-        <div>
-          <h3><a href="/categories/{{ category }}/">{{ postCategory }}</a></h3>
-          <p>{% if categories[category].description %}{{ categories[category].description }}{% else %}暂无分类描述{% endif %}</p>
+      <div class="Widget Article-category">
+        <div class="Widget-body">
+          <p>发布在</p>
+          <div>
+            <h3><a href="/categories/{{ category }}/">{{ postCategory }}</a></h3>
+            <p>{% if categories[category].description %}{{ categories[category].description }}{% else %}暂无分类描述{% endif %}</p>
+          </div>
         </div>
       </div>
       <!-- 版权声明 -->
-      <p class="Article-license">本文采用知识共享<i class="fa fa-creative-commons"></i><a href="http://creativecommons.org/licenses/by-nc/3.0/cn/" target="_blank">署名-非商业性使用 3.0 中国大陆</a>许可协议，可自由转载、引用，但需署名作者并注明文章出处且不能用于商业用途。</p>
-      <!-- 分享扩散 -->
-      <div class="Article-share">
-        <p>分享到<i class="fa fa-share"></i></p>
-        <div class="social-share" data-sites="wechat,qzone,weibo,twitter"></div>
+      <div class="Widget Article-license">
+        <div class="Widget-body">
+          <p>本文采用知识共享<i class="fa fa-creative-commons"></i><a href="http://creativecommons.org/licenses/by-nc/3.0/cn/" target="_blank">署名-非商业性使用 3.0 中国大陆</a>许可协议，可自由转载、引用，但需署名作者并注明文章出处且不能用于商业用途。</p>
+        </div>
       </div>
+      <!-- 分享扩散 -->
+      <div class="Widget Article-share">
+        <div class="Widget-body">
+          <p>分享到<i class="fa fa-share"></i></p>
+          <div class="social-share" data-sites="wechat,qzone,weibo,twitter"></div>
+        </div>
+      </div>
+      <section class="Widget Widget-toc"></section>
     </div>
   </footer>
   {% if page.comments == true %}

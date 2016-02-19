@@ -1,6 +1,9 @@
 //= require ./jquery-1.11.3.min
 //= require ./bootstrap-sprockets.js
 
+//= require ./components/toc
+
+// 百度统计
 var _hmt = _hmt || [];
 (function() {
   var hm = document.createElement("script");
