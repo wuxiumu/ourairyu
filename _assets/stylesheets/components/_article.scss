@@ -96,6 +96,18 @@
       left: 0;
     }
   }
+  
+  .Article-footer {
+    $c: #0871ab;
+
+    padding: 20px;
+    border-left: 4px solid $c;
+    background-color: tint($c, 95);
+
+    + .Article-comments {
+      margin-top: 15px;
+    }
+  }
 }
 
 

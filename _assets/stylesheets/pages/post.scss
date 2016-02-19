@@ -84,17 +84,3 @@
     padding: 10px 15px;
   }
 }
-
-@media all and (max-width: $screen-sm-max) {
-  .Article-footer {
-    $c: #0871ab;
-
-    padding: 20px;
-    border-left: 4px solid $c;
-    background-color: tint($c, 95);
-  }
-
-  .Article-comments {
-    margin-top: 15px;
-  }
-}
