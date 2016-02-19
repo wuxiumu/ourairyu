@@ -1,18 +1,10 @@
 @import "../helper";
 
-.Page-content > p {
+.Page-banner {
   height: 400px;
-  margin: 0;
   background: {
     color: #353535;
     image: linear-gradient(to right, #353535, #808080);
-  }
-
-  span {
-    @include covered_background("banners/ourai-mono.jpg");
-    display: block;
-    height: 100%;
-    font: 0px/0 a;
   }
 
   @media (max-width: $screen-md-max) {
@@ -28,70 +20,8 @@
   }
 }
 
-.Page-main > header,
 .Page-sidebar {
-  padding-top: 3em;
-}
-
-.Page-main {
-  > header {
-    @include pie-clearfix;
-    padding-bottom: 1.8em;
-
-    h1 {
-      margin: 0;
-      font-size: 2.5em;
-      line-height: 1.2;
-    }
-  }
-
-  h2 {
-    margin: {
-      top: 1em;
-      bottom: .5em;
-    }
-    padding-bottom: 10px;
-    border-bottom: 1px solid #eee;
-    font-size: 1.8em;
-  }
-
-  h3 {
-    font-size: 1.4em;
-  }
-
-  p,
-  figure {
-    margin-bottom: 1.5em;
-  }
-
-  p {
-    line-height: 1.8;
-  }
-
-  figure {
-    text-align: center;
-
-    img {
-      display: block;
-      max-width: 480px;
-      margin: 0 auto;
-
-      + figcaption {
-        margin-top: 10px;
-      }
-    }
-  }
-
-  figcaption {
-    font: {
-      size: 14px;
-      weight: normal;
-    }
-  }
-}
-
-.Page-sidebar {
-  section {
+  aside {
     margin-top: 20px;
     font-size: 14px;
 
@@ -166,28 +96,28 @@
   }
 }
 
-@media all and (min-width: $screen-md-min) {
-  .Page-main {
-    padding-left: 0 !important;
-  }
+// @media all and (min-width: $screen-md-min) {
+//   .Page-main {
+//     padding-left: 0 !important;
+//   }
 
-  .Page-sidebar {
-    padding-right: 0 !important;
-  }
-}
+//   .Page-sidebar {
+//     padding-right: 0 !important;
+//   }
+// }
 
 @media all and (max-width: $screen-sm-max) {
-  .Page-main,
-  .Page-sidebar {
-    padding: {
-      right: 0;
-      left: 0;
-    }
-  }
+  // .Page-main,
+  // .Page-sidebar {
+  //   padding: {
+  //     right: 0;
+  //     left: 0;
+  //   }
+  // }
 
-  .Page-sidebar {
-    padding-top: 0;
-  }
+  // .Page-sidebar {
+  //   padding-top: 0;
+  // }
 
   .Article-toc {
     display: none;

@@ -3,13 +3,17 @@ layout: default
 ---
 {% include header.html %}
 <main class="Page-content">
-  {{ content }}
-  {% if page.comments == true %}
-    <div class="Disqus container">
-      <div class="row">
-        <div class="col-md-9">{% include disqus.html %}</div>
-      </div>
+  {% assign banner = page.banner %}
+  {% if banner %}
+    <!-- 页面横幅 -->
+    <div class="Page-banner">
+      <figure class="container" style="background-image: url({{ banner.url | asset_path }});">
+        <img src="{{ banner.url | asset_path }}" alt="{{ banner.description }}">
+        <figcaption>{{ banner.description }}</figcaption>
+      </figure>
     </div>
   {% endif %}
+  <!-- 内容主体 -->
+  <div class="container">{{ content }}</div>
 </main>
 {% include footer.html %}

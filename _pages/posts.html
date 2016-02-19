@@ -3,7 +3,7 @@ title: 文章列表
 css:
   - pages/posts
 ---
-<div class="ArticleList container">
+<div class="ArticleList">
   {% assign posts = site.posts %}
   {% assign prev_post = null %}
   {% assign first_post_year = posts.last.date | date: "%Y" %}

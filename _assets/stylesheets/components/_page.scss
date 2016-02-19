@@ -59,6 +59,42 @@ body {
   }
 }
 
+.Page-banner {
+  font: 0px/0 a;
+
+  img,
+  figcaption {
+    visibility: hidden;
+  }
+
+  .container {
+    @include covered_background;
+    height: 100%;
+  }
+}
+
+.Page-main {
+  @media all and (min-width: $screen-md-min) {
+    width: 100%;
+    float: left;
+    margin-right: -25%;
+  }
+}
+
+.Page-sidebar {
+  @media all and (min-width: $screen-md-min) {
+    float: right !important;
+    padding-right: 0;
+  }
+
+  @media all and (max-width: $screen-sm-max) {
+    padding: {
+      right: 0;
+      left: 0;
+    }
+  }
+}
+
 .Page-footer {
   height: $footerHeight;
   margin-top: -($footerHeight);

@@ -14,9 +14,9 @@ layout: page
   {% assign postCategory = categories[category].name %}
 {% endif %}
 
-<article class="container">
-  <header>
-    <h1>{{ page.title }}</h1>
+<article class="Page-main Article">
+  <header class="Article-header">
+    <h1 class="Article-title">{{ page.title }}</h1>
     <p><a href="{{ author.profile }}">{{ author.name.zh }}</a> 发表于 <time datetime="{{ page.date }}">{{ page.date | date: "%F" }} {{ page.date | date: "%T" }}</time></p>
     {% if page.tags.size > 0 %}
       <div class="Article-tags">
@@ -34,7 +34,7 @@ layout: page
     {% endif %}
   </header>
   <div class="Article-content col-md-9">{{ content }}</div>
-  <footer class="col-md-3">
+  <footer class="Article-footer col-md-3">
     <div class="Article-meta">
       <!-- 所属分类 -->
       <div class="Article-category">
@@ -53,4 +53,7 @@ layout: page
       </div>
     </div>
   </footer>
+  {% if page.comments == true %}
+    <div class="Article-comments col-md-9">{% include disqus.html %}</div>
+  {% endif %}
 </article>
