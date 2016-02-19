@@ -56,11 +56,14 @@
 
     img {
       display: block;
-      max-width: 480px;
       margin: 0 auto;
 
       + figcaption {
         margin-top: 10px;
+      }
+
+      @media all and (min-width: $screen-md-min) {
+        max-width: 480px;
       }
     }
   }
@@ -96,7 +99,7 @@
       left: 0;
     }
   }
-  
+
   .Article-footer {
     $c: #0871ab;
 
