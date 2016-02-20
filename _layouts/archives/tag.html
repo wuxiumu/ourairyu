@@ -1,21 +1,10 @@
 ---
 layout: page
 ---
-{% assign tags = site.data.tags %}
+{% contentfor post_title %}{{ site.data.tags[page.title].name | prepend: "「" | append: "」标签的文章" }}{% endcontentfor %}
 
-{% if tags[page.title] == null %}
-  {% assign tagName = page.title %}
-{% else %}
-  {% assign tagName = tags[page.title].name %}
-{% endif %}
-
-<section class="container">
-  <header>
-    <h1>「{{ tagName }}」标签的文章</h1>
-  </header>
-  <ul class="ArticleList">
-    {% for post in page.posts %}
-      <li class="ArticleList-item"><time datetime="{{ post.date | date: '%c' }}">{{ post.date | date: "%F" }}</time><i class="fa fa-pencil"></i><a href="{{ post.url }}">{{ post.title }}</a></li>
-    {% endfor %}
-  </ul>
-</section>
+<ul class="ArticleList">
+  {% for post in page.posts %}
+    <li class="ArticleList-item"><time datetime="{{ post.date | date: '%c' }}">{{ post.date | date: "%F" }}</time><i class="fa fa-pencil"></i><a href="{{ post.url }}">{{ post.title }}</a></li>
+  {% endfor %}
+</ul>

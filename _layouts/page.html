@@ -19,6 +19,32 @@ js:
     </div>
   {% endif %}
   <!-- 内容主体 -->
-  <div class="container">{{ content }}</div>
+  <div class="container">
+    <article class="Page-main Article">
+      <header class="Article-header">
+        {% ifhascontent post_title %}
+          <h1 class="Article-title">{% contentblock post_title %}</h1>
+        {% endifhascontent %}
+
+        {% ifnothascontent post_title %}
+          <h1 class="Article-title">{{ page.title }}</h1>
+        {% endifnothascontent %}
+
+        {% ifhascontent post_meta %}
+          {% contentblock post_meta %}
+        {% endifhascontent %}
+      </header>
+      <div class="Article-content col-md-9">{{ content }}</div>
+      {% ifhascontent footer %}
+        <footer class="Article-footer col-md-3">{% contentblock footer %}</footer>
+      {% endifhascontent %}
+      {% if page.comments == true %}
+        <div class="Article-comments col-md-9">{% include disqus.html %}</div>
+      {% endif %}
+    </article>
+    {% ifhascontent sidebar %}
+      <div class="Page-sidebar col-md-3">{% contentblock sidebar %}</div>
+    {% endifhascontent %}
+  </div>
 </main>
 {% include footer.html %}

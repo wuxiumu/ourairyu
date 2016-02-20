@@ -3,6 +3,23 @@ title: 文章列表
 css:
   - pages/posts
 ---
+{% contentfor sidebar %}
+  <aside class="Widget">
+    <header class="Widget-header">
+      <h3 class="Widget-title">热门类别</h3>
+    </header>
+    <div class="Widget-body">
+      <ul>
+        {% assign categories = site.data.categories %}
+        {% for cat in site.categories limit:3 %}
+          {% assign c = cat[0] %}
+          <li><a href="/categories//">{{ categories[c].name }} ({{ cat[1].size }})</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+  </aside>
+{% endcontentfor %}
+
 <div class="ArticleList">
   {% assign posts = site.posts %}
   {% assign prev_post = null %}
@@ -10,19 +27,6 @@ css:
   {% assign last_post_year = posts.first.date | date: "%Y" %}
 
   <p class="ArticleList-summary"><span>{{ last_post_year | minus: first_post_year }}</span> 年间共写了 <span>{{ posts.size }}</span> 篇文章。</p>
-  <div class="ArticleList-hotCategories">
-    <h2>热门类别</h2>
-    <div class="container">
-      <ul class="row">
-        {% assign categories = site.data.categories %}
-        {% for category in site.categories limit: 3 %}
-          {% assign c = category[0] %}
-
-          <li class="col-sm-4"><a href="/categories/{{ c }}/">{{ categories[c].name }}<span>共 {{ category[1].size }} 篇文章</span></a></li>
-        {% endfor %}
-      </ul>
-    </div>
-  </div>
 
   {% assign archive_inited = false %}
   {% assign current_year = site.time | date: "%Y" %}

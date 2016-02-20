@@ -1,16 +1,12 @@
 ---
 title: 和研
 ---
-<article>
-  <header>
-    <h1>和研</h1>
-    <p>做了一个决定——不再仅仅作为一个学习者，而是研究者去学习、研究日语。所以在这里记录并分享我的研究成果。名字「和研」中的「和」指代日本（及其相关的一切），而「研」则代表「研究会/研究社」。</p>
-  </header>
-  <section>
-    <h2>日语</h2>
-    {% for post in site.categories.japanese %}
-      <div class="Article"><time datetime="{{ post.date | date: '%c' }}">{{ post.date | date: "%F" }}</time><i class="fa fa-pencil"></i><a href="{{ post.url }}">{{ post.title }}</a></div>
-    {% endfor %}
-  </section>
-</article>
 
+{% contentfor post_meta %}
+  <p>做了一个决定——不再仅仅作为一个学习者，而是研究者去学习、研究日语。所以在这里记录并分享我的研究成果。名字「和研」中的「和」指代日本（及其相关的一切），而「研」则代表「研究会/研究社」。</p>
+{% endcontentfor %}
+
+<h2>日语</h2>
+{% for post in site.categories.japanese %}
+  <div class="ArticleList-item"><time datetime="{{ post.date | date: '%c' }}">{{ post.date | date: "%F" }}</time><i class="fa fa-pencil"></i><a href="{{ post.url }}">{{ post.title }}</a></div>
+{% endfor %}
