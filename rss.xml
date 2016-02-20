@@ -6,10 +6,10 @@
     <description>不走寻常路</description>
     <link>http://ourai.ws/</link>
     <atom:link href="http://ourai.ws/rss.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 20 Feb 2016 20:12:17 +0800</pubDate>
-    <lastBuildDate>Sat, 20 Feb 2016 20:12:17 +0800</lastBuildDate>
+    <pubDate>Sun, 21 Feb 2016 05:07:30 +0800</pubDate>
+    <lastBuildDate>Sun, 21 Feb 2016 05:07:30 +0800</lastBuildDate>
     <language>zh-CN</language>
-    <generator>Jekyll v2.4.0</generator>
+    <generator>Jekyll v3.0.3</generator>
     
       <item>
         <title>前端工程优化之路</title>
@@ -37,11 +37,11 @@
 
 &lt;p&gt;每次打开 SourceTree，首先映入眼帘的就是五颜六色的「彩虹线」——&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/posts/20160204/git-graph-565e38c738a092dfa68e74f5551e2899.png&quot; alt=&quot;提交记录图表&quot; style=&quot;max-width: 284px;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/posts/20160204/git-graph-6eec0b8adf92423dd271d6ba65708099eec0a5c1bcc475bd4ac89e9df2285f96.png&quot; alt=&quot;提交记录图表&quot; style=&quot;max-width: 284px;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;和好些过期的分支——&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;.
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;.
 └─┬─ origin
   ├─── dev_frontend
   ├─── dev_general
@@ -53,7 +53,7 @@
   ├─── pub_20160114
   ├─── pub_20160128
   ├─── pub_20160202
-  └─── ...&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+  └─── ...&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;看得我简直是头晕目眩，不知从何「编」起啊！&lt;/p&gt;
 
@@ -84,7 +84,7 @@
 
 &lt;p&gt;一个好的提交信息是，用一句简练的话写在第一行，然后空一行略微详细地阐述该提交所增加或修改的地方：&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;Redirect user to the requested page after login
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;Redirect user to the requested page after login
 
 https://trello.com/path/to/relevant/card
 
@@ -93,7 +93,7 @@ useful than redirecting to the page they had originally requested before
 being redirected to the login form.
 
 * Store requested path in a session variable
-* Redirect to the stored location after successfully logging in the user&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+* Redirect to the stored location after successfully logging in the user&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;不要每提交一次就推送一次，多积攒几个提交后一次性推送，这样可以避免前一个提交后发现代码中还有小错误，这时可以通过衍合进行提交的合并或者信息修改。&lt;/p&gt;
 
@@ -103,7 +103,7 @@ being redirected to the login form.
 
 &lt;p&gt;当已经推送到远程仓库时，先积累几个提交的内容而不去做提交操作，等到要推送时先拉取代码到本地，然后按照上述粒度做几次提交，再推送到远程服务器。这种操作流程能够有效避免因代码冲突而造成的提交丢失等意想不到的问题，以及减少因合并产生的提交节点。&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/posts/20160204/git-merge-59f3720b01fc28ce52a021216319b41a.png&quot; alt=&quot;合并分支产生的节点&quot; style=&quot;max-width: 280px;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/posts/20160204/git-merge-8f2b38826e2d744d52b3d5bccfbf3b5e2e2ac0cbdf0ca6bfd42d6e09c690fbfb.png&quot; alt=&quot;合并分支产生的节点&quot; style=&quot;max-width: 280px;&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;section-3&quot;&gt;扩展阅读&lt;/h3&gt;
 
@@ -171,17 +171,17 @@ being redirected to the login form.
 
 &lt;p&gt;发信息给我的微信好友中，除了女票，最多的恐怕就是小招童鞋了。他成天在我耳边说：「嘿，欧雷童鞋！你又欠了我＊＊＊元哦！」叨逼叨，叨逼叨，耳朵都要起茧子了！&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/posts/20151123/boring-7ae576627ab7a31077c0b97de65ab053.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/posts/20151123/boring-0de1164ca37b18222d29be3f53e66e1b9a0c4d1b920206e0d0851a34476cab23.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;不过想想，他也是好意，提醒我最近花钱如流水，再不剁手就小命不保了，地球的土都已经不够我吃了……&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/posts/20151123/dilutedness-b825dc68928e0f7e54f4f9026d76a2b0.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/posts/20151123/dilutedness-92ce00a6fa60bfd417b1d1b5167e567373c349decc9473f80e958499aca60bd4.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;虽然 10 月份刚开始没多久就花了些钱网购，但大额的频繁购物还要从 20 日那天说起。那是一个较特殊的日子——小牛 N1 智能电动车再次发售。在那大概一个月前，同事中有人想抢购此车，因为它是小米式的饥饿营销模式。以之为契机，我知道了这个产品，并从官网上了解了一下信息，当时并没什么想法。&lt;/p&gt;
 
 &lt;p&gt;然而，在那一个月期间，感到上班乘公交太挤且有时等车过久，下班打车费钱还难叫到车，再加上在女票家骑电动车有点上瘾了，于是迫切希望入手一辆！再三考虑并与女票协商后经她同意，决定参加这一次的抢购活动。在舍弃午饭用三个浏览器开了几十个网页等了一个多小时困得意识模糊之际，看到了页面提醒——我抢到了！一辆红色的动力版！算邮费五千多元，这绝对算得上是国内市场中最贵的电动车了！选择小牛，主要是因为它的高颜值，其次是速度快、续航久，然后是有对应的 APP 检测查看车况。&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/posts/20151123/niu-1621f7e06e91efcc80d63e3747f42f07.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/posts/20151123/niu-e468b6060a88cf2355c24c3990089d6b14b28228816a0b171dbf741bdba37c51.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;以此为起点，这一个多月里我进行了很多「败家」行为，虽然自己认为这些钱都是必花的。先上一个表格来大概地理下从 10 月初到现在的网购开销——&lt;/p&gt;
 
@@ -414,15 +414,15 @@ being redirected to the login form.
 
 &lt;p&gt;在用计算器从上到下相加时，看到数字跳动的感觉像是天猫「双十一」大屏幕交易额，然而我的心情和马云却截然不同——忐忑！看到计算结果，我简直是惊呆了……&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/posts/20151123/gross-637c1409d8056b26317b4b00bc897c0d.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/posts/20151123/gross-f9361d2f981512e59d1c5b7c8cd61cd64a9b356ae22acb1e08e1831b90650ce8.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;这只是线上消费，算上线下的各种费用的话，总花费三万以上毫不夸张！我真的很佩服自己的消费能力，比女人还会花钱……&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/posts/20151123/perk-it-38437e997895c0b2d28a1e71dd478f74.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/posts/20151123/perk-it-e08cd2e54683d2f4cd001657b1f34e2a5bf470415552c98410ac902819e6c354.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;我没有乱花钱！我没有乱花钱！！我没有乱花钱！！！&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/posts/20151123/say-3-times-74bac74016fd80a1f998733ac0afc2a1.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/posts/20151123/say-3-times-33a4b171cb595b8834e1de8bf5ab18dca5b54388f0de330a8be643d986aec244.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;虽然这不到两个月的时间花了很多钱，虽然看起来我就是在装逼，但我真的，并没有！！！这一定要为自己洗白！&lt;/p&gt;
 
@@ -443,13 +443,13 @@ being redirected to the login form.
 
 &lt;p&gt;书籍就不用说了，为了提高自己专业技能和扩展知识面，从而赚更多的钱提升生活品质，实现人生理想！&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/posts/20151123/winner-of-life-a9af39cde8c352d134690a847cce144a.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/posts/20151123/winner-of-life-df009e764ed1b088c3818de5cd69a4a3602e87ff862090ad62e25f0838c3db83.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;说了这么多，无非就是为自己的愚蠢行为找借口充正当理由。总体来说，我的消费观念是好的，前卫的，西方化的——用未来的钱来享受现在的生活（行为较为危险，请勿随便模仿）——正如铜板街 CEO 何俊在我们公司发布会上说的那样。然而，现在存在一些瑕疵，构成了「超前消费」的危险因素。我应该反思一下这些消费行为是不是有的是冲动消费性质的，可以尽量避免或者延后执行的？&lt;/p&gt;
 
 &lt;p&gt;我的理财意识才萌芽不久，很遗憾；它在我还称得上「年轻」的时候萌芽了，很庆幸。只有在完善了自己的消费观念和培养了出色的理财投资能力之后，我才有可能住进 dream house，开上 dream car，过上 dream life！虽然我的梦想在大部分人眼中看来就是梦，但我有「现实扭曲力场」。&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/posts/20151123/confidence-8ee38c0ae4246ab999b398300b7e9f11.gif&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/posts/20151123/confidence-2f37a1fd8a9ce19ac923898bb975a0e82bb268a0e88c579b97e8be1f259955e2.gif&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;（此处应有掌声……）&lt;/p&gt;
 </description>
@@ -483,12 +483,13 @@ being redirected to the login form.
   &lt;p&gt;&lt;code&gt;cd ~/.ssh&lt;/code&gt; 切换目录后用 &lt;code&gt;ssh-keygen -t rsa -C &quot;用于区分密钥的标识&quot;&lt;/code&gt; 生成一对具有相同名字的密钥（默认为 &lt;code&gt;id_rsa&lt;/code&gt; 和 &lt;code&gt;id_rsa.pub&lt;/code&gt;）：用于本地的私钥和用于服务器的公钥（有 &lt;code&gt;.pub&lt;/code&gt; 扩展名）。&lt;/p&gt;
   &lt;p&gt;如果私钥名字不是默认的话，需要手动加入到被「认证」的私钥列表中，否则每次连接服务器都会提示输入服务器的密码。在遇到了一些坑（文后有说明）后，我觉得设置 SSH config 最为靠谱！&lt;/p&gt;
   &lt;p&gt;编辑 &lt;code&gt;~/.ssh/config&lt;/code&gt; 文件（如果不存在则 &lt;code&gt;touch ~/.ssh/config&lt;/code&gt; 创建一下），添加以下内容：&lt;/p&gt;
-  &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;Host HOST_ALIAS                       &lt;span class=&quot;c&quot;&gt;# 用于 SSH 连接的别名，最好与 HostName 保持一致&lt;/span&gt;
+  &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;Host HOST_ALIAS                       &lt;span class=&quot;c&quot;&gt;# 用于 SSH 连接的别名，最好与 HostName 保持一致&lt;/span&gt;
   HostName SERVER_DOMAIN              &lt;span class=&quot;c&quot;&gt;# 服务器的域名或 IP 地址&lt;/span&gt;
   Port SERVER_PORT                    &lt;span class=&quot;c&quot;&gt;# 服务器的端口号，默认为 22，可选&lt;/span&gt;
   User SERVER_USER                    &lt;span class=&quot;c&quot;&gt;# 服务器的用户名&lt;/span&gt;
   PreferredAuthentications publickey
-  IdentityFile ~/.ssh/PRIVATE_KEY     &lt;span class=&quot;c&quot;&gt;# 本机上存放的私钥路径&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+  IdentityFile ~/.ssh/PRIVATE_KEY     &lt;span class=&quot;c&quot;&gt;# 本机上存放的私钥路径&lt;/span&gt;
+  &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
   &lt;h3&gt;服务器端认证&lt;/h3&gt;
   &lt;p&gt;先用 &lt;code&gt;pbcopy &amp;lt; ~/.ssh/PRIVATE_KEY.pub&lt;/code&gt; 将公钥复制到剪贴板；通过 &lt;code&gt;ssh USER@SERVER&lt;/code&gt; 访问服务器，这时会提示输入密码（它也许只有这么一次「询问」的机会）；成功登录后 &lt;code&gt;vim ~/.ssh/authorized_keys&lt;/code&gt;，在合适的位置 &lt;kbd&gt;cmd&lt;/kbd&gt; + &lt;kbd&gt;V&lt;/kbd&gt; 并保存退出（同时 &lt;code&gt;exit&lt;/code&gt; 退出 SSH 连接）。&lt;/p&gt;
 &lt;/section&gt;
@@ -498,14 +499,15 @@ being redirected to the login form.
   &lt;p&gt;服务器上需要配置两个仓库，一个用于代码中转的远程仓库，一个用于用户访问的本地仓库。**这里的「远程仓库」并不等同于托管代码的「中央仓库」**，这两个仓库都是为了自动同步代码并部署网站而存在。&lt;/p&gt;
   &lt;p&gt;在存放远程仓库的目录中（假设是 &lt;code&gt;/home/USER/repos&lt;/code&gt;）执行 &lt;code&gt;git init --bare BRIDGE_REPO.git&lt;/code&gt; 会创建一个包含 Git 各种配置文件的「裸仓库」。&lt;/p&gt;
   &lt;p&gt;切换到存放用户所访问文件的目录（假设为 &lt;code&gt;/home/USER/www&lt;/code&gt;，如果不存在则在 &lt;code&gt;/home/USER&lt;/code&gt; 中执行 &lt;code&gt;mkdir www&lt;/code&gt;）：&lt;/p&gt;
-  &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;git init
+  &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;git init
 git remote add origin ~/repos/BRIDGE_REPO.git
 git fetch
-git checkout master&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+git checkout master
+  &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
   &lt;h3&gt;配置 Git Hook&lt;/h3&gt;
   &lt;p&gt;将目录切换至 &lt;code&gt;/home/USER/repos/BRIDGE_REPO.git/hooks&lt;/code&gt;，用 &lt;code&gt;cp post-receive.sample post-receive&lt;/code&gt; 复制并重命名文件后用 &lt;code&gt;vim post-receive&lt;/code&gt; 修改。其内容大致如下：&lt;/p&gt;
 
-  &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span class=&quot;c&quot;&gt;#!/bin/sh&lt;/span&gt;
+  &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span class=&quot;c&quot;&gt;#!/bin/sh&lt;/span&gt;
 
 &lt;span class=&quot;nb&quot;&gt;unset &lt;/span&gt;GIT_DIR
 
@@ -516,7 +518,8 @@ git checkout master&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 git pull origin master
 
 &lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$NowPath&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;exit &lt;/span&gt;0&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class=&quot;nb&quot;&gt;exit &lt;/span&gt;0
+  &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
   &lt;p&gt;使用 &lt;code&gt;chmod +x post-receive&lt;/code&gt; 改变一下权限后，服务器端的配置就基本完成了。&lt;/p&gt;
   &lt;h3&gt;更新本机的仓库源&lt;/h3&gt;
   &lt;p&gt;在原有的（托管代码的）仓库上加入刚才所配置的服务器上的远程仓库的地址为源，以后往那个源推送代码后就会自动部署了。&lt;/p&gt;
@@ -676,7 +679,7 @@ git pull origin master
 
 &lt;p&gt;前端性能简单来说就是&lt;strong&gt;能看到页面内容的时间&lt;/strong&gt;以及&lt;strong&gt;可以开始在页面上操作的时间&lt;/strong&gt;。&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/posts/20150310/progressive-rendering-41c32527f908131952f5c3a304b7b9b2.png&quot; alt=&quot;Progressive Rendering&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/posts/20150310/progressive-rendering-f5f19a4054b75a1374ab50ccd40a3155200b931d451d93a2b162a42e02bf3b43.png&quot; alt=&quot;Progressive Rendering&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;前端性能与浏览器的运作方式密切相关，故想要优化性能就要从了解浏览器的工作原理入手。&lt;/p&gt;
 
@@ -797,7 +800,7 @@ git pull origin master
 
 &lt;p&gt;通过 &lt;a href=&quot;http://www.w3.org/TR/navigation-timing-2/#processing-model&quot; target=&quot;_blank&quot; rel=&quot;external nofollow&quot;&gt;Navigation Timing&lt;/a&gt; API 可以获取浏览器在处理网页的关键步骤的时间戳。&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/posts/20150310/dom-navtiming-a120be50ac0f4d731aa32757d9318ee9.png&quot; alt=&quot;Part of Navigation Timing Processing Model&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/posts/20150310/dom-navtiming-300dbbd76122134967748e9ad7d282bed73ce18a25d9ef30b381ab9257245169.png&quot; alt=&quot;Part of Navigation Timing Processing Model&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;其中，各步骤的意义如下：&lt;/p&gt;
 

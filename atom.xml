@@ -1,24 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
-<generator uri="http://jekyllrb.com" version="2.4.0">Jekyll</generator>
-<link href="http://ourai.ws/atom.xml" rel="self" type="application/atom+xml" />
-<link href="http://ourai.ws/" rel="alternate" type="text/html" />
-<updated>2016-02-20T20:12:17+08:00</updated>
-<id>http://ourai.ws/</id>
-<title>欧雷流</title>
-<subtitle>不走寻常路</subtitle>
-<author>
-<name>欧雷</name>
-<email>ourairyu@gmail.com</email>
-<uri>http://ourai.ws/</uri>
-</author>
-<entry>
-<title>前端工程优化之路</title>
-<link href="http://ourai.ws/posts/engineering-problems-of-frontend-development/" rel="alternate" type="text/html" title="前端工程优化之路" />
-<published>2016-02-04T16:35:36+08:00</published>
-<updated>2016-02-04T16:35:36+08:00</updated>
-<id>http://ourai.ws/posts/engineering-problems-of-frontend-development</id>
-<content type="html" xml:base="http://ourai.ws/posts/engineering-problems-of-frontend-development/">&lt;p&gt;在我加入「&lt;a href=&quot;https://www.maihaoche.com&quot; target=&quot;_blank&quot; rel=&quot;nofollow external&quot;&gt;买好车&lt;/a&gt;」后第一次把项目代码从远程仓库拉取到本地时——「这是什么玩意？！」——我的内心是震惊并诧异的。&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.0.3">Jekyll</generator><link href="http://ourai.ws/atom.xml" rel="self" type="application/atom+xml" /><link href="http://ourai.ws/" rel="alternate" type="text/html" /><updated>2016-02-21T05:07:30+08:00</updated><id>http://ourai.ws/</id><title>欧雷流</title><subtitle>不走寻常路</subtitle><author><name>欧雷</name><email>ourairyu@gmail.com</email><uri>http://ourai.ws/</uri></author><entry><title>前端工程优化之路</title><link href="http://ourai.ws/posts/engineering-problems-of-frontend-development/" rel="alternate" type="text/html" title="前端工程优化之路" /><published>2016-02-04T16:35:36+08:00</published><updated>2016-02-04T16:35:36+08:00</updated><id>http://ourai.ws/posts/engineering-problems-of-frontend-development</id><content type="html" xml:base="http://ourai.ws/posts/engineering-problems-of-frontend-development/">&lt;p&gt;在我加入「&lt;a href=&quot;https://www.maihaoche.com&quot; target=&quot;_blank&quot; rel=&quot;nofollow external&quot;&gt;买好车&lt;/a&gt;」后第一次把项目代码从远程仓库拉取到本地时——「这是什么玩意？！」——我的内心是震惊并诧异的。&lt;/p&gt;
 
 &lt;p&gt;为什么我会有如此反应？&lt;/p&gt;
 
@@ -38,19 +18,11 @@
 
 &lt;p&gt;每次打开 SourceTree，首先映入眼帘的就是五颜六色的「彩虹线」——&lt;/p&gt;
 
-&lt;table&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;![提交记录图表]({{ “posts/20160204/git-graph.png”&lt;/td&gt;
-      &lt;td&gt;asset_path }}){:style=”max-width: 284px;”}&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/posts/20160204/git-graph-6eec0b8adf92423dd271d6ba65708099eec0a5c1bcc475bd4ac89e9df2285f96.png&quot; alt=&quot;提交记录图表&quot; style=&quot;max-width: 284px;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;和好些过期的分支——&lt;/p&gt;
 
-&lt;p&gt;{% highlight text %}
-.
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;.
 └─┬─ origin
   ├─── dev_frontend
   ├─── dev_general
@@ -62,8 +34,7 @@
   ├─── pub_20160114
   ├─── pub_20160128
   ├─── pub_20160202
-  └─── …
-{% endhighlight %}&lt;/p&gt;
+  └─── ...&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;看得我简直是头晕目眩，不知从何「编」起啊！&lt;/p&gt;
 
@@ -94,20 +65,16 @@
 
 &lt;p&gt;一个好的提交信息是，用一句简练的话写在第一行，然后空一行略微详细地阐述该提交所增加或修改的地方：&lt;/p&gt;
 
-&lt;p&gt;{% highlight text %}
-Redirect user to the requested page after login&lt;/p&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;Redirect user to the requested page after login
 
-&lt;p&gt;https://trello.com/path/to/relevant/card&lt;/p&gt;
+https://trello.com/path/to/relevant/card
 
-&lt;p&gt;Users were being redirected to the home page after login, which is less
+Users were being redirected to the home page after login, which is less
 useful than redirecting to the page they had originally requested before
-being redirected to the login form.&lt;/p&gt;
+being redirected to the login form.
 
-&lt;ul&gt;
-  &lt;li&gt;Store requested path in a session variable&lt;/li&gt;
-  &lt;li&gt;Redirect to the stored location after successfully logging in the user
-{% endhighlight %}&lt;/li&gt;
-&lt;/ul&gt;
+* Store requested path in a session variable
+* Redirect to the stored location after successfully logging in the user&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;不要每提交一次就推送一次，多积攒几个提交后一次性推送，这样可以避免前一个提交后发现代码中还有小错误，这时可以通过衍合进行提交的合并或者信息修改。&lt;/p&gt;
 
@@ -117,14 +84,7 @@ being redirected to the login form.&lt;/p&gt;
 
 &lt;p&gt;当已经推送到远程仓库时，先积累几个提交的内容而不去做提交操作，等到要推送时先拉取代码到本地，然后按照上述粒度做几次提交，再推送到远程服务器。这种操作流程能够有效避免因代码冲突而造成的提交丢失等意想不到的问题，以及减少因合并产生的提交节点。&lt;/p&gt;
 
-&lt;table&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;![合并分支产生的节点]({{ “posts/20160204/git-merge.png”&lt;/td&gt;
-      &lt;td&gt;asset_path }}){:style=”max-width: 280px;”}&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/posts/20160204/git-merge-8f2b38826e2d744d52b3d5bccfbf3b5e2e2ac0cbdf0ca6bfd42d6e09c690fbfb.png&quot; alt=&quot;合并分支产生的节点&quot; style=&quot;max-width: 280px;&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;section-3&quot;&gt;扩展阅读&lt;/h3&gt;
 
@@ -163,61 +123,21 @@ being redirected to the login form.&lt;/p&gt;
 
 &lt;p&gt;想在已有的项目上进行改造会存在着很大的阻力，幸好这时公司业务拓展要开发新项目。决定从这新的项目着手，小试牛刀，总结出一套方案后推行整改到其他项目。&lt;/p&gt;
 
-&lt;p&gt;以本文为引，往后会写几篇关于我们前端团队建设的文章，敬请期待！&lt;/p&gt;
-</content>
-<author>
-<name>欧雷</name>
-<email>ourairyu@gmail.com</email>
-<uri>http://ourai.ws/</uri>
-</author>
-<category term="frontend-web-development" />
-<category term="software-engineering" />
-<category term="frontend-engineering" />
-<category term="maihaoche" />
-<summary>在我加入「买好车」后第一次把项目代码从远程仓库拉取到本地时——「这是什么玩意？！」——我的内心是震惊并诧异的。</summary>
-</entry>
-<entry>
-<title>嘿！土好吃吗？</title>
-<link href="http://ourai.ws/posts/need-to-learn-investing/" rel="alternate" type="text/html" title="嘿！土好吃吗？" />
-<published>2015-11-23T05:26:21+08:00</published>
-<updated>2015-11-23T05:26:21+08:00</updated>
-<id>http://ourai.ws/posts/need-to-learn-investing</id>
-<content type="html" xml:base="http://ourai.ws/posts/need-to-learn-investing/">&lt;p&gt;夜深人静之时，「叮」一声，手机屏亮了。还以为谁会这么晚找我，一看发件人「招商银行信用卡」，原来是我刚刚的付款通知——海淘了两件外套和一个电脑包中包，又一千多软妹币没了……&lt;/p&gt;
+&lt;p&gt;以本文为引，往后会写几篇关于我们前端团队建设的文章，敬请期待！&lt;/p&gt;</content><author><name>欧雷</name><email>ourairyu@gmail.com</email><uri>http://ourai.ws/</uri></author><category term="frontend-web-development" /><category term="software-engineering" /><category term="frontend-engineering" /><category term="maihaoche" /><summary>在我加入「买好车」后第一次把项目代码从远程仓库拉取到本地时——「这是什么玩意？！」——我的内心是震惊并诧异的。</summary></entry><entry><title>嘿！土好吃吗？</title><link href="http://ourai.ws/posts/need-to-learn-investing/" rel="alternate" type="text/html" title="嘿！土好吃吗？" /><published>2015-11-23T05:26:21+08:00</published><updated>2015-11-23T05:26:21+08:00</updated><id>http://ourai.ws/posts/need-to-learn-investing</id><content type="html" xml:base="http://ourai.ws/posts/need-to-learn-investing/">&lt;p&gt;夜深人静之时，「叮」一声，手机屏亮了。还以为谁会这么晚找我，一看发件人「招商银行信用卡」，原来是我刚刚的付款通知——海淘了两件外套和一个电脑包中包，又一千多软妹币没了……&lt;/p&gt;
 
 &lt;p&gt;发信息给我的微信好友中，除了女票，最多的恐怕就是小招童鞋了。他成天在我耳边说：「嘿，欧雷童鞋！你又欠了我＊＊＊元哦！」叨逼叨，叨逼叨，耳朵都要起茧子了！&lt;/p&gt;
 
-&lt;table&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;![]({{ “posts/20151123/boring.jpg”&lt;/td&gt;
-      &lt;td&gt;asset_path }})&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/posts/20151123/boring-0de1164ca37b18222d29be3f53e66e1b9a0c4d1b920206e0d0851a34476cab23.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;不过想想，他也是好意，提醒我最近花钱如流水，再不剁手就小命不保了，地球的土都已经不够我吃了……&lt;/p&gt;
 
-&lt;table&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;![]({{ “posts/20151123/dilutedness.jpg”&lt;/td&gt;
-      &lt;td&gt;asset_path }})&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/posts/20151123/dilutedness-92ce00a6fa60bfd417b1d1b5167e567373c349decc9473f80e958499aca60bd4.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;虽然 10 月份刚开始没多久就花了些钱网购，但大额的频繁购物还要从 20 日那天说起。那是一个较特殊的日子——小牛 N1 智能电动车再次发售。在那大概一个月前，同事中有人想抢购此车，因为它是小米式的饥饿营销模式。以之为契机，我知道了这个产品，并从官网上了解了一下信息，当时并没什么想法。&lt;/p&gt;
 
 &lt;p&gt;然而，在那一个月期间，感到上班乘公交太挤且有时等车过久，下班打车费钱还难叫到车，再加上在女票家骑电动车有点上瘾了，于是迫切希望入手一辆！再三考虑并与女票协商后经她同意，决定参加这一次的抢购活动。在舍弃午饭用三个浏览器开了几十个网页等了一个多小时困得意识模糊之际，看到了页面提醒——我抢到了！一辆红色的动力版！算邮费五千多元，这绝对算得上是国内市场中最贵的电动车了！选择小牛，主要是因为它的高颜值，其次是速度快、续航久，然后是有对应的 APP 检测查看车况。&lt;/p&gt;
 
-&lt;table&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;![]({{ “posts/20151123/niu.jpg”&lt;/td&gt;
-      &lt;td&gt;asset_path }})&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/posts/20151123/niu-e468b6060a88cf2355c24c3990089d6b14b28228816a0b171dbf741bdba37c51.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;以此为起点，这一个多月里我进行了很多「败家」行为，虽然自己认为这些钱都是必花的。先上一个表格来大概地理下从 10 月初到现在的网购开销——&lt;/p&gt;
 
@@ -450,36 +370,15 @@ being redirected to the login form.&lt;/p&gt;
 
 &lt;p&gt;在用计算器从上到下相加时，看到数字跳动的感觉像是天猫「双十一」大屏幕交易额，然而我的心情和马云却截然不同——忐忑！看到计算结果，我简直是惊呆了……&lt;/p&gt;
 
-&lt;table&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;![]({{ “posts/20151123/gross.png”&lt;/td&gt;
-      &lt;td&gt;asset_path }})&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/posts/20151123/gross-f9361d2f981512e59d1c5b7c8cd61cd64a9b356ae22acb1e08e1831b90650ce8.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;这只是线上消费，算上线下的各种费用的话，总花费三万以上毫不夸张！我真的很佩服自己的消费能力，比女人还会花钱……&lt;/p&gt;
 
-&lt;table&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;![]({{ “posts/20151123/perk-it.jpg”&lt;/td&gt;
-      &lt;td&gt;asset_path }})&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/posts/20151123/perk-it-e08cd2e54683d2f4cd001657b1f34e2a5bf470415552c98410ac902819e6c354.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;我没有乱花钱！我没有乱花钱！！我没有乱花钱！！！&lt;/p&gt;
 
-&lt;table&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;![]({{ “posts/20151123/say-3-times.jpg”&lt;/td&gt;
-      &lt;td&gt;asset_path }})&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/posts/20151123/say-3-times-33a4b171cb595b8834e1de8bf5ab18dca5b54388f0de330a8be643d986aec244.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;虽然这不到两个月的时间花了很多钱，虽然看起来我就是在装逼，但我真的，并没有！！！这一定要为自己洗白！&lt;/p&gt;
 
@@ -500,46 +399,15 @@ being redirected to the login form.&lt;/p&gt;
 
 &lt;p&gt;书籍就不用说了，为了提高自己专业技能和扩展知识面，从而赚更多的钱提升生活品质，实现人生理想！&lt;/p&gt;
 
-&lt;table&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;![]({{ “posts/20151123/winner-of-life.png”&lt;/td&gt;
-      &lt;td&gt;asset_path }})&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/posts/20151123/winner-of-life-df009e764ed1b088c3818de5cd69a4a3602e87ff862090ad62e25f0838c3db83.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;说了这么多，无非就是为自己的愚蠢行为找借口充正当理由。总体来说，我的消费观念是好的，前卫的，西方化的——用未来的钱来享受现在的生活（行为较为危险，请勿随便模仿）——正如铜板街 CEO 何俊在我们公司发布会上说的那样。然而，现在存在一些瑕疵，构成了「超前消费」的危险因素。我应该反思一下这些消费行为是不是有的是冲动消费性质的，可以尽量避免或者延后执行的？&lt;/p&gt;
 
 &lt;p&gt;我的理财意识才萌芽不久，很遗憾；它在我还称得上「年轻」的时候萌芽了，很庆幸。只有在完善了自己的消费观念和培养了出色的理财投资能力之后，我才有可能住进 dream house，开上 dream car，过上 dream life！虽然我的梦想在大部分人眼中看来就是梦，但我有「现实扭曲力场」。&lt;/p&gt;
 
-&lt;table&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;![]({{ “posts/20151123/confidence.gif”&lt;/td&gt;
-      &lt;td&gt;asset_path }})&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/posts/20151123/confidence-2f37a1fd8a9ce19ac923898bb975a0e82bb268a0e88c579b97e8be1f259955e2.gif&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;（此处应有掌声……）&lt;/p&gt;
-</content>
-<author>
-<name>欧雷</name>
-<email>ourairyu@gmail.com</email>
-<uri>http://ourai.ws/</uri>
-</author>
-<category term="consumption-concept" />
-<category term="financing" />
-<summary>夜深人静之时，「叮」一声，手机屏亮了。还以为谁会这么晚找我，一看发件人「招商银行信用卡」，原来是我刚刚的付款通知——海淘了两件外套和一个电脑包中包，又一千多软妹币没了……</summary>
-</entry>
-<entry>
-<title>用 Git Hooks 进行自动部署</title>
-<link href="http://ourai.ws/posts/deployment-with-git-hooks/" rel="alternate" type="text/html" title="用 Git Hooks 进行自动部署" />
-<published>2015-10-10T01:29:38+08:00</published>
-<updated>2015-10-10T01:29:38+08:00</updated>
-<id>http://ourai.ws/posts/deployment-with-git-hooks</id>
-<content type="html" xml:base="http://ourai.ws/posts/deployment-with-git-hooks/">&lt;p&gt;昨天开始接手开发公司前端团队的主页，在稍微修改点东西后推送到远程仓库想看下线上结果时发现并没有更改！询问一把手得知，居然还需要连接到服务器执行一下 &lt;code&gt;git pull&lt;/code&gt; 才行……对于我这种怕麻烦的人来说，简直不能忍！&lt;/p&gt;
+&lt;p&gt;（此处应有掌声……）&lt;/p&gt;</content><author><name>欧雷</name><email>ourairyu@gmail.com</email><uri>http://ourai.ws/</uri></author><category term="consumption-concept" /><category term="financing" /><summary>夜深人静之时，「叮」一声，手机屏亮了。还以为谁会这么晚找我，一看发件人「招商银行信用卡」，原来是我刚刚的付款通知——海淘了两件外套和一个电脑包中包，又一千多软妹币没了……</summary></entry><entry><title>用 Git Hooks 进行自动部署</title><link href="http://ourai.ws/posts/deployment-with-git-hooks/" rel="alternate" type="text/html" title="用 Git Hooks 进行自动部署" /><published>2015-10-10T01:29:38+08:00</published><updated>2015-10-10T01:29:38+08:00</updated><id>http://ourai.ws/posts/deployment-with-git-hooks</id><content type="html" xml:base="http://ourai.ws/posts/deployment-with-git-hooks/">&lt;p&gt;昨天开始接手开发公司前端团队的主页，在稍微修改点东西后推送到远程仓库想看下线上结果时发现并没有更改！询问一把手得知，居然还需要连接到服务器执行一下 &lt;code&gt;git pull&lt;/code&gt; 才行……对于我这种怕麻烦的人来说，简直不能忍！&lt;/p&gt;
 &lt;p&gt;经过一番查找资料以及一顿折腾，终于让它能够自动跑起来了，真是高兴得我手舞足蹈啊！虽然弄了较长时间，在实践的过程中踩了点坑，但回过头来一看还是挺简单的。总的来说，就只是在服务器和本机都做一下配置。（这不废话么……）&lt;/p&gt;
 &lt;p&gt;由于公司的服务器是 CentOS，我所使用的电脑是 Mac OS X，故本文内容是基于这两个系统环境所写。GUI 在给用户带来很多便利的同时也隐藏了一些不便，如：需要下载应用软件及在操作界面交互。鉴于本文的中心是「自动化」，所以一切操作都采用命令行——&lt;/p&gt;
 &lt;section&gt;
@@ -550,14 +418,13 @@ being redirected to the login form.&lt;/p&gt;
   &lt;p&gt;&lt;code&gt;cd ~/.ssh&lt;/code&gt; 切换目录后用 &lt;code&gt;ssh-keygen -t rsa -C &quot;用于区分密钥的标识&quot;&lt;/code&gt; 生成一对具有相同名字的密钥（默认为 &lt;code&gt;id_rsa&lt;/code&gt; 和 &lt;code&gt;id_rsa.pub&lt;/code&gt;）：用于本地的私钥和用于服务器的公钥（有 &lt;code&gt;.pub&lt;/code&gt; 扩展名）。&lt;/p&gt;
   &lt;p&gt;如果私钥名字不是默认的话，需要手动加入到被「认证」的私钥列表中，否则每次连接服务器都会提示输入服务器的密码。在遇到了一些坑（文后有说明）后，我觉得设置 SSH config 最为靠谱！&lt;/p&gt;
   &lt;p&gt;编辑 &lt;code&gt;~/.ssh/config&lt;/code&gt; 文件（如果不存在则 &lt;code&gt;touch ~/.ssh/config&lt;/code&gt; 创建一下），添加以下内容：&lt;/p&gt;
-  {% highlight sh %}
-Host HOST_ALIAS                       # 用于 SSH 连接的别名，最好与 HostName 保持一致
-  HostName SERVER_DOMAIN              # 服务器的域名或 IP 地址
-  Port SERVER_PORT                    # 服务器的端口号，默认为 22，可选
-  User SERVER_USER                    # 服务器的用户名
+  &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;Host HOST_ALIAS                       &lt;span class=&quot;c&quot;&gt;# 用于 SSH 连接的别名，最好与 HostName 保持一致&lt;/span&gt;
+  HostName SERVER_DOMAIN              &lt;span class=&quot;c&quot;&gt;# 服务器的域名或 IP 地址&lt;/span&gt;
+  Port SERVER_PORT                    &lt;span class=&quot;c&quot;&gt;# 服务器的端口号，默认为 22，可选&lt;/span&gt;
+  User SERVER_USER                    &lt;span class=&quot;c&quot;&gt;# 服务器的用户名&lt;/span&gt;
   PreferredAuthentications publickey
-  IdentityFile ~/.ssh/PRIVATE_KEY     # 本机上存放的私钥路径
-  {% endhighlight %}
+  IdentityFile ~/.ssh/PRIVATE_KEY     &lt;span class=&quot;c&quot;&gt;# 本机上存放的私钥路径&lt;/span&gt;
+  &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
   &lt;h3&gt;服务器端认证&lt;/h3&gt;
   &lt;p&gt;先用 &lt;code&gt;pbcopy &amp;lt; ~/.ssh/PRIVATE_KEY.pub&lt;/code&gt; 将公钥复制到剪贴板；通过 &lt;code&gt;ssh USER@SERVER&lt;/code&gt; 访问服务器，这时会提示输入密码（它也许只有这么一次「询问」的机会）；成功登录后 &lt;code&gt;vim ~/.ssh/authorized_keys&lt;/code&gt;，在合适的位置 &lt;kbd&gt;cmd&lt;/kbd&gt; + &lt;kbd&gt;V&lt;/kbd&gt; 并保存退出（同时 &lt;code&gt;exit&lt;/code&gt; 退出 SSH 连接）。&lt;/p&gt;
 &lt;/section&gt;
@@ -567,29 +434,27 @@ Host HOST_ALIAS                       # 用于 SSH 连接的别名，最好与 H
   &lt;p&gt;服务器上需要配置两个仓库，一个用于代码中转的远程仓库，一个用于用户访问的本地仓库。**这里的「远程仓库」并不等同于托管代码的「中央仓库」**，这两个仓库都是为了自动同步代码并部署网站而存在。&lt;/p&gt;
   &lt;p&gt;在存放远程仓库的目录中（假设是 &lt;code&gt;/home/USER/repos&lt;/code&gt;）执行 &lt;code&gt;git init --bare BRIDGE_REPO.git&lt;/code&gt; 会创建一个包含 Git 各种配置文件的「裸仓库」。&lt;/p&gt;
   &lt;p&gt;切换到存放用户所访问文件的目录（假设为 &lt;code&gt;/home/USER/www&lt;/code&gt;，如果不存在则在 &lt;code&gt;/home/USER&lt;/code&gt; 中执行 &lt;code&gt;mkdir www&lt;/code&gt;）：&lt;/p&gt;
-  {% highlight sh %}
-git init
+  &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;git init
 git remote add origin ~/repos/BRIDGE_REPO.git
 git fetch
 git checkout master
-  {% endhighlight %}
+  &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
   &lt;h3&gt;配置 Git Hook&lt;/h3&gt;
   &lt;p&gt;将目录切换至 &lt;code&gt;/home/USER/repos/BRIDGE_REPO.git/hooks&lt;/code&gt;，用 &lt;code&gt;cp post-receive.sample post-receive&lt;/code&gt; 复制并重命名文件后用 &lt;code&gt;vim post-receive&lt;/code&gt; 修改。其内容大致如下：&lt;/p&gt;
 
-  {% highlight sh %}
-#!/bin/sh
+  &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span class=&quot;c&quot;&gt;#!/bin/sh&lt;/span&gt;
 
-unset GIT_DIR
+&lt;span class=&quot;nb&quot;&gt;unset &lt;/span&gt;GIT_DIR
 
-NowPath=`pwd`
-DeployPath=&quot;../../www&quot;
+&lt;span class=&quot;nv&quot;&gt;NowPath&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;pwd&lt;/span&gt;&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;DeployPath&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;../../www&amp;quot;&lt;/span&gt;
 
-cd $DeployPath
+&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$DeployPath&lt;/span&gt;
 git pull origin master
 
-cd $NowPath
-exit 0
-  {% endhighlight %}
+&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$NowPath&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;exit &lt;/span&gt;0
+  &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
   &lt;p&gt;使用 &lt;code&gt;chmod +x post-receive&lt;/code&gt; 改变一下权限后，服务器端的配置就基本完成了。&lt;/p&gt;
   &lt;h3&gt;更新本机的仓库源&lt;/h3&gt;
   &lt;p&gt;在原有的（托管代码的）仓库上加入刚才所配置的服务器上的远程仓库的地址为源，以后往那个源推送代码后就会自动部署了。&lt;/p&gt;
@@ -599,26 +464,40 @@ exit 0
   &lt;p&gt;在搭建环境时并没有一帆风顺，磕磕绊绊遇到不少问题，虽然很多不值得一提，但有的点还是有记录并分享的价值的！&lt;/p&gt;
   &lt;h3&gt;SSH 私钥「认证」&lt;/h3&gt;
   &lt;p&gt;&lt;a href=&quot;http://segmentfault.com/q/1010000000835302/a-1020000000883441&quot; target=&quot;_blank&quot;&gt;将生成的私钥进行「认证」有不止一种方式&lt;/a&gt;，然而，起初我用的是最挫最不靠谱的 &lt;code&gt;ssh-add ~/.ssh/PRIVATE_KEY&lt;/code&gt;——只是在当前 session 有效，一重启就又会被「询问」了！&lt;/p&gt;
-&lt;/section&gt;
-</content>
-<author>
-<name>欧雷</name>
-<email>ourairyu@gmail.com</email>
-<uri>http://ourai.ws/</uri>
-</author>
-<category term="git" />
-<category term="deployment" />
-<category term="web-server" />
-<category term="linux" />
-<summary>昨天开始接手开发公司前端团队的主页，在稍微修改点东西后推送到远程仓库想看下线上结果时发现并没有更改！询问一把手得知，居然还需要连接到服务器执行一下 git pull 才行……对于我这种怕麻烦的人来说，简直不能忍！经过一番查找资料以及一顿折腾，终于让它能够自动跑起来了，真是高兴得我手舞足蹈啊！虽然弄了较长时间，在实践的过程中踩了点坑，但回过头来一看还是挺简单的。总的来说，就只是在服务器和本机都做一下配置。（这不废话么……）由于公司的服务器是 CentOS，我所使用的电脑是 Mac OS X，故本文内容是基于这两个系统环境所写。GUI 在给用户带来很多便利的同时也隐藏了一些不便，如：需要下载应用软件及在操作界面交互。鉴于本文的中心是「自动化」，所以一切操作都采用命令行——  远程连接服务器  在搭建环境的整个过程中，有很多步骤是需要连接到服务器进行的，然而在每次访问的时候都需要输入用户名和密码，就像逢年过节回家聚会都会被亲戚朋友询问「什么时候结婚呀」「何时抱小孩啊」。这就是为什么要把这步放到前面——在自己脑门上写上计划的结婚生子时间，省得他们总问！  生成 SSH 密钥  密钥是免登录连接服务器的通行证，有种刷脸通行的感觉。如果本地已经存在并且不想另外生成的话，可以跳过此步。  cd ~/.ssh 切换目录后用 ssh-keygen -t rsa -C &quot;用于区分密钥的标识&quot; 生成一对具有相同名字的密钥（默认为 id_rsa 和 id_rsa.pub）：用于本地的私钥和用于服务器的公钥（有 .pub 扩展名）。  如果私钥名字不是默认的话，需要手动加入到被「认证」的私钥列表中，否则每次连接服务器都会提示输入服务器的密码。在遇到了一些坑（文后有说明）后，我觉得设置 SSH config 最为靠谱！  编辑 ~/.ssh/config 文件（如果不存在则 touch ~/.ssh/config 创建一下），添加以下内容：  {% highlight sh %}Host HOST_ALIAS                       # 用于 SSH 连接的别名，最好与 HostName 保持一致  HostName SERVER_DOMAIN              # 服务器的域名或 IP 地址  Port SERVER_PORT                    # 服务器的端口号，默认为 22，可选  User SERVER_USER                    # 服务器的用户名  PreferredAuthentications publickey  IdentityFile ~/.ssh/PRIVATE_KEY     # 本机上存放的私钥路径  {% endhighlight %}  服务器端认证  先用 pbcopy &amp;lt; ~/.ssh/PRIVATE_KEY.pub 将公钥复制到剪贴板；通过 ssh USER@SERVER 访问服务器，这时会提示输入密码（它也许只有这么一次「询问」的机会）；成功登录后 vim ~/.ssh/authorized_keys，在合适的位置 cmd + V 并保存退出（同时 exit 退出 SSH 连接）。  配置 Git 仓库  创建服务器端仓库  服务器上需要配置两个仓库，一个用于代码中转的远程仓库，一个用于用户访问的本地仓库。**这里的「远程仓库」并不等同于托管代码的「中央仓库」**，这两个仓库都是为了自动同步代码并部署网站而存在。  在存放远程仓库的目录中（假设是 /home/USER/repos）执行 git init --bare BRIDGE_REPO.git 会创建一个包含 Git 各种配置文件的「裸仓库」。  切换到存放用户所访问文件的目录（假设为 /home/USER/www，如果不存在则在 /home/USER 中执行 mkdir www）：  {% highlight sh %}git initgit remote add origin ~/repos/BRIDGE_REPO.gitgit fetchgit checkout master  {% endhighlight %}  配置 Git Hook  将目录切换至 /home/USER/repos/BRIDGE_REPO.git/hooks，用 cp post-receive.sample post-receive 复制并重命名文件后用 vim post-receive 修改。其内容大致如下：</summary>
-</entry>
-<entry>
-<title>当我想跳槽时，我在想什么？</title>
-<link href="http://ourai.ws/posts/why-do-i-wanna-quit/" rel="alternate" type="text/html" title="当我想跳槽时，我在想什么？" />
-<published>2015-08-17T23:57:00+08:00</published>
-<updated>2015-08-17T23:57:00+08:00</updated>
-<id>http://ourai.ws/posts/why-do-i-wanna-quit</id>
-<content type="html" xml:base="http://ourai.ws/posts/why-do-i-wanna-quit/">&lt;p&gt;我们的干爹——马云，曾经说过：「员工的离职原因很多，只有两点最真实：1. 钱，没给到位；2. 心，委屈了。」&lt;/p&gt;
+&lt;/section&gt;</content><author><name>欧雷</name><email>ourairyu@gmail.com</email><uri>http://ourai.ws/</uri></author><category term="git" /><category term="deployment" /><category term="web-server" /><category term="linux" /><summary>昨天开始接手开发公司前端团队的主页，在稍微修改点东西后推送到远程仓库想看下线上结果时发现并没有更改！询问一把手得知，居然还需要连接到服务器执行一下 git pull 才行……对于我这种怕麻烦的人来说，简直不能忍！
+经过一番查找资料以及一顿折腾，终于让它能够自动跑起来了，真是高兴得我手舞足蹈啊！虽然弄了较长时间，在实践的过程中踩了点坑，但回过头来一看还是挺简单的。总的来说，就只是在服务器和本机都做一下配置。（这不废话么……）
+由于公司的服务器是 CentOS，我所使用的电脑是 Mac OS X，故本文内容是基于这两个系统环境所写。GUI 在给用户带来很多便利的同时也隐藏了一些不便，如：需要下载应用软件及在操作界面交互。鉴于本文的中心是「自动化」，所以一切操作都采用命令行——
+
+  远程连接服务器
+  在搭建环境的整个过程中，有很多步骤是需要连接到服务器进行的，然而在每次访问的时候都需要输入用户名和密码，就像逢年过节回家聚会都会被亲戚朋友询问「什么时候结婚呀」「何时抱小孩啊」。这就是为什么要把这步放到前面——在自己脑门上写上计划的结婚生子时间，省得他们总问！
+  生成 SSH 密钥
+  密钥是免登录连接服务器的通行证，有种刷脸通行的感觉。如果本地已经存在并且不想另外生成的话，可以跳过此步。
+  cd ~/.ssh 切换目录后用 ssh-keygen -t rsa -C &quot;用于区分密钥的标识&quot; 生成一对具有相同名字的密钥（默认为 id_rsa 和 id_rsa.pub）：用于本地的私钥和用于服务器的公钥（有 .pub 扩展名）。
+  如果私钥名字不是默认的话，需要手动加入到被「认证」的私钥列表中，否则每次连接服务器都会提示输入服务器的密码。在遇到了一些坑（文后有说明）后，我觉得设置 SSH config 最为靠谱！
+  编辑 ~/.ssh/config 文件（如果不存在则 touch ~/.ssh/config 创建一下），添加以下内容：
+  Host HOST_ALIAS                       # 用于 SSH 连接的别名，最好与 HostName 保持一致
+  HostName SERVER_DOMAIN              # 服务器的域名或 IP 地址
+  Port SERVER_PORT                    # 服务器的端口号，默认为 22，可选
+  User SERVER_USER                    # 服务器的用户名
+  PreferredAuthentications publickey
+  IdentityFile ~/.ssh/PRIVATE_KEY     # 本机上存放的私钥路径
+  
+  服务器端认证
+  先用 pbcopy &amp;lt; ~/.ssh/PRIVATE_KEY.pub 将公钥复制到剪贴板；通过 ssh USER@SERVER 访问服务器，这时会提示输入密码（它也许只有这么一次「询问」的机会）；成功登录后 vim ~/.ssh/authorized_keys，在合适的位置 cmd + V 并保存退出（同时 exit 退出 SSH 连接）。
+
+
+  配置 Git 仓库
+  创建服务器端仓库
+  服务器上需要配置两个仓库，一个用于代码中转的远程仓库，一个用于用户访问的本地仓库。**这里的「远程仓库」并不等同于托管代码的「中央仓库」**，这两个仓库都是为了自动同步代码并部署网站而存在。
+  在存放远程仓库的目录中（假设是 /home/USER/repos）执行 git init --bare BRIDGE_REPO.git 会创建一个包含 Git 各种配置文件的「裸仓库」。
+  切换到存放用户所访问文件的目录（假设为 /home/USER/www，如果不存在则在 /home/USER 中执行 mkdir www）：
+  git init
+git remote add origin ~/repos/BRIDGE_REPO.git
+git fetch
+git checkout master
+  
+  配置 Git Hook
+  将目录切换至 /home/USER/repos/BRIDGE_REPO.git/hooks，用 cp post-receive.sample post-receive 复制并重命名文件后用 vim post-receive 修改。其内容大致如下：</summary></entry><entry><title>当我想跳槽时，我在想什么？</title><link href="http://ourai.ws/posts/why-do-i-wanna-quit/" rel="alternate" type="text/html" title="当我想跳槽时，我在想什么？" /><published>2015-08-17T23:57:00+08:00</published><updated>2015-08-17T23:57:00+08:00</updated><id>http://ourai.ws/posts/why-do-i-wanna-quit</id><content type="html" xml:base="http://ourai.ws/posts/why-do-i-wanna-quit/">&lt;p&gt;我们的干爹——马云，曾经说过：「员工的离职原因很多，只有两点最真实：1. 钱，没给到位；2. 心，委屈了。」&lt;/p&gt;
 
 &lt;p&gt;现在所在的公司是我来杭州后的第二家公司，已经将近两年半。&lt;/p&gt;
 
@@ -641,23 +520,7 @@ exit 0
   &lt;li&gt;（一定程度的）自知之明，虽然有的人觉得我「很厉害」，但我知道自己「尚需努力」。&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;一切，都是为了理想。&lt;/p&gt;
-</content>
-<author>
-<name>欧雷</name>
-<email>ourairyu@gmail.com</email>
-<uri>http://ourai.ws/</uri>
-</author>
-<category term="resignation" />
-<summary>我们的干爹——马云，曾经说过：「员工的离职原因很多，只有两点最真实：1. 钱，没给到位；2. 心，委屈了。」</summary>
-</entry>
-<entry>
-<title>在 Mac OS X 中搭建 Apache + PHP + MySQL 开发环境</title>
-<link href="http://ourai.ws/posts/apache-mysql-php-on-mac-os/" rel="alternate" type="text/html" title="在 Mac OS X 中搭建 Apache + PHP + MySQL 开发环境" />
-<published>2015-07-20T23:54:00+08:00</published>
-<updated>2015-07-20T23:54:00+08:00</updated>
-<id>http://ourai.ws/posts/apache-mysql-php-on-mac-os</id>
-<content type="html" xml:base="http://ourai.ws/posts/apache-mysql-php-on-mac-os/">&lt;p&gt;我所使用的操作系统是 Mac OS X Yosemite，自带 Apache 和 PHP，所以不用安装，只需稍微修改一下配置文件即可。&lt;/p&gt;
+&lt;p&gt;一切，都是为了理想。&lt;/p&gt;</content><author><name>欧雷</name><email>ourairyu@gmail.com</email><uri>http://ourai.ws/</uri></author><category term="resignation" /><summary>我们的干爹——马云，曾经说过：「员工的离职原因很多，只有两点最真实：1. 钱，没给到位；2. 心，委屈了。」</summary></entry><entry><title>在 Mac OS X 中搭建 Apache + PHP + MySQL 开发环境</title><link href="http://ourai.ws/posts/apache-mysql-php-on-mac-os/" rel="alternate" type="text/html" title="在 Mac OS X 中搭建 Apache + PHP + MySQL 开发环境" /><published>2015-07-20T23:54:00+08:00</published><updated>2015-07-20T23:54:00+08:00</updated><id>http://ourai.ws/posts/apache-mysql-php-on-mac-os</id><content type="html" xml:base="http://ourai.ws/posts/apache-mysql-php-on-mac-os/">&lt;p&gt;我所使用的操作系统是 Mac OS X Yosemite，自带 Apache 和 PHP，所以不用安装，只需稍微修改一下配置文件即可。&lt;/p&gt;
 
 &lt;h2 id=&quot;apache&quot;&gt;启动 Apache&lt;/h2&gt;
 
@@ -671,28 +534,7 @@ exit 0
 
 &lt;h2 id=&quot;mysql&quot;&gt;安装 MySQL&lt;/h2&gt;
 
-&lt;p&gt;参考 &lt;a href=&quot;http://www.piaoyi.org/php/568.html&quot;&gt;http://www.piaoyi.org/php/568.html&lt;/a&gt;&lt;/p&gt;
-
-</content>
-<author>
-<name>欧雷</name>
-<email>ourairyu@gmail.com</email>
-<uri>http://ourai.ws/</uri>
-</author>
-<category term="apache" />
-<category term="mac-os" />
-<category term="mysql" />
-<category term="php" />
-<category term="development-environment" />
-<summary>我所使用的操作系统是 Mac OS X Yosemite，自带 Apache 和 PHP，所以不用安装，只需稍微修改一下配置文件即可。</summary>
-</entry>
-<entry>
-<title>与心魔之战</title>
-<link href="http://ourai.ws/posts/fight-with-evil-in-heart/" rel="alternate" type="text/html" title="与心魔之战" />
-<published>2015-04-22T17:57:00+08:00</published>
-<updated>2015-04-22T17:57:00+08:00</updated>
-<id>http://ourai.ws/posts/fight-with-evil-in-heart</id>
-<content type="html" xml:base="http://ourai.ws/posts/fight-with-evil-in-heart/">&lt;p&gt;今天是星期三，我已经跟自己的心魔较量了四天。虽然这些天内心一直在争斗，但是与不同的对象，也就是说是不同的“心魔”。第一个已经被我打倒，暂时不会起来；第二个正在搏斗，目前我占上风。&lt;/p&gt;
+&lt;p&gt;参考 &lt;a href=&quot;http://www.piaoyi.org/php/568.html&quot;&gt;http://www.piaoyi.org/php/568.html&lt;/a&gt;&lt;/p&gt;</content><author><name>欧雷</name><email>ourairyu@gmail.com</email><uri>http://ourai.ws/</uri></author><category term="apache" /><category term="mac-os" /><category term="mysql" /><category term="php" /><category term="development-environment" /><summary>我所使用的操作系统是 Mac OS X Yosemite，自带 Apache 和 PHP，所以不用安装，只需稍微修改一下配置文件即可。</summary></entry><entry><title>与心魔之战</title><link href="http://ourai.ws/posts/fight-with-evil-in-heart/" rel="alternate" type="text/html" title="与心魔之战" /><published>2015-04-22T17:57:00+08:00</published><updated>2015-04-22T17:57:00+08:00</updated><id>http://ourai.ws/posts/fight-with-evil-in-heart</id><content type="html" xml:base="http://ourai.ws/posts/fight-with-evil-in-heart/">&lt;p&gt;今天是星期三，我已经跟自己的心魔较量了四天。虽然这些天内心一直在争斗，但是与不同的对象，也就是说是不同的“心魔”。第一个已经被我打倒，暂时不会起来；第二个正在搏斗，目前我占上风。&lt;/p&gt;
 
 &lt;p&gt;这两个心魔分别是什么，不方便说也不想说，写本篇文字的目的在于记录、梳理一下自己的心情和思考结论。&lt;/p&gt;
 
@@ -706,22 +548,7 @@ exit 0
 
 &lt;p&gt;谢谢心魔，让我能够将自己的注意力专注于让我痛苦的事情上而不是其他，让我能够静心地去思考，从而让我成长。&lt;/p&gt;
 
-&lt;p&gt;正因为克服了那些原以为无法克服的困难，才会变得更加强大！&lt;/p&gt;
-</content>
-<author>
-<name>欧雷</name>
-<email>ourairyu@gmail.com</email>
-<uri>http://ourai.ws/</uri>
-</author>
-<summary>今天是星期三，我已经跟自己的心魔较量了四天。虽然这些天内心一直在争斗，但是与不同的对象，也就是说是不同的“心魔”。第一个已经被我打倒，暂时不会起来；第二个正在搏斗，目前我占上风。</summary>
-</entry>
-<entry>
-<title>网站性能优化·前端篇</title>
-<link href="http://ourai.ws/posts/how-to-improve-web-page-performance/" rel="alternate" type="text/html" title="网站性能优化·前端篇" />
-<published>2015-03-10T18:10:12+08:00</published>
-<updated>2015-03-10T18:10:12+08:00</updated>
-<id>http://ourai.ws/posts/how-to-improve-web-page-performance</id>
-<content type="html" xml:base="http://ourai.ws/posts/how-to-improve-web-page-performance/">&lt;blockquote&gt;
+&lt;p&gt;正因为克服了那些原以为无法克服的困难，才会变得更加强大！&lt;/p&gt;</content><author><name>欧雷</name><email>ourairyu@gmail.com</email><uri>http://ourai.ws/</uri></author><summary>今天是星期三，我已经跟自己的心魔较量了四天。虽然这些天内心一直在争斗，但是与不同的对象，也就是说是不同的“心魔”。第一个已经被我打倒，暂时不会起来；第二个正在搏斗，目前我占上风。</summary></entry><entry><title>网站性能优化·前端篇</title><link href="http://ourai.ws/posts/how-to-improve-web-page-performance/" rel="alternate" type="text/html" title="网站性能优化·前端篇" /><published>2015-03-10T18:10:12+08:00</published><updated>2015-03-10T18:10:12+08:00</updated><id>http://ourai.ws/posts/how-to-improve-web-page-performance</id><content type="html" xml:base="http://ourai.ws/posts/how-to-improve-web-page-performance/">&lt;blockquote&gt;
   &lt;p&gt;我们的目标是优先显示与用户要在网页上执行的主要操作有关的内容。&lt;/p&gt;
 &lt;/blockquote&gt;
 
@@ -731,14 +558,7 @@ exit 0
 
 &lt;p&gt;前端性能简单来说就是&lt;strong&gt;能看到页面内容的时间&lt;/strong&gt;以及&lt;strong&gt;可以开始在页面上操作的时间&lt;/strong&gt;。&lt;/p&gt;
 
-&lt;table&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;![Progressive Rendering]({{ “posts/20150310/progressive-rendering.png”&lt;/td&gt;
-      &lt;td&gt;asset_path }})&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/posts/20150310/progressive-rendering-f5f19a4054b75a1374ab50ccd40a3155200b931d451d93a2b162a42e02bf3b43.png&quot; alt=&quot;Progressive Rendering&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;前端性能与浏览器的运作方式密切相关，故想要优化性能就要从了解浏览器的工作原理入手。&lt;/p&gt;
 
@@ -859,14 +679,7 @@ exit 0
 
 &lt;p&gt;通过 &lt;a href=&quot;http://www.w3.org/TR/navigation-timing-2/#processing-model&quot; target=&quot;_blank&quot; rel=&quot;external nofollow&quot;&gt;Navigation Timing&lt;/a&gt; API 可以获取浏览器在处理网页的关键步骤的时间戳。&lt;/p&gt;
 
-&lt;table&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;![Part of Navigation Timing Processing Model]({{ “posts/20150310/dom-navtiming.png”&lt;/td&gt;
-      &lt;td&gt;asset_path }})&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/posts/20150310/dom-navtiming-300dbbd76122134967748e9ad7d282bed73ce18a25d9ef30b381ab9257245169.png&quot; alt=&quot;Part of Navigation Timing Processing Model&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;其中，各步骤的意义如下：&lt;/p&gt;
 
@@ -902,24 +715,7 @@ exit 0
       &lt;li&gt;内联阻止呈现的 CSS&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-&lt;/ul&gt;
-</content>
-<author>
-<name>欧雷</name>
-<email>ourairyu@gmail.com</email>
-<uri>http://ourai.ws/</uri>
-</author>
-<category term="frontend-web-development" />
-<category term="web-performance-optimization" />
-<summary>  我们的目标是优先显示与用户要在网页上执行的主要操作有关的内容。</summary>
-</entry>
-<entry>
-<title>将人生置于股掌</title>
-<link href="http://ourai.ws/posts/master-your-life/" rel="alternate" type="text/html" title="将人生置于股掌" />
-<published>2015-01-10T18:11:00+08:00</published>
-<updated>2015-01-10T18:11:00+08:00</updated>
-<id>http://ourai.ws/posts/master-your-life</id>
-<content type="html" xml:base="http://ourai.ws/posts/master-your-life/">&lt;p&gt;「我要成为人生赢家！」&lt;/p&gt;
+&lt;/ul&gt;</content><author><name>欧雷</name><email>ourairyu@gmail.com</email><uri>http://ourai.ws/</uri></author><category term="frontend-web-development" /><category term="web-performance-optimization" /><summary>我们的目标是优先显示与用户要在网页上执行的主要操作有关的内容。</summary></entry><entry><title>将人生置于股掌</title><link href="http://ourai.ws/posts/master-your-life/" rel="alternate" type="text/html" title="将人生置于股掌" /><published>2015-01-10T18:11:00+08:00</published><updated>2015-01-10T18:11:00+08:00</updated><id>http://ourai.ws/posts/master-your-life</id><content type="html" xml:base="http://ourai.ws/posts/master-your-life/">&lt;p&gt;「我要成为人生赢家！」&lt;/p&gt;
 
 &lt;p&gt;这句充满壮志豪情的话，相信很多人都在嘴上或者心里呐喊过，尤其是在对自己的现实生活不满时。既然想要成为人生赢家，就得知道如何才能实现。我相信那些呐喊了的人都想过并且也去寻找那条成为赢家的路了，但绝大部分人连入口都没有找到，有的早已放弃，有的还在徘徊……&lt;/p&gt;
 
@@ -951,22 +747,7 @@ exit 0
 
 &lt;p&gt;不用多久，我就会升职加薪、当上总经理、出任 CEO、迎娶白富美、走上人生巅峰。想想还有点小激动～&lt;/p&gt;
 
-&lt;p&gt;啊，对了！这篇文章是接下来一系列文章的「序」，所以有很多东西还没说，有兴趣的请继续关注哦～&lt;/p&gt;
-</content>
-<author>
-<name>欧雷</name>
-<email>ourairyu@gmail.com</email>
-<uri>http://ourai.ws/</uri>
-</author>
-<summary>「我要成为人生赢家！」</summary>
-</entry>
-<entry>
-<title>Vタ／V辞書＋ほうがいい</title>
-<link href="http://ourai.ws/posts/had-better-in-japanese/" rel="alternate" type="text/html" title="Vタ／V辞書＋ほうがいい" />
-<published>2014-12-31T17:54:34+08:00</published>
-<updated>2014-12-31T17:54:34+08:00</updated>
-<id>http://ourai.ws/posts/had-better-in-japanese</id>
-<content type="html" xml:base="http://ourai.ws/posts/had-better-in-japanese/">&lt;p&gt;「〜ほうが」的前面可以接名词、形容词、动词等等，后面也可以加各种类型的成分。当前面是非动词后面是非「いい」的词时用法简单易懂——一种比较的说法，句式一般为「AよりBのほうが…」，有「两种事物相比之下，其中一个更……」的意思。&lt;/p&gt;
+&lt;p&gt;啊，对了！这篇文章是接下来一系列文章的「序」，所以有很多东西还没说，有兴趣的请继续关注哦～&lt;/p&gt;</content><author><name>欧雷</name><email>ourairyu@gmail.com</email><uri>http://ourai.ws/</uri></author><summary>「我要成为人生赢家！」</summary></entry><entry><title>Vタ／V辞書＋ほうがいい</title><link href="http://ourai.ws/posts/had-better-in-japanese/" rel="alternate" type="text/html" title="Vタ／V辞書＋ほうがいい" /><published>2014-12-31T17:54:34+08:00</published><updated>2014-12-31T17:54:34+08:00</updated><id>http://ourai.ws/posts/had-better-in-japanese</id><content type="html" xml:base="http://ourai.ws/posts/had-better-in-japanese/">&lt;p&gt;「〜ほうが」的前面可以接名词、形容词、动词等等，后面也可以加各种类型的成分。当前面是非动词后面是非「いい」的词时用法简单易懂——一种比较的说法，句式一般为「AよりBのほうが…」，有「两种事物相比之下，其中一个更……」的意思。&lt;/p&gt;
 
 &lt;p&gt;然而，当以「V&lt;sub&gt;タ&lt;/sub&gt;／V&lt;sub&gt;辞書&lt;/sub&gt;＋ほうがいい」的形式出现时，就会变得稍微复杂了点。&lt;/p&gt;
 
@@ -1020,23 +801,7 @@ exit 0
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;http://www.geocities.jp/niwasaburoo/33susumetyuukoku.html&quot; target=&quot;_blank&quot;&gt;庭三郎現代日本語文法概説　勧め・忠告&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;http://www.geocities.jp/niwasaburoo/53teidohikaku.html#53.2&quot; target=&quot;_blank&quot;&gt;庭三郎現代日本語文法概説　程度・比較・限定&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</content>
-<author>
-<name>欧雷</name>
-<email>ourairyu@gmail.com</email>
-<uri>http://ourai.ws/</uri>
-</author>
-<category term="grammar" />
-<summary>「〜ほうが」的前面可以接名词、形容词、动词等等，后面也可以加各种类型的成分。当前面是非动词后面是非「いい」的词时用法简单易懂——一种比较的说法，句式一般为「AよりBのほうが…」，有「两种事物相比之下，其中一个更……」的意思。</summary>
-</entry>
-<entry>
-<title>一次体检引起的反思</title>
-<link href="http://ourai.ws/posts/reflection-after-physical-examination/" rel="alternate" type="text/html" title="一次体检引起的反思" />
-<published>2014-10-15T21:22:00+08:00</published>
-<updated>2014-10-15T21:22:00+08:00</updated>
-<id>http://ourai.ws/posts/reflection-after-physical-examination</id>
-<content type="html" xml:base="http://ourai.ws/posts/reflection-after-physical-examination/">&lt;p&gt;我要公布一个今天体检时所得知的爆炸性新闻，当然是与我有关——&lt;/p&gt;
+&lt;/ul&gt;</content><author><name>欧雷</name><email>ourairyu@gmail.com</email><uri>http://ourai.ws/</uri></author><category term="grammar" /><summary>「〜ほうが」的前面可以接名词、形容词、动词等等，后面也可以加各种类型的成分。当前面是非动词后面是非「いい」的词时用法简单易懂——一种比较的说法，句式一般为「AよりBのほうが…」，有「两种事物相比之下，其中一个更……」的意思。</summary></entry><entry><title>一次体检引起的反思</title><link href="http://ourai.ws/posts/reflection-after-physical-examination/" rel="alternate" type="text/html" title="一次体检引起的反思" /><published>2014-10-15T21:22:00+08:00</published><updated>2014-10-15T21:22:00+08:00</updated><id>http://ourai.ws/posts/reflection-after-physical-examination</id><content type="html" xml:base="http://ourai.ws/posts/reflection-after-physical-examination/">&lt;p&gt;我要公布一个今天体检时所得知的爆炸性新闻，当然是与我有关——&lt;/p&gt;
 &lt;p&gt;第一项是血常规，登记时发了长短不一的三个管子，排在我前面的同事因为晕血而灰溜溜地「下台」了（其实是进「小黑屋」享受特殊待遇了）。我早已把手机拿在右手中做好准备，将已经爆出青筋的左臂伸出去，直勾勾地看着工作人员将细针扎进去。弄了好几下还没血流出来，我有点无语：「怎么不往那根明显的血管里扎啊？」话音刚落，只见接在细针上的皮管中流出了深红色看起来有点黏稠的液体……可能是我右手的姿势有点怪，并且另一位工作人员发现我在看手机屏幕：「这里不能拍照！」还没等我做任何反应，排在后面的人笑着说：「他没有拍照，是在录像！」我嬉皮笑脸地把手机摄像头关掉了。本来还想拍下整个抽血过程，显示出我的「英勇」呢！&lt;/p&gt;
 &lt;p&gt;好了，说完了。什么？觉得这不够震撼？！好吧，那我再说一个，这个保准你吓一跳！&lt;/p&gt;
 &lt;p&gt;我比去年矮了一厘米，并且瘦了一公斤！！！&lt;/p&gt;
@@ -1060,15 +825,28 @@ exit 0
 &lt;p&gt;我现在依然不在乎是否会有女友甚至结婚，不过这样想的「理由」稍微起了点变化：之前就是单纯的不想去强求，随缘；现在觉得把自己活好就已经很不容易了，不敢去奢求让谁来与我共同承担。&lt;/p&gt;
 &lt;p&gt;从出生到现在经历过不仅一次的「危险时刻」，皆在肉体上留下了永久的印记，这些「故事」请允许我只与那些跟我互相珍视的人分享。&lt;/p&gt;
 &lt;p&gt;从现在起，我要好好地活着，充实地活着，有价值地活着，让我在闭眼之时不留悔恨！&lt;/p&gt;
-&lt;p&gt;「其实，人这一生可短暂咧。有时候儿一想，这人生跟睡觉是一样儿一样儿的——眼睛一闭，一睁，这一天儿就过去了，嚎？这眼睛一闭，不睁，这辈子就过去了，嚎？」&lt;/p&gt;
-</content>
-<author>
-<name>欧雷</name>
-<email>ourairyu@gmail.com</email>
-<uri>http://ourai.ws/</uri>
-</author>
-<category term="philosophy-of-life" />
-<category term="self-reflection" />
-<summary>我要公布一个今天体检时所得知的爆炸性新闻，当然是与我有关——第一项是血常规，登记时发了长短不一的三个管子，排在我前面的同事因为晕血而灰溜溜地「下台」了（其实是进「小黑屋」享受特殊待遇了）。我早已把手机拿在右手中做好准备，将已经爆出青筋的左臂伸出去，直勾勾地看着工作人员将细针扎进去。弄了好几下还没血流出来，我有点无语：「怎么不往那根明显的血管里扎啊？」话音刚落，只见接在细针上的皮管中流出了深红色看起来有点黏稠的液体……可能是我右手的姿势有点怪，并且另一位工作人员发现我在看手机屏幕：「这里不能拍照！」还没等我做任何反应，排在后面的人笑着说：「他没有拍照，是在录像！」我嬉皮笑脸地把手机摄像头关掉了。本来还想拍下整个抽血过程，显示出我的「英勇」呢！好了，说完了。什么？觉得这不够震撼？！好吧，那我再说一个，这个保准你吓一跳！我比去年矮了一厘米，并且瘦了一公斤！！！怎么样？这回被震撼到了吧？哈哈哈～唉唉唉，你这是什么表情啊？！我说的话就那么无聊吗？！行！下面这个绝对会让你有所感觉！在拍完胸部正片（X 光片）后被叫到旁边的房间，这时我就感到不对劲了，其他人都是直接从拍片的房间中出去的。过去后那个看起来资历最老的人指着刚拍的照片说：「你右肺上有阴影，可能是结核，最好到医院去看下。」听到这话，我既惊讶又不惊讶：去年体检时就知道右肺有点问题，不过当时没太在意，所以未去赴诊；没想到已经恶化到能够大致辨别出是什么病的地步了，不看不行！在他问我要不要胶片时毫无犹豫地回到：「要！」所有项目都检查完毕后去找那老大爷付钱把胶片拿了回来。到公司时已经中午，不想再耽误看病的时机，于是请了半天假到那老大爷推荐的杭州市红十字会医院（简称「红会医院」）去诊断。把胶片拿给呼吸内科的医生看，他得出了类似的结论，并要我做 CT 进一步检查。有些人会认为医生的这种行为是为了坑百姓钱，但我不想恶意揣测他的用意，并且我也觉得单靠 X 光无法确诊。回到医生那里先看了一下照片，就算是我这个外行也能看出来点什么——很明显的，一边肺上白色区域比另一边大很多。「结核病」这个结果基本是板上钉钉的事情，就等周日去拿胶片看报告，然后听取处理意见了。虽说结核病不是绝症，但也会致死；要问我是否觉得害怕，回答是「不怕」，可还是会觉得心情低沉。这个病到底可不可怕，周日听到治疗措施之后就知道了。坐在离开医院的公交上时想了一些事情，有些小感慨——记得乔帮主在斯坦福大学某次毕业典礼的演讲中曾说当他在十七岁的时候读到了一句影响终生的话：「如果你把每一天都当作生命中最后一天去生活的话，那么有一天你会发现你是正确的。」我是十分赞同这句话的，一两年前就开始有此感想，不过一直没有那种深刻的感觉，直到今天听到「你可能是结核」这句话。只有那些得过重病、面临过生命威胁的人才会真正地懂得生命的可贵，才会真正地知道什么叫「活一天少一天」，才会真正地明白「把每天当成生命中最后一天」的意义。忽然想起一个与病魔斗争很久，最终抵不住「攻势」而离世的叫程浩的知乎用户（用户名为「伯爵在城堡」），生前帮助很多人解决了问题、烦恼。他在世时有很多知友为他鼓气，过世后有很多知友为他叹息。我也算是他从生到死的「见证人」。为什么提程浩？虽然没看过几个他的回答，但从我所看到的内容当中都体现出了他对生命的理解，作为一个自知无法逃脱魔掌的勇士对世界的看法和思考，积极面对可悲命运的态度。他是「把每天当成生命中最后一天」的践行者。其实那句话没有那么「高大上」，就是一句提醒人们「不要浪费时间在没有价值的事情上」的话而已，让自己的每一天不要白过，在死前一刻不会有悔恨。前段时间网上比较流行的黑程序员的那句话怎么说的来着？好像是——「嫁给程序员有三好：钱多，话少，死得早。」虽然不完全对，但也有一定道理。「死得早」说明了做这行的压力很大。外行眼中的程序员会经常加班，实际情况是按公司而定，按项目的开发进度而定。不紧急的时候是闲得要命，靠到 QQ 群里聊天或浏览感兴趣的网页打发时间；忙的时候则会加班到半夜，连着加班一个月的事情我也不是没经历过。这种高强度地工作所导致的结果就是积劳成疾，甚至猝死。我的肺病应该就是工作压力所造成的。一两年前还在上家公司时就有征兆了，那时右胸下方肋骨里面就会时不时地感到疼痛。从上家公司离职前正在给一个大客户做项目，是众人皆知的通讯公司，那段时间正是每天加班到深夜，已经持续了一个月左右。我不仅承受着巨大的工作压力，还被对方蹂躏着精神，都快要崩溃了！就在这种情况下，肺部位置疼痛加剧，我还半开玩笑地问上级：「加班得肺病算工伤不？」自从工作之后，已经听过几个在杭州的同行或相似行业的人猝死的消息了，知名的和无名的公司都有，皆是年纪轻轻（二、三十岁）就送命。也许哪天我也会突然间就……即使不是猝死，也可能会是肺病急剧恶化，得了什么致命急性病或交通等事故。有段时间跟老妈通电话时她总会嘱咐我：「别出去舀哪走，老实儿地在屋儿里呆着，外面危险！（别到外面闲逛，老实地在房间里，外面危险！）」我就回她：「在屋儿里就安全唠？万一谁家噶子罐儿爆炸了呢？只要活着，就没安全的地方！（房间里就安全了吗？万一谁家煤气爆炸了呢？只要活着，就没安全的地方！）」就像如此，我已经向她传达了好几次「我随时会客死他乡」的信息，让她有心理准备。假如有一天，你得知我已不在人世，没什么可惊讶的，人活着活着就突然没了还是比较常见的。所以，如果你喜欢我，或者现在不讨厌我且有喜欢上我的可能，请用行动让我知道——跟我保持联系，常与我联系，身处同一个城市或相邻城市的常约我见面；当然不会总让你主动，待我知道你对我的感情之后我也会礼尚往来主动约你的，感情是相互的嘛。让我们在随时会完结的有限生命里珍惜彼此吧，也许某次见面就是最后一次见面，某次谈笑就是最后一次谈笑，某次的「一瞬」就成了「永远」；让我们在还能见到对方的时候真心相对吧，不掺杂任何虚情假意，袒露胸怀。我现在依然不在乎是否会有女友甚至结婚，不过这样想的「理由」稍微起了点变化：之前就是单纯的不想去强求，随缘；现在觉得把自己活好就已经很不容易了，不敢去奢求让谁来与我共同承担。从出生到现在经历过不仅一次的「危险时刻」，皆在肉体上留下了永久的印记，这些「故事」请允许我只与那些跟我互相珍视的人分享。从现在起，我要好好地活着，充实地活着，有价值地活着，让我在闭眼之时不留悔恨！「其实，人这一生可短暂咧。有时候儿一想，这人生跟睡觉是一样儿一样儿的——眼睛一闭，一睁，这一天儿就过去了，嚎？这眼睛一闭，不睁，这辈子就过去了，嚎？」</summary>
-</entry>
-</feed>
+&lt;p&gt;「其实，人这一生可短暂咧。有时候儿一想，这人生跟睡觉是一样儿一样儿的——眼睛一闭，一睁，这一天儿就过去了，嚎？这眼睛一闭，不睁，这辈子就过去了，嚎？」&lt;/p&gt;</content><author><name>欧雷</name><email>ourairyu@gmail.com</email><uri>http://ourai.ws/</uri></author><category term="philosophy-of-life" /><category term="self-reflection" /><summary>我要公布一个今天体检时所得知的爆炸性新闻，当然是与我有关——
+第一项是血常规，登记时发了长短不一的三个管子，排在我前面的同事因为晕血而灰溜溜地「下台」了（其实是进「小黑屋」享受特殊待遇了）。我早已把手机拿在右手中做好准备，将已经爆出青筋的左臂伸出去，直勾勾地看着工作人员将细针扎进去。弄了好几下还没血流出来，我有点无语：「怎么不往那根明显的血管里扎啊？」话音刚落，只见接在细针上的皮管中流出了深红色看起来有点黏稠的液体……可能是我右手的姿势有点怪，并且另一位工作人员发现我在看手机屏幕：「这里不能拍照！」还没等我做任何反应，排在后面的人笑着说：「他没有拍照，是在录像！」我嬉皮笑脸地把手机摄像头关掉了。本来还想拍下整个抽血过程，显示出我的「英勇」呢！
+好了，说完了。什么？觉得这不够震撼？！好吧，那我再说一个，这个保准你吓一跳！
+我比去年矮了一厘米，并且瘦了一公斤！！！
+怎么样？这回被震撼到了吧？哈哈哈～唉唉唉，你这是什么表情啊？！我说的话就那么无聊吗？！行！下面这个绝对会让你有所感觉！
+在拍完胸部正片（X 光片）后被叫到旁边的房间，这时我就感到不对劲了，其他人都是直接从拍片的房间中出去的。过去后那个看起来资历最老的人指着刚拍的照片说：「你右肺上有阴影，可能是结核，最好到医院去看下。」听到这话，我既惊讶又不惊讶：去年体检时就知道右肺有点问题，不过当时没太在意，所以未去赴诊；没想到已经恶化到能够大致辨别出是什么病的地步了，不看不行！在他问我要不要胶片时毫无犹豫地回到：「要！」所有项目都检查完毕后去找那老大爷付钱把胶片拿了回来。
+到公司时已经中午，不想再耽误看病的时机，于是请了半天假到那老大爷推荐的杭州市红十字会医院（简称「红会医院」）去诊断。把胶片拿给呼吸内科的医生看，他得出了类似的结论，并要我做 CT 进一步检查。有些人会认为医生的这种行为是为了坑百姓钱，但我不想恶意揣测他的用意，并且我也觉得单靠 X 光无法确诊。回到医生那里先看了一下照片，就算是我这个外行也能看出来点什么——很明显的，一边肺上白色区域比另一边大很多。「结核病」这个结果基本是板上钉钉的事情，就等周日去拿胶片看报告，然后听取处理意见了。
+虽说结核病不是绝症，但也会致死；要问我是否觉得害怕，回答是「不怕」，可还是会觉得心情低沉。这个病到底可不可怕，周日听到治疗措施之后就知道了。
+坐在离开医院的公交上时想了一些事情，有些小感慨——
+记得乔帮主在斯坦福大学某次毕业典礼的演讲中曾说当他在十七岁的时候读到了一句影响终生的话：「如果你把每一天都当作生命中最后一天去生活的话，那么有一天你会发现你是正确的。」我是十分赞同这句话的，一两年前就开始有此感想，不过一直没有那种深刻的感觉，直到今天听到「你可能是结核」这句话。
+只有那些得过重病、面临过生命威胁的人才会真正地懂得生命的可贵，才会真正地知道什么叫「活一天少一天」，才会真正地明白「把每天当成生命中最后一天」的意义。
+忽然想起一个与病魔斗争很久，最终抵不住「攻势」而离世的叫程浩的知乎用户（用户名为「伯爵在城堡」），生前帮助很多人解决了问题、烦恼。他在世时有很多知友为他鼓气，过世后有很多知友为他叹息。我也算是他从生到死的「见证人」。
+为什么提程浩？虽然没看过几个他的回答，但从我所看到的内容当中都体现出了他对生命的理解，作为一个自知无法逃脱魔掌的勇士对世界的看法和思考，积极面对可悲命运的态度。他是「把每天当成生命中最后一天」的践行者。
+其实那句话没有那么「高大上」，就是一句提醒人们「不要浪费时间在没有价值的事情上」的话而已，让自己的每一天不要白过，在死前一刻不会有悔恨。
+前段时间网上比较流行的黑程序员的那句话怎么说的来着？好像是——「嫁给程序员有三好：钱多，话少，死得早。」虽然不完全对，但也有一定道理。
+「死得早」说明了做这行的压力很大。外行眼中的程序员会经常加班，实际情况是按公司而定，按项目的开发进度而定。不紧急的时候是闲得要命，靠到 QQ 群里聊天或浏览感兴趣的网页打发时间；忙的时候则会加班到半夜，连着加班一个月的事情我也不是没经历过。这种高强度地工作所导致的结果就是积劳成疾，甚至猝死。
+我的肺病应该就是工作压力所造成的。一两年前还在上家公司时就有征兆了，那时右胸下方肋骨里面就会时不时地感到疼痛。
+从上家公司离职前正在给一个大客户做项目，是众人皆知的通讯公司，那段时间正是每天加班到深夜，已经持续了一个月左右。我不仅承受着巨大的工作压力，还被对方蹂躏着精神，都快要崩溃了！就在这种情况下，肺部位置疼痛加剧，我还半开玩笑地问上级：「加班得肺病算工伤不？」
+自从工作之后，已经听过几个在杭州的同行或相似行业的人猝死的消息了，知名的和无名的公司都有，皆是年纪轻轻（二、三十岁）就送命。
+也许哪天我也会突然间就……即使不是猝死，也可能会是肺病急剧恶化，得了什么致命急性病或交通等事故。有段时间跟老妈通电话时她总会嘱咐我：「别出去舀哪走，老实儿地在屋儿里呆着，外面危险！（别到外面闲逛，老实地在房间里，外面危险！）」我就回她：「在屋儿里就安全唠？万一谁家噶子罐儿爆炸了呢？只要活着，就没安全的地方！（房间里就安全了吗？万一谁家煤气爆炸了呢？只要活着，就没安全的地方！）」就像如此，我已经向她传达了好几次「我随时会客死他乡」的信息，让她有心理准备。假如有一天，你得知我已不在人世，没什么可惊讶的，人活着活着就突然没了还是比较常见的。
+所以，如果你喜欢我，或者现在不讨厌我且有喜欢上我的可能，请用行动让我知道——跟我保持联系，常与我联系，身处同一个城市或相邻城市的常约我见面；当然不会总让你主动，待我知道你对我的感情之后我也会礼尚往来主动约你的，感情是相互的嘛。让我们在随时会完结的有限生命里珍惜彼此吧，也许某次见面就是最后一次见面，某次谈笑就是最后一次谈笑，某次的「一瞬」就成了「永远」；让我们在还能见到对方的时候真心相对吧，不掺杂任何虚情假意，袒露胸怀。
+我现在依然不在乎是否会有女友甚至结婚，不过这样想的「理由」稍微起了点变化：之前就是单纯的不想去强求，随缘；现在觉得把自己活好就已经很不容易了，不敢去奢求让谁来与我共同承担。
+从出生到现在经历过不仅一次的「危险时刻」，皆在肉体上留下了永久的印记，这些「故事」请允许我只与那些跟我互相珍视的人分享。
+从现在起，我要好好地活着，充实地活着，有价值地活着，让我在闭眼之时不留悔恨！
+「其实，人这一生可短暂咧。有时候儿一想，这人生跟睡觉是一样儿一样儿的——眼睛一闭，一睁，这一天儿就过去了，嚎？这眼睛一闭，不睁，这辈子就过去了，嚎？」</summary></entry></feed>
