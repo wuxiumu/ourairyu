@@ -27,6 +27,8 @@
     {% endif %}
 
     {% assign page_title = page_title | prepend: "「" | append: "」标签的文章" %}
+  {% elsif page.type == "year" %}
+    {% assign page_title = page.date | date: "%Y" | prepend: "发表于 " | append: " 年的文章" %}
   {% else %}
     {% if page.title %}
       {% assign page_title = page.title %}

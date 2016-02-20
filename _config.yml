@@ -113,12 +113,15 @@ jekyll-archives:
   enabled:
     - categories
     - tags
+    - year
   layouts:
-    category: category
-    tag: tag
+    category: archives/category
+    tag: archives/tag
+    year: archives/year
   permalinks:
     category: "/categories/:name/"
     tag: "/tags/:name/"
+    year: "/archives/:year/"
 
 # Jekyll Feed
 feed:
