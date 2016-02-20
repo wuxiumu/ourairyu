@@ -21,4 +21,6 @@ group :jekyll_plugins do
   gem 'slim', github: 'slim-template/slim'
 
   gem 'octopress-minify-html'
+
+  gem 'jekyll_version_plugin'
 end

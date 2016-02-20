@@ -43,6 +43,7 @@ gems:
   - jekyll-slim
   - jemoji
   - octopress-minify-html
+  - jekyll_version_plugin
 
 # Conversion
 markdown: kramdown
