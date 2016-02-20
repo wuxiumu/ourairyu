@@ -35,21 +35,14 @@ generateToc = ->
 
 # 初始化目录
 initToc = ( $toc ) ->
-  cls = ".Widget-toc"
+  cls = ".Widget--toc"
 
   $container = $(cls)
   $cnt = $(".Article-content")
 
   $container
     # 添加目录列表
-    .append """
-            <header class="Widget-header">
-              <h3 class="Widget-title">#{$container.attr("data-title") or "目录"}</h3>
-            </header>
-            <div class="Widget-body"></div>
-            """
     .find(".Widget-body").append($toc).closest cls
-    .removeAttr "data-title"
     # 初始化定位
     .on
       "affixed-top.bs.affix": ->
@@ -65,7 +58,7 @@ initToc = ( $toc ) ->
   $("body").scrollspy target: cls
 
 $(document).ready ->
-  $container = $(".Widget-toc")
+  $container = $(".Widget--toc")
 
   if $container.size() is 1
     $toc = generateToc()

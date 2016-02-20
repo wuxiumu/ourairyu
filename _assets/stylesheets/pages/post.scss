@@ -70,17 +70,7 @@
   }
 }
 
-.Widget-toc.affix-top {
+.Widget--toc.affix-top {
   padding-top: 20px;
   border-top: 1px solid #eee;
-}
-
-.Article-toc {
-  margin-top: 15px;
-  padding-top: 10px;
-  border-top: 1px solid #eee;
-
-  > h3 {
-    padding: 10px 15px;
-  }
 }
