@@ -76,7 +76,7 @@ end
 
 desc "运行"
 task :run do
-  system "bundle exec jekyll serve"
+  system "bundle exec jekyll serve --incremental"
 end
 
 desc "部署"
@@ -104,7 +104,7 @@ task :deploy do
   end
 
   system "rake projects"
-  system "bundle exec jekyll build -d #{dir} --config _config.yml,_build/config.yml"
+  system "JEKYLL_ENV=production bundle exec jekyll build -d #{dir}"
 
   cd dir do
     current_time = Time.now.strftime("%Y-%m-%d %H:%M:%S")

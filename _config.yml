@@ -23,6 +23,7 @@ collections:
 
 # Handling Reading
 exclude: 
+  - .asset-cache
   - .sass-cache
   - node_modules
   - vendors
@@ -38,19 +39,15 @@ encoding: utf-8
 
 # Plugins
 gems:
+  - jekyll-assets
   - jekyll-archives
   - jekyll-feed
-  - jekyll-slim
-  - jemoji
-  - octopress-minify-html
+  - jekyll-contentblocks
   - jekyll_version_plugin
 
 # Conversion
 markdown: kramdown
-# highlighter: false
-
-# Backwards-compatibility
-relative_permalinks: false
+highlighter: pygments
 
 # Outputting
 permalink: /posts/:title/
@@ -58,32 +55,26 @@ timezone: Asia/Shanghai
 
 # YAML frontmatter
 defaults:
-  # Default
+  # 默认
   - scope:
       path: ""
     values:
       layout: default
+  # 页面
   - scope:
       path: ""
       type: pages
     values:
       layout: page
-      layout_css:
-        - share
-      layout_js:
-        - share.min
-        - components
+  # 文章
   - scope:
       path: ""
       type: posts
     values:
       layout: post
-      layout_css:
-        - share
+      css:
         - pages/post
-      layout_js:
-        - share.min
-        - components
+      js:
         - initializers/time
       author:
         name: 欧雷
@@ -134,8 +125,3 @@ author:
   uri: http://ourai.ws/
 github:
   url: http://ourai.ws
-
-# Jekyll Slim
-slim:
-  pretty: true
-  format: html5

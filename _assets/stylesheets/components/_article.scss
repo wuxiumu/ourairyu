@@ -55,6 +55,10 @@
   figure {
     text-align: center;
 
+    &.highlight {
+      text-align: left;
+    }
+
     img {
       display: block;
       margin: 0 auto;

@@ -1,3 +1,6 @@
+---
+layout: compress
+---
 <!DOCTYPE html>
 {% if page.layout_type == null or page.layout_type == blank %}
   <html lang="zh-CN" dir="ltr">
@@ -7,8 +10,8 @@
   <head>
     {% include head.html %}
     {% stylesheet global %}
-    {% if page.layout_css %}
-      {% for css in page.layout_css %}{{ css | stylesheet }}{% endfor %}
+    {% if layout.css %}
+      {% for css in layout.css %}{{ css | stylesheet }}{% endfor %}
     {% endif %}
     {% if page.css %}
       {% for css in page.css %}{{ css | stylesheet }}{% endfor %}
@@ -20,8 +23,8 @@
   </head>
   <body class="Page" itemscope itemtype="http://schema.org/WebPage">
     {{ content }}
-    {% if page.layout_js %}
-      {% for js in page.layout_js %}{{ js | javascript }}{% endfor %}
+    {% if layout.js %}
+      {% for js in layout.js %}{{ js | javascript }}{% endfor %}
     {% endif %}
     {% if page.js %}
       {% for js in page.js %}{{ js | javascript }}{% endfor %}
