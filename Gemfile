@@ -7,7 +7,7 @@ gem 'pygments.rb'
 
 gem 'compass'
 gem 'bootstrap-sass'
-gem 'font-awesome-sass'
+gem 'font-awesome-sass', github: 'ourai/font-awesome-sass'
 gem 'uglifier'
 
 group :jekyll_plugins do
