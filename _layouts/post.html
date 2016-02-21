@@ -17,7 +17,7 @@ layout: page
 {{ content }}
 
 {% contentfor post_meta %}
-  <p><a href="{{ author.profile }}">{{ author.name.zh }}</a> 发表于 <time datetime="{{ page.date }}">{{ page.date | date: "%F" }} {{ page.date | date: "%T" }}</time></p>
+  <p><a href="{{ author.profile }}">{{ author.name.zh }}</a> 发表于 <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%F" }} {{ page.date | date: "%T" }}</time></p>
   {% if page.tags.size %}
   <div class="Article-tags">
     <span>标签：</span>

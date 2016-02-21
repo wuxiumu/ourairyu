@@ -47,7 +47,7 @@ css:
         <h2 class="ArticleList-heading">{{ year }}</h2>
       {% endif %}
 
-      <div class="ArticleList-item"><time datetime="{{ post.date | date: '%c' }}">{{ post.date | date: "%F" }}</time><i class="fa fa-pencil"></i><a href="{{ post.url }}">{{ post.title }}</a></div>
+      <div class="ArticleList-item"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%F" }}</time><i class="fa fa-pencil"></i><a href="{{ post.url }}">{{ post.title }}</a></div>
     {% else %}
       {% if archive_inited == false %}
         <p>本页只显示最近三年（{{ current_year | minus: 2 }} 年～{{ current_year }} 年）的文章，其他年份的文章请访问下面的年份归档页面。</p>
