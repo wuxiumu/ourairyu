@@ -13,7 +13,7 @@ css:
         {% assign categories = site.data.categories %}
         {% for cat in site.categories limit:3 %}
           {% assign c = cat[0] %}
-          <li><a href="/categories//">{{ categories[c].name }} ({{ cat[1].size }})</a></li>
+          <li><a href="/categories/{{ c }}/">{{ categories[c].name }} ({{ cat[1].size }})</a></li>
         {% endfor %}
       </ul>
     </div>
