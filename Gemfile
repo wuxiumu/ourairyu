@@ -14,5 +14,6 @@ group :jekyll_plugins do
   gem 'jekyll-archives'
   gem 'jekyll-feed'
   gem 'jekyll-contentblocks'
+  gem 'jekyll-sitemap'
   gem 'jekyll_version_plugin'
 end

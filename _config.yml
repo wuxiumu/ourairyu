@@ -43,6 +43,7 @@ gems:
   - jekyll-archives
   - jekyll-feed
   - jekyll-contentblocks
+  - jekyll-sitemap
   - jekyll_version_plugin
 
 # Conversion
@@ -83,15 +84,27 @@ defaults:
         slug: ourai
       comments: true
   - scope:
+      path: ""
+      type: demos
+    values:
+      sitemap: false
+  - scope:
+      path: ""
+      type: issues
+    values:
+      sitemap: false
+  - scope:
       path: sketches/v1
       type: sketches
     values:
       layout: sketch/v1
+      sitemap: false
   - scope:
       path: sketches/v2
       type: sketches
     values:
       layout: sketch/v2
+      sitemap: false
 
 
 
