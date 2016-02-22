@@ -107,13 +107,12 @@ body {
   background-color: #F5F5F5;
   color: #666;
 
-  a {
-    color: #444;
+  p {
+    margin-bottom: 0;
   }
 
-  .Footer-copyright,
-  .Footer-support {
-    margin-bottom: 0;
+  a {
+    color: #444;
   }
 
   .Footer-copyright {
@@ -121,7 +120,19 @@ body {
   }
 
   .Footer-support {
-    margin-top: 5px;
+    margin-top: 7px;
     font-size: 12px;
+    @include pie-clearfix;
+
+    p {
+      float: left;
+      line-height: 1.1;
+
+      + p {
+        margin-left: .75em;
+        padding-left: .75em;
+        border-left: 1px solid #d6d6d6;
+      }
+    }
   }
 }
