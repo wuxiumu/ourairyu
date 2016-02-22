@@ -52,7 +52,7 @@ sitemap: false
 </figure>
 <p>有兴趣的童鞋请<strong>将简历、GitHub 和（或）个人网站的链接通过邮箱发送到 <a href="mailto:oulei@maihaoche.com">oulei@maihaoche.com</a></strong>。<span lang="en">We're always waiting for YOU!!!</span> :-D</p>
 
-{% contentfor footer %}{% include social.html %}{% endcontentfor %}
+{% contentfor footer %}{% include widgets/social.html %}{% endcontentfor %}
 
 
 {% contentfor sidebar %}
@@ -64,5 +64,5 @@ sitemap: false
       <p><img src="{{ 'qrcodes/maihaoche-220.jpg' | asset_path }}" alt="「买好车」微信公众号 QR 二维码"></p>
     </div>
   </aside>
-  {% include toc.html %}
+  {% include widgets/toc.html %}
 {% endcontentfor %}

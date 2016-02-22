@@ -39,7 +39,7 @@ js:
         <footer class="Article-footer col-md-3">{% contentblock footer %}</footer>
       {% endifhascontent %}
       {% if page.comments == true %}
-        <div class="Article-comments col-md-9">{% include disqus.html %}</div>
+        <div class="Article-comments col-md-9">{% include widgets/disqus.html %}</div>
       {% endif %}
     </article>
     {% ifhascontent sidebar %}
