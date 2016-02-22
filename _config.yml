@@ -122,9 +122,9 @@ jekyll-archives:
     - tags
     - year
   layouts:
-    category: archives/category
-    tag: archives/tag
-    year: archives/year
+    category: archive/category
+    tag: archive/tag
+    year: archive/year
   permalinks:
     category: "/categories/:name/"
     tag: "/tags/:name/"
