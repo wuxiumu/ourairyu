@@ -8,6 +8,7 @@ tags:
   - software-engineering
   - frontend-engineering
   - maihaoche
+series: build-a-frontend-team
 ---
 
 在我加入「[买好车][mhc-url]{:target="_blank"}{:rel="nofollow external"}」后第一次把项目代码从远程仓库拉取到本地时——「这是什么玩意？！」——我的内心是震惊并诧异的。

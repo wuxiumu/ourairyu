@@ -16,6 +16,27 @@ layout: page
 
 {{ content }}
 
+{% if page.series %}
+  {% assign series = site.data.series[page.series] %}
+  {% if series.posts.size > 1 %}
+    {% assign postId = page.id | split: "/" | last %}
+    <!-- 所属文章系列 -->
+    <div class="Article-series">
+      <p>本文从属于系列<strong>{{ series.name }}</strong>，{{ series.description }}。</p>
+      <p>该系列中的文章有：</p>
+      <ul>
+        {% for p in series.posts %}
+          {% if p.id == postId %}
+            <li><strong>{{ p.title }}</strong></li>
+          {% else %}
+            <li><a href="{{ p.id | append: '/' | prepend: 'posts' | prepend: site.baseurl }}">{{ p.title }}</a></li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </div>
+  {% endif %}
+{% endif %}
+
 {% contentfor post_meta %}
   <p><a href="{{ author.profile }}">{{ author.name.zh }}</a> 发表于 <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%F" }} {{ page.date | date: "%T" }}</time></p>
   {% if page.tags.size %}
