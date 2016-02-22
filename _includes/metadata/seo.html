@@ -22,7 +22,7 @@
   {% endif %}
 
   {% if page.type == "year" %}
-    {% assign page_title = page.date | date: "%Y" | prepend: "发表于 " | append: " 年的文章" %}
+    {% assign seo_title = page.date | date: "%Y" | prepend: "发表于 " | append: " 年的文章" %}
   {% endif %}
 
   {% assign seo_page_title = seo_title %}
