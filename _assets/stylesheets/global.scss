@@ -11,3 +11,50 @@
 @import "./components/widget";
 @import "./components/page";
 @import "./components/article";
+
+
+
+.Page-header .container {
+  position: relative;
+
+  .Ad--hire {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 120px;
+    background-color: #FFD600;
+
+    a,
+    span {
+      display: block;
+      width: 100%;
+      height: 100%;
+      text: {
+        align: center;
+        decoration: none;
+      }
+      font: {
+        size: 16px;
+        weight: normal;
+      }
+      color: #333;
+    }
+
+    span {
+      &:first-child {
+        width: 72px;
+        height: 23.5px;
+        margin: 6px auto 2px;
+        font: 0px/0 a;
+        @include covered_background("maihaoche-text.png");
+      }
+    }
+
+    @media all and (max-width: $screen-xs-max) {
+      position: static;
+      float: left;
+      height: 60px;
+    }
+  }
+}
