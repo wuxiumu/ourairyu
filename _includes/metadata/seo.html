@@ -21,17 +21,18 @@
     {% assign seo_title = seo_title | prepend: "「" | append: suffix_text %}
   {% endif %}
 
+  {% assign seo_page_title = seo_title %}
+{% else %}
   {% if page.type == "year" %}
     {% assign seo_title = page.date | date: "%Y" | prepend: "发表于 " | append: " 年的文章" %}
-  {% endif %}
+    {% assign seo_page_title = seo_title %}
+  {% elsif seo_site_title %}
+    {% assign seo_title = seo_site_title %}
+    {% assign seo_page_title = seo_site_title %}
 
-  {% assign seo_page_title = seo_title %}
-{% elsif seo_site_title %}
-  {% assign seo_title = seo_site_title %}
-  {% assign seo_page_title = seo_site_title %}
-
-  {% if site.description %}
-    {% assign seo_title = seo_title | append: " - " | append: site.description %}
+    {% if site.description %}
+      {% assign seo_title = seo_title | append: " - " | append: site.description %}
+    {% endif %}
   {% endif %}
 {% endif %}
 
