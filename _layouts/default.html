@@ -17,6 +17,9 @@ layout: compress
     {% if page.css %}
       {% for css in page.css %}{{ css | stylesheet }}{% endfor %}
     {% endif %}
+    {% if jekyll.environment == "production" %}
+      {% javascript statistic %}
+    {% endif %}
     {% javascript global %}
     <!--[if lt IE 9]>
     {% javascript support_ie8 %}
