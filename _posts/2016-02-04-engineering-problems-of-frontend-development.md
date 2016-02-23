@@ -11,11 +11,11 @@ tags:
 series: build-a-frontend-team
 ---
 
-在我加入「[买好车][mhc-url]{:target="_blank"}{:rel="nofollow external"}」后第一次把项目代码从远程仓库拉取到本地时——「这是什么玩意？！」——我的内心是震惊并诧异的。
+在我加入[买好车][mhc-url]{:target="_blank"}{:rel="nofollow external"}{:.Link.Link--maihaoche}后第一次把项目代码从远程仓库拉取到本地时——「这是什么玩意？！」——我的内心是震惊并诧异的。
 
 为什么我会有如此反应？
 
-「[买好车][mhc-url]{:target="_blank"}{:rel="nofollow external"}」是一家具有阿里基因的公司，创始人和员工很多来自阿里。众所周知，阿里的技术是很不错的，基本每年都会主办一些技术会议，有些技术书籍也是阿里人著作或翻译的。因此，心理上会对他们在技术方面有较高的预期。然而，呈现在眼前的现实将我从幻想中拉了出来……
+[买好车][mhc-url]{:target="_blank"}{:rel="nofollow external"}{:.Link.Link--maihaoche}是一家具有阿里基因的公司，创始人和员工很多来自阿里。众所周知，阿里的技术是很不错的，基本每年都会主办一些技术会议，有些技术书籍也是阿里人著作或翻译的。因此，心理上会对他们在技术方面有较高的预期。然而，呈现在眼前的现实将我从幻想中拉了出来……
 
 [mhc-url]: https://www.maihaoche.com
 
