@@ -6,5 +6,3 @@ vendors/
 
 _data/github.*
 _site/
-
-Gemfile.lock
