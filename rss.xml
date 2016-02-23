@@ -6,8 +6,8 @@
     <description>不走寻常路</description>
     <link>http://ourai.ws/</link>
     <atom:link href="http://ourai.ws/rss.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 23 Feb 2016 02:34:44 +0800</pubDate>
-    <lastBuildDate>Tue, 23 Feb 2016 02:34:44 +0800</lastBuildDate>
+    <pubDate>Tue, 23 Feb 2016 14:02:45 +0800</pubDate>
+    <lastBuildDate>Tue, 23 Feb 2016 14:02:45 +0800</lastBuildDate>
     <language>zh-CN</language>
     <generator>Jekyll v3.0.3</generator>
     
@@ -17,11 +17,11 @@
           <dc:creator>欧雷</dc:creator>
           <author>欧雷</author>
         
-        <description>&lt;p&gt;在我加入「&lt;a href=&quot;https://www.maihaoche.com&quot; target=&quot;_blank&quot; rel=&quot;nofollow external&quot;&gt;买好车&lt;/a&gt;」后第一次把项目代码从远程仓库拉取到本地时——「这是什么玩意？！」——我的内心是震惊并诧异的。&lt;/p&gt;
+        <description>&lt;p&gt;在我加入&lt;a href=&quot;https://www.maihaoche.com&quot; target=&quot;_blank&quot; rel=&quot;nofollow external&quot; class=&quot;Link Link--maihaoche&quot;&gt;买好车&lt;/a&gt;后第一次把项目代码从远程仓库拉取到本地时——「这是什么玩意？！」——我的内心是震惊并诧异的。&lt;/p&gt;
 
 &lt;p&gt;为什么我会有如此反应？&lt;/p&gt;
 
-&lt;p&gt;「&lt;a href=&quot;https://www.maihaoche.com&quot; target=&quot;_blank&quot; rel=&quot;nofollow external&quot;&gt;买好车&lt;/a&gt;」是一家具有阿里基因的公司，创始人和员工很多来自阿里。众所周知，阿里的技术是很不错的，基本每年都会主办一些技术会议，有些技术书籍也是阿里人著作或翻译的。因此，心理上会对他们在技术方面有较高的预期。然而，呈现在眼前的现实将我从幻想中拉了出来……&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.maihaoche.com&quot; target=&quot;_blank&quot; rel=&quot;nofollow external&quot; class=&quot;Link Link--maihaoche&quot;&gt;买好车&lt;/a&gt;是一家具有阿里基因的公司，创始人和员工很多来自阿里。众所周知，阿里的技术是很不错的，基本每年都会主办一些技术会议，有些技术书籍也是阿里人著作或翻译的。因此，心理上会对他们在技术方面有较高的预期。然而，呈现在眼前的现实将我从幻想中拉了出来……&lt;/p&gt;
 
 &lt;h2 id=&quot;section&quot;&gt;代码维护&lt;/h2&gt;
 
