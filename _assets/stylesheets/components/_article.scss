@@ -50,6 +50,14 @@
   p {
     line-height: 1.8;
     word-break: break-all;
+
+    + ul,
+    + ol {
+      margin: {
+        top: -1.3em;
+        bottom: 1.5em;
+      }
+    }
   }
 
   figure {
