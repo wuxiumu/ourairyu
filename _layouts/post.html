@@ -16,27 +16,6 @@ layout: page
 
 {{ content }}
 
-{% if page.series %}
-  {% assign series = site.data.series[page.series] %}
-  {% if series.posts.size > 1 %}
-    {% assign postId = page.id | split: "/" | last %}
-    <!-- 所属文章系列 -->
-    <div class="Article-series">
-      <p>本文从属于系列<strong>{{ series.name }}</strong>，{{ series.description }}。</p>
-      <p>该系列中的文章有：</p>
-      <ul>
-        {% for p in series.posts %}
-          {% if p.id == postId %}
-            <li><strong>{{ p.title }}</strong></li>
-          {% else %}
-            <li><a href="{{ p.id | append: '/' | prepend: 'posts' | prepend: site.baseurl }}">{{ p.title }}</a></li>
-          {% endif %}
-        {% endfor %}
-      </ul>
-    </div>
-  {% endif %}
-{% endif %}
-
 {% contentfor post_meta %}
   <p><a href="{{ author.profile }}">{{ author.name.zh }}</a> 发表于 <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%F" }} {{ page.date | date: "%T" }}</time></p>
   {% if page.tags.size %}
@@ -58,7 +37,7 @@ layout: page
 {% contentfor footer %}
   <div class="Widget Article-category">
     <div class="Widget-body">
-      <p>发布在</p>
+      <p><i class="fa fa-pencil"></i>发布在</p>
       <div>
         <h3><a href="/categories/{{ category }}/">{{ postCategory }}</a></h3>
         <p>{% if categories[category].description %}{{ categories[category].description }}{% else %}暂无分类描述{% endif %}</p>
@@ -71,5 +50,26 @@ layout: page
     </div>
   </div>
   {% include widgets/social.html %}
+
+  {% assign series = site.data.series[page.series] %}
+  {% if series.posts.size > 1 %}
+  {% assign postId = page.id | split: "/" | last %}
+  <div class="Widget Article-series">
+    <div class="Widget-body">
+      <p><strong>{{ series.name }}</strong> 系列</p>
+      <p>{{ series.description }}</p>
+      <ul>
+        {% for p in series.posts %}
+          {% if p.id == postId %}
+            <li><span>{{ p.title }}</span></li>
+          {% else %}
+            <li><a href="{{ p.id | append: '/' | prepend: 'posts' | prepend: site.baseurl }}">{{ p.title }}</a></li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+  {% endif %}
+
   {% include widgets/toc.html %}
 {% endcontentfor %}

@@ -55,6 +55,11 @@
       margin-top: 10px;
     }    
   }
+
+  .fa-pencil {
+    margin-right: .5em;
+    color: #333;
+  }
 }
 
 .Article-license {
@@ -71,8 +76,40 @@
 }
 
 .Article-series {
-  padding-top: 1.5em;
+  padding-top: 20px;
   border-top: 1px solid #eee;
+
+  p {
+    &:first-child {
+      font: {
+        size: 12px;
+        weight: normal;
+      }
+
+      strong {
+        font-size: 16px;
+      }
+    }
+
+    + p {
+      font-size: 12px;
+      color: #888;
+      margin: {
+        top: 3px;
+        bottom: 10px;
+      }
+    }
+  }
+
+  ul {
+    list-style-position: inside;
+    margin-bottom: 0;
+    padding-left: 5px;
+  }
+
+  li span {
+    font-weight: normal;
+  }
 }
 
 .Widget--toc.affix-top {
