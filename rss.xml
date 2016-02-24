@@ -6,8 +6,8 @@
     <description>不走寻常路</description>
     <link>http://ourai.ws/</link>
     <atom:link href="http://ourai.ws/rss.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 24 Feb 2016 04:04:00 +0800</pubDate>
-    <lastBuildDate>Wed, 24 Feb 2016 04:04:00 +0800</lastBuildDate>
+    <pubDate>Wed, 24 Feb 2016 08:39:10 +0800</pubDate>
+    <lastBuildDate>Wed, 24 Feb 2016 08:39:10 +0800</lastBuildDate>
     <language>zh-CN</language>
     <generator>Jekyll v3.0.3</generator>
     
@@ -92,7 +92,7 @@
 
 &lt;p&gt;针对以上所列出的各个方面细化出了几十个点，虽然实际上用不了这么多。我认为只要对方不是圈内公认的专家，或多或少，都有必要考察一下基本功。&lt;/p&gt;
 
-&lt;p&gt;除了这些理论、思想类的问题之外，还准备了两个实践类的问题留到最后：Sticky Footer 和固定的浮动烂。&lt;/p&gt;
+&lt;p&gt;除了这些理论、思想类的问题之外，还准备了两个实践类的问题留到最后：Sticky Footer 和固定的浮动栏。&lt;/p&gt;
 
 &lt;h2 id=&quot;section-3&quot;&gt;面试经过&lt;/h2&gt;
 
@@ -132,6 +132,8 @@
         <category>job</category>
         
         <category>interview</category>
+        
+        <category>frontend-engineer</category>
         
       </item>
     

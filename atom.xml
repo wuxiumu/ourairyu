@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.0.3">Jekyll</generator><link href="http://ourai.ws/atom.xml" rel="self" type="application/atom+xml" /><link href="http://ourai.ws/" rel="alternate" type="text/html" /><updated>2016-02-24T04:04:00+08:00</updated><id>http://ourai.ws/</id><title>欧雷流</title><subtitle>不走寻常路</subtitle><author><name>欧雷</name><email>ourairyu@gmail.com</email><uri>http://ourai.ws/</uri></author><entry><title>记一次面试</title><link href="http://ourai.ws/posts/first-interview-as-an-interviewer/" rel="alternate" type="text/html" title="记一次面试" /><published>2016-02-23T23:18:54+08:00</published><updated>2016-02-23T23:18:54+08:00</updated><id>http://ourai.ws/posts/first-interview-as-an-interviewer</id><content type="html" xml:base="http://ourai.ws/posts/first-interview-as-an-interviewer/">&lt;p&gt;其他行业不了解，但是对于互联网行业来说，年后是人员流动比较频繁的时期——有些小伙伴需要在其称呼中加个「前」，有些陌生人即将成为你今后一起奋斗的战友——也许，你就是其中一个。这是每个处在这个行业的公司所不可避免的事情，我们公司也是一样，已经习以为常。所以，在今年的这个时刻，我也要去面试。&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.0.3">Jekyll</generator><link href="http://ourai.ws/atom.xml" rel="self" type="application/atom+xml" /><link href="http://ourai.ws/" rel="alternate" type="text/html" /><updated>2016-02-24T08:39:10+08:00</updated><id>http://ourai.ws/</id><title>欧雷流</title><subtitle>不走寻常路</subtitle><author><name>欧雷</name><email>ourairyu@gmail.com</email><uri>http://ourai.ws/</uri></author><entry><title>记一次面试</title><link href="http://ourai.ws/posts/first-interview-as-an-interviewer/" rel="alternate" type="text/html" title="记一次面试" /><published>2016-02-23T23:18:54+08:00</published><updated>2016-02-23T23:18:54+08:00</updated><id>http://ourai.ws/posts/first-interview-as-an-interviewer</id><content type="html" xml:base="http://ourai.ws/posts/first-interview-as-an-interviewer/">&lt;p&gt;其他行业不了解，但是对于互联网行业来说，年后是人员流动比较频繁的时期——有些小伙伴需要在其称呼中加个「前」，有些陌生人即将成为你今后一起奋斗的战友——也许，你就是其中一个。这是每个处在这个行业的公司所不可避免的事情，我们公司也是一样，已经习以为常。所以，在今年的这个时刻，我也要去面试。&lt;/p&gt;
 
 &lt;p&gt;看到这里，肯定以为我才刚换工作没多久就又跳槽了吧？哈哈，才不是呢！;-P&lt;/p&gt;
 
@@ -73,7 +73,7 @@
 
 &lt;p&gt;针对以上所列出的各个方面细化出了几十个点，虽然实际上用不了这么多。我认为只要对方不是圈内公认的专家，或多或少，都有必要考察一下基本功。&lt;/p&gt;
 
-&lt;p&gt;除了这些理论、思想类的问题之外，还准备了两个实践类的问题留到最后：Sticky Footer 和固定的浮动烂。&lt;/p&gt;
+&lt;p&gt;除了这些理论、思想类的问题之外，还准备了两个实践类的问题留到最后：Sticky Footer 和固定的浮动栏。&lt;/p&gt;
 
 &lt;h2 id=&quot;section-3&quot;&gt;面试经过&lt;/h2&gt;
 
@@ -101,7 +101,7 @@
 
 &lt;p&gt;「优胜劣汰」是自然法则。在这次面试中被我淘汰了，是小事；如若没有借此经历幡然醒悟并痛下苦功而被社会所淘汰的话，是大事。感慨互联网行业，感慨这前端圈，变化莫测如激流中逆水行舟。&lt;/p&gt;
 
-&lt;p&gt;接下来也许还会有几波面试。在考验别人的同时也是在考验自己，我要加油了！！！&lt;/p&gt;</content><author><name>欧雷</name><email>ourairyu@gmail.com</email><uri>http://ourai.ws/</uri></author><category term="job" /><category term="interview" /><summary>其他行业不了解，但是对于互联网行业来说，年后是人员流动比较频繁的时期——有些小伙伴需要在其称呼中加个「前」，有些陌生人即将成为你今后一起奋斗的战友——也许，你就是其中一个。这是每个处在这个行业的公司所不可避免的事情，我们公司也是一样，已经习以为常。所以，在今年的这个时刻，我也要去面试。</summary></entry><entry><title>前端工程优化之路</title><link href="http://ourai.ws/posts/engineering-problems-of-frontend-development/" rel="alternate" type="text/html" title="前端工程优化之路" /><published>2016-02-04T16:35:36+08:00</published><updated>2016-02-04T16:35:36+08:00</updated><id>http://ourai.ws/posts/engineering-problems-of-frontend-development</id><content type="html" xml:base="http://ourai.ws/posts/engineering-problems-of-frontend-development/">&lt;p&gt;在我加入&lt;a href=&quot;https://www.maihaoche.com&quot; target=&quot;_blank&quot; rel=&quot;nofollow external&quot; class=&quot;Link Link--maihaoche&quot;&gt;买好车&lt;/a&gt;后第一次把项目代码从远程仓库拉取到本地时——「这是什么玩意？！」——我的内心是震惊并诧异的。&lt;/p&gt;
+&lt;p&gt;接下来也许还会有几波面试。在考验别人的同时也是在考验自己，我要加油了！！！&lt;/p&gt;</content><author><name>欧雷</name><email>ourairyu@gmail.com</email><uri>http://ourai.ws/</uri></author><category term="job" /><category term="interview" /><category term="frontend-engineer" /><summary>其他行业不了解，但是对于互联网行业来说，年后是人员流动比较频繁的时期——有些小伙伴需要在其称呼中加个「前」，有些陌生人即将成为你今后一起奋斗的战友——也许，你就是其中一个。这是每个处在这个行业的公司所不可避免的事情，我们公司也是一样，已经习以为常。所以，在今年的这个时刻，我也要去面试。</summary></entry><entry><title>前端工程优化之路</title><link href="http://ourai.ws/posts/engineering-problems-of-frontend-development/" rel="alternate" type="text/html" title="前端工程优化之路" /><published>2016-02-04T16:35:36+08:00</published><updated>2016-02-04T16:35:36+08:00</updated><id>http://ourai.ws/posts/engineering-problems-of-frontend-development</id><content type="html" xml:base="http://ourai.ws/posts/engineering-problems-of-frontend-development/">&lt;p&gt;在我加入&lt;a href=&quot;https://www.maihaoche.com&quot; target=&quot;_blank&quot; rel=&quot;nofollow external&quot; class=&quot;Link Link--maihaoche&quot;&gt;买好车&lt;/a&gt;后第一次把项目代码从远程仓库拉取到本地时——「这是什么玩意？！」——我的内心是震惊并诧异的。&lt;/p&gt;
 
 &lt;p&gt;为什么我会有如此反应？&lt;/p&gt;
 
