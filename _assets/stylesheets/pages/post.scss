@@ -39,6 +39,82 @@
   }
 }
 
+.Article-author {
+  padding: 15px;
+  background-color: #ececec;
+  border-radius: 6px;
+  font-weight: normal;
+
+  .Author-name {
+    position: relative;
+    margin: 0;
+    font-size: 18px;
+
+    a {
+      color: #333;
+      text-decoration: none;
+    }
+
+    &:before {
+      position: absolute;
+      right: -10px;
+      width: 100px;
+      height: 100px;
+      content: $UN-space;
+      border-radius: 3px;
+      box-shadow: 0 0 5px #000;
+      opacity: .2;
+      @include transform(rotate(10deg));
+      @include covered_background("avatars/ourai-mask-100px.jpg");
+    }
+  }
+
+  .Author-twitter {
+    font: {
+      size: 14px;
+      weight: 300;
+    }
+    color: #1DA1F2 !important;
+  }
+
+  .Author-intro {
+    position: relative;
+    margin-top: 10px;
+    font-size: 12px;
+    color: #555;
+
+    span {
+      font: {
+        weight: bold;
+        style: italic;
+      }
+      color: #000;
+      text-decoration: underline;
+    }
+  }
+
+  .fa-coffee {
+    color: #000;
+  }
+
+  .fa-heart {
+    color: #f00;
+  }
+
+  @media all and (max-width: $screen-sm-max) {
+    padding: 0;
+    background-color: transparent;
+
+    .Author-name:before {
+      display: none;
+    }
+
+    .Author-intro {
+      font-size: inherit;
+    }
+  }
+}
+
 .Article-category .Widget-body {
   > p {
     margin-bottom: 10px;
