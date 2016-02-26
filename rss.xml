@@ -6,10 +6,137 @@
     <description>不走寻常路</description>
     <link>http://ourai.ws/</link>
     <atom:link href="http://ourai.ws/rss.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 25 Feb 2016 23:56:14 +0800</pubDate>
-    <lastBuildDate>Thu, 25 Feb 2016 23:56:14 +0800</lastBuildDate>
+    <pubDate>Sat, 27 Feb 2016 02:02:05 +0800</pubDate>
+    <lastBuildDate>Sat, 27 Feb 2016 02:02:05 +0800</lastBuildDate>
     <language>zh-CN</language>
     <generator>Jekyll v3.0.3</generator>
+    
+      <item>
+        <title>如何考评一名前端工程师？</title>
+        
+          <dc:creator>欧雷</dc:creator>
+          <author>欧雷</author>
+        
+        <description>&lt;p&gt;本文标题的命名方式参考了芋头所写的《&lt;a href=&quot;http://www.html-js.com/article/2961&quot; target=&quot;_blank&quot; rel=&quot;external nofollow&quot;&gt;如何面试一名前端开发工程师？&lt;/a&gt;》。「考评」是「面试」的子集，是一个很重要的环节，如果谁打算做「前端工程师面试合集」的话，记得把我这篇文章收录进去哈，蛤蛤蛤蛤～&lt;/p&gt;
+
+&lt;p&gt;「如何考评」这个词看起来「diǎo * 2」的。虽然标题看起来很有逼格，但对于我这种面试（他人）经验用一个手就能数出来的菜鸟来说，谈这个话题还为时过早。（我感到有看官貌似心里不满了：「那你说个 bird 啊！浪费老子时间和流量！我支付宝账号＊＊＊，打多少你看着办吧！」先别急嘛～）其实，本文的目的不在于讲具体如何去考评一个前端工程师的应聘者，而是想说一件事，我最近冒出的一个 idea——是一件应该没人去做的事情，是一个也许会震动业界的项目。&lt;/p&gt;
+
+&lt;h2 id=&quot;section&quot;&gt;面试之痛&lt;/h2&gt;
+
+&lt;p&gt;一周有五天工作日，其过法在这周之前都是在写代码和喝咖啡（顺便休息一下）的来回切换中度过的；然而，本周加入了新的元素——面试。工作日的一半以上都有面试，每次在与应聘者见面之前我都会做一些准备：&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;浏览简历并提取出可参考的信息记录到 Evernote 上；&lt;/li&gt;
+  &lt;li&gt;提炼出简历给我的第一印象；&lt;/li&gt;
+  &lt;li&gt;从「工头」（前端团队的 leader、初试面试官）那里了解并记录电面结果；&lt;/li&gt;
+  &lt;li&gt;综合以上信息准备面试时的考评内容。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;其中，考评内容以表格的形式展现，方便在进行面试时及时将对应的结果填进去。&lt;/p&gt;
+
+&lt;figure&gt;
+  &lt;img src=&quot;/assets/posts/20160227/evaluating-table-10bede2ca5c3e045d842b1649791146804bc6fa304ea927993a33800d39b1634.png&quot; alt=&quot;面试准备&quot; /&gt;
+  &lt;figcaption&gt;面试准备&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;这个流程整体看起来还不错，但细化到每一步时就会发现一些问题——痛点。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;简历中的技能&lt;/h3&gt;
+
+&lt;p&gt;在应聘者所投递的简历文件以及有些个人网站的在线「简历」页面中必有的一项是自己所掌握的技术、技能，这是体现职业价值的关键。&lt;/p&gt;
+
+&lt;p&gt;因为职业的特殊性，招人单位常常会在招聘信息中这样描述：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;精通 HTML、CSS、JavaScript&lt;/li&gt;
+  &lt;li&gt;熟悉 W3C 标准&lt;/li&gt;
+  &lt;li&gt;了解 Backbone、Angular、React、Vue 等&lt;/li&gt;
+  &lt;li&gt;有 jQuery UI、Bootstrap 等使用经验&lt;/li&gt;
+  &lt;li&gt;能够使用 Sass、LESS 等&lt;/li&gt;
+  &lt;li&gt;至少了解一种服务端语言，如 Java、PHP&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;满眼的英文单词看得我头晕目眩，没办法，市场需求如此。既然这样，作为敲门砖的简历中如果没出现这些牛逼哄哄的单词，恐怕 HR 连鸟都不会鸟你一眼。这就给应聘者一个错觉，以为会得越多越好；同时也使得整个前端圈子都很浮躁，大部分人都在追着新的轮子后屁股跑，结果就是「熊瞎子掰苞米」。&lt;/p&gt;
+
+&lt;p&gt;当然，不是说会的多不好，作为一个流弊的人，知识广度是必须的；也不是说去了解学习新技术有什么不对，一个合格的职业人，不会去盲目跟风。无论是企业想要的，还是职业道路越走越宽的，都是沉稳的，先在专业深度上达到一个境界再去拓展广度的人——写好「T」的竖，再去画横。&lt;/p&gt;
+
+&lt;p&gt;这时，在简历中体现专业深度，也就是技术、技能的熟练度，就显得十分重要了。一般为以下几种表现形式：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;文字描述，如「熟练」「精通」；&lt;/li&gt;
+  &lt;li&gt;数值化，如显示以「100」为封顶的数字；&lt;/li&gt;
+  &lt;li&gt;等级化，如几颗星。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;这样又会造成一个问题，一些应聘者的简历中充满了「精通＊＊＊」——请收下我的膝盖！&lt;/p&gt;
+
+&lt;p&gt;为了狂拽炫酷屌炸天和更加形象地传达出「我很牛逼」这个信息，我也会想在自己的网站上加入「技能熟练度」这个 feature，那么问题来了——如何客观地对自己的技术、技能熟练度评分，进而增加可信度？&lt;/p&gt;
+
+&lt;h3 id=&quot;section-2&quot;&gt;面试题的设计&lt;/h3&gt;
+
+&lt;p&gt;从简历中获取的信息是片面的，并且很可能掺了一些水分，所以才需要经验丰富的人通过交流来了解应聘者的实际情况，像珠宝鉴定师一样去甄别其是否为赝品，将其定级。&lt;/p&gt;
+
+&lt;p&gt;要去考核应聘者，需要根据招聘需求和简历中的信息设计面试题。如果简历中明确说明「无任何移动端开发经验」，面试官还去考查其相关问题的掌握情况的话不就是「脱裤子放屁」了么？这不仅浪费彼此时间，还会被应聘者鄙视。&lt;/p&gt;
+
+&lt;p&gt;为了避免上面所提到的尴尬情形，这就要求简历中的技能描述可信度高，省去面试官去检验其可信度的步骤，而现状是不可能的！实际情况是，不像会计等职业需要证件才能上岗，写代码的都是「无证从业」。记得前段时间 HR 跑到我们开发这边，好像是问有没有职业相关的证件，我心里在想：「你是在说全国计算机等级考试么？」&lt;/p&gt;
+
+&lt;p&gt;既然不可避免，不得不额外设计一些基础、原理方面的面试题去验证。自己去想实在是麻烦耗时，「懒惰」的我们会从网上找一些来作为参考。GitHub 上有很多类型的项目容易被 star，其中之一就是面试题——不仅面试官会用，应聘者也需要用。&lt;/p&gt;
+
+&lt;figure&gt;
+  &lt;img src=&quot;/assets/posts/20160227/interview-questions-4f2a2126424693a73bb54dad8250c3701d464eb938ba62bd73cd33902aacb964.png&quot; alt=&quot;Front-end Job Interview Questions&quot; /&gt;
+  &lt;figcaption&gt;Front-end Job Interview Questions&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;然而这种方式还有很多不便，如：量少、不能搜索、不能根据需要创建集合、没有分值等等。&lt;/p&gt;
+
+&lt;h2 id=&quot;section-3&quot;&gt;寻找良方&lt;/h2&gt;
+
+&lt;p&gt;作为应聘者，没有一个合适的方式来评估我的专业度、熟练度，痛！作为面试官，没有一个帮助我快速有效地选取组织面试题的解决方案，痛！一般而言，「痛点」就是需求，我的需求一定不只是我一个人的需求，有需求就有市场。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-4&quot;&gt;不是银弹的子弹&lt;/h3&gt;
+
+&lt;p&gt;作为一个总是瞎想的双鱼，脑中突然冒出了一个想法——我本人，甚至是整个业界（即前端圈子）需要一套考核标准、一个评价体系、一个海量题库；作为一名喜欢折腾的码农，想法一出现就立刻在 GitHub 上建了一个仓库——世上从来不缺有想法的人，缺的是将其付诸行动的人。&lt;/p&gt;
+
+&lt;p&gt;从我第一次做面试官那天脑中出现雏形起，经过这几天面试经验的增加，以及公司内其他面试官所遇到的情况看来，我所想象中的项目是有价值的！&lt;/p&gt;
+
+&lt;p&gt;关于项目的名字，简称叫「&lt;dfn&gt;&lt;abbr title=&quot;Front-end Knowledge &amp;amp; Skill Evaluating System&quot;&gt;FES&lt;/abbr&gt;&lt;/dfn&gt;」（发音 /ˈfɛs/），全名为「Front-end Knowledge &amp;amp; Skill Evaluating System」，中文名是「前端知识与技能考核评价体系/系统」（我说这是 Google 机翻你信么……）。不过，这只是暂定的名字。它不仅是一套标准、一个体系，还是一个系统、一个服务。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-5&quot;&gt;你咋不上天呢&lt;/h3&gt;
+
+&lt;p&gt;既然有了这么棒的想法，既然有了最初的行动，就应该有计划地进行下去！&lt;/p&gt;
+
+&lt;p&gt;「FES」是一个非常庞大的，仅凭我一人之力无法完成的项目。&lt;strong&gt;它是一套标准，制定标准需要一个由一群业内权威人士组成的「标准化组织」；它是一个评价体系，完善的打分机制会对应聘者做出客观可信的能力评估；它是一个系统、一个服务，能够让面试官从海量题库中抽选试题打印出一份「面试考查表」。&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;上面只提到了「FES」的基本应用，它还具备更高级更有价值的玩儿法，这里就先不说了。并且，这些都是后话，还在天上飘着呢，再不来点儿接地气的，别人该说我是「理想主义者」了——变着法儿地说我只会说不会做么？&lt;/p&gt;
+
+&lt;p&gt;行！那就说点儿实际的，披露一下大概的计划：&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;先靠自己，像其他面试题集一样收集一些信息放到 &lt;a href=&quot;https://github.com/ourai/fes&quot; target=&quot;_blank&quot; rel=&quot;external nofollow&quot;&gt;GitHub&lt;/a&gt; 上；&lt;/li&gt;
+  &lt;li&gt;开发网站的雏形，满足基本需求；&lt;/li&gt;
+  &lt;li&gt;寻找具备同样志向和想法的志愿者及贡献者；&lt;/li&gt;
+  &lt;li&gt;升级网站向理想更近一步；&lt;/li&gt;
+  &lt;li&gt;推广网站，提高影响力，使其成为业界标杆。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;为了方便广大求职者和用人单位，为了业界的健康发展，需要大家的力量！&lt;/strong&gt;So…对于跟我有相同理念的你，只想说四个字——&lt;a href=&quot;&amp;#109;&amp;#097;&amp;#105;&amp;#108;&amp;#116;&amp;#111;:&amp;#111;&amp;#117;&amp;#114;&amp;#097;&amp;#105;&amp;#114;&amp;#121;&amp;#117;&amp;#043;&amp;#102;&amp;#101;&amp;#115;&amp;#064;&amp;#103;&amp;#109;&amp;#097;&amp;#105;&amp;#108;&amp;#046;&amp;#099;&amp;#111;&amp;#109;&quot;&gt;&lt;strong&gt;请！联！系！我！&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Sat, 27 Feb 2016 02:00:54 +0800</pubDate>
+        <link>http://ourai.ws//posts/how-to-evaluate-a-frontend-engineer/</link>
+        <guid isPermaLink="true">http://ourai.ws//posts/how-to-evaluate-a-frontend-engineer/</guid>
+        
+        <category>life</category>
+        
+        
+        <category>job</category>
+        
+        <category>interview</category>
+        
+        <category>frontend-engineer</category>
+        
+        <category>wonderful-idea</category>
+        
+      </item>
     
       <item>
         <title>记一次面试</title>
@@ -1053,79 +1180,6 @@ git pull origin master
         
         <category>thoughts</category>
         
-        
-      </item>
-    
-      <item>
-        <title>Vタ／V辞書＋ほうがいい</title>
-        
-          <dc:creator>欧雷</dc:creator>
-          <author>欧雷</author>
-        
-        <description>&lt;p&gt;「〜ほうが」的前面可以接名词、形容词、动词等等，后面也可以加各种类型的成分。当前面是非动词后面是非「いい」的词时用法简单易懂——一种比较的说法，句式一般为「AよりBのほうが…」，有「两种事物相比之下，其中一个更……」的意思。&lt;/p&gt;
-
-&lt;p&gt;然而，当以「V&lt;sub&gt;タ&lt;/sub&gt;／V&lt;sub&gt;辞書&lt;/sub&gt;＋ほうがいい」的形式出现时，就会变得稍微复杂了点。&lt;/p&gt;
-
-&lt;h2 id=&quot;section&quot;&gt;劝告&lt;/h2&gt;
-
-&lt;p&gt;虽然很多时候「V&lt;sub&gt;タ&lt;/sub&gt;」和「V&lt;sub&gt;辞書&lt;/sub&gt;」可以互相替换，但在给人的感觉上还是有点差别——&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;「V&lt;sub&gt;タ&lt;/sub&gt;＋ほうがいい」用于具体的、个别的情况&lt;/p&gt;
-
-    &lt;p&gt;例：熱がある人には、厚着を&lt;strong&gt;したほうがいい&lt;/strong&gt;。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;「V&lt;sub&gt;辞書&lt;/sub&gt;＋ほうがいい」用于阐述一般论&lt;/p&gt;
-
-    &lt;p&gt;例：熱がある時は、厚着を&lt;strong&gt;するほうがいい&lt;/strong&gt;。&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;「V&lt;sub&gt;タ&lt;/sub&gt;＋ほうがいい」这种表现形式时，如果说话人是打从心底为了听话人好，那么最好在句尾加上「よ」或「ね」。例：警察に連絡したほうがいいですね。&lt;/p&gt;
-
-&lt;p&gt;有时，按照所处环境、社会等的惯例，说话人劝说听话人去服从时也会用。例：（新入り社員に対して）土曜日は休日だけれど、みんな残業するから、君も残業したほうがいいですよ。&lt;/p&gt;
-
-&lt;p&gt;在不是对听话人说，说话人针对非意志性的自己的事情述说想法时：結婚式は、やっぱりお客さんをたくさん呼んだほうがいいですね。&lt;/p&gt;
-
-&lt;p&gt;使用「は」和「が」会有微妙的差别——&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;あなたはここに残ったほうがいい。&lt;/li&gt;
-  &lt;li&gt;あなたがここに残ったほうがいい。&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;(1) 是对听话人的忠告，「ここに残る」这件事是对听话人有好处；(2) 是对说话人、当时的情形等来说，听话人「ここに残る」这件事是必要的。&lt;/p&gt;
-
-&lt;h2 id=&quot;section-1&quot;&gt;其他&lt;/h2&gt;
-
-&lt;p&gt;无论在表达比较还是劝告的句子中，「V&lt;sub&gt;タ&lt;/sub&gt;」给人一种「所做的事情的结果是受人期待的、符合愿望的」的感受——&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;宗教の教えは、人を生かすより&lt;strong&gt;殺す&lt;/strong&gt;方が多い。&lt;/li&gt;
-  &lt;li&gt;むだに苦しませるより、早く&lt;strong&gt;殺した&lt;/strong&gt;ほうが動物にとってもいいんだ。&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;離婚する&lt;/strong&gt;ほうが結婚するよりはるかに難しい。&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;離婚した&lt;/strong&gt;ほうが、憎みあって暮らすよりずっと精神的にいいさ。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;section-2&quot;&gt;引用&lt;/h2&gt;
-
-&lt;p&gt;资料整理参考了以下网站：&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;http://www.geocities.jp/niwasaburoo/33susumetyuukoku.html&quot; target=&quot;_blank&quot;&gt;庭三郎現代日本語文法概説　勧め・忠告&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://www.geocities.jp/niwasaburoo/53teidohikaku.html#53.2&quot; target=&quot;_blank&quot;&gt;庭三郎現代日本語文法概説　程度・比較・限定&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        <pubDate>Wed, 31 Dec 2014 17:54:34 +0800</pubDate>
-        <link>http://ourai.ws//posts/had-better-in-japanese/</link>
-        <guid isPermaLink="true">http://ourai.ws//posts/had-better-in-japanese/</guid>
-        
-        <category>japanese</category>
-        
-        
-        <category>grammar</category>
         
       </item>
     
