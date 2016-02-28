@@ -13,6 +13,9 @@ frontend-web-development:
 web-performance-optimization:
   name: 网站性能优化
 
+web-design:
+  name: 网页设计
+
 chinese-culture:
   name: 华夏文化
 
@@ -90,6 +93,9 @@ self-reflection:
 
 sexual-relations:
   name: 两性关系
+
+page-layout:
+  name: 页面布局
 
 html:
   name: 超文本标记语言
