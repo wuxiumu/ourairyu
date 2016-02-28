@@ -45,6 +45,8 @@ gems:
   - jekyll-contentblocks
   - jekyll-sitemap
   - jekyll-seo-tag
+  - jekyll/tagging
+  - jekyll-tagging-related_posts
   - jekyll_version_plugin
 
 # Conversion

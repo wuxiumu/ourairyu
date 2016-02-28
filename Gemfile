@@ -17,5 +17,7 @@ group :jekyll_plugins do
   gem 'jekyll-contentblocks'
   gem 'jekyll-sitemap'
   gem 'jekyll-seo-tag'
+  gem 'jekyll-tagging'
+  gem 'jekyll-tagging-related_posts'
   gem 'jekyll_version_plugin'
 end
