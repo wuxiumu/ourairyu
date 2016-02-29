@@ -13,8 +13,6 @@ repositionSidebar = ->
   if $sidebar.size()
     if $footer.size()
       offsetTop = $footer.offset().top - $header.offset().top + $footer.outerHeight(true) + 20
-
-      $(".Widget:first", $sidebar).addClass "is-separated"
     else
       offsetTop = $header.css("padding-top")
 
@@ -23,4 +21,6 @@ repositionSidebar = ->
   return $sidebar
 
 $(document).ready ->
+  $(".Widget-header:first").closest(".Widget").addClass("is-separated") if $(".Widget").size() > 1
+
   repositionSidebar()

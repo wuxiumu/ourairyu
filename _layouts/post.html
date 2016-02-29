@@ -76,28 +76,27 @@ layout: page
     </div>
   </div>
   {% endif %}
-{% endcontentfor %}
 
-{% contentfor sidebar %}
-{% if page.albums %}
-<section class="Widget Widget--albums">
-  <div class="Widget-header">
-    <h2 class="Widget-title">相册</h2>
-  </div>
-  <div class="Widget-body">
-    <ul>
-      {% for album in page.albums %}
-        {% if album.items %}
-          {% for a in album.items %}
-            <li><a href="{{ a.url }}" target="_blank" title="{{ a.description }}">{{ a.title }}</a></li>
-          {% endfor %}
-        {% else %}
-          <li><a href="{{ album.url }}" target="_blank" title="{{ album.description }}">{{ album.title }}</a></li>
-        {% endif %}
-      {% endfor %}
-    </ul>
-  </div>
-</section>
-{% endif %}
-{% include widgets/toc.html %}
+  {% if page.albums %}
+  <section class="Widget Widget--albums">
+    <div class="Widget-header">
+      <h2 class="Widget-title">相册</h2>
+    </div>
+    <div class="Widget-body">
+      <ul>
+        {% for album in page.albums %}
+          {% if album.items %}
+            {% for a in album.items %}
+              <li><a href="{{ a.url }}" target="_blank" title="{{ a.description }}">{{ a.title }}</a></li>
+            {% endfor %}
+          {% else %}
+            <li><a href="{{ album.url }}" target="_blank" title="{{ album.description }}">{{ album.title }}</a></li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </div>
+  </section>
+  {% endif %}
+
+  {% include widgets/toc.html %}
 {% endcontentfor %}
