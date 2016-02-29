@@ -28,7 +28,7 @@ css:
       </header>
       <ul class="ArticleList">
         {% for post in site.posts limit: postSize %}
-          <li class="ArticleList-item"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%F" }}</time><i class="fa fa-pencil"></i><a href="{{ post.url }}">{{ post.title }}</a></li>
+          <li class="ArticleList-item"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%F" }}</time><i class="fa fa-pencil"></i><a href="{{ post.url }}">{{ post.title }}</a>{% if post.albums %}<i class="fa fa-camera"></i>{% endif %}</li>
         {% endfor %}
       </ul>
     </section>

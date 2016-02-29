@@ -22,8 +22,4 @@ layout: page
 {% endcontentfor %}
 {% endif %}
 
-<ul class="ArticleList">
-  {% for post in page.posts %}
-    <li class="ArticleList-item"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%F" }}</time><i class="fa fa-pencil"></i><a href="{{ post.url }}">{{ post.title }}</a></li>
-  {% endfor %}
-</ul>
+{% include widgets/articles.html posts=page.posts %}

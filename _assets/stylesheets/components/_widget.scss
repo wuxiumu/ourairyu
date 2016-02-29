@@ -81,6 +81,8 @@
   &.affix {
     top: 20px;
     margin-top: 0;
+    padding-top: 0;
+    border-top-style: none;
     @include transition(top .5s);
   }
 
