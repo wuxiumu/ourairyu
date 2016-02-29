@@ -11,7 +11,7 @@ js:
   <article class="layout-container">
     <header class="Profile">
       {% assign author = site.data.authors.ourai %}
-      <a href="{{ author.profile }}" class="Profile-avatar" title="了解更多"><img src="{{ 'avatars/ourai-100px.jpg' | asset_path }}" srcset="{{ 'avatars/ourai-200px.jpg' | asset_path }} 2x"></a>
+      <a href="{{ author.profile }}" class="Profile-avatar" title="了解更多"><img src="{{ 'avatars/ourai-100px.jpg' | asset_path }}" srcset="{{ 'avatars/ourai-200px.jpg' | asset_path }} 2x" alt="欧雷的头像"></a>
       <h1 class="Profile-name"><a href="{{ author.profile }}">{{ author.name.zh }}</a></h1>
       <div class="Profile-professions">
         <ul>
@@ -23,7 +23,7 @@ js:
       <div class="Profile-contacts">
         {% assign contacts = author.contact %}
         <ul>
-          <li class="Contact-location"><img src="{{ 'logos/local-32px.png' | asset_path }}" srcset="{{ 'logos/local-64px.png' | asset_path }} 2x"><span>{{ author.location }}</span></li>
+          <li class="Contact-location"><img src="{{ 'logos/local-32px.png' | asset_path }}" srcset="{{ 'logos/local-64px.png' | asset_path }} 2x" alt="所在城市"><span>{{ author.location }}</span></li>
           <li class="Icon Icon--email"><a href="mailto:{{ author.contact.gmail }}" title="发送邮件给我">{{ contacts.email }}</a></li>
           <li class="Icon Icon--gh"><a href="{{ contacts.github }}" target="_blank" title="查看我的全部开源项目">GitHub</a></li>
           <li class="Icon Icon--li"><a href="{{ contacts.linkedin }}" target="_blank" title="查看我的简历">LinkedIn</a></li>

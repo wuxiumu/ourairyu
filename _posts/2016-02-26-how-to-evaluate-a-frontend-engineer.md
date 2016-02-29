@@ -8,6 +8,7 @@ tags:
   - interview
   - frontend-engineer
   - wonderful-idea
+image: posts/20160227/evaluating-table.png
 ---
 
 本文标题的命名方式参考了芋头所写的《[如何面试一名前端开发工程师？](http://www.html-js.com/article/2961){:target="_blank"}{:rel="external nofollow"}》。「考评」是「面试」的子集，是一个很重要的环节，如果谁打算做「前端工程师面试合集」的话，记得把我这篇文章收录进去哈，蛤蛤蛤蛤～
