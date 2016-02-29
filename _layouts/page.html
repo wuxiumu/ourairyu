@@ -17,6 +17,10 @@ js:
         <figcaption>{{ banner.description }}</figcaption>
       </figure>
     </div>
+  {% else %}
+    {% ifhascontent post_banner %}
+      {% contentblock post_banner %}
+    {% endifhascontent %}
   {% endif %}
   <!-- 内容主体 -->
   <div class="container">

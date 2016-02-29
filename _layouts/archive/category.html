@@ -1,7 +1,26 @@
 ---
 layout: page
 ---
-{% contentfor post_title %}{{ site.data.categories[page.title].name | prepend: "「" | append: "」类别的文章" }}{% endcontentfor %}
+{% assign category = site.data.categories[page.title] %}
+
+{% contentfor post_title %}{{ category.name | prepend: "「" | append: "」类别的文章" }}{% endcontentfor %}
+
+{% if category.banner %}
+{% contentfor post_banner %}
+  <div class="Page-banner">
+    <figure class="container" style="background-image: url({{ category.banner.url | asset_path }});">
+      <img src="{{ category.banner.url | asset_path }}" alt="{{ category.banner.description }}">
+      <figcaption>{{ category.banner.description }}</figcaption>
+    </figure>
+  </div>
+{% endcontentfor %}
+{% endif %}
+
+{% if category.description %}
+{% contentfor post_meta %}
+  <p>{{ category.description }}</p>
+{% endcontentfor %}
+{% endif %}
 
 <ul class="ArticleList">
   {% for post in page.posts %}
