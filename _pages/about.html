@@ -74,6 +74,19 @@ comments: true
   </aside>
   <aside class="Widget">
     <header class="Widget-header">
+      <h2 class="Widget-title">多元化的我</h2>
+    </header>
+    <div class="Widget-body">
+      {% assign links = site.data.links %}
+      <ul>
+        <li><a href="{{ links.dev.url }}">{{ links.dev.text }}</a></li>
+        <!-- <li><a href="{{ links.otaku.url }}">{{ links.otaku.text }}</a></li>
+        <li><a href="{{ links.ourairyu.url }}">{{ links.ourairyu.text }}</a></li> -->
+      </ul>
+    </div>
+  </aside>
+  <aside class="Widget">
+    <header class="Widget-header">
       <h2 class="Widget-title">其他出没点</h2>
     </header>
     <div class="Widget-body">
