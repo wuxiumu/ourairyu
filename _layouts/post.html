@@ -44,7 +44,7 @@ layout: page
       </div>
     </div>
   </div>
-  <div class="Widget Article-author">
+  <div class="Widget Article-author hidden-xs hidden-sm">
     <div class="Widget-body Author">
       <h3 class="Author-name"><a href="/about/">欧雷</a> <a href="https://twitter.com/ourairyu" target="_blank" rel="external nofollow" class="Author-twitter">@ourairyu</a></h3>
       <p class="Author-intro">日本深度中毒的<strong>新四有青年</strong>、<span lang="en">C<i class="fa fa-coffee"></i>ffee L<i class="fa fa-heart"></i>ver</span>，现于<a href="https://www.maihaoche.com" target="_blank" rel="external nofollow" class="Link Link--maihaoche">买好车</a>任<strong>前端工程师</strong>一职。</p>
@@ -77,25 +77,14 @@ layout: page
   </div>
   {% endif %}
 
-  {% if page.albums %}
-  <section class="Widget Widget--albums">
-    <div class="Widget-header">
-      <h2 class="Widget-title">相册</h2>
-    </div>
+  {% assign album = page.album %}
+  {% if album %}
+  <div class="Widget Widget--album hidden-xs hidden-sm">
     <div class="Widget-body">
-      <ul>
-        {% for album in page.albums %}
-          {% if album.items %}
-            {% for a in album.items %}
-              <li><a href="{{ a.url }}" target="_blank" title="{{ a.description }}">{{ a.title }}</a></li>
-            {% endfor %}
-          {% else %}
-            <li><a href="{{ album.url }}" target="_blank" title="{{ album.description }}">{{ album.title }}</a></li>
-          {% endif %}
-        {% endfor %}
-      </ul>
+      <p>更多精彩照片尽在</p>
+      <a href="{{ album.url }}" target="_blank" rel="external nofollow" style="background-image: url({{ album.thumbnail }});"><span class="Album-name Album-name--{{ album.position }}">{{ album.title }}</span></a>
     </div>
-  </section>
+  </div>
   {% endif %}
 
   {% include widgets/toc.html %}

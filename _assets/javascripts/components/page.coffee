@@ -20,7 +20,16 @@ repositionSidebar = ->
 
   return $sidebar
 
-$(document).ready ->
-  $(".Widget-header:first").closest(".Widget").addClass("is-separated") if $(".Widget").size() > 1
+separateWidgets = ->
+  cls = "is-separated"
 
+  $share = $(".Widget--share")
+  $widget = $share.next(".Widget")
+
+  $widget.addClass(cls) if $widget.size() and $(".Widget-header", $widget).size() is 0
+
+  $(".Widget-header:first").closest(".Widget").addClass(cls) if $(".Widget").size() > 1
+
+$(document).ready ->
+  separateWidgets()
   repositionSidebar()
