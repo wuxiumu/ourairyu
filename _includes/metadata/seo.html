@@ -4,7 +4,10 @@
 {% assign seo_url = seo_url | default: site.github.url %}
 {% assign seo_site_title = site.title | default: site.name %}
 
-{% if page.title %}
+{% if page.special_title %}
+  {% assign seo_title = page.special_title %}
+  {% assign seo_page_title = seo_title %}
+{% elsif page.title %}
   {% assign seo_title = page.title %}
 
   {% if page.type == "category" %}
@@ -49,6 +52,16 @@
 {% endif %}
 
 {% assign seo_description = page.description | default: page.excerpt | default: site.description %}
+
+{% if page.special_type == "posts" %}
+  {% assign posts = site.posts %}
+  {% assign first_post_year = posts.last.date | date: "%Y" %}
+  {% assign last_post_year = posts.first.date | date: "%Y" %}
+  {% assign year_diff = last_post_year | minus: first_post_year %}
+
+  {% assign seo_description = "欧雷是一个写作爱好者，从 " | append: first_post_year | append: " 年起 " | append: year_diff | append: " 年间共写了 " | append: posts.size | append: " 篇文章。" %}
+{% endif %}
+
 {% if seo_description %}
   {% assign seo_description = seo_description | markdownify | strip_html | strip_newlines | escape_once %}
 {% endif %}
