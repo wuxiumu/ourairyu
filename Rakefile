@@ -74,6 +74,27 @@ task :projects do
   end
 end
 
+# https://github.com/natewiley/cpv2api (http://cpv2api.com)
+desc "获取 CodePen 信息"
+task :codepen do
+  dir = "./_data"
+  filename = "codepen.json"
+
+  unless FileTest.directory?(dir)
+    system "mkdir #{dir}"
+  end
+
+  jsonData = HTTParty.get("http://cpv2api.com/pens/public/ourai")
+
+  if jsonData["success"] == "true"
+    cd dir do
+      open(filename, "w") do |f|
+        f.puts jsonData["data"].to_json
+      end
+    end
+  end
+end
+
 desc "运行"
 task :run do
   system "bundle exec jekyll serve --incremental"
@@ -104,6 +125,7 @@ task :deploy do
   end
 
   system "rake projects"
+  system "rake codepen"
   system "JEKYLL_ENV=production bundle exec jekyll build -d #{dir}"
 
   cd dir do
