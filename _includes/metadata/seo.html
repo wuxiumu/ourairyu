@@ -53,13 +53,16 @@
 
 {% assign seo_description = page.description | default: page.excerpt | default: site.description %}
 
-{% if page.special_type == "posts" %}
+{% assign sp_type = page.special_type %}
+{% if sp_type == "posts" %}
   {% assign posts = site.posts %}
   {% assign first_post_year = posts.last.date | date: "%Y" %}
   {% assign last_post_year = posts.first.date | date: "%Y" %}
   {% assign year_diff = last_post_year | minus: first_post_year %}
 
   {% assign seo_description = "欧雷是一个写作爱好者，从 " | append: first_post_year | append: " 年起 " | append: year_diff | append: " 年间共写了 " | append: posts.size | append: " 篇文章。" %}
+{% elsif sp_type == "dev" %}
+  {% assign seo_description = "欧雷是一个码农，写了 " | append: site.data.github.all.size | append: " 个托管于 GitHub 的开源项目，在 CodePen 上建立了 " | append: site.data.codepen.size | append: " 个代码演示。" %}
 {% endif %}
 
 {% if seo_description %}
