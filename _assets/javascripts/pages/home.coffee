@@ -14,4 +14,4 @@ $(document).ready ->
   $(".Navs [data-flag]:first").click()
 
   $(".Repo, .Site").each ->
-    $(@).attr("target", "_blank") if $(@).attr("href").indexOf(location.hostname) is -1
+    $(@).attr("target", "_blank") if @hostname isnt location.hostname
