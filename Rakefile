@@ -73,12 +73,24 @@ task :codepen do
     system "mkdir #{dir}"
   end
 
-  jsonData = HTTParty.get("http://cpv2api.com/pens/public/ourai")
+  pens = Array.new
+  pagenum = 1
 
-  if jsonData["success"] == "true"
+  while true do
+    jsonData = HTTParty.get("http://cpv2api.com/pens/public/ourai?page=#{pagenum}")
+
+    if jsonData["success"] != "true"
+      break
+    end
+
+    pens.concat(jsonData["data"])
+    pagenum += 1
+  end
+
+  if pens.length > 0
     cd dir do
       open(filename, "w") do |f|
-        f.puts jsonData["data"].to_json
+        f.puts pens.to_json
       end
     end
   end
