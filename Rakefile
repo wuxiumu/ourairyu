@@ -21,19 +21,8 @@ task :projects do
 
   excludedRepos = [
     19068698,   # ourai.github.io
-    50164625,   # f2e-stuff
     28067674,   # ourairyu-themes
-    35932564,   # learning-js
-    50562537,   # learning-python
-    50562418,   # learning-c
-    23698214,   # domshim
-    38699113,   # double-list
-    18203491,   # ninja
-    40175073,   # H5Fx-backbone
-    45201820,   # WeBug
-    43893848,   # jekyll-guru
-    48522689,   # wantu-nodejsSDK
-    39214016    # CustomComponent
+    48522689    # wantu-nodejsSDK
   ]
 
   cd dir do
@@ -42,7 +31,7 @@ task :projects do
     starred_repos = Array.new
 
     repos.each do |r|
-      unless r["private"] == true || r["fork"] == true || excludedRepos.include?(r["id"])
+      unless r["private"] == true || r["fork"] == true || excludedRepos.include?(r["id"]) || r["language"].nil?
         filtered_repos.push(r)
 
         unless r["stargazers_count"] == 0
