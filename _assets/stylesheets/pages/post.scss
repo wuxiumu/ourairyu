@@ -69,7 +69,7 @@
       box-shadow: 0 0 5px #000;
       opacity: .2;
       @include transform(rotate(10deg));
-      @include covered_background("avatars/ourai-mask-100px.jpg");
+      @include covered_background("avatars/ourai-100px.jpg");
     }
   }
 
