@@ -109,6 +109,10 @@
     }
   }
 
+  &:hover .Author-name:before {
+    background-image: image-url("avatars/ourai-mask-100px.jpg");
+  }
+
   @media all and (min-width: $screen-lg-min) {
     .Author-name:before {
       width: 86px;
