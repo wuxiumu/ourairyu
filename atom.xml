@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.0.3">Jekyll</generator><link href="http://ourai.ws/atom.xml" rel="self" type="application/atom+xml" /><link href="http://ourai.ws/" rel="alternate" type="text/html" /><updated>2016-03-05T12:07:31+08:00</updated><id>http://ourai.ws/</id><title>欧雷流</title><subtitle>不走寻常路</subtitle><author><name>欧雷</name><email>ourairyu@gmail.com</email><uri>http://ourai.ws/</uri></author><entry><title>如何调试一个页面</title><link href="http://ourai.ws/posts/how-to-debug-a-web-page/" rel="alternate" type="text/html" title="如何调试一个页面" /><published>2016-03-05T11:57:23+08:00</published><updated>2016-03-05T11:57:23+08:00</updated><id>http://ourai.ws/posts/how-to-debug-a-web-page</id><content type="html" xml:base="http://ourai.ws/posts/how-to-debug-a-web-page/">&lt;p&gt;调试页面是前端开发中必不可少的一个环节，由于开发环境的多样性和终端种类越来越多，复杂度也在不断上升。&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.0.3">Jekyll</generator><link href="http://ourai.ws/atom.xml" rel="self" type="application/atom+xml" /><link href="http://ourai.ws/" rel="alternate" type="text/html" /><updated>2016-03-05T22:17:23+08:00</updated><id>http://ourai.ws/</id><title>欧雷流</title><subtitle>不走寻常路</subtitle><author><name>欧雷</name><email>ourairyu@gmail.com</email><uri>http://ourai.ws/</uri></author><entry><title>如何调试一个页面</title><link href="http://ourai.ws/posts/how-to-debug-a-web-page/" rel="alternate" type="text/html" title="如何调试一个页面" /><published>2016-03-05T11:57:23+08:00</published><updated>2016-03-05T11:57:23+08:00</updated><id>http://ourai.ws/posts/how-to-debug-a-web-page</id><content type="html" xml:base="http://ourai.ws/posts/how-to-debug-a-web-page/">&lt;p&gt;调试页面是前端开发中必不可少的一个环节，由于开发环境的多样性和终端种类越来越多，复杂度也在不断上升。&lt;/p&gt;
 
 &lt;p&gt;我所写的这些只是万万千千方法中的几种，肯定有更优的方案，仅供参考。&lt;/p&gt;
 
@@ -35,7 +35,7 @@
 &lt;p&gt;终端输入 &lt;code&gt;npm install -g livepool&lt;/code&gt; 全局安装 LivePool，之后在任意位置输入 &lt;code&gt;livepool&lt;/code&gt; 就可以开启代理服务。&lt;/p&gt;
 
 &lt;figure&gt;
-  &lt;img src=&quot;/assets/posts/20160305/start-livepool-d69acf7fdd32b5269aaca0bffe4907bba5209d79ac5bdb57ea57c40ad4129990.png&quot; alt=&quot;启动 LivePool&quot; /&gt;
+  &lt;img src=&quot;/assets/posts/20160305/start-livepool-52faeb8a8c7d4b995eb7041d18ec1a4bb5496d6958b8e53c84cc0bd72a4a71e9.jpg&quot; alt=&quot;启动 LivePool&quot; /&gt;
   &lt;figcaption&gt;启动 LivePool&lt;/figcaption&gt;
 &lt;/figure&gt;
 
@@ -49,29 +49,31 @@
 
 &lt;p&gt;Mac 中普遍使用的虚拟机是 VirtualBox，所以这里就拿它来说明。&lt;/p&gt;
 
-&lt;p&gt;在虚拟中打开 IE 浏览器，找到工具栏中的「工具」选项。&lt;/p&gt;
+&lt;p&gt;在虚拟机中打开 IE 浏览器，找到工具栏中的「工具」选项。&lt;/p&gt;
 
 &lt;figure&gt;
-  &lt;img src=&quot;/assets/posts/20160305/vb-step-1-5ea76e3745ef7c71f8d881246299de14d2babd274ebb98d135ca980d6a8b2112.png&quot; alt=&quot;找到「工具」选项&quot; /&gt;
+  &lt;img src=&quot;/assets/posts/20160305/vb-step-1-ab0bdaa35e0f66c23a10a10f59d6390183cc09be786c52aaa4489997733695eb.jpg&quot; alt=&quot;找到「工具」选项&quot; /&gt;
   &lt;figcaption&gt;找到「工具」选项&lt;/figcaption&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;点击「Internet 选项」打开对话框并切换到「连接」选项卡，点击「局域网设置」。&lt;/p&gt;
 
 &lt;figure&gt;
-  &lt;img src=&quot;/assets/posts/20160305/vb-step-2-69c49114d178487fb68f6c377012704b3574198ce294062c147a2a4cc1df7066.png&quot; alt=&quot;点击「连接」选项卡中的「局域网设置」&quot; /&gt;
+  &lt;img src=&quot;/assets/posts/20160305/vb-step-2-d918905b9beace853fbd1e96c03d69f65d093f5416a353b9b58648fb3bc69304.jpg&quot; alt=&quot;点击「连接」选项卡中的「局域网设置」&quot; /&gt;
   &lt;figcaption&gt;点击「连接」选项卡中的「局域网设置」&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;查看宿主机器的 IP，可以在终端输入命令 &lt;code&gt;ifconfig | grep &quot;inet&quot;&lt;/code&gt;。还有一个更为简单方便的方法——按住 &lt;kbd&gt;option&lt;/kbd&gt; 键点击 &lt;i class=&quot;fa fa-wifi&quot;&gt;&lt;/i&gt; 图标。&lt;/p&gt;
+
+&lt;figure&gt;
+  &lt;img src=&quot;/assets/posts/20160305/check-ip-0c5c5a6a88fc2036242f87972ea79e9578ee4759af7bc608d1c33e2d8f665534.jpg&quot; alt=&quot;按住「option」键点击「网络」图标&quot; /&gt;
+  &lt;figcaption&gt;按住 &lt;kbd&gt;option&lt;/kbd&gt; 键点击 &lt;i class=&quot;fa fa-wifi&quot;&gt;&lt;/i&gt; 图标&lt;/figcaption&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;选中「为 LAN 使用代理服务器」，然后填入宿主机器的 IP 和代理服务器的端口号（如果是 LivePool 的话，端口号为 8090）。&lt;/p&gt;
 
 &lt;figure&gt;
-  &lt;img src=&quot;/assets/posts/20160305/check-ip-14fe42c412a8e8bb3675bf2acd835fd5a0ab09b2f208635c96264c4dd3a92b51.png&quot; alt=&quot;按住「option」键点击「网络」图标&quot; /&gt;
-  &lt;figcaption&gt;按住 &lt;kbd&gt;option&lt;/kbd&gt; 键点击 &lt;i class=&quot;fa fa-wifi&quot;&gt;&lt;/i&gt; 图标&lt;/figcaption&gt;
-&lt;/figure&gt;
-
-&lt;figure&gt;
-  &lt;img src=&quot;/assets/posts/20160305/vb-step-3-8d24488108af470a76f77d3464aa5e68a0e934f9b58c49c06792afca4e36b2cb.png&quot; alt=&quot;输入宿主机器 IP 和代理服务器端口号&quot; /&gt;
+  &lt;img src=&quot;/assets/posts/20160305/vb-step-3-ce7f43c103f4bbea60b99479327d64569f31d1a91292187e342723d5ebefbed8.jpg&quot; alt=&quot;输入宿主机器 IP 和代理服务器端口号&quot; /&gt;
   &lt;figcaption&gt;输入宿主机器 IP 和代理服务器端口号&lt;/figcaption&gt;
 &lt;/figure&gt;
 
