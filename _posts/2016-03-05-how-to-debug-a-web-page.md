@@ -48,7 +48,7 @@ server {
 终端输入 `npm install -g livepool` 全局安装 LivePool，之后在任意位置输入 `livepool` 就可以开启代理服务。
 
 <figure>
-  <img src="{{ 'posts/20160305/start-livepool.png' | asset_path }}" alt="启动 LivePool">
+  <img src="{{ 'posts/20160305/start-livepool.jpg' | asset_path }}" alt="启动 LivePool">
   <figcaption>启动 LivePool</figcaption>
 </figure>
 
@@ -62,29 +62,31 @@ server {
 
 Mac 中普遍使用的虚拟机是 VirtualBox，所以这里就拿它来说明。
 
-在虚拟中打开 IE 浏览器，找到工具栏中的「工具」选项。
+在虚拟机中打开 IE 浏览器，找到工具栏中的「工具」选项。
 
 <figure>
-  <img src="{{ 'posts/20160305/vb-step-1.png' | asset_path }}" alt="找到「工具」选项">
+  <img src="{{ 'posts/20160305/vb-step-1.jpg' | asset_path }}" alt="找到「工具」选项">
   <figcaption>找到「工具」选项</figcaption>
 </figure>
 
 点击「Internet 选项」打开对话框并切换到「连接」选项卡，点击「局域网设置」。
 
 <figure>
-  <img src="{{ 'posts/20160305/vb-step-2.png' | asset_path }}" alt="点击「连接」选项卡中的「局域网设置」">
+  <img src="{{ 'posts/20160305/vb-step-2.jpg' | asset_path }}" alt="点击「连接」选项卡中的「局域网设置」">
   <figcaption>点击「连接」选项卡中的「局域网设置」</figcaption>
+</figure>
+
+查看宿主机器的 IP，可以在终端输入命令 `ifconfig | grep "inet"`。还有一个更为简单方便的方法——按住 <kbd>option</kbd> 键点击 <i class="fa fa-wifi"></i> 图标。
+
+<figure>
+  <img src="{{ 'posts/20160305/check-ip.jpg' | asset_path }}" alt="按住「option」键点击「网络」图标">
+  <figcaption>按住 <kbd>option</kbd> 键点击 <i class="fa fa-wifi"></i> 图标</figcaption>
 </figure>
 
 选中「为 LAN 使用代理服务器」，然后填入宿主机器的 IP 和代理服务器的端口号（如果是 LivePool 的话，端口号为 8090）。
 
 <figure>
-  <img src="{{ 'posts/20160305/check-ip.png' | asset_path }}" alt="按住「option」键点击「网络」图标">
-  <figcaption>按住 <kbd>option</kbd> 键点击 <i class="fa fa-wifi"></i> 图标</figcaption>
-</figure>
-
-<figure>
-  <img src="{{ 'posts/20160305/vb-step-3.png' | asset_path }}" alt="输入宿主机器 IP 和代理服务器端口号">
+  <img src="{{ 'posts/20160305/vb-step-3.jpg' | asset_path }}" alt="输入宿主机器 IP 和代理服务器端口号">
   <figcaption>输入宿主机器 IP 和代理服务器端口号</figcaption>
 </figure>
 
