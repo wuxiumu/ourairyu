@@ -106,7 +106,7 @@ end
 
 desc "运行"
 task :run do
-  system "bundle exec jekyll serve --incremental"
+  system "bundle exec jekyll serve --drafts --incremental"
 end
 
 desc "部署"
