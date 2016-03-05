@@ -4,7 +4,7 @@ require "httparty"
 require "json"
 
 desc "获取并过滤掉不需要包含的 repo 信息"
-task :projects do
+task :github do
   dir = "./_data"
   filename = "github.json"
 
@@ -12,28 +12,36 @@ task :projects do
     system "mkdir #{dir}"
   end
 
-  # 开始获取并写入 repo 信息
-  cd dir do
-    open(filename, "w") do |f|
-      f.puts HTTParty.get("https://api.github.com/users/ourai/repos").to_json
+  repos = Array.new
+  pagenum = 1
+
+  while true do
+    jsonData = HTTParty.get("https://api.github.com/users/ourai/repos?per_page=100&page=#{pagenum}")
+
+    if jsonData.length == 0
+      break
     end
+
+    repos.concat(jsonData)
+    pagenum += 1
   end
 
   excludedRepos = [
-    19068698,   # ourai.github.io
-    28067674,   # ourairyu-themes
-    48522689    # wantu-nodejsSDK
+    # 19068698,   # ourai.github.io
+    # 28067674,   # ourairyu-themes
+    # 48522689    # wantu-nodejsSDK
   ]
 
   cd dir do
-    repos = JSON.parse(File.read(filename))
     filtered_repos = Array.new
     starred_repos = Array.new
 
     repos.each do |r|
+      # 过滤掉私有的、fork 的、被指定排除的和没有语言属性的 repo
       unless r["private"] == true || r["fork"] == true || excludedRepos.include?(r["id"]) || r["language"].nil?
         filtered_repos.push(r)
 
+        # 被 star 的 repo
         unless r["stargazers_count"] == 0
           starred_repos.push(r)
         end
@@ -125,7 +133,7 @@ task :deploy do
     end
   end
 
-  system "rake projects"
+  system "rake github"
   system "rake codepen"
   system "JEKYLL_ENV=production bundle exec jekyll build -d #{dir}"
 
