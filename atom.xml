@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.0.3">Jekyll</generator><link href="http://ourai.ws/atom.xml" rel="self" type="application/atom+xml" /><link href="http://ourai.ws/" rel="alternate" type="text/html" /><updated>2016-03-05T22:17:23+08:00</updated><id>http://ourai.ws/</id><title>欧雷流</title><subtitle>不走寻常路</subtitle><author><name>欧雷</name><email>ourairyu@gmail.com</email><uri>http://ourai.ws/</uri></author><entry><title>如何调试一个页面</title><link href="http://ourai.ws/posts/how-to-debug-a-web-page/" rel="alternate" type="text/html" title="如何调试一个页面" /><published>2016-03-05T11:57:23+08:00</published><updated>2016-03-05T11:57:23+08:00</updated><id>http://ourai.ws/posts/how-to-debug-a-web-page</id><content type="html" xml:base="http://ourai.ws/posts/how-to-debug-a-web-page/">&lt;p&gt;调试页面是前端开发中必不可少的一个环节，由于开发环境的多样性和终端种类越来越多，复杂度也在不断上升。&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.0.3">Jekyll</generator><link href="http://ourai.ws/atom.xml" rel="self" type="application/atom+xml" /><link href="http://ourai.ws/" rel="alternate" type="text/html" /><updated>2016-03-06T23:38:13+08:00</updated><id>http://ourai.ws/</id><title>欧雷流</title><subtitle>不走寻常路</subtitle><author><name>欧雷</name><email>ourairyu@gmail.com</email><uri>http://ourai.ws/</uri></author><entry><title>如何调试一个页面</title><link href="http://ourai.ws/posts/how-to-debug-a-web-page/" rel="alternate" type="text/html" title="如何调试一个页面" /><published>2016-03-05T11:57:23+08:00</published><updated>2016-03-05T11:57:23+08:00</updated><id>http://ourai.ws/posts/how-to-debug-a-web-page</id><content type="html" xml:base="http://ourai.ws/posts/how-to-debug-a-web-page/">&lt;p&gt;调试页面是前端开发中必不可少的一个环节，由于开发环境的多样性和终端种类越来越多，复杂度也在不断上升。&lt;/p&gt;
 
 &lt;p&gt;我所写的这些只是万万千千方法中的几种，肯定有更优的方案，仅供参考。&lt;/p&gt;
 
@@ -30,7 +30,7 @@
 
 &lt;h2 id=&quot;section-1&quot;&gt;启用代理&lt;/h2&gt;
 
-&lt;p&gt;有些场景需要用到代理，如调试线上静态文件，在虚拟机中调试等。我所用的是基于 Node.js 的 &lt;a href=&quot;https://github.com/rehorn/livepool&quot; target=&quot;_blank&quot; rel=&quot;external nofollow&quot;&gt;LivePool&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;有些场景需要用到代理，如调试线上静态文件，在虚拟机中调试等。我所用的是基于 Node.js 的 &lt;a href=&quot;http://rehorn.github.io/livepool/&quot; target=&quot;_blank&quot; rel=&quot;external nofollow&quot;&gt;LivePool&lt;/a&gt;。&lt;/p&gt;
 
 &lt;p&gt;终端输入 &lt;code&gt;npm install -g livepool&lt;/code&gt; 全局安装 LivePool，之后在任意位置输入 &lt;code&gt;livepool&lt;/code&gt; 就可以开启代理服务。&lt;/p&gt;
 
@@ -82,7 +82,28 @@
 &lt;figure&gt;
   &lt;img src=&quot;/assets/posts/20160305/vb-step-4-ba8e6110314871640ba77d3c45f56c2aca814d29db994a641f3f68b0ce2833d8.jpg&quot; alt=&quot;访问本地网站&quot; /&gt;
   &lt;figcaption&gt;访问本地网站&lt;/figcaption&gt;
-&lt;/figure&gt;</content><author><name>欧雷</name><email>ourairyu@gmail.com</email><uri>http://ourai.ws/</uri></author><category term="frontend-web-development" /><category term="mac-os" /><summary>调试页面是前端开发中必不可少的一个环节，由于开发环境的多样性和终端种类越来越多，复杂度也在不断上升。</summary></entry><entry><title>如何考评一名前端工程师？</title><link href="http://ourai.ws/posts/how-to-evaluate-a-frontend-engineer/" rel="alternate" type="text/html" title="如何考评一名前端工程师？" /><published>2016-02-27T02:00:54+08:00</published><updated>2016-02-27T02:00:54+08:00</updated><id>http://ourai.ws/posts/how-to-evaluate-a-frontend-engineer</id><content type="html" xml:base="http://ourai.ws/posts/how-to-evaluate-a-frontend-engineer/">&lt;p&gt;本文标题的命名方式参考了芋头所写的《&lt;a href=&quot;http://www.html-js.com/article/2961&quot; target=&quot;_blank&quot; rel=&quot;external nofollow&quot;&gt;如何面试一名前端开发工程师？&lt;/a&gt;》。「考评」是「面试」的子集，是一个很重要的环节，如果谁打算做「前端工程师面试合集」的话，记得把我这篇文章收录进去哈，蛤蛤蛤蛤～&lt;/p&gt;
+&lt;/figure&gt;
+
+&lt;h3 id=&quot;section-4&quot;&gt;线上代码&lt;/h3&gt;
+
+&lt;p&gt;调试线上代码同样需要用到 LivePool。&lt;/p&gt;
+
+&lt;p&gt;访问 &lt;code&gt;http://localhost:8002/&lt;/code&gt; 浏览 LivePool 的 UI 界面，配置映射规则，将线上文件与本地文件建立关系。如此一来，请求线上文件的 URL 时真正访问的是本地文件的代码。关于 UI 界面的使用方式及规则的配置方法，请看 &lt;a href=&quot;http://rehorn.github.io/livepool/&quot; target=&quot;_blank&quot; rel=&quot;external nofollow&quot;&gt;LivePool 的官方文档&lt;/a&gt;。&lt;/p&gt;
+
+&lt;p&gt;除了需要配置映射规则外，也要对浏览器设置一下代理服务器。&lt;/p&gt;
+
+&lt;p&gt;如果常用 Chrome 进行开发，并且不用调试其他浏览器中的效果的话，可以安装浏览器插件 &lt;a href=&quot;https://chrome.google.com/webstore/detail/proxy-switchyomega/padekgcemlokbadohgkifijomclgjgif&quot; target=&quot;_blank&quot; rel=&quot;external nofollow&quot;&gt;Proxy SwitchyOmega&lt;/a&gt; 进行代理切换，这样很是方便。&lt;/p&gt;
+
+&lt;figure&gt;
+  &lt;img src=&quot;/assets/posts/20160305/switchyomega-6a2526840b1d8cef5e08a9b82b2cc90d16fc52b5fe5fb67030c1ba463d91531c.png&quot; alt=&quot;Proxy SwitchyOmega 的配置界面&quot; /&gt;
+  &lt;figcaption&gt;Proxy SwitchyOmega 的配置界面&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;想要调试其他浏览器的话，就得全局代理了。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-5&quot;&gt;移动页面&lt;/h3&gt;
+
+&lt;h3 id=&quot;section-6&quot;&gt;微信&lt;/h3&gt;</content><author><name>欧雷</name><email>ourairyu@gmail.com</email><uri>http://ourai.ws/</uri></author><category term="frontend-web-development" /><category term="mac-os" /><summary>调试页面是前端开发中必不可少的一个环节，由于开发环境的多样性和终端种类越来越多，复杂度也在不断上升。</summary></entry><entry><title>如何考评一名前端工程师？</title><link href="http://ourai.ws/posts/how-to-evaluate-a-frontend-engineer/" rel="alternate" type="text/html" title="如何考评一名前端工程师？" /><published>2016-02-27T02:00:54+08:00</published><updated>2016-02-27T02:00:54+08:00</updated><id>http://ourai.ws/posts/how-to-evaluate-a-frontend-engineer</id><content type="html" xml:base="http://ourai.ws/posts/how-to-evaluate-a-frontend-engineer/">&lt;p&gt;本文标题的命名方式参考了芋头所写的《&lt;a href=&quot;http://www.html-js.com/article/2961&quot; target=&quot;_blank&quot; rel=&quot;external nofollow&quot;&gt;如何面试一名前端开发工程师？&lt;/a&gt;》。「考评」是「面试」的子集，是一个很重要的环节，如果谁打算做「前端工程师面试合集」的话，记得把我这篇文章收录进去哈，蛤蛤蛤蛤～&lt;/p&gt;
 
 &lt;p&gt;「如何考评」这个词看起来「diǎo * 2」的。虽然标题看起来很有逼格，但对于我这种面试（他人）经验用一个手就能数出来的菜鸟来说，谈这个话题还为时过早。（我感到有看官貌似心里不满了：「那你说个 bird 啊！浪费老子时间和流量！我支付宝账号＊＊＊，打多少你看着办吧！」先别急嘛～）其实，本文的目的不在于讲具体如何去考评一个前端工程师的应聘者，而是想说一件事，我最近冒出的一个 idea——是一件应该没人去做的事情，是一个也许会震动业界的项目。&lt;/p&gt;
 
