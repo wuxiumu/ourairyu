@@ -1,3 +1,8 @@
+{% if jekyll.environment == "production" %}
+  {% assign disqus = "ourairyu" %}
+{% else %}
+  {% assign disqus = "ouraitest" %}
+{% endif %}
 <div id="disqus_thread"></div>
 <script>
   var disqus_config = function () {
@@ -9,7 +14,7 @@
   (function() {
     var d = document, s = d.createElement('script');
 
-    s.src = '//ourairyu.disqus.com/embed.js';
+    s.src = '//{{ disqus }}.disqus.com/embed.js';
 
     s.setAttribute('data-timestamp', +new Date());
     (d.head || d.body).appendChild(s);
