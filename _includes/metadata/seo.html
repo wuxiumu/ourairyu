@@ -33,8 +33,8 @@
     {% assign seo_title = seo_site_title %}
     {% assign seo_page_title = seo_site_title %}
 
-    {% if site.description %}
-      {% assign seo_title = seo_title | append: " - " | append: site.description %}
+    {% if site.tagline %}
+      {% assign seo_title = seo_title | append: " - " | append: site.tagline %}
     {% endif %}
   {% endif %}
 {% endif %}
@@ -51,7 +51,11 @@
   {% assign seo_page_title = seo_page_title | markdownify | strip_html | strip_newlines | escape_once %}
 {% endif %}
 
-{% assign seo_description = page.description | default: page.excerpt | default: site.description %}
+{% if page.title %}
+  {% assign seo_description = page.description | default: page.excerpt | default: site.description %}
+{% else %}
+  {% assign seo_description = site.description %}
+{% endif %}
 
 {% assign sp_type = page.special_type %}
 {% if sp_type == "posts" %}
