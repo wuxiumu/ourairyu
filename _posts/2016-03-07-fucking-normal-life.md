@@ -4,6 +4,7 @@ date: 2016-03-07 23:21:19 +0800
 categories:
   - thoughts
 tags:
+  - lifestyle
   - philosophy-of-life
 image: posts/20160307/night-of-shanghai.jpg
 ---
