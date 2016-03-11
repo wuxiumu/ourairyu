@@ -122,7 +122,7 @@ task :deploy do
 
     cd dir do
       system "git init"
-      system "git remote add origin https://github.com/ourai/ourai.github.io.git"
+      system "git remote add origin root@ourai.ws:/home/git/ourairyu.git"
       system "git fetch"
       system "git checkout master"
     end
@@ -142,7 +142,7 @@ task :deploy do
 
     system "touch .nojekyll"
     system "git add -A"
-    system "git commit -m 'Deploy on #{current_time}'"
+    system "git commit -m 'Generate on #{current_time}'"
     system "git push origin master"
   end
 end
