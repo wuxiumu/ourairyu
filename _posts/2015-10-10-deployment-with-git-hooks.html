@@ -62,8 +62,7 @@ cd $DeployPath
 git pull origin master
 
 cd $NowPath
-exit 0
-  {% endhighlight %}
+exit 0{% endhighlight %}
   <p>使用 <code>chmod +x post-receive</code> 改变一下权限后，服务器端的配置就基本完成了。</p>
   <h3>更新本机的仓库源</h3>
   <p>在原有的（托管代码的）仓库上加入刚才所配置的服务器上的远程仓库的地址为源，以后往那个源推送代码后就会自动部署了。</p>
@@ -73,4 +72,6 @@ exit 0
   <p>在搭建环境时并没有一帆风顺，磕磕绊绊遇到不少问题，虽然很多不值得一提，但有的点还是有记录并分享的价值的！</p>
   <h3>SSH 私钥「认证」</h3>
   <p><a href="http://segmentfault.com/q/1010000000835302/a-1020000000883441" target="_blank">将生成的私钥进行「认证」有不止一种方式</a>，然而，起初我用的是最挫最不靠谱的 <code>ssh-add ~/.ssh/PRIVATE_KEY</code>——只是在当前 session 有效，一重启就又会被「询问」了！</p>
+  <h3>Git「裸仓库」初始化</h3>
+  <p>在初始化过「裸仓库」进到 <code>hooks</code> 目录后可能会发现并没有生成 <code>post-receive.sample</code> 文件，这时你也许会认为当前使用的 Git 版本无法处理这个 hook。慢着，莫急！先不要重装最新版本的 Git，不妨 <code>touch post-receive</code> 手动创建试下，看能不能正常执行。</p>
 </section>
