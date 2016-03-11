@@ -1,0 +1,60 @@
+.demo-section {
+  overflow: hidden;
+  margin-top: 30px;
+  padding: 0 20px;
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  & > div {
+    font-family: Simsun, serif;
+  }
+
+  &.font--sans > div {
+    font-family: "Microsoft Yahei", sans-serif;
+  }
+
+  p {
+    float: left;
+    width: 300px;
+    height: 100px;
+    margin-left: 20px;
+    background-color: wheat;
+    font-size: 1em;
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    &:before {
+      content: "\0020";
+      width: 0;
+      height: 100%;
+    }
+
+    span,
+    &:before {
+      display: inline-block;
+      /*background-color: #F08080;*/
+    }
+
+    &.align-middle span,
+    &.align-middle:before {
+      vertical-align: middle;
+    }
+
+    &.align-bottom span,
+    &.align-bottom:before {
+      vertical-align: text-bottom;
+    }
+  }
+
+  .word-large {
+    font-size: 3em;
+  }
+
+  .word-medium {
+    font-size: 2em;
+  }
+}

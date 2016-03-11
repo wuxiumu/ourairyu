@@ -1,0 +1,19 @@
+web-development:
+  name: 网站开发
+  description: 利用网页程序语言等技术进行网站和网络应用的开发与维护
+
+japanese:
+  name: 日语
+
+monogatari:
+  name: 欧雷物语
+
+life:
+  name: 流水帐
+  description: 记录一下生活及工作中所经历的杂七杂八，顺便吐吐槽、卖卖萌、装装逼 ;-P
+
+thoughts:
+  name: 胡思乱想
+
+culture:
+  name: 文化

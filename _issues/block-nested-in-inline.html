@@ -1,0 +1,100 @@
+---
+title: 嵌套在行内元素中的块级元素
+---
+<a href="javascript:void(0);"><div><a href="#">123333</a></div></a>
+<div>
+  <a href="$actItem.itemUrl" target="_blank">
+    <div class="pricecard">
+      <div class="carbottom">
+        <div class="btrealprice">11.11价¥$!price.formatWYuan($actItem.price)万元起</div>
+      </div>
+    </div>
+  </a>
+  <a href="$actItem.itemUrl" target="_blank">
+    <div class="pricecard">
+      <div class="carbottom">
+        <div class="btrealprice"><span class="doube11">11.11价</span><a>¥</a><span class="price">$!price.formatWYuan($actItem.price)</span>万元起</div>
+      </div>
+    </div>
+  </a>
+  <a href="$actItem.itemUrl" target="_blank">
+    <div class="pricecard">
+      <div class="carbottom">
+        <div class="btrealprice"><span class="doube11">11.11价</span><span>¥</span><span class="price">$!price.formatWYuan($actItem.price)</span>万元起</div>
+      </div>
+    </div>
+  </a>
+<!--   <a href="$actItem.itemUrl" target="_blank">
+    <div class="pricecard">
+      <div class="carbottom">
+        <div class="carbottomprice">官方指导价：¥<span>$!price.formatWYuan($actItem.standardPrice)</span>万元</div>
+        <div class="btrealprice"><span class="doube11">11.11价</span><a>¥</a><span class="price">$!price.formatWYuan($actItem.price)</span>万元起</div>
+      </div>
+    </div>
+  </a>
+  <a href="$actItem.itemUrl" target="_blank">
+    <div class="pricecard">
+      <div class="carbottom">
+        <div class="carbottomprice">官方指导价：¥<span>$!price.formatWYuan($actItem.standardPrice)</span>万元</div>
+      </div>
+    </div>
+  </a>
+  <a href="$actItem.itemUrl" target="_blank">
+    <div class="pricecard">
+      <div class="carbottom">
+        <div class="btrealprice"><span class="doube11">11.11价</span><a>¥</a><span class="price">$!price.formatWYuan($actItem.price)</span>万元起</div>
+      </div>
+    </div>
+  </a>
+  <a href="$actItem.itemUrl" target="_blank">
+    <div class="pricecard">
+      <div class="carbottom">
+        <div class="carbottomprice">官方指导价：万元起</div>
+      </div>
+    </div>
+  </a>
+  <a><img src="$actItem.itemPic" alt="" class="bmw1"></a>
+  <a><div>asdasdasdas</div></a>
+  <a>
+    <div class="pricecard">
+      <div class="btrealprice">万元起</div>
+      <div class="btrealprice">万元起</div>
+      <div class="btrealprice">万元起</div>
+      <div class="btrealprice">万元起</div>
+      <div class="btrealprice">万元起</div>
+      <div class="btrealprice">万元起</div>
+    </div>
+  <a>
+    <div class="pricecard">
+      <div class="btrealprice">万<span>元</span>起</div>
+    </div>
+  </a>
+  <a>
+    <div class="pricecard">
+      <span class="btrealprice">万<span><span>元</span></span>起</span>
+    </div>
+  </a>
+  <a>
+    <div class="pricecard">
+      <span class="btrealprice">万<span><span><span>元</span></span></span>起</span>
+    </div>
+  </a>
+ --></div>
+<div>
+  <a href="$actItem.itemUrl" target="_blank"><img src="$actItem.itemPic" alt="" class="bmw1"></a>
+  <a href="$actItem.itemUrl" target="_blank">
+    <div class="pricecard">
+      <div class="cartop">
+        <div class="topcarname" id="topcarname">$actItem.title</div>
+        <div class="ul">
+            $actItem.itemDesc
+        </div>
+        <div class="button1" >11月1日即开放购买！</div>
+      </div>
+      <div class="carbottom">
+        <div class="carbottomprice">官方指导价：¥<span>$!price.formatWYuan($actItem.standardPrice)</span>万元</div>
+        <div class="btrealprice"><span class="doube11">11.11价</span><span>¥</span><span class="price">$!price.formatWYuan($actItem.price)</span>万元起</div>
+      </div>
+    </div>
+  </a>
+</div>

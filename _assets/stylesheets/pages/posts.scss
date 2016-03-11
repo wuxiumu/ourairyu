@@ -1,0 +1,55 @@
+@import "../helper";
+
+.ArticleList-summary {
+  font-size: 18px;
+
+  span {
+    font-weight: bold;
+  }
+}
+
+.ArticleList-hotCategories {
+  > div {
+    margin: {
+      right: -15px;
+      left: -15px;
+    }
+  }
+
+  ul {
+    list-style: none inside none;
+    padding-left: 0;
+  }
+
+  li {
+    a {
+      display: block;
+      background-color: #eee;
+      border: 1px solid #a6a6a6;
+      border-radius: 6px;
+      padding: 10px 15px;
+      font: {
+        size: 18px;
+        weight: 400;
+      }
+      color: #333;
+      text-decoration: none;
+
+      span {
+        display: block;
+        margin-top: 5px;
+        font: {
+          size: 12px;
+          weight: 300;
+        }
+        color: #888;
+      }
+    }
+
+    @media all and (max-width: $screen-xs-max) {
+      + li {
+        margin-top: 10px;
+      }
+    }
+  }
+}

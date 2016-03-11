@@ -1,0 +1,6 @@
+build-a-frontend-team:
+  name: 前端团队养成记
+  description: 讲述建设一支优秀前端团队的心路历程
+  posts:
+    - id: engineering-problems-of-frontend-development
+      title: 前端工程优化之路

@@ -1,0 +1,30 @@
+---
+layout: demo
+title: 色相环
+desc: 用 SVG/VML 绘制色相环
+category: demo
+limitIE: false
+---
+
+<link rel="stylesheet" href="{{ site.data.url.css }}doc.css">
+<link rel="stylesheet" href="{{ site.url.demo }}css/color_wheel.css">
+
+<form id="consoleArea" class="catalog">
+  <h3><span>设置色相环参数</span></h3>
+  <dl>
+    <dt style="display: none;">色相环半径</dt>
+    <dd style="display: none;"><input type="text" name="h_radius" value="150"> 像素</dd>
+    <dt>颜色点半径</dt>
+    <dd><input type="text" name="p_radius" value="20"> 像素</dd>
+    <dt>颜色点数量</dt>
+    <dd><input type="text" name="p_count" value="24"> 个</dd>
+  </dl>
+  <input id="submit" type="submit" value="确定">
+</form>
+<div id="displayArea" class="page">
+  <div id="content"></div>
+</div>
+
+<script src="{{ site.data.url.js }}jquery-1.7.1.min.js"></script>
+<script src="{{ site.data.url.js }}regular-polygon-min.js"></script>
+<script src="{{ site.url.demo }}javascript/color_wheel.js"></script>

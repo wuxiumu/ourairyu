@@ -1,0 +1,97 @@
+@import "../helpers";
+
+
+
+.UI-demo-area {
+  header {
+    background-color: #FFF;
+    @include box-shadow(0 2px 0.5em -0.2em #666);
+  }
+}
+
+
+
+.YY-menu,
+.YY-menu-submenu {
+  @include no_gap;
+  @include no_item;
+}
+
+.YY-menu {
+  @include clearfix;
+  height: 60px;
+
+  & > li,
+  & > li > a {
+    height: 100%;
+  }
+
+  & > li {
+    float: left;
+    position: relative;
+    overflow: hidden;
+
+    &:hover {
+      .YY-menu-submenu {
+        display: block;
+      }
+    }
+
+    a {
+      display: block;
+      text-decoration: none;
+    }
+
+    &.YY-menu-item--has_submenu {
+      overflow: visible;
+
+      & > a:hover {
+        height: 100%;
+        border-bottom-width: 0;
+      }
+    }
+
+    & > a {
+      @supports (box-shadow: none) or
+                (-moz-box-shadow: none) or
+                (-webkit-box-shadow: none) {
+        position: relative;
+        z-index: 1;
+
+        background-color: #FFF;
+      }
+
+      padding: 0 16px;
+
+      font-size: 16px;
+      line-height: 64px;
+
+      &:hover {
+        height: 58px;
+        border-bottom: 4px solid #3AD0FF;
+        color: #2FAAD1;
+      }
+    }
+  }
+}
+
+.YY-menu-submenu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  padding: 10px 0;
+  background-color: #FFF;
+  border-radius: 0 0 6px 6px;
+  @include box-shadow(0 1px 0.8em rgba(102, 102, 102, 0.7));
+
+  a {
+    padding: 0 16px;
+    line-height: 2;
+
+    &:hover {
+      color: #FFF;
+      background-color: #3FAFD9;
+    }
+  }
+}

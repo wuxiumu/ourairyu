@@ -1,0 +1,32 @@
+posts:
+  url: /posts/
+  text: 文章
+
+identities:
+  url: /identities/
+  text: 个性
+
+about:
+  url: /about/
+  text: 关于
+
+
+
+# =====
+# 多元化的我
+# =====
+
+dev:
+  url: /dev/
+  text: 码农
+  description: 
+
+otaku:
+  url: /otaku/
+  text: 宅男
+  description: 
+
+ourairyu:
+  url: /ourairyu/
+  text: 思考者
+  description: 

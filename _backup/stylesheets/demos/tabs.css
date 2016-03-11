@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+
+
+body { background-color: #DDD; }
+
+.tab-wrapper { width: 600px; border: 1px solid #A6A6A6; margin: 100px auto; background-color: #F7F7F7; }
+.tab-group { overflow: hidden; padding: 10px 10px 0; margin-bottom: -1px; position: relative; z-index: 2; }
+.tab-trigger:link,
+.tab-trigger:visited {
+	float: left;
+	border: 1px solid transparent; border-bottom-width: 0; border-radius: 5px 5px 0 0;
+	padding: 10px; margin-left: 5px;
+	text-decoration: none; color: #758694;
+}
+.tab-trigger:hover { background-color: #E5E5E5; color: #AAA; }
+.tab-trigger:first-child { margin-left: 0; }
+.tab-content { display: none; padding: 10px; border-top: 1px solid #A6A6A6; position: relative; z-index: 1; }
+
+.tab-trigger.current,
+.tab-content.current { background-color: #FFF; }
+.tab-trigger.current { border-color: #A6A6A6; border-bottom: 1px solid #FFF; color: #888; }
+.tab-content.current { display: block; }
