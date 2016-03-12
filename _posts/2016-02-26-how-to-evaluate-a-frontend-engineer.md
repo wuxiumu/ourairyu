@@ -9,6 +9,10 @@ tags:
   - frontend-engineer
   - wonderful-idea
 image: posts/20160227/evaluating-table.png
+recommended:
+  - title: 【第517期】如何考评一名前端工程师？
+    url: http://mp.weixin.qq.com/s?__biz=MjM5MTA1MjAxMQ==&mid=402284806&idx=1&sn=cc6f5bfdd881cad1744983117333bd61&scene=0
+    media: zaoduke
 ---
 
 本文标题的命名方式参考了芋头所写的《[如何面试一名前端开发工程师？](http://www.html-js.com/article/2961){:target="_blank"}{:rel="external nofollow"}》。「考评」是「面试」的子集，是一个很重要的环节，如果谁打算做「前端工程师面试合集」的话，记得把我这篇文章收录进去哈，蛤蛤蛤蛤～

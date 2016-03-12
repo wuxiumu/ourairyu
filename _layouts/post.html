@@ -79,12 +79,30 @@ layout: page
 
   {% assign album = page.album %}
   {% if album %}
-  <div class="Widget Widget--album hidden-xs hidden-sm">
+  <aside class="Widget Widget--album hidden-xs hidden-sm">
     <div class="Widget-body">
       <p>更多精彩照片尽在</p>
       <a href="{{ album.url }}" target="_blank" rel="external nofollow" style="background-image: url({{ album.thumbnail }});"><span class="Album-name Album-name--{{ album.position }}">{{ album.title }}</span></a>
     </div>
-  </div>
+  </aside>
+  {% endif %}
+
+  {% assign recommended = page.recommended %}
+  {% if recommended %}
+  <aside class="Widget Widget--recommended hidden-xs hidden-sm">
+    <div class="Widget-body">
+      <p>被以下媒体所推荐或转载</p>
+      <ul>
+        {% for r in recommended %}
+          {% assign m = site.data.medias[r.media] %}
+          <li>
+            <img src="{{ m.image }}" alt="{{ m.name }}" title="{{ m.name }}">
+            <h3><a href="{{ r.url }}" target="_blank" rel="external nofollow">{{ r.title }}</a></h3>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </aside>
   {% endif %}
 
   {% include widgets/toc.html %}
