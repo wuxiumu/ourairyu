@@ -6,6 +6,9 @@ collections:
   pages:
     output: true
     permalink: /:path/
+  cv:
+    output: false
+    permalink: /:collection/:path/
   sketches:
     output: true
     permalink: /:collection/:path/
@@ -19,7 +22,7 @@ collections:
     output: true
     permalink: /:collection/:path/
   ja:
-    output: true
+    output: false
     permalink: /:collection/:path/
 
 # Handling Reading
