@@ -88,7 +88,7 @@ defaults:
       author:
         name: 欧雷
         email: ourairyu@gmail.com
-        uri: http://ourai.github.io/
+        uri: http://ourai.ws/
         slug: ourai
         twitter: ourairyu
       comments: true
@@ -144,7 +144,7 @@ name: 欧雷流
 author:
   name: 欧雷
   email: ourairyu@gmail.com
-  uri: http://ourai.github.io/
+  uri: http://ourai.ws/
   twitter: ourairyu
 github:
-  url: http://ourai.github.io
+  url: http://ourai.ws
