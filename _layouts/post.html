@@ -69,7 +69,7 @@ layout: page
           {% if p.id == postId %}
             <li><span>{{ p.title }}</span></li>
           {% else %}
-            <li><a href="{{ p.id | append: '/' | prepend: 'posts' | prepend: site.baseurl }}">{{ p.title }}</a></li>
+            <li><a href="{{ p.id | append: '/' | prepend: '/posts/' | prepend: site.baseurl }}">{{ p.title }}</a></li>
           {% endif %}
         {% endfor %}
       </ul>

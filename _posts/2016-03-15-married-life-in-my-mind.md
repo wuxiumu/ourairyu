@@ -7,6 +7,7 @@ tags:
   - lifestyle
   - philosophy-of-life
 image: posts/20160315/table.png
+series: dream-home-of-ourai
 ---
 
 看到文章标题，有的人可能会觉得「你想得可真够远的……首先，你需要一个女朋友！」
