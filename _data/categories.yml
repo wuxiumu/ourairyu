@@ -4,6 +4,7 @@ web-development:
 
 japanese:
   name: 日语
+  description: 日语是一门很严谨的语言
 
 monogatari:
   name: 欧雷物语
@@ -14,6 +15,8 @@ life:
 
 thoughts:
   name: 胡思乱想
+  description: 思考能够使我进步，让我一时地脱离当前世界
 
 culture:
   name: 文化
+  description: 国家的文化代表了国民的精神

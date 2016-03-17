@@ -43,7 +43,8 @@
   }
 
   p,
-  figure {
+  figure,
+  table {
     margin-bottom: 1.5em;
   }
 
@@ -67,13 +68,16 @@
       text-align: left;
     }
 
-    img {
-      display: block;
-      margin: 0 auto;
-
+    img,
+    .ImageSet {
       + figcaption {
         margin-top: 10px;
       }
+    }
+
+    img {
+      display: block;
+      margin: 0 auto;
 
       @media all and (min-width: $screen-md-min) {
         max-width: 480px;
@@ -88,8 +92,32 @@
     }
   }
 
+  table {
+    table-layout: fixed;
+  }
+
   blockquote p {
     margin-bottom: 12px;
+  }
+
+  .ImageSet--splice {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 50%;
+
+    .ImageSet-image {
+      @include stretch;
+      background-size: cover;
+
+      img {
+        display: none;
+      }
+
+      + .ImageSet-image {
+        -webkit-mask-image: -webkit-linear-gradient(left top, transparent 50%, white 50%);
+      }
+    }
   }
 }
 
