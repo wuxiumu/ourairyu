@@ -34,7 +34,7 @@ special_type: posts
   {% assign current_year = site.time | date: "%Y" %}
 
   <div class="ArticleList-summary">
-    <p><span>{{ last_post_year | minus: first_post_year }}</span> 年间共写了 <span>{{ posts.size }}</span> 篇文章。本页只显示最近三年（{{ current_year | minus: 2 }} 年～{{ current_year }} 年）的文章，其他年份的文章请访问下面的年份归档页面：</p>
+    <p><span class="u-bold">{{ last_post_year | minus: first_post_year }}</span> 年间共写了 <span class="u-bold">{{ posts.size }}</span> 篇文章。本页只显示最近三年（{{ current_year | minus: 2 }} 年～{{ current_year }} 年）的文章，其他年份的文章请访问下面的年份归档页面：</p>
     <ul class="ArticleList-archives">
       {% for post in posts %}
         {% assign prev_year = prev_post.date | date: "%Y" %}

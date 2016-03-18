@@ -9,7 +9,7 @@
     margin-bottom: 15px;
 
     span {
-      font-weight: bold;
+      font-size: 20px;
     }
   }
 }
@@ -33,6 +33,7 @@
     padding: 10px 15px;
     border-radius: 6px;
     text-decoration: none;
+    font-weight: normal;
 
     span {
       display: block;
@@ -40,6 +41,7 @@
       font: {
         size: 14px;
         style: normal;
+        weight: 300;
       }
 
       .fa {
@@ -107,7 +109,7 @@
 .Widget--hotCategories {
   p {
     margin-bottom: 10px;
-    
+
     a,
     span {
       margin: 0 .3em;
