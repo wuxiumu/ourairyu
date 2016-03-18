@@ -1,3 +1,10 @@
+skills-of-a-frontend-engineer:
+  name: 前端工程师必备技能
+  description: 作为一名前端工程师所一定要掌握的技能
+  posts:
+    - id: how-to-debug-a-web-page
+      title: 如何调试一个页面    
+
 build-a-frontend-team:
   name: 前端团队养成记
   description: 讲述建设一支优秀前端团队的心路历程

@@ -7,6 +7,7 @@ tags:
   - frontend-web-development
   - mac-os
 image: posts/20160305/vb-step-4.jpg
+series: skills-of-a-frontend-engineer
 ---
 
 调试页面是前端开发中必不可少的一个环节，由于开发环境的多样性和终端种类越来越多，复杂度也在不断上升。
