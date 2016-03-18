@@ -29,10 +29,44 @@ special_type: posts
   {% assign first_post_year = posts.last.date | date: "%Y" %}
   {% assign last_post_year = posts.first.date | date: "%Y" %}
 
-  <p class="ArticleList-summary"><span>{{ last_post_year | minus: first_post_year }}</span> 年间共写了 <span>{{ posts.size }}</span> 篇文章。</p>
-
-  {% assign archive_inited = false %}
   {% assign current_year = site.time | date: "%Y" %}
+
+  <div class="ArticleList-summary">
+    <p><span>{{ last_post_year | minus: first_post_year }}</span> 年间共写了 <span>{{ posts.size }}</span> 篇文章。本页只显示最近三年（{{ current_year | minus: 2 }} 年～{{ current_year }} 年）的文章，其他年份的文章请访问下面的年份归档页面：</p>
+    <ul class="ArticleList-archives">
+      {% for post in posts %}
+        {% assign prev_year = prev_post.date | date: "%Y" %}
+        {% assign year = post.date | date: "%Y" %}
+        {% assign diff = current_year | minus: year %}
+
+        {% if prev_post == null or year != prev_year %}
+          {% assign first_item = true %}
+        {% else %}
+          {% assign first_item = false %}
+        {% endif %}
+
+        {% if diff >= 3 %}
+          {% if first_item == true %}
+            {% assign year_posts = 0 %}
+
+            {% for p in site.posts %}
+              {% assign y = p.date | date: "%Y" %}
+
+              {% if y == year %}
+                {% assign year_posts = year_posts | plus: 1 %}
+              {% endif %}
+            {% endfor %}
+
+            <li class="col-xs-6 col-sm-4"><a href="/archives/{{ year }}/">{{ year }}<span><i class="fa fa-pencil"></i>共 {{ year_posts }} 篇</span></a></li>
+          {% else %}
+            {% continue %}
+          {% endif %}
+        {% endif %}
+
+        {% assign prev_post = post %}
+      {% endfor %}
+    </ul>
+  </div>
 
   {% for post in posts %}
     {% assign prev_year = prev_post.date | date: "%Y" %}
@@ -51,18 +85,6 @@ special_type: posts
       {% endif %}
 
       <div class="ArticleList-item"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%F" }}</time><i class="fa fa-pencil"></i><a href="{{ post.url }}">{{ post.title }}</a>{% if post.album %}<i class="fa fa-camera"></i>{% endif %}</div>
-    {% else %}
-      {% if archive_inited == false %}
-        <p>本页只显示最近三年（{{ current_year | minus: 2 }} 年～{{ current_year }} 年）的文章，其他年份的文章请访问下面的年份归档页面。</p>
-
-        {% assign archive_inited = true %}
-      {% endif %}
-
-      {% if first_item == true %}
-        <div><a href="/archives/{{ year }}/">{{ year }}</a></div>
-      {% else %}
-        {% continue %}
-      {% endif %}
     {% endif %}
 
     {% assign prev_post = post %}
