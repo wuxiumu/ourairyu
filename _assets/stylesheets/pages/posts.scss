@@ -1,5 +1,9 @@
 @import "../helper";
 
+.ArticleList {
+  padding-bottom: 1.5em;
+}
+
 .ArticleList-summary {
   p {
     margin-bottom: 15px;
@@ -97,5 +101,31 @@
         margin-top: 10px;
       }
     }
+  }
+}
+
+.Widget--hotCategories {
+  p {
+    margin-bottom: 10px;
+    
+    a,
+    span {
+      margin: 0 .3em;
+      font: {
+        size: 16px;
+        weight: bold;
+      }
+    }
+
+    span {
+      font-style: italic;
+      text-decoration: underline;
+    }
+  }
+
+  ul {
+    list-style-position: inside;
+    margin-bottom: 0;
+    padding-left: 5px;
   }
 }

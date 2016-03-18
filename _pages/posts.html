@@ -6,21 +6,23 @@ css:
 special_title: 欧雷所写的文章
 special_type: posts
 ---
-{% contentfor sidebar %}
-  <aside class="Widget">
-    <header class="Widget-header">
-      <h2 class="Widget-title">热门类别</h2>
-    </header>
+{% contentfor footer %}
+  <aside class="Widget Widget--hotCategories">
     <div class="Widget-body">
+      {% assign categories = site.data.categories %}
+      {% assign cats = site.categories %}
+      {% assign cat = cats.first %}
+      {% assign c = cat[0] %}
+      <p>文章类别<a href="/categories/{{ c }}/">{{ categories[c].name }}</a>下有<span>{{ cat[1].size }}</span>篇文章，其他热门类别有</p>
       <ul>
-        {% assign categories = site.data.categories %}
-        {% for cat in site.categories limit: 5 %}
+        {% for cat in cats limit: 5 offset: 1 %}
           {% assign c = cat[0] %}
           <li><a href="/categories/{{ c }}/">{{ categories[c].name }} ({{ cat[1].size }})</a></li>
         {% endfor %}
       </ul>
     </div>
   </aside>
+  {% include widgets/toc.html %}
 {% endcontentfor %}
 
 <div class="ArticleList">
