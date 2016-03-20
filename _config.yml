@@ -10,16 +10,16 @@ collections:
     output: false
     permalink: /:collection/:path/
   sketches:
-    output: true
+    output: false
     permalink: /:collection/:path/
   demos:
     output: true
     permalink: /:collection/:path/
   tutorials:
-    output: true
+    output: false
     permalink: /:collection/:path/
   issues:
-    output: true
+    output: false
     permalink: /:collection/:path/
   ja:
     output: false
