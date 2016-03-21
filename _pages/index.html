@@ -71,7 +71,6 @@ permalink: index.html
                 <h3 class="Card-name Demo-name">{{ pen.title }}</h3>
                 <p class="Card-description">{{ pen.details | strip_html | default: "暂无描述" }}</p>
               </a>
-              <div class="Card-thumbnail" style="background-image: url('{{ pen.images.small }}');"><img src="{{ pen.images.small }}" alt="{{ pen.title }}"></div>
             </div>
           </div>
           {% endfor %}
