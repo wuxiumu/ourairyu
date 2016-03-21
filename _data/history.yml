@@ -1,3 +1,42 @@
+- date: 2009-05-01
+  description: >
+    在博客托管服务平台<a href="http://www.blogbus.com/" rel="external nofollow" target="_blank">博客大巴</a>上建立个人博客「<a href="http://wotahouse.blogbus.com/" rel="external nofollow" target="_blank">宅男的部屋</a>」
+
+- date: 2012-02-23
+  description: >
+    因受不了被服务提供商的条条框框所限制而将博客从<a href="http://www.blogbus.com/" rel="external nofollow" target="_blank">博客大巴</a>迁移到自己购买的<a href="http://www.gegehost.com/" rel="external nofollow" target="_blank">虚拟主机</a>上并注册了域名 <code>ourai.ws</code>
+
+- date: 2012-06-02
+  description: >
+    设计 <code>Ourai.WS 3.1</code> 主题
+
+- date: 2013-02-15
+  description: 将与私生活相关的文章和相册重组成博客从主站分离出去
+
+- date: 2013-05-01
+  description: >
+    设计 <code>Ourai.WS 3.2</code> 主题
+
+- date: 2013-05-15
+  description: 将分离出去的私人内容博客重新合并到主站中
+
+- date: 2013-05-28
+  description: 网站名称从「宅男的部屋」更改为「欧雷流」
+
+- date: 2015-05-07 14:41:04 +0800
+  description: 从虚拟主机迁移到 GitHub Pages
+
+- date: 2015-09-13 10:58:35 +0800
+  description: >
+    启用 <code>Ourai.WS 4</code> 版本
+
+- date: 2016-03-03 18:10:00 +0800
+  description: 因百度无法收录 GitHub Pages 站点和考虑到网站的未来发展方向而决定迁移到阿里云
+
+- date: 2016-03-03 20:07:28 +0800
+  description: >
+    开始对域名 <code>ourai.ws</code> 进行备案
+
 - date: 2016-03-09
   description: >
     购买 <code>yaol.in</code> 作为<a href="http://yaol.in" target="_blank" rel="external nofollow">在线简历</a>专用域名
