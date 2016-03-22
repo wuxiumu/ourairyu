@@ -13,10 +13,18 @@ build-a-frontend-team:
       title: 前端工程优化之路
 
 dream-home-of-ourai:
-  name: 欧雷的家
-  description: 洋溢着自由民主精神的信息化智能之家
+  name: 欧雷与朱莉娅的家
+  description: >
+    充满爱的洋溢着自由民主精神的信息化智能之家，家的主页：<a href="http://home.ourai.ws" target="_blank" rel="external nofollow">home.ourai.ws</a>
   posts:
-    - id: wonderful-home
-      title: 未来的家
     - id: married-life-in-my-mind
       title: 我所想的婚后生活
+    - id: wonderful-home
+      title: 未来的家
+
+skills-of-a-webmaster:
+  name: 站长修炼手册
+  description: 单纯做个开发者，简单；做个人网站的站长，不简单
+  posts:
+    - id: keep-your-website-safe
+      title: 给网站戴上「安全套」

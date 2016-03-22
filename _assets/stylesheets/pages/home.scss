@@ -423,12 +423,8 @@ main:after {
   @include box-shadow(0 1px 2px 0 rgba(0, 0, 0, 0.22));
 }
 
-.Card-link,
-.Card-thumbnail {
-  @include stretch;
-}
-
 .Card-link {
+  @include stretch;
   z-index: 3;
   padding: 15px;
   text-decoration: none !important;
@@ -438,21 +434,6 @@ main:after {
   &,
   &:hover {
     color: #555;
-  }
-}
-
-.Card-thumbnail {
-  z-index: 2;
-  background: {
-    position: 50% 50%;
-    repeat: no-repeat;
-    size: cover;
-  }
-  opacity: .1;
-  border-radius: 6px;
-
-  img {
-    display: none;
   }
 }
 
@@ -493,28 +474,4 @@ main:after {
   clear: both;
   margin-top: 5px;
   font-size: 12px;
-}
-
-
-
-.Demos {
-  .Card-name,
-  .Card-description {
-    @include transition(color .75s);
-  }
-
-  .Card-thumbnail {
-    @include transition(opacity .75s);
-  }
-
-  .Card:hover {
-    .Card-name,
-    .Card-description {
-      color: transparent;
-    }
-
-    .Card-thumbnail {
-      opacity: 1;
-    }
-  }
 }

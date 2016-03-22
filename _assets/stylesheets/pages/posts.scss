@@ -1,10 +1,62 @@
 @import "../helper";
 
-.ArticleList-summary {
-  font-size: 18px;
+.ArticleList {
+  padding-bottom: 1.5em;
+}
 
-  span {
-    font-weight: bold;
+.ArticleList-summary {
+  p {
+    margin-bottom: 15px;
+
+    span {
+      font-size: 20px;
+    }
+  }
+}
+
+.ArticleList-archives {
+  margin-top: 0 !important;
+  padding-left: 0;
+  list-style-type: none;
+  font: {
+    size: 22px;
+    style: italic;
+  }
+  @include pie-clearfix;
+
+  a {
+    display: block;
+    margin: {
+      right: -15px;
+      left: -15px;
+    }
+    padding: 10px 15px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: normal;
+
+    span {
+      display: block;
+      color: #888;
+      font: {
+        size: 14px;
+        style: normal;
+        weight: 300;
+      }
+
+      .fa {
+        margin-right: 1em;
+      }
+    }
+
+    &:hover {
+      background-color: #0871ab;
+
+      &,
+      * {
+        color: #fff !important;
+      }
+    }
   }
 }
 
@@ -51,5 +103,31 @@
         margin-top: 10px;
       }
     }
+  }
+}
+
+.Widget--hotCategories {
+  p {
+    margin-bottom: 10px;
+
+    a,
+    span {
+      margin: 0 .3em;
+      font: {
+        size: 16px;
+        weight: bold;
+      }
+    }
+
+    span {
+      font-style: italic;
+      text-decoration: underline;
+    }
+  }
+
+  ul {
+    list-style-position: inside;
+    margin-bottom: 0;
+    padding-left: 5px;
   }
 }
