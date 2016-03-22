@@ -10,6 +10,9 @@ frontend-engineer:
 frontend-web-development:
   name: 前端开发
 
+web-security:
+  name: 网站安全
+
 web-performance-optimization:
   name: 网站性能优化
 
@@ -170,6 +173,9 @@ development-environment:
 linux:
   name: Linux
 
+centos:
+  name: CentOS
+
 deployment:
   name: 部署
 
@@ -178,6 +184,9 @@ git:
 
 web-server:
   name: 网页服务器
+
+nginx:
+  name: Nginx
 
 
 

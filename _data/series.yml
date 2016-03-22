@@ -21,3 +21,10 @@ dream-home-of-ourai:
       title: 我所想的婚后生活
     - id: wonderful-home
       title: 未来的家
+
+skills-of-a-webmaster:
+  name: 站长修炼手册
+  description: 单纯做个开发者，简单；做个人网站的站长，不简单
+  posts:
+    - id: keep-your-website-safe
+      title: 给网站戴上「安全套」
