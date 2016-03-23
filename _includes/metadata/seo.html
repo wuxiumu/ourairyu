@@ -95,7 +95,24 @@
   <meta property="og:description" content="{{ seo_description }}">
 {% endif %}
 
-{% assign keywords = page.keywords | default: site.keywords %}
+{% if page.keywords %}
+  {% assign keywords = page.keywords %}
+{% else %}
+  {% assign tag_data = site.data.tags %}
+  {% assign keywords = "" %}
+
+  {% for t in page.tags %}
+    {% unless keywords == "" %}
+      {% assign keywords = keywords | append: "," %}
+    {% endunless %}
+
+    {% assign keywords = keywords | append: tag_data[t].name %}
+  {% endfor %}
+
+  {% if keywords == "" %}
+    {% assign keywords = site.keywords %}
+  {% endif %}
+{% endif %}
 {% unless keywords == null or keywords == blank %}
   <meta name="keywords" content="{{ keywords }}">
 {% endunless %}
