@@ -121,8 +121,159 @@
   }
 }
 
+.Article-siblings {
+  @include pie-clearfix;
+
+  ul {
+    list-style-type: none;
+    margin-bottom: 0;
+    padding-left: 0;
+    @include pie-clearfix;
+    @include display-flex;
+    @include align-items(stretch);
+  }
+
+  a {
+    @include covered_background(none, #222);
+    display: block;
+    padding: 50px 25px 70px;
+    text: {
+      align: center;
+      decoration: none;
+    }
+    color: rgba(255, 255, 255, .8);
+  }
+
+  .Sibling {
+    min-width: 50%;
+    @include display-flex;
+    @include flex-grow(1);
+
+    a {
+      position: relative;
+      width: 100%;
+
+      &:before {
+        @include inline-block;
+        position: relative;
+        z-index: 2;
+        padding: 2px 10px;
+        border: 1px solid rgba(255, 255, 255, .5);
+        border-radius: 4px;
+        font: {
+          size: 12px;
+          weight: normal;
+        }
+        color: rgba(255, 255, 255, .8);
+      }
+
+      &:after {
+        @include stretch;
+        z-index: 1;
+        content: $UN-space;
+        background-color: rgba(0, 0, 0, .5);
+      }
+
+      &:hover {
+        &:before {
+          color: #222;
+          background-color: #fff;
+        }
+
+        &:after {
+          background-color: rgba(0, 0, 0, .8);
+          @include transition(all 0.2s ease);
+        }
+      }
+    }
+
+    &.Sibling--previous {
+      a:before {
+        content: "上一篇";
+      }
+    }
+
+    &.Sibling--next {
+      a:before {
+        content: "下一篇";
+      }
+    }
+
+    h3,
+    p {
+      position: relative;
+      z-index: 3;
+      text-align: left;
+    }
+
+    h3 {
+      margin: 15px 0 10px;
+      font-size: 1.4em;
+      line-height: 1.25;
+      color: #fff;
+    }
+
+    p {
+      margin-bottom: 0;
+      font-size: 14px;
+    }
+  }
+
+  .u-noCover {
+    a {
+      background-color: #f5f8fa;
+      color: rgba(68, 68, 68, .8);
+
+      &:before {
+        color: rgba(0, 0, 0, .5);
+        border-color: rgba(0, 0, 0, .2);
+      }
+
+      &:after {
+        display: none;
+      }
+    }
+
+    h3 {
+      color: #444;
+    }
+  }
+
+  + .Article-comments {
+    margin-top: 15px;
+  }
+
+  @media all and (max-width: $screen-sm-max) {
+    margin-top: 15px;
+  }
+
+  @media all and (max-width: $screen-xs-max) {
+    ul {
+      @include flex-direction(column);
+    }
+
+    .Sibling {
+      a {
+        padding: {
+          top: 30px;
+          bottom: 50px;
+        }
+      }
+
+      h3 {
+        text-align: center;
+      }
+
+      p {
+        display: none;
+      }
+    }
+  }
+}
+
 @media all and (min-width: $screen-md-min) {
   .Article-content,
+  .Article-siblings,
   .Article-comments {
     padding-left: 0;
   }
@@ -138,6 +289,7 @@
   }
 
   .Article-content,
+  .Article-siblings,
   .Article-comments {
     padding: {
       right: 0;

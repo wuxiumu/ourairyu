@@ -92,6 +92,7 @@ defaults:
         uri: https://ourai.ws/
         slug: ourai
         twitter: ourairyu
+      siblings: true
       comments: true
   - scope:
       path: ""
