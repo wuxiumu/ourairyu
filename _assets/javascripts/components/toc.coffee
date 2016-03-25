@@ -20,7 +20,7 @@ generateToc = ->
   $toc = $("<ul class=\"nav\" />")
   $item = null
 
-  $("h2, h3", $(".Article-content")).each ->
+  $("h2:not([data-toc-skip]), h3:not([data-toc-skip])", $(".Article-content")).each ->
     $h = $(@)
 
     if @tagName.toLowerCase() is "h2"
