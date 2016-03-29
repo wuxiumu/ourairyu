@@ -254,22 +254,31 @@
     + li {
       margin-top: 12px;
     }
-  }
 
-  img {
-    float: left;
-    width: 32px;
-    height: 32px;
-    margin-right: 10px;
-  }
-
-  h3 {
-    overflow: hidden;
-    margin: 0;
-    font: {
-      size: 12px;
-      weight: normal;
+    img {
+      float: left;
+      width: 32px;
+      height: 32px;
+      margin-right: 10px;
     }
-    line-height: 1.4;
+
+    h3,
+    p {
+      overflow: hidden;
+      line-height: 1.2;
+    }
+
+    h3 {
+      margin: 0 0 2px;
+      font-size: 14px;
+    }
+
+    p {
+      font-size: 12px;
+
+      a {
+        color: #666;
+      }
+    }
   }
 }

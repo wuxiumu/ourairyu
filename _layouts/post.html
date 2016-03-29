@@ -86,8 +86,9 @@ layout: page
         {% for r in recommended %}
           {% assign m = site.data.medias[r.media] %}
           <li>
-            <img src="{{ m.image }}" alt="{{ m.name }}" title="{{ m.name }}">
-            <h3><a href="{{ r.url }}" target="_blank" rel="external nofollow">{{ r.title }}</a></h3>
+            <img src="{{ m.image | prepend: 'medias/' | asset_path }}" alt="{{ m.name }}" title="{{ m.name }}">
+            <h3><a href="{{ r.url }}" target="_blank" rel="external nofollow">{{ m.name }}</a></h3>
+            <p><a href="{{ m.url }}" target="_blank" rel="external nofollow">{{ m.url }}</a></p>
           </li>
         {% endfor %}
       </ul>
