@@ -4,19 +4,19 @@ layout: null
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
   <channel>
-    {% assign siteUrl = "https://ourai.ws/" %}
+    {% assign siteUrl = "https://ourai.ws" %}
     {% assign category = page.category %}
     {% assign cat = site.data.categories[page.category] %}
 
     <title>{{ cat.name | prepend: "「" | append: "」类别的文章 - " | append: site.title | xml_escape }}</title>
     <description>{{ cat.description | xml_escape }}</description>
-    <link>{{ category | prepend : "categories/" | prepend: siteUrl | append: "/" }}</link>
-    <atom:link href="{{ category | prepend: 'categories/' | prepend: siteUrl | append: '/rss.xml' }}" rel="self" type="application/rss+xml"/>
+    <link>{{ category | prepend : "/categories/" | prepend: siteUrl | append: "/" }}</link>
+    <atom:link href="{{ category | prepend: '/categories/' | prepend: siteUrl | append: '/rss.xml' }}" rel="self" type="application/rss+xml"/>
     <pubDate>{{ site.time | date_to_rfc822 }}</pubDate>
     <lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>
     <language>zh-CN</language>
     <generator>Jekyll v{{ jekyll.version }}</generator>
-    {% for post in page.posts limit:10 %}
+    {% for post in site.categories[page.category] limit:10 %}
       <item>
         <title>{{ post.title | xml_escape }}</title>
         {% if post.author.name %}
