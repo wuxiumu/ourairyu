@@ -1,7 +1,7 @@
 module Jekyll
   module Feeds
     class CategoryFeed < Page
-      def initialize(site, base, dir, category, posts)
+      def initialize(site, base, dir, category)
         @site = site
         @base = base
         @dir = dir
@@ -13,8 +13,6 @@ module Jekyll
 
         category_title_prefix = site.config['category_title_prefix'] || 'Category: '
         self.data['title'] = "#{category_title_prefix}#{category}"
-
-        self.data["posts"] = posts
       end
 
       def extname
@@ -27,14 +25,14 @@ module Jekyll
 
       def generate(site)
         if site.layouts.key? 'feed/category'
-          site.categories.each do |category, posts|
-            write_category_feed(site, File.join('categories', category.gsub(/\s/, "-").gsub(/[^\w-]/, '').downcase), category, posts)
+          site.categories.keys.each do |category|
+            write_category_feed(site, File.join('categories', category.gsub(/\s/, "-").gsub(/[^\w-]/, '').downcase), category)
           end
         end
       end
 
-      def write_category_feed(site, dir, category, posts)
-        index = CategoryFeed.new(site, site.source, dir, category, posts)
+      def write_category_feed(site, dir, category)
+        index = CategoryFeed.new(site, site.source, dir, category)
         index.render(site.layouts, site.site_payload)
         index.write(site.dest)
         site.static_files << index
