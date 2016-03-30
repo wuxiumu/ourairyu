@@ -14,6 +14,7 @@ layout: page
   {% assign postCategory = categories[category].name %}
 {% endif %}
 
+<p class="sr-only">本文首发于<a href="{{ site.author.uri }}">{{ site.title }}</a>《<a href="{{ page.url | prepend: 'https://ourai.ws' }}">{{ page.title }}</a>》。由于我会时不时对文章进行补充、修正和润色，为了保证所看到的是最新版本，请阅读<a href="{{ page.url | prepend: 'https://ourai.ws' }}">原文</a>。</p>
 {{ content }}
 
 {% contentfor post_meta %}
