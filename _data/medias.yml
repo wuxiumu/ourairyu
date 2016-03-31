@@ -1,7 +1,14 @@
 zaoduke:
   name: 前端早读课
-  image: https://ww3.sinaimg.cn/large/891da263jw1ehxn09wi5gj20280283yc.jpg
+  image: zaoduke.jpg
+  url: http://www.zaoduke.net/
 
 xitu-gold:
   name: 稀土掘金
-  image: https://gold.xitu.io/images/app/logo.png
+  image: xitu-gold.png
+  url: https://gold.xitu.io/
+
+jobbole:
+  name: 伯乐在线
+  image: jobbole.png
+  url: http://web.jobbole.com/

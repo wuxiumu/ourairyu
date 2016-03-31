@@ -3,4 +3,4 @@ layout: page
 ---
 {% contentfor post_title %}{{ site.data.tags[page.title].name | prepend: "「" | append: "」标签的文章" }}{% endcontentfor %}
 
-{% include widgets/articles.html posts=page.posts %}
+{% include partials/articles.html posts=page.posts %}

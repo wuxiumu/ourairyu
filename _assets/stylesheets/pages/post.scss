@@ -4,39 +4,21 @@
 
 
 .Article-header {
-  p,
-  .Article-tags {
-    float: left;
-    margin-top: .75em;
-    font-size: 14px;
-  }
-
   p {
+    float: left;
+    margin: {
+      top: .75em;
+      right: 1.2em;
+    }
+    font-size: 14px;
     color: #999;
   }
 }
 
+.Article-commentCount,
 .Article-tags {
-  margin-left: 1em;
-
-  span,
-  ul,
-  li {
-    float: left;
-  }
-
-  ul {
-    list-style: none inside none;
-    margin-bottom: 0;
-    padding-left: 0;
-
-    li {
-      margin-left: .5em;
-
-      &:first-child {
-        margin-left: 0;
-      }
-    }
+  a {
+    margin-left: .5em;
   }
 }
 
@@ -272,22 +254,31 @@
     + li {
       margin-top: 12px;
     }
-  }
 
-  img {
-    float: left;
-    width: 32px;
-    height: 32px;
-    margin-right: 10px;
-  }
-
-  h3 {
-    overflow: hidden;
-    margin: 0;
-    font: {
-      size: 12px;
-      weight: normal;
+    img {
+      float: left;
+      width: 32px;
+      height: 32px;
+      margin-right: 10px;
     }
-    line-height: 1.4;
+
+    h3,
+    p {
+      overflow: hidden;
+      line-height: 1.2;
+    }
+
+    h3 {
+      margin: 0 0 2px;
+      font-size: 14px;
+    }
+
+    p {
+      font-size: 12px;
+
+      a {
+        color: #666;
+      }
+    }
   }
 }

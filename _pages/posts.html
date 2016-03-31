@@ -25,11 +25,37 @@ special_type: posts
   {% include widgets/toc.html %}
 {% endcontentfor %}
 
+{% assign posts = site.posts %}
+{% assign first_post = posts.first %}
+<!-- 最新文章 -->
+<p>最近的一篇文章发表于 <time datetime="{{ first_post.date | date_to_xmlschema }}" class="u-bold">{{ first_post.date | date: "%Y 年 %-m 月 %-d 日" }}</time>——</p>
+<blockquote>
+  <p>{{ first_post.content | markdownify | strip_html | strip_newlines | escape_once | truncate: 100, "..." }}</p>
+  <footer>{{ first_post.author.name }}</footer>
+</blockquote>
+<p>想看完整内容快戳《<a href="{{ first_post.url }}">{{ first_post.title }}</a>》！(((o(*ﾟ▽ﾟ*)o)))</p>
+<!-- 主打分类 -->
+<p>本站主打三类文章，以下为快速通道：</p>
+<nav class="MainCategories LightBox">
+  <ul>
+    {% for cat in site.categories limit: 3 %}
+      {% assign c = cat[0] %}
+      {% assign c_d = site.data.categories[c] %}
+
+      <li>
+        <a href="/categories/{{ c }}/" style="background-image: url('{{ c_d.thumbnail | asset_path }}')">
+          <h3 data-toc-skip="true">{{ c_d.name }}</h3>
+          <p>{{ c_d.description }}</p>
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+</nav>
+<!-- 文章列表 -->
 <div class="ArticleList">
-  {% assign posts = site.posts %}
   {% assign prev_post = null %}
   {% assign first_post_year = posts.last.date | date: "%Y" %}
-  {% assign last_post_year = posts.first.date | date: "%Y" %}
+  {% assign last_post_year = first_post.date | date: "%Y" %}
 
   {% assign current_year = site.time | date: "%Y" %}
 

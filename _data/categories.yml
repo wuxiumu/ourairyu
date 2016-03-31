@@ -1,6 +1,7 @@
 web-development:
   name: 网站开发
   description: 利用网页程序语言等技术进行网站和网络应用的开发与维护
+  thumbnail: thumbnails/geek.jpg
 
 japanese:
   name: 日语
@@ -12,10 +13,12 @@ monogatari:
 life:
   name: 流水帐
   description: 记录一下生活及工作中所经历的杂七杂八，顺便吐吐槽、卖卖萌、装装逼 ;-P
+  thumbnail: thumbnails/ourai-and-julia.jpg
 
 thoughts:
   name: 胡思乱想
   description: 思考能够使我进步，让我一时地脱离当前世界
+  thumbnail: thumbnails/think-different.jpg
 
 culture:
   name: 文化
