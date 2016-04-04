@@ -7,6 +7,10 @@ tags:
   - frontend-engineer
   - job
 image: posts/20160330/saying-of-steve-jobs.jpg
+recommended:
+  - title: 一个前端的职业轨迹
+    url: http://web.jobbole.com/85500/
+    media: jobbole
 ---
 
 从春节回来开始直到现在，公司就像开了闸的西湖水一样进行着新陈更替，可以说开发团队算是重组了。眼看着身边发生这种情况，虽然没有什么想法但还是有了点想法，所以想写篇文章阐述一下。几天前还在朋友圈里撒下了种子——
