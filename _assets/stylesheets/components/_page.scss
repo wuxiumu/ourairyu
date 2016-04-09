@@ -37,6 +37,23 @@ body {
   }
 }
 
+.Page-navs {
+  > .nav {
+    > li {
+      > a {
+        font-weight: normal;
+        color: #888;
+
+        &:hover,
+        &:focus {
+          color: #333;
+          background-color: inherit;
+        }
+      }
+    }
+  }
+}
+
 .Page-content {
   min-height: 100%;
 
