@@ -150,3 +150,14 @@ author:
   twitter: ourairyu
 github:
   url: https://ourai.ws
+
+
+
+# =====
+# Customized configurations
+# =====
+
+# Modules
+module:
+  comment: true
+  share: true
