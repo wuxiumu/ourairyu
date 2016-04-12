@@ -29,11 +29,16 @@ comments: true
 <h2 id="recommend">强烈推荐</h2>
 <h3>博客或专栏</h3>
 <ul>
-  <li><a href="http://www.zhangxinxu.com/wordpress/" target="_blank" title="张鑫旭的博客">张鑫旭-鑫空间-鑫生活</a></li>
-  <li><a href="http://qianduan.guru/" target="_blank">前端外刊评论</a></li>
+  {% for link in site.data.links.recommend %}
+  <li><a href="{{ link.url }}" target="_blank">{{ link.name }}</a></li>
+  {% endfor %}
 </ul>
 <h2 id="exchange">交换链接</h2>
-<p>暂时没有，还不快来抢第一个！</p>
+<ul>
+  {% for link in site.data.links.exchange %}
+  <li><a href="{{ link.url }}" target="_blank">{{ link.name }}</a></li>
+  {% endfor %}
+</ul>
 
 {% contentfor footer %}
   {% include widgets/social.html %}

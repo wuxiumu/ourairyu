@@ -30,3 +30,22 @@ ourairyu:
   url: /ourairyu/
   text: 思考者
   description: 
+
+
+
+# =====
+# 传送中心
+# =====
+
+recommend:
+  - name: 张鑫旭-鑫空间-鑫生活
+    url: http://www.zhangxinxu.com/wordpress/
+    description: 张鑫旭的个人博客，张鑫旭的技术作品，张鑫旭的生活成长
+  - name: 前端外刊评论
+    url: http://qianduan.guru/
+    description: 关注前端前沿技术，探寻业界深邃思想
+
+exchange:
+  - name: 前端乱炖
+    url: http://www.html-js.com
+    description: 前端乱炖，这里是最专业的前端知识平台，汇集国内大部分前端开发人员的前端花名册，最精彩的原创文章专栏，最专业的问答平台，最火热的话题频道，最丰富的线下线上活动。html,js,css,nodejs,前端开发,前端招聘,jquery,qianduan
