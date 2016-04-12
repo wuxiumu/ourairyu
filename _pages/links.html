@@ -1,0 +1,41 @@
+---
+title: 传送中心
+comments: true
+---
+
+<p>本来不想做什么「友情链接」的，但想到「<strong>把优秀的网站推荐给有需要的人</strong>」，于是就产生了这个页面。</p>
+<blockquote>
+  <p>与优秀的人为伍。</p>
+  <footer>某个有才的人</footer>
+</blockquote>
+<p>这里所显示的网站链接，除了我所参与的之外都是我觉得不错的网站，且都是一些质量较高的网站。所以，我接受链接交换，但是有所要求：</p>
+<ol>
+  <li>内容绝大多数为原创，是自己思考的结晶；</li>
+  <li>范围可以是前端开发、日本文化（如日语、动漫）等与我的职业或爱好相关；</li>
+  <li>经常对自己的站点进行维护。</li>
+</ol>
+<p>如果自觉满足上述要求，那么就按照下面列出的信息把我的网站链接添加到你的网站上：</p>
+<ul>
+  <li>名称：{{ site.title }}</li>
+  <li>网址：<code>https://ourai.ws/</code></li>
+  <li>描述：{{ site.description }}</li>
+  <li>站长：{{ site.author.name }}</li>
+  <li>标志：<a href="{{ 'avatars/ourai-100px.jpg' | asset_path }}" target="_blank" rel="nofollow">点击查看</a></li>
+</ul>
+<p>在做完以上操作之后，留下你的站点相关信息；我在浏览过你的网站觉得真的符合要求时，会将你的网站链接添加到本页「<a href="#exchange">交换链接</a>」中。需要注意的是，<strong>如果某天发现我的网站链接从你的网站上消失了，我也会撤销本站对你的网站的链接。</strong></p>
+<p></p>
+<h2 id="special">特别企划</h2>
+<p>很多很屌的东西正在筹划中，敬请期待！(((o(*ﾟ▽ﾟ*)o)))</p>
+<h2 id="recommend">强烈推荐</h2>
+<h3>博客或专栏</h3>
+<ul>
+  <li><a href="http://www.zhangxinxu.com/wordpress/" target="_blank" title="张鑫旭的博客">张鑫旭-鑫空间-鑫生活</a></li>
+  <li><a href="http://qianduan.guru/" target="_blank">前端外刊评论</a></li>
+</ul>
+<h2 id="exchange">交换链接</h2>
+<p>暂时没有，还不快来抢第一个！</p>
+
+{% contentfor footer %}
+  {% include widgets/social.html %}
+  {% include widgets/toc.html %}
+{% endcontentfor %}
