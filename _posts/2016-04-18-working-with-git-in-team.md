@@ -71,21 +71,21 @@ SourceTree 和 GitLab 应该是相辅相成的存在，而不是互相取代。
 
 <figure>
   <img src="{{ 'posts/20160418/merge-commits-step-1.png' | asset_path }}">
-  <figcaption></figcaption>
+  <figcaption>修改前的提交记录</figcaption>
 </figure>
 
-然后，终端中执行命令 `git rebase -i [SHA]`，其中 SHA 是上一次提交之前的那次提交的，在这里是 `3b22372 `。
+然后，终端中执行命令 `git rebase -i [SHA]`，其中 SHA 是上一次提交之前的那次提交的，在这里是 `3b22372`。
 
 <figure>
   <img src="{{ 'posts/20160418/merge-commits-step-2.png' | asset_path }}">
-  <figcaption></figcaption>
+  <figcaption>修改提交节点</figcaption>
 </figure>
 
 最后，这样就将两次提交的节点合并成一个，甚至能够修改提交信息！
 
 <figure>
   <img src="{{ 'posts/20160418/merge-commits-step-3.png' | asset_path }}">
-  <figcaption></figcaption>
+  <figcaption>修改后的提交记录</figcaption>
 </figure>
 
 谁说历史不可篡改了？前提是，**想要合并的那几次提交还没有推送到远程！**
