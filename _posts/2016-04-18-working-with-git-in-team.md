@@ -1,0 +1,154 @@
+---
+title: 团队中的 Git 实践
+date: 2016-04-18 21:53:38 +0800
+categories:
+  - web-development
+tags:
+  - software-engineering
+  - version-control
+  - git
+  - workflow
+---
+
+在 2005 年的某一天，Linux 之父 Linus Torvalds 发布了他的又一个里程碑作品——Git。它的出现改变了软件开发流程，大大地提高了开发流畅度！直到现在仍十分流行，完全没有衰退的迹象。
+
+本文不是一篇 Git 入门教程，这样的文章一搜一大把，我是要从具体实践角度，尤其是在团队协作中，阐述如何去好好地应用 Git。既然是讲在团队中的应用实践，我就尽可能地结合实际场景来讲述。
+
+## 热身运动
+
+为了将我们的思想调节到一个频道上，在进入正题之前，有些事情是一定要讲清楚的。
+
+### 分支模型
+
+Git 的一大特点就是可以创建很多分支并行开发，正因为它的灵活性，团队中如果没有一个成熟的分支模型的话将会是一团糟。有个很成熟的叫「[Git Flow](http://nvie.com/posts/a-successful-git-branching-model/){:target="_blank"}{:rel="external nofollow"}」的分支模型，它能够应对 99% 的场景，剩下的那 1% 留给几乎不存在的极度变态的场景。
+
+需要注意的是，**它只是一个模型，而不是一个工具；你可以用工具去应用这个模型，也可以用最朴实的命令行。所以，重要的是理解概念，不要执着于实行的手段。**
+
+简单说来，Git Flow 就是给原本普普通通的分支赋予了不同的「职责」：
+
+* **master**——最为稳定功能最为完整的随时可发布的代码；
+* hotfix——修复线上代码的 bug；
+* **develop**——永远是功能最新最全的分支；
+* feature——某个功能点正在开发阶段；
+* release——发布定期要上线的功能。
+
+看到上面的「master」和「develop」加粗了吧？代表它们是「主要分支」，其他的分支是基于它们派生出来的。**主要分支每种类型只能有一个，派生分支每个类型可以同时存在多个。**各类型分支之间的关系用一张图来体现就是：
+
+<figure>
+  <img src="{{ 'posts/20160418/git-workflow-release-cycle-4maintenance.png' | asset_path }}" alt="Git Flow 模型">
+  <figcaption>Git Flow 模型</figcaption>
+</figure>
+
+更多信息可参考 [xirong](https://github.com/xirong){:target="_blank"}{:rel="external nofollow"} 所整理的《[Git工作流指南](https://github.com/xirong/my-git/blob/master/git-workflow-tutorial.md){:target="_blank"}{:rel="external nofollow"}》。
+
+### 工具选择
+
+一直不喜欢「＊＊最好用」这种命题，主观性太强，不会有一个结论。对于工具的选择，我一直都是秉承「哪个能更好地解决问题就用哪个」这个原则。所以，只要不影响到团队，用什么工具都是可以接受的。但根据多数开发人员的素质情况来看，建议使用图形化工具，例如 [SourceTree](https://www.sourcetreeapp.com){:target="_blank"}{:rel="external nofollow"}。如果想用命令行，可以啊！先在心里问下自己：「我 Git 牛逼不？会不会惹麻烦给别人？」
+
+在团队中应用 Git Flow 时，推荐使用 SourceTree 与 [GitLab](https://gitlab.com){:target="_blank"}{:rel="external nofollow"} 配合的形式：
+
+1. 用 SourceTree 创建 feature 等分支以及本地的分支合并、删除；
+2. 用 GitLab 做代码审核和远程的分支合并、删除。
+
+SourceTree 和 GitLab 应该是相辅相成的存在，而不是互相取代。
+
+## 习惯养成
+
+如果一个团队在使用 Git 时没有一些规范，那么将是一场难以醒来的噩梦！然而，规范固然重要，但更重要的是个人素质，在使用 Git 时需要自己养成良好的习惯。
+
+### 提交
+{:id="committing"}
+
+如何去写一个提交信息，《[Git: 教你如何在Commit时有话可说](http://mp.weixin.qq.com/s?__biz=MzAwNDYwNzU2MQ==&mid=401622986&idx=1&sn=470717939914b956ac372667ed23863c&scene=2&srcid=0114ZcTNyAMH8CLwTKlj6CTN&from=timeline&isappinstalled=0#wechat_redirect){:target="_blank"}{:rel="external nofollow"}》中做了很好的说明。在具体开发工作中主要需要遵守的原则就是「使每次提交都有质量」，只要坚持做到以下几点就 OK 了：
+
+1. 提交时的粒度是一个小功能点或者一个 bug fix，这样进行恢复等的操作时能够将「误伤」减到最低；
+2. 用一句简练的话写在第一行，然后空一行稍微详细阐述该提交所增加或修改的地方；
+3. 不要每提交一次就推送一次，多积攒几个提交后一次性推送，这样可以避免在进行一次提交后发现代码中还有小错误。
+
+假如已经把代码提交了，对这次提交的内容进行检查时发现里面有个变量单词拼错了或者其他失误，只要还没有推送到远程，就有一个不被他人发觉你的疏忽的补救方法——
+
+首先，把失误修正之后提交，可以用与上次提交同样的信息。
+
+<figure>
+  <img src="{{ 'posts/20160418/merge-commits-step-1.png' | asset_path }}">
+  <figcaption></figcaption>
+</figure>
+
+然后，终端中执行命令 `git rebase -i [SHA]`，其中 SHA 是上一次提交之前的那次提交的，在这里是 `3b22372 `。
+
+<figure>
+  <img src="{{ 'posts/20160418/merge-commits-step-2.png' | asset_path }}">
+  <figcaption></figcaption>
+</figure>
+
+最后，这样就将两次提交的节点合并成一个，甚至能够修改提交信息！
+
+<figure>
+  <img src="{{ 'posts/20160418/merge-commits-step-3.png' | asset_path }}">
+  <figcaption></figcaption>
+</figure>
+
+谁说历史不可篡改了？前提是，**想要合并的那几次提交还没有推送到远程！**
+
+### 推送
+{:id="pushing"}
+
+当自己一个人进行开发时，在功能完成之前不要急着创建远程分支。
+
+### 拉取
+{:id="pulling"}
+
+请读张文钿所写的《[使用 git rebase 避免無謂的 merge](https://ihower.tw/blog/archives/3843){:target="_blank"}{:rel="external nofollow"}》。
+
+### 合并
+{:id="merging"}
+
+在将其他分支的代码合并到当前分支时，如果那个分支是当前分支的父分支，为了保持图表的可读性和可追踪性，可以考虑用 `git rebase` 来代替 `git merge`；反过来或者不是父子关系的两个分支以及互相已经 `git merge` 过的分支，就不要采用 `git rebase` 了，避免出现重复的冲突和提交节点。
+
+## 工具配置
+
+在使用 SourceTree 时，进行配置之后可以将一些规范性的东西自动化处理。
+
+按下 <kbd>command</kbd> + <kbd>,</kbd> 调出「Preferences」界面并切换到「Git」标签：勾选「Use rebase instead of merge by default for tracked branches」，这样在点「Pull」按钮拉取代码时会自动执行 `git pull --rebase`；勾选「Do not fast-forward when merging, always create commit」以在每次合并时创建新的提交节点。
+
+<figure>
+  <img src="{{ 'posts/20160418/setting-of-sourcetree-git.png' | asset_path }}" alt="">
+  <figcaption>「Preferences」界面的「Git」标签</figcaption>
+</figure>
+
+## 工作流程
+
+在创建项目仓库后一定要把主要分支，也就是 master 和 develop 给保护起来。通过 GitLab 为那两个分支设置权限，只有各项目的负责人可以进行推送和删除等操作。
+
+除了主要分支的名字是固定的之外，派生分支是需要自己命名的，这里就要有个命名规范了。强烈推荐用如下形式：
+
+* feature 分支：按照功能点（而不是需求）命名；
+* release 分支：用发布时间命名，可以加上适当的前缀；
+* hotfix 分支：GitLab 的 issue 编号或 bug 性质等。
+
+另外还有 tag，用[语义化的版本号](http://semver.org/lang/zh-CN/){:target="_blank"}{:rel="external nofollow"}命名。
+
+### 开发功能
+{:id="developing"}
+
+在确定发布日期之后，将需要完成的内容细分一下分配出去，负责某个功能的开发人员利用 SourceTree 所提供的 Git Flow 工具创建一个对应的 feature 分支。如果是多人配合的话，创建分支并做一些初始化工作之后就推送创建远程分支；否则，直到功能开发完毕要合并进 develop 前，不要创建远程分支。
+
+功能开发并自测之后，先切换到 develop 分支将最新的代码拉取下来；再切换回自己负责的 feature 分支把 develop 分支的代码合并进来，合并方式参照上文中的「[合并](#merging)」；如果有冲突则自己和配合的人一起解决；最后，到 GitLab 上创建合并请求（merge request）给项目负责人。
+
+项目负责人在收到合并请求时，应该先做下代码审核看看有没有明显的严重的错误；有问题就找开发人员去修改，没有就接受请求并删除对应的 feature 分支。
+
+### 测试功能
+
+在将某次发布的所需功能全部开发完成时，负责测试的人创建一个 release 分支部署到测试环境进行测试；若发现了 bug，相应的开发人员就在 release 分支上或者基于 release 分支创建一个分支进行修复。
+
+### 发布功能
+
+当确保某次发布的功能可以发布时，负责发布的人将 release 分支合并进 master 和 develop 并打上 tag，然后打包发布到线上环境。
+
+建议打 tag 时在信息中详细描述这次发布的内容，如：添加了哪些功能，修复了什么问题。
+
+### 问题修复
+
+当发现线上环境的代码有小问题或者做些文案修改时，相关开发人员就在本地创建 hotfix 分支进行修改，具体操作参考「[开发功能](#developing)」。
+
+如果是相当严重的问题，可能就得回滚到上一个 tag 的版本了。
