@@ -7,7 +7,7 @@ layout: page
 
 {% if category.banner %}
 {% contentfor post_banner %}
-  <div class="Page-banner">
+  <div class="Page-banner hidden-xs">
     <figure class="container" style="background-image: url({{ category.banner.url | asset_path }});">
       <img src="{{ category.banner.url | asset_path }}" alt="{{ category.banner.description }}">
       <figcaption>{{ category.banner.description }}</figcaption>

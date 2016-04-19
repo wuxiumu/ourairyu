@@ -8,6 +8,11 @@ tags:
   - version-control
   - git
   - workflow
+banner:
+  url: posts/20160418/banner.jpg
+  description: Git Flow
+  style: "background-color: #e5e5e3; background-image: -webkit-linear-gradient(left, #e5e5e3, #dddfde); background-image: linear-gradient(to right, #e5e5e3, #dddfde);"
+image: posts/20160418/banner.jpg
 ---
 
 在 2005 年的某一天，Linux 之父 Linus Torvalds 发布了他的又一个里程碑作品——Git。它的出现改变了软件开发流程，大大地提高了开发流畅度！直到现在仍十分流行，完全没有衰退的迹象。

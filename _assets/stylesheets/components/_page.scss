@@ -77,6 +77,7 @@ body {
 }
 
 .Page-banner {
+  height: 400px;
   font: 0px/0 a;
 
   img,
@@ -87,6 +88,18 @@ body {
   .container {
     @include covered_background;
     height: 100%;
+  }
+
+  @media (max-width: $screen-md-max) {
+    height: 340px;
+  }
+
+  @media (max-width: $screen-sm-max) {
+    height: 300px;
+  }
+
+  @media (max-width: $screen-xs-max) {
+    height: 150px;
   }
 }
 
