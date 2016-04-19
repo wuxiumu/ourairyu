@@ -12,7 +12,7 @@ banner:
   url: posts/20160418/banner.jpg
   description: Git Flow
   style: "background-color: #e5e5e3; background-image: -webkit-linear-gradient(left, #e5e5e3, #dddfde); background-image: linear-gradient(to right, #e5e5e3, #dddfde);"
-image: posts/20160418/banner.jpg
+image: posts/20160418/shit.jpg
 ---
 
 在 2005 年的某一天，Linux 之父 Linus Torvalds 发布了他的又一个里程碑作品——Git。它的出现改变了软件开发流程，大大地提高了开发流畅度！直到现在仍十分流行，完全没有衰退的迹象。
@@ -25,7 +25,14 @@ image: posts/20160418/banner.jpg
 
 ### 分支模型
 
-Git 的一大特点就是可以创建很多分支并行开发，正因为它的灵活性，团队中如果没有一个成熟的分支模型的话将会是一团糟。有个很成熟的叫「[Git Flow](http://nvie.com/posts/a-successful-git-branching-model/){:target="_blank"}{:rel="external nofollow"}」的分支模型，它能够应对 99% 的场景，剩下的那 1% 留给几乎不存在的极度变态的场景。
+Git 的一大特点就是可以创建很多分支并行开发，正因为它的灵活性，团队中如果没有一个成熟的分支模型的话将会是一团糟。
+
+<figure>
+  <img src="{{ 'posts/20160418/shit.jpg' | asset_path }}" alt="混乱的分支">
+  <figcaption>混乱的分支</figcaption>
+</figure>
+
+有个很成熟的叫「[Git Flow](http://nvie.com/posts/a-successful-git-branching-model/){:target="_blank"}{:rel="external nofollow"}」的分支模型，它能够应对 99% 的场景，剩下的那 1% 留给几乎不存在的极度变态的场景。
 
 需要注意的是，**它只是一个模型，而不是一个工具；你可以用工具去应用这个模型，也可以用最朴实的命令行。所以，重要的是理解概念，不要执着于实行的手段。**
 
