@@ -11,7 +11,6 @@ tags:
 banner:
   url: posts/20160418/banner.jpg
   description: Git Flow
-  style: "background-color: #e5e5e3; background-image: -webkit-linear-gradient(left, #e5e5e3, #dddfde); background-image: linear-gradient(to right, #e5e5e3, #dddfde);"
 image: posts/20160418/shit.jpg
 ---
 
