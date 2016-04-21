@@ -12,6 +12,10 @@ banner:
   url: posts/20160418/banner.jpg
   description: Git Flow
 image: posts/20160418/shit.jpg
+recommended:
+  - title: 团队中的 Git 实践
+    url: http://www.jianshu.com/p/513854c987c3
+    media: jianshu
 ---
 
 在 2005 年的某一天，Linux 之父 Linus Torvalds 发布了他的又一个里程碑作品——Git。它的出现改变了软件开发流程，大大地提高了开发流畅度！直到现在仍十分流行，完全没有衰退的迹象。
