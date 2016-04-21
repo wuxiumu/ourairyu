@@ -6,6 +6,11 @@ categories:
 banner:
   url: posts/20160413/banner.jpg
   description: 六度分隔理论
+image: posts/20160413/banner.jpg
+recommended:
+  - title: 世界，其实很小
+    url: http://gold.xitu.io/entry/57173e5971cfe400573e7ef3
+    media: xitu-gold
 ---
 
 在经过一个半月左右的空档之后，再一次坐上了面试官的席位。就在昨天，我又面试了一个应聘者。与以往不同的是，这次我是跟 leader 一起，他是主面试官，我只是个助手。
