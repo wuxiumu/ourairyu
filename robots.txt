@@ -7,4 +7,9 @@ Disallow: /tags/
 Disallow: /archives/
 Disallow: /demos/
 
+Disallow: /links/
+Disallow: /cv/
+Disallow: /we-need-you/
+Disallow: /404.html
+
 Sitemap: /sitemap.xml
