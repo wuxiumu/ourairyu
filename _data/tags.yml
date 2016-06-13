@@ -12,6 +12,9 @@ frontend-engineer:
 frontend-web-development:
   name: 前端开发
 
+information-security:
+  name: 信息安全
+
 web-security:
   name: 网站安全
 
@@ -269,3 +272,6 @@ wonderful-idea:
 
 lifestyle:
   name: 生活方式
+
+social-media:
+  name: 社交媒体
