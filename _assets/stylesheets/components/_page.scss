@@ -37,6 +37,23 @@ body {
   }
 }
 
+.Page-navs {
+  > .nav {
+    > li {
+      > a {
+        font-weight: normal;
+        color: #888;
+
+        &:hover,
+        &:focus {
+          color: #333;
+          background-color: inherit;
+        }
+      }
+    }
+  }
+}
+
 .Page-content {
   min-height: 100%;
 
@@ -56,20 +73,6 @@ body {
 
   &:after {
     height: $footerHeight + 30px;
-  }
-}
-
-.Page-banner {
-  font: 0px/0 a;
-
-  img,
-  figcaption {
-    visibility: hidden;
-  }
-
-  .container {
-    @include covered_background;
-    height: 100%;
   }
 }
 

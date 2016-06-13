@@ -1,25 +1,5 @@
 @import "../helper";
 
-.Page-banner {
-  height: 400px;
-  background: {
-    color: #88223a;
-    image: linear-gradient(to right, #88223a, #bbe8fb);
-  }
-
-  @media (max-width: $screen-md-max) {
-    height: 340px;
-  }
-
-  @media (max-width: $screen-sm-max) {
-    height: 300px;
-  }
-
-  @media (max-width: $screen-xs-max) {
-    height: 150px;
-  }
-}
-
 @media all and (max-width: $screen-sm-max) {
   .Article-comments {
     margin-bottom: 30px;

@@ -12,3 +12,13 @@ jobbole:
   name: 伯乐在线
   image: jobbole.png
   url: http://web.jobbole.com/
+
+jianshu:
+  name: 简书
+  image: jianshu.jpg
+  url: http://www.jianshu.com/
+
+toutiao:
+  name: 开发者头条
+  image: toutiao.png
+  url: http://toutiao.io/

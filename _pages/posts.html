@@ -33,7 +33,7 @@ special_type: posts
   <p>{{ first_post.content | markdownify | strip_html | strip_newlines | escape_once | truncate: 100, "..." }}</p>
   <footer>{{ first_post.author.name }}</footer>
 </blockquote>
-<p>想看完整内容快戳《<a href="{{ first_post.url }}">{{ first_post.title }}</a>》！(((o(*ﾟ▽ﾟ*)o)))</p>
+<p>想看完整内容？快戳《<a href="{{ first_post.url }}">{{ first_post.title }}</a>》！(((o(*ﾟ▽ﾟ*)o)))</p>
 <!-- 主打分类 -->
 <p>本站主打三类文章，以下为快速通道：</p>
 <nav class="MainCategories LightBox">
