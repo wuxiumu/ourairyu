@@ -2,7 +2,7 @@
 title: 在互联网上「裸奔」
 date: 2016-06-14 03:50:41 +0800
 categories:
-  - thoughts
+  - life
 tags:
   - social-media
   - information-security
