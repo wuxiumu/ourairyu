@@ -187,6 +187,9 @@ huangshan:
 nanjing:
   name: 南京
 
+xiamen:
+  name: 厦门
+
 travel:
   name: 旅行
 
