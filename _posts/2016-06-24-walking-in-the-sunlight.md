@@ -1,6 +1,6 @@
 ---
 title: 鹭岛日光浴
-date: 2016-06-17 21:32:48 +0800
+date: 2016-06-24 21:32:48 +0800
 categories:
   - life
 tags:
@@ -8,7 +8,7 @@ tags:
   - xiamen
   - travel-in-china
 banner:
-  url: drafts/walking-in-the-sunlight/banner.jpg
+  url: posts/20160624/banner.jpg
   description: 鼓浪屿全景
 image: posts/20160614/streaking.jpg
 album:
@@ -35,7 +35,7 @@ album:
 去年开始，在离公司还算近的地方新增了一个机场大巴站点，不必特意花费一两个小时跑到市区坐车了，超方便！然而，世上没有免费的「方便」——票价贵了 10 元。
 
 <figure>
-  <img src="{{ 'drafts/walking-in-the-sunlight/airport-bus-ticket' | asset_path }}" alt="机场大巴车票">
+  <img src="{{ 'posts/20160624/airport-bus-ticket' | asset_path }}" alt="机场大巴车票">
   <figcaption>机场大巴车票</figcaption>
 </figure>
 
@@ -44,7 +44,7 @@ album:
 由于是工作日下班后赶飞机，积累了一天的疲劳在登机后屁股碰到座位的那一刻就爆发了，身体有种被掏空的感觉，不一会就睡着了。杭州到厦门的距离太短，才一个小时多点就落地，我还没睡够呢……
 
 <figure>
-  <img src="{{ 'drafts/walking-in-the-sunlight/shandong-airlines' | asset_path }}" alt="所乘飞机">
+  <img src="{{ 'posts/20160624/shandong-airlines' | asset_path }}" alt="所乘飞机">
   <figcaption>所乘飞机</figcaption>
 </figure>
 
@@ -55,7 +55,7 @@ album:
 从摆渡车下来走进候机厅，在离门口很近的地方有个架子陈列着很多跟老婆网上买鼓浪屿随行印章本送的一样的手绘地图，上面印有卡通风格的标有厦门岛和鼓浪屿一些特色地点的简略版地图。
 
 <figure>
-  <img src="{{ 'drafts/walking-in-the-sunlight/map' | asset_path }}" alt="最厦门手绘地图">
+  <img src="{{ 'posts/20160624/map' | asset_path }}" alt="最厦门手绘地图">
   <figcaption>最厦门手绘地图</figcaption>
 </figure>
 
@@ -64,7 +64,7 @@ album:
 这里的出租车会在固定位置排队等候，乘客也需要排队，上车就走。有机场工作人员进行看管，不会有没车坐和抢车的情况。
 
 <figure>
-  <img src="{{ 'drafts/walking-in-the-sunlight/taxi' | asset_path }}" alt="前往市区的出租车">
+  <img src="{{ 'posts/20160624/taxi' | asset_path }}" alt="前往市区的出租车">
   <figcaption>前往市区的出租车</figcaption>
 </figure>
 
@@ -75,7 +75,7 @@ album:
 机场和曾厝垵正好位于厦门岛的最北和最南端，沿着环岛干道开的话总共才 20 公里路，只需 30 分钟左右就能到。再想想杭州……
 
 <figure>
-  <img src="{{ 'drafts/walking-in-the-sunlight/route' | asset_path }}" alt="高崎机场到曾厝垵">
+  <img src="{{ 'posts/20160624/route' | asset_path }}" alt="高崎机场到曾厝垵">
   <figcaption>高崎机场到曾厝垵</figcaption>
 </figure>
 
@@ -96,7 +96,7 @@ album:
 刚走到马路对面，就有一辆不大一样的出租车开来，及时伸出我的长臂，优雅地向他挥了挥手。我们在上车之后向司机描述了一下刚才的情景，他说：「怎么会来不及呢？他们就是不想拉罢了。」
 
 <figure>
-  <img src="{{ 'drafts/walking-in-the-sunlight/are-you-kidding-me' | asset_path }}" alt="你特么在逗我吗？">
+  <img src="{{ 'posts/20160624/are-you-kidding-me' | asset_path }}" alt="你特么在逗我吗？">
   <figcaption>你特么在逗我吗？</figcaption>
 </figure>
 
@@ -109,28 +109,28 @@ album:
 下车时距开船还有一段时间，我们在通过安检后并没有直接去候船厅，而是在里面转转，顺便找找看有没有能够当早餐的食物。
 
 <figure>
-  <img src="{{ 'drafts/walking-in-the-sunlight/dock' | asset_path }}" alt="厦鼓码头入口">
+  <img src="{{ 'posts/20160624/dock' | asset_path }}" alt="厦鼓码头入口">
   <figcaption>厦鼓码头入口</figcaption>
 </figure>
 
 乘电扶梯来到二楼，出现在眼前的是某猪梦寐以求的大海，和几艘会载我们去对岸的船。有一艘停靠在岸边的船看起来有好几层楼那么高，貌似我还从来没如此近距离地看过这么大的船！
 
 <figure>
-  <img src="{{ 'drafts/walking-in-the-sunlight/ship' | asset_path }}" alt="停靠码头的船">
+  <img src="{{ 'posts/20160624/ship' | asset_path }}" alt="停靠码头的船">
   <figcaption>停靠码头的船</figcaption>
 </figure>
 
 船附近的栏杆上挂满了绑有写上祝福、愿望的红色布条或纸片的锁头。不知道那些钥匙都哪去了，不会是像《惊天魔盗团》中男主法国女友那样被系锁人扔掉海里了吧？
 
 <figure>
-  <img src="{{ 'drafts/walking-in-the-sunlight/locks' | asset_path }}" alt="祈祷的锁头">
+  <img src="{{ 'posts/20160624/locks' | asset_path }}" alt="祈祷的锁头">
   <figcaption>祈祷的锁头</figcaption>
 </figure>
 
 看看手机，再过不久轮渡就要起航了，准备下楼去排队。在那之前，先试试花 30 大洋买的自拍神器的效果。「来，一～二～三，茄～子～」
 
 <figure>
-  <img src="{{ 'drafts/walking-in-the-sunlight/selfie-at-dock' | asset_path }}" alt="自拍杆试拍">
+  <img src="{{ 'posts/20160624/selfie-at-dock' | asset_path }}" alt="自拍杆试拍">
   <figcaption>自拍杆试拍</figcaption>
 </figure>
 
@@ -143,7 +143,7 @@ album:
 经过 20 分钟左右的漂泊，我们到达了三丘田码头。一眼望去，红的，绿的，全是没见过的植物，很是漂亮。
 
 <figure>
-  <img src="{{ 'drafts/walking-in-the-sunlight/san-qiu-tian-ferry-terminal' | asset_path }}" alt="遥望鼓浪屿">
+  <img src="{{ 'posts/20160624/san-qiu-tian-ferry-terminal' | asset_path }}" alt="遥望鼓浪屿">
   <figcaption>遥望鼓浪屿</figcaption>
 </figure>
 
@@ -152,7 +152,7 @@ album:
 听说岛上的东西很贵，并且也不知道吃什么，只好拿出前一天剩下的老婆在杭州 FamilyMart 买的巧克力夹心面包和从厦门岛带来的康师傅茉莉清茶。顺便减轻一下背包的重量～
 
 <figure>
-  <img src="{{ 'drafts/walking-in-the-sunlight/eating' | asset_path }}" alt="吃呀么吃吃吃">
+  <img src="{{ 'posts/20160624/eating' | asset_path }}" alt="吃呀么吃吃吃">
   <figcaption>吃呀么吃吃吃</figcaption>
 </figure>
 
@@ -161,7 +161,7 @@ album:
 鼓浪屿不大，但是一块宝地。岛上有很多名人的故居，还有一些领事馆的遗址。在我看来，它是一个世外桃源，如果可以，真希望自己能够住在岛上最高处。
 
 <figure>
-  <img src="{{ 'drafts/walking-in-the-sunlight/panoramagram' | asset_path }}" alt="鼓浪屿全景">
+  <img src="{{ 'posts/20160624/panoramagram' | asset_path }}" alt="鼓浪屿全景">
   <figcaption>鼓浪屿全景</figcaption>
 </figure>
 
@@ -170,7 +170,7 @@ album:
 转角第一家是个以绿色为主，看起来很是小清新的一家叫「苏小糖烘焙生活馆」的店。
 
 <figure>
-  <img src="{{ 'drafts/walking-in-the-sunlight/suxiaotang' | asset_path }}" alt="苏小糖烘焙生活馆">
+  <img src="{{ 'posts/20160624/suxiaotang' | asset_path }}" alt="苏小糖烘焙生活馆">
   <figcaption>苏小糖烘焙生活馆</figcaption>
 </figure>
 
@@ -179,7 +179,7 @@ album:
 紧挨着的是个小吃店，无名无姓，装潢简陋，就是路边摊那种感觉，看起来跟西湖边上的很像。里面有蚵仔煎、蒜蓉生蚝、蟹壳包饭、海蜇皮、奶黄包等等，好多都没见过。
 
 <figure>
-  <img src="{{ 'drafts/walking-in-the-sunlight/merienda' | asset_path }}" alt="闽台特色小吃">
+  <img src="{{ 'posts/20160624/merienda' | asset_path }}" alt="闽台特色小吃">
   <figcaption>闽台特色小吃</figcaption>
 </figure>
 
@@ -188,7 +188,7 @@ album:
 顾名思义，「土笋冻」是一种看起来像果冻一样胶状的，里面有一条条白色的叫做「沙虫」的物体。至于那白色的到底是什么，别人都跟我说是虫子。
 
 <figure>
-  <img src="{{ 'drafts/walking-in-the-sunlight/sipunculid-worm-jelly' | asset_path }}" alt="土笋冻">
+  <img src="{{ 'posts/20160624/sipunculid-worm-jelly' | asset_path }}" alt="土笋冻">
   <figcaption>土笋冻</figcaption>
 </figure>
 
