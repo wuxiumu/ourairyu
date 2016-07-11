@@ -8,7 +8,7 @@ tags:
   - xiamen
   - travel-in-china
 banner:
-  url: drafts/walking-in-the-sunlight-of-amoy/banner.jpg
+  url: drafts/walking-in-the-sunlight/banner.jpg
   description: 鼓浪屿全景
 image: posts/20160614/streaking.jpg
 album:
@@ -35,7 +35,7 @@ album:
 去年开始，在离公司还算近的地方新增了一个机场大巴站点，不必特意花费一两个小时跑到市区坐车了，超方便！然而，世上没有免费的「方便」——票价贵了 10 元。
 
 <figure>
-  <img src="{{ 'drafts/walking-in-the-sunlight-of-amoy/airport-bus-ticket' | asset_path }}" alt="机场大巴车票">
+  <img src="{{ 'drafts/walking-in-the-sunlight/airport-bus-ticket' | asset_path }}" alt="机场大巴车票">
   <figcaption>机场大巴车票</figcaption>
 </figure>
 
@@ -44,7 +44,7 @@ album:
 由于是工作日下班后赶飞机，积累了一天的疲劳在登机后屁股碰到座位的那一刻就爆发了，身体有种被掏空的感觉，不一会就睡着了。杭州到厦门的距离太短，才一个小时多点就落地，我还没睡够呢……
 
 <figure>
-  <img src="{{ 'drafts/walking-in-the-sunlight-of-amoy/shandong-airlines' | asset_path }}" alt="所乘飞机">
+  <img src="{{ 'drafts/walking-in-the-sunlight/shandong-airlines' | asset_path }}" alt="所乘飞机">
   <figcaption>所乘飞机</figcaption>
 </figure>
 
@@ -55,7 +55,7 @@ album:
 从摆渡车下来走进候机厅，在离门口很近的地方有个架子陈列着很多跟老婆网上买鼓浪屿随行印章本送的一样的手绘地图，上面印有卡通风格的标有厦门岛和鼓浪屿一些特色地点的简略版地图。
 
 <figure>
-  <img src="{{ 'drafts/walking-in-the-sunlight-of-amoy/map' | asset_path }}" alt="最厦门手绘地图">
+  <img src="{{ 'drafts/walking-in-the-sunlight/map' | asset_path }}" alt="最厦门手绘地图">
   <figcaption>最厦门手绘地图</figcaption>
 </figure>
 
@@ -64,7 +64,7 @@ album:
 这里的出租车会在固定位置排队等候，乘客也需要排队，上车就走。有机场工作人员进行看管，不会有没车坐和抢车的情况。
 
 <figure>
-  <img src="{{ 'drafts/walking-in-the-sunlight-of-amoy/taxi' | asset_path }}" alt="前往市区的出租车">
+  <img src="{{ 'drafts/walking-in-the-sunlight/taxi' | asset_path }}" alt="前往市区的出租车">
   <figcaption>前往市区的出租车</figcaption>
 </figure>
 
@@ -75,7 +75,7 @@ album:
 机场和曾厝垵正好位于厦门岛的最北和最南端，沿着环岛干道开的话总共才 20 公里路，只需 30 分钟左右就能到。再想想杭州……
 
 <figure>
-  <img src="{{ 'drafts/walking-in-the-sunlight-of-amoy/route' | asset_path }}" alt="高崎机场到曾厝垵">
+  <img src="{{ 'drafts/walking-in-the-sunlight/route' | asset_path }}" alt="高崎机场到曾厝垵">
   <figcaption>高崎机场到曾厝垵</figcaption>
 </figure>
 
@@ -96,7 +96,7 @@ album:
 刚走到马路对面，就有一辆不大一样的出租车开来，及时伸出我的长臂，优雅地向他挥了挥手。我们在上车之后向司机描述了一下刚才的情景，他说：「怎么会来不及呢？他们就是不想拉罢了。」
 
 <figure>
-  <img src="{{ 'drafts/walking-in-the-sunlight-of-amoy/are-you-kidding-me' | asset_path }}" alt="你特么在逗我吗？">
+  <img src="{{ 'drafts/walking-in-the-sunlight/are-you-kidding-me' | asset_path }}" alt="你特么在逗我吗？">
   <figcaption>你特么在逗我吗？</figcaption>
 </figure>
 
@@ -109,28 +109,28 @@ album:
 下车时距开船还有一段时间，我们在通过安检后并没有直接去候船厅，而是在里面转转，顺便找找看有没有能够当早餐的食物。
 
 <figure>
-  <img src="{{ 'drafts/walking-in-the-sunlight-of-amoy/dock' | asset_path }}" alt="厦鼓码头入口">
+  <img src="{{ 'drafts/walking-in-the-sunlight/dock' | asset_path }}" alt="厦鼓码头入口">
   <figcaption>厦鼓码头入口</figcaption>
 </figure>
 
 乘电扶梯来到二楼，出现在眼前的是某猪梦寐以求的大海，和几艘会载我们去对岸的船。有一艘停靠在岸边的船看起来有好几层楼那么高，貌似我还从来没如此近距离地看过这么大的船！
 
 <figure>
-  <img src="{{ 'drafts/walking-in-the-sunlight-of-amoy/ship' | asset_path }}" alt="停靠码头的船">
+  <img src="{{ 'drafts/walking-in-the-sunlight/ship' | asset_path }}" alt="停靠码头的船">
   <figcaption>停靠码头的船</figcaption>
 </figure>
 
 船附近的栏杆上挂满了绑有写上祝福、愿望的红色布条或纸片的锁头。不知道那些钥匙都哪去了，不会是像《惊天魔盗团》中男主法国女友那样被系锁人扔掉海里了吧？
 
 <figure>
-  <img src="{{ 'drafts/walking-in-the-sunlight-of-amoy/locks' | asset_path }}" alt="祈祷的锁头">
+  <img src="{{ 'drafts/walking-in-the-sunlight/locks' | asset_path }}" alt="祈祷的锁头">
   <figcaption>祈祷的锁头</figcaption>
 </figure>
 
 看看手机，再过不久轮渡就要起航了，准备下楼去排队。在那之前，先试试花 30 大洋买的自拍神器的效果。「来，一～二～三，茄～子～」
 
 <figure>
-  <img src="{{ 'drafts/walking-in-the-sunlight-of-amoy/selfie-at-dock' | asset_path }}" alt="自拍杆试拍">
+  <img src="{{ 'drafts/walking-in-the-sunlight/selfie-at-dock' | asset_path }}" alt="自拍杆试拍">
   <figcaption>自拍杆试拍</figcaption>
 </figure>
 
@@ -143,7 +143,7 @@ album:
 经过 20 分钟左右的漂泊，我们到达了三丘田码头。一眼望去，红的，绿的，全是没见过的植物，很是漂亮。
 
 <figure>
-  <img src="{{ 'drafts/walking-in-the-sunlight-of-amoy/san-qiu-tian-ferry-terminal' | asset_path }}" alt="遥望鼓浪屿">
+  <img src="{{ 'drafts/walking-in-the-sunlight/san-qiu-tian-ferry-terminal' | asset_path }}" alt="遥望鼓浪屿">
   <figcaption>遥望鼓浪屿</figcaption>
 </figure>
 
@@ -152,7 +152,7 @@ album:
 听说岛上的东西很贵，并且也不知道吃什么，只好拿出前一天剩下的老婆在杭州 FamilyMart 买的巧克力夹心面包和从厦门岛带来的康师傅茉莉清茶。顺便减轻一下背包的重量～
 
 <figure>
-  <img src="{{ 'drafts/walking-in-the-sunlight-of-amoy/eating' | asset_path }}" alt="吃呀么吃吃吃">
+  <img src="{{ 'drafts/walking-in-the-sunlight/eating' | asset_path }}" alt="吃呀么吃吃吃">
   <figcaption>吃呀么吃吃吃</figcaption>
 </figure>
 
@@ -161,13 +161,47 @@ album:
 鼓浪屿不大，但是一块宝地。岛上有很多名人的故居，还有一些领事馆的遗址。在我看来，它是一个世外桃源，如果可以，真希望自己能够住在岛上最高处。
 
 <figure>
-  <img src="{{ 'drafts/walking-in-the-sunlight-of-amoy/panoramagram' | asset_path }}" alt="鼓浪屿全景">
+  <img src="{{ 'drafts/walking-in-the-sunlight/panoramagram' | asset_path }}" alt="鼓浪屿全景">
   <figcaption>鼓浪屿全景</figcaption>
 </figure>
 
-刚从三丘田码头出来后，首先映入眼帘的是个岔路口——往左是沿着海边走的延平路，往右是深入内部的三明路。
+刚从三丘田码头出来，最先映入眼帘的是个岔路口——往左是沿着海边走的延平路，往右是深入内部的三明路。我们最想去的地方就是鼎鼎大名的「赵小姐」，看了看手中的地图，感觉走左边会近点，并且有树有水，风景更好些。OK, let's go!
 
-我们最想去的地方就是鼎鼎大名的「赵小姐」，看了看手中的地图，感觉走左边会近点，并且有树有水，风景更好些。OK, let's go!
+转角第一家是个以绿色为主，看起来很是小清新的一家叫「苏小糖烘焙生活馆」的店。
+
+<figure>
+  <img src="{{ 'drafts/walking-in-the-sunlight/suxiaotang' | asset_path }}" alt="苏小糖烘焙生活馆">
+  <figcaption>苏小糖烘焙生活馆</figcaption>
+</figure>
+
+「[苏小糖](https://suxiaotang.tmall.com/ "访问苏小糖天猫旗舰店"){:target="_blank"}{:rel="external nofollow"}」的主要产品是牛轧糖，有抹茶、杏仁、蔓越梅等多种口味。除此之外，还有曲奇饼干、凤梨酥等适合与咖啡、红茶搭配的小点心。商品的包装很是精美可爱，是给喜欢吃甜食和爱喝咖啡或红茶的小伙伴做伴手礼的不二之选！
+
+紧挨着的是个小吃店，无名无姓，装潢简陋，就是路边摊那种感觉，看起来跟西湖边上的很像。里面有蚵仔煎、蒜蓉生蚝、蟹壳包饭、海蜇皮、奶黄包等等，好多都没见过。
+
+<figure>
+  <img src="{{ 'drafts/walking-in-the-sunlight/merienda' | asset_path }}" alt="闽台特色小吃">
+  <figcaption>闽台特色小吃</figcaption>
+</figure>
+
+以前只会听到别人说「＊＊＊很好吃，可以去尝试下哦～」，然而在众多的厦门小吃当中，有一样神奇的食物是被曾经吃过的人强烈不推荐去尝试的——土笋冻！
+
+顾名思义，「土笋冻」是一种看起来像果冻一样胶状的，里面有一条条白色的叫做「沙虫」的物体。至于那白色的到底是什么，别人都跟我说是虫子。
+
+<figure>
+  <img src="{{ 'drafts/walking-in-the-sunlight/sipunculid-worm-jelly' | asset_path }}" alt="土笋冻">
+  <figcaption>土笋冻</figcaption>
+</figure>
+
+然而，我在亲自进行核实之前对一切事物都保持一种怀疑的态度，于是就去询问店员想一探究竟：「请问那土笋冻里面的是什么呀？」店员的回答是那么的理所当然：「沙虫。」下一个问题才是重点：「它是动物还是植物啊？」不要觉得我的问题很奇怪，不按事物的本质进行命名的例子多的去了。他的回答也有点出乎意料：「是一种植物。」终于等到个不同的说法了！并且，我竟然信了！谨慎起见，我并没有去买。毕竟好几个人都说那东西简直逆天，我还是没有足够的勇气去尝试……
+
+稍后查了资料才揭开谜底——
+
+<blockquote>
+  <p>土笋冻是发源于福建沿海地区的一种色香味俱佳的汉族传统风味小吃，是一种由特有产品加工而成的冻品。相传发明人是民族英雄郑成功。 它含有胶质，主原料是一种蠕虫，属于星虫动物门，学名可口革囊星虫（Phascolosoma esculenta），身长二、三寸。经过熬煮，虫体所含胶质溶入水中，冷却后即凝结成块状，其肉清，味美甘鲜。配上好酱油、永春陈醋、蒜蓉。</p>
+  <footer>百度百科《<cite><a href="http://baike.baidu.com/view/47528.htm" target="_blank" rel="external nofollow">土笋冻</a></cite>》</footer>
+</blockquote>
+
+那个店员居然敢骗我……妹的！
 
 ## 第二天
 
