@@ -190,6 +190,12 @@ nanjing:
 xiamen:
   name: 厦门
 
+tianjin:
+  name: 天津
+
+inner-mongolia:
+  name: 内蒙古
+
 travel:
   name: 旅行
 
