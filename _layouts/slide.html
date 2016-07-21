@@ -1,0 +1,16 @@
+---
+layout: default
+---
+
+<main class="reveal">
+  <div class="slides">
+  {% if page.cover %}
+    <section data-background="{{ page.cover.url | asset_path }}"></section>
+  {% endif %}
+  <section>
+    <h2>{{ page.title }}</h2>
+    <p><a href="{{ site.author.uri }}">{{ site.author.name }}</a></p>
+  </section>
+  {{ content }}
+  </div>
+</main>

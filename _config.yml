@@ -16,6 +16,9 @@ collections:
   demos:
     output: true
     permalink: /:collection/:path/
+  slides:
+    output: true
+    permalink: /:collection/:path/
   tutorials:
     output: false
     permalink: /:collection/:path/
@@ -99,6 +102,15 @@ defaults:
       type: demos
     values:
       sitemap: false
+  - scope:
+      path: ""
+      type: slides
+    values:
+      layout: slide
+      css:
+        - pages/slide
+      js:
+        - pages/slide
   - scope:
       path: ""
       type: issues

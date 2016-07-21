@@ -1,0 +1,69 @@
+---
+title: 用 Node.js 去开发应用
+cover:
+  url: slides/develop-with-node/cover.jpg
+---
+
+<section>
+  <p>好多人在说 Node.js</p>
+  <p class="fragment">听起来很屌的样子</p>
+  <p class="fragment">但是，它都能做什么呢？</p>
+</section>
+<section>
+  <p>据某人统计</p>
+  <p class="fragment">Node.js 可以用到以下这些场景</p>
+  <p class="fragment">命令行工具 <span class="fragment">Web 服务器</span> <span class="fragment">爬虫</span> <span class="fragment">实时 APP</span> <span class="fragment">游戏服务器</span> <span class="fragment">聊天机器人</span> <span class="fragment">CMS</span> <span class="fragment">图片处理</span> <span class="fragment">桌面应用</span></p>
+</section>
+<section>
+  <p>还能干啥</p>
+  <p class="fragment">就看你的脑洞有多大了</p>
+</section>
+<section>
+  <p>让我们先来聊聊几个最常用的场景吧</p>
+</section>
+<section>
+  <h2>编写通用模块</h2>
+  {% highlight json %}
+{
+  "name": "rocketz-core",
+  "version": "1.0.3",
+  "description": "Upload local files to CDNs",
+  "homepage": "https://github.com/ourai/rocketz",
+  "keywords": [
+    "rocketz",
+    "uploader",
+    "upload",
+    "cdn",
+    "cloud"
+  ],
+  "author": "Ourai Lin <ourairyu@hotmail.com> (http://ourai.ws/)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ourai/rocketz.git"
+  },
+  "bugs": "https://github.com/ourai/rocketz/issues",
+  "main": "index.js",
+  "scripts": {
+    "prebuild": "mv lib src",
+    "build": "babel src -d lib --presets=es2015",
+    "prepublish": "npm run build",
+    "postpublish": "rm -rf lib && mv src lib"
+  },
+  "engines": "node >= 0.10.0",
+  "devDependencies": {
+    "babel-cli": "^6.9.0",
+    "babel-preset-es2015": "^6.9.0"
+  },
+  "dependencies": {
+    "lodash": "^4.1.0",
+    "rocketz-register": "^0.1.1"
+  },
+  "license": "MIT"
+}{% endhighlight %}
+</section>
+<section>
+  <h2>命令行工具</h2>
+</section>
+<section>
+  <h2>服务端开发</h2>
+</section>
