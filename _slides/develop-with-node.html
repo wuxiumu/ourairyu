@@ -12,30 +12,33 @@ cover:
 <section>
   <p>据某人统计</p>
   <p class="fragment">Node.js 可以用到以下这些场景</p>
-  <p class="fragment">命令行工具 <span class="fragment">Web 服务器</span> <span class="fragment">爬虫</span> <span class="fragment">实时 APP</span> <span class="fragment">游戏服务器</span> <span class="fragment">聊天机器人</span> <span class="fragment">CMS</span> <span class="fragment">图片处理</span> <span class="fragment">桌面应用</span></p>
-</section>
-<section>
-  <p>还能干啥</p>
-  <p class="fragment">就看你的脑洞有多大了</p>
+  <p class="fragment">命令行工具 <span class="fragment">Web 服务器</span> <span class="fragment">爬虫</span> <span class="fragment">实时 APP</span> <span class="fragment">游戏服务器</span> <span class="fragment">聊天机器人</span> <span class="fragment">CMS</span> <span class="fragment">图片处理</span> <span class="fragment">桌面应用</span> <span class="fragment">……</span></p>
+  <p class="fragment">想知道还能干啥？</p>
+  <p class="fragment">那就要看你的脑洞有多大了</p>
 </section>
 <section>
   <p>让我们先来聊聊几个最常用的场景吧</p>
 </section>
+<!-- 编写通用模块 -->
 <section>
-  <h2>编写通用模块</h2>
-  {% highlight json %}
-{
+  <section>
+    <h2>编写通用模块</h2>
+    <p class="fragment">每个 node 应用都是一个「包」</p>
+    <p class="fragment">而「通用模块」就是一种最简单、最基础、最通用的包</p>
+    <p class="fragment">主要作用就是供其他更为复杂、庞大的应用调用</p>
+  </section>
+  <section>
+    <p>要开发一个包</p>
+    <p class="fragment">需要在应用的根目录有一个 <code>package.json</code> 文件</p>
+    <p class="fragment">用来记述这个应用的相关信息</p>
+    <p class="fragment">它基本是长成这个样子</p>
+    <div class="fragment">
+      {% highlight json %}{
   "name": "rocketz-core",
   "version": "1.0.3",
   "description": "Upload local files to CDNs",
   "homepage": "https://github.com/ourai/rocketz",
-  "keywords": [
-    "rocketz",
-    "uploader",
-    "upload",
-    "cdn",
-    "cloud"
-  ],
+  "keywords": ["rocketz", "uploader", "upload", "cdn", "cloud"],
   "author": "Ourai Lin <ourairyu@hotmail.com> (http://ourai.ws/)",
   "repository": {
     "type": "git",
@@ -49,7 +52,6 @@ cover:
     "prepublish": "npm run build",
     "postpublish": "rm -rf lib && mv src lib"
   },
-  "engines": "node >= 0.10.0",
   "devDependencies": {
     "babel-cli": "^6.9.0",
     "babel-preset-es2015": "^6.9.0"
@@ -60,10 +62,14 @@ cover:
   },
   "license": "MIT"
 }{% endhighlight %}
+    </div>
+  </section>
 </section>
+<!-- 命令行工具 -->
 <section>
   <h2>命令行工具</h2>
 </section>
+<!-- 服务端开发 -->
 <section>
   <h2>服务端开发</h2>
 </section>
