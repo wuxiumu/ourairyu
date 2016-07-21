@@ -5,9 +5,12 @@ layout: default
 <main class="reveal">
   <div class="slides">
     {% if page.cover %}
-      <section data-background="{{ page.cover.url | asset_path }}"></section>
+      <section data-background-image="{{ page.cover.url | asset_path }}" data-transition="fade-out"></section>
+      {% assign profile_transition = "fade-in" %}
+    {% else %}
+      {% assign profile_transition = "slide" %}
     {% endif %}
-    <section>
+    <section data-transition="{{ profile_transition }}">
       <h2>{{ page.title }}</h2>
       <p><a href="{{ site.author.uri }}">{{ site.author.name }}</a></p>
     </section>

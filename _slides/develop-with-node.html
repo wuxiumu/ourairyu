@@ -5,19 +5,20 @@ cover:
 ---
 
 <section>
-  <p>好多人在说 Node.js</p>
+  <p>这些年……</p>
+  <p class="fragment">好多人在说 Node.js</p>
   <p class="fragment">听起来很屌的样子</p>
-  <p class="fragment">但是，它都能做什么呢？</p>
+  <p class="fragment">但是<span class="fragment">，它都能做些什么呢？</span></p>
 </section>
 <section>
   <p>据某人统计</p>
   <p class="fragment">Node.js 可以用到以下这些场景</p>
-  <p class="fragment">命令行工具 <span class="fragment">Web 服务器</span> <span class="fragment">爬虫</span> <span class="fragment">实时 APP</span> <span class="fragment">游戏服务器</span> <span class="fragment">聊天机器人</span> <span class="fragment">CMS</span> <span class="fragment">图片处理</span> <span class="fragment">桌面应用</span> <span class="fragment">……</span></p>
+  <blockquote class="fragment">命令行工具<span class="fragment">、Web 服务器</span><span class="fragment">、游戏服务器</span><span class="fragment">、爬虫</span><span class="fragment">、实时 APP</span><span class="fragment">、聊天机器人</span><span class="fragment">、CMS</span><span class="fragment">、图片处理</span><span class="fragment">、桌面应用</span><span class="fragment">……</span></blockquote>
   <p class="fragment">想知道还能干啥？</p>
   <p class="fragment">那就要看你的脑洞有多大了</p>
 </section>
 <section>
-  <p>让我们先来聊聊几个最常用的场景吧</p>
+  <p>还是让我们先来聊聊几个最常用的场景吧</p>
 </section>
 <!-- 编写通用模块 -->
 <section>
@@ -25,15 +26,16 @@ cover:
     <h2>编写通用模块</h2>
     <p class="fragment">每个 node 应用都是一个「包」</p>
     <p class="fragment">而「通用模块」就是一种最简单、最基础、最通用的包</p>
-    <p class="fragment">主要作用就是供其他更为复杂、庞大的应用调用</p>
+    <p class="fragment">主要作用是供其他更为复杂、庞大的应用调用</p>
   </section>
   <section>
     <p>要开发一个包</p>
-    <p class="fragment">需要在应用的根目录有一个 <code>package.json</code> 文件</p>
+    <p class="fragment">需要在应用的根目录建一个 <code>package.json</code> 文件</p>
     <p class="fragment">用来记述这个应用的相关信息</p>
     <p class="fragment">它基本是长成这个样子</p>
-    <div class="fragment">
-      {% highlight json %}{
+  </section>
+  <section>
+    {% highlight json %}{
   "name": "rocketz-core",
   "version": "1.0.3",
   "description": "Upload local files to CDNs",
@@ -62,14 +64,101 @@ cover:
   },
   "license": "MIT"
 }{% endhighlight %}
+  </section>
+  <section>
+    <p>在入口文件 <code>index.js</code> 中写几行代码</p>
+    <div class="fragment">
+      {% highlight js %}// 定义一个 CDN 信息
+const CDN_INFO = {
+    qiniu: {name: "七牛"},
+    wantu: {name: "顽兔"}
+  };
+// 暴露出获取指定 CDN 信息的方法
+exports.getCdn = function( cdnName ) {
+  return CDN_INFO[cdnName] || {};
+};{% endhighlight %}
+    </div>
+    <p class="fragment">就完成了一个最「简陋」的包</p>
+    <p class="fragment">在其他包中引用一下<span class="fragment">就可以调用其中定义的方法了</span></p>
+    <div class="fragment">
+      {% highlight js %}// 引入通用模块
+const rocketz = require("rocketz-core");
+// 调用方法
+console.log(rocketz.getCdn("qiniu"));   // 输出 {name: "七牛"}{% endhighlight %}
     </div>
   </section>
 </section>
 <!-- 命令行工具 -->
 <section>
-  <h2>命令行工具</h2>
+  <section>
+    <h2>命令行工具</h2>
+    <p class="fragment">这是一种较为高级的 node 应用</p>
+    <p class="fragment">它是通过命令行调用的程序</p>
+    <p class="fragment">如 <code class="fragment">rocketz init</code></p>
+  </section>
+  <!-- 命令行工具的特殊点 -->
+  <section>
+    <p>命令行工具与通用模块的不同之处在于</p>
+    <ol class="fragment">
+      <li>不可被其他包引用</li>
+      <li class="fragment">需要在 <code>package.json</code> 中指定 <code>"bin"</code></li>
+      <li class="fragment">针对命令和 flag 的处理逻辑</li>
+    </ol>
+  </section>
+  <!-- 命令名字 -->
+  <section>
+    <p>其中，如果直接写成</p>
+    {% highlight json %}{
+  "bin": "./bin/rocketz.js"
+}{% endhighlight %}
+    <p class="fragment">将会以包的名字作为命令名</p>
+    <p class="fragment">要想命令名不同于包名或存在多个命令</p>
+    <p class="fragment">就要明确写出命令的名字</p>
+    <div class="fragment">{% highlight json %}{
+  "bin": {
+    "rocketz": "./bin/rocketz.js"
+  }
+}{% endhighlight %}</div>
+  </section>
+  <!-- 辅助性工具 -->
+  <section>
+    <p>完全自己去写命令和 flag 的处理逻辑是件让人蛋碎的事情</p>
+    <p class="fragment">还好已经有一些第三方包可以起到辅助作用</p>
+    <p class="fragment">偷懒万岁！*\(^o^)/*</p>
+  </section>
+  <!-- meow 简介 -->
+  <section data-background-image="{{ 'slides/develop-with-node/meow' | asset_path }}" style="text-shadow: 1px 1px #666;">
+    <p><a href="https://www.npmjs.com/package/meow" target="_blank" rel="external nofollow">meow</a> 的主要作用有</p>
+    <ol class="fragment">
+      <li>将命令和 flag 分别转化为数组和对象以便于读取</li>
+      <li class="fragment">自动生成 <code>--version</code> 和 <code>--help</code> 这两个 flag</li>
+      <li class="fragment">设置 flag 的别名</li>
+    </ol>
+  </section>
+  <!-- meow 的用法 -->
+  <section data-background-image="{{ 'slides/develop-with-node/meow' | asset_path }}" style="text-shadow: 1px 1px #666;">
+    <p>meow 的用法很简单</p>
+    <div class="fragment">{% highlight js %}const meow = require("meow");
+const helper = meow({}, {
+  alias: {
+    h: "help",
+    v: "version"
+  }
+});{% endhighlight %}</div>
+    <div class="fragment">
+      <p>如果在命令行中输入</p>
+      {% highlight sh %}rocketz init qiniu --config wantu{% endhighlight %}
+    </div>
+    <p class="fragment">程序中调用 <code>helper.input</code> 和 <code>helper.flags</code></p>
+    <div class="fragment">{% highlight js %}console.log(helper.input);    // 输出 ["init", "qiniu"]
+console.log(helper.flags);    // 输出 {config: "wantu"}{% endhighlight %}</div>
+  </section>
 </section>
 <!-- 服务端开发 -->
-<section>
+<!-- <section>
   <h2>服务端开发</h2>
+</section>
+ -->
+<section>
+  <h2>谢谢！</h2>
 </section>

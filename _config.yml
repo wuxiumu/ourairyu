@@ -107,6 +107,7 @@ defaults:
       type: slides
     values:
       layout: slide
+      sitemap: false
       css:
         - pages/slide
       js:
