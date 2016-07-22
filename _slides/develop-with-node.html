@@ -2,6 +2,7 @@
 title: 用 Node.js 去开发应用
 cover:
   url: slides/develop-with-node/cover.jpg
+image: slides/develop-with-node/cover.jpg
 ---
 
 <section>
@@ -124,11 +125,19 @@ console.log(rocketz.getCdn("qiniu"));   // 输出 {name: "七牛"}{% endhighligh
   <section>
     <p>完全自己去写命令和 flag 的处理逻辑是件让人蛋碎的事情</p>
     <p class="fragment">还好已经有一些第三方包可以起到辅助作用</p>
+    <p class="fragment">我主要用到了三个包</p>
+    <ul class="fragment">
+      <li>
+        <a href="https://www.npmjs.com/package/meow" target="_blank" rel="external nofollow">meow</a>
+      </li>
+      <li class="fragment"><a href="https://www.npmjs.com/package/liftoff" target="_blank" rel="external nofollow">lift</a></li>
+      <li class="fragment"><a href="https://www.npmjs.com/package/inquirer" target="_blank" rel="external nofollow">inquirer</a></li>
+    </ul>
     <p class="fragment">偷懒万岁！*\(^o^)/*</p>
   </section>
   <!-- meow 简介 -->
   <section data-background-image="{{ 'slides/develop-with-node/meow' | asset_path }}" style="text-shadow: 1px 1px #666;">
-    <p><a href="https://www.npmjs.com/package/meow" target="_blank" rel="external nofollow">meow</a> 的主要作用有</p>
+    <p>meow 的主要作用有</p>
     <ol class="fragment">
       <li>将命令和 flag 分别转化为数组和对象以便于读取</li>
       <li class="fragment">自动生成 <code>--version</code> 和 <code>--help</code> 这两个 flag</li>
@@ -153,12 +162,89 @@ const helper = meow({}, {
     <div class="fragment">{% highlight js %}console.log(helper.input);    // 输出 ["init", "qiniu"]
 console.log(helper.flags);    // 输出 {config: "wantu"}{% endhighlight %}</div>
   </section>
+  <!-- liftoff 简介 -->
+  <section>
+    <p>liftoff 主要解决了几件事情</p>
+    <ol class="fragment">
+      <li>定义、查找并读取配置文件</li>
+      <li class="fragment">作为命令处理的入口</li>
+    </ol>
+  </section>
+  <!-- liftoff 的用法 -->
+  <section>
+    <p>liftoff 的用法也较为简单</p>
+    <div class="fragment">{% highlight js %}const Liftoff = require("liftoff");
+const APP_NAME = "rocketz";
+const app = new Liftoff({
+  name: APP_NAME,
+  configName: `.${APP_NAME}`,
+  extensions: {
+    "rc": null
+  }
+});
+// 启动应用
+app.launch({
+    cwd: process.cwd(),
+    configPath: __dirname
+  }, function( env ) {
+  // 命令和 flag 的处理逻辑
+});
+{% endhighlight %}</div>
+  </section>
+  <!-- inquirer -->
+  <section>
+    <p>inquirer 可以让你设置一些「问答题」</p>
+    <p class="fragment">通过在命令行中的一步步操作</p>
+    <p class="fragment">完成对配置文件内容的设置</p>
+  </section>
+  <section>
+    <p>meow<span class="fragment">＋liftoff</span><span class="fragment">＋inquirer</span><span class="fragment">＝一个完整的命令行工具</span></p>
+  </section>
 </section>
 <!-- 服务端开发 -->
-<!-- <section>
-  <h2>服务端开发</h2>
-</section>
- -->
 <section>
-  <h2>谢谢！</h2>
+  <section>
+    <h2>服务端开发</h2>
+    <p>这是另一种较高级的 node 应用</p>
+    <p class="fragment">也是给前端带来新希望的一种应用</p>
+  </section>
+  <section>
+    <p>做服务端开发离不开 web 框架</p>
+    <p class="fragment">在我眼里总共有两种类型</p>
+    <ol class="fragment">
+      <li>全栈式</li>
+      <li class="fragment">REST</li>
+    </ol>
+  </section>
+  <section>
+    <p>所谓的「全栈式」框架</p>
+    <p class="fragment">就是完整地提供了 MVC 支持的框架</p>
+  </section>
+  <section>
+    <p>轻量点的有 <a href="https://www.npmjs.com/package/express" class="fragment" target="_blank" rel="external nofollow">Express</a><span class="fragment">、<a href="https://www.npmjs.com/package/koa" target="_blank" rel="external nofollow">Koa</a></span></p>
+    <p class="fragment">它们都太轻量</p>
+    <p class="fragment">以至于需要自己去东拼西凑成一套完整的框架</p>
+    <p class="fragment">不太适合快速开发</p>
+  </section>
+  <section>
+    <p>有个叫做 <a href="https://www.npmjs.com/package/sails" target="_blank" rel="external nofollow">Sails</a> 的框架</p>
+    <p class="fragment">看名字也许会想到了什么</p>
+    <p class="fragment">没错，就是那辆小火车</p>
+    <p class="fragment">这是一个借鉴 Ruby on Rails 的大而全的框架</p>
+    <p class="fragment">挺适合快速开发的</p>
+  </section>
+  <section>
+    <p>然而，在现在这种多终端的使用环境下</p>
+    <p class="fragment">全栈式的框架显得不那么灵活</p>
+    <p class="fragment">服务端只需要通过 API 接口提供数据就好了</p>
+    <p class="fragment"><a href="https://www.npmjs.com/package/restify" target="_blank" rel="external nofollow">restify</a> 就是为此而生</p>
+  </section>
+</section>
+<section>
+  <p>Node.js 改变了我</p>
+  <p class="fragment">让我从纯前端渐渐转变为可以贯穿 web 栈的<span class="fragment">伪·</span>全栈</p>
+</section>
+<section>
+  <p>我的废话说完了</p>
+  <p class="fragment grow">谢谢！</p>
 </section>
