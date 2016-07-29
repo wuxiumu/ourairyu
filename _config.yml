@@ -89,6 +89,7 @@ defaults:
         - pages/post
       js:
         - initializers/time
+        - initializers/lazyload
       author:
         name: 欧雷
         email: ourairyu@gmail.com
