@@ -24,6 +24,9 @@ web-performance-optimization:
 web-design:
   name: 网页设计
 
+web-architecture:
+  name: 网站架构
+
 page-layout:
   name: 页面布局
 
@@ -35,6 +38,9 @@ css:
 
 javascript:
   name: JavaScript
+
+node:
+  name: Node.js
 
 xhr:
   name: XML HTTP 请求
