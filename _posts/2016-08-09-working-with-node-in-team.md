@@ -1,6 +1,6 @@
 ---
 title: 团队中的 Node.js 实践
-date: 2016-08-08 23:34:48 +0800
+date: 2016-08-09 15:08:48 +0800
 categories:
   - web-development
 tags:
@@ -10,12 +10,15 @@ tags:
   - web-architecture
   - node
   - maihaoche
+banner:
+  url: posts/20160809/banner.jpg
+  description: Node.js
 ---
 
-昨天，我们公司前端团队的几个人一起去大搜车参加了芋头所组织的「[搜车 Node Party](http://www.bagevent.com/event/164574){:rel="nofollow external"}{:target="_blank"}」。这是我第一次参加与 Node.js 相关的线下聚会，如果不算「[杭JS](http://2014.jsconf.cn){:rel="nofollow external"}{:target="_blank"}」的话。
+前天，我们公司前端团队的几个人一起去大搜车参加了芋头所组织的「[搜车 Node Party](http://www.bagevent.com/event/164574){:rel="nofollow external"}{:target="_blank"}」。这是我第一次参加与 Node.js 相关的线下聚会，如果不算「[杭JS](http://2014.jsconf.cn){:rel="nofollow external"}{:target="_blank"}」的话。
 
 <figure>
-  <img src="{{ 'drafts/working-with-node-in-team/souche-node-party' | asset_path }}" alt="聚会现场">
+  <img src="{{ 'posts/20160809/souche-node-party' | asset_path }}" alt="聚会现场">
   <figcaption>聚会现场</figcaption>
 </figure>
 
@@ -40,7 +43,7 @@ Node.js 从问世开始，已经渐渐成为前端工程师的必备技能，开
 正因为静态资源文件与后端框架相隔离，在开发时无法通过本地文件的相对路径进行引用。我们利用 [LivePool](https://github.com/rehorn/livepool){:target="_blank"}{:rel="nofollow external"} 将模板中引用静态资源文件的 URL 代理到本地文件来调试。
 
 <figure>
-  <img src="{{ 'drafts/working-with-node-in-team/start-livepool' | asset_path }}" alt="运行 LivePool">
+  <img src="{{ 'posts/20160809/start-livepool' | asset_path }}" alt="运行 LivePool">
   <figcaption>运行 LivePool</figcaption>
 </figure>
 
@@ -122,7 +125,7 @@ Bumblebee 的实质就是一个容器，把 yeoman-environment（Yeoman 的底�
 最近想用 Node.js 做很多事情，如智能家庭系统啦，公司内部的资源信息管理系统啦，还有通过微信机器人控制智能硬件啦……
 
 <figure>
-  <img src="{{ 'drafts/working-with-node-in-team/homepage-of-rims' | asset_path }}" alt="资源信息管理系统">
+  <img src="{{ 'posts/20160809/homepage-of-rims' | asset_path }}" alt="资源信息管理系统">
   <figcaption>资源信息管理系统</figcaption>
 </figure>
 
