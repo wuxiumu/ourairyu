@@ -14,7 +14,12 @@ tags:
 
 昨天，我们公司前端团队的几个人一起去大搜车参加了芋头所组织的「[搜车 Node Party](http://www.bagevent.com/event/164574){:rel="nofollow external"}{:target="_blank"}」。这是我第一次参加与 Node.js 相关的线下聚会，如果不算「[杭JS](http://2014.jsconf.cn){:rel="nofollow external"}{:target="_blank"}」的话。
 
-这次聚会的主题全部是与大搜车现行的业务和技术挂钩的：芋头讲述了团队中 Node.js 的技术演进及未来展望；死月分析了几个常用 ORM 的特点并安利了自己的作品；Plusman 分享了日志监控方案和实践。
+<figure>
+  <img src="{{ 'drafts/working-with-node-in-team/souche-node-party' | asset_path }}" alt="聚会现场">
+  <figcaption>聚会现场</figcaption>
+</figure>
+
+这次聚会的主题全部是与大搜车现行的业务和技术挂钩的：芋头讲述了团队中 Node.js 的技术演进及未来展望；死月分析了几个常用 ORM 的特点并安利了自己的作品；Plusman 分享了日志监控方案和实践。（相关演示文稿可以到芋头所写的[总结](http://f2e.souche.com/blog/di-jie-sou-che-node-party-zong-jie-ji-ppt/){:rel="nofollow external"}{:target="_blank"}中下载）
 
 整场下来，虽说没有醍醐灌顶，但对我们团队接下来要做的事情还是比较有借鉴意义的。另外，这场聚会给了我很多信心，让我觉得等我们积累些经验之后，也可以总结出来与其他公司的人分享交流一下。
 
@@ -33,6 +38,11 @@ Node.js 从问世开始，已经渐渐成为前端工程师的必备技能，开
 ### 网络代理
 
 正因为静态资源文件与后端框架相隔离，在开发时无法通过本地文件的相对路径进行引用。我们利用 [LivePool](https://github.com/rehorn/livepool){:target="_blank"}{:rel="nofollow external"} 将模板中引用静态资源文件的 URL 代理到本地文件来调试。
+
+<figure>
+  <img src="{{ 'drafts/working-with-node-in-team/start-livepool' | asset_path }}" alt="运行 LivePool">
+  <figcaption>运行 LivePool</figcaption>
+</figure>
 
 这种方式不仅用来支撑日常的项目开发，还用于调试线上 bug。能够方便、快速地解决线上问题固然使人愉悦，但开发时就麻烦得让人蛋疼了。
 
@@ -56,15 +66,25 @@ Node.js 从问世开始，已经渐渐成为前端工程师的必备技能，开
 
 ### 图片上传
 
-因为图片等静态资源文件是存储的 CDN 上的，之前的开发方式只能够手动做很多操作然后上传。当时的上传脚本做得比较简单，不支持灵活的配置，也不够自动化。后来，我在它的基础上做了很多优化，形成一个较为完整、成熟的支持多个 CDN 的上传工具——[RocketZ](https://github.com/ourai/rocketz){:rel="nofollow external"}{:target="_blank"}。这是我写的第一个 Node.js 应用，而不是简简单单的「Hello, world!」。
+项目里的图片等静态资源文件是存储的 CDN 上的，发布前会用工头写的 Node.js 脚本把那些新增和改动的文件上传上去。
+
+当时脚本写得比较简陋，既没有配置文件又不能传入变量，每次都要手动去把需要上传的文件拷贝出来放到同一个目录下，把脚本中的路径修改为那个目录才能够上传，麻烦至极！并且没有做容灾处理，只能上传到七牛，它的生死存亡直接影响到我们……不幸的是，已经经历过两次这种事情了！
+
+后来，我在原有的基础上做了很多优化，形成一个可配置、支持多个 CDN 的功能较为完善的上传工具——[RocketZ](https://github.com/ourai/rocketz){:rel="nofollow external"}{:target="_blank"}。与 FIS3 配合，可以在七牛再抽风时轻轻松把静态资源文件切换到顽兔的备份。
 
 ### 团队定制
+
+当使用的工具多了，就希望有一个工具能够替代它们，也就是包含它们所有的功能。要做到这点，就得根据团队的需求造一个轮子出来。我觉得每个前端团队都需要这么一个专属于自己的轮子，「[Bumblebee](https://github.com/ourai/bumblebee){:rel="nofollow external"}{:target="_blank"}」就是为此而生。
+
+Bumblebee 的实质就是一个容器，把 yeoman-environment（Yeoman 的底层）和 RocketZ 包装起来通过子命令调用。只用这一个工具就能使用脚手架和上传图片的功能，既使用简单又减少了记忆、管理等成本，何乐而不为呢？
+
+接下来还想加入安装插件和构建等功能，前提是有时间和精力……
+
+## 前后端分离
 
 到 5 月份时，请拓爷（花名文拓，Java 架构师）新开了一个项目，用于在现有项目基础上基于 Node.js 做一些事情。然而，出于种种原因且当时也不算是刚需，只搭了个架子就搁置在那了。时隔两个多月，它的重要性日渐突出，决定捡起来好好做下去！
 
 我对不起组织，请狠狠地鞭笞我……
-
-## 前后端分离
 
 起初，这个基于 Node.js 的项目到底要用来干嘛，并没有很明确的想法。想过用来渲染无动态数据的页面，也想过完全替代 Java，但想来想去都不太靠谱，最后决定用来做前后端分离。
 
