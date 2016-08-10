@@ -11,6 +11,10 @@ build-a-frontend-team:
   posts:
     - id: engineering-problems-of-frontend-development
       title: 前端工程优化之路
+    - id: working-with-git-in-team
+      title: 团队中的 Git 实践
+    - id: working-with-node-in-team
+      title: 团队中的 Node.js 实践
 
 dream-home-of-ourai:
   name: 欧雷与朱莉娅的家

@@ -13,6 +13,7 @@ tags:
 banner:
   url: posts/20160809/banner.jpg
   description: Node.js
+series: build-a-frontend-team
 ---
 
 前天，我们公司前端团队的几个人一起去大搜车参加了芋头所组织的「[搜车 Node Party](http://www.bagevent.com/event/164574){:rel="nofollow external"}{:target="_blank"}」。这是我第一次参加与 Node.js 相关的线下聚会，如果不算「[杭JS](http://2014.jsconf.cn){:rel="nofollow external"}{:target="_blank"}」的话。
