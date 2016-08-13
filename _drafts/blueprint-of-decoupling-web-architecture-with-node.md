@@ -6,7 +6,7 @@ categories:
 tags:
   - software-engineering
   - web-architecture
-  - frontend-web-development
+  - decoupling-frontend-from-backend
   - node
   - maihaoche
 banner:

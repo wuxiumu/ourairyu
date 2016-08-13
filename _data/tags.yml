@@ -27,6 +27,9 @@ web-design:
 web-architecture:
   name: 网站架构
 
+decoupling-frontend-from-backend:
+  name: 前后端分离
+
 page-layout:
   name: 页面布局
 
