@@ -1,5 +1,16 @@
+{% assign links = site.data.links %}
 <footer class="Page-footer Footer">
   <div class="container">
+    <nav class="Footer-links">
+      <ul>
+        <li><a href="{{ links.about.url | prepend: site.url }}"><span>{{ links.about.text }}</span></a></li>
+        <li><a href="{{ links.links.url | prepend: site.url }}"><span>{{ links.links.text }}</span></a></li>
+        <li><a href="https://github.com/ourai/ourairyu" target="_blank" rel="nofollow external"><span>源码</span></a></li>
+        <li><a href="https://www.linkedin.com/in/ourai/zh-cn" target="_blank" rel="nofollow external" title="访问 LinkedIn 个人主页"><span>简历</span></a></li>
+        <li><a href="https://twitter.com/ourairyu" target="_blank" rel="nofollow external"><span>推特</span></a></li>
+        <li><a href="http://weibo.com/ourairyu" target="_blank" rel="nofollow external"><span>微博</span></a></li>
+      </ul>
+    </nav>
     {% capture ver %}{% project_version %}{% endcapture %}
     <!-- 网站版权 -->
     <div class="Footer-copyright">
@@ -10,7 +21,6 @@
       <p><a href="http://www.miibeian.gov.cn/" target="_blank" rel="external nofollow">浙ICP备16006930号-1</a></p>
       <p class="hidden-xs"><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33010602005556" target="_blank" rel="external nofollow">浙公网安备 33010602005556号</a></p>
       <p class="hidden-xs">采用 <a href="http://jekyllrb.com" rel="external nofollow" target="_blank">Jekyll</a> 生成 ♥ 版本为 <span title="构建于 {{ site.time | date: '%F %R' }}">v{{ ver | split: "-" | first }}</span></p>
-      <p><a href="{{ site.data.links.links.url | prepend: site.url }}">{{ site.data.links.links.text }}</a></p>
       <p class="hidden-xs hidden-sm"><a href="http://validator.w3.org/check?uri=referer" target="_blank" rel="external nofollow" class="fa fa-html5"></a> <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" target="_blank" rel="external nofollow" class="fa fa-css3"></a></p>
     </div>
   </div>
