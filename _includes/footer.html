@@ -15,9 +15,11 @@
     <!-- 网站版权 -->
     <div class="Footer-copyright">
       <p>&copy; 2009-{{ site.time | date: "%Y" }} <a href="{{ '/' | prepend: site.url }}">{{ site.title }}</a> 版权所有</p>
+      <p class="hidden-xs">采用 <a href="http://jekyllrb.com" rel="external nofollow" target="_blank">Jekyll</a> 生成 ♥ 版本为 <span title="构建于 {{ site.time | date: '%F %R' }}">v{{ ver | split: "-" | first }}</span></p>
+    </div>
+    <div class="Footer-licenses">
       <p><a href="http://www.miibeian.gov.cn/" target="_blank" rel="external nofollow">浙ICP备16006930号-1</a></p>
       <p class="hidden-xs"><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33010602005556" target="_blank" rel="external nofollow">浙公网安备 33010602005556号</a></p>
-      <p class="hidden-xs">采用 <a href="http://jekyllrb.com" rel="external nofollow" target="_blank">Jekyll</a> 生成 ♥ 版本为 <span title="构建于 {{ site.time | date: '%F %R' }}">v{{ ver | split: "-" | first }}</span></p>
     </div>
     <!-- 社交网站 -->
     <div class="Footer-links hidden-xs">
