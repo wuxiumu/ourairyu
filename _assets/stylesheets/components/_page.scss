@@ -116,10 +116,8 @@ body {
     color: #444;
   }
 
+  .Footer-navs,
   .Footer-links {
-    margin-bottom: 20px;
-    font-size: 14px;
-
     ul {
       list-style: none inside none;
       margin-bottom: 0;
@@ -129,7 +127,14 @@ body {
 
     li {
       float: left;
+    }
+  }
 
+  .Footer-navs {
+    margin-bottom: 15px;
+    font-size: 14px;
+
+    li {
       span {
         font-weight: 400;
         @include inline-block;
@@ -146,18 +151,34 @@ body {
     }
   }
 
-  .Footer-support {
-    margin-top: 7px;
+  .Footer-copyright {
+    margin-top: 10px;
     @include pie-clearfix;
 
-    p {
-      float: left;
-      line-height: 1.1;
+    @media all and (min-width: $screen-sm-min) {
+      p {
+        float: left;
+        line-height: 1.1;
 
-      + p {
-        margin-left: .75em;
-        padding-left: .75em;
-        border-left: 1px solid #d6d6d6;
+        + p {
+          margin-left: .75em;
+          padding-left: .75em;
+          border-left: 1px solid #d6d6d6;
+        }
+      }
+    }
+  }
+
+  .Footer-links {
+    margin-top: 10px;
+
+    li {
+      a {
+        display: block;
+      }
+
+      + li {
+        margin-left: 10px;
       }
     }
   }
