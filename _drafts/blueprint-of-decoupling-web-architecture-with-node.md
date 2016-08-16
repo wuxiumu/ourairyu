@@ -50,9 +50,20 @@ series: build-a-frontend-team
 
 运营童鞋肯定会在心里咆哮：「改这么点东西也要等那么久？！公司养你们这些人是干什么吃的？！」
 
-虽然自己和小伙伴儿们被瞧不起有些不爽，但换作是我的话，同样会去鄙视，没准更狠！没办法，谁叫我们的开发流程真存在问题了！被骂也得忍着，不想继续被骂就得去改变！
-
 ### 职责不清
+
+每次接到新的需求后，在做页面时都会出现类似的问题——
+
+后端模板要谁来写呢？如果是后端去套用前端写的静态页面，他们 HTML 肯定写得不规范，到时出现任何问题还得跑来问前端；但若是前端去写，不知道数据输出后具体是什么样子，到时还得后端去把文本部分替换成变量，也可能会导致样式崩溃，并且还需要他们去配置访问页面的 URL 与模板关联。
+
+当前端对跟他配合的后端说：「＊＊，你帮我把 URL 加一下。」后端童鞋不明所以，一脸懵逼：「啊？」前端有点无奈：「访问页面的 URL 啊，你不配置一下我怎么调试？」后端的反射弧突然变得有点狭长，停顿了几秒钟才从他嘴里冒出：「哦……」
+
+<figure>
+  <img src="{{ 'drafts/blueprint-of-decoupling-web-architecture-with-node/angry' | asset_path }}" alt="无语至极">
+  <figcaption>无语至极</figcaption>
+</figure>
+
+我想，大部分 web 开发人员都会遇到这些问题。仅仅是做个页面而已，却要跟后端开发来来回回交涉好多次。这种沟通完全没必要，真是浪费口水，浪费时间，浪费心情！
 
 ### 业务耦合
 
@@ -79,7 +90,7 @@ series: build-a-frontend-team
     * 开发
         * [JSON Schema](http://json-schema.org){:target="_blank"}{:rel="external nofollow"}
         * [Mock.js](http://mockjs.com){:target="_blank"}{:rel="external nofollow"}
-        * [Swagger](http://swagger.io){:target="_blank"}{:rel="external nofollow"}
+        * [Swagger](http://swagger.io){:target="_blank"}{:rel="external nofollow"} / [RAP](http://rapapi.net/){:target="_blank"}{:rel="external nofollow"}
 * 生成假数据
 * 无缝切流量
     * Nginx 配置文件引入
