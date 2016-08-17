@@ -15,8 +15,13 @@ build-a-frontend-team:
       title: 团队中的 Git 实践
     - id: working-with-node-in-team
       title: 团队中的 Node.js 实践
-    # - id: blueprint-of-decoupling-web-architecture-with-node
-    #   title: 前后端分离之设想
+
+practices-for-decoupling-frontend-from-backend:
+  name: 前后端分离实践
+  description: 买好车团队中前后端分离的一些实践
+  posts:
+    - id: blueprint-of-decoupling-web-architecture-with-node
+      title: 前后端分离之设想
 
 dream-home-of-ourai:
   name: 欧雷与朱莉娅的家

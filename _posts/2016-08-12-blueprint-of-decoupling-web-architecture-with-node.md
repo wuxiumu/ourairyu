@@ -11,7 +11,7 @@ tags:
 banner:
   url: posts/20160812/banner.jpg
   description: Web 架构设计
-series: build-a-frontend-team
+series: practices-for-decoupling-frontend-from-backend
 ---
 
 关于「前后端分离」，这个概念已经出来好几年了，国内外有很多公司和产品采取了这种方式。这是一种在我看来较为先进的开发方式，它改变的不仅仅是一个 web 应用的系统架构，还有 web 工程师之间的协作方式，对「前端工程师」这个职业的发展产生了很大的影响。
