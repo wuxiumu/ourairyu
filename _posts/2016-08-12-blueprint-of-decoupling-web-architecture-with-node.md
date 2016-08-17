@@ -1,17 +1,16 @@
 ---
 title: 前后端分离之设想
-date: 2016-08-12 00:14:34 +0800
+date: 2016-08-12 11:19:17 +0800
 categories:
   - web-development
 tags:
   - software-engineering
   - web-architecture
   - decoupling-frontend-from-backend
-  - node
   - maihaoche
 banner:
-  url: drafts/blueprint-of-decoupling-web-architecture-with-node/banner.jpg
-  description: Node.js
+  url: posts/20160812/banner.jpg
+  description: Web 架构设计
 series: build-a-frontend-team
 ---
 
@@ -35,7 +34,7 @@ series: build-a-frontend-team
 作为一家电商行业的互联网公司，活动相关的需求总是源源不断的。虽然已经有个叫做「简易活动模板」的能够让运营童鞋自己动手创建活动页的系统，但设计师的思维是活跃的，不一定什么时候脑子突然「噼咔噼咔」一下就想出了一堆「好玩儿」的点子，设计出单凭那「简易」的模板系统已经无法满足的页面。这时，就得人肉切图了。
 
 <figure>
-  <img src="{{ 'drafts/blueprint-of-decoupling-web-architecture-with-node/new-idea' | asset_path }}" alt="灵光乍现">
+  <img src="{{ 'posts/20160812/new-idea' | asset_path }}" alt="灵光乍现">
   <figcaption>灵光乍现</figcaption>
 </figure>
 
@@ -44,7 +43,7 @@ series: build-a-frontend-team
 没过多久，也许是几分钟，没准是几小时，有可能是几天，运营童鞋悄悄地来到身边静静地蹲下，很有礼貌地开口了：「＊＊需要小小地调整一下，这个地方没多少改动，应该很快能改好（上线）吧？」可是，他们所得到的回复基本是：「这个得跟今天晚上的发布一起上线。」在听到这句话后，我能想象得出他们的表情——
 
 <figure>
-  <img src="{{ 'drafts/blueprint-of-decoupling-web-architecture-with-node/petrified' | asset_path }}" alt="呆若木鸡">
+  <img src="{{ 'posts/20160812/petrified' | asset_path }}" alt="呆若木鸡">
   <figcaption>呆若木鸡</figcaption>
 </figure>
 
@@ -59,7 +58,7 @@ series: build-a-frontend-team
 当前端对跟他配合的后端说：「＊＊，你帮我把 URL 加一下。」后端童鞋不明所以，一脸懵逼：「啊？」前端有点无奈：「访问页面的 URL 啊，你不配置一下我怎么调试？」后端的反射弧突然变得有点狭长，停顿了几秒钟才从他嘴里冒出：「哦……」
 
 <figure>
-  <img src="{{ 'drafts/blueprint-of-decoupling-web-architecture-with-node/angry' | asset_path }}" alt="无语至极">
+  <img src="{{ 'posts/20160812/angry' | asset_path }}" alt="无语至极">
   <figcaption>无语至极</figcaption>
 </figure>
 
