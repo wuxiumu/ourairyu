@@ -1,20 +1,20 @@
 # Ourairyu
 
-I'm sure that you have a question when you see the title of this repo,
+I'm sure you may have a question when you see the title of this repo,
 
 **What does the Ourairyu mean?**
 
 OK, let me tell you now.
 
-**Ourairyu is the Romanization of Japanese for 欧雷流. It means that every thing about me.**
+**Ourairyu is the Romanization of Japanese for 欧雷流. It means everything about me.**
 
 This repo hosts part of the source code of my personal website [Ourai.WS](https://ourai.ws/).
 
-**You could contact me by tweeting ([@ourairyu](https://twitter.com/ourairyu)) or sending an E-mail to [ourairyu@gmail.com](mailto:ourairyu@gmail.com).**
+**You could contact me by tweeting [@ourairyu](https://twitter.com/ourairyu) or sending an email to [ourairyu@gmail.com](mailto:ourairyu@gmail.com).**
 
 ## Power from the open-source community
 
-My site is built with many awesome open-source projects.
+My site is built up with many awesome open-source projects.
 
 ### Functionality
 
