@@ -10,6 +10,8 @@ OK, let me tell you now.
 
 This repo hosts part of the source code of my personal website [Ourai.WS](https://ourai.ws/).
 
+**You could contact me by tweeting ([@ourairyu](https://twitter.com/ourairyu)) or sending an E-mail to [ourairyu@gmail.com](mailto:ourairyu@gmail.com).**
+
 ## Power from the open-source community
 
 My site is built with many awesome open-source projects.
@@ -22,6 +24,6 @@ My site is built with many awesome open-source projects.
 
 ### Technologies
 
-* Bootstrap ([for Sass](https://github.com/twbs/bootstrap-sass))
+* [Bootstrap for Sass](https://github.com/twbs/bootstrap-sass)
 * [Compass](http://compass-style.org)
 * [CoffeeScript](http://coffeescript.org)
