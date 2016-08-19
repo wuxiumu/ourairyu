@@ -1,5 +1,5 @@
 $headerHeight: 60px;
-$footerHeight: 150px;
+$footerHeight: 180px;
 
 html,
 body {
@@ -171,7 +171,7 @@ body {
   }
 
   .Footer-links {
-    margin-top: 20px;
+    margin-top: 30px;
 
     li {
       a {
@@ -183,4 +183,26 @@ body {
       }
     }
   }
+}
+
+.Footer-ad {
+  float: right;
+}
+
+.Footer-qrcode {
+  p {
+    margin-bottom: 5px;
+    text-align: center;
+    font-weight: bold;
+    color: #444;
+  }
+
+  img {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+.Footer-description {
+  overflow: hidden;
 }
