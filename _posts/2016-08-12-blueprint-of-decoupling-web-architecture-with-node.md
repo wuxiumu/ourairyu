@@ -80,31 +80,44 @@ series: practices-for-decoupling-frontend-from-backend
 
 ## 要变成啥样
 
-### 淘宝的「中途岛」
+我所期望的理想状态是前、后端各司其职，专业的人做专业的事；系统架构弹性十足，比「今麦郎」弹面还要弹千倍万倍！
 
-* [模板 & 路由共享](http://blog.jobbole.com/65534/){:target="_blank"}{:rel="external nofollow"}
-* [ModelProxy](http://blog.jobbole.com/65541/){:target="_blank"}{:rel="external nofollow"}
-* [Nginx + Node.js + Java 部署实践](http://blog.jobbole.com/71675/){:target="_blank"}{:rel="external nofollow"}
+### 代码解耦
 
-## 有哪些阻碍
+编写前端代码完全脱离于后端框架，不必局限于它的目录结构，不用考虑到它的运行机制。使前端工程师能够更随心所欲、更无所顾忌地编写代码，专注于前端的交互逻辑和工程问题。
 
-## 解决的方案
+如若做到这点，页面的渲染方式就可以让前端工程师根据业务场景来选择，是「[单页面应用](https://en.wikipedia.org/wiki/Single-page_application){:target="_blank"}{:rel="external nofollow"}」式的浏览器渲染，还是像淘宝的「[中途岛](http://blog.jobbole.com/?s=前后端分离的思考与实践){:target="_blank"}{:rel="external nofollow"}」那样通过 Node.js 作为中间层在服务器渲染。
 
-### 需要解决的问题
+### 工作独立
 
-* 数据接口开发
-    * 设计
-        * [RAML](http://raml.org){:target="_blank"}{:rel="external nofollow"}
-        * [API Blueprint](https://apiblueprint.org){:target="_blank"}{:rel="external nofollow"}
-    * 开发
-        * [JSON Schema](http://json-schema.org){:target="_blank"}{:rel="external nofollow"}
-        * [Mock.js](http://mockjs.com){:target="_blank"}{:rel="external nofollow"}
-        * [Swagger](http://swagger.io){:target="_blank"}{:rel="external nofollow"} / [RAP](http://rapapi.net/){:target="_blank"}{:rel="external nofollow"}
-* 生成假数据
-* 无缝切流量
-    * Nginx 配置文件引入
-* 旧页面迁移
-* 接口环境切换
-    * 设置 cookie
-* 部署发布策略
-* 日志监控报警
+前端工程师不必学后端语言，后端工程师不用懂前端技术。各自的开发工作不会被对方的工具链、运行环境所影响，开发进度不会被对方的能力水平等因素所拖累。
+
+前、后端工程师之间的沟通大量缩减，变为以 API 文档为中心进行交流。在设计 API 时按照规范讨论决定，尽可能考虑各种情况以减少文档变更以及因此产生的沟通成本。
+
+## 待解决问题
+
+### 数据接口开发
+
+* 设计
+    * [RAML](http://raml.org){:target="_blank"}{:rel="external nofollow"}
+    * [API Blueprint](https://apiblueprint.org){:target="_blank"}{:rel="external nofollow"}
+* 开发
+    * [JSON Schema](http://json-schema.org){:target="_blank"}{:rel="external nofollow"}
+    * [Mock.js](http://mockjs.com){:target="_blank"}{:rel="external nofollow"}
+    * [Swagger](http://swagger.io){:target="_blank"}{:rel="external nofollow"} / [RAP](http://rapapi.net/){:target="_blank"}{:rel="external nofollow"}
+
+### 生成假数据
+
+### 无缝切流量
+
+* Nginx 配置文件引入
+
+### 旧页面迁移
+
+### 接口环境切换
+
+* 设置 cookie
+
+### 部署发布策略
+
+### 日志监控报警
