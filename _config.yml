@@ -16,6 +16,9 @@ collections:
   demos:
     output: true
     permalink: /:collection/:path/
+  invites:
+    output: true
+    permalink: /:collection/:path/
   slides:
     output: true
     permalink: /:collection/:path/
@@ -113,6 +116,12 @@ defaults:
         - pages/slide
       js:
         - pages/slide
+  - scope:
+      path: ""
+      type: invites
+    values:
+      layout: invite
+      sitemap: false
   - scope:
       path: ""
       type: issues

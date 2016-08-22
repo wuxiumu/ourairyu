@@ -6,6 +6,8 @@ Disallow: /categories/
 Disallow: /tags/
 Disallow: /archives/
 Disallow: /demos/
+Disallow: /slides/
+Disallow: /invites/
 
 Disallow: /links/
 Disallow: /cv/
