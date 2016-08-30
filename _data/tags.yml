@@ -205,6 +205,9 @@ tianjin:
 inner-mongolia:
   name: 内蒙古
 
+suzhou:
+  name: 苏州
+
 travel:
   name: 旅行
 
