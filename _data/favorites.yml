@@ -1,0 +1,11 @@
+people:
+  - name: 史蒂夫·乔布斯
+    description: 真正的理想主义者改变世界
+  - name: 马云
+    description: 「屌丝」逆袭的典范
+
+brands:
+  - name: Apple
+    description: 科技与艺术的完美结合
+  - name: Sony
+    description: 索尼大法好
