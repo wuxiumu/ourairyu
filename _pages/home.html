@@ -1,0 +1,33 @@
+---
+title: 欧雷与朱莉娅的家
+css:
+  - pages/home
+---
+
+<p>哈喽～这里是我与朱莉娅的家的主页。能看到这个页面，说明我们有缘分啊！</p>
+<p>我们的家在杭州，位于城西通往富阳的公路旁，是一个以排屋为主的小区，而我们是在仅有的三幢公寓中……能被别墅包围，也提升了我的逼格，蛤蛤蛤蛤！</p>
+<figure>
+  <img src="{{ 'pages/home/scene' | asset_path }}" alt="风景图">
+</figure>
+<p>估计你会很是诧异，「为什么连有个家都要弄个主页？！」答案只有一个——</p>
+<blockquote>
+  <p><strong>牛逼！</strong></p>
+  <footer>欧雷</footer>
+</blockquote>
+<p>至于牛逼在哪，请看《<a href="/posts/wonderful-home/">未来的家</a>》。</p>
+<h2>近期动态</h2>
+<ul>
+  {% for activity in site.data.home.activities %}
+    <li><time datetime="{{ activity.date | date_to_xmlschema }}">{{ activity.date | date: "%F" }}</time><p>{{ activity.activity }}</p></li>
+  {% endfor %}
+</ul>
+
+{% contentfor footer %}
+  <div class="Widget Article-author">
+    <div class="Widget-body Author">
+      <h3 class="Author-name">哈喽 U^ェ^U</h3>
+      <p class="Author-intro">我们要共同打造一个充满爱的洋溢着自由民主精神的信息化智能之家！欢迎关注我们：<a href="http://weibo.com/u/5884019989" target="_blank" title="关注微博"><i class="fa fa-weibo"></i></a></p>
+    </div>
+  </div>
+  {% include widgets/social.html %}
+{% endcontentfor %}
