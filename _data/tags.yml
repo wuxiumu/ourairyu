@@ -93,6 +93,15 @@ version-control:
 workflow:
   name: 工作流
 
+template-engine:
+  name: 模板引擎
+
+velocity:
+  name: Velocity
+
+thymeleaf:
+  name: Thymeleaf
+
 
 
 chinese-culture:
