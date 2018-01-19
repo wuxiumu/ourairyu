@@ -101,8 +101,8 @@ series: build-a-frontend-team
 
 红极一时的充分发挥 jQuery 特长的两个宝儿，jQuery UI 和 Bootstrap 提供了很多 UI 组件，对后端开发人员也很友好，看起来符合要求。但从它们组件的实现方式以及资源加载形式来看——
 
-- ~~jQuery UI~~
-- ~~Bootstrap~~
+- <span style="text-decoration: line-through;">jQuery UI</span>
+- <span style="text-decoration: line-through;">Bootstrap</span>
 
 现在的前端圈儿，一提到「组件」，大多数人的兴奋点都在 React、Vue、Angular 等 MV* 框架上。它们是很不错，不仅满足了「对外隔离」和「按需加载」，还大大地提升了前端开发的效率，能大红大紫成这样自有其道理。
 
@@ -128,9 +128,9 @@ series: build-a-frontend-team
 
 综上所述，MV* 类框架并不能解决我司后台现阶段所存在的问题——
 
-- ~~React~~
-- ~~Vue~~
-- ~~Angular~~
+- <span style="text-decoration: line-through;">React</span>
+- <span style="text-decoration: line-through;">Vue</span>
+- <span style="text-decoration: line-through;">Angular</span>
 
 有人不满了：
 
@@ -166,7 +166,7 @@ Web Components 由可以彼此分开使用也能够协同工作的四个部分�
 
 然而，并不用觉得过于扫兴。
 
-已经有 polyfill 帮我们填了一些坑，并且还有几个简化开发的库，如：[Polymer](https://www.polymer-project.org/)、[X-Tag](http://x-tag.github.io) 和 [Skate](http://skatejs.netlify.com) 等。再加上，我司的后台是对内的，几乎只需考虑 Chrome 类浏览器，兼容性缺陷基本可以无视。
+已经有 polyfill 帮我们填了一些坑，并且还有几个简化开发的库，如：[Polymer](https://www.polymer-project.org/){:target="_blank"}{:rel="external nofollow"}、[X-Tag](http://x-tag.github.io){:target="_blank"}{:rel="external nofollow"} 和 [Skate](http://skatejs.netlify.com){:target="_blank"}{:rel="external nofollow"} 等。再加上，我司的后台是对内的，几乎只需考虑 Chrome 类浏览器，兼容性缺陷基本可以无视。
 
 这样一来，开发一套基于 Web Components 的组件，是不是既让前端人员爽了，又让写页面的后端人员爽了呢？
 
