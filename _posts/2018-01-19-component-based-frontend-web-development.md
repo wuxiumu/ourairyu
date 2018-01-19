@@ -13,8 +13,6 @@ banner:
 series: build-a-frontend-team
 ---
 
-## 深情前戏
-
 看到标题，一般会有两种反应：
 
 <blockquote>
@@ -23,6 +21,8 @@ series: build-a-frontend-team
 </blockquote>
 
 ——的确如此。
+
+## 深情前戏
 
 我不生搬硬套那个什么百科来说啥是「面向组件」和为啥这么做，而是从工作现状以及自己思考的角度来阐述，并试着拟出一个解决方案。
 
@@ -76,7 +76,7 @@ series: build-a-frontend-team
 
 对于抽象概念的含义，每个人都会有自己的理解，正所谓「一千个读者心中有一千个哈姆雷特」。有人会说：
 
-> 「就是把相关的 HTML、CSS、JS 和图片等文件放到同一个文件夹里吧？」
+> 就是把相关的 HTML、CSS、JS 和图片等文件放到同一个文件夹里吧？
 
 ——没啥毛病。
 
@@ -99,16 +99,16 @@ series: build-a-frontend-team
 - 一个组件相关的资源要在我用到时再给我——按需加载；
 - 让前端技术不那么强的后端开发也可以用——门槛低。
 
-红极一时的充分发挥 jQuery 特长的两个宝儿，jQuery UI 和 Bootstrap 提供了很多 UI 组件，对后端开发人员也很友好，看起来符合要求。但从它们组件的实现方式以及资源加载形式来看——
+红极一时的充分发挥 [jQuery](http://jquery.com/){:target="_blank"}{:rel="external nofollow"} 特长的两个宝儿，[jQuery UI](http://jqueryui.com/){:target="_blank"}{:rel="external nofollow"} 和 [Bootstrap](https://getbootstrap.com/docs/3.3/){:target="_blank"}{:rel="external nofollow"} 提供了很多 UI 组件，对后端开发人员也很友好，看起来符合要求。但从它们组件的实现方式以及资源加载形式来看——
 
 - <span style="text-decoration: line-through;">jQuery UI</span>
 - <span style="text-decoration: line-through;">Bootstrap</span>
 
-现在的前端圈儿，一提到「组件」，大多数人的兴奋点都在 React、Vue、Angular 等 MV* 框架上。它们是很不错，不仅满足了「对外隔离」和「按需加载」，还大大地提升了前端开发的效率，能大红大紫成这样自有其道理。
+现在的前端圈儿，一提到「组件」，大多数人的兴奋点都在 [React](https://reactjs.org){:target="_blank"}{:rel="external nofollow"}、[Vue](https://vuejs.org){:target="_blank"}{:rel="external nofollow"}、[Angular](https://angular.io){:target="_blank"}{:rel="external nofollow"} 等 MV* 框架上。它们是很不错，不仅满足了「对外隔离」和「按需加载」，还大大地提升了前端开发的效率，能大红大紫成这样自有其道理。
 
 我司的业务是 to B 的，因此前端开发场景很「明确」，基本可以简单粗暴地理解为：「前台」就是移动端，「后台」就是桌面端。
 
-前台开发用的是基于 React 和 Ant Design Mobile 二次开发的框架。It works well，能够 hold 住当前的需求。然而，后台开发就不一样了。
+前台开发用的是基于 React 和 [Ant Design Mobile](https://mobile.ant.design/){:target="_blank"}{:rel="external nofollow"} 二次开发的框架。It works well，能够 hold 住当前的需求。然而，后台开发就不一样了。
 
 我们后台的需求很多，比前台多，并且源源不断地加速增长；我们后端的人员很多，比前端多，并且不成比例地持续加人。这就导致了一些问题：
 
@@ -134,20 +134,20 @@ series: build-a-frontend-team
 
 有人不满了：
 
-> 「你这也不行，那也不行，那还有啥了？！」
+> 你这也不行，那也不行，那还有啥了？！
 
 ——大大的有！
 
 ### 大家爽的姿势才正确
 
-有那么一个被各种 MV* 框架的光辉所掩盖的，虽然有那么点缺陷但却很有实力且颇具潜力的技术——是的，就是 Web Components！光从名字来看，不难想象它正是为了解决前端组件的问题而出现的。
+有那么一个被各种 MV* 框架的光辉所掩盖的，虽然有那么点缺陷但却很有实力且颇具潜力的技术——是的，就是 [Web Components](https://developers.google.com/web/fundamentals/web-components/){:target="_blank"}{:rel="external nofollow"}！光从名字来看，不难想象它正是为了解决前端组件的问题而出现的。
 
 Web Components 由可以彼此分开使用也能够协同工作的四个部分组成：
 
-- Custom Elements——定义新的 HTML 元素；
-- Shadow DOM——隔离 DOM 和样式；
-- HTML Imports——声明要引入的 HTML 文档；
-- HTML Templates——定义可复用的 HTML 片段。
+- [Custom Elements](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Custom_Elements){:target="_blank"}{:rel="external nofollow"}——定义新的 HTML 元素；
+- [Shadow DOM](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Shadow_DOM){:target="_blank"}{:rel="external nofollow"}——隔离 DOM 和样式；
+- [HTML Imports](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template){:target="_blank"}{:rel="external nofollow"}——声明要引入的 HTML 文档；
+- [HTML Templates](https://developer.mozilla.org/en-US/docs/Web/Web_Components/HTML_Imports){:target="_blank"}{:rel="external nofollow"}——定义可复用的 HTML 片段。
 
 因为是 W3C 的亲儿子，使用者可以像对其他如 `<div>`、`<p>` 一样对待由 Web Components 封装的组件——完全照顾了前端技术不娴熟的后端开发大大们。
 
@@ -159,14 +159,14 @@ Web Components 由可以彼此分开使用也能够协同工作的四个部分�
 
 <figure>
   <img src="{{ 'posts/20180119/compatibility' | asset_path }}" alt="Web Components 浏览器兼容性">
-  <figcaption>Web Components 浏览器兼容性</figcaption>
+  <figcaption><a href="https://caniuse.com/#search=web%20components" target="_blank">Web Components 浏览器兼容性</a></figcaption>
 </figure>
 
 可以说，兼容性和不稳定性成了推广 Web Components 的致命伤。
 
 然而，并不用觉得过于扫兴。
 
-已经有 polyfill 帮我们填了一些坑，并且还有几个简化开发的库，如：[Polymer](https://www.polymer-project.org/){:target="_blank"}{:rel="external nofollow"}、[X-Tag](http://x-tag.github.io){:target="_blank"}{:rel="external nofollow"} 和 [Skate](http://skatejs.netlify.com){:target="_blank"}{:rel="external nofollow"} 等。再加上，我司的后台是对内的，几乎只需考虑 Chrome 类浏览器，兼容性缺陷基本可以无视。
+已经有 [polyfill](https://www.webcomponents.org/polyfills){:target="_blank"}{:rel="external nofollow"} 帮我们填了一些坑，并且还有几个简化开发的库，如：[Polymer](https://www.polymer-project.org/){:target="_blank"}{:rel="external nofollow"}、[X-Tag](http://x-tag.github.io){:target="_blank"}{:rel="external nofollow"} 和 [Skate](http://skatejs.netlify.com){:target="_blank"}{:rel="external nofollow"} 等。再加上，我司的后台是对内的，几乎只需考虑 Chrome 类浏览器，兼容性缺陷基本可以无视。
 
 这样一来，开发一套基于 Web Components 的组件，是不是既让前端人员爽了，又让写页面的后端人员爽了呢？
 
