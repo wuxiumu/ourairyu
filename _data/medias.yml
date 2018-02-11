@@ -22,3 +22,8 @@ toutiao:
   name: 开发者头条
   image: toutiao.png
   url: http://toutiao.io/
+
+maihaoche:
+  name: 买好车技术
+  image: maihaoche.jpg
+  url: http://www.maihaoche.com/

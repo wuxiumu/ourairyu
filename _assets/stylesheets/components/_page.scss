@@ -1,5 +1,5 @@
 $headerHeight: 60px;
-$footerHeight: 90px;
+$footerHeight: 180px;
 
 html,
 body {
@@ -102,13 +102,11 @@ body {
 .Page-footer {
   height: $footerHeight;
   margin-top: -($footerHeight);
-  padding: {
-    top: 15px;
-    bottom: 30px;
-  }
+  padding-top: 15px;
   border-top: 1px solid #dedede;
   background-color: #F5F5F5;
   color: #666;
+  font-size: 12px;
 
   p {
     margin-bottom: 0;
@@ -118,24 +116,93 @@ body {
     color: #444;
   }
 
-  .Footer-copyright {
-    font-size: 14px;
+  .Footer-navs,
+  .Footer-links {
+    ul {
+      list-style: none inside none;
+      margin-bottom: 0;
+      padding-left: 0;
+      @include pie-clearfix;
+    }
+
+    li {
+      float: left;
+    }
   }
 
-  .Footer-support {
-    margin-top: 7px;
-    font-size: 12px;
-    @include pie-clearfix;
+  .Footer-navs {
+    margin-bottom: 20px;
+    font-size: 14px;
 
-    p {
-      float: left;
-      line-height: 1.1;
+    li {
+      span {
+        font-weight: 400;
+        @include inline-block;
+      }
 
-      + p {
-        margin-left: .75em;
-        padding-left: .75em;
-        border-left: 1px solid #d6d6d6;
+      + li {
+        &:before {
+          margin: 0 .5em;
+          content: "/";
+          color: #d6d6d6;
+          @include inline-block;
+        }
       }
     }
   }
+
+  .Footer-copyright,
+  .Footer-licenses {
+    margin-top: 10px;
+    @include pie-clearfix;
+
+    @media all and (min-width: $screen-sm-min) {
+      p {
+        float: left;
+        line-height: 1.1;
+
+        + p {
+          margin-left: .75em;
+          padding-left: .75em;
+          border-left: 1px solid #d6d6d6;
+        }
+      }
+    }
+  }
+
+  .Footer-links {
+    margin-top: 30px;
+
+    li {
+      a {
+        display: block;
+      }
+
+      + li {
+        margin-left: 10px;
+      }
+    }
+  }
+}
+
+.Footer-ad {
+  float: right;
+}
+
+.Footer-qrcode {
+  p {
+    margin-bottom: 5px;
+    text-align: center;
+    font-weight: bold;
+    color: #444;
+  }
+
+  img {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+.Footer-description {
+  overflow: hidden;
 }

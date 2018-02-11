@@ -9,6 +9,7 @@
 @import "./reset";
 
 @import "./components/utilities";
+@import "./components/icons";
 @import "./components/component";
 @import "./components/widget";
 @import "./components/page";
@@ -27,7 +28,7 @@
     display: block;
     content: $UN-space;
     background-color: #000;
-    opacity: .5;
+    opacity: .35;
   }
 
   @media (min-width: $screen-sm-min) {

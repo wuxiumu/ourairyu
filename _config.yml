@@ -16,6 +16,12 @@ collections:
   demos:
     output: true
     permalink: /:collection/:path/
+  invites:
+    output: true
+    permalink: /:collection/:path/
+  slides:
+    output: true
+    permalink: /:collection/:path/
   tutorials:
     output: false
     permalink: /:collection/:path/
@@ -86,6 +92,7 @@ defaults:
         - pages/post
       js:
         - initializers/time
+        - initializers/lazyload
       author:
         name: 欧雷
         email: ourairyu@gmail.com
@@ -98,6 +105,22 @@ defaults:
       path: ""
       type: demos
     values:
+      sitemap: false
+  - scope:
+      path: ""
+      type: slides
+    values:
+      layout: slide
+      sitemap: false
+      css:
+        - pages/slide
+      js:
+        - pages/slide
+  - scope:
+      path: ""
+      type: invites
+    values:
+      layout: invite
       sitemap: false
   - scope:
       path: ""

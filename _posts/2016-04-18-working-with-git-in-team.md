@@ -19,6 +19,10 @@ recommended:
   - title: 团队中的 Git 实践
     url: http://toutiao.io/posts/qshpbs
     media: toutiao
+  - title: 买好车 Git Flow 实践总结
+    url: https://mp.weixin.qq.com/s?__biz=MzIzMDQ1NjAzOA==&mid=2247483703&idx=1&sn=9fba012a1f832401dd08d63c67816477&scene=1
+    media: maihaoche
+series: build-a-frontend-team
 ---
 
 在 2005 年的某一天，Linux 之父 Linus Torvalds 发布了他的又一个里程碑作品——Git。它的出现改变了软件开发流程，大大地提高了开发流畅度！直到现在仍十分流行，完全没有衰退的迹象。

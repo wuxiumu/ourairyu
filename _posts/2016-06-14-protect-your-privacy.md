@@ -2,14 +2,14 @@
 title: 在互联网上「裸奔」
 date: 2016-06-14 03:50:41 +0800
 categories:
-  - thoughts
+  - life
 tags:
   - social-media
   - information-security
 banner:
   url: posts/20160614/banner.jpg
   description: 社交网络
-image: posts/20160614/banner.jpg
+image: posts/20160614/streaking.jpg
 ---
 
 端午节那天等大巴时在一篇关于阅后即焚应用「Snapchat」的文章中看到一句话——

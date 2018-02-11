@@ -24,6 +24,12 @@ web-performance-optimization:
 web-design:
   name: 网页设计
 
+web-architecture:
+  name: 网站架构
+
+decoupling-frontend-from-backend:
+  name: 前后端分离
+
 page-layout:
   name: 页面布局
 
@@ -35,6 +41,9 @@ css:
 
 javascript:
   name: JavaScript
+
+node:
+  name: Node.js
 
 xhr:
   name: XML HTTP 请求
@@ -83,6 +92,15 @@ version-control:
 
 workflow:
   name: 工作流
+
+template-engine:
+  name: 模板引擎
+
+velocity:
+  name: Velocity
+
+thymeleaf:
+  name: Thymeleaf
 
 
 
@@ -186,6 +204,18 @@ huangshan:
 
 nanjing:
   name: 南京
+
+xiamen:
+  name: 厦门
+
+tianjin:
+  name: 天津
+
+inner-mongolia:
+  name: 内蒙古
+
+suzhou:
+  name: 苏州
 
 travel:
   name: 旅行

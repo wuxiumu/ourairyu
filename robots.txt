@@ -6,10 +6,14 @@ Disallow: /categories/
 Disallow: /tags/
 Disallow: /archives/
 Disallow: /demos/
+Disallow: /slides/
+Disallow: /invites/
 
 Disallow: /links/
 Disallow: /cv/
 Disallow: /we-need-you/
 Disallow: /404.html
+
+Disallow: /mhc-fe/
 
 Sitemap: /sitemap.xml

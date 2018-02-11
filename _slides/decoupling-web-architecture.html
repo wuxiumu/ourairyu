@@ -1,0 +1,139 @@
+---
+title: 浅谈「前后端分离」
+cover:
+  url: slides/decoupling-web-architecture/cover.jpg
+image: slides/decoupling-web-architecture/cover.jpg
+---
+
+<section>
+  <section>
+    <h2>Long long ago...</h2>
+  </section>
+  <section>
+    <p>网页还不那么复杂</p>
+    <p class="fragment">人们还不那么关注页面的颜值有多高</p>
+    <p class="fragment">也对页面交互的舒适度要求不高</p>
+    <p class="fragment">更不知 UX 为何物</p>
+    <p class="fragment">只要能用就行……</p>
+  </section>
+  <section>
+    <p>如果是刚起步不久的小公司</p>
+    <p class="fragment">整个网页的开发很可能让后端工程师全包了</p>
+    <p class="fragment">于是页面就……</p>
+  </section>
+  <section>
+    <img src="{{ 'slides/decoupling-web-architecture/web-1' | asset_path }}" alt="Web 1.0 页面" style="margin: 0;">
+  </section>
+  <section>
+    <h2>全栈式开发</h2>
+  </section>
+  <section>
+    <img src="{{ 'slides/decoupling-web-architecture/architecture-simple-1' | asset_path }}" alt="前后端耦合简单架构示意图" style="margin: 0;">
+  </section>
+</section>
+<section>
+  <section>
+    <p>当业务不断增多</p>
+    <p class="fragment">当代码变得复杂</p>
+    <p class="fragment">这时就需要专职的前端工程师出马了</p>
+    <p class="fragment">也需要对整体架构做些调整</p>
+    <p class="fragment">如果不想整个项目变得<span class="fragment">像一坨屎……</span></p>
+  </section>
+  <section>
+    <p>我觉得最好的方式是</p>
+    <h2 class="fragment">「<span class="fragment">前后端分离</span>」</h2>
+  </section>
+</section>
+<section>
+  <section>
+    <p>前后端分离的基本方法是</p>
+    <p class="fragment">将前端代码从后端框架中抽取出来</p>
+    <p class="fragment">即，</p>
+    <p class="fragment">把「V」和「C」都交给前端工程师处理</p>
+  </section>
+  <section>
+    <p>这个行为体现了</p>
+    <h2 class="fragment">「关注点分离」</h2>
+    <p class="fragment">使 web 开发人员更关注自己的职责所在</p>
+  </section>
+  <section>
+    <p>目前有两种前后端分离的方式</p>
+  </section>
+  <section>
+    <h2>单页面应用</h2>
+    <p class="fragment">如：</p>
+    <p class="fragment">Backbone<span class="fragment">、Angular</span><span class="fragment">、React</span><span class="fragment">、Vue</span></p>
+  </section>
+  <section>
+    <img src="{{ 'slides/decoupling-web-architecture/architecture-simple-2' | asset_path }}" alt="单页面应用简单架构示意图" style="margin: 0;">
+  </section>
+  <section>
+    <h2>Node.js 做中间层</h2>
+    <p class="fragment">如：</p>
+    <p class="fragment">淘宝的「中途岛」项目</p>
+  </section>
+  <section data-transition="slide-in fade-out">
+    <img src="{{ 'slides/decoupling-web-architecture/architecture-simple-1' | asset_path }}" alt="前后端耦合简单架构示意图" style="margin: 0;">
+  </section>
+  <section data-transition="fade-in slide-out">
+    <img src="{{ 'slides/decoupling-web-architecture/architecture-simple-3' | asset_path }}" alt="Node.js 做中间层简单架构示意图" style="margin: 0;">
+  </section>
+</section>
+<section>
+  <section>
+    <h2>我们为什么要分离？</h2>
+  </section>
+  <section>
+    <h3>快速应变</h3>
+    <ul class="fragment">
+      <li>很多活动页或宣传页</li>
+      <li class="fragment">经常有文本变动或其他小修改</li>
+      <li class="fragment">页面发布流程需要独立出来</li>
+    </ul>
+  </section>
+  <section>
+    <h3>分清职责</h3>
+    <ul class="fragment">
+      <li>专（业）人做专（业）事</li>
+      <li class="fragment">渲染方案任意选</li>
+      <li class="fragment">以 API 文档为中心进行交流</li>
+    </ul>
+  </section>
+  <section>
+    <h3>弹性架构</h3>
+    <ul class="fragment">
+      <li>积累前端公共库</li>
+      <li class="fragment">终端媒介零关心</li>
+      <li class="fragment">随意插拔<span class="fragment">和拼装</span></li>
+    </ul>
+  </section>
+</section>
+<section>
+  <section>
+    <h2>如何去分离？</h2>
+  </section>
+  <section data-transition="slide-in fade-out">
+    <img src="{{ 'slides/decoupling-web-architecture/architecture-1' | asset_path }}" alt="分离前">
+  </section>
+  <section data-transition="fade-in slide-out">
+    <img src="{{ 'slides/decoupling-web-architecture/architecture-2' | asset_path }}" alt="分离后">
+  </section>
+  <section>
+    <h3>部署发布</h3>
+    <ul class="fragment">
+      <li>与 Java 应用通信</li>
+      <li class="fragment">配置 Nginx 规则</li>
+    </ul>
+  </section>
+  <section>
+    <h3>数据接口</h3>
+    <ul class="fragment">
+      <li>制定契约</li>
+      <li class="fragment">生成文档</li>
+      <li class="fragment">开发调试</li>
+    </ul>
+  </section>
+</section>
+<section data-background-image="{{ 'slides/decoupling-web-architecture/department' | asset_path }}" style="text-shadow: 1px 1px #666;">
+  <h1>谢谢！</h1>
+</section>
