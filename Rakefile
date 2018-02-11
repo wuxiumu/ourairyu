@@ -135,7 +135,8 @@ task :deploy do
 
   system "rake github"
   system "rake codepen"
-  system "JEKYLL_ENV=production bundle exec jekyll build -d #{dir}"
+  system "bundle exec jekyll clean"
+  system "JEKYLL_ENV=production bundle exec jekyll build -V -d #{dir}"
 
   cd dir do
     current_time = Time.now.strftime("%Y-%m-%d %H:%M:%S")
