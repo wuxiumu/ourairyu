@@ -122,7 +122,7 @@ task :deploy do
 
     cd dir do
       system "git init"
-      system "git remote add origin root@ourai.ws:/home/git/ourairyu.git"
+      system "git remote add origin https://github.com/ourairyu/blog.git"
       system "git fetch"
       system "git checkout master"
     end
