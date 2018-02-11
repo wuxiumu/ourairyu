@@ -25,8 +25,7 @@ practices-for-decoupling-frontend-from-backend:
 
 dream-home-of-ourai:
   name: 欧雷与朱莉娅的家
-  description: >
-    充满爱的洋溢着自由民主精神的信息化智能之家，家的主页：<a href="http://home.ourai.ws" target="_blank" rel="external nofollow">home.ourai.ws</a>
+  description: 充满爱的洋溢着自由民主精神的信息化智能之家
   posts:
     - id: married-life-in-my-mind
       title: 我所想的婚后生活
