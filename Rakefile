@@ -122,7 +122,7 @@ task :deploy do
 
     cd dir do
       system "git init"
-      system "git remote add origin https://github.com/ourairyu/blog.git"
+      system "git remote add origin https://ourai@bitbucket.org/ourairyu/blog.git"
       system "git fetch"
       system "git checkout master"
     end
@@ -136,7 +136,7 @@ task :deploy do
   system "rake github"
   system "rake codepen"
   system "bundle exec jekyll clean"
-  system "JEKYLL_ENV=production bundle exec jekyll build -V -d #{dir}"
+  system "JEKYLL_ENV=production bundle exec jekyll build -d #{dir}"
 
   cd dir do
     current_time = Time.now.strftime("%Y-%m-%d %H:%M:%S")
