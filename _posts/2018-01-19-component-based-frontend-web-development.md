@@ -8,7 +8,7 @@ tags:
   - frontend-web-development
   - frontend-engineering
 banner:
-  url: posts/20180119/banner.png
+  url: posts/20180119/lego.jpg
   description: Web Components
 series: build-a-frontend-team
 ---
