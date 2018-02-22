@@ -6,6 +6,15 @@ css:
 special_title: 欧雷所写的文章
 special_type: posts
 ---
+{% contentfor post_banner %}
+  <div class="Page-banner is-translucent hidden-xs" style="background-image: url({{ 'banners/blog.jpg' | asset_path }});">
+    <figure class="sr-only">
+      <img src="{{ 'banners/blog.jpg' | asset_path }}" alt="博客文章">
+      <figcaption>博客文章</figcaption>
+    </figure>
+  </div>
+{% endcontentfor %}
+
 {% contentfor footer %}
   <aside class="Widget Widget--hotCategories">
     <div class="Widget-body">

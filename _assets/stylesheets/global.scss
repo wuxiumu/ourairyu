@@ -31,6 +31,10 @@
     opacity: .35;
   }
 
+  &.is-translucent:before {
+    opacity: .5;
+  }
+
   @media (min-width: $screen-sm-min) {
     + .container {
       .Article {
