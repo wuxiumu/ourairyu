@@ -14,7 +14,7 @@ recommended:
     url: http://mp.weixin.qq.com/s?__biz=MjM5MTA1MjAxMQ==&mid=402284806&idx=1&sn=cc6f5bfdd881cad1744983117333bd61&scene=0
     media: zaoduke
   - title: 如何考评一名前端工程师？
-    url: http://gold.xitu.io/entry/56e37809128fe10051c88e03
+    url: http://juejin.im/entry/56e37809128fe10051c88e03
     media: xitu-gold
   - title: 如何考评一名前端工程师？
     url: http://web.jobbole.com/85468/
