@@ -3,7 +3,7 @@ web-development:
   description: 利用网页程序语言等技术进行网站和网络应用的开发与维护
   thumbnail: thumbnails/geek.jpg
   banner:
-    url: thumbnails/geek.jpg
+    url: banners/geek.jpg
 
 japanese:
   name: 日语
