@@ -122,7 +122,7 @@ task :deploy do
 
     cd dir do
       system "git init"
-      system "git remote add origin git@bitbucket.org:ourairyu/blog.git"
+      system "git remote add origin git@gitlab.com:ourairyu/ourairyu.git"
       system "git fetch"
       system "git checkout site"
     end
