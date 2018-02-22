@@ -28,6 +28,10 @@ layout: compress
   {% assign body_class = "Page" %}
   {% if page.banner %}
     {% assign body_class = body_class | append: " " | append: "has-headerImage" %}
+  {% else %}
+    {% ifhascontent post_banner %}
+      {% assign body_class = body_class | append: " " | append: "has-headerImage" %}
+    {% endifhascontent %}
   {% endif %}
   <body class="{{ body_class }}" itemscope itemtype="http://schema.org/WebPage">
     {{ content }}
