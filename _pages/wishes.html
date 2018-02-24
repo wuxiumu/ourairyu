@@ -1,0 +1,22 @@
+---
+title: 心愿单
+
+special_title: 欧雷所想要及想做的
+---
+
+{% contentfor post_banner %}
+  <div class="Page-banner is-translucent hidden-xs" style="background-image: url({{ 'banners/wishlist.jpg' | asset_path }});">
+    <figure class="sr-only">
+      <img src="{{ 'banners/wishlist.jpg' | asset_path }}" alt="心愿单">
+      <figcaption>心愿单</figcaption>
+    </figure>
+  </div>
+{% endcontentfor %}
+
+{% for cat in site.data.wishes %}
+<h2>{{ cat.category }}</h2>
+  {% for item in cat.items %}
+    <h3>{{ item.title }}</h3>
+    <p>{{ item.requirement }}</p>
+  {% endfor %}
+{% endfor %}

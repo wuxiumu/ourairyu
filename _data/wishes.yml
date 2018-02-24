@@ -1,0 +1,25 @@
+- category: 物
+  items:
+    - title: 房子
+      requirement: 复式结构
+      created_at: 2015-10-08 10:03
+
+    - title: iPad Pro
+      requirement: 128G
+      created_at: 2015-10-08 14:05
+
+    - title: 汽车
+      requirement: 外表酷，座位空间大
+      created_at: 2015-10-08 14:11
+
+    - title: 工作站
+
+    - title: Apple Watch
+
+    - title: Herman Miller Embody
+
+- category: 事
+  items:
+
+- category: 景
+  items:
