@@ -2,6 +2,10 @@ posts:
   url: /posts/
   text: 文章
 
+works:
+  url: /works/
+  text: 作品
+
 identities:
   url: /identities/
   text: 个性
