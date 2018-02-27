@@ -4,20 +4,20 @@ date: 2018-02-25 01:05:28 +0800
 categories:
   - life
 tags:
-  - software-engineering
-  - frontend-web-development
-  - frontend-engineering
+  - memories
+  - self-reflection
+  - summary
 banner:
-  url: posts/20180119/lego.jpg
-  description: Web Components
+  url: drafts/hack-life-and-play-with-it/banner
+  description: 左右大脑
 ---
 
-虽然大家都已经纷纷回到公司开始工作了，但印象里，只要还没过完元宵节，年就不算结束。所以，即使有点晚了，也要在这里拜个年：祝各位，身体旺，家庭旺，事业旺，财运旺！
+虽然大家都已经纷纷回到公司开始工作了，但印象里，只要还没过完元宵节，年就不算结束。所以，即使有点晚了，也要在这里拜个年——
 
-<figure>
-  <img src="{{ 'drafts/hack-life-and-play-with-it/happy-new-year' | asset_path }}" alt="戊戌年祝福">
-  <figcaption><a href="https://www.pixiv.net/member_illust.php?mode=medium&illust_id=67303719" target="_blank">戊戌年祝福</a></figcaption>
-</figure>
+<blockquote>
+  <p>祝各位，身体旺，家庭旺，事业旺，财运旺！</p>
+  <footer>欧雷</footer>
+</blockquote>
 
 很「荣幸」，我迎来了「当立之年」，作为还有些「年少轻狂」的「叛逆青年」，有的事不得不静下心来仔细想想。
 
@@ -25,7 +25,7 @@ banner:
 
 一直以来，我很敬畏「30 岁」，觉得这个年龄是男人一生的一个分水岭，会影响下半生的走向。
 
-假如可以活到 60 岁（≧ 60），那么可以说，我已经活完了人生的一半。
+假如可以活到 60 岁（≧ 60），那么可以说，我的人生之旅已经走了一半。
 
 试着回顾一下逝去的那些年中所发生的会影响我人生走向的关键节点——
 
