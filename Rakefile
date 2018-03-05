@@ -106,7 +106,7 @@ end
 
 desc "运行"
 task :run do
-  system "bundle exec jekyll serve --future --drafts --incremental"
+  system "bundle exec jekyll serve --future --drafts --incremental --port 10222"
 end
 
 desc "部署"
