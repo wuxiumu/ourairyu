@@ -9,7 +9,7 @@ banner:
 image: posts/20160413/banner.jpg
 recommended:
   - title: 世界，其实很小
-    url: http://gold.xitu.io/entry/57173e5971cfe400573e7ef3
+    url: http://juejin.im/entry/57173e5971cfe400573e7ef3
     media: xitu-gold
 ---
 
@@ -37,7 +37,7 @@ recommended:
 
 最近，前端圈子发生了一些让很多人围观的事情，敢情成娱乐圈了。其中之一就是「GitHub 刷粉」事件，自称「前端姐妹花」的某人一失足成千古恨。
 
-第一次注意到她，是在成为「[掘金](https://gold.xitu.io/){:target="_blank"}{:rel="external nofollow"}」的联合编辑后在列表中看到一个头像给我一种精明能干的感觉的用户，于是就点进去看了下资料，介绍部分挂着 GitHub 个人页面的地址。
+第一次注意到她，是在成为「[掘金](https://juejin.im/){:target="_blank"}{:rel="external nofollow"}」的联合编辑后在列表中看到一个头像给我一种精明能干的感觉的用户，于是就点进去看了下资料，介绍部分挂着 GitHub 个人页面的地址。
 
 <figure>
   <img src="{{ 'posts/20160413/co-editors.png' | asset_path }}" alt="掘金·联合编辑">

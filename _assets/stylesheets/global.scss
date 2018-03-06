@@ -31,6 +31,10 @@
     opacity: .35;
   }
 
+  &.is-translucent:before {
+    opacity: .5;
+  }
+
   @media (min-width: $screen-sm-min) {
     + .container {
       .Article {
@@ -67,6 +71,45 @@
 
   @media (max-width: $screen-xs-max) {
     height: 150px;
+  }
+}
+
+.Page.has-headerImage {
+  @media (min-width: $screen-sm-min) {
+    $link-hover-color: rgba(255, 255, 255, .9);
+
+    .Page-header {
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      color: #fff;
+      background-color: transparent;
+      border-bottom-color: transparent;
+      
+      .navbar-brand {
+        text-shadow: none;
+  
+        &:hover {
+          color: $link-hover-color;
+        }
+      }
+    }
+  
+    .Page-navs > .nav > li > a {
+      color: inherit;
+  
+      &:hover,
+      &:focus {
+        color: $link-hover-color;
+      }
+    }
+  
+    .Page-content {
+      &:before {
+        display: none;
+      }
+    }
   }
 }
 

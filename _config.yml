@@ -36,6 +36,7 @@ collections:
 exclude: 
   - .asset-cache
   - .sass-cache
+  - .vscode
   - node_modules
   - vendors
   - src

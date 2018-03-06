@@ -106,7 +106,7 @@ end
 
 desc "运行"
 task :run do
-  system "bundle exec jekyll serve --future --drafts --incremental"
+  system "bundle exec jekyll serve --future --drafts --incremental --port 10222"
 end
 
 desc "部署"
@@ -122,14 +122,14 @@ task :deploy do
 
     cd dir do
       system "git init"
-      system "git remote add origin https://ourai@bitbucket.org/ourairyu/blog.git"
+      system "git remote add origin git@gitlab.com:ourairyu/ourairyu.git"
       system "git fetch"
-      system "git checkout master"
+      system "git checkout site"
     end
   else
     cd dir do
       # system "git reset --hard HEAD"
-      system "git pull origin master"
+      system "git pull origin site"
     end
   end
 
@@ -144,6 +144,6 @@ task :deploy do
     system "touch .nojekyll"
     system "git add -A"
     system "git commit -m 'Generate on #{current_time}'"
-    system "git push origin master"
+    system "git push origin site"
   end
 end
