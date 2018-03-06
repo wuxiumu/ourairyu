@@ -32,7 +32,17 @@ banner:
 
 初一时开始买《游戏机实用技术》杂志，之后发行的《掌机王》也逐刊入手。看着杂志中的各种游戏介绍和主机评测，让我跃跃欲试，还把其他同学给拉进了坑。
 
+<figure>
+  <img src="{{ 'posts/20180306/king-of-handheld-game-console' | asset_path }}" alt="《掌机王》系列杂志">
+  <figcaption>《掌机王》系列杂志</figcaption>
+</figure>
+
 初二时我和一个要好的小伙伴相继入手了 GBA，开始了联机游戏之路，从《马里奥卡丁车》到《塞尔达传说 四支剑》，从只在课间联机到课堂上在老师眼皮底下玩。
+
+<figure>
+  <img src="{{ 'posts/20180306/game-boy-advance' | asset_path }}" alt="GBA">
+  <figcaption>GBA</figcaption>
+</figure>
 
 对游戏的痴迷，不可避免的学习成绩下降了，语数外因为基础好而没下降太多，但理化就没怎么学好了。
 
@@ -123,6 +133,11 @@ banner:
 也许会觉得我很冲动，明明可以找找看有没有接受先电话面试的公司，可我真的是太迫切地想离开这片穷乡僻壤而奔往传说中大都会开开眼界！
 
 从老家到杭州的路程有 2000 公里左右，按道理讲，应该选择飞机这个便捷又省时的交通工具。可是，对于当时还没出过远门的我来说，上千元的机票简直是巨额路费，穷人就该用穷的出行方式——坐火车——绿皮的。
+
+<figure>
+  <img src="{{ 'posts/20180306/from-fushun-to-hangzhou' | asset_path }}" alt="从抚顺到杭州">
+  <figcaption><a href="https://ditu.amap.com/dir?from%5Badcode%5D=210400&from%5Bname%5D=辽宁省抚顺市&from%5Bid%5D=2104001520236134956-from&from%5Bpoitype%5D=&from%5Blnglat%5D=123.921109%2C41.875956&from%5Bmodxy%5D=&to%5Badcode%5D=330100&to%5Bname%5D=浙江省杭州市&to%5Bid%5D=3301001520236137986-to&to%5Bpoitype%5D=&to%5Blnglat%5D=120.15357599999999%2C30.287459&to%5Bmodxy%5D=&type=car&policy=1" target="_blank" title="在高德地图上查看从抚顺到杭州的路线">从抚顺到杭州</a></figcaption>
+</figure>
 
 在充斥着哭闹声、鼻鼾声和脚臭味的车厢中硬生生挺尸了 30 多个小时后，终于听到了希望之声——「杭州南站，到了！」我立马连滚带爬地下了床铺，背上背包，拎起行李就往前冲，生怕再多呆一秒就阵亡了……
 
