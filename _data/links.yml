@@ -2,10 +2,6 @@ posts:
   url: /posts/
   text: 文章
 
-books:
-  url: /books/
-  text: 书籍
-
 works:
   url: /works/
   text: 作品

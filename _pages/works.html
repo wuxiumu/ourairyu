@@ -5,3 +5,16 @@ special_title: 欧雷的作品集
 banner:
   url: banners/code.jpg
 ---
+<section>
+  <h2><a href="/books/">电子书</a></h2>
+  <ul>
+    {% for book in site.data.books %}
+      <li><a href="/books/{{ book.id }}/">《{{ book.title }}》</a></li>
+    {% endfor %}
+  </ul>
+</section>
+
+{% contentfor footer %}
+  {% include widgets/social.html %}
+  {% include widgets/toc.html %}
+{% endcontentfor %}
