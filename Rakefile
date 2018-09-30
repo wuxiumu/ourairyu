@@ -104,6 +104,21 @@ task :codepen do
   end
 end
 
+desc "生成 GitBook 电子书"
+task :gitbook do
+  name = "frontend-engineer-manual"
+  dir = "../../../f2eso/#{name}"
+
+  cd dir do
+    system "gitbook build"
+  end
+
+  deploy_dir = "../.tmp/ourairyu/books"
+
+  system "rm -rf #{deploy_dir}/#{name}"
+  system "cp -R #{dir}/_book/ #{deploy_dir}/#{name}/"
+end
+
 desc "运行"
 task :run do
   system "bundle exec jekyll serve --future --drafts --incremental --port 10222"
@@ -135,8 +150,11 @@ task :deploy do
 
   system "rake github"
   system "rake codepen"
+
   system "bundle exec jekyll clean"
   system "JEKYLL_ENV=production bundle exec jekyll build -d #{dir}"
+  
+  system "rake gitbook"
 
   cd dir do
     current_time = Time.now.strftime("%Y-%m-%d %H:%M:%S")

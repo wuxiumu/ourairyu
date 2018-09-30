@@ -1,0 +1,18 @@
+---
+title: 书籍列表
+
+special_title: 欧雷所写的书
+special_type: books
+---
+<section>
+  <ul>
+    {% for book in site.data.books %}
+      <li><a href="/books/{{ book.id }}/">《{{ book.title }}》</a></li>
+    {% endfor %}
+  </ul>
+</section>
+
+{% contentfor footer %}
+  {% include widgets/social.html %}
+  {% include widgets/toc.html %}
+{% endcontentfor %}
