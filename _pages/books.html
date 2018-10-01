@@ -1,17 +1,13 @@
 ---
-title: 书籍列表
+title: 电子书列表
 
 special_title: 欧雷所写的书
 ---
 <section>
   <ul>
-    {% for book in site.data.books %}
-      <li><a href="/books/{{ book.id }}/">《{{ book.title }}》</a></li>
+    {% assign books = site.data.works.books %}
+    {% for book in books.items %}
+      <li>《<a href="{{ books.link }}/{{ book.id }}/" target="_blank">{{ book.title }}</a>》</li>
     {% endfor %}
   </ul>
 </section>
-
-{% contentfor footer %}
-  {% include widgets/social.html %}
-  {% include widgets/toc.html %}
-{% endcontentfor %}

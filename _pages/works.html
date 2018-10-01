@@ -6,15 +6,31 @@ banner:
   url: banners/code.jpg
 ---
 <section>
-  <h2><a href="/books/">电子书</a></h2>
-  <ul>
-    {% for book in site.data.books %}
-      <li><a href="/books/{{ book.id }}/">《{{ book.title }}》</a></li>
-    {% endfor %}
-  </ul>
+  {% for category in site.data.works %}
+    {% assign k = category[0] %}
+    {% assign c = category[1] %}
+    {% assign hp = c.link %}
+    
+    {% if k == "books" %}
+      {% assign hp = hp | append: "/" %}
+    {% elsif k == "projects" %}
+      {% assign hp = hp | append: "?tab=repositories" %}
+    {% endif %}
+    
+    {% if k == "books" %}
+      <h2><a href="{{ hp }}">{{ c.title }}</a></h2>
+      <ul>
+        {% for item in c.items %}
+          <li>《<a href="{{ c.link }}/{{ item.id }}/" target="_blank">{{ item.title }}</a>》</li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <h2><a href="{{ hp }}" target="_blank" rel="external nofollow">{{ c.title }}</a></h2>
+      <ul>
+        {% for item in c.items %}
+          <li><a href="{{ c.link }}/{{ item.id }}" target="_blank" rel="external nofollow">{{ item.title }}</a></li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  {% endfor %}
 </section>
-
-{% contentfor footer %}
-  {% include widgets/social.html %}
-  {% include widgets/toc.html %}
-{% endcontentfor %}

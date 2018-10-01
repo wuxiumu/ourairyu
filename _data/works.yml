@@ -1,0 +1,29 @@
+books:
+  title: 电子书
+  description: 
+  link: /books
+  items:
+    - title: 前端工程师自我修养
+      description: 
+      id: frontend-engineer-manual
+
+projects:
+  title: 开源项目
+  description: 
+  link: https://github.com/ourai
+  items:
+    - title: Handie
+      description: 
+      id: handie
+    - title: Buds
+      description: 
+      id: buds
+    - title: Trick
+      description: 
+      id: trick
+    - title: H5Fx
+      description: 
+      id: H5Fx
+    - title: RocketZ
+      description: 
+      id: rocketz
