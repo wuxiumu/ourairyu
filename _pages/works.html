@@ -18,19 +18,21 @@ banner:
     {% endif %}
     
     {% if k == "books" %}
-      <h2><a href="{{ hp }}">{{ c.title }}</a></h2>
-      <ul>
+      <h2>{{ c.title }}</h2>
+      <dl>
         {% for item in c.items %}
-          <li>《<a href="{{ c.link }}/{{ item.id }}/" target="_blank">{{ item.title }}</a>》</li>
+          <dt>《<a href="{{ c.link }}/{{ item.id }}/" target="_blank">{{ item.title }}</a>》</dt>
+          {% if item.description %}<dd>{{ item.description }}</dd>{% endif %}
         {% endfor %}
-      </ul>
+      </dl>
     {% else %}
       <h2><a href="{{ hp }}" target="_blank" rel="external nofollow">{{ c.title }}</a></h2>
-      <ul>
+      <dl>
         {% for item in c.items %}
-          <li><a href="{{ c.link }}/{{ item.id }}" target="_blank" rel="external nofollow">{{ item.title }}</a></li>
+          <dt><a href="{{ c.link }}/{{ item.id }}" target="_blank" rel="external nofollow">{{ item.title }}</a></dt>
+          {% if item.description %}<dd>{{ item.description }}</dd>{% endif %}
         {% endfor %}
-      </ul>
+      </dl>
     {% endif %}
   {% endfor %}
 </section>
