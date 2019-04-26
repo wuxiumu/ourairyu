@@ -71,39 +71,6 @@ task :github do
   end
 end
 
-# https://github.com/natewiley/cpv2api (http://cpv2api.com)
-desc "获取 CodePen 信息"
-task :codepen do
-  dir = "./_data"
-  filename = "codepen.json"
-
-  unless FileTest.directory?(dir)
-    system "mkdir #{dir}"
-  end
-
-  pens = Array.new
-  pagenum = 1
-
-  while true do
-    jsonData = HTTParty.get("http://cpv2api.com/pens/public/ourai?page=#{pagenum}")
-
-    if jsonData["success"] != "true"
-      break
-    end
-
-    pens.concat(jsonData["data"])
-    pagenum += 1
-  end
-
-  if pens.length > 0
-    cd dir do
-      open(filename, "w") do |f|
-        f.puts pens.to_json
-      end
-    end
-  end
-end
-
 desc "生成 GitBook 电子书"
 task :gitbook do
   name = "frontend-engineer-manual"
@@ -149,7 +116,6 @@ task :deploy do
   end
 
   system "rake github"
-  system "rake codepen"
 
   system "bundle exec jekyll clean"
   system "JEKYLL_ENV=production bundle exec jekyll build -d #{dir}"
