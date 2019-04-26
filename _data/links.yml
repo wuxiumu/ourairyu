@@ -6,6 +6,10 @@ works:
   url: /works/
   text: 作品
 
+notes:
+  url: /notes/
+  text: 笔记
+
 wishes:
   url: /wishes/
   text: 心愿
