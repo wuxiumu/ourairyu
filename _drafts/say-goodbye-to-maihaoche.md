@@ -96,6 +96,12 @@ Sass 有两套语法，除了缩进语法外，还有一套与 CSS 完全兼容�
 
 之所以选择 Sass 而不是 LESS 或 Stylus，还有个原因，就是在使用 Sass 上我已经有一些代码和经验的积累可以直接拿来用。
 
+确定了「用什么去写」之后，决定「如何去写」是另一个重要的话题。
+
+写样式时尽可能使用 `class` 替代 `id` 和标签已经是约定俗成的最佳实践。在做页面开发时，可以将一个页面看成是由 N 个相对独立的组件拼成的，从这点来看，没有什么命名法比「[BEM](http://bem.info/){:target="_blank"}{:rel="nofollow external"}」更适合命名 `class` 的了。在各个 BEM 的变体当中，个人认为「[SUIT CSS 命名方式](https://github.com/suitcss/suit/blob/master/doc/naming-conventions.md){:target="_blank"}{:rel="nofollow external"}」是可读性最好的。虽然使用 BEM 命名会使 `class` 变得比较长，但得益于 Sass 中的[父选择器 `&`](https://sass-lang.com/documentation/style-rules/parent-selector){:target="_blank"}{:rel="nofollow external"}，在开发时基本可以忽略这点。
+
+经过讨论，一致决定样式源码使用 Sass 基于 SUIT CSS 命名方式去写并作为前端开发规范的一部分，这样会大大提高开发及协作效率。事后我将相关内容总结成文档沉淀到内网的 Confluence 上。
+
 ## 开发方式
 
 ## 平行进口车业务
@@ -150,7 +156,6 @@ Sass 有两套语法，除了缩进语法外，还有一套与 CSS 完全兼容�
 
 
 
-* 开发规范
 * cf 文档
 * b3
 * MUU
