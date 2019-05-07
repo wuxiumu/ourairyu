@@ -7,6 +7,9 @@ tags:
   - frontend-engineer
   - job
   - maihaoche
+banner:
+  url: drafts/say-goodbye-to-maihaoche/banner.jpg
+  description: 办公室
 ---
 
 一般情况下，在谈论一家公司时所用的称呼是它的主打产品/品牌的名字，而非真正的注册名称。「MHC」就是我工作过的一家公司的主打产品/品牌的拼音「maihaoche」的首字母缩写。之所以不直接用汉字来指代，是因为在我任职期间它发生过转型——从自己卖车的「买好车」变成帮别人卖车的「卖好车」。
