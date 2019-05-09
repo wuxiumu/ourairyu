@@ -28,4 +28,3 @@ navigator.geolocation.getCurrentPosition(function( pos ) {
   <img src="{{ 'notes/tips-of-geolocation-api/macos-system-preferences' | asset_path }}" alt="系统偏好设置">
   <figcaption>「定位服务」设置</figcaption>
 </figure>
-
