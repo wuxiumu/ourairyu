@@ -44,7 +44,7 @@ special_type: posts
 </blockquote>
 <p>想看完整内容？快戳《<a href="{{ first_post.url }}">{{ first_post.title }}</a>》！(((o(*ﾟ▽ﾟ*)o)))</p>
 <!-- 主打分类 -->
-<p>本站主打三类文章，以下为快速通道：</p>
+<p>本站主打四类文章，以下为快速通道：</p>
 <nav class="MainCategories LightBox">
   <ul>
     {% for cat in site.categories limit: 3 %}
@@ -58,6 +58,13 @@ special_type: posts
         </a>
       </li>
     {% endfor %}
+    {% assign upcoming = site.data.categories.digital %}
+    <li class="is-upcoming">
+      <a href="javascript:void(0);" style="background-image: url('{{ upcoming.thumbnail | asset_path }}');">
+        <h3 data-toc-skip="true">{{ upcoming.name }}<span>(敬请期待)</span></h3>
+        <p>{{ upcoming.description }}</p>
+      </a>
+    </li>
   </ul>
 </nav>
 <!-- 文章列表 -->
