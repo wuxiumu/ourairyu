@@ -74,7 +74,7 @@ end
 desc "生成 GitBook 电子书"
 task :gitbook do
   name = "frontend-engineer-manual"
-  dir = "../../../f2eso/#{name}"
+  dir = "../../f2eso/#{name}"
 
   cd dir do
     system "gitbook build"
