@@ -25,5 +25,5 @@ projects:
       description: 基于 HTML5 Forms 所定义的属性对表单字段进行合法性校验
       id: H5Fx
     - title: RocketZ
-      description: 用于将本地文件分发到多个 CDN 的命令行工具
+      description: 用于将本地文件分发到多个 OSS 的命令行工具
       id: rocketz

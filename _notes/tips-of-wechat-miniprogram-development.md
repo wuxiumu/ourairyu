@@ -56,7 +56,7 @@ ctx.draw(false, () => {
 });
 {% endhighlight %}
 
-跳转到店铺或商品的小程序码一般是后端生成后传到 CDN 上，所以在执行 `ctx.draw()` 之前需要先将小程序码图片下载下来并画到画布上：
+跳转到店铺或商品的小程序码一般是后端生成后传到 OSS 上，所以在执行 `ctx.draw()` 之前需要先将小程序码图片下载下来并画到画布上：
 
 {% highlight js %}
 wx.downloadFile({
