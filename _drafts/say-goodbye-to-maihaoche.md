@@ -93,7 +93,7 @@ banner:
 
 这些缺点会导致多人协作时增加出错的几率和追踪代码历史的成本。
 
-我上家公司在进行 Git 分支管理时采用了历经考验的更为成熟的 Git Flow 分支模型。它定义了 5 种分支，将职责更加细分：
+我上家公司在进行 Git 分支管理时采用了历经考验的更为成熟的「[Git Flow](http://nvie.com/posts/a-successful-git-branching-model/){:target="_blank"}{:rel="external nofollow"}」分支模型。它定义了 5 种分支，将职责更加细分：
 
 | 分支 | 来源 | 说明 |
 | --- | --- | --- |
@@ -148,15 +148,19 @@ Sass 有两套语法，除了缩进语法外，还有一套与 CSS 完全兼容�
 
 ## 推广 Git Flow
 
-在前端小伙伴儿们基本都适应 Git Flow 这种方式时，我觉得是时候开始向整个技术部门推广了。
+在前端小伙伴儿们基本都适应 Git Flow 这种 Git 分支管理方式时，我觉得是时候开始向整个技术部推广了。
 
-随着开发人员的增多，因为不是每个人都对 Git 使用熟练，在提交代码与合并分支时问题频出，突显出了 Git 及 Git Flow 培训的重要性。每每在与分支管理方面出现问题时，我就会在群里说一次 Git Flow 的事情。
+随着开发人员的增多，因为并不是每个人都对 Git 使用熟练，在提交代码与合并分支时问题频出，突显出了 Git 及 Git Flow 培训的重要性。每每发现技术部在分支管理方面出现问题时，我就会在群里提一次 Git Flow 的事情。
 
-有几次负责管理分支的鱼蛋找到我，讨论 Git Flow 的场景应变能力。可能是他也觉得用 Git Flow 会比现行方案强很多，在了解了相关知识后，挑了内网刚搭建好 GitLab 没几天的日子向整个技术部门普及 Git Flow 并讲解 GitLab 和 SourceTree 的用法。
+看到我如此极力地推 Git Flow，有几次负责管理分支的既是测试又是运维的鱼蛋找到我，讨论 Git Flow 的场景应变能力，他应该也觉得用 Git Flow 会比现行方案强很多。
 
-为了让大家有文字参考，我写了份相关文档。在分享会上，鱼蛋对照着文档讲解了 Git 的一些常用操作，以及 Git Flow 的基本概念；我说明了如何用 SourceTree 结合 GitLab 实行 Git Flow，并讨论了到底该怎么去实施 Git Flow。事后，我将文档完善了下，形成了《[团队中的 Git 实践](/posts/working-with-git-in-team/){:target="_blank"}》这篇文章。
+鱼蛋在进一步了解了相关知识后，挑了内网刚搭建好 GitLab 没几天的日子组织了一个分享会，向整个技术部普及 Git Flow 并讲解 GitLab 和 [SourceTree](https://www.sourcetreeapp.com){:target="_blank"}{:rel="external nofollow"} 的用法。为了让大家有文字参考，我写了份相关文档。
 
-经过几个月的实践，技术部门对 Git Flow 的使用越来越规范，也越来越重视，甚至成为是否能够继续留在公司工作的衡量标准——新入职的人如果在培训后还搞不懂 Git Flow，将会被「升级」。
+在分享会上，鱼蛋对照着我写的文档讲解了 Git 的一些常用操作，以及 Git Flow 的基本概念；我说明了如何用 SourceTree 结合 GitLab 实行 Git Flow，并讨论了到底该怎么去实施 Git Flow。
+
+事后，我将文档完善了下，形成了《[团队中的 Git 实践](/posts/working-with-git-in-team/){:target="_blank"}》这篇文章。
+
+经过几个月的实践，技术部对 Git Flow 的使用越来越规范，也越来越重视，甚至成为是否能够继续留在公司工作的衡量标准——新入职的人如果在培训后还搞不懂 Git Flow，将会被「升级」。
 
 ## 前端工程优化
 
