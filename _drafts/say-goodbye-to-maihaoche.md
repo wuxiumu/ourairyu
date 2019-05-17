@@ -65,7 +65,7 @@ banner:
 
 公司的后端语言是 Java，所使用的 web 框架是阿里巴巴自研的 [Webx](http://webx.github.io/){:target="_blank"}{:rel="nofollow external"}，相应的后端代码 Git 仓库中没有任何图片、CSS、JS 等静态资源文件，它们全部在 `shanshan` 这个神奇的仓库中。
 
-在开发新功能时，需要在 IntelliJ IDEA 中通过 Tomcat 启动 Java 服务来查看页面和调用接口，页面中静态资源文件的 URL 全部为线上地址，即使文件不存在，再通过代理将线上地址映射到本地文件。当功能开发完成，就用 leader 写的一个基于 Node.js 的命令行工具把相关静态资源文件上传到[七牛](https://www.qiniu.com/){:target="_blank"}{:rel="nofollow external"}。这时，将映射文件的代理规则去掉或让后端开发人员打开页面就能够正常访问了。
+在开发新功能时，需要在 IntelliJ IDEA 中通过 Tomcat 启动 Java 服务来查看页面和调用接口，页面中静态资源文件的 URL 全部为线上地址，即使文件不存在，再通过代理将线上地址映射到本地文件。当功能开发完成，就用 leader 写的一个基于 Node.js 的命令行工具把相关静态资源文件上传到[七牛](https://www.qiniu.com/){:target="_blank"}{:rel="nofollow external"}。这时，将映射文件的代理规则去掉或让后端工程师打开页面就能够正常访问了。
 
 这个命令行工具没有将要上传的文件地址提取到配置文件中，而是直接写在脚本文件里，并且没有按指定规则过滤文件的功能，等要上传的文件一多，简直麻烦得不得了……
 
@@ -122,15 +122,15 @@ Sass 有两套语法，除了缩进语法外，还有一套与 CSS 完全兼容�
 
 经过讨论，一致决定样式源码使用 Sass 基于 SUIT CSS 命名方式去写并作为前端开发规范的一部分，这样会大大提高开发及协作效率。事后我将相关内容总结成文档沉淀到内网的 Confluence 上。
 
-## 团队用命令行工具
+## 开始改造
+
+### 团队用命令行工具
 
 鉴于 `shanshan` 的臃肿程度和「前后端分离」的开发方式，要立刻改变是不大可能的，但我这种「懒」且「怕麻烦」的人实在是不想继续忍受每次把静态资源文件上传到 OSS 都需要反复手动修改路径等信息的日子了……同时，考虑到日后使团队的开发流程规范化，一个自研的团队内统一使用的命令行工具是必不可少的！
 
 命令行工具的名字叫「[Bumblebee](https://www.npmjs.com/package/b3){:target="_blank"}{:rel="nofollow external"}」，由于单词中有 3 个「b」，故简称「b3」。起这个名字是因为当时喜欢最新款的科迈罗，在《变形金刚 4》里大黄蜂所变形成的车就是科迈罗，大黄蜂的英文名是「Bumblebee」。
 
-它主要支持两个命令：`init` 和 `upload`。
-
-### `b3 init`
+它主要支持两个命令：`init` 和 `upload`——
 
 `init` 命令从名字来看就知道是个跟「初始化」相关的。
 
@@ -138,15 +138,13 @@ Sass 有两套语法，除了缩进语法外，还有一套与 CSS 完全兼容�
 
 该命令的脚手架功能并不是自己实现的，而是做为一个外壳集成了脚手架工具 [Yeoman](https://yeoman.io/){:target="_blank"}{:rel="nofollow external"} 的底层库 [`yeoman-environment`](https://github.com/yeoman/environment){:target="_blank"}{:rel="nofollow external"} 来利用已经存在的大量的 [Yeoman generator](https://yeoman.io/generators/){:target="_blank"}{:rel="nofollow external"}。并且，我们所使用的活动页模板也是基于 Yeoman 自己开发的一个 generator。
 
-### `b3 upload`
-
 `upload` 命令用于将文件上传到 OSS 服务提供商，该命令是把 leader 写的上传文件脚本重构并优化、扩展而来。
 
 与之前相比，具备了一个命令行工具该有的一些特性，如：初始化并生成配置文件；执行命令时传入选项以覆盖默认配置。更为重要的一个改进是，除了可以上传到七牛外，还能够备份到[顽兔](https://wantu.taobao.com){:target="_blank"}{:rel="nofollow external"}以备七牛挂掉时进行静态资源地址切换。
 
 在后期的使用中，上传大量文件时会出现上传失败的情况。我猜是因为 OSS 服务提供商在短时间内接收到大量请求时做了限制，或者就是服务能力无法处理。后来我将上传文件的逻辑做了修改，把大批量的文件切分成 n 个「片段」以控制单位时间内的请求次数，粒度可以自定义，当一个「片段」中的文件全部上传完之后才会进行下一个。
 
-## 推广 Git Flow
+### 推广 Git Flow
 
 在前端小伙伴儿们基本都适应 Git Flow 这种 Git 分支管理方式时，我觉得是时候开始向整个技术部推广了。
 
@@ -162,7 +160,7 @@ Sass 有两套语法，除了缩进语法外，还有一套与 CSS 完全兼容�
 
 经过几个月的实践，技术部对 Git Flow 的使用越来越规范，也越来越重视，甚至成为是否能够继续留在公司工作的衡量标准——新入职的人如果在培训后还搞不懂 Git Flow，将会被「升级」。
 
-## 前端工程优化
+### 前端工程优化
 
 2016 年上半年，公司的业务方向发生了巨大转变，从平行进口车电商平台变成服务于中小汽车经销商的卖车工具，宣传口号也由「全球好车随你挑！」变为「卖好车，车好卖！」。
 
@@ -178,7 +176,7 @@ Sass 有两套语法，除了缩进语法外，还有一套与 CSS 完全兼容�
 
 问题解决是解决了，可因为各种原因还没有集成进发布系统。再加上没多久就要去做前后端分离的事情了，一时觉得没什么必要去弄了。
 
-## 前后端分离
+### 前后端分离
 
 「前后端分离」是个老话题，也是一个经久不衰的话题。
 
@@ -192,34 +190,89 @@ Sass 有两套语法，除了缩进语法外，还有一套与 CSS 完全兼容�
 
 光能在本地跑起来没啥用，找同时负责测试和运维的鱼蛋商量，在发布系统上添加了这个实验性项目的入口。把我编写的 shell 脚本接入进去，点击「开始部署」按钮，看到一行行日志打印在页面上，一切那么行云流水～
 
-## 团队管理
+### 基础设施建设
 
-### Confluence 空间
+2016 年下半年开始，公司业务迅速发展，人员大幅度扩充，系统应用也一下多了起来。在这种情况下，如果没有一些相对通用、稳定的基础设施，开发和维护成本将会很高，并且质量和稳定性无法得到保障——需要契合公司业务和开发方式的，能够快速搭建应用的前端框架。
 
-### GitLab 群组
+#### MUU
 
-## 基础设施建设
+在 2016 年 9 月，公司开展了仓储业务，这时需要开发一个[仓储管理系统](https://wms.maihaoche.com/){:target="_blank"}{:rel="external nofollow"}来管理已有仓库、车辆的入库和出库等信息。我是参与做这个系统的第一批成员之一，也是唯一的前端工程师。
 
-### MUU
+在此之前已经有后台系统在用 [H-ui](http://www.h-ui.net/H-ui.admin.shtml){:target="_blank"}{:rel="external nofollow"} 等 UI 框架，但我没去继续使用而选择自研一套，主要原因如下：
 
-### 二方包仓库
+1. 布局单一，缺乏灵活性、扩展性；
+2. 提供了一些用不上的功能，臃肿；
+3. 简陋。
 
-### MUM
+表单页、列表页、详情页的组合是后台系统的固定模式，并且列表页基本都是由带有一个操作列的表格和指定条件筛选数据的表单组成。因为这是一个内部员工使用的后台系统，不需要十分注重用户体验，并且希望在一些场景下让后端工程师能够自己写页面，所以选择 [jQuery](https://code.jquery.com/){:target="_blank"}{:rel="external nofollow"}、[Bootstrap](https://getbootstrap.com/docs/3.3/){:target="_blank"}{:rel="external nofollow"} 和 [Bootstrap Table](https://github.com/wenzhixin/bootstrap-table){:target="_blank"}{:rel="external nofollow"} 作为核心，并辅以下面几个库来开发：
 
-## 带领项目
+| 名称 | 说明 |
+| --- | --- |
+| [H5Fx](https://github.com/ourai/H5Fx){:target="_blank"}{:rel="external nofollow"} | 基于 [HTML5 Forms](https://www.w3.org/TR/html5/forms.html){:target="_blank"}{:rel="external nofollow"} 规范进行表单校验 |
+| [Buds](https://github.com/ourai/buds){:target="_blank"}{:rel="nofollow external"} | 通用基础样式 |
+| [Font Awesome](https://fontawesome.com/v4.7.0/){:target="_blank"}{:rel="nofollow external"} | 丰富的字体图标 |
+| [Bootstrap 3 Date/Time Picker](http://eonasdan.github.io/bootstrap-datetimepicker/){:target="_blank"}{:rel="nofollow external"} | 精确到时分的日期时间拾取器 |
+| [Select2](http://select2.github.io/){:target="_blank"}{:rel="nofollow external"} | 美化并增强下拉列表控件 |
+| [HTML5 Shiv](https://github.com/aFarkas/html5shiv){:target="_blank"}{:rel="nofollow external"} | 兼容 HTML5 标签 |
+| [Plupload](http://www.plupload.com/){:target="_blank"}{:rel="nofollow external"} | 上传文件 |
+| [Qiniu SDK](https://github.com/qiniu/js-sdk){:target="_blank"}{:rel="nofollow external"} | 上传文件到七牛 |
+| [Moment.js](http://momentjs.com/){:target="_blank"}{:rel="nofollow external"} | 日期时间格式化 |
+{:.table.table-bordered}
 
-### 活动报名
+由于没有设计师进行界面设计，起先在做的时候配色参考了自己博客的白、灰色调，效果大致如下图所示：
 
-### 后台系统通用入口
+<figure>
+  <img src="{{ 'drafts/say-goodbye-to-maihaoche/wms-theme-first-version' | asset_path }}" alt="第一版 UI 主题">
+  <figcaption><a href="https://acfd.github.io/handie/layouts/sidebar-outside/" target="_blank" rel="external nofollow">第一版 UI 主题</a></figcaption>
+</figure>
 
-### 接口管理平台
+经过一段时间的使用，有人反馈页面太素，有些单调。恰逢公司刚发布新的 VI 规范不久，就使用其中规定的 LOGO 及扩展形式以及品牌色重新做了一版主题，令人觉得更加正式且有归属感。
 
-### 仓库地图导航
+<figure>
+  <img src="{{ 'drafts/say-goodbye-to-maihaoche/muu' | asset_path }}" alt="遵守 VI 规范的新主题">
+  <figcaption>遵守 VI 规范的新主题（图片来自<a href="https://mdc.maihaoche.com/" target="_blank" rel="external nofollow">卖好车研发中心</a>）</figcaption>
+</figure>
+
+在业务需求的不断打磨之下，结合上面表格中列出的库，将做后台系统页面时经常用到的逻辑抽象成一个个简洁的工具方法。只需调用两三个工具方法并传入一些参数，就能够完成一套常规的增、删、改、查操作流程，有点前端基础的后端工程师都能够自己写页面了。
+
+这些库加上从业务开发中提炼出的工具方法库，组成了可以复用到之后要开发的新的后台系统中的 UI 框架——「卖好车通用 UI 框架」，英文名为「Maihaoche Universal UI Framework」，简称「MUU」。
+
+它的出现，为卖好车前端团队的基础设施建设奠定了基础，最终支撑了公司内部十余个后台系统的前端开发。
+
+#### 二方包仓库
+
+#### MUM
+
+## 管理
+
+### 团队管理
+
+#### Confluence 空间
+
+#### GitLab 群组
+
+### 带领项目
+
+#### 活动报名
+
+#### 后台系统通用入口
+
+#### 接口管理平台
+
+#### 仓库地图导航
 
 ## 其他
 
 ### 前端工程师职业等级模型
 
 ### MHC Design
+
+## 关于 MHC
+
+### 业务及产品
+
+### 价值观
+
+### 氛围
 
 ## Farewell, MHC!
