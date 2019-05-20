@@ -1,5 +1,5 @@
 ---
-title: 永别，MHC！
+title: 在「MHC」我都经历了什么？
 date: 2019-02-02 23:55:48 +0800
 categories:
   - life
@@ -8,7 +8,7 @@ tags:
   - job
   - maihaoche
 banner:
-  url: drafts/say-goodbye-to-maihaoche/banner.jpg
+  url: drafts/my-experience-at-maihaoche/banner.jpg
   description: 卖好车办公室
 ---
 
@@ -32,7 +32,7 @@ banner:
 
 在用 Git 把代码拉下来，了解了正在使用的技术、开发方式和分支管理方式等信息之后，发现这里还挺落后的……与当时的主流差一截，并且有些不合理的地方。虽然使我震惊，但并未让我失望，心中反而燃起熊熊希望之火——我暗下决心，一定要改善现状！
 
-## 初见 MHC 前端
+## 初见「MHC」前端
 
 ### 神奇的 Git 仓库
 
@@ -71,7 +71,7 @@ banner:
 
 这种 HTML 代码写在 web 框架的后端模板中，单纯把静态资源文件分离出去的做法，在我看来既低效又毫无意义。
 
-## 团队内首次分享
+## 分享，为改造开路
 
 由于 `shanshan` 这个仓库中已经存在大量文件，也就是所谓的「历史问题」，在目录结构方面不好做大的调整了，只好听之任之。但在分支管理和源码编写上，还是能够做些改变的。针对这两方面，我在入职没多久时的一次前端团队的周会上分享了前公司所使用的相对先进的思想、方法和工具。
 
@@ -108,7 +108,7 @@ banner:
 
 ### 样式源码编写
 
-由于前公司所使用的 web 框架是 Ruby on Rails（下文简称为「rails」），在做前端的技术选型时会优先考虑与其生态融合较好的，像用 CoffeeScript 写脚本，用 Sass 写样式。
+由于前公司所使用的 web 框架是 [Ruby on Rails](https://guides.rubyonrails.org/){:target="_blank"}{:rel="nofollow external"}（下文简称为「rails」），在做前端的技术选型时会优先考虑与其生态融合较好的，像用 CoffeeScript 写脚本，用 Sass 写样式。
 
 CoffeeScript 和 Sass 的 `.sass` 用的都是缩进语法，不允许任何尖括号和花括号等让代码看起来很「脏」的符号，对于没有接触过 rails 生态的人来说较难适应。另外，CoffeeScript 对其他团队成员来说算是个新语言了，具有一定学习成本，并且业界的趋势是用 ES 新语法，故不打算引入 CoffeeScript。
 
@@ -122,7 +122,7 @@ Sass 有两套语法，除了缩进语法外，还有一套与 CSS 完全兼容�
 
 经过讨论，一致决定样式源码使用 Sass 基于 SUIT CSS 命名方式去写并作为前端开发规范的一部分，这样会大大提高开发及协作效率。事后我将相关内容总结成文档沉淀到内网的 Confluence 上。
 
-## 开始改造
+## 改造，从未停歇
 
 ### 团队用命令行工具
 
@@ -222,26 +222,45 @@ Sass 有两套语法，除了缩进语法外，还有一套与 CSS 完全兼容�
 由于没有设计师进行界面设计，起先在做的时候配色参考了自己博客的白、灰色调，效果大致如下图所示：
 
 <figure>
-  <img src="{{ 'drafts/say-goodbye-to-maihaoche/wms-theme-first-version' | asset_path }}" alt="第一版 UI 主题">
-  <figcaption><a href="https://acfd.github.io/handie/layouts/sidebar-outside/" target="_blank" rel="external nofollow">第一版 UI 主题</a></figcaption>
+  <img src="{{ 'drafts/my-experience-at-maihaoche/wms-theme-first-version' | asset_path }}" alt="第一版 UI 主题">
+  <figcaption>第一版 UI 主题</figcaption>
 </figure>
 
 经过一段时间的使用，有人反馈页面太素，有些单调。恰逢公司刚发布新的 VI 规范不久，就使用其中规定的 LOGO 及扩展形式以及品牌色重新做了一版主题，令人觉得更加正式且有归属感。
 
 <figure>
-  <img src="{{ 'drafts/say-goodbye-to-maihaoche/muu' | asset_path }}" alt="遵守 VI 规范的新主题">
-  <figcaption>遵守 VI 规范的新主题（图片来自<a href="https://mdc.maihaoche.com/" target="_blank" rel="external nofollow">卖好车研发中心</a>）</figcaption>
+  <img src="{{ 'drafts/my-experience-at-maihaoche/muu' | asset_path }}" alt="遵守 VI 规范的新主题">
+  <figcaption>遵守 VI 规范的新主题</figcaption>
 </figure>
 
 在业务需求的不断打磨之下，结合上面表格中列出的库，将做后台系统页面时经常用到的逻辑抽象成一个个简洁的工具方法。只需调用两三个工具方法并传入一些参数，就能够完成一套常规的增、删、改、查操作流程，有点前端基础的后端工程师都能够自己写页面了。
 
-这些库加上从业务开发中提炼出的工具方法库，组成了可以复用到之后要开发的新的后台系统中的 UI 框架——「卖好车通用 UI 框架」，英文名为「Maihaoche Universal UI Framework」，简称「MUU」。
+这些库加上从业务开发中提炼出的工具方法，组成了可以复用到其他后台系统开发中的 UI 框架——[Handie](https://github.com/ourai/handie){:target="_blank"}{:rel="nofollow external"}。
 
-它的出现，为卖好车前端团队的基础设施建设奠定了基础，最终支撑了公司内部十余个后台系统的前端开发。
+在 Handie 的基础上加入公司的品牌元素、业务逻辑等进行定制，形成了用于之后要开发的新的后台系统中的 UI 框架——「卖好车统一 UI 框架」，英文名为「Maihaoche Unified UI Framework」，简称「MUU」。
 
-#### 二方包仓库
+它的出现，为卖好车前端团队的基础设施建设开创先河，最终支撑了公司内部十余个后台系统的前端开发。
 
 #### MUM
+
+除了后台系统，还有几个嵌在 app 和钉钉中的[单页面应用](https://en.wikipedia.org/wiki/Single-page_application){:target="_blank"}{:rel="nofollow external"}（下文简称为「SPA」），它们基本都是用 [React](https://reactjs.org/){:target="_blank"}{:rel="nofollow external"} 和 [Ant Design Mobile](https://mobile.ant.design/){:target="_blank"}{:rel="nofollow external"} 开发的。这些前端应用也像之前的后台系统一样，各自是由零零散散的库拼凑而成，而没有一个统一的将其他库进行整合的能复用到各个应用中进行快速开发的框架。
+
+一开始是想基于 MUU 的设计思想开发出一套用于 React 技术栈的解决方案，但如果同样是由我去弄，由于还得继续支持业务开发，同时还要维护并改进 MUU，没有时间和精力再去搞另外一个技术栈的解决方案。就算有时间和精力去搞，等我搞出个样子来的时候，SPA 所存在的问题应该已经扩大很多了，可能会到了无法挽救的地步。因此，我打算寻求帮手。
+
+某天，我找前端团队中有移动端原生开发经验的两位童鞋（分别有 iOS 和 Android 开发经验）到会议室，跟他们说了我的想法，打算让他们一起根据当前 SPA 的状况封装一套 React 技术栈的移动端 web 前端框架。
+
+之所以想找两个有原生开发经验的人，是因为想让他们去开发或推动 iOS 工程师、Android 工程师去开发符合移动端 web 要求和业务需求的 JS bridge，并提供无论在 app 中、钉钉中还是浏览器中都能够通过同一个 API 调用会产生相同或相似效果的 API。
+
+我所想的框架大概是这样的：
+
+<figure>
+  <img src="{{ 'drafts/my-experience-at-maihaoche/architecture-of-mobile-framework' | asset_path }}" alt="移动端 web 前端框架">
+  <figcaption>移动端 web 前端框架</figcaption>
+</figure>
+
+不知当时我有没有将想法构思表达清楚，他们都表示愿意去做这件事。在现有 SPA 的基础上经过一段时间的开发，框架的雏形已经出来了，它就是「卖好车统一移动端框架」，英文「Maihaoche Unified Mobile Framework」，简称「MUM」。
+
+#### 二方包仓库
 
 ## 管理
 
@@ -267,7 +286,7 @@ Sass 有两套语法，除了缩进语法外，还有一套与 CSS 完全兼容�
 
 ### MHC Design
 
-## 关于 MHC
+## 「MHC」怎么样？
 
 ### 业务及产品
 
@@ -276,3 +295,8 @@ Sass 有两套语法，除了缩进语法外，还有一套与 CSS 完全兼容�
 ### 氛围
 
 ## Farewell, MHC!
+
+<figure>
+  <img src="{{ 'drafts/my-experience-at-maihaoche/front-end-team' | asset_path }}" alt="卖好车前端团队">
+  <figcaption>卖好车前端团队</figcaption>
+</figure>
