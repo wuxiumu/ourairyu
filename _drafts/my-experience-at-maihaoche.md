@@ -136,7 +136,7 @@ Sass 有两套语法，除了缩进语法外，还有一套与 CSS 完全兼容�
 
 现在来看，这个命令的职责不是那么「纯正」，因为会根据有无参数而在当前工作目录对不同的目标主体进行操作：无参数时生成命令行工具的配置文件，有参数则按照指定的脚手架生成目录文件。
 
-该命令的脚手架功能并不是自己实现的，而是做为一个外壳集成了脚手架工具 [Yeoman](https://yeoman.io/){:target="_blank"}{:rel="nofollow external"} 的底层库 [`yeoman-environment`](https://github.com/yeoman/environment){:target="_blank"}{:rel="nofollow external"} 来利用已经存在的大量的 [Yeoman generator](https://yeoman.io/generators/){:target="_blank"}{:rel="nofollow external"}。并且，我们所使用的活动页模板也是基于 Yeoman 自己开发的一个 generator。
+该命令的脚手架功能并不是自己实现的，而是作为一个外壳集成了脚手架工具 [Yeoman](https://yeoman.io/){:target="_blank"}{:rel="nofollow external"} 的底层库 [`yeoman-environment`](https://github.com/yeoman/environment){:target="_blank"}{:rel="nofollow external"} 来利用已经存在的大量的 [Yeoman generator](https://yeoman.io/generators/){:target="_blank"}{:rel="nofollow external"}。并且，我们所使用的活动页模板也是基于 Yeoman 自己开发的一个 generator。
 
 `upload` 命令用于将文件上传到 OSS 服务提供商，该命令是把 leader 写的上传文件脚本重构并优化、扩展而来。
 
@@ -280,6 +280,14 @@ Sass 有两套语法，除了缩进语法外，还有一套与 CSS 完全兼容�
 在 MUU 2.x 中，其名字和英文全称也发生了变化——「卖好车<span style="text-decoration: line-through; font-style: italic;">统一</span>**通用** UI 框架」，英文名为「Maihaoche <span style="text-decoration: line-through; font-style: italic;">Unified</span>**Universal** UI Framework」。
 
 #### 二方包仓库
+
+从公司里前端工程师和客户端工程师的人员变化，以及业务开发的技术方案倾向可以看出，前端开发正在从颓势转为旺势，客户端工程师向前端团队归并的「大前端」形态是必然趋势。因此，可以预见接下来会有很多基础工具包、SPA 和 Node.js 应用，将会出现大量的 npm 包。把包含公司业务逻辑的代码发布到公共平台肯定是不被允许的，搭建一个运行在内网的私有 npm registry（下文称「二方包仓库」）势在必行。
+
+二方包仓库运作的基本原理是：提供一个能够校验用户身份和权限的 npm 压缩包存储服务，利用可以对 npm 包的 scope 单独设置 registry 的机制，将约定的 scope 与该服务进行关联。这样一来，在 `npm install` 时输入的 npm 包名如果带有约定的 scope，就会从相关联的 npm 压缩包存储服务将 npm 压缩包下载到本地并解压到 `node_modules` 目录，否则会从 [npm 官方 registry](https://registry.npmjs.com/){:target="_blank"}{:rel="nofollow external"} 下载。
+
+社区里已经有了几个能够搭建二方包仓库的开源项目，综合考虑了一下，觉得用 [cnpmjs.org](https://github.com/cnpm/cnpmjs.org){:target="_blank"}{:rel="nofollow external"} 比较靠谱。基于它搭建服务很简单，只需将代码克隆下来，修改下配置文件并部署到服务器就好了。
+
+这下终于有二方包仓库了，可以快快乐乐、安安心心地发包了！激动得我立马把之前发布到 npm 官方 registry 的即使没包含公司业务逻辑代码但专门处理公司业务开发的包给废弃掉了。
 
 ## 管理
 
