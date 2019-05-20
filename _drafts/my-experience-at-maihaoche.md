@@ -260,6 +260,25 @@ Sass 有两套语法，除了缩进语法外，还有一套与 CSS 完全兼容�
 
 不知当时我有没有将想法构思表达清楚，他们都表示愿意去做这件事。在现有 SPA 的基础上经过一段时间的开发，框架的雏形已经出来了，它就是「卖好车统一移动端框架」，英文「Maihaoche Unified Mobile Framework」，简称「MUM」。
 
+#### MUU 2.x
+
+开发 MUU 的初心是想把业务开发中常见模式抽象出来，将常用库高度封装，提供一个通用、稳定的，让做业务开发的童鞋能够快速开发页面且低成本切换技术栈的前端框架。
+
+<figure>
+  <img src="{{ 'drafts/my-experience-at-maihaoche/architecture-of-muu' | asset_path }}" alt="理想中的 MUU">
+  <figcaption>理想中的 MUU</figcaption>
+</figure>
+
+然而，受人员精力和项目时间的限制，只能先做出一版仅支持 jQuery 技术栈的解决方案（下文用「MUU 1.x」指代），并找人做了 MUM 这个 React 技术栈的解决方案。在我的整体构思当中，MUM 算是 MUU 的 React 技术栈解决方案的临时方案，为了避免进行无意义的重复劳动，MUM 需要融合 MUU 的设计思想加以改造。
+
+在 MUU 1.x 相对稳定时，我暂时停止添加新的特性，转而开发「回归初心」的 MUU 2.x。
+
+虽然想即刻跟开发 MUM 的童鞋沟通进行改造，但考虑到它已在 SPA 中深度使用，并且没有什么全面的改造方案，就暂且作罢。与此相反，有的 SPA 是用 Vue 开发的，仍处于「放养」状态，正需要被规整。
+
+首先，按照上图中的构思从 MUU 1.x 中提取出通用的代码，拆分成基础核心和 jQuery 技术栈解决方案两个包；然后，新建个包引入基础核心中的 Sass helper、CSS class、JS 工具函数和适配器等，将它们进行一定程度的定制并重新导出；最后，利用 Vue 的插件机制将 JS 工具函数添加到 Vue 实例上，再用定制过的工具库封装一些单文件组件——一个 Vue 技术栈解决方案的骨架就出来了，剩下的就是在业务开发中不断地充实、完善。
+
+在 MUU 2.x 中，其名字和英文全称也发生了变化——「卖好车<span style="text-decoration: line-through; font-style: italic;">统一</span>**通用** UI 框架」，英文名为「Maihaoche <span style="text-decoration: line-through; font-style: italic;">Unified</span>**Universal** UI Framework」。
+
 #### 二方包仓库
 
 ## 管理
