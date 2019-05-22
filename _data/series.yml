@@ -38,3 +38,10 @@ skills-of-a-webmaster:
   posts:
     - id: keep-your-website-safe
       title: 给网站戴上「安全套」
+
+say-goodbye-to-mhc:
+  name: 永别，MHC！
+  description: ？？？
+  posts:
+    - id: what-i-have-done-at-maihaoche
+      title: 在「MHC」我都做了什么？
