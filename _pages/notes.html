@@ -3,6 +3,8 @@ title: 笔记
 description: 成不了文章的记录
 
 special_title: 欧雷的记事本
+banner:
+  url: banners/geek
 ---
 <section>
   {% for category in site.data.notes %}
@@ -12,7 +14,7 @@ special_title: 欧雷的记事本
     <h2>{{ c.title }}</h2>
     <dl>
       {% for item in c.items %}
-        <dt><a href="/notes/{{ item.id }}/">{{ item.title }}</a></dt>
+        <dt><a href="/notes/{{ item.id }}/"{% if k == "learning" %} target="_blank"{% endif %}>{{ item.title }}</a></dt>
         {% if item.description %}<dd>{{ item.description }}</dd>{% endif %}
       {% endfor %}
     </dl>

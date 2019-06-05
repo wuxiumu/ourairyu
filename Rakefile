@@ -77,10 +77,25 @@ task :gitbook do
   dir = "../../f2eso/#{name}"
 
   cd dir do
-    system "gitbook build"
+    system "npm run build"
   end
 
   deploy_dir = "../.tmp/ourairyu/books"
+
+  system "rm -rf #{deploy_dir}/#{name}"
+  system "cp -R #{dir}/_book/ #{deploy_dir}/#{name}/"
+end
+
+desc "生成 Learning X 笔记"
+task :learning do
+  name = "learning-x"
+  dir = "../../ourai/#{name}"
+
+  cd dir do
+    system "npm run build"
+  end
+
+  deploy_dir = "../.tmp/ourairyu/notes"
 
   system "rm -rf #{deploy_dir}/#{name}"
   system "cp -R #{dir}/_book/ #{deploy_dir}/#{name}/"
@@ -121,6 +136,7 @@ task :deploy do
   system "JEKYLL_ENV=production bundle exec jekyll build -d #{dir}"
   
   system "rake gitbook"
+  system "rake learning"
 
   cd dir do
     current_time = Time.now.strftime("%Y-%m-%d %H:%M:%S")
