@@ -2,9 +2,9 @@ learning:
   title: 学习
   description:
   items:
-    - title: Learning X
-      description: 学习 web 前端开发相关知识
-      id: learning-x
+    - title: 前端札记
+      description: 前端开发相关技术学习笔记
+      url: https://c17g.github.io/frontend-development/
 
 development:
   title: 软件开发

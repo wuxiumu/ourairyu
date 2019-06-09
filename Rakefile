@@ -86,21 +86,6 @@ task :gitbook do
   system "cp -R #{dir}/_book/ #{deploy_dir}/#{name}/"
 end
 
-desc "生成 Learning X 笔记"
-task :learning do
-  name = "learning-x"
-  dir = "../../ourai/#{name}"
-
-  cd dir do
-    system "npm run build"
-  end
-
-  deploy_dir = "../.tmp/ourairyu/notes"
-
-  system "rm -rf #{deploy_dir}/#{name}"
-  system "cp -R #{dir}/_book/ #{deploy_dir}/#{name}/"
-end
-
 desc "运行"
 task :run do
   system "bundle exec jekyll serve --future --drafts --incremental --port 10222"
@@ -136,7 +121,6 @@ task :deploy do
   system "JEKYLL_ENV=production bundle exec jekyll build -d #{dir}"
   
   system "rake gitbook"
-  system "rake learning"
 
   cd dir do
     current_time = Time.now.strftime("%Y-%m-%d %H:%M:%S")

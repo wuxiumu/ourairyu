@@ -14,7 +14,13 @@ banner:
     <h2>{{ c.title }}</h2>
     <dl>
       {% for item in c.items %}
-        <dt><a href="/notes/{{ item.id }}/"{% if k == "learning" %} target="_blank"{% endif %}>{{ item.title }}</a></dt>
+        <dt>
+          {% if item.url %}
+          <a href="{{ item.url }}" target="_blank" rel="external">{{ item.title }}</a>
+          {% else %}
+          <a href="/notes/{{ item.id }}/">{{ item.title }}</a>
+          {% endif %}
+        </dt>
         {% if item.description %}<dd>{{ item.description }}</dd>{% endif %}
       {% endfor %}
     </dl>
