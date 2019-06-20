@@ -39,9 +39,9 @@ image: slides/develop-with-node/cover.jpg
     {% highlight json %}{
   "name": "rocketz-core",
   "version": "1.0.3",
-  "description": "Upload local files to CDNs",
+  "description": "Upload local files to OSSs",
   "homepage": "https://github.com/ourai/rocketz",
-  "keywords": ["rocketz", "uploader", "upload", "cdn", "cloud"],
+  "keywords": ["rocketz", "uploader", "upload", "oss", "cloud"],
   "author": "Ourai Lin <ourairyu@hotmail.com> (http://ourai.ws/)",
   "repository": {
     "type": "git",
@@ -69,14 +69,14 @@ image: slides/develop-with-node/cover.jpg
   <section>
     <p>在入口文件 <code>index.js</code> 中写几行代码</p>
     <div class="fragment">
-      {% highlight js %}// 定义一个 CDN 信息
-const CDN_INFO = {
+      {% highlight js %}// 定义一个 OSS 信息
+const OSS_INFO = {
     qiniu: {name: "七牛"},
     wantu: {name: "顽兔"}
   };
-// 暴露出获取指定 CDN 信息的方法
-exports.getCdn = function( cdnName ) {
-  return CDN_INFO[cdnName] || {};
+// 暴露出获取指定 OSS 信息的方法
+exports.getOss = function( ossName ) {
+  return OSS_INFO[ossName] || {};
 };{% endhighlight %}
     </div>
     <p class="fragment">就完成了一个最「简陋」的包</p>
@@ -85,7 +85,7 @@ exports.getCdn = function( cdnName ) {
       {% highlight js %}// 引入通用模块
 const rocketz = require("rocketz-core");
 // 调用方法
-console.log(rocketz.getCdn("qiniu"));   // 输出 {name: "七牛"}{% endhighlight %}
+console.log(rocketz.getOss("qiniu"));   // 输出 {name: "七牛"}{% endhighlight %}
     </div>
   </section>
 </section>

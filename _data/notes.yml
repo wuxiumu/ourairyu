@@ -1,0 +1,16 @@
+learning:
+  title: 学习
+  description:
+  items:
+    - title: 前端札记
+      description: 前端开发相关技术学习笔记
+      url: https://c17g.github.io/frontend-development/
+
+development:
+  title: 软件开发
+  description:
+  items:
+    - title: 微信小程序开发
+      id: tips-of-wechat-miniprogram-development
+    - title: 地理位置 API 排错
+      id: tips-of-geolocation-api

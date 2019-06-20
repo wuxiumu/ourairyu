@@ -34,11 +34,9 @@ permalink: index.html
     </header>
     <div class="layout-content">
       {% assign repos = site.data.github.all %}
-      {% assign pens = site.data.codepen %}
       <div class="Navs">
         <ul>
           <li class="Nav-cell"><a href="/projects" data-flag="projects"><span class="Cell-count">{{ repos.size }}</span><span class="Cell-label">个开源项目</span></a></li>
-          <li class="Nav-cell"><a href="/demos" data-flag="demos"><span class="Cell-count">{{ pens.size }}</span><span class="Cell-label">个代码演示</span></a></li>
         </ul>
       </div>
       <div class="Grids">
@@ -57,19 +55,6 @@ permalink: index.html
                 <span class="Repo-language">{{ repo.language | default: "&nbsp;" }}</span>
                 <span class="Repo-stargazers">{{ repo.stargazers_count }} 个人收藏</span>
                 <p class="Card-description">{{ repo.description }}</p>
-              </a>
-            </div>
-          </div>
-          {% endfor %}
-        </div>
-        <!-- 代码演示 -->
-        <div class="Grid Demos" data-flag="demos">
-          {% for pen in pens %}
-          <div class="Grid-item">
-            <div class="Card">
-              <a href="{{ pen.link }}" class="Card-link Demo" target="_blank" rel="external nofollow">
-                <h3 class="Card-name Demo-name">{{ pen.title }}</h3>
-                <p class="Card-description">{{ pen.details | strip_html | default: "暂无描述" }}</p>
               </a>
             </div>
           </div>

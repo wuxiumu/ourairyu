@@ -1,5 +1,5 @@
 GEM
-  remote: https://gems.ruby-china.org/
+  remote: https://gems.ruby-china.com/
   specs:
     RedCloth (4.2.9)
     activesupport (4.2.5.1)
@@ -200,4 +200,4 @@ DEPENDENCIES
   uglifier
 
 BUNDLED WITH
-   1.15.4
+   1.16.4

@@ -3,5 +3,36 @@ title: 作品列表
 
 special_title: 欧雷的作品集
 banner:
-  url: banners/code.jpg
+  url: banners/code
 ---
+<section>
+  {% for category in site.data.works %}
+    {% assign k = category[0] %}
+    {% assign c = category[1] %}
+    {% assign hp = c.link %}
+    
+    {% if k == "books" %}
+      {% assign hp = hp | append: "/" %}
+    {% elsif k == "projects" %}
+      {% assign hp = hp | append: "?tab=repositories" %}
+    {% endif %}
+    
+    {% if k == "books" %}
+      <h2>{{ c.title }}</h2>
+      <dl>
+        {% for item in c.items %}
+          <dt>《<a href="{{ c.link }}/{{ item.id }}/" target="_blank">{{ item.title }}</a>》</dt>
+          {% if item.description %}<dd>{{ item.description }}</dd>{% endif %}
+        {% endfor %}
+      </dl>
+    {% else %}
+      <h2><a href="{{ hp }}" target="_blank" rel="external nofollow">{{ c.title }}</a></h2>
+      <dl>
+        {% for item in c.items %}
+          <dt><a href="{{ c.link }}/{{ item.id }}" target="_blank" rel="external nofollow">{{ item.title }}</a></dt>
+          {% if item.description %}<dd>{{ item.description }}</dd>{% endif %}
+        {% endfor %}
+      </dl>
+    {% endif %}
+  {% endfor %}
+</section>

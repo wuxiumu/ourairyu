@@ -1,0 +1,29 @@
+books:
+  title: 电子书
+  description: 
+  link: /books
+  items:
+    - title: 前端工程师自我修养
+      description: 帮助那些想要成为前端工程师以及想要提升自己的人系统地学习对于一名前端工程师而言所必须要掌握的通用的知识
+      id: frontend-engineer-manual
+
+projects:
+  title: 开源项目
+  description: 
+  link: https://github.com/ourai
+  items:
+    - title: Handie
+      description: 针对不同平台、技术栈提供尽可能一致的开发体验的前端开发框架
+      id: handie
+    - title: Buds
+      description: 遵循 SUIT CSS 命名规范（BEM 的变体）的 CSS 框架
+      id: buds
+    - title: Trick
+      description: 
+      id: trick
+    - title: H5Fx
+      description: 基于 HTML5 Forms 所定义的属性对表单字段进行合法性校验
+      id: H5Fx
+    - title: RocketZ
+      description: 用于将本地文件分发到多个 OSS 的命令行工具
+      id: rocketz

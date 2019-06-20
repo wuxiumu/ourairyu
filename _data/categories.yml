@@ -29,3 +29,10 @@ thoughts:
 culture:
   name: 文化
   description: 国家的文化代表了国民的精神
+
+digital:
+  name: 数码体验
+  description: 电子产品让生活多彩，智能家居拯救懒癌患者
+  thumbnail: thumbnails/macbook-and-link.jpg
+  banner:
+    url: thumbnails/macbook-and-link.jpg
