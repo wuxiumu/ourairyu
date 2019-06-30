@@ -33,17 +33,11 @@ generateToc = ->
 
   return $toc
 
-# 初始化目录
-initToc = ( $toc ) ->
+bindEvent = ( $widget ) ->
   cls = ".Widget--toc"
-
-  $container = $(cls)
   $cnt = $(".Article-content")
 
-  $container
-    # 添加目录列表
-    .find(".Widget-body").append($toc).closest cls
-    # 初始化定位
+  $widget
     .on
       "affixed-top.bs.affix": ->
         $(@).css "position", "static"
@@ -51,19 +45,32 @@ initToc = ( $toc ) ->
         $(@).css "position", "fixed"
     .affix
       offset:
-        top: $container.offset().top
+        top: $(cls).offset().top
         bottom: ->
           return $(document).height() - ($cnt.offset().top + $cnt.outerHeight(true))
 
   $("body").scrollspy target: cls
 
+# 初始化目录
+initToc = ( $toc ) ->
+  cls = ".Widget--toc"
+
+  bindEvent $(cls).find(".Widget-body").append($toc).closest(cls)
+
 $(document).ready ->
   $container = $(".Widget--toc")
 
   if $container.size() is 1
-    $toc = generateToc()
+    $toc = $(".Widget-body > .nav", $container)
+    isExist = $toc.size() isnt 0
+
+    if not isExist
+      $toc = generateToc()
 
     if $("li", $toc).size() > 0
-      initToc $toc
+      if isExist
+        bindEvent $container
+      else
+        initToc $toc
     else
       $container.remove()

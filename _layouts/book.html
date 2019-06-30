@@ -1,0 +1,36 @@
+---
+layout: page
+---
+
+{{ content }}
+
+{% contentfor post_meta %}
+  <p class="Article-commentCount"><i class="fa fa-comments"></i><a href="#disqus_thread" data-disqus-identifier="{{ page.url }}">0 条评论</a></p>
+{% endcontentfor %}
+
+{% assign bookId = page.id | split: "/" | last %}
+{% assign book = site.data.books[bookId] %}
+
+{% contentfor footer %}
+<section class="Widget Widget--toc">
+  <div class="Widget-header">
+    <h2 class="Widget-title">章节目录</h2>
+  </div>
+  <div class="Widget-body">
+    <ul class="nav">
+    {% for p in book.toc %}
+      <li>
+        <a href="{{ book.url | append: p.path }}" target="_blank" rel="external nofollow">{{ p.title }}</a>
+        {% if p.items %}
+        <ul class="nav">
+          {% for s in p.items %}
+          <li><a href="{{ book.url | append: s.path }}" target="_blank" rel="external nofollow">{{ s.title }}</a></li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+      </li>
+    {% endfor %}
+    </ul>
+  </div>
+</section>
+{% endcontentfor %}

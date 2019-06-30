@@ -112,7 +112,9 @@ defaults:
       path: ""
       type: books
     values:
-      layout: page
+      layout: book
+      css:
+        - pages/post
       comments: true
   - scope:
       path: ""
