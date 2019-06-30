@@ -7,6 +7,9 @@ collections:
   pages:
     output: true
     permalink: /:path/
+  books:
+    output: true
+    permalink: /:collection/:path/
   notes:
     output: true
     permalink: /:collection/:path/
@@ -104,6 +107,12 @@ defaults:
         slug: ourai
         twitter: ourairyu
       siblings: true
+      comments: true
+  - scope:
+      path: ""
+      type: books
+    values:
+      layout: page
       comments: true
   - scope:
       path: ""

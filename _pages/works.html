@@ -21,7 +21,7 @@ banner:
       <h2>{{ c.title }}</h2>
       <dl>
         {% for item in c.items %}
-          <dt>《<a href="{{ c.link }}/{{ item.id }}/" target="_blank">{{ item.title }}</a>》</dt>
+          <dt>《<a href="{{ c.link }}/{{ item.id }}/">{{ item.title }}</a>》</dt>
           {% if item.description %}<dd>{{ item.description }}</dd>{% endif %}
         {% endfor %}
       </dl>
