@@ -7,78 +7,111 @@ frontend-engineer-manual:
       path: /
     - title: HTML
       path: /html
-      # items:
-      #   - title: script
-      #     path: /html/script
+      items:
+        - title: script
+          path: /html/script
     - title: CSS
       path: /css
-      # items:
-      #   - title: 盒模型
-      #     path: /css/box-model
-      #   - title: 定位
-      #     path: /css/positioning
+      items:
+        - title: 盒模型
+          path: /css/box-model
+        - title: 定位
+          path: /css/positioning
     - title: JavaScript
       path: /javascript
-      # items:
-      #   - title: 语法
-      #     path: /javascript/syntax
-      #   - title: 数据结构
-      #     path: /javascript/data-structures
-      #   - title: 对象
-      #     path: /javascript/objects
-      #   - title: 函数
-      #     path: /javascript/functions
-      #   - title: 数组
-      #     path: /javascript/arrays
-      #   - title: 剩余 & 扩展
-      #     path: /javascript/rest-and-spread
-      #   - title: 面向对象编程
-      #     path: /javascript/object-oriented-programming
-      #   - title: 函数式编程
-      #     path: /javascript/functional-programming
-      #   - title: 元编程
-      #     path: /javascript/meta-programming
-      #   - title: 控制抽象
-      #     path: /javascript/control-abstraction
-      #   - title: 国际化
-      #     path: /javascript/internationalization
+      items:
+        - title: 语法
+          path: /javascript/syntax
+        - title: 数据结构
+          path: /javascript/data-structures
+        - title: 对象
+          path: /javascript/objects
+        - title: 函数
+          path: /javascript/functions
+        - title: 数组
+          path: /javascript/arrays
+        - title: 剩余 & 扩展
+          path: /javascript/rest-and-spread
+        - title: 面向对象编程
+          path: /javascript/object-oriented-programming
+        - title: 函数式编程
+          path: /javascript/functional-programming
+        - title: 元编程
+          path: /javascript/meta-programming
+        - title: 控制抽象
+          path: /javascript/control-abstraction
+        - title: 国际化
+          path: /javascript/internationalization
     - title: 算法
       path: /algorithms
-      # - [排序算法](algorithms/sort.md)
-      # - [检索算法](algorithms/search.md)
+      items:
+        - title: 排序算法
+          path: /algorithms/sort
+        - title: 检索算法
+          path: /algorithms/search
     - title: 设计模式
       path: /design-patterns
-      # - [构造函数模式](design-patterns/constructor.md)
-      # - [原型模式](design-patterns/prototype.md)
-      # - [工厂方法模式](design-patterns/factory-method.md)
-      # - [观察者模式](design-patterns/observer.md)
+      items:
+        - title: 构造函数模式
+          path: /design-patterns/constructor
+        - title: 原型模式
+          path: /design-patterns/prototype
+        - title: 工厂方法模式
+          path: /design-patterns/factory-method
+        - title: 观察者模式
+          path: /design-patterns/observer
     - title: 浏览器
       path: /browser
-      # - [渲染](browser/rendering.md)
-      # - [并发模型](browser/concurrency-model.md)
-      # - [内存管理](browser/memory-management.md)
-      # - [执行环境](browser/execution-contexts.md)
-      # - [缓存](browser/caching.md)
-      # - [Cookie](browser/cookie.md)
-      # - [跨源资源共享](browser/cross-origin-resource-sharing.md)
-      # - [同源策略](browser/same-origin-policy.md)
-      # - [事件](browser/events.md)
-      # - [存储](browser/storage.md)
-      # - [定时器](browser/timers.md)
-      # - [Fetch](browser/fetch.md)
+      items:
+        - title: 渲染
+          path: /browser/rendering
+        - title: 并发模型
+          path: /browser/concurrency-model
+        - title: 内存管理
+          path: /browser/memory-management
+        - title: 执行环境
+          path: /browser/execution-contexts
+        - title: 缓存
+          path: /browser/caching
+        - title: Cookie
+          path: /browser/cookie
+        - title: 跨源资源共享
+          path: /browser/cross-origin-resource-sharing
+        - title: 同源策略
+          path: /browser/same-origin-policy
+        - title: 事件
+          path: /browser/events
+        - title: 存储
+          path: /browser/storage
+        - title: 定时器
+          path: /browser/timers
+        - title: Fetch
+          path: /browser/fetch
     - title: 前端工程
       path: /engineering
-      # - [开发方式](engineering/development.md)
-      # - [模块化](engineering/modularity.md)
-      # - [性能优化](engineering/performance.md)
+      items:
+        - title: 开发方式
+          path: /engineering/development
+        - title: 模块化
+          path: /engineering/modularity
+        - title: 性能优化
+          path: /engineering/performance
     - title: 网络安全
       path: /security
-      # - [跨站脚本](security/cross-site-scripting.md)
-      # - [跨站请求伪造](security/cross-site-request-forgery.md)
+      items:
+        - title: 跨站脚本
+          path: /security/cross-site-scripting
+        - title: 跨站请求伪造
+          path: /security/cross-site-request-forgery
     - title: 附录
       path: /appendix
-      # - [ECMAScript 的变革](appendix/changes-of-ecmascript.md)
-      # - [JavaScript 数字精度问题](appendix/number-precision-in-javascript.md)
-      # - [网页设计思想](appendix/web-design.md)
-      # - [浏览器输入 URL 后会发生什么？](appendix/what-will-happen-after-typing-url.md)
+      items:
+        - title: ECMAScript 的变革
+          path: /appendix/changes-of-ecmascript
+        - title: JavaScript 数字精度问题
+          path: /appendix/number-precision-in-javascript
+        - title: 网页设计思想
+          path: /appendix/web-design
+        - title: 浏览器输入 URL 后会发生什么？
+          path: /appendix/what-will-happen-after-typing-url
 

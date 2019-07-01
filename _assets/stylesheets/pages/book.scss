@@ -1,0 +1,246 @@
+@import "../helper";
+
+
+
+.Article-header {
+  p {
+    float: left;
+    margin: {
+      top: .75em;
+      right: 1.2em;
+    }
+    font-size: 14px;
+    color: #999;
+  }
+}
+
+.Article-commentCount,
+.Article-tags {
+  a {
+    margin-left: .5em;
+  }
+}
+
+/* ==========
+ * 作者信息
+ * ========== */
+.Article-author {
+  padding: 15px;
+  background-color: #ececec;
+  border-radius: 6px;
+
+  .Author-name {
+    position: relative;
+    margin: 0;
+    font-size: 18px;
+
+    a {
+      color: #333;
+      text-decoration: none;
+    }
+
+    &:before {
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      width: 104px;
+      height: 104px;
+      content: $UN-space;
+      border-radius: 3px;
+      box-shadow: 0 0 5px #000;
+      opacity: .2;
+      @include transform(rotate(10deg));
+      @include covered_background("avatars/ourai-100px.jpg");
+    }
+  }
+
+  .Author-twitter {
+    font: {
+      size: 14px;
+      weight: 300;
+    }
+    color: #1DA1F2 !important;
+  }
+
+  .Author-intro {
+    position: relative;
+    margin-top: 10px;
+    font-size: 12px;
+    line-height: 1.3;
+    color: #555;
+
+    strong {
+      font-weight: inherit;
+    }
+
+    span {
+      font-family: fantasy;
+
+      .fa {
+        font-size: 8px;
+
+        &.fa-coffee {
+          color: #000;
+        }
+
+        &.fa-heart {
+          color: #f00;
+        }
+      }
+    }
+  }
+
+  &:hover .Author-name:before {
+    background-image: image-url("avatars/ourai-mask-100px.jpg");
+  }
+
+  @media all and (min-width: $screen-lg-min) {
+    .Author-name:before {
+      width: 86px;
+      height: 86px;
+    }
+  }
+
+  @media all and (max-width: $screen-sm-max) {
+    padding: 0;
+    background-color: transparent;
+
+    .Author-name:before {
+      display: none;
+    }
+
+    .Author-intro {
+      font-size: inherit;
+    }
+  }
+}
+
+.Article-category .Widget-body {
+  > p {
+    margin-bottom: 10px;
+    color: #888;
+  }
+
+  h3 {
+    margin: 0;
+    font-size: 16px;
+  }
+
+  > div {
+    p {
+      margin-top: 10px;
+    }
+  }
+
+  .fa-pencil {
+    margin-right: .5em;
+    color: #333;
+  }
+}
+
+.Article-license {
+  a {
+    margin-right: .5em;
+  }
+
+  .fa {
+    margin: {
+      right: .15em;
+      left: .5em;
+    }
+  }
+}
+
+.Widget--album .Widget-body {
+  p {
+    margin-bottom: 5px;
+    font-weight: 400;
+  }
+
+  a {
+    @include aspect_ratio(2, 1);
+    display: block;
+    background: {
+      repeat: no-repeat;
+      position: 50% 50%;
+      size: cover;
+    }
+    border-radius: 6px;
+
+    span {
+      font-size: 16px;
+      line-height: 1;
+      color: #fff;
+      text-shadow: 1px 1px #333;
+
+      &.Album-name--tl,
+      &.Album-name--tr {
+        top: 10px;
+        bottom: auto;
+      }
+
+      &.Album-name--bl,
+      &.Album-name--br {
+        top: auto;
+        bottom: 10px;
+      }
+
+      &.Album-name--tl,
+      &.Album-name--bl {
+        right: auto;
+        left: 10px;
+      }
+
+      &.Album-name--tr,
+      &.Album-name--br {
+        right: 10px;
+        left: auto;
+      }
+    }
+  }
+}
+
+.Widget--recommended .Widget-body {
+  ul {
+    list-style: none outside none;
+    margin: {
+      top: 15px;
+      bottom: 0;
+    }
+    padding-left: 0;
+  }
+
+  li {
+    overflow: hidden;
+
+    + li {
+      margin-top: 12px;
+    }
+
+    img {
+      float: left;
+      width: 32px;
+      height: 32px;
+      margin-right: 10px;
+    }
+
+    h3,
+    p {
+      overflow: hidden;
+      line-height: 1.2;
+    }
+
+    h3 {
+      margin: 0 0 2px;
+      font-size: 14px;
+    }
+
+    p {
+      font-size: 12px;
+
+      a {
+        color: #666;
+      }
+    }
+  }
+}

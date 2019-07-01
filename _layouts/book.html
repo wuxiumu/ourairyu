@@ -4,33 +4,25 @@ layout: page
 
 {{ content }}
 
+{% assign author = site.data.authors[page.author.slug] %}
+
 {% contentfor post_meta %}
+  <p><a href="{{ author.profile }}">{{ author.name.zh }}</a> 著</p>
   <p class="Article-commentCount"><i class="fa fa-comments"></i><a href="#disqus_thread" data-disqus-identifier="{{ page.url }}">0 条评论</a></p>
 {% endcontentfor %}
 
-{% assign bookId = page.id | split: "/" | last %}
-{% assign book = site.data.books[bookId] %}
-
 {% contentfor footer %}
-<section class="Widget Widget--toc">
-  <div class="Widget-header">
-    <h2 class="Widget-title">章节目录</h2>
+  <div class="Widget Article-author hidden-xs hidden-sm">
+    <div class="Widget-body Author">
+      <h3 class="Author-name"><a href="/about/">欧雷</a> <a href="https://twitter.com/ourairyu" target="_blank" rel="external nofollow" class="Author-twitter">@ourairyu</a></h3>
+      <p class="Author-intro">日本深度中毒的<strong>新四有青年</strong>、<span lang="en">C<i class="fa fa-coffee"></i>ffee L<i class="fa fa-heart"></i>ver</span>，<strong>多面玩家</strong>。</p>
+    </div>
   </div>
-  <div class="Widget-body">
-    <ul class="nav">
-    {% for p in book.toc %}
-      <li>
-        <a href="{{ book.url | append: p.path }}" target="_blank" rel="external nofollow">{{ p.title }}</a>
-        {% if p.items %}
-        <ul class="nav">
-          {% for s in p.items %}
-          <li><a href="{{ book.url | append: s.path }}" target="_blank" rel="external nofollow">{{ s.title }}</a></li>
-          {% endfor %}
-        </ul>
-        {% endif %}
-      </li>
-    {% endfor %}
-    </ul>
+  <div class="Widget Article-license">
+    <div class="Widget-body">
+      <p>本书采用知识共享<i class="fa fa-creative-commons"></i><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="external nofollow">署名-非商业性使用 4.0 国际</a>许可协议，可自由转载、引用，但需署名作者并注明书籍出处且不能用于商业用途。</p>
+    </div>
   </div>
-</section>
+  {% include widgets/social.html %}
+  {% include widgets/toc.html %}
 {% endcontentfor %}

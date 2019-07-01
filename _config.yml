@@ -39,7 +39,7 @@ collections:
     permalink: /:collection/:path/
 
 # Handling Reading
-exclude: 
+exclude:
   - .asset-cache
   - .sass-cache
   - .vscode
@@ -114,7 +114,10 @@ defaults:
     values:
       layout: book
       css:
-        - pages/post
+        - pages/book
+      author:
+        name: 欧雷
+        slug: ourai
       comments: true
   - scope:
       path: ""

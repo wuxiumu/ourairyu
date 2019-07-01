@@ -5,7 +5,6 @@ Disallow: /assets/
 Disallow: /categories/
 Disallow: /tags/
 Disallow: /archives/
-Disallow: /books/
 Disallow: /demos/
 Disallow: /slides/
 Disallow: /invites/
