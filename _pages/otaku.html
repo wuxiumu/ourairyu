@@ -6,3 +6,12 @@ banner:
   description: 掌机游戏带
 image: pages/otaku/banner
 ---
+
+{% contentfor footer %}
+  {% include widgets/toc.html %}
+{% endcontentfor %}
+
+<h2>Berryz工房</h2>
+{% for post in site.tags.berryz-kobo %}
+<div class="ArticleList-item"><time datetime="{{ post.date | date: '%c' }}">{{ post.date | date: "%F" }}</time><i class="fa fa-pencil"></i><a href="{{ post.url }}">{{ post.title }}</a></div>
+{% endfor %}
