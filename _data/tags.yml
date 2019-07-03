@@ -45,6 +45,12 @@ javascript:
 node:
   name: Node.js
 
+react:
+  name: React
+
+vue:
+  name: Vue.js
+
 xhr:
   name: XML HTTP 请求
 
@@ -55,7 +61,7 @@ url:
   name: 统一资源定位符
 
 mac-os:
-  name: Mac OS
+  name: macOS
 
 mysql:
   name: MySQL
