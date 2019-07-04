@@ -8,6 +8,7 @@ Disallow: /archives/
 Disallow: /demos/
 Disallow: /slides/
 Disallow: /invites/
+Disallow: /notes/
 
 Disallow: /links/
 Disallow: /cv/
