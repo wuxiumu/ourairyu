@@ -7,6 +7,4 @@ vendors/
 .asset-cache/
 .sass-cache/
 
-_data/github.*
-_data/codepen.*
 _site/
