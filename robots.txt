@@ -11,6 +11,9 @@ Disallow: /invites/
 
 Disallow: /links/
 Disallow: /cv/
+Disallow: /otaku/
+Disallow: /coding/
+Disallow: /ourairyu/
 Disallow: /we-need-you/
 Disallow: /404.html
 
