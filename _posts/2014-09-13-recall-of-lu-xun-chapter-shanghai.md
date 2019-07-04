@@ -7,6 +7,10 @@ tags:
   - travel
   - travel-of-humanities
   - travel-in-china
+banner:
+  url: posts/20140913/banner
+  description: 上海鲁迅故居
+image: posts/20140913/banner
 album:
   title: 虹口故居
   url: http://breadtrip.com/trips/2388084702/

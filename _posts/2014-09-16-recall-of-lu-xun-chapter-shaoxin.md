@@ -7,6 +7,10 @@ tags:
   - travel
   - travel-of-humanities
   - travel-in-china
+banner:
+  url: posts/20140916/banner
+  description: 绍兴鲁迅故里
+image: posts/20140916/banner
 album:
   title: 绍兴故里
   url: http://breadtrip.com/trips/2388083990/
